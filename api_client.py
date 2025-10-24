@@ -1,0 +1,176 @@
+
+import requests
+import pandas as pd, geopandas as gpd
+from utils import extract_js_array, parse_locations_any
+from utils import make_session, get_gemeente_geometry, fetch_json, json_to_dataframe, df_to_gdf, extract_points_array
+
+# ---------- data ophalen voor "De Buren" ----------
+
+def get_data_deburen(gemeente):
+    """
+    Parameters
+    ----------
+    gemeente : str
+        Naam van de gemeente waarvoor de pakketpunten moeten worden opgehaald.
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        Een GeoDataFrame met de pakketpuntlocaties binnen de opgegeven gemeente.
+    """
+    headers = {"User-Agent": "Mozilla/5.0"}
+    url = "https://mijnburen.deburen.nl/maps"
+
+    response = requests.get(url, headers=headers, timeout=30)
+    response.raise_for_status()  
+
+    js_text = extract_js_array(response.text)
+    rows = parse_locations_any(js_text)[0]
+
+    cols = ["naam","lat","lon","id","straat","nummer","postcode","city","flag_a","type","flag_b","flag_c"]
+    df = pd.DataFrame(rows, columns=cols)
+    df["city"] = df["city"].str.lower()
+
+    df_ = df[df["city"] == gemeente.lower()]
+    gdf = df_to_gdf(df_, "DeBuren")
+    return gdf
+
+
+# ---------- data ophalen voor "DHL" ----------
+
+
+def get_data_dhl(lat, lon, radius):
+    """
+    Parameters
+    ----------
+    gemeente : str
+        Naam van de gemeente waarvoor de pakketpunten moeten worden opgehaald.
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        Een GeoDataFrame met de pakketpuntlocaties binnen de opgegeven gemeente.
+    """
+    # Input voor zoekgebied DHL api is een cirkel
+    session = make_session()
+    data = fetch_json(
+        "https://api-gw.dhlparcel.nl/parcel-shop-locations/NL/by-geo",
+        params={
+            "latitude": lat,
+            "longitude": lon,
+            "radius": radius,
+            "limit": 50,  # API default is 15, max is 50
+        },
+        no_proxy_domains=["api-gw.dhlparcel.nl"],
+        session=session,
+    )
+
+    df = json_to_dataframe(data)
+    gdf = df_to_gdf(df, "DHL")
+    return gdf
+
+
+# ---------- data ophalen voor "PostNL" ----------
+
+
+def get_data_postnl(bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon):
+    """
+    Parameters
+    ----------
+    gemeente : str
+        Naam van de gemeente waarvoor de pakketpunten moeten worden opgehaald.
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        Een GeoDataFrame met de pakketpuntlocaties binnen de opgegeven gemeente.
+    """
+    session = make_session()
+                      
+    data= fetch_json(
+        url= "https://productprijslokatie.postnl.nl/location-widget/api/locations",
+        params={
+            "country": "nld", # alleen nederlandse locaties ophalen 
+            "business": "false", # alleen particuliere afhaalpunten, geen zakelijke
+            "filters": "[]", # geen extra filters
+            "productFilters": '[{"productId":"23"}]',
+            "defaultFilters": "[]", # geen extra filters
+            "bottomLeftLat": bottom_left_lat,#"52.44490000000000", # boundingbox zoekgebied
+            "bottomLeftLon": bottom_left_lon,#"5.878000000000000", # boundingbox zoekgebied
+            "topRightLat": top_right_lat,#"52.59230000000000", # boundingbox zoekgebied
+            "topRightLon": top_right_lon,#"6.358900000000000", # boundingbox zoekgebied
+            "lang": "NL", # taal in het nederlands
+        },
+        no_proxy_domains=["productprijslokatie.postnl.nl"],
+        session=session,
+    )
+    df = json_to_dataframe(data)
+    gdf = df_to_gdf(df, "PostNL")
+    return gdf
+
+
+# ---------- data ophalen voor "VintedGo" ----------
+
+def get_data_vintedgo(lat, lon, south, west, north, east):
+    """
+    Parameters
+    ----------
+    gemeente : str
+        Naam van de gemeente waarvoor de pakketpunten moeten worden opgehaald.
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        Een GeoDataFrame met de pakketpuntlocaties binnen de opgegeven gemeente.
+    """
+    url = ("https://vintedgo.com/nl/carrier-locations"
+        f"?lat={lat}"
+        f"&lng={lon}"
+        f"&bounds=%7B%22south%22%3A{south}%2C%22west%22%3A{west}%2C%22north%22%3A{north}%2C%22east%22%3A{east}%7D"
+        "&region=europe")
+
+    headers = {"User-Agent": "Mozilla/5.0"}  
+    txt = requests.get(url, headers=headers, timeout=30).text
+    points = extract_points_array(txt)
+
+    # pak de puntenlijst uit
+    points_list = points[3]['points']
+
+    # return als dataframe
+    df = pd.json_normalize(points_list)
+    gdf = df_to_gdf(df, "VintedGo")
+    return gdf
+
+
+# ---------- maak 1 dataset van alle gevonden pakketpunten ----------
+
+def get_data_pakketpunten(gemeente):
+
+    # haal coordinaten op voor het zoekgebied o.b.v. de gemeente
+    lat, lon, radius = get_gemeente_geometry(gemeente, mode="circle") 
+    bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon = get_gemeente_geometry(gemeente, mode="bbox")
+    south, west, north, east = bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon
+
+    gdf_deburen = get_data_deburen(gemeente)
+    gdf_dhl = get_data_dhl(lat, lon, radius)
+    gdf_postnl = get_data_postnl(bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon)
+    gdf_vintedgo = get_data_vintedgo(lat, lon, south, west, north, east)
+
+    gdf = gpd.GeoDataFrame(
+    pd.concat([gdf_dhl, gdf_postnl, gdf_vintedgo, gdf_deburen], ignore_index=True),
+    crs=gdf_dhl.crs  # beide hebben CRS EPSG:4326 als het goed is
+    )
+
+    desired_order = [
+    "locatieNaam",
+    "straatNaam",
+    "straatNr",
+    "latitude",
+    "longitude",
+    "geometry",
+    "puntType", 
+    "vervoerder"    
+    ]
+
+    gdf = gdf[desired_order]
+    return gdf

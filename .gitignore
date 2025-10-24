@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Logs
+*.log
+batch_output*.log
+fetch_*.log
+national_overview.log
+dhl_update_log.txt
+weekly_update_*.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+
+# Output directories (legacy)
+output/
+
+# Exclude public/ except for webapp/public/data
+public/
+!webapp/public/
+!webapp/public/data/
+
+# Temporary fix scripts (these should be one-time use)
+fix_*.py
+update_*.py
+remove_*.py
+fetch_municipalities.py
+fetch_all_municipalities.py
+
+# Temporary data files
+municipalities.json
+current_municipalities_list.txt
+cbs_official_2025.json
+
+# Test files
+test_*.py
+*_test.py
+dpd_test_*.json
+test_data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

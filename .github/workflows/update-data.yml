@@ -1,0 +1,48 @@
+name: Update Pakketpunten Data
+
+on:
+  schedule:
+    # Run daily at 02:00 UTC
+    - cron: '0 2 * * *'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Generate pakketpunten data
+        run: |
+          python batch_generate.py
+
+      - name: Copy data to webapp
+        run: |
+          mkdir -p webapp/public/data
+          cp -r public/data/* webapp/public/data/
+          cp municipalities.json webapp/public/
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push if changed
+        run: |
+          git add webapp/public/data webapp/public/municipalities.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update pakketpunten data - $(date +'%Y-%m-%d %H:%M')" && git push)
