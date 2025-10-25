@@ -25,12 +25,6 @@ export default function StatsPanel({ data, filters }: StatsPanelProps) {
     );
   });
 
-  const providerCounts = filteredPoints.reduce((acc, feature) => {
-    const props = feature.properties as PakketpuntProperties;
-    acc[props.vervoerder] = (acc[props.vervoerder] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-
   const avgOccupancy =
     filteredPoints.length > 0
       ? Math.round(
@@ -70,38 +64,6 @@ export default function StatsPanel({ data, filters }: StatsPanelProps) {
             <p className="text-2xl font-bold text-green-600">{avgOccupancy}%</p>
           </div>
         )}
-      </div>
-
-      <div>
-        <p className="text-sm font-medium text-gray-900 mb-2">Per vervoerder:</p>
-        <div className="space-y-2">
-          {Object.entries(providerCounts)
-            .sort((a, b) => b[1] - a[1])
-            .map(([provider, count]) => {
-              const percentage = ((count / filteredPoints.length) * 100).toFixed(1);
-              return (
-                <div key={provider} className="space-y-1">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-700">{provider}</span>
-                    <span className="font-semibold text-gray-900">
-                      {count}
-                      {isNationalView && (
-                        <span className="text-xs text-gray-500 ml-1">({percentage}%)</span>
-                      )}
-                    </span>
-                  </div>
-                  {isNationalView && (
-                    <div className="w-full bg-gray-200 rounded-full h-1.5">
-                      <div
-                        className="bg-blue-600 h-1.5 rounded-full transition-all"
-                        style={{ width: `${percentage}%` }}
-                      />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-        </div>
       </div>
     </div>
   );

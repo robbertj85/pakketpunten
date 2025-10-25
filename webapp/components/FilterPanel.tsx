@@ -6,6 +6,7 @@ interface FilterPanelProps {
   filters: Filters;
   onChange: (filters: Filters) => void;
   availableProviders?: string[];
+  providerCounts?: Record<string, number>;
 }
 
 const PROVIDER_INFO = {
@@ -17,7 +18,7 @@ const PROVIDER_INFO = {
   DPD: { name: 'DPD', color: '#DC0032', textColor: '#FFFFFF' },
 };
 
-export default function FilterPanel({ filters, onChange, availableProviders }: FilterPanelProps) {
+export default function FilterPanel({ filters, onChange, availableProviders, providerCounts }: FilterPanelProps) {
   const toggleProvider = (provider: string) => {
     const newProviders = filters.providers.includes(provider)
       ? filters.providers.filter((p) => p !== provider)
@@ -42,11 +43,14 @@ export default function FilterPanel({ filters, onChange, availableProviders }: F
             const info = PROVIDER_INFO[provider as keyof typeof PROVIDER_INFO];
             if (!info) return null;
 
+            const isSelected = filters.providers.includes(provider);
+            const count = providerCounts?.[provider] || 0;
+
             return (
               <label key={provider} className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={filters.providers.includes(provider)}
+                  checked={isSelected}
                   onChange={() => toggleProvider(provider)}
                   className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
@@ -54,7 +58,12 @@ export default function FilterPanel({ filters, onChange, availableProviders }: F
                   className="w-4 h-4 rounded-full border border-white"
                   style={{ backgroundColor: info.color }}
                 />
-                <span className="text-sm text-gray-900">{info.name}</span>
+                <span className="text-sm text-gray-900 flex-1">{info.name}</span>
+                {isSelected && count > 0 && (
+                  <span className="text-sm font-semibold text-gray-900 ml-auto">
+                    {count}
+                  </span>
+                )}
               </label>
             );
           })}

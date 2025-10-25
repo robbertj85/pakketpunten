@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import MunicipalitySelector from '@/components/MunicipalitySelector';
 import FilterPanel from '@/components/FilterPanel';
 import StatsPanel from '@/components/StatsPanel';
 import AboutModal from '@/components/AboutModal';
-import { Municipality, PakketpuntData, Filters } from '@/types/pakketpunten';
+import { Municipality, PakketpuntData, Filters, PakketpuntProperties } from '@/types/pakketpunten';
 
 // Dynamically import Map component to avoid SSR issues with Leaflet
 const Map = dynamic(() => import('@/components/Map'), {
@@ -118,6 +118,27 @@ export default function Home() {
       .finally(() => setLoading(false));
   }, [selectedMunicipality]);
 
+  // Calculate provider counts for filtered data
+  const providerCounts = useMemo(() => {
+    if (!data) return {};
+
+    const points = data.features.filter(f => f.properties.type === 'pakketpunt');
+    const filteredPoints = points.filter((feature) => {
+      const props = feature.properties as PakketpuntProperties;
+      return (
+        filters.providers.includes(props.vervoerder) &&
+        props.bezettingsgraad >= filters.minOccupancy &&
+        props.bezettingsgraad <= filters.maxOccupancy
+      );
+    });
+
+    return filteredPoints.reduce((acc, feature) => {
+      const props = feature.properties as PakketpuntProperties;
+      acc[props.vervoerder] = (acc[props.vervoerder] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+  }, [data, filters]);
+
   return (
     <div className="h-screen flex flex-col">
       {/* Header */}
@@ -183,6 +204,7 @@ export default function Home() {
                 filters={filters}
                 onChange={setFilters}
                 availableProviders={data.metadata.providers}
+                providerCounts={providerCounts}
               />
             </>
           )}

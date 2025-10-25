@@ -21,7 +21,7 @@
  */
 'use client';
 
-import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, CircleMarker } from 'react-leaflet';
 import type { LatLngBoundsExpression } from 'leaflet';
 import L from 'leaflet';
@@ -29,8 +29,8 @@ import 'leaflet/dist/leaflet.css';
 import { PakketpuntData, PakketpuntFeature, Filters, PakketpuntProperties } from '@/types/pakketpunten';
 
 interface MapProps {
-  data: PakketpuntData | null;
-  filters: Filters;
+  data?: PakketpuntData | null;
+  filters?: Filters;
 }
 
 // Component to fit bounds when data changes
@@ -63,6 +63,28 @@ function ZoomWatcher({ onZoomChange }: { onZoomChange: (zoom: number) => void })
       map.off('zoomend', handleZoom);
     };
   }, [map, onZoomChange]);
+
+  return null;
+}
+
+// Component to add scale control (distance legend)
+function ScaleControl() {
+  const map = useMap();
+
+  useEffect(() => {
+    const scale = L.control.scale({
+      position: 'bottomleft',
+      metric: true,
+      imperial: false,
+      maxWidth: 150,
+    });
+
+    scale.addTo(map);
+
+    return () => {
+      scale.remove();
+    };
+  }, [map]);
 
   return null;
 }
@@ -225,10 +247,62 @@ function createProviderIconWithBadge(provider: string, count: number) {
   });
 }
 
-export default function Map({ data, filters }: MapProps) {
+// Helper function to spread overlapping markers (spiderfy effect)
+function spreadOverlappingMarkers(points: PakketpuntFeature[], currentZoom: number) {
+  if (currentZoom < 15) {
+    // Below zoom 15, return points as-is
+    return points.map(p => ({ ...p, offsetLat: 0, offsetLng: 0 }));
+  }
+
+  // Group by exact coordinates
+  const groups = new Map<string, PakketpuntFeature[]>();
+  points.forEach((point) => {
+    const coords = point.geometry.coordinates as [number, number];
+    const key = `${coords[1].toFixed(6)},${coords[0].toFixed(6)}`;
+    if (!groups.has(key)) {
+      groups.set(key, []);
+    }
+    groups.get(key)!.push(point);
+  });
+
+  // Spread overlapping markers in a circle
+  const spreadMarkers: any[] = [];
+  groups.forEach((group) => {
+    if (group.length === 1) {
+      // Single marker, no offset needed
+      spreadMarkers.push({ ...group[0], offsetLat: 0, offsetLng: 0 });
+    } else {
+      // Multiple markers at same location - spread in circle
+      const radius = 0.00015; // ~15 meters offset
+      group.forEach((marker, index) => {
+        const angle = (2 * Math.PI * index) / group.length;
+        const offsetLat = Math.sin(angle) * radius;
+        const offsetLng = Math.cos(angle) * radius;
+        spreadMarkers.push({ ...marker, offsetLat, offsetLng });
+      });
+    }
+  });
+
+  return spreadMarkers;
+}
+
+function MapComponent(props?: MapProps) {
+  // Hooks MUST be at the very top
   const [mounted, setMounted] = useState(false);
   const [currentZoom, setCurrentZoom] = useState(12);
-  const [spiderfiedGroups, setSpiderfiedGroups] = useState<Set<string>>(new Set());
+
+  // Extract props with defaults AFTER hooks
+  const data = props?.data ?? null;
+  const activeFilters = props?.filters ?? {
+    providers: [],
+    showBuffer300: true,
+    showBuffer500: true,
+    showBufferFill: false,
+    useSimpleMarkers: false,
+    minOccupancy: 0,
+    maxOccupancy: 100,
+    showMockData: false,
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -242,7 +316,7 @@ export default function Map({ data, filters }: MapProps) {
       const props = feature.properties as PakketpuntProperties;
 
       // Provider filter
-      if (!filters.providers.includes(props.vervoerder)) {
+      if (!activeFilters.providers.includes(props.vervoerder)) {
         return false;
       }
 
@@ -251,15 +325,15 @@ export default function Map({ data, filters }: MapProps) {
 
     // Buffer filters
     if (feature.properties.type === 'buffer_union_300m') {
-      return filters.showBuffer300;
+      return activeFilters.showBuffer300;
     }
     if (feature.properties.type === 'buffer_union_500m') {
-      return filters.showBuffer500;
+      return activeFilters.showBuffer500;
     }
 
     return true;
     });
-  }, [data, filters]);
+  }, [data, activeFilters]);
 
   // Separate points and buffers
   const points = useMemo(() =>
@@ -271,59 +345,11 @@ export default function Map({ data, filters }: MapProps) {
     [filteredFeatures]
   );
 
-  // Group markers by coordinates (with small tolerance for rounding)
-  const markerGroups = useMemo(() => {
-    const groups = new Map<string, PakketpuntFeature[]>();
-
-    points.forEach((feature) => {
-      const coords = feature.geometry.coordinates as [number, number];
-      // Round to 5 decimal places (~1 meter precision) to group nearby points
-      const key = `${coords[1].toFixed(5)},${coords[0].toFixed(5)}`;
-
-      if (!groups.has(key)) {
-        groups.set(key, []);
-      }
-      groups.get(key)!.push(feature);
-    });
-
-    return groups;
-  }, [points]);
-
-  // Calculate spiderfy positions for a group
-  const getSpiderfyPosition = (
-    baseCoords: [number, number],
-    index: number,
-    total: number,
-    groupKey: string
-  ): [number, number] => {
-    // Only spiderfy if this group is in the spiderfied set
-    if (!spiderfiedGroups.has(groupKey)) {
-      return [baseCoords[0], baseCoords[1]];
-    }
-
-    // Spread markers in a circle
-    const angle = (2 * Math.PI * index) / total;
-    // Distance in degrees (roughly 20 meters at this latitude)
-    const distance = 0.0002;
-
-    const offsetLat = Math.sin(angle) * distance;
-    const offsetLng = Math.cos(angle) * distance;
-
-    return [baseCoords[0] + offsetLat, baseCoords[1] + offsetLng];
-  };
-
-  // Toggle spiderfy for a marker group
-  const toggleSpiderfy = useCallback((groupKey: string) => {
-    setSpiderfiedGroups(prev => {
-      const next = new Set(prev);
-      if (next.has(groupKey)) {
-        next.delete(groupKey);
-      } else {
-        next.add(groupKey);
-      }
-      return next;
-    });
-  }, []);
+  // Group markers by exact coordinates and spread them at high zoom (manual spiderfy)
+  const spreadPoints = useMemo(
+    () => spreadOverlappingMarkers(points, currentZoom),
+    [points, currentZoom]
+  );
 
   // Calculate bounds from metadata
   const bounds: LatLngBoundsExpression | null = useMemo(() => {
@@ -336,195 +362,146 @@ export default function Map({ data, filters }: MapProps) {
 
   // Use simple markers based on user preference from filters
   const markerCount = points.length;
-  const useSimpleMarkers = filters.useSimpleMarkers;
+  const useSimpleMarkers = activeFilters.useSimpleMarkers;
 
   // Memoize marker rendering to prevent unnecessary re-renders
   const markerElements = useMemo(() => {
-    if (points.length === 0) return null;
+    if (spreadPoints.length === 0) return null;
 
-    const allMarkers: JSX.Element[] = [];
+    if (useSimpleMarkers) {
+      // Render simple colored circles for performance
+      return spreadPoints.map((feature, idx) => {
+        const props = feature.properties as PakketpuntProperties;
+        const coords = feature.geometry.coordinates as [number, number];
+        const color = PROVIDER_INFO[props.vervoerder]?.color || '#666';
 
-    // Iterate through marker groups
-    markerGroups.forEach((group, groupKey) => {
-      const baseCoords = group[0].geometry.coordinates as [number, number];
-      const isMultiple = group.length > 1;
-      const isSpiderfied = spiderfiedGroups.has(groupKey);
+        // Apply offset for spiderfy effect at high zoom
+        const lat = coords[1] + (feature.offsetLat || 0);
+        const lng = coords[0] + (feature.offsetLng || 0);
 
-      if (useSimpleMarkers) {
-        // Render simple colored circles for performance
-        group.forEach((feature, index) => {
-          const props = feature.properties as PakketpuntProperties;
-          const coords = feature.geometry.coordinates as [number, number];
-          const color = PROVIDER_INFO[props.vervoerder]?.color || '#666';
+        return (
+          <CircleMarker
+            key={`point-${idx}`}
+            center={[lat, lng]}
+            radius={PERFORMANCE_CONFIG.SIMPLE_MARKER_RADIUS}
+            pathOptions={{
+              fillColor: color,
+              fillOpacity: PERFORMANCE_CONFIG.SIMPLE_MARKER_OPACITY,
+              color: 'white',
+              weight: 1,
+            }}
+          >
+            <Popup maxWidth={600} minWidth={300}>
+              <div className="text-sm">
+                <h3 className="font-bold text-gray-900">{props.locatieNaam}</h3>
+                <p className="text-gray-600">
+                  {props.straatNaam} {props.straatNr}
+                </p>
+                <p className="mt-1">
+                  <span className="font-semibold">Vervoerder:</span> {props.vervoerder}
+                </p>
+                {props.puntType && (
+                  <p>
+                    <span className="font-semibold">Type:</span> {props.puntType}
+                  </p>
+                )}
+                <p className="text-xs text-gray-500 mt-1">
+                  {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
+                </p>
 
-          // Calculate position (spiderfied or original)
-          const [lat, lng] = getSpiderfyPosition(
-            [coords[1], coords[0]],
-            index,
-            group.length,
-            groupKey
-          );
-
-          allMarkers.push(
-            <CircleMarker
-              key={`point-${groupKey}-${index}`}
-              center={[lat, lng]}
-              radius={PERFORMANCE_CONFIG.SIMPLE_MARKER_RADIUS}
-              pathOptions={{
-                fillColor: color,
-                fillOpacity: PERFORMANCE_CONFIG.SIMPLE_MARKER_OPACITY,
-                color: 'white',
-                weight: 1,
-              }}
-              eventHandlers={
-                isMultiple && index === 0
-                  ? {
-                      click: (e) => {
-                        L.DomEvent.stopPropagation(e);
-                        toggleSpiderfy(groupKey);
-                      },
-                    }
-                  : undefined
-              }
-            >
-              <Popup maxWidth={600} minWidth={300}>
-                <div className="text-sm">
-                  {isMultiple && index === 0 && (
-                    <div className="mb-3 p-2 bg-blue-50 border border-blue-200 rounded">
-                      <p className="text-xs font-semibold text-blue-900">
-                        📍 {group.length} locaties op dit adres
-                      </p>
-                      <button
-                        onClick={() => toggleSpiderfy(groupKey)}
-                        className="mt-1 text-xs text-blue-600 hover:text-blue-800 underline"
+                <div className="mt-3 border-t pt-2">
+                  <details>
+                    <summary className="flex justify-between items-baseline gap-3 cursor-pointer select-none">
+                      <span className="text-xs font-semibold text-blue-600 hover:text-blue-800">
+                        Toon Ruwe Data
+                      </span>
+                      <a
+                        href={`https://www.google.com/maps?q=&layer=c&cbll=${props.latitude},${props.longitude}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-blue-600 hover:text-blue-800 underline whitespace-nowrap"
+                        onClick={(e) => e.stopPropagation()}
                       >
-                        {isSpiderfied ? 'Verberg andere locaties' : 'Toon alle locaties'}
-                      </button>
-                    </div>
-                  )}
-                  <h3 className="font-bold text-gray-900">{props.locatieNaam}</h3>
-                  <p className="text-gray-600">
-                    {props.straatNaam} {props.straatNr}
-                  </p>
-                  <p className="mt-1">
-                    <span className="font-semibold">Vervoerder:</span> {props.vervoerder}
-                  </p>
-                  {props.puntType && (
-                    <p>
-                      <span className="font-semibold">Type:</span> {props.puntType}
-                    </p>
-                  )}
-                  <p className="text-xs text-gray-500 mt-1">
-                    {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
-                  </p>
-                </div>
-              </Popup>
-            </CircleMarker>
-          );
-        });
-      } else {
-        // Render detailed branded markers
-        group.forEach((feature, index) => {
-          const props = feature.properties as PakketpuntProperties;
-          const coords = feature.geometry.coordinates as [number, number];
-
-          // Calculate position (spiderfied or original)
-          const [lat, lng] = getSpiderfyPosition(
-            [coords[1], coords[0]],
-            index,
-            group.length,
-            groupKey
-          );
-
-          // Create custom icon with count badge if multiple markers
-          const icon = isMultiple && index === 0
-            ? createProviderIconWithBadge(props.vervoerder, group.length)
-            : createProviderIcon(props.vervoerder);
-
-          allMarkers.push(
-            <Marker
-              key={`point-${groupKey}-${index}`}
-              position={[lat, lng]}
-              icon={icon}
-              eventHandlers={
-                isMultiple && index === 0
-                  ? {
-                      click: (e) => {
-                        L.DomEvent.stopPropagation(e);
-                        toggleSpiderfy(groupKey);
-                      },
-                    }
-                  : undefined
-              }
-            >
-              <Popup maxWidth={600} minWidth={300}>
-                <div className="text-sm">
-                  {isMultiple && index === 0 && (
-                    <div className="mb-3 p-2 bg-blue-50 border border-blue-200 rounded">
-                      <p className="text-xs font-semibold text-blue-900">
-                        📍 {group.length} vervoerders op dit adres
-                      </p>
-                      <div className="mt-1 flex flex-wrap gap-1">
-                        {group.map((f, i) => {
-                          const p = f.properties as PakketpuntProperties;
-                          return (
-                            <span
-                              key={i}
-                              className="text-xs px-1.5 py-0.5 rounded"
-                              style={{
-                                backgroundColor: PROVIDER_INFO[p.vervoerder]?.color || '#666',
-                                color: 'white',
-                              }}
-                            >
-                              {p.vervoerder}
-                            </span>
-                          );
-                        })}
-                      </div>
-                      <button
-                        onClick={() => toggleSpiderfy(groupKey)}
-                        className="mt-2 text-xs text-blue-600 hover:text-blue-800 underline"
-                      >
-                        {isSpiderfied ? 'Verberg andere locaties' : 'Toon alle locaties'}
-                      </button>
-                    </div>
-                  )}
-                  <h3 className="font-bold text-gray-900">{props.locatieNaam}</h3>
-                  <p className="text-gray-600">
-                    {props.straatNaam} {props.straatNr}
-                  </p>
-                  <p className="mt-1">
-                    <span className="font-semibold">Vervoerder:</span> {props.vervoerder}
-                  </p>
-                  {props.puntType && (
-                    <p>
-                      <span className="font-semibold">Type:</span> {props.puntType}
-                    </p>
-                  )}
-                  <p className="text-xs text-gray-500 mt-1">
-                    {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
-                  </p>
-
-                  <details className="mt-3 border-t pt-2">
-                    <summary className="cursor-pointer text-xs font-semibold text-blue-600 hover:text-blue-800 select-none">
-                      Show Raw Data
+                        Bekijk in Street View
+                      </a>
                     </summary>
-                    <div className="mt-2 max-w-full">
+                    <div className="mt-2">
                       <pre className="p-3 bg-gray-50 border border-gray-200 rounded text-xs overflow-x-auto max-h-64 whitespace-pre-wrap break-words">
                         {JSON.stringify(props, null, 2)}
                       </pre>
                     </div>
                   </details>
                 </div>
-              </Popup>
-            </Marker>
-          );
-        });
-      }
-    });
+              </div>
+            </Popup>
+          </CircleMarker>
+        );
+      });
+    } else {
+      // Render detailed branded markers
+      return spreadPoints.map((feature, idx) => {
+        const props = feature.properties as PakketpuntProperties;
+        const coords = feature.geometry.coordinates as [number, number];
 
-    return allMarkers;
-  }, [points, useSimpleMarkers, filters.useSimpleMarkers, markerGroups, spiderfiedGroups, toggleSpiderfy]);
+        // Apply offset for spiderfy effect at high zoom
+        const lat = coords[1] + (feature.offsetLat || 0);
+        const lng = coords[0] + (feature.offsetLng || 0);
+
+        return (
+          <Marker
+            key={`point-${idx}`}
+            position={[lat, lng]}
+            icon={createProviderIcon(props.vervoerder)}
+          >
+            <Popup maxWidth={600} minWidth={300}>
+              <div className="text-sm">
+                <h3 className="font-bold text-gray-900">{props.locatieNaam}</h3>
+                <p className="text-gray-600">
+                  {props.straatNaam} {props.straatNr}
+                </p>
+                <p className="mt-1">
+                  <span className="font-semibold">Vervoerder:</span> {props.vervoerder}
+                </p>
+                {props.puntType && (
+                  <p>
+                    <span className="font-semibold">Type:</span> {props.puntType}
+                  </p>
+                )}
+                <p className="text-xs text-gray-500 mt-1">
+                  {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
+                </p>
+
+                <div className="mt-3 border-t pt-2">
+                  <details>
+                    <summary className="flex justify-between items-baseline gap-3 cursor-pointer select-none">
+                      <span className="text-xs font-semibold text-blue-600 hover:text-blue-800">
+                        Toon Ruwe Data
+                      </span>
+                      <a
+                        href={`https://www.google.com/maps?q=&layer=c&cbll=${props.latitude},${props.longitude}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-blue-600 hover:text-blue-800 underline whitespace-nowrap"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Bekijk in Street View
+                      </a>
+                    </summary>
+                    <div className="mt-2">
+                      <pre className="p-3 bg-gray-50 border border-gray-200 rounded text-xs overflow-x-auto max-h-64 whitespace-pre-wrap break-words">
+                        {JSON.stringify(props, null, 2)}
+                      </pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </Popup>
+          </Marker>
+        );
+      });
+    }
+  }, [spreadPoints, useSimpleMarkers]);
+
 
   // Early returns AFTER all hooks to maintain hook order
   if (!mounted) {
@@ -545,6 +522,7 @@ export default function Map({ data, filters }: MapProps) {
 
   return (
     <MapContainer
+      key={`map-${useSimpleMarkers ? 'simple' : 'detailed'}`} // Force remount when rendering mode changes
       center={[52.3676, 4.9041]} // Amsterdam as default
       zoom={12}
       style={{ width: '100%', height: '100%' }}
@@ -558,6 +536,7 @@ export default function Map({ data, filters }: MapProps) {
 
       <FitBounds bounds={bounds} />
       <ZoomWatcher onZoomChange={setCurrentZoom} />
+      <ScaleControl />
 
       {/* Render buffer zones - sort so 500m renders first (bottom), 300m on top */}
       {[...buffers]
@@ -569,7 +548,7 @@ export default function Map({ data, filters }: MapProps) {
         })
         .map((feature, idx) => {
           const is300m = feature.properties.type === 'buffer_union_300m';
-          const fillOpacity = filters.showBufferFill ? (is300m ? 0.25 : 0.30) : 0;
+          const fillOpacity = activeFilters.showBufferFill ? (is300m ? 0.25 : 0.30) : 0;
           return (
             <GeoJSON
               key={`buffer-${feature.properties.type}`}
@@ -586,8 +565,11 @@ export default function Map({ data, filters }: MapProps) {
           );
         })}
 
-      {/* Render points with performance optimization */}
+      {/* Render points with automatic spiderfy at zoom 15+ */}
       {markerElements}
     </MapContainer>
   );
 }
+
+// Export as default - using named function helps Fast Refresh
+export default MapComponent;
