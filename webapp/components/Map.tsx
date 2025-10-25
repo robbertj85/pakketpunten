@@ -22,7 +22,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, CircleMarker } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, CircleMarker, Polyline } from 'react-leaflet';
 import type { LatLngBoundsExpression } from 'leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -33,15 +33,24 @@ interface MapProps {
   filters?: Filters;
 }
 
-// Component to fit bounds when data changes
+// Component to fit bounds when data changes (only once, not on every zoom/pan)
 function FitBounds({ bounds }: { bounds: LatLngBoundsExpression | null }) {
   const map = useMap();
+  const [hasFit, setHasFit] = useState(false);
 
   useEffect(() => {
-    if (bounds) {
+    // Only fit bounds once when bounds are first available
+    // Don't re-fit on zoom/pan changes
+    if (bounds && !hasFit) {
       map.fitBounds(bounds, { padding: [50, 50] });
+      setHasFit(true);
     }
-  }, [bounds, map]);
+  }, [bounds, map, hasFit]);
+
+  // Reset hasFit when bounds change (i.e., new data loaded)
+  useEffect(() => {
+    setHasFit(false);
+  }, [bounds]);
 
   return null;
 }
@@ -128,6 +137,12 @@ const PROVIDER_INFO: Record<string, {
     color: '#DC0032',
     logoUrl: 'https://logo.clearbit.com/dpd.com',
   },
+  FedEx: {
+    background: '#4D148C',
+    borderColor: '#FF6600',
+    color: '#4D148C',
+    logoUrl: 'https://logo.clearbit.com/fedex.com',
+  },
 };
 
 // Performance thresholds
@@ -142,21 +157,34 @@ const PERFORMANCE_CONFIG = {
   SIMPLE_MARKER_OPACITY: 0.8,
 };
 
-// Create custom icon for each provider
-function createProviderIcon(provider: string) {
+// Helper function to calculate marker size based on zoom level
+function getMarkerSize(zoom: number): { size: number; logoSize: number; fontSize: number } {
+  // At zoom 15+ (below 1km scale), increase marker size for better clickability
+  if (zoom >= 17) {
+    return { size: 48, logoSize: 32, fontSize: 14 }; // 250m scale and closer
+  } else if (zoom >= 15) {
+    return { size: 42, logoSize: 28, fontSize: 12 }; // 1km - 500m scale
+  } else {
+    return { size: 34, logoSize: 22, fontSize: 10 }; // Default size
+  }
+}
+
+// Create custom icon for each provider with dynamic sizing
+function createProviderIcon(provider: string, zoom: number) {
   const info = PROVIDER_INFO[provider] || {
     background: '#666',
     logoUrl: '',
   };
 
   const borderColor = info.borderColor || 'white';
+  const { size, logoSize, fontSize } = getMarkerSize(zoom);
 
   return L.divIcon({
     className: 'custom-marker',
     html: `
       <div style="
-        width: 34px;
-        height: 34px;
+        width: ${size}px;
+        height: ${size}px;
         background: white;
         border: 2.5px solid ${borderColor};
         border-radius: 50%;
@@ -170,17 +198,17 @@ function createProviderIcon(provider: string) {
           src="${info.logoUrl}"
           alt="${provider}"
           style="
-            width: 22px;
-            height: 22px;
+            width: ${logoSize}px;
+            height: ${logoSize}px;
             object-fit: contain;
           "
-          onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:10px;font-weight:bold;color:${info.background}\\'>${provider.substring(0, 2)}</div>';"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:${fontSize}px;font-weight:bold;color:${info.background}\\'>${provider.substring(0, 2)}</div>';"
         />
       </div>
     `,
-    iconSize: [34, 34],
-    iconAnchor: [17, 17],
-    popupAnchor: [0, -17],
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    popupAnchor: [0, -size / 2],
   });
 }
 
@@ -247,16 +275,65 @@ function createProviderIconWithBadge(provider: string, count: number) {
   });
 }
 
+// Helper function to get current hour-based seed for stable randomization
+function getHourlySeed(): number {
+  const now = new Date();
+  // Change seed every hour (year + month + day + hour)
+  return now.getFullYear() * 1000000 +
+         (now.getMonth() + 1) * 10000 +
+         now.getDate() * 100 +
+         now.getHours();
+}
+
+// Simple seeded random number generator
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+// Helper function to get provider render priority (higher = renders on top)
+// Randomizes order hourly to give all providers fair visibility
+function getProviderPriority(vervoerder: string): number {
+  const providers = ['FedEx', 'DPD', 'Amazon', 'VintedGo', 'DeBuren', 'PostNL', 'DHL'];
+
+  // Get hourly seed for stable randomization
+  const seed = getHourlySeed();
+
+  // Create shuffled priorities based on hourly seed
+  const shuffledPriorities: Record<string, number> = {};
+  const availablePositions = [1, 2, 3, 4, 5, 6];
+
+  providers.forEach((provider, index) => {
+    // Use provider name + seed to create unique seed per provider
+    const providerSeed = seed + provider.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const randomValue = seededRandom(providerSeed);
+
+    // Pick a position based on random value
+    const positionIndex = Math.floor(randomValue * availablePositions.length);
+    const position = availablePositions.splice(positionIndex, 1)[0];
+    shuffledPriorities[provider] = position;
+  });
+
+  return shuffledPriorities[vervoerder] || 0;
+}
+
 // Helper function to spread overlapping markers (spiderfy effect)
 function spreadOverlappingMarkers(points: PakketpuntFeature[], currentZoom: number) {
+  // Sort points by provider priority so DHL/PostNL render on top
+  const sortedPoints = [...points].sort((a, b) => {
+    const prioA = getProviderPriority((a.properties as PakketpuntProperties).vervoerder);
+    const prioB = getProviderPriority((b.properties as PakketpuntProperties).vervoerder);
+    return prioA - prioB; // Lower priority renders first (bottom layer)
+  });
+
   if (currentZoom < 15) {
-    // Below zoom 15, return points as-is
-    return points.map(p => ({ ...p, offsetLat: 0, offsetLng: 0 }));
+    // Below zoom 15, return sorted points as-is
+    return sortedPoints.map(p => ({ ...p, offsetLat: 0, offsetLng: 0 }));
   }
 
-  // Group by exact coordinates
+  // Group by exact coordinates (using sorted points)
   const groups = new Map<string, PakketpuntFeature[]>();
-  points.forEach((point) => {
+  sortedPoints.forEach((point) => {
     const coords = point.geometry.coordinates as [number, number];
     const key = `${coords[1].toFixed(6)},${coords[0].toFixed(6)}`;
     if (!groups.has(key)) {
@@ -370,6 +447,9 @@ function MapComponent(props?: MapProps) {
 
     if (useSimpleMarkers) {
       // Render simple colored circles for performance
+      // Scale radius based on zoom level
+      const circleRadius = currentZoom >= 17 ? 6 : currentZoom >= 15 ? 5 : PERFORMANCE_CONFIG.SIMPLE_MARKER_RADIUS;
+
       return spreadPoints.map((feature, idx) => {
         const props = feature.properties as PakketpuntProperties;
         const coords = feature.geometry.coordinates as [number, number];
@@ -383,7 +463,7 @@ function MapComponent(props?: MapProps) {
           <CircleMarker
             key={`point-${idx}`}
             center={[lat, lng]}
-            radius={PERFORMANCE_CONFIG.SIMPLE_MARKER_RADIUS}
+            radius={circleRadius}
             pathOptions={{
               fillColor: color,
               fillOpacity: PERFORMANCE_CONFIG.SIMPLE_MARKER_OPACITY,
@@ -391,7 +471,11 @@ function MapComponent(props?: MapProps) {
               weight: 1,
             }}
           >
-            <Popup maxWidth={600} minWidth={300}>
+            <Popup
+              maxWidth={600}
+              minWidth={300}
+              autoPan={false}
+            >
               <div className="text-sm">
                 <h3 className="font-bold text-gray-900">{props.locatieNaam}</h3>
                 <p className="text-gray-600">
@@ -451,9 +535,13 @@ function MapComponent(props?: MapProps) {
           <Marker
             key={`point-${idx}`}
             position={[lat, lng]}
-            icon={createProviderIcon(props.vervoerder)}
+            icon={createProviderIcon(props.vervoerder, currentZoom)}
           >
-            <Popup maxWidth={600} minWidth={300}>
+            <Popup
+              maxWidth={600}
+              minWidth={300}
+              autoPan={false}
+            >
               <div className="text-sm">
                 <h3 className="font-bold text-gray-900">{props.locatieNaam}</h3>
                 <p className="text-gray-600">
@@ -500,8 +588,35 @@ function MapComponent(props?: MapProps) {
         );
       });
     }
-  }, [spreadPoints, useSimpleMarkers]);
+  }, [spreadPoints, useSimpleMarkers, currentZoom]);
 
+  // Render spider leg lines connecting offset markers to original location
+  const spiderLegLines = useMemo(() => {
+    if (currentZoom < 15) return null; // Only show at high zoom levels
+
+    return spreadPoints
+      .filter(feature => feature.offsetLat !== 0 || feature.offsetLng !== 0) // Only for offset markers
+      .map((feature, idx) => {
+        const coords = feature.geometry.coordinates as [number, number];
+        const originalPos: [number, number] = [coords[1], coords[0]];
+        const offsetPos: [number, number] = [
+          coords[1] + feature.offsetLat,
+          coords[0] + feature.offsetLng
+        ];
+
+        return (
+          <Polyline
+            key={`spider-leg-${idx}`}
+            positions={[originalPos, offsetPos]}
+            pathOptions={{
+              color: '#3b82f6', // Blue color matching marker-cluster.css
+              weight: 2,
+              opacity: 0.6,
+            }}
+          />
+        );
+      });
+  }, [spreadPoints, currentZoom]);
 
   // Early returns AFTER all hooks to maintain hook order
   if (!mounted) {
@@ -564,6 +679,9 @@ function MapComponent(props?: MapProps) {
             />
           );
         })}
+
+      {/* Render spider leg lines (shown underneath markers) */}
+      {spiderLegLines}
 
       {/* Render points with automatic spiderfy at zoom 15+ */}
       {markerElements}

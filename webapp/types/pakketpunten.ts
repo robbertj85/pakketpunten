@@ -10,7 +10,7 @@ export interface PakketpuntProperties {
   locatieNaam: string;
   straatNaam: string;
   straatNr: string;
-  vervoerder: 'DHL' | 'PostNL' | 'VintedGo' | 'DeBuren';
+  vervoerder: 'DHL' | 'PostNL' | 'VintedGo' | 'DeBuren' | 'DPD' | 'FedEx' | 'Amazon';
   puntType: string;
   bezettingsgraad: number;
   latitude: number;

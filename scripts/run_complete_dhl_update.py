@@ -112,12 +112,12 @@ def run_grid_fetch():
         return False
 
     # Check if output file exists
-    if not Path("dhl_all_locations.json").exists():
+    if not Path("../data/dhl_all_locations.json").exists():
         print("\n❌ Grid fetch completed but output file not found!")
         return False
 
     # Load and analyze
-    with open("dhl_all_locations.json", 'r', encoding='utf-8') as f:
+    with open("../data/dhl_all_locations.json", 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     total = data['metadata']['total_locations']

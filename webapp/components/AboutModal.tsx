@@ -168,8 +168,8 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
               <section>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Data Bronnen</h3>
                 <p className="text-sm text-gray-700 mb-4">
-                  Alle locatiegegevens worden verzameld van publieke API's en websites van de
-                  betreffende vervoerders. Geen van deze bronnen vereist authenticatie.
+                  Locatiegegevens worden verzameld van publieke API's en websites van de
+                  betreffende vervoerders zonder authenticatie vereisten.
                 </p>
               </section>
 
@@ -188,6 +188,22 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                   type="Public REST API"
                   url="https://www.postnl.nl"
                   color="#FF6600"
+                />
+
+                <DataSourceCard
+                  name="DPD Netherlands"
+                  endpoint="pickup.dpd.cz/api/GetParcelShopsByAddress"
+                  type="Public REST API (Cached)"
+                  url="https://www.dpd.com/nl"
+                  color="#DC0032"
+                />
+
+                <DataSourceCard
+                  name="FedEx Netherlands"
+                  endpoint="liveapi.yext.com/v2/accounts/me/entities"
+                  type="Public REST API (Yext)"
+                  url="https://www.fedex.com/nl"
+                  color="#4D148C"
                 />
 
                 <DataSourceCard
@@ -269,6 +285,8 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
 {`Data bronnen:
 - DHL Parcel Netherlands (https://www.dhl.nl)
 - PostNL (https://www.postnl.nl)
+- DPD Netherlands (https://www.dpd.com/nl)
+- FedEx Netherlands (https://www.fedex.com/nl)
 - VintedGo / Mondial Relay (https://vintedgo.com)
 - De Buren (https://deburen.nl)
 - Gemeente grenzen © OpenStreetMap contributors

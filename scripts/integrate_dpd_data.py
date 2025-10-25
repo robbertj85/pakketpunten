@@ -1,10 +1,10 @@
 """
-Integrate comprehensive DHL grid data into municipality GeoJSON files.
+Integrate comprehensive DPD data into municipality GeoJSON files.
 
 This script:
-1. Loads the complete DHL dataset from grid fetch
-2. For each municipality, filters DHL locations within bounds
-3. Updates the GeoJSON files with complete DHL data
+1. Loads the complete DPD dataset from dpd_fetch_all.py
+2. For each municipality, filters DPD locations within bounds
+3. Updates the GeoJSON files with complete DPD data
 """
 
 import json
@@ -16,9 +16,9 @@ from typing import Dict, List
 from utils import get_gemeente_geometry
 
 
-def load_dhl_grid_data(grid_file: str = "dhl_all_locations.json") -> gpd.GeoDataFrame:
-    """Load DHL locations from grid fetch results."""
-    with open(grid_file, 'r', encoding='utf-8') as f:
+def load_dpd_data(data_file: str = "../data/dpd_all_locations.json") -> gpd.GeoDataFrame:
+    """Load DPD locations from fetch results."""
+    with open(data_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     locations = data['locations']
@@ -26,20 +26,28 @@ def load_dhl_grid_data(grid_file: str = "dhl_all_locations.json") -> gpd.GeoData
     # Convert to DataFrame
     rows = []
     for loc in locations:
-        geo = loc.get('geoLocation', {})
-        addr = loc.get('address', {})
+        # Extract address components
+        street = loc.get('street', '')
+        house_number = loc.get('house_number', '')
+        street_full = f"{street} {house_number}".strip() if house_number else street
 
         rows.append({
-            'locatieNaam': loc.get('name', ''),
-            'straatNaam': addr.get('street', ''),
-            'straatNr': str(addr.get('number', '')) + (addr.get('addition', '') or ''),
-            'latitude': geo.get('latitude'),
-            'longitude': geo.get('longitude'),
-            'puntType': loc.get('shopType', ''),  # parcelShop or packStation
-            'vervoerder': 'DHL',
+            'locatieNaam': loc.get('company', ''),
+            'straatNaam': street,
+            'straatNr': house_number,
+            'latitude': loc.get('latitude'),
+            'longitude': loc.get('longitude'),
+            'puntType': loc.get('pickup_network_type', ''),  # pickup_point, parcel_locker, etc.
+            'vervoerder': 'DPD',
+            'postcode': loc.get('postcode', ''),
+            'city': loc.get('city', ''),
+            'dpd_id': loc.get('id', ''),
         })
 
     df = pd.DataFrame(rows)
+
+    # Filter out locations without coordinates
+    df = df.dropna(subset=['latitude', 'longitude'])
 
     # Create GeoDataFrame
     geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
@@ -79,10 +87,10 @@ def get_municipality_bounds(gemeente: str) -> List[float]:
 def update_municipality_geojson(
     gemeente: str,
     slug: str,
-    dhl_gdf_full: gpd.GeoDataFrame,
+    dpd_gdf_full: gpd.GeoDataFrame,
     output_dir: Path
 ):
-    """Update a municipality's GeoJSON file with complete DHL data."""
+    """Update a municipality's GeoJSON file with complete DPD data."""
 
     geojson_file = output_dir / f"{slug}.geojson"
 
@@ -99,21 +107,21 @@ def update_municipality_geojson(
     if bounds is None:
         return None
 
-    # Filter DHL locations within bounds
-    dhl_in_bounds = filter_locations_by_bounds(dhl_gdf_full, bounds)
+    # Filter DPD locations within bounds
+    dpd_in_bounds = filter_locations_by_bounds(dpd_gdf_full, bounds)
 
-    # Remove existing DHL features
-    features_non_dhl = [
+    # Remove existing DPD features
+    features_non_dpd = [
         f for f in geojson_data['features']
-        if f['properties'].get('vervoerder') != 'DHL'
+        if f['properties'].get('vervoerder') != 'DPD'
     ]
 
-    old_dhl_count = len(geojson_data['features']) - len(features_non_dhl)
+    old_dpd_count = len(geojson_data['features']) - len(features_non_dpd)
 
-    # Add new DHL features
-    new_dhl_features = []
-    for _, row in dhl_in_bounds.iterrows():
-        new_dhl_features.append({
+    # Add new DPD features
+    new_dpd_features = []
+    for _, row in dpd_in_bounds.iterrows():
+        new_dpd_features.append({
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -126,14 +134,14 @@ def update_municipality_geojson(
                 "straatNr": row['straatNr'],
                 "latitude": row['latitude'],
                 "longitude": row['longitude'],
-                "vervoerder": "DHL",
+                "vervoerder": "DPD",
                 "puntType": row['puntType'],
-                "bezettingsgraad": 0,  # Keep existing or set to 0
+                "bezettingsgraad": 0,  # Dummy data, kept consistent with other providers
             }
         })
 
     # Combine features
-    geojson_data['features'] = features_non_dhl + new_dhl_features
+    geojson_data['features'] = features_non_dpd + new_dpd_features
 
     # Update metadata
     geojson_data['metadata']['total_points'] = len(
@@ -153,42 +161,42 @@ def update_municipality_geojson(
     with open(geojson_file, 'w', encoding='utf-8') as f:
         json.dump(geojson_data, f, ensure_ascii=False)
 
-    new_dhl_count = len(new_dhl_features)
-    change = new_dhl_count - old_dhl_count
+    new_dpd_count = len(new_dpd_features)
+    change = new_dpd_count - old_dpd_count
     change_str = f"+{change}" if change >= 0 else str(change)
 
     return {
         'gemeente': gemeente,
-        'old_dhl_count': old_dhl_count,
-        'new_dhl_count': new_dhl_count,
+        'old_dpd_count': old_dpd_count,
+        'new_dpd_count': new_dpd_count,
         'change': change,
         'total_points': geojson_data['metadata']['total_points']
     }
 
 
 def main():
-    """Update all municipality files with comprehensive DHL data."""
+    """Update all municipality files with comprehensive DPD data."""
 
     print("="*80)
-    print("INTEGRATE DHL GRID DATA INTO MUNICIPALITY FILES")
+    print("INTEGRATE DPD DATA INTO MUNICIPALITY FILES")
     print("="*80)
     print()
 
-    # Check if grid data exists
-    grid_file = Path("dhl_all_locations.json")
-    if not grid_file.exists():
-        print("❌ ERROR: dhl_all_locations.json not found!")
-        print("   Run 'python dhl_grid_fetch.py' first to fetch complete DHL data.")
+    # Check if data exists
+    data_file = Path("../data/dpd_all_locations.json")
+    if not data_file.exists():
+        print("❌ ERROR: ../data/dpd_all_locations.json not found!")
+        print("   Run 'python scripts/dpd_fetch_all.py' first to fetch complete DPD data.")
         return
 
-    # Load complete DHL dataset
-    print("📂 Loading DHL grid data...")
-    dhl_gdf = load_dhl_grid_data(grid_file)
-    print(f"   Loaded {len(dhl_gdf)} DHL locations")
+    # Load complete DPD dataset
+    print("📂 Loading DPD data...")
+    dpd_gdf = load_dpd_data(data_file)
+    print(f"   Loaded {len(dpd_gdf)} DPD locations")
     print()
 
     # Load municipalities
-    with open("municipalities_all.json", 'r', encoding='utf-8') as f:
+    with open("../data/municipalities_all.json", 'r', encoding='utf-8') as f:
         municipalities = json.load(f)
 
     # Filter out Nederland (we'll handle that separately)
@@ -207,12 +215,12 @@ def main():
 
         print(f"[{idx}/{len(municipalities)}] {gemeente}...", end=" ")
 
-        result = update_municipality_geojson(gemeente, slug, dhl_gdf, output_dir)
+        result = update_municipality_geojson(gemeente, slug, dpd_gdf, output_dir)
 
         if result:
             results.append(result)
             change_str = f"+{result['change']}" if result['change'] >= 0 else str(result['change'])
-            print(f"✅ {result['old_dhl_count']} → {result['new_dhl_count']} DHL ({change_str})")
+            print(f"✅ {result['old_dpd_count']} → {result['new_dpd_count']} DPD ({change_str})")
         else:
             print("❌ Failed")
 
@@ -221,22 +229,32 @@ def main():
     print("SUMMARY")
     print("="*80)
 
-    total_old = sum(r['old_dhl_count'] for r in results)
-    total_new = sum(r['new_dhl_count'] for r in results)
+    if not results:
+        print("❌ No municipalities were updated")
+        return
+
+    total_old = sum(r['old_dpd_count'] for r in results)
+    total_new = sum(r['new_dpd_count'] for r in results)
     total_change = total_new - total_old
 
     print(f"✅ Updated: {len(results)} municipalities")
-    print(f"📍 Total DHL locations:")
+    print(f"📍 Total DPD locations:")
     print(f"   Before: {total_old}")
     print(f"   After:  {total_new}")
-    print(f"   Change: +{total_change} ({(total_change/total_old*100):.1f}% increase)")
+
+    if total_old > 0:
+        change_pct = (total_change/total_old*100)
+        print(f"   Change: {total_change:+d} ({change_pct:+.1f}%)")
+    else:
+        print(f"   Change: +{total_new} (new provider!)")
+
     print()
 
-    # Show top gainers
-    results_sorted = sorted(results, key=lambda x: x['change'], reverse=True)
-    print("Top 10 municipalities by increase:")
+    # Show top municipalities by DPD location count
+    results_sorted = sorted(results, key=lambda x: x['new_dpd_count'], reverse=True)
+    print("Top 10 municipalities by DPD location count:")
     for i, r in enumerate(results_sorted[:10], 1):
-        print(f"  {i:2d}. {r['gemeente']:20s} +{r['change']:3d} ({r['old_dhl_count']} → {r['new_dhl_count']})")
+        print(f"  {i:2d}. {r['gemeente']:20s} {r['new_dpd_count']:3d} locations")
 
     print()
     print("⚠️  Remember to regenerate the national overview:")

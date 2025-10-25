@@ -10,7 +10,7 @@ Dit project is bedoeld als basis voor geodata-analyse, ruimtelijke visualisatie 
 
 ## Functionaliteiten
 
-- Ophalen van pakketpuntlocaties via API's en webscraping (voor DHL, De Buren, PostNL en VintedGo) voor een gegeven gemeente
+- Ophalen van pakketpuntlocaties via API's en webscraping (voor DHL, DPD, PostNL, VintedGo en De Buren) voor een gegeven gemeente
 - Het toevoegen van buffers rondom bestaande pakketpunten
 - Het toevoegen van dummy data met de bezettingsgraad om een indicatie te geven van hoe de dekking van een gebied kan worden bepaald.
 - Export van resultaten naar **GeoPackage (.gpkg)** en **GeoJSON (.geojson)**
@@ -23,14 +23,15 @@ Dit project is bedoeld als basis voor geodata-analyse, ruimtelijke visualisatie 
 
 Dit project verzamelt pakketpuntlocaties van de volgende bronnen:
 
-- **DHL Parcel** - Via publieke API (`api-gw.dhlparcel.nl`)
+- **DHL Parcel** - Via publieke API (`api-gw.dhlparcel.nl`) - ~2000+ locaties
+- **DPD** - Via publieke API (`pickup.dpd.cz`) - 1,933 locaties (parcel shops + lockers)
 - **PostNL** - Via publieke locatie-widget API
 - **VintedGo / Mondial Relay** - Via publieke website
 - **De Buren** - Via publieke kaart interface
 
 ⚠️ **Belangrijk:** De bezettingsgraad (occupancy) data is **willekeurig gegenereerd** voor demonstratiedoeleinden en weerspiegelt geen echte capaciteitsgegevens.
 
-📋 **Voor uitgebreide informatie** over data bronnen, gebruiksrechten en attributie-vereisten, zie [DATA_SOURCES.md](./DATA_SOURCES.md) 
+📋 **Voor uitgebreide informatie** over data bronnen, gebruiksrechten en attributie-vereisten, zie [DATA_SOURCES.md](./docs/DATA_SOURCES.md) 
 
 ---
 
@@ -39,17 +40,34 @@ Dit project verzamelt pakketpuntlocaties van de volgende bronnen:
 ```
 pakketpunten/
 ├── main.py                 # Hoofdscript: haalt data op, voert analyse uit
-├── batch_generate.py       # Batch processing voor meerdere gemeentes
-├── api_client.py           # API-aanroepen (DHL, PostNL, VintedGo, De Buren)
+├── api_client.py           # API-aanroepen (DHL, DPD, PostNL, VintedGo, De Buren)
 ├── utils.py                # Algemene hulpfuncties
 ├── geo_analysis.py         # Geografische analyses (buffers, unions, etc.)
 ├── visualize.py            # Kaartweergave met Folium (legacy)
-├── output/                 # Opslag van resultaten (GeoPackage, GeoJSON, HTML)
-├── municipalities.json     # Lijst van beschikbare gemeentes
 ├── requirements.txt        # Benodigde Python-pakketten
+├── update.sh               # Automatische update script
 ├── README.md               # Projectdocumentatie
-├── DATA_SOURCES.md         # Uitgebreide documentatie over databronnen
-├── CLAUDE.md               # Technische documentatie voor ontwikkelaars
+├── data/                   # Data bestanden en logs
+│   ├── dhl_all_locations.json
+│   ├── dpd_all_locations.json
+│   ├── municipalities_all.json
+│   ├── gemeenten-2025.xlsx
+│   └── *_update_log.txt
+├── docs/                   # Documentatie
+│   ├── CLAUDE.md           # Technische documentatie voor ontwikkelaars
+│   ├── AUTOMATION.md       # Automatisering documentatie
+│   ├── DATA_SOURCES.md     # Uitgebreide documentatie over databronnen
+│   ├── DHL_GRID_WORKFLOW.md
+│   └── QUICKSTART_AUTOMATION.md
+├── scripts/                # Automation en data processing scripts
+│   ├── batch_generate.py   # Batch processing voor meerdere gemeentes
+│   ├── dhl_grid_fetch.py   # Complete DHL data ophalen (grid-based approach)
+│   ├── dpd_fetch_all.py    # Complete DPD data ophalen (single API call)
+│   ├── integrate_dhl_grid_data.py  # DHL data integreren in gemeente files
+│   ├── integrate_dpd_data.py       # DPD data integreren in gemeente files
+│   ├── weekly_update.py            # Weekelijkse update van alle data
+│   ├── create_national_overview.py # Genereer nationaal overzicht
+│   └── run_complete_dhl_update.py  # Complete DHL update workflow
 └── webapp/                 # Next.js webapplicatie
     ├── app/                # Next.js App Router
     ├── components/         # React componenten (Map, Filters, Stats)
@@ -89,10 +107,10 @@ python main.py --gemeente Amsterdam --filename test --format geojson
 #### Meerdere gemeentes in batch verwerken
 
 ```bash
-python batch_generate.py
+python scripts/batch_generate.py
 ```
 
-Dit genereert GeoJSON bestanden voor alle gemeentes in `municipalities.json` en plaatst ze in `webapp/public/data/`.
+Dit genereert GeoJSON bestanden voor alle gemeentes in `data/municipalities_all.json` en plaatst ze in `webapp/public/data/`.
 
 #### Resultaten bekijken
 - **Kaart:** `output/kaart.html` → open in je browser
@@ -230,7 +248,7 @@ Data bronnen:
 Bezettingsgraad data is willekeurig gegenereerd voor demonstratie (niet echt)
 ```
 
-Zie [DATA_SOURCES.md](./DATA_SOURCES.md) voor volledige details over gebruiksrechten.
+Zie [DATA_SOURCES.md](./docs/DATA_SOURCES.md) voor volledige details over gebruiksrechten.
 
 
 

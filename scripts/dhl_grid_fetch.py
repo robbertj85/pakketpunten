@@ -213,7 +213,7 @@ def fetch_all_dhl_locations_grid() -> Dict[Tuple, Dict]:
     return all_locations
 
 
-def save_results(locations: Dict[Tuple, Dict], output_file: str = "dhl_all_locations.json"):
+def save_results(locations: Dict[Tuple, Dict], output_file: str = "../data/dhl_all_locations.json"):
     """Save locations to JSON file."""
     # Convert to list of location dicts
     location_list = list(locations.values())

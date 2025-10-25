@@ -4,204 +4,242 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Pakketpunten Data** is a full-stack project for collecting, analyzing, and visualizing parcel point locations in the Netherlands.
+This is a dual-component system for collecting, analyzing, and visualizing parcel point (pakketpunten) locations across Dutch municipalities:
+- **Python backend**: Data collection via APIs and web scraping (DHL, PostNL, DPD, Amazon, VintedGo, De Buren) with geospatial analysis using GeoPandas
+- **Next.js webapp**: Interactive map visualization with Leaflet, featuring filters, statistics, and performance optimizations for large datasets
 
-- **Backend (Python)**: Fetches data from multiple APIs (DHL, De Buren, PostNL, VintedGo), performs geospatial analysis using GeoPandas, and exports to GeoJSON/GeoPackage
-- **Frontend (Next.js)**: Interactive web application with React-Leaflet maps, optimized for displaying 10,000+ markers with Canvas rendering
+## Common Development Commands
 
-## Common Commands
+### Python Backend
 
-### Setup
 ```bash
+# Setup virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
 
-### Running the Application
-```bash
-# Basic usage with municipality name
+# Generate data for a single municipality
 python main.py --gemeente Amsterdam --filename test --format geojson
 
-# Using short flags
-python main.py -g Utrecht -f output -f gpkg
+# Batch generate all municipalities (for webapp)
+cd scripts
+python batch_generate.py
 
-# Run from IDE without arguments (uses defaults: gemeente=Amsterdam, filename=test, format=geojson)
-python main.py
+# Fetch complete DHL grid data (nationwide)
+python scripts/dhl_grid_fetch.py
+
+# Fetch complete DPD data (nationwide)
+python scripts/dpd_fetch_all.py
+
+# Integrate DHL/DPD data into municipality files
+python scripts/integrate_dhl_grid_data.py
+python scripts/integrate_dpd_data.py
+
+# Create national overview
+python scripts/create_national_overview.py
+
+# Weekly update workflow
+python scripts/weekly_update.py
 ```
 
-### Command-line Arguments
-- `--gemeente` / `-g`: Municipality name (e.g., "Amsterdam", "Utrecht")
-- `--filename` / `-f`: Output filename (default: "output")
-- `--format`: Output format - either "gpkg" (GeoPackage) or "geojson" (default: "geojson")
+### Next.js Webapp
 
-### Output
-Results are saved in the `output/` directory:
-- GeoPackage: `output/{filename}.gpkg` (single file with multiple layers)
-- GeoJSON: `output/{filename}_{layername}.geojson` (separate files per layer)
-- Interactive map: `output/{filename}_kaart.html` (opens automatically in browser)
+```bash
+cd webapp
+
+# Install dependencies
+npm install
+
+# Development server (http://localhost:3000)
+npm run dev
+
+# Production build
+npm run build
+npm start
+
+# Lint
+npm run lint
+```
 
 ## Architecture
 
-### Data Flow Pipeline
+### Python Backend Architecture
 
-The application follows a linear pipeline architecture:
+**Core Pipeline** (`main.py`):
+1. `api_client.py` → Fetch raw data from multiple carrier APIs
+2. `geo_analysis.py` → Generate buffer zones (300m/500m) in RD projection (EPSG:28992)
+3. `visualize.py` → Legacy Folium map generation (static HTML)
+4. `utils.py` → Coordinate transformation, geocoding, data normalization
 
-1. **Data Collection** (`api_client.py`) → Fetches raw location data from 4 different sources
-2. **Geospatial Analysis** (`geo_analysis.py`) → Creates buffer zones and coverage areas
-3. **Visualization** (`visualize.py`) → Generates interactive Folium maps
-4. **Export** (`utils.py`) → Saves results in GeoPackage or GeoJSON format
-5. **Orchestration** (`main.py`) → Coordinates the entire workflow
+**Key Patterns**:
+- **CRS transformations**: Always WGS84 (EPSG:4326) for API/web → RD New (EPSG:28992) for metric calculations → back to WGS84 for output
+- **API-specific search geometries**: DHL uses circle (lat/lon/radius), PostNL uses bbox, VintedGo uses bounds
+- **Mock data**: `bezettingsgraad` (occupancy) is randomly generated for demonstration only
+- **Grid-based fetching**: For nationwide coverage (DHL/DPD), use grid-based scripts instead of per-municipality calls to avoid API limits
 
-### Module Responsibilities
-
-#### `api_client.py` - Data Collection
-- **Purpose**: Fetches parcel point locations from multiple providers
-- **Functions**:
-  - `get_data_deburen(gemeente)`: Scrapes De Buren website for locations
-  - `get_data_dhl(lat, lon, radius)`: Queries DHL API with circular search area
-  - `get_data_postnl(bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon)`: Queries PostNL API with bounding box
-  - `get_data_vintedgo(lat, lon, south, west, north, east)`: Scrapes VintedGo Next.js site
-  - `get_data_pakketpunten(gemeente)`: Main function that combines all sources into a single GeoDataFrame
-- **Search Area Strategy**: Each API requires different search geometries (circle vs bbox), so `get_gemeente_geometry()` is called with both modes
-
-#### `utils.py` - Utilities
-- **Purpose**: Provides reusable helper functions for geocoding, API calls, web scraping, data transformation, and file I/O
-- **Key Functions**:
-  - `get_gemeente_geometry(gemeente_naam, mode)`: Geocodes municipality using OpenStreetMap Nominatim API
-    - `mode="bbox"`: Returns bounding box (for PostNL)
-    - `mode="circle"`: Returns center point + radius (for DHL)
-  - `fetch_json()`: Wrapper for API calls with proxy handling and session management
-  - `extract_js_array()`, `parse_locations_any()`: Parse JavaScript arrays from scraped HTML
-  - `extract_points_array()`: Extract data from Next.js Flight (RSC) payloads (for VintedGo)
-  - `json_to_dataframe()`: Normalize nested JSON to flat DataFrame
-  - `df_to_gdf()`: Convert DataFrame to GeoDataFrame with standardized column names
-  - `save_output()`: Export to GeoPackage (single file, multiple layers) or GeoJSON (multiple files)
-
-#### `geo_analysis.py` - Geospatial Processing
-- **Purpose**: Performs geometric operations on parcel point locations
-- **Function**: `get_bufferzones(gdf, radius)`
-  - Transforms WGS84 (EPSG:4326) points to RD New (EPSG:28992) for accurate meter-based buffers
-  - Creates individual buffer polygons around each point
-  - Dissolves all buffers into a single unified coverage area using `unary_union`
-  - Returns both individual buffers (for coverage analysis) and unified area (for visualization)
-- **CRS Workflow**: WGS84 → RD New (buffer) → back to WGS84 for export
-
-#### `visualize.py` - Map Generation
-- **Purpose**: Creates interactive Folium maps with multiple layers
-- **Function**: `create_map(filename, gdf_points, buffer_union300, buffer_union500, buffers_crs_hint, zoom_start, tiles)`
-  - Converts all geometries to EPSG:4326 for web display
-  - Uses MarkerCluster for parcel point markers (performance optimization)
-  - Adds optional buffer layers (300m and 500m) with semi-transparent polygons
-  - Auto-zooms to fit all visible features
-  - Saves HTML and opens in browser automatically
-
-#### `main.py` - Orchestration
-- **Purpose**: Entry point that orchestrates the complete workflow
-- **Workflow**:
-  1. Parse command-line arguments (or use defaults when run from IDE)
-  2. Fetch parcel point data for specified municipality
-  3. Add dummy "bezettingsgraad" (occupancy rate) column with random data
-  4. Generate 300m and 500m buffer zones
-  5. Export to GeoPackage or GeoJSON
-  6. Generate interactive HTML map
-
-### Data Standardization
-
-All parcel point data is normalized to a consistent schema with these columns:
-- `locatieNaam`: Location/business name
-- `straatNaam`: Street name
-- `straatNr`: Street number
-- `latitude`, `longitude`: WGS84 coordinates
-- `geometry`: Shapely Point geometry
-- `puntType`: Point type/category
-- `vervoerder`: Provider name (DHL, PostNL, VintedGo, DeBuren)
-- `bezettingsgraad`: Occupancy rate (dummy data, 0-100)
-
-Output layers:
-- `pakketpunten`: All parcel points
-- `buffer_300m`: Unified 300m coverage area
-- `buffer_500m`: Unified 500m coverage area
-- `dekkingsgraad_300m`: Individual 300m buffers per point
-- `dekkingsgraad_500m`: Individual 500m buffers per point
-
-### Coordinate Reference Systems (CRS)
-
-- **API data**: EPSG:4326 (WGS84) - standard geographic coordinates
-- **Buffer calculations**: EPSG:28992 (RD New) - Dutch projected CRS for accurate metric distances
-- **Map visualization**: EPSG:4326 (WGS84) - required for Folium/Leaflet
-- **Output files**: EPSG:4326 (WGS84) - standard for web mapping
-
-### API & Web Scraping Notes
-
-- **DHL**: Clean REST API, requires circular search area (lat/lon/radius)
-- **PostNL**: REST API, requires bounding box coordinates
-- **De Buren**: Web scraping from JavaScript `locations` array embedded in HTML
-- **VintedGo**: Complex scraping from Next.js Server Components (RSC) payload format
-- **Proxy handling**: All API functions bypass proxies via `trust_env=False` and explicit `proxies={"http": None, "https": None}`
-
-### Dependencies
-
-Core libraries (see requirements.txt):
-- `geopandas==1.1.1`: Geospatial data handling
-- `shapely==2.1.2`: Geometric operations
-- `folium==0.20.0`: Interactive web maps
-- `pandas==2.3.3`: Data manipulation
-- `requests==2.32.5`: HTTP requests
-- `geopy==2.4.1`: Geocoding via Nominatim
-
-## Web Application (Next.js)
-
-The `webapp/` directory contains a Next.js application for interactive visualization.
-
-### Running the Webapp
-```bash
-cd webapp
-npm install
-npm run dev  # Development server on http://localhost:3000
-npm run build && npm start  # Production build
+**Data Flow**:
+```
+API calls (per municipality) → GeoDataFrame → CRS transform → Buffer analysis →
+GeoJSON export → webapp/public/data/{slug}.geojson
 ```
 
-### Architecture
+### Next.js Webapp Architecture
 
-- **Framework**: Next.js 16 with React 19 and TypeScript
-- **Mapping**: React-Leaflet for interactive maps
-- **Styling**: Tailwind CSS v4
-- **Data**: Loads GeoJSON files from `webapp/public/data/`
-
-### Map Component Performance Optimizations
-
-The `Map.tsx` component implements adaptive rendering strategies for handling large datasets (tested with 50,000+ markers):
-
-#### 1. Canvas Rendering
-- Uses Leaflet's Canvas renderer (via `preferCanvas`) when displaying simple markers
-- **Performance gain**: 40x faster than DOM rendering for 10,000+ markers
-  - 10,000 markers: ~50ms (vs ~2000ms with DOM)
-  - 50,000 markers: ~200ms (vs unusable with DOM)
-
-#### 2. Adaptive Marker Simplification
-The component automatically switches between rendering modes:
-- **Simple colored circles** (Canvas): Used for datasets >3000 points, or >1000 points when zoomed out (zoom <11)
-- **Branded icon markers** (DOM): Used for smaller datasets when zoomed in, shows provider logos and detailed styling
-
-#### 3. Additional Optimizations
-- **Memoization**: Marker elements are memoized with `useMemo()` to prevent unnecessary re-renders
-- **Zoom-aware rendering**: `ZoomWatcher` component tracks zoom level changes
-- **Performance indicator**: Blue banner shows when in simple marker mode
-
-#### Configuration
-Adjust thresholds in `Map.tsx`:
-```typescript
-const PERFORMANCE_CONFIG = {
-  SIMPLE_MARKER_THRESHOLD: 3000,    // Marker count threshold for simple view
-  DETAILED_VIEW_ZOOM: 11,            // Zoom level for detail mode
-  SIMPLE_MARKER_RADIUS: 4,           // Circle marker size
-  SIMPLE_MARKER_OPACITY: 0.8,        // Circle marker opacity
-};
+**Component Hierarchy** (`app/page.tsx`):
+```
+Home (page.tsx)
+├── MunicipalitySelector → Dropdown with autocomplete
+├── FilterPanel → Provider filters, buffer toggles, occupancy slider
+├── StatsPanel → Dynamic counts per provider
+└── Map → Leaflet with adaptive rendering
 ```
 
-### National Overview Generation
+**Map Component Performance Strategy** (`components/Map.tsx`):
 
-Use `create_national_overview.py` to combine all municipality data:
-```bash
-python create_national_overview.py
+The Map component implements **adaptive rendering** for handling 1,000-50,000+ markers:
+
+1. **Canvas Rendering**: Uses Leaflet's `preferCanvas` when `useSimpleMarkers` is enabled (10x faster for large datasets)
+2. **Simple vs Detailed Markers**:
+   - Simple mode: Colored `CircleMarker` elements (4-6px radius based on zoom)
+   - Detailed mode: Custom `divIcon` with carrier logos loaded from Clearbit API
+3. **Automatic Spiderfy**: At zoom ≥15, markers with identical coordinates are spread in a circular pattern with blue connecting lines
+4. **Provider Render Priority**: Randomized hourly using seeded RNG to ensure fair visibility (prevents one carrier from always being on top)
+5. **Dynamic Icon Sizing**: Marker size scales with zoom level (34px → 42px → 48px) for better clickability
+
+**State Management**: React hooks with `useMemo` for expensive computations (filtering, grouping, spreading overlapping markers)
+
+**Data Loading**:
+- `/municipalities.json` → List of available municipalities
+- `/data/{slug}.geojson` → Complete municipality data (pakketpunten + buffer unions)
+
+### TypeScript Types (`webapp/types/pakketpunten.ts`)
+
+All GeoJSON features follow this structure:
+- **Pakketpunt features**: `type: 'pakketpunt'` with properties: `locatieNaam`, `straatNaam`, `straatNr`, `vervoerder`, `puntType`, `bezettingsgraad`, `latitude`, `longitude`
+- **Buffer features**: `type: 'buffer_union_300m' | 'buffer_union_500m'` with `buffer_m` property
+
+## Coordinate Reference Systems (CRS)
+
+**Critical**: This project uses two CRS throughout:
+- **WGS84 (EPSG:4326)**: All API inputs/outputs, GeoJSON files, web maps (lat/lon in degrees)
+- **RD New (EPSG:28992)**: Dutch grid system for metric calculations (buffer zones in meters)
+
+Always transform to RD New before distance/buffer operations, then back to WGS84 for output.
+
+## API Integration Notes
+
+### Rate Limiting
+- **Nominatim (geocoding)**: 1 request/second enforced in `utils.py`
+- **Batch processing**: `batch_generate.py` uses 2-second delays between municipalities
+- **DHL API**: Limit 50 results per call (use grid approach for nationwide coverage)
+- **PostNL API**: Requires bounding box (not center/radius)
+
+### Data Sources
+- **DHL**: `api-gw.dhlparcel.nl` - Circle search (lat/lon/radius)
+- **PostNL**: `productprijslokatie.postnl.nl` - Bounding box search
+- **DPD**: `pickup.dpd.cz` - Address-based search (cached nationwide, ~1900 locations)
+- **Amazon**: OpenStreetMap Overpass API - Community-maintained data
+- **VintedGo**: `vintedgo.com` - Web scraping with bounds parameter
+- **De Buren**: `mijnburen.deburen.nl` - Web scraping with JS array extraction
+
+All API calls use `requests.Session()` with proxy bypass for specific domains (handled in `utils.make_session()`).
+
+## Output Formats
+
+### GeoJSON Structure
+```json
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "gemeente": "Amsterdam",
+    "slug": "amsterdam",
+    "generated_at": "2025-01-15T10:30:00Z",
+    "total_points": 156,
+    "providers": ["DHL", "PostNL", "VintedGo", "DeBuren"],
+    "bounds": [4.72, 52.28, 5.07, 52.43]
+  },
+  "features": [
+    // Pakketpunt features (type: "pakketpunt")
+    // Buffer union features (type: "buffer_union_300m", "buffer_union_500m")
+  ]
+}
 ```
-This creates `webapp/public/data/nederland.geojson` containing all parcel points across the Netherlands.
+
+### File Organization
+- **Python outputs**: `output/` directory (legacy)
+- **Webapp data**: `webapp/public/data/` directory
+  - `{slug}.geojson` → Per-municipality data
+  - `municipalities.json` → Municipality index
+  - `summary.json` → Batch processing results
+
+## Script Workflows
+
+### Complete DHL Update (`scripts/run_complete_dhl_update.py`)
+1. `dhl_grid_fetch.py` → Fetch all DHL points using grid-based approach
+2. `integrate_dhl_grid_data.py` → Merge into existing municipality files
+3. Updates `data/dhl_all_locations.json` (nationwide cache)
+
+### Complete DPD Update
+1. `dpd_fetch_all.py` → Fetch all DPD locations via single API call
+2. `integrate_dpd_data.py` → Merge into existing municipality files
+3. Updates `data/dpd_all_locations.json` (nationwide cache, ~1900 locations)
+
+### Weekly Update (`scripts/weekly_update.py`)
+Designed for GitHub Actions automation:
+1. Refresh all municipality GeoJSON files
+2. Update national overview
+3. Generate summary statistics
+4. Commit changes (if run via CI/CD)
+
+## Performance Considerations
+
+### Python
+- **Geocoding cache**: `utils.py` caches Nominatim results to disk
+- **Grid-based fetching**: For DHL/DPD, fetch once nationwide instead of per-municipality
+- **Batch processing**: Rate-limited to respect API usage policies
+
+### Next.js
+- **Dynamic imports**: Map component uses `next/dynamic` with `ssr: false` to avoid Leaflet SSR issues
+- **Memoization**: Expensive operations (filtering, spreading markers) are memoized
+- **Canvas rendering**: Enabled for 3000+ markers (50ms vs 2000ms render time)
+- **Simple markers**: Automatically enabled for "Nederland" national view
+- **GeoJSON size**: Amsterdam ≈100 KB, national overview ≈5 MB
+
+## Data Attribution Requirements
+
+When using generated data, include:
+```
+Data bronnen:
+- DHL Parcel Netherlands (https://www.dhl.nl)
+- PostNL (https://www.postnl.nl)
+- VintedGo / Mondial Relay (https://vintedgo.com)
+- De Buren (https://deburen.nl)
+- Gemeente grenzen © OpenStreetMap contributors
+- Bedrijfslogo's © respectieve merkhouders
+
+Bezettingsgraad data is willekeurig gegenereerd voor demonstratie (niet echt)
+```
+
+## Known Limitations
+
+- **Bezettingsgraad (occupancy)**: Mock data only - not real capacity information
+- **DPD via `api_client.get_data_dpd()`**: Limited to 100 results (use `dpd_fetch_all.py` + integration script for complete coverage)
+- **Amazon via OSM**: OpenStreetMap data is community-maintained and may have gaps
+- **De Buren**: Web scraping - may break if website structure changes
+- **Logo loading**: Relies on Clearbit API availability (falls back to initials)
+- **Nederland view**: Very large dataset (50,000+ markers) - simple markers recommended
+
+## Provider Coverage Summary
+
+| Provider | Method | Auth Required | Coverage | Cache-Based | Grid Fetch |
+|----------|--------|---------------|----------|-------------|------------|
+| DHL | Public REST API | No | ~2000+ | Optional | Yes |
+| PostNL | Public Widget API | No | High | No | No |
+| DPD | Public REST API | No | ~1900 | Yes (recommended) | No |
+| Amazon | OSM Overpass API | No | Low (community data) | Optional | No |
+| VintedGo | Web Scraping | No | Medium | No | No |
+| De Buren | Web Scraping | No | Low | No | No |
+
+**Notes**:
+- **Grid Fetch**: Providers using grid-based approach for complete nationwide coverage
+- **Cache-Based**: Recommended to run fetch once and cache results for faster municipality generation

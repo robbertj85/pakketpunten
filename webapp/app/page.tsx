@@ -25,7 +25,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [filters, setFilters] = useState<Filters>({
-    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren'],
+    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon'],
     showBuffer300: true,
     showBuffer500: true,
     showBufferFill: false,
@@ -101,7 +101,7 @@ export default function Home() {
         // Automatically use simple markers for Nederland view (better performance)
         const isNederland = selectedMunicipality === 'nederland';
         setFilters({
-          providers: data.metadata.providers || ['DHL', 'PostNL', 'VintedGo', 'DeBuren'],
+          providers: data.metadata.providers || ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon'],
           showBuffer300: true,
           showBuffer500: true,
           showBufferFill: false,
@@ -219,9 +219,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 px-4 py-2">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs text-gray-500">
-          <p>
-            Data bronnen: DHL, PostNL, VintedGo, De Buren
-          </p>
+          <button
+            onClick={() => setShowAbout(true)}
+            className="text-blue-600 hover:text-blue-800 hover:underline focus:outline-none"
+          >
+            Info over databronnen
+          </button>
           {data && (
             <p>
               Laatste update: {new Date(data.metadata.generated_at).toLocaleDateString('nl-NL')}

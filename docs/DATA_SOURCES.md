@@ -120,6 +120,55 @@ This project aggregates publicly accessible parcel point location data from mult
 
 ---
 
+### 5. Amazon Hub (Lockers & Counters)
+
+**Source:** OpenStreetMap (via Overpass API)
+**Endpoint:** `https://overpass-api.de/api/interpreter`
+**Access Method:** Overpass API query for `amenity=parcel_locker` with Amazon branding
+**Data Retrieved:**
+- Location name (Amazon Hub name/code)
+- Street address and number
+- Postal code
+- City
+- Coordinates (latitude/longitude)
+- Location type (locker vs counter)
+- Opening hours (if available in OSM)
+
+**Implementation:** `api_client.py:get_data_amazon()`
+
+**Data Source Notes:**
+- Amazon does **not provide a public API** for querying pickup locations
+- Data is sourced from **OpenStreetMap**, a community-maintained open database
+- Coverage depends on OSM community contributions and may be incomplete
+- Amazon locations are tagged in OSM as `amenity=parcel_locker` with `operator=Amazon` or `brand=Amazon`
+
+**Complete Coverage Strategy:**
+- **Script:** `scripts/amazon_fetch_all.py` - Fetches all Amazon locations in Netherlands from OSM
+- **Integration:** `scripts/integrate_amazon_data.py` - Filters by municipality and updates GeoJSON files
+- **Cache:** Stored in `data/amazon_all_locations.json`
+- **Update frequency:** Weekly (OSM data changes as community contributes)
+
+**Terms of Use:**
+- OpenStreetMap data is available under the **Open Database License (ODbL)**
+- Attribution required: **© OpenStreetMap contributors**
+- Data can be used for any purpose with proper attribution
+- See: https://www.openstreetmap.org/copyright
+
+**Attribution:** Data source: OpenStreetMap contributors (ODbL license)
+
+**Data Quality Considerations:**
+- OSM completeness varies by region and depends on volunteer mappers
+- Some Amazon locations may not be mapped in OSM yet
+- Data accuracy depends on community updates
+- Consider contributing to OSM if you know of unmapped Amazon Hubs: https://www.openstreetmap.org/
+
+**Alternative Data Sources Explored:**
+- **Amazon Hub Counter API** (`github.com/amzn/amazon-hub-counter-api-docs`): Partner-only API for stores registering as pickup locations, not for querying locations
+- **Amazon.nl location selector** (`/location_selector` endpoint): Returns HTML, not suitable for automated data extraction
+- **LockerMap.com**: Third-party aggregator using client-side rendering, no public API available
+
+---
+
 ## Supplementary Data Sources
 
 ### Municipality Boundaries
@@ -241,6 +290,7 @@ When using or redistributing this project's outputs, include the following attri
 
 ```
 Data sources:
+- Amazon Hub locations © OpenStreetMap contributors (ODbL)
 - DHL Parcel Netherlands (https://www.dhl.nl)
 - PostNL (https://www.postnl.nl)
 - VintedGo / Mondial Relay (https://vintedgo.com)

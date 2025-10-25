@@ -14,7 +14,7 @@ import numpy as np
 
 def load_municipalities():
     """Load the list of municipalities to process."""
-    with open("municipalities_all.json", "r", encoding="utf-8") as f:
+    with open("../data/municipalities_all.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 def process_municipality(gemeente_data):
