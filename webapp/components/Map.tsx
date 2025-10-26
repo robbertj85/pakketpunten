@@ -202,7 +202,7 @@ function createProviderIcon(provider: string, zoom: number) {
             height: ${logoSize}px;
             object-fit: contain;
           "
-          onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:${fontSize}px;font-weight:bold;color:${info.background}\\'>${provider.substring(0, 2)}</div>';"
+          onerror="this.style.display='none'; const div = document.createElement('div'); div.textContent='${provider.substring(0, 2)}'; div.style.cssText='font-size:${fontSize}px;font-weight:bold;color:${info.background}'; this.parentElement.appendChild(div);"
         />
       </div>
     `,
@@ -245,7 +245,7 @@ function createProviderIconWithBadge(provider: string, count: number) {
               height: 22px;
               object-fit: contain;
             "
-            onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:10px;font-weight:bold;color:${info.background}\\'>${provider.substring(0, 2)}</div>';"
+            onerror="this.style.display='none'; const div = document.createElement('div'); div.textContent='${provider.substring(0, 2)}'; div.style.cssText='font-size:10px;font-weight:bold;color:${info.background}'; this.parentElement.appendChild(div);"
           />
         </div>
         <div style="
@@ -370,11 +370,12 @@ function MapComponent(props?: MapProps) {
 
   // Extract props with defaults AFTER hooks
   const data = props?.data ?? null;
-  const activeFilters = props?.filters ?? {
+  const activeFilters: Filters = props?.filters ?? {
     providers: [],
     showBuffer300: true,
-    showBuffer500: true,
+    showBuffer400: true,
     showBufferFill: false,
+    showBoundary: false,
     useSimpleMarkers: false,
     minOccupancy: 0,
     maxOccupancy: 100,
@@ -404,21 +405,30 @@ function MapComponent(props?: MapProps) {
     if (feature.properties.type === 'buffer_union_300m') {
       return activeFilters.showBuffer300;
     }
-    if (feature.properties.type === 'buffer_union_500m') {
-      return activeFilters.showBuffer500;
+    if (feature.properties.type === 'buffer_union_400m') {
+      return activeFilters.showBuffer400;
+    }
+
+    // Boundary filter
+    if (feature.properties.type === 'boundary') {
+      return activeFilters.showBoundary;
     }
 
     return true;
     });
   }, [data, activeFilters]);
 
-  // Separate points and buffers
+  // Separate points, buffers, and boundaries
   const points = useMemo(() =>
     filteredFeatures.filter(f => f.properties.type === 'pakketpunt'),
     [filteredFeatures]
   );
   const buffers = useMemo(() =>
-    filteredFeatures.filter(f => f.properties.type !== 'pakketpunt'),
+    filteredFeatures.filter(f => f.properties.type === 'buffer_union_300m' || f.properties.type === 'buffer_union_400m'),
+    [filteredFeatures]
+  );
+  const boundaries = useMemo(() =>
+    filteredFeatures.filter(f => f.properties.type === 'boundary'),
     [filteredFeatures]
   );
 
@@ -653,12 +663,12 @@ function MapComponent(props?: MapProps) {
       <ZoomWatcher onZoomChange={setCurrentZoom} />
       <ScaleControl />
 
-      {/* Render buffer zones - sort so 500m renders first (bottom), 300m on top */}
+      {/* Render buffer zones - sort so 400m renders first (bottom), 300m on top */}
       {[...buffers]
         .sort((a, b) => {
-          // Sort so 500m comes first (will be drawn first, on bottom)
-          if (a.properties.type === 'buffer_union_500m') return -1;
-          if (b.properties.type === 'buffer_union_500m') return 1;
+          // Sort so 400m comes first (will be drawn first, on bottom)
+          if (a.properties.type === 'buffer_union_400m') return -1;
+          if (b.properties.type === 'buffer_union_400m') return 1;
           return 0;
         })
         .map((feature, idx) => {
@@ -666,7 +676,7 @@ function MapComponent(props?: MapProps) {
           const fillOpacity = activeFilters.showBufferFill ? (is300m ? 0.25 : 0.30) : 0;
           return (
             <GeoJSON
-              key={`buffer-${feature.properties.type}`}
+              key={`buffer-${data?.metadata?.slug}-${feature.properties.type}`}
               data={feature as any}
               style={() => ({
                 color: is300m ? '#2563eb' : '#60a5fa',  // 300m: darker blue, 500m: lighter blue
@@ -679,6 +689,22 @@ function MapComponent(props?: MapProps) {
             />
           );
         })}
+
+      {/* Render municipal boundaries */}
+      {boundaries.map((feature, idx) => (
+        <GeoJSON
+          key={`boundary-${data?.metadata?.slug}-${idx}`}
+          data={feature as any}
+          style={() => ({
+            color: '#6b7280',  // Medium grey color for boundary
+            fillColor: '#6b7280',
+            weight: 3,  // Thick line for visibility
+            fillOpacity: 0.05,  // Very light fill to show area
+            opacity: 0.85,  // More visible line
+            dashArray: '10, 10',  // Dashed line to distinguish from buffers
+          })}
+        />
+      ))}
 
       {/* Render spider leg lines (shown underneath markers) */}
       {spiderLegLines}

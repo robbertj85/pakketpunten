@@ -67,7 +67,7 @@ npm run lint
 
 **Core Pipeline** (`main.py`):
 1. `api_client.py` → Fetch raw data from multiple carrier APIs
-2. `geo_analysis.py` → Generate buffer zones (300m/500m) in RD projection (EPSG:28992)
+2. `geo_analysis.py` → Generate buffer zones (300m/400m) in RD projection (EPSG:28992)
 3. `visualize.py` → Legacy Folium map generation (static HTML)
 4. `utils.py` → Coordinate transformation, geocoding, data normalization
 
@@ -116,7 +116,7 @@ The Map component implements **adaptive rendering** for handling 1,000-50,000+ m
 
 All GeoJSON features follow this structure:
 - **Pakketpunt features**: `type: 'pakketpunt'` with properties: `locatieNaam`, `straatNaam`, `straatNr`, `vervoerder`, `puntType`, `bezettingsgraad`, `latitude`, `longitude`
-- **Buffer features**: `type: 'buffer_union_300m' | 'buffer_union_500m'` with `buffer_m` property
+- **Buffer features**: `type: 'buffer_union_300m' | 'buffer_union_400m'` with `buffer_m` property
 
 ## Coordinate Reference Systems (CRS)
 
@@ -160,7 +160,7 @@ All API calls use `requests.Session()` with proxy bypass for specific domains (h
   },
   "features": [
     // Pakketpunt features (type: "pakketpunt")
-    // Buffer union features (type: "buffer_union_300m", "buffer_union_500m")
+    // Buffer union features (type: "buffer_union_300m", "buffer_union_400m")
   ]
 }
 ```

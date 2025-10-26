@@ -109,6 +109,12 @@ export async function GET(request: NextRequest) {
       return new NextResponse('Invalid format. Use json or csv', { status: 400 });
     }
 
+    // SECURITY: Validate slug to prevent path traversal attacks
+    // Only allow lowercase letters, numbers, and hyphens
+    if (!slug.match(/^[a-z0-9-]+$/)) {
+      return new NextResponse('Invalid municipality slug', { status: 400 });
+    }
+
     // Read the GeoJSON file
     const filePath = path.join(process.cwd(), 'public', 'data', `${slug}.geojson`);
 

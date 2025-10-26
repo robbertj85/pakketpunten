@@ -243,7 +243,7 @@ gdf_pakketpunten["bezettingsgraad"] = np.random.randint(0, 101, size=len(gdf_pak
 
 **Buffer Types:**
 - **300m radius:** Walking distance (~3-4 minutes)
-- **500m radius:** Extended walking distance (~6-7 minutes)
+- **400m radius:** Extended walking distance (~5 minutes)
 
 **Purpose:**
 - Visualize service coverage areas

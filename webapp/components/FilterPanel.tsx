@@ -7,6 +7,7 @@ interface FilterPanelProps {
   onChange: (filters: Filters) => void;
   availableProviders?: string[];
   providerCounts?: Record<string, number>;
+  boundariesLoading?: boolean;
 }
 
 const PROVIDER_INFO = {
@@ -18,7 +19,7 @@ const PROVIDER_INFO = {
   DPD: { name: 'DPD', color: '#DC0032', textColor: '#FFFFFF' },
 };
 
-export default function FilterPanel({ filters, onChange, availableProviders, providerCounts }: FilterPanelProps) {
+export default function FilterPanel({ filters, onChange, availableProviders, providerCounts, boundariesLoading }: FilterPanelProps) {
   const toggleProvider = (provider: string) => {
     const newProviders = filters.providers.includes(provider)
       ? filters.providers.filter((p) => p !== provider)
@@ -113,11 +114,11 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
           <label className="flex items-center space-x-2 cursor-pointer">
             <input
               type="checkbox"
-              checked={filters.showBuffer500}
-              onChange={(e) => onChange({ ...filters, showBuffer500: e.target.checked })}
+              checked={filters.showBuffer400}
+              onChange={(e) => onChange({ ...filters, showBuffer400: e.target.checked })}
               className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
-            <span className="text-sm text-gray-900">500m buffer lijn</span>
+            <span className="text-sm text-gray-900">400m buffer lijn</span>
           </label>
           <label className="flex items-center space-x-2 cursor-pointer">
             <input
@@ -128,6 +129,19 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
             />
             <span className="text-sm text-gray-900">Buffer opvulling</span>
           </label>
+          <label className="flex items-center space-x-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={filters.showBoundary}
+              onChange={(e) => onChange({ ...filters, showBoundary: e.target.checked })}
+              disabled={boundariesLoading}
+              className="w-4 h-4 text-red-600 rounded focus:ring-2 focus:ring-red-500 disabled:opacity-50"
+            />
+            <span className="text-sm text-gray-900">
+              Gemeentegrens
+              {boundariesLoading && <span className="ml-2 text-xs text-blue-600">(laden...)</span>}
+            </span>
+          </label>
         </div>
       </div>
 
@@ -137,8 +151,9 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
           onChange({
             providers: providers,
             showBuffer300: true,
-            showBuffer500: true,
+            showBuffer400: true,
             showBufferFill: false,
+            showBoundary: false,
             useSimpleMarkers: false,
             minOccupancy: 0,
             maxOccupancy: 100,

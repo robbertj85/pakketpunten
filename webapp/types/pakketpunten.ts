@@ -18,8 +18,9 @@ export interface PakketpuntProperties {
 }
 
 export interface BufferProperties {
-  type: 'buffer_union_300m' | 'buffer_union_500m';
-  buffer_m: number;
+  type: 'buffer_union_300m' | 'buffer_union_400m' | 'boundary';
+  buffer_m?: number;
+  gemeente?: string;
 }
 
 export type FeatureProperties = PakketpuntProperties | BufferProperties;
@@ -49,8 +50,9 @@ export interface PakketpuntData {
 export interface Filters {
   providers: string[];
   showBuffer300: boolean;
-  showBuffer500: boolean;
+  showBuffer400: boolean;
   showBufferFill: boolean;
+  showBoundary: boolean;
   useSimpleMarkers: boolean;
   minOccupancy: number;
   maxOccupancy: number;

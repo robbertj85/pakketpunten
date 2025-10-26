@@ -76,7 +76,7 @@ def add_union_layer(m, union_geom, name, crs_hint=None, fill_opacity=0.15):
     return gdf4326
 
 
-def create_map(filename, gdf_points, buffer_union300=None, buffer_union500=None,
+def create_map(filename, gdf_points, buffer_union300=None, buffer_union400=None,
                buffers_crs_hint=28992, zoom_start=12, tiles="OpenStreetMap"):
     """
     Maak een Folium-kaart met punten en optionele union-buffers.
@@ -88,8 +88,8 @@ def create_map(filename, gdf_points, buffer_union300=None, buffer_union500=None,
         Verwachte (optionele) kolommen: 'locatieNaam', 'straatNaam', 'pakketdienst'.
     buffer_union300 : shapely|GeoSeries|GeoDataFrame | None
         Union-geometry voor 300m buffer (optioneel).
-    buffer_union500 : shapely|GeoSeries|GeoDataFrame | None
-        Union-geometry voor 500m buffer (optioneel).
+    buffer_union400 : shapely|GeoSeries|GeoDataFrame | None
+        Union-geometry voor 400m buffer (optioneel).
     buffers_crs_hint : int | str
         CRS-hint voor de buffer geometrieën (bv. 28992 als ze uit RD komen).
     zoom_start : int
@@ -134,12 +134,12 @@ def create_map(filename, gdf_points, buffer_union300=None, buffer_union500=None,
         )
         bounds_list.append(g300.total_bounds)
 
-    if buffer_union500 is not None:
-        g500 = add_union_layer(
-            m, buffer_union500, "Buffer 500 m (union)",
+    if buffer_union400 is not None:
+        g400 = add_union_layer(
+            m, buffer_union400, "Buffer 400 m (union)",
             crs_hint=buffers_crs_hint, fill_opacity=0.10
         )
-        bounds_list.append(g500.total_bounds)
+        bounds_list.append(g400.total_bounds)
 
     # 4) Auto-zoomen op punten + (eventuele) buffers
     try:

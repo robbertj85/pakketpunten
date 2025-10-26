@@ -24,11 +24,14 @@ export default function Home() {
   const [data, setData] = useState<PakketpuntData | null>(null);
   const [loading, setLoading] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [boundariesLoaded, setBoundariesLoaded] = useState(false);
+  const [boundariesLoading, setBoundariesLoading] = useState(false);
   const [filters, setFilters] = useState<Filters>({
     providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon'],
     showBuffer300: true,
-    showBuffer500: true,
+    showBuffer400: true,
     showBufferFill: false,
+    showBoundary: false,
     useSimpleMarkers: false,
     minOccupancy: 0,
     maxOccupancy: 100,
@@ -54,16 +57,31 @@ export default function Home() {
 
         setMunicipalities(sortedData);
 
-        // Auto-select Zwolle as default
-        const zwolle = sortedData.find((m: Municipality) => m.slug === 'zwolle');
-        if (zwolle) {
-          setSelectedMunicipality('zwolle');
-        } else if (sortedData.length > 0) {
-          setSelectedMunicipality(sortedData[0].slug);
+        // Check localStorage for last selected municipality
+        const lastSelected = localStorage.getItem('lastSelectedMunicipality');
+
+        if (lastSelected && sortedData.find((m: Municipality) => m.slug === lastSelected)) {
+          // Use last selected if it exists in the data
+          setSelectedMunicipality(lastSelected);
+        } else {
+          // Default to Zwolle on first visit
+          const zwolle = sortedData.find((m: Municipality) => m.slug === 'zwolle');
+          if (zwolle) {
+            setSelectedMunicipality('zwolle');
+          } else if (sortedData.length > 0) {
+            setSelectedMunicipality(sortedData[0].slug);
+          }
         }
       })
       .catch((err) => console.error('Error loading municipalities:', err));
   }, []);
+
+  // Save selected municipality to localStorage
+  useEffect(() => {
+    if (selectedMunicipality) {
+      localStorage.setItem('lastSelectedMunicipality', selectedMunicipality);
+    }
+  }, [selectedMunicipality]);
 
   // Load data when municipality changes
   useEffect(() => {
@@ -97,14 +115,19 @@ export default function Home() {
       .then((data) => {
         console.log('Data loaded successfully!', data.metadata);
         setData(data);
+        // Reset boundaries loaded state when changing municipality
+        setBoundariesLoaded(false);
+
         // Reset filters when changing municipality
         // Automatically use simple markers for Nederland view (better performance)
+        // Don't automatically show boundaries - user must click checkbox to load them
         const isNederland = selectedMunicipality === 'nederland';
         setFilters({
           providers: data.metadata.providers || ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon'],
           showBuffer300: true,
-          showBuffer500: true,
+          showBuffer400: true,
           showBufferFill: false,
+          showBoundary: false,
           useSimpleMarkers: isNederland,
           minOccupancy: 0,
           maxOccupancy: 100,
@@ -117,6 +140,40 @@ export default function Home() {
       })
       .finally(() => setLoading(false));
   }, [selectedMunicipality]);
+
+  // Load boundaries separately when user enables them for Nederland view
+  useEffect(() => {
+    // Only load boundaries for Nederland view when user clicks checkbox
+    if (selectedMunicipality !== 'nederland' || !filters.showBoundary || boundariesLoaded || boundariesLoading) {
+      return;
+    }
+
+    setBoundariesLoading(true);
+    console.log('Loading Nederland boundaries...');
+
+    fetch('/data/nederland-boundaries.geojson')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((boundariesData) => {
+        console.log('Boundaries loaded successfully!');
+        // Merge boundary features into existing data
+        if (data) {
+          setData({
+            ...data,
+            features: [...data.features, ...boundariesData.features]
+          });
+        }
+        setBoundariesLoaded(true);
+      })
+      .catch((err) => {
+        console.error('Error loading boundaries:', err);
+      })
+      .finally(() => setBoundariesLoading(false));
+  }, [selectedMunicipality, filters.showBoundary, data, boundariesLoaded, boundariesLoading]);
 
   // Calculate provider counts for filtered data
   const providerCounts = useMemo(() => {
@@ -205,6 +262,7 @@ export default function Home() {
                 onChange={setFilters}
                 availableProviders={data.metadata.providers}
                 providerCounts={providerCounts}
+                boundariesLoading={boundariesLoading}
               />
             </>
           )}

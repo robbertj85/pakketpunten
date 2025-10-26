@@ -14,12 +14,27 @@ export default function DownloadsPage() {
   const [municipalities, setMunicipalities] = useState<Municipality[]>([]);
   const [downloadStatus, setDownloadStatus] = useState<string>('');
   const [isDownloading, setIsDownloading] = useState(false);
+  const [nederlandStats, setNederlandStats] = useState<{ totalPoints: number; municipalityCount: number }>({ totalPoints: 0, municipalityCount: 0 });
 
   useEffect(() => {
     fetch('/municipalities.json')
       .then(res => res.json())
-      .then(setMunicipalities)
+      .then(data => {
+        setMunicipalities(data);
+        // Count municipalities excluding "Nederland"
+        const municipalityCount = data.filter((m: Municipality) => m.slug !== 'nederland').length;
+        setNederlandStats(prev => ({ ...prev, municipalityCount }));
+      })
       .catch(err => console.error('Error loading municipalities:', err));
+
+    // Fetch Nederland data to get total pakketpunten count
+    fetch('/data/nederland.geojson')
+      .then(res => res.json())
+      .then(data => {
+        const totalPoints = data.features.filter((f: any) => f.properties.type === 'pakketpunt').length;
+        setNederlandStats(prev => ({ ...prev, totalPoints }));
+      })
+      .catch(err => console.error('Error loading Nederland data:', err));
   }, []);
 
   const handleDownload = async (slug: string, format: 'json' | 'csv') => {
@@ -85,11 +100,13 @@ export default function DownloadsPage() {
                     Alle {nationalData.population.toLocaleString('nl-NL')} inwoners
                   </p>
                   <p className="text-sm text-gray-600">
-                    Alle 50 gemeentes gecombineerd
+                    Som van alle {nederlandStats.municipalityCount} gemeentes met boundary filtering
                   </p>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Totaal: 4,362 pakketpunten
-                  </p>
+                  {nederlandStats.totalPoints > 0 && (
+                    <p className="text-sm font-semibold text-gray-900 mt-2">
+                      📍 {nederlandStats.totalPoints.toLocaleString('nl-NL')} pakketpunten
+                    </p>
+                  )}
                 </div>
                 <div className="flex gap-2">
                   <button
@@ -188,34 +205,6 @@ export default function DownloadsPage() {
             Downloads worden geteld over alle bestanden heen.
           </p>
         </div>
-
-        {/* Data info */}
-        <section className="mt-8 p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">Data Informatie</h2>
-
-          <div className="space-y-4 text-sm text-gray-700">
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">JSON Format</h3>
-              <p>GeoJSON formaat met volledige geometrie (punten en buffers), geschikt voor GIS-toepassingen en mapping libraries.</p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">CSV Format</h3>
-              <p>Platte tabel met alleen pakketpunt data (geen buffers), geschikt voor Excel, databases en data-analyse.</p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1">Data Bronnen</h3>
-              <p>DHL Parcel, PostNL, VintedGo, De Buren - zie <a href="#" className="text-blue-600 hover:text-blue-800">DATA_SOURCES.md</a> voor details.</p>
-            </div>
-
-            <div className="p-3 bg-amber-50 border border-amber-200 rounded">
-              <p className="text-amber-900">
-                <strong>Let op:</strong> Bezettingsgraad data is willekeurig gegenereerd voor demonstratie en weerspiegelt geen echte capaciteit.
-              </p>
-            </div>
-          </div>
-        </section>
     </>
   );
 }

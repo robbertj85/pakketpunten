@@ -38,7 +38,7 @@ const MarkerClusterGroup = createPathComponent<
 
           // Spiderfy each cluster
           visibleClusters.forEach(function(cluster) {
-            if (cluster.spiderfy && !cluster._spiderfied) {
+            if (cluster.spiderfy && !(cluster as any)._spiderfied) {
               try {
                 cluster.spiderfy();
               } catch (e) {

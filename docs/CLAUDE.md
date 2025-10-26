@@ -127,10 +127,10 @@ The application follows a linear pipeline architecture:
 
 #### `visualize.py` - Map Generation
 - **Purpose**: Creates interactive Folium maps with multiple layers
-- **Function**: `create_map(filename, gdf_points, buffer_union300, buffer_union500, buffers_crs_hint, zoom_start, tiles)`
+- **Function**: `create_map(filename, gdf_points, buffer_union300, buffer_union400, buffers_crs_hint, zoom_start, tiles)`
   - Converts all geometries to EPSG:4326 for web display
   - Uses MarkerCluster for parcel point markers (performance optimization)
-  - Adds optional buffer layers (300m and 500m) with semi-transparent polygons
+  - Adds optional buffer layers (300m and 400m) with semi-transparent polygons
   - Auto-zooms to fit all visible features
   - Saves HTML and opens in browser automatically
 
@@ -140,7 +140,7 @@ The application follows a linear pipeline architecture:
   1. Parse command-line arguments (or use defaults when run from IDE)
   2. Fetch parcel point data for specified municipality
   3. Add dummy "bezettingsgraad" (occupancy rate) column with random data
-  4. Generate 300m and 500m buffer zones
+  4. Generate 300m and 400m buffer zones
   5. Export to GeoPackage or GeoJSON
   6. Generate interactive HTML map
 
@@ -159,9 +159,9 @@ All parcel point data is normalized to a consistent schema with these columns:
 Output layers:
 - `pakketpunten`: All parcel points
 - `buffer_300m`: Unified 300m coverage area
-- `buffer_500m`: Unified 500m coverage area
+- `buffer_400m`: Unified 400m coverage area
 - `dekkingsgraad_300m`: Individual 300m buffers per point
-- `dekkingsgraad_500m`: Individual 500m buffers per point
+- `dekkingsgraad_400m`: Individual 400m buffers per point
 
 ### Coordinate Reference Systems (CRS)
 

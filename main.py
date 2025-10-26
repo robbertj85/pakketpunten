@@ -1,11 +1,11 @@
 from api_client import get_data_pakketpunten
 from geo_analysis import get_bufferzones
 from visualize import create_map
-from utils import save_output
+from utils import save_output, get_gemeente_polygon
 import numpy as np
 import argparse
 import sys
-        
+
 def main(gemeente, filename, format):
     # Laad geodataframe met alle gevonden pakketpunten
     gdf_pakketpunten = get_data_pakketpunten(gemeente)
@@ -13,17 +13,28 @@ def main(gemeente, filename, format):
     # Voeg een extra kolom toe met dummie data over bezettingsgraad
     gdf_pakketpunten["bezettingsgraad"] = np.random.randint(0, 101, size=len(gdf_pakketpunten))
 
-    # voeg een buffer met radius van 300 en 500 meter rondom de pakketpunten toe
+    # voeg een buffer met radius van 300 en 400 meter rondom de pakketpunten toe
     gdf_buffers300, gdf_bufferunion300 = get_bufferzones(gdf_pakketpunten, radius=300)
-    gdf_buffers500, gdf_bufferunion500 = get_bufferzones(gdf_pakketpunten, radius=500)
+    gdf_buffers400, gdf_bufferunion400 = get_bufferzones(gdf_pakketpunten, radius=400)
+
+    # Haal gemeentegrens op
+    try:
+        gdf_boundary = get_gemeente_polygon(gemeente)
+        print(f"  🗺️  Gemeentegrens opgehaald voor '{gemeente}'")
+    except Exception as e:
+        print(f"  ⚠️  Kon gemeentegrens niet ophalen: {e}")
+        gdf_boundary = None
 
     # data opslaan als geopackage of als losse geojsons
     kaartlagen = { "pakketpunten": gdf_pakketpunten,
                   "buffer_300m": gdf_bufferunion300,
-                  "buffer_500m": gdf_bufferunion500, 
+                  "buffer_400m": gdf_bufferunion400,
                   "dekkingsgraad_300m" : gdf_buffers300,
-                  "dekkingsgraad_500m" : gdf_buffers500,
-    } 
+                  "dekkingsgraad_400m" : gdf_buffers400,
+    }
+
+    if gdf_boundary is not None:
+        kaartlagen["boundary"] = gdf_boundary 
 
     # output opslaan als GeoPackage of meerdere losse geojsons
     save_output(kaartlagen, filename, format)
@@ -32,7 +43,7 @@ def main(gemeente, filename, format):
     m = create_map(filename,
     gdf_points=gdf_pakketpunten,          # punten-GDF
     buffer_union300=gdf_bufferunion300,      # optioneel
-    buffer_union500=gdf_bufferunion500,      # optioneel
+    buffer_union400=gdf_bufferunion400,      # optioneel
     buffers_crs_hint=28992,               # buffers komen uit RD (EPSG:28992)
     zoom_start=12,
     tiles="CartoDB positron",             # smaakje

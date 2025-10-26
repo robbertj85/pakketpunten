@@ -81,13 +81,12 @@ export default async function DataMatrixPage() {
         <h2 className="text-lg font-bold text-gray-900 mb-4">Overzicht</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           <div className="text-center p-4 bg-blue-50 rounded-lg">
-            <div className="text-2xl font-bold text-blue-900">{municipalitiesOnly.length}</div>
-            <div className="text-sm text-blue-700">Gemeentes</div>
+            <div className="text-2xl font-bold text-blue-900">{data.length}</div>
+            <div className="text-sm text-blue-700">Locaties</div>
           </div>
           <div className="text-center p-4 bg-green-50 rounded-lg">
             <div className="text-2xl font-bold text-green-900">{grandTotal.toLocaleString('nl-NL')}</div>
             <div className="text-sm text-green-700">Totaal Pakketpunten</div>
-            <div className="text-xs text-green-600 mt-1">(excl. Nederland)</div>
           </div>
           {providers.map(provider => (
             <div key={provider} className="text-center p-4 bg-gray-50 rounded-lg">
@@ -181,7 +180,11 @@ export default async function DataMatrixPage() {
         <ul className="text-sm text-gray-700 space-y-2">
           <li className="flex items-center">
             <span className="w-4 h-4 bg-blue-50 border border-blue-200 rounded mr-2"></span>
-            <strong className="mr-1">Nederland</strong> - Landelijk overzicht (bevat ontdubbelde data van alle gemeentes)
+            <strong className="mr-1">Nederland</strong> - Landelijk overzicht (exacte som van alle gemeentes met boundary filtering)
+          </li>
+          <li className="flex items-center">
+            <span className="text-green-600 font-semibold mr-2">✓</span>
+            <strong className="mr-1">Totalen</strong> - Som van alle gemeentes per vervoerder komt overeen met Nederland totaal
           </li>
           <li className="flex items-center">
             <span className="text-amber-600 font-semibold mr-2">50</span>
