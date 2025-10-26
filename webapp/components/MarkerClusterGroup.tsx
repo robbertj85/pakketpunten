@@ -54,7 +54,7 @@ const MarkerClusterGroup = createPathComponent<
       const autoSpiderfyAll = () => {
         setTimeout(() => {
           clusterGroup.eachLayer(function(layer: any) {
-            if (layer instanceof L.MarkerCluster && layer.spiderfy && !layer._spiderfied) {
+            if (layer instanceof L.MarkerCluster && layer.spiderfy && !(layer as any)._spiderfied) {
               try {
                 layer.spiderfy();
               } catch (e) {
