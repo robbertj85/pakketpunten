@@ -1,0 +1,47 @@
+name: Test Rotterdam Boundary
+
+on:
+  # Allow manual trigger only
+  workflow_dispatch:
+
+jobs:
+  test-rotterdam:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Generate Rotterdam data with new boundary
+        run: python test_rotterdam.py
+        working-directory: ${{ github.workspace }}
+
+      - name: Check generated file
+        run: |
+          echo "📁 Rotterdam GeoJSON:"
+          ls -lh webapp/public/data/rotterdam.geojson
+          echo ""
+          echo "📊 Metadata:"
+          cat webapp/public/data/rotterdam.geojson | jq '.metadata'
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push if changed
+        run: |
+          git add webapp/public/data/rotterdam.geojson
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🧪 Test Rotterdam boundary (admin_level=8) - $(date +'%Y-%m-%d %H:%M UTC')" && git push)

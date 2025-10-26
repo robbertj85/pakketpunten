@@ -12,9 +12,15 @@ from pathlib import Path
 
 # ---------- loading data ----------
 
+# Cache for gemeente polygons to avoid duplicate Overpass API calls
+_gemeente_polygon_cache = {}
+
 def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     """
-    Haalt de exacte gemeentegrens (polygon) op uit OpenStreetMap via Nominatim's GeoJSON.
+    Haalt de exacte gemeentegrens (polygon) op uit OpenStreetMap via Overpass API.
+
+    Deze functie gebruikt admin_level=8 om volledige gemeentegrenzen op te halen,
+    inclusief samengevoegde gebieden (bijv. Rotterdam met Hoek van Holland en Rozenburg).
 
     Parameters
     ----------
@@ -31,37 +37,57 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     import time
     from shapely.geometry import shape
 
-    # Use Nominatim to get boundary polygon directly (simpler than Overpass)
-    query = f"{gemeente_naam}, {country_hint}" if country_hint else gemeente_naam
+    # Check cache first to avoid duplicate API calls
+    cache_key = f"{gemeente_naam}:{country_hint}"
+    if cache_key in _gemeente_polygon_cache:
+        return _gemeente_polygon_cache[cache_key]
 
-    # Add rate limiting (1 request per second for Nominatim)
+    # Add rate limiting for Overpass API (be nice to the server)
     time.sleep(1)
 
     try:
-        # Use Nominatim's polygon_geojson parameter to get the boundary
-        url = "https://nominatim.openstreetmap.org/search"
-        params = {
-            'q': query,
-            'format': 'geojson',
-            'polygon_geojson': 1,
-            'limit': 1
-        }
-        headers = {'User-Agent': 'pakketpunten_boundary_fetcher/1.0'}
+        # Use Overpass API to get admin_level=8 boundary (municipality level)
+        # This ensures we get the full municipality, not just the city center
+        overpass_url = "https://overpass-api.de/api/interpreter"
 
-        response = requests.get(url, params=params, headers=headers, timeout=30)
+        # Overpass QL query to find municipality boundary with admin_level=8
+        query = f"""
+        [out:json][timeout:30];
+        area["name"="{gemeente_naam}"]["admin_level"="8"]["boundary"="administrative"]->.searchArea;
+        (
+          relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"];
+        );
+        out geom;
+        """
+
+        response = requests.post(
+            overpass_url,
+            data={'data': query},
+            headers={'User-Agent': 'pakketpunten_boundary_fetcher/1.0'},
+            timeout=60
+        )
         response.raise_for_status()
         data = response.json()
 
-        if not data.get('features'):
-            raise ValueError(f"Gemeente '{gemeente_naam}' niet gevonden via Nominatim.")
+        if not data.get('elements') or len(data['elements']) == 0:
+            raise ValueError(f"Gemeente '{gemeente_naam}' niet gevonden via Overpass API (admin_level=8).")
 
-        feature = data['features'][0]
+        # Get the first relation (should be the municipality boundary)
+        relation = data['elements'][0]
 
-        if 'geometry' not in feature or not feature['geometry']:
-            raise ValueError(f"Geen geometry gevonden voor '{gemeente_naam}'.")
+        if relation['type'] != 'relation':
+            raise ValueError(f"Verwachtte een relation, kreeg {relation['type']}.")
 
-        # Convert GeoJSON geometry to Shapely geometry
-        geom = shape(feature['geometry'])
+        # Extract geometry from Overpass format
+        # Overpass returns geometry in "members" array with "geometry" field
+        geojson_feature = {
+            "type": "Feature",
+            "properties": relation.get('tags', {}),
+            "geometry": _extract_geometry_from_overpass(relation)
+        }
+
+        # Convert to Shapely geometry
+        geom = shape(geojson_feature['geometry'])
 
         # Validate and fix geometry (common OSM issue: self-intersections)
         if not geom.is_valid:
@@ -78,15 +104,104 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
             crs="EPSG:4326"
         )
 
+        # Cache the result
+        _gemeente_polygon_cache[cache_key] = gdf
+
         return gdf
 
     except requests.RequestException as e:
-        raise ValueError(f"Nominatim API fout voor '{gemeente_naam}': {e}")
+        raise ValueError(f"Overpass API fout voor '{gemeente_naam}': {e}")
+
+
+def _extract_geometry_from_overpass(relation):
+    """
+    Extracts GeoJSON geometry from an Overpass API relation response.
+
+    Overpass returns relations with members (ways) that need to be connected
+    end-to-end to form the complete municipality boundary polygon.
+    """
+    from shapely.geometry import Polygon, MultiPolygon, LineString, mapping
+    from shapely.ops import linemerge, unary_union, polygonize
+
+    # Collect all outer and inner ways
+    outer_ways = []
+    inner_ways = []
+
+    for member in relation.get('members', []):
+        if member['type'] != 'way':
+            continue
+
+        role = member.get('role', '')
+        geometry = member.get('geometry', [])
+
+        if not geometry:
+            continue
+
+        # Convert coordinate list to coordinates
+        coords = [(point['lon'], point['lat']) for point in geometry]
+
+        if role == 'outer':
+            outer_ways.append(coords)
+        elif role == 'inner':
+            inner_ways.append(coords)
+
+    if not outer_ways:
+        raise ValueError("Geen outer ways gevonden in relation.")
+
+    # Connect outer ways end-to-end to form continuous rings
+    # OSM relations split boundaries into multiple ways that connect
+    outer_lines = [LineString(coords) for coords in outer_ways if len(coords) >= 2]
+
+    if not outer_lines:
+        raise ValueError("Geen geldige outer ways gevonden.")
+
+    # Merge connected linestrings into continuous lines
+    merged = linemerge(outer_lines)
+
+    # Convert merged lines to polygon(s)
+    if merged.geom_type == 'LineString':
+        # Single ring - create one polygon
+        if not merged.is_closed:
+            # Close the ring
+            coords = list(merged.coords)
+            coords.append(coords[0])
+            merged = LineString(coords)
+
+        geom = Polygon(merged)
+
+    elif merged.geom_type == 'MultiLineString':
+        # Multiple rings - try to polygonize
+        polygons = list(polygonize(merged))
+
+        if not polygons:
+            # If polygonize fails, try creating polygons from closed rings
+            polygons = []
+            for line in merged.geoms:
+                if line.is_closed or line.coords[0] == line.coords[-1]:
+                    try:
+                        polygons.append(Polygon(line))
+                    except:
+                        continue
+
+        if len(polygons) == 0:
+            raise ValueError("Kon geen polygons maken uit outer ways.")
+        elif len(polygons) == 1:
+            geom = polygons[0]
+        else:
+            geom = MultiPolygon(polygons)
+    else:
+        raise ValueError(f"Unexpected geometry type after merge: {merged.geom_type}")
+
+    # Convert to GeoJSON
+    return mapping(geom)
 
 
 def get_gemeente_geometry(gemeente_naam: str, mode: str = "bbox", country_hint: str = "Nederland"):
     """
-    Haalt geometrische info van een gemeente uit OpenStreetMap.
+    Haalt geometrische info van een gemeente uit OpenStreetMap via admin_level=8 boundary.
+
+    Deze functie haalt de EXACTE gemeentegrens (admin_level=8) op en berekent daaruit
+    de bbox of circle, zodat de zoekparameters consistent zijn met de boundary filtering.
 
     Parameters
     ----------
@@ -105,19 +220,12 @@ def get_gemeente_geometry(gemeente_naam: str, mode: str = "bbox", country_hint: 
         - bbox   -> (lat_min, lon_min, lat_max, lon_max)
         - circle -> (center_lat, center_lon, radius_meters)
     """
-    geolocator = Nominatim(user_agent="gemeente_locator", timeout=10)
-    query = f"{gemeente_naam}, {country_hint}" if country_hint else gemeente_naam
-    location = geolocator.geocode(query, exactly_one=True, addressdetails=True)
+    # Get the exact municipality boundary (admin_level=8)
+    gdf = get_gemeente_polygon(gemeente_naam, country_hint)
 
-    if not location:
-        raise ValueError(f"Gemeente '{gemeente_naam}' niet gevonden.")
-
-
-    bbox = location.raw.get("boundingbox")  # [south, north, west, east]
-    if not bbox or len(bbox) != 4:
-        raise ValueError(f"Geen geldige bounding box gevonden voor '{gemeente_naam}'.")
-
-    south, north, west, east = map(float, bbox)
+    # Extract bounds from the polygon
+    bounds = gdf.total_bounds  # [minx, miny, maxx, maxy]
+    west, south, east, north = bounds
 
     bottom_left_lat = south
     bottom_left_lon = west
