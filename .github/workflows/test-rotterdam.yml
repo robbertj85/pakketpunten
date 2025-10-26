@@ -24,13 +24,10 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Fetch DHL grid data (nationwide cache)
-        run: python scripts/dhl_grid_fetch.py
-        working-directory: ${{ github.workspace }}
-
-      - name: Fetch DPD data (nationwide cache)
-        run: python scripts/dpd_fetch_all.py
-        working-directory: ${{ github.workspace }}
+      - name: Check DHL/DPD cache files
+        run: |
+          ls -lh data/dhl_all_locations.json data/dpd_all_locations.json
+          echo "Using existing cache files (committed to repo)"
 
       - name: Generate Rotterdam data with new boundary
         run: python test_rotterdam.py
