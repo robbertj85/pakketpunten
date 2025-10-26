@@ -45,12 +45,12 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Cache GeoJSON files for 1 week with compression
+        // Cache GeoJSON files for 1 hour to allow updates to propagate
         source: '/data/:path*.geojson',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=604800, stale-while-revalidate=86400',
+            value: 'public, max-age=3600, must-revalidate',
           },
           {
             key: 'Content-Type',
