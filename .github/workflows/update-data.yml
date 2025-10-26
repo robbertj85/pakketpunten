@@ -2,8 +2,8 @@ name: Update Pakketpunten Data
 
 on:
   schedule:
-    # Run daily at 02:00 UTC
-    - cron: '0 2 * * *'
+    # Run weekly on Monday at 02:00 UTC (Sunday night to Monday)
+    - cron: '0 2 * * 1'
   # Allow manual trigger
   workflow_dispatch:
 
@@ -28,14 +28,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Generate pakketpunten data
-        run: |
-          python batch_generate.py
-
-      - name: Copy data to webapp
-        run: |
-          mkdir -p webapp/public/data
-          cp -r public/data/* webapp/public/data/
-          cp municipalities.json webapp/public/
+        run: python scripts/batch_generate.py
+        working-directory: ${{ github.workspace }}
 
       - name: Configure Git
         run: |
@@ -44,5 +38,5 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git add webapp/public/data webapp/public/municipalities.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update pakketpunten data - $(date +'%Y-%m-%d %H:%M')" && git push)
+          git add webapp/public/data/*.geojson webapp/public/data/*.geojson.gz webapp/public/municipalities.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update pakketpunten data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)

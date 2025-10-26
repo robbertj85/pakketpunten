@@ -3,6 +3,8 @@ Create a national overview by aggregating all municipality data
 """
 
 import json
+import gzip
+import shutil
 from pathlib import Path
 import geopandas as gpd
 from shapely.geometry import shape
@@ -14,54 +16,37 @@ def create_national_overview():
     print("🇳🇱 Creating National Overview...")
 
     data_dir = Path("webapp/public/data")
-    geojson_files = list(data_dir.glob("*.geojson"))
+    # Exclude nederland.geojson to avoid processing it during aggregation
+    geojson_files = [f for f in data_dir.glob("*.geojson") if f.name != "nederland.geojson"]
 
     if not geojson_files:
         print("❌ No GeoJSON files found!")
         return
 
-    print(f"Found {len(geojson_files)} municipality files")
+    print(f"Found {len(geojson_files)} municipality files (excluding nederland.geojson)")
 
     all_features = []
-    all_points = []
+    boundary_features = []
     provider_stats = {}
-    total_points = 0
-
-    # Track unique locations to detect duplicates
-    unique_locations = {}  # key: (lon, lat, provider, name) -> feature
 
     # Read all GeoJSON files
     for geojson_file in geojson_files:
-        print(f"  Processing {geojson_file.name}...")
-
         with open(geojson_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
-        # Extract just the pakketpunt features (not buffers)
+        # Extract pakketpunt features and boundary features (not buffers)
         for feature in data['features']:
             if feature['properties'].get('type') == 'pakketpunt':
-                # Create unique key for deduplication
-                coords = feature['geometry']['coordinates']
+                all_features.append(feature)
+
+                # Count by provider
                 provider = feature['properties'].get('vervoerder', 'Unknown')
-                name = feature['properties'].get('locatieNaam', 'Unknown')
+                provider_stats[provider] = provider_stats.get(provider, 0) + 1
+            elif feature['properties'].get('type') == 'boundary':
+                boundary_features.append(feature)
 
-                # Round coordinates to 6 decimal places (~10cm precision)
-                key = (
-                    round(coords[0], 6),
-                    round(coords[1], 6),
-                    provider,
-                    name
-                )
-
-                # Only add if we haven't seen this exact location+provider+name before
-                if key not in unique_locations:
-                    unique_locations[key] = feature
-                    all_features.append(feature)
-                    all_points.append(feature)
-
-                    # Count by provider
-                    provider_stats[provider] = provider_stats.get(provider, 0) + 1
-                    total_points += 1
+    total_points = len(all_features)
+    print(f"\n📊 Processed {len(geojson_files)} municipality files")
 
     print(f"\n📊 National Statistics:")
     print(f"  Total points: {total_points}")
@@ -73,7 +58,7 @@ def create_national_overview():
     gdf = gpd.GeoDataFrame.from_features(all_features, crs="EPSG:4326")
     bounds = gdf.total_bounds  # [minx, miny, maxx, maxy]
 
-    # Create national GeoJSON
+    # Create national GeoJSON (pakketpunten only - no boundaries)
     national_data = {
         "type": "FeatureCollection",
         "metadata": {
@@ -89,17 +74,61 @@ def create_national_overview():
         "features": all_features
     }
 
-    # Save national overview
+    # Save national overview (pakketpunten only)
     output_file = data_dir / "nederland.geojson"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(national_data, f, ensure_ascii=False, indent=2)
 
+    # Create gzipped version
+    gz_file = Path(str(output_file) + '.gz')
+    with open(output_file, 'rb') as f_in:
+        with gzip.open(gz_file, 'wb', compresslevel=9) as f_out:
+            shutil.copyfileobj(f_in, f_out)
+
     file_size_mb = output_file.stat().st_size / (1024 * 1024)
+    gz_size_mb = gz_file.stat().st_size / (1024 * 1024)
+    compression_ratio = (1 - gz_size_mb / file_size_mb) * 100
+
     print(f"\n✅ National overview created:")
     print(f"   File: {output_file}")
     print(f"   Size: {file_size_mb:.1f} MB")
+    print(f"   Gzipped: {gz_size_mb:.1f} MB ({compression_ratio:.1f}% reduction)")
     print(f"   Points: {total_points}")
     print(f"   Municipalities: {len(geojson_files)}")
+
+    # Create separate boundaries file
+    boundaries_data = {
+        "type": "FeatureCollection",
+        "metadata": {
+            "gemeente": "Nederland",
+            "slug": "nederland-boundaries",
+            "generated_at": pd.Timestamp.now().isoformat() + "Z",
+            "municipalities_included": len(geojson_files),
+            "boundaries_count": len(boundary_features)
+        },
+        "features": boundary_features
+    }
+
+    # Save boundaries separately
+    boundaries_file = data_dir / "nederland-boundaries.geojson"
+    with open(boundaries_file, 'w', encoding='utf-8') as f:
+        json.dump(boundaries_data, f, ensure_ascii=False, indent=2)
+
+    # Create gzipped version of boundaries
+    boundaries_gz_file = Path(str(boundaries_file) + '.gz')
+    with open(boundaries_file, 'rb') as f_in:
+        with gzip.open(boundaries_gz_file, 'wb', compresslevel=9) as f_out:
+            shutil.copyfileobj(f_in, f_out)
+
+    boundaries_size_mb = boundaries_file.stat().st_size / (1024 * 1024)
+    boundaries_gz_size_mb = boundaries_gz_file.stat().st_size / (1024 * 1024)
+    boundaries_compression_ratio = (1 - boundaries_gz_size_mb / boundaries_size_mb) * 100
+
+    print(f"\n✅ Boundaries file created:")
+    print(f"   File: {boundaries_file}")
+    print(f"   Size: {boundaries_size_mb:.1f} MB")
+    print(f"   Gzipped: {boundaries_gz_size_mb:.1f} MB ({boundaries_compression_ratio:.1f}% reduction)")
+    print(f"   Boundaries: {len(boundary_features)}")
 
     return provider_stats
 

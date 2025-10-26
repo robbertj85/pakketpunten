@@ -6,15 +6,26 @@ This script is designed to be run daily via GitHub Actions.
 import json
 import sys
 import time
+import gzip
+import shutil
 from pathlib import Path
 from datetime import datetime
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from api_client import get_data_pakketpunten
 from geo_analysis import get_bufferzones
+from utils import get_gemeente_polygon
 import numpy as np
+import geopandas as gpd
 
 def load_municipalities():
     """Load the list of municipalities to process."""
-    with open("../data/municipalities_all.json", "r", encoding="utf-8") as f:
+    # Use path relative to script location, not current working directory
+    script_dir = Path(__file__).parent
+    municipalities_file = script_dir.parent / "data" / "municipalities_all.json"
+    with open(municipalities_file, "r", encoding="utf-8") as f:
         return json.load(f)
 
 def process_municipality(gemeente_data):
@@ -54,14 +65,14 @@ def process_municipality(gemeente_data):
 
         # Generate buffers
         gdf_buffers300, gdf_bufferunion300 = get_bufferzones(gdf_pakketpunten, radius=300)
-        gdf_buffers500, gdf_bufferunion500 = get_bufferzones(gdf_pakketpunten, radius=500)
+        gdf_buffers400, gdf_bufferunion400 = get_bufferzones(gdf_pakketpunten, radius=400)
 
         # Convert back to WGS84 for web display
         gdf_buffers300_wgs = gdf_buffers300.to_crs(epsg=4326)
-        gdf_buffers500_wgs = gdf_buffers500.to_crs(epsg=4326)
+        gdf_buffers400_wgs = gdf_buffers400.to_crs(epsg=4326)
 
-        # Prepare output directory
-        output_dir = Path("public/data")
+        # Prepare output directory (relative to project root, not scripts dir)
+        output_dir = Path(__file__).parent.parent / "webapp" / "public" / "data"
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Save as single comprehensive GeoJSON with all layers
@@ -103,17 +114,34 @@ def process_municipality(gemeente_data):
                 }
             })
 
-        # Add buffer union 500m
-        for _, row in gdf_bufferunion500.iterrows():
+        # Add buffer union 400m
+        for _, row in gdf_bufferunion400.iterrows():
             geom = row.geometry
             features.append({
                 "type": "Feature",
                 "geometry": json.loads(gpd.GeoSeries([geom]).to_json())["features"][0]["geometry"],
                 "properties": {
-                    "type": "buffer_union_500m",
-                    "buffer_m": 500
+                    "type": "buffer_union_400m",
+                    "buffer_m": 400
                 }
             })
+
+        # Add municipality boundary
+        try:
+            gdf_boundary = get_gemeente_polygon(gemeente_name)
+            for _, row in gdf_boundary.iterrows():
+                geom = row.geometry
+                features.append({
+                    "type": "Feature",
+                    "geometry": json.loads(gpd.GeoSeries([geom]).to_json())["features"][0]["geometry"],
+                    "properties": {
+                        "type": "boundary",
+                        "gemeente": gemeente_name
+                    }
+                })
+            print(f"  🗺️  Municipality boundary added")
+        except Exception as e:
+            print(f"  ⚠️  Could not add boundary: {e}")
 
         # Create GeoJSON structure with metadata
         geojson_data = {
@@ -133,19 +161,29 @@ def process_municipality(gemeente_data):
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(geojson_data, f, ensure_ascii=False, indent=2)
 
-        # Calculate file size
+        # Create gzipped version for faster loading
+        gz_file = Path(str(output_file) + '.gz')
+        with open(output_file, 'rb') as f_in:
+            with gzip.open(gz_file, 'wb', compresslevel=9) as f_out:
+                shutil.copyfileobj(f_in, f_out)
+
+        # Calculate file sizes
         file_size_kb = output_file.stat().st_size / 1024
+        gz_size_kb = gz_file.stat().st_size / 1024
+        compression_ratio = (1 - gz_size_kb / file_size_kb) * 100
 
         print(f"✅ Success!")
         print(f"   Points found: {len(gdf_pakketpunten)}")
         print(f"   Providers: {', '.join(gdf_pakketpunten['vervoerder'].unique())}")
         print(f"   File size: {file_size_kb:.1f} KB")
+        print(f"   Gzipped: {gz_size_kb:.1f} KB ({compression_ratio:.1f}% reduction)")
         print(f"   Output: {output_file}")
 
         return {
             "success": True,
             "count": len(gdf_pakketpunten),
-            "file_size_kb": file_size_kb
+            "file_size_kb": file_size_kb,
+            "gz_size_kb": gz_size_kb
         }
 
     except Exception as e:
