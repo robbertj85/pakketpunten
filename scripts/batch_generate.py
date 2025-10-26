@@ -52,8 +52,31 @@ def process_municipality(gemeente_data):
         gdf_pakketpunten, carrier_status = get_data_pakketpunten(gemeente_name, return_carrier_status=True)
 
         if gdf_pakketpunten.empty:
-            print(f"⚠️  No data found for {gemeente_name}")
-            return {"success": False, "error": "No data found", "count": 0, "carrier_status": carrier_status}
+            print(f"⚠️  No data found for {gemeente_name}, creating empty GeoJSON")
+
+            # Create empty GeoJSON for municipalities with no data
+            output_dir = Path(__file__).parent.parent / "webapp" / "public" / "data"
+            output_dir.mkdir(parents=True, exist_ok=True)
+            output_file = output_dir / f"{slug}.geojson"
+
+            empty_geojson = {
+                "type": "FeatureCollection",
+                "metadata": {
+                    "gemeente": gemeente_name,
+                    "slug": slug,
+                    "generated_at": datetime.utcnow().isoformat() + "Z",
+                    "total_points": 0,
+                    "providers": [],
+                    "bounds": []
+                },
+                "features": []
+            }
+
+            with open(output_file, "w", encoding="utf-8") as f:
+                json.dump(empty_geojson, f, ensure_ascii=False, indent=2)
+
+            print(f"✅ Created empty GeoJSON for {gemeente_name}")
+            return {"success": True, "error": "No data found (empty GeoJSON created)", "count": 0, "carrier_status": carrier_status}
 
         # Add dummy occupancy data
         gdf_pakketpunten["bezettingsgraad"] = np.random.randint(0, 101, size=len(gdf_pakketpunten))
@@ -298,9 +321,14 @@ def main():
     print(f"\n💾 Summary saved to: {summary_file}")
     print(f"⏰ Completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Exit with error code if any failed
-    if failed:
+    # Exit with error code only if any had real errors (not just "no data")
+    real_failures = [r for r in failed if "No data found" not in r.get('error', '')]
+    if real_failures:
+        print(f"\n⚠️  {len(real_failures)} municipalities had real errors (not just no data)")
         sys.exit(1)
+    else:
+        print(f"\n✅ All municipalities processed successfully (some may have no data)")
+        sys.exit(0)
 
 if __name__ == "__main__":
     import geopandas as gpd  # Import here to avoid issues with module-level imports
