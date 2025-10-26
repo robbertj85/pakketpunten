@@ -6,8 +6,6 @@ This script is designed to be run daily via GitHub Actions.
 import json
 import sys
 import time
-import gzip
-import shutil
 from pathlib import Path
 from datetime import datetime
 
@@ -161,22 +159,13 @@ def process_municipality(gemeente_data):
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(geojson_data, f, ensure_ascii=False, indent=2)
 
-        # Create gzipped version for faster loading
-        gz_file = Path(str(output_file) + '.gz')
-        with open(output_file, 'rb') as f_in:
-            with gzip.open(gz_file, 'wb', compresslevel=9) as f_out:
-                shutil.copyfileobj(f_in, f_out)
-
-        # Calculate file sizes
+        # Calculate file size
         file_size_kb = output_file.stat().st_size / 1024
-        gz_size_kb = gz_file.stat().st_size / 1024
-        compression_ratio = (1 - gz_size_kb / file_size_kb) * 100
 
         print(f"✅ Success!")
         print(f"   Points found: {len(gdf_pakketpunten)}")
         print(f"   Providers: {', '.join(gdf_pakketpunten['vervoerder'].unique())}")
         print(f"   File size: {file_size_kb:.1f} KB")
-        print(f"   Gzipped: {gz_size_kb:.1f} KB ({compression_ratio:.1f}% reduction)")
         print(f"   Output: {output_file}")
 
         # Display carrier-level status
@@ -188,7 +177,6 @@ def process_municipality(gemeente_data):
             "success": True,
             "count": len(gdf_pakketpunten),
             "file_size_kb": file_size_kb,
-            "gz_size_kb": gz_size_kb,
             "carrier_status": carrier_status,
             "generated_at": datetime.utcnow().isoformat() + "Z"
         }

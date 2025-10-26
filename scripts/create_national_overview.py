@@ -3,8 +3,6 @@ Create a national overview by aggregating all municipality data
 """
 
 import json
-import gzip
-import shutil
 from pathlib import Path
 import geopandas as gpd
 from shapely.geometry import shape
@@ -79,20 +77,11 @@ def create_national_overview():
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(national_data, f, ensure_ascii=False, indent=2)
 
-    # Create gzipped version
-    gz_file = Path(str(output_file) + '.gz')
-    with open(output_file, 'rb') as f_in:
-        with gzip.open(gz_file, 'wb', compresslevel=9) as f_out:
-            shutil.copyfileobj(f_in, f_out)
-
     file_size_mb = output_file.stat().st_size / (1024 * 1024)
-    gz_size_mb = gz_file.stat().st_size / (1024 * 1024)
-    compression_ratio = (1 - gz_size_mb / file_size_mb) * 100
 
     print(f"\n✅ National overview created:")
     print(f"   File: {output_file}")
     print(f"   Size: {file_size_mb:.1f} MB")
-    print(f"   Gzipped: {gz_size_mb:.1f} MB ({compression_ratio:.1f}% reduction)")
     print(f"   Points: {total_points}")
     print(f"   Municipalities: {len(geojson_files)}")
 
@@ -114,20 +103,11 @@ def create_national_overview():
     with open(boundaries_file, 'w', encoding='utf-8') as f:
         json.dump(boundaries_data, f, ensure_ascii=False, indent=2)
 
-    # Create gzipped version of boundaries
-    boundaries_gz_file = Path(str(boundaries_file) + '.gz')
-    with open(boundaries_file, 'rb') as f_in:
-        with gzip.open(boundaries_gz_file, 'wb', compresslevel=9) as f_out:
-            shutil.copyfileobj(f_in, f_out)
-
     boundaries_size_mb = boundaries_file.stat().st_size / (1024 * 1024)
-    boundaries_gz_size_mb = boundaries_gz_file.stat().st_size / (1024 * 1024)
-    boundaries_compression_ratio = (1 - boundaries_gz_size_mb / boundaries_size_mb) * 100
 
     print(f"\n✅ Boundaries file created:")
     print(f"   File: {boundaries_file}")
     print(f"   Size: {boundaries_size_mb:.1f} MB")
-    print(f"   Gzipped: {boundaries_gz_size_mb:.1f} MB ({boundaries_compression_ratio:.1f}% reduction)")
     print(f"   Boundaries: {len(boundary_features)}")
 
     return provider_stats
