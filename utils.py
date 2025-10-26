@@ -12,6 +12,78 @@ from pathlib import Path
 
 # ---------- loading data ----------
 
+def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
+    """
+    Haalt de exacte gemeentegrens (polygon) op uit OpenStreetMap via Nominatim's GeoJSON.
+
+    Parameters
+    ----------
+    gemeente_naam : str
+        Naam van de gemeente, bv. "Utrecht".
+    country_hint : str
+        Optioneel land als zoekfilter (default: "Nederland").
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        GeoDataFrame met de gemeentegrens als polygon geometry (EPSG:4326).
+    """
+    import time
+    from shapely.geometry import shape
+
+    # Use Nominatim to get boundary polygon directly (simpler than Overpass)
+    query = f"{gemeente_naam}, {country_hint}" if country_hint else gemeente_naam
+
+    # Add rate limiting (1 request per second for Nominatim)
+    time.sleep(1)
+
+    try:
+        # Use Nominatim's polygon_geojson parameter to get the boundary
+        url = "https://nominatim.openstreetmap.org/search"
+        params = {
+            'q': query,
+            'format': 'geojson',
+            'polygon_geojson': 1,
+            'limit': 1
+        }
+        headers = {'User-Agent': 'pakketpunten_boundary_fetcher/1.0'}
+
+        response = requests.get(url, params=params, headers=headers, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+
+        if not data.get('features'):
+            raise ValueError(f"Gemeente '{gemeente_naam}' niet gevonden via Nominatim.")
+
+        feature = data['features'][0]
+
+        if 'geometry' not in feature or not feature['geometry']:
+            raise ValueError(f"Geen geometry gevonden voor '{gemeente_naam}'.")
+
+        # Convert GeoJSON geometry to Shapely geometry
+        geom = shape(feature['geometry'])
+
+        # Validate and fix geometry (common OSM issue: self-intersections)
+        if not geom.is_valid:
+            print(f"  ⚠️  Invalid geometry detected for '{gemeente_naam}', attempting to fix...")
+            geom = geom.buffer(0)  # Fix self-intersections and topology errors
+
+        if not geom.is_valid:
+            raise ValueError(f"Kon geometry voor '{gemeente_naam}' niet repareren.")
+
+        # Create GeoDataFrame
+        gdf = gpd.GeoDataFrame(
+            {'gemeente': [gemeente_naam]},
+            geometry=[geom],
+            crs="EPSG:4326"
+        )
+
+        return gdf
+
+    except requests.RequestException as e:
+        raise ValueError(f"Nominatim API fout voor '{gemeente_naam}': {e}")
+
+
 def get_gemeente_geometry(gemeente_naam: str, mode: str = "bbox", country_hint: str = "Nederland"):
     """
     Haalt geometrische info van een gemeente uit OpenStreetMap.

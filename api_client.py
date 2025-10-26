@@ -2,7 +2,7 @@
 import requests
 import pandas as pd, geopandas as gpd
 from utils import extract_js_array, parse_locations_any
-from utils import make_session, get_gemeente_geometry, fetch_json, json_to_dataframe, df_to_gdf, extract_points_array
+from utils import make_session, get_gemeente_geometry, get_gemeente_polygon, fetch_json, json_to_dataframe, df_to_gdf, extract_points_array
 
 # ---------- data ophalen voor "De Buren" ----------
 
@@ -389,24 +389,93 @@ def get_data_vintedgo(lat, lon, south, west, north, east):
 
 # ---------- maak 1 dataset van alle gevonden pakketpunten ----------
 
-def get_data_pakketpunten(gemeente):
+def get_data_pakketpunten(gemeente, return_carrier_status=False):
 
     # haal coordinaten op voor het zoekgebied o.b.v. de gemeente
     lat, lon, radius = get_gemeente_geometry(gemeente, mode="circle")
     bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon = get_gemeente_geometry(gemeente, mode="bbox")
     south, west, north, east = bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon
 
-    # gdf_amazon = get_data_amazon(lat, lon, radius)  # Disabled: No OSM data available yet
-    gdf_deburen = get_data_deburen(gemeente)
-    gdf_dhl = get_data_dhl(lat, lon, radius)
-    gdf_dpd = get_data_dpd(gemeente)
-    gdf_postnl = get_data_postnl(bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon)
-    gdf_vintedgo = get_data_vintedgo(lat, lon, south, west, north, east)
+    # Track carrier-level success/failure
+    carrier_status = {}
+    gdfs_to_concat = []
 
-    gdf = gpd.GeoDataFrame(
-    pd.concat([gdf_dhl, gdf_dpd, gdf_postnl, gdf_vintedgo, gdf_deburen], ignore_index=True),
-    crs=gdf_dhl.crs  # beide hebben CRS EPSG:4326 als het goed is
-    )
+    # gdf_amazon = get_data_amazon(lat, lon, radius)  # Disabled: No OSM data available yet
+
+    # De Buren
+    try:
+        gdf_deburen = get_data_deburen(gemeente)
+        gdfs_to_concat.append(gdf_deburen)
+        carrier_status['DeBuren'] = {'success': True, 'count': len(gdf_deburen), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  DeBuren fetch failed: {e}")
+        carrier_status['DeBuren'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # DHL
+    try:
+        gdf_dhl = get_data_dhl(lat, lon, radius)
+        gdfs_to_concat.append(gdf_dhl)
+        carrier_status['DHL'] = {'success': True, 'count': len(gdf_dhl), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  DHL fetch failed: {e}")
+        carrier_status['DHL'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # DPD
+    try:
+        gdf_dpd = get_data_dpd(gemeente)
+        gdfs_to_concat.append(gdf_dpd)
+        carrier_status['DPD'] = {'success': True, 'count': len(gdf_dpd), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  DPD fetch failed: {e}")
+        carrier_status['DPD'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # PostNL
+    try:
+        gdf_postnl = get_data_postnl(bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon)
+        gdfs_to_concat.append(gdf_postnl)
+        carrier_status['PostNL'] = {'success': True, 'count': len(gdf_postnl), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  PostNL fetch failed: {e}")
+        carrier_status['PostNL'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # VintedGo
+    try:
+        gdf_vintedgo = get_data_vintedgo(lat, lon, south, west, north, east)
+        gdfs_to_concat.append(gdf_vintedgo)
+        carrier_status['VintedGo'] = {'success': True, 'count': len(gdf_vintedgo), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  VintedGo fetch failed: {e}")
+        carrier_status['VintedGo'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # Combine all successful fetches
+    if gdfs_to_concat:
+        gdf = gpd.GeoDataFrame(
+            pd.concat(gdfs_to_concat, ignore_index=True),
+            crs='EPSG:4326'
+        )
+    else:
+        # No carriers succeeded - return empty GeoDataFrame
+        gdf = gpd.GeoDataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'geometry', 'puntType', 'vervoerder'], crs='EPSG:4326')
+
+    # NIEUWE FILTER: alleen pakketpunten binnen de gemeentegrens behouden
+    print(f"  📍 {len(gdf)} pakketpunten gevonden in zoekgebied (voor boundary filter)")
+
+    try:
+        gemeente_polygon = get_gemeente_polygon(gemeente)
+        gemeente_geom = gemeente_polygon.geometry.iloc[0]
+
+        # Filter: behoud alleen punten binnen de gemeentegrens
+        gdf_filtered = gdf[gdf.geometry.within(gemeente_geom)].copy()
+
+        removed_count = len(gdf) - len(gdf_filtered)
+        print(f"  ✂️  {removed_count} pakketpunten buiten gemeentegrens verwijderd")
+        print(f"  ✅ {len(gdf_filtered)} pakketpunten binnen gemeentegrens '{gemeente}'")
+
+        gdf = gdf_filtered
+
+    except Exception as e:
+        print(f"  ⚠️  Boundary filter overgeslagen voor '{gemeente}': {e}")
+        print(f"  ℹ️  Gebruik data zonder boundary filter ({len(gdf)} punten)")
 
     desired_order = [
     "locatieNaam",
@@ -415,9 +484,12 @@ def get_data_pakketpunten(gemeente):
     "latitude",
     "longitude",
     "geometry",
-    "puntType", 
-    "vervoerder"    
+    "puntType",
+    "vervoerder"
     ]
 
     gdf = gdf[desired_order]
+
+    if return_carrier_status:
+        return gdf, carrier_status
     return gdf

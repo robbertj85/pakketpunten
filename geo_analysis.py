@@ -30,10 +30,10 @@ def get_bufferzones(gdf, radius):
 
     # Dissolve alle buffers naar één geometrie
     buffer_union = unary_union(gdf_rd["geometry"])
-    
+
     # Stop deze multipolygon op in een GeoDataFrames (1 rij, 1 geometrie)
     gdf_bufferunion = gpd.GeoDataFrame(
-        {"buffer_m": [300]}, geometry=[buffer_union], crs=gdf_rd.crs
+        {"buffer_m": [radius]}, geometry=[buffer_union], crs=gdf_rd.crs
     ).to_crs(epsg=4326)
 
     return gdf_rd, gdf_bufferunion
