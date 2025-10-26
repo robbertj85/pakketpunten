@@ -3,14 +3,14 @@
   "metadata": {
     "gemeente": "Coevorden",
     "slug": "coevorden",
-    "generated_at": "2025-10-25T17:13:41.025818Z",
+    "generated_at": "2025-10-26T21:25:32.949758Z",
     "total_points": 35,
     "providers": [
+      "DeBuren",
       "DHL",
       "DPD",
       "PostNL",
-      "VintedGo",
-      "DeBuren"
+      "VintedGo"
     ],
     "bounds": [
       6.719485,
@@ -25,167 +25,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.719485,
-          52.754906
+          6.7369154,
+          52.66307624
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "SPAR Robben",
-        "straatNaam": "Burg. de Kockstraat",
-        "straatNr": "61",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 99,
-        "latitude": 52.754906,
-        "longitude": 6.719485
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.729677200317383,
-          52.794715881347656
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Nuno Print en Sign",
-        "straatNaam": "Marktstraat",
-        "straatNr": "1",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 58,
-        "latitude": 52.794715881347656,
-        "longitude": 6.729677200317383
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.755345,
-          52.699064
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Uw Eigen Drogist Annico",
-        "straatNaam": "De Waag",
-        "straatNr": "21",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 17,
-        "latitude": 52.699064,
-        "longitude": 6.755345
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.724048243398557,
-          52.66401924688543
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Praxis Coevorden",
-        "straatNaam": "Printer",
-        "straatNr": "27",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 7,
-        "latitude": 52.66401924688543,
-        "longitude": 6.724048243398557
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.73685,
-          52.66313
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Apotheek De Vesting",
+        "locatieNaam": "Coevorden | Stationsplein | Apotheek De Vesting",
         "straatNaam": "Stationsplein",
         "straatNr": "21",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 28,
-        "latitude": 52.66313,
-        "longitude": 6.73685
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7388204,
-          52.6621245
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Coevorden",
-        "straatNaam": "Friesestraat",
-        "straatNr": "36",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 18,
-        "latitude": 52.6621245,
-        "longitude": 6.7388204
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7245138,
-          52.6610702
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Forcys Computers",
-        "straatNaam": "Modem",
-        "straatNr": "2",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 86,
-        "latitude": 52.6610702,
-        "longitude": 6.7245138
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.739789,
-          52.661634
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Schuurman Schoenen Coevorden",
-        "straatNaam": "Friesestraat",
-        "straatNr": "16",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 31,
-        "latitude": 52.661634,
-        "longitude": 6.739789
+        "vervoerder": "DeBuren",
+        "puntType": "Afhaalpunt",
+        "bezettingsgraad": 89,
+        "latitude": 52.66307624,
+        "longitude": 6.7369154
       }
     },
     {
@@ -201,12 +54,54 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Karwei Coevorden",
         "straatNaam": "Monierweg",
-        "straatNr": "2",
+        "straatNr": "2-PS/108",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 49,
+        "bezettingsgraad": 85,
         "latitude": 52.65787142876606,
         "longitude": 6.725692168470168
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7245138,
+          52.6610702
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Forcys Computers",
+        "straatNaam": "Modem",
+        "straatNr": "2-J",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 46,
+        "latitude": 52.6610702,
+        "longitude": 6.7245138
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.724048243398557,
+          52.66401924688543
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Praxis Coevorden",
+        "straatNaam": "Printer",
+        "straatNr": "27-PS/87",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 36,
+        "latitude": 52.66401924688543,
+        "longitude": 6.724048243398557
       }
     },
     {
@@ -225,9 +120,93 @@
         "straatNr": "5",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 36,
+        "bezettingsgraad": 43,
         "latitude": 52.65653610229492,
         "longitude": 6.729936122894287
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.73685,
+          52.66313
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Apotheek De Vesting",
+        "straatNaam": "Stationsplein",
+        "straatNr": "21-DB/94",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 37,
+        "latitude": 52.66313,
+        "longitude": 6.73685
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7388204,
+          52.6621245
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Coevorden",
+        "straatNaam": "Friesestraat",
+        "straatNr": "36-PS/73",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 0,
+        "latitude": 52.6621245,
+        "longitude": 6.7388204
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.739789,
+          52.661634
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Schuurman Schoenen Coevorden",
+        "straatNaam": "Friesestraat",
+        "straatNr": "16-B",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 37,
+        "latitude": 52.661634,
+        "longitude": 6.739789
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7530369,
+          52.6499248
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Argos Coevorden",
+        "straatNaam": "Euregioweg",
+        "straatNr": "6-PS/87",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 91,
+        "latitude": 52.6499248,
+        "longitude": 6.7530369
       }
     },
     {
@@ -246,7 +225,7 @@
         "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 34,
+        "bezettingsgraad": 33,
         "latitude": 52.658076,
         "longitude": 6.754692
       }
@@ -256,20 +235,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.755607635361188,
-          52.84742869718335
+          6.755345,
+          52.699064
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat PLUS Schoonoord",
-        "straatNaam": "Tramstraat",
-        "straatNr": "17",
+        "locatieNaam": "Uw Eigen Drogist Annico",
+        "straatNaam": "De Waag",
+        "straatNr": "21-23",
         "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 48,
-        "latitude": 52.84742869718335,
-        "longitude": 6.755607635361188
+        "puntType": "parcelShop",
+        "bezettingsgraad": 69,
+        "latitude": 52.699064,
+        "longitude": 6.755345
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.719485,
+          52.754906
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "SPAR Robben",
+        "straatNaam": "Burg. de Kockstraat",
+        "straatNr": "61",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 83,
+        "latitude": 52.754906,
+        "longitude": 6.719485
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.729677200317383,
+          52.794715881347656
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Nuno Print en Sign",
+        "straatNaam": "Marktstraat",
+        "straatNr": "1-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 87,
+        "latitude": 52.794715881347656,
+        "longitude": 6.729677200317383
       }
     },
     {
@@ -288,7 +309,7 @@
         "straatNr": "8",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 2,
+        "bezettingsgraad": 40,
         "latitude": 52.847904205322266,
         "longitude": 6.755832672119141
       }
@@ -298,20 +319,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7530369,
-          52.6499248
+          6.755607635361188,
+          52.84742869718335
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Argos Coevorden",
-        "straatNaam": "Euregioweg",
-        "straatNr": "6",
+        "locatieNaam": "Pakketautomaat PLUS Schoonoord",
+        "straatNaam": "Tramstraat",
+        "straatNr": "17-PS/88",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 29,
-        "latitude": 52.6499248,
-        "longitude": 6.7530369
+        "bezettingsgraad": 69,
+        "latitude": 52.84742869718335,
+        "longitude": 6.755607635361188
       }
     },
     {
@@ -330,30 +351,9 @@
         "straatNr": "34",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 52,
+        "bezettingsgraad": 77,
         "latitude": 52.6603374,
         "longitude": 6.7290292
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7368817972,
-          52.663024058
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - Apothee",
-        "straatNaam": "STATIONSPLEIN",
-        "straatNr": "21",
-        "vervoerder": "DPD",
-        "puntType": "dpd_box",
-        "bezettingsgraad": 92,
-        "latitude": 52.663024058,
-        "longitude": 6.7368817972
       }
     },
     {
@@ -372,7 +372,7 @@
         "straatNr": "28 D",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 46,
+        "bezettingsgraad": 47,
         "latitude": 52.6601547,
         "longitude": 6.7409193
       }
@@ -393,7 +393,7 @@
         "straatNr": "2",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 8,
+        "bezettingsgraad": 99,
         "latitude": 52.6581285,
         "longitude": 6.7550638
       }
@@ -414,9 +414,30 @@
         "straatNr": "30 B",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 99,
+        "bezettingsgraad": 96,
         "latitude": 52.6947285,
         "longitude": 6.7730261
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7368817972,
+          52.663024058
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat - De Buren - Apothee",
+        "straatNaam": "STATIONSPLEIN",
+        "straatNr": "21",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 47,
+        "latitude": 52.663024058,
+        "longitude": 6.7368817972
       }
     },
     {
@@ -435,7 +456,7 @@
         "straatNr": "42",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 60,
+        "bezettingsgraad": 84,
         "latitude": 52.7901846428327,
         "longitude": 6.72158339464333
       }
@@ -456,7 +477,7 @@
         "straatNr": "10",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 2,
+        "bezettingsgraad": 37,
         "latitude": 52.7731466223338,
         "longitude": 6.80156720591431
       }
@@ -477,7 +498,7 @@
         "straatNr": "10",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 61,
+        "bezettingsgraad": 57,
         "latitude": 52.7731082213062,
         "longitude": 6.8017734489777
       }
@@ -498,7 +519,7 @@
         "straatNr": "14",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 0,
+        "bezettingsgraad": 51,
         "latitude": 52.6989036958705,
         "longitude": 6.7556181318276
       }
@@ -519,7 +540,7 @@
         "straatNr": "2",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 53,
+        "bezettingsgraad": 70,
         "latitude": 52.6613466095689,
         "longitude": 6.72445533798548
       }
@@ -540,7 +561,7 @@
         "straatNr": "26",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 90,
         "latitude": 52.66185033,
         "longitude": 6.739519237
       }
@@ -561,7 +582,7 @@
         "straatNr": "15",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 70,
+        "bezettingsgraad": 13,
         "latitude": 52.66096055,
         "longitude": 6.740304884
       }
@@ -582,7 +603,7 @@
         "straatNr": "2",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 91,
+        "bezettingsgraad": 51,
         "latitude": 52.65764963,
         "longitude": 6.725510575
       }
@@ -624,7 +645,7 @@
         "straatNr": "17",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 36,
+        "bezettingsgraad": 46,
         "latitude": 52.8473466734913,
         "longitude": 6.75566090247207
       }
@@ -645,7 +666,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 44,
+        "bezettingsgraad": 78,
         "latitude": 52.7944871,
         "longitude": 6.7294827
       }
@@ -666,7 +687,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 37,
+        "bezettingsgraad": 92,
         "latitude": 52.66007,
         "longitude": 6.74064
       }
@@ -687,7 +708,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 90,
+        "bezettingsgraad": 13,
         "latitude": 52.66135,
         "longitude": 6.72446
       }
@@ -708,7 +729,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 85,
+        "bezettingsgraad": 27,
         "latitude": 52.69888,
         "longitude": 6.75634
       }
@@ -729,30 +750,9 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "locker",
-        "bezettingsgraad": 44,
+        "bezettingsgraad": 65,
         "latitude": 52.6705361,
         "longitude": 6.7358667
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7369154,
-          52.66307624
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Coevorden | Stationsplein | Apotheek De Vesting",
-        "straatNaam": "Stationsplein",
-        "straatNr": "21",
-        "vervoerder": "DeBuren",
-        "puntType": "Afhaalpunt",
-        "bezettingsgraad": 23,
-        "latitude": 52.66307624,
-        "longitude": 6.7369154
       }
     },
     {
@@ -8093,6 +8093,42 @@
         "type": "Polygon",
         "coordinates": [
           [
+            [
+              6.5874674,
+              52.7356899
+            ],
+            [
+              6.5849794,
+              52.7333269
+            ],
+            [
+              6.5844013,
+              52.7327777
+            ],
+            [
+              6.5830112,
+              52.7314574
+            ],
+            [
+              6.5807823,
+              52.7293399
+            ],
+            [
+              6.5802983,
+              52.7288801
+            ],
+            [
+              6.5789525,
+              52.7276014
+            ],
+            [
+              6.576503,
+              52.7252502
+            ],
+            [
+              6.5765331,
+              52.7252492
+            ],
             [
               6.5764285,
               52.7242655
@@ -17216,42 +17252,6 @@
             [
               6.5874674,
               52.7356899
-            ],
-            [
-              6.5849794,
-              52.7333269
-            ],
-            [
-              6.5844013,
-              52.7327777
-            ],
-            [
-              6.5830112,
-              52.7314574
-            ],
-            [
-              6.5807823,
-              52.7293399
-            ],
-            [
-              6.5802983,
-              52.7288801
-            ],
-            [
-              6.5789525,
-              52.7276014
-            ],
-            [
-              6.576503,
-              52.7252502
-            ],
-            [
-              6.5765331,
-              52.7252492
-            ],
-            [
-              6.5764285,
-              52.7242655
             ]
           ]
         ]

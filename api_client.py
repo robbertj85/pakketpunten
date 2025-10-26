@@ -39,19 +39,82 @@ def get_data_deburen(gemeente):
 # ---------- data ophalen voor "DHL" ----------
 
 
-def get_data_dhl(lat, lon, radius):
+def get_data_dhl(lat, lon, radius, gemeente=None):
     """
+    Fetch DHL parcel points. Uses cached grid data if available, otherwise calls API.
+
     Parameters
     ----------
-    gemeente : str
-        Naam van de gemeente waarvoor de pakketpunten moeten worden opgehaald.
+    lat : float
+        Latitude for API search circle (fallback only)
+    lon : float
+        Longitude for API search circle (fallback only)
+    radius : int
+        Radius in meters for API search circle (fallback only)
+    gemeente : str, optional
+        Municipality name for filtering cached data by polygon boundary
 
     Returns
     -------
     geopandas.GeoDataFrame
-        Een GeoDataFrame met de pakketpuntlocaties binnen de opgegeven gemeente.
+        GeoDataFrame with DHL parcel point locations
     """
-    # Input voor zoekgebied DHL api is een cirkel
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    # Try to load from cache if gemeente is provided
+    cache_file = Path(__file__).parent / "data" / "dhl_all_locations.json"
+
+    if gemeente and cache_file.exists():
+        try:
+            # Load complete DHL dataset from cache
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                # Convert to DataFrame
+                rows = []
+                for loc in locations:
+                    geo = loc.get('geoLocation', {})
+                    addr = loc.get('address', {})
+
+                    rows.append({
+                        'locatieNaam': loc.get('name', ''),
+                        'straatNaam': addr.get('street', ''),
+                        'straatNr': str(addr.get('number', '')) + (addr.get('addition', '') or ''),
+                        'latitude': geo.get('latitude'),
+                        'longitude': geo.get('longitude'),
+                        'puntType': loc.get('shopType', ''),
+                        'vervoerder': 'DHL',
+                    })
+
+                df = pd.DataFrame(rows)
+
+                # Filter out rows without coordinates
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                # Create GeoDataFrame
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                # Filter by municipality bounding box (fast pre-filter)
+                # Final polygon filter happens in get_data_pakketpunten()
+                from shapely.geometry import box
+                bbox_coords = get_gemeente_geometry(gemeente, mode="bbox")
+                bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon = bbox_coords
+                bbox = box(bottom_left_lon, bottom_left_lat, top_right_lon, top_right_lat)
+                gdf_filtered = gdf_all[gdf_all.geometry.within(bbox)].copy()
+
+                print(f"  📦 DHL: Loaded {len(gdf_filtered)} points from cache (bbox-filtered for {gemeente})")
+                return gdf_filtered
+
+        except Exception as e:
+            print(f"  ⚠️  DHL cache load failed ({e}), falling back to API")
+
+    # Fallback: Use API with 50-result limit
     session = make_session()
     data = fetch_json(
         "https://api-gw.dhlparcel.nl/parcel-shop-locations/NL/by-geo",
@@ -113,24 +176,73 @@ def get_data_postnl(bottom_left_lat, bottom_left_lon, top_right_lat, top_right_l
 
 def get_data_dpd(gemeente):
     """
-    Fetch DPD parcel points for a specific municipality.
-
-    Note: This function uses address-based search which is limited to 100 results.
-    For complete DPD coverage, use dpd_fetch_all.py + integrate_dpd_data.py.
+    Fetch DPD parcel points. Uses cached complete data if available, otherwise calls API.
 
     Parameters
     ----------
     gemeente : str
-        Naam van de gemeente waarvoor de pakketpunten moeten worden opgehaald.
+        Municipality name for filtering cached data by polygon boundary
 
     Returns
     -------
     geopandas.GeoDataFrame
-        Een GeoDataFrame met de pakketpuntlocaties binnen de opgegeven gemeente.
+        GeoDataFrame with DPD parcel point locations
     """
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    # Try to load from cache
+    cache_file = Path(__file__).parent / "data" / "dpd_all_locations.json"
+
+    if cache_file.exists():
+        try:
+            # Load complete DPD dataset from cache
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                # Convert to DataFrame
+                rows = []
+                for loc in locations:
+                    rows.append({
+                        'locatieNaam': loc.get('company', ''),
+                        'straatNaam': loc.get('street', ''),
+                        'straatNr': loc.get('house_number', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': loc.get('pickup_network_type', ''),
+                        'vervoerder': 'DPD',
+                    })
+
+                df = pd.DataFrame(rows)
+
+                # Filter out rows without coordinates
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                # Create GeoDataFrame
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                # Filter by municipality bounding box (fast pre-filter)
+                # Final polygon filter happens in get_data_pakketpunten()
+                from shapely.geometry import box
+                bbox_coords = get_gemeente_geometry(gemeente, mode="bbox")
+                bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon = bbox_coords
+                bbox = box(bottom_left_lon, bottom_left_lat, top_right_lon, top_right_lat)
+                gdf_filtered = gdf_all[gdf_all.geometry.within(bbox)].copy()
+
+                print(f"  📦 DPD: Loaded {len(gdf_filtered)} points from cache (bbox-filtered for {gemeente})")
+                return gdf_filtered
+
+        except Exception as e:
+            print(f"  ⚠️  DPD cache load failed ({e}), falling back to API")
+
+    # Fallback: Use API with 100-result limit
     session = make_session()
 
-    # Use the public DPD API (Czech endpoint that works for all countries)
     data = fetch_json(
         url="https://pickup.dpd.cz/api/GetParcelShopsByAddress",
         params={
@@ -413,7 +525,7 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
 
     # DHL
     try:
-        gdf_dhl = get_data_dhl(lat, lon, radius)
+        gdf_dhl = get_data_dhl(lat, lon, radius, gemeente=gemeente)
         gdfs_to_concat.append(gdf_dhl)
         carrier_status['DHL'] = {'success': True, 'count': len(gdf_dhl), 'error': None}
     except Exception as e:

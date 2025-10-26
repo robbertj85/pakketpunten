@@ -1,6 +1,6 @@
 """
 Batch processing script to generate pakketpunten data for multiple municipalities.
-This script is designed to be run daily via GitHub Actions.
+This script is designed to be run weekly via GitHub Actions.
 """
 
 import json

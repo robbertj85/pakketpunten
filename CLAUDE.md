@@ -25,21 +25,18 @@ python main.py --gemeente Amsterdam --filename test --format geojson
 cd scripts
 python batch_generate.py
 
-# Fetch complete DHL grid data (nationwide)
+# Fetch complete DHL grid data (nationwide) - Run once, then cached
 python scripts/dhl_grid_fetch.py
 
-# Fetch complete DPD data (nationwide)
+# Fetch complete DPD data (nationwide) - Run once, then cached
 python scripts/dpd_fetch_all.py
 
-# Integrate DHL/DPD data into municipality files
-python scripts/integrate_dhl_grid_data.py
-python scripts/integrate_dpd_data.py
+# Batch generate all municipalities (automatically uses cached DHL/DPD data if available)
+cd scripts
+python batch_generate.py
 
 # Create national overview
 python scripts/create_national_overview.py
-
-# Weekly update workflow
-python scripts/weekly_update.py
 ```
 
 ### Next.js Webapp
@@ -126,6 +123,28 @@ All GeoJSON features follow this structure:
 
 Always transform to RD New before distance/buffer operations, then back to WGS84 for output.
 
+## Cache-Based Data Loading
+
+The system automatically uses cached data when available:
+
+### DHL Grid Data (`data/dhl_all_locations.json`)
+- Generated once using `scripts/dhl_grid_fetch.py` (grid-based approach, ~3,800+ locations)
+- `api_client.get_data_dhl()` automatically loads from cache if file exists
+- Falls back to 50-result API call if cache not found
+- Cache filtered by municipality bounding box (fast pre-filter)
+- Final polygon filtering in `get_data_pakketpunten()` ensures accurate boundaries
+
+### DPD Complete Data (`data/dpd_all_locations.json`)
+- Generated once using `scripts/dpd_fetch_all.py` (~1,900 locations)
+- `api_client.get_data_dpd()` automatically loads from cache if file exists
+- Falls back to 100-result API call if cache not found
+- Same bbox + polygon filtering approach as DHL
+
+### Workflow
+1. **First time**: Run `dhl_grid_fetch.py` and `dpd_fetch_all.py` to create caches
+2. **Regular updates**: Run `batch_generate.py` - automatically uses cached data
+3. **Regenerate caches**: Re-run grid fetch scripts when you want updated data
+
 ## API Integration Notes
 
 ### Rate Limiting
@@ -171,25 +190,6 @@ All API calls use `requests.Session()` with proxy bypass for specific domains (h
   - `{slug}.geojson` → Per-municipality data
   - `municipalities.json` → Municipality index
   - `summary.json` → Batch processing results
-
-## Script Workflows
-
-### Complete DHL Update (`scripts/run_complete_dhl_update.py`)
-1. `dhl_grid_fetch.py` → Fetch all DHL points using grid-based approach
-2. `integrate_dhl_grid_data.py` → Merge into existing municipality files
-3. Updates `data/dhl_all_locations.json` (nationwide cache)
-
-### Complete DPD Update
-1. `dpd_fetch_all.py` → Fetch all DPD locations via single API call
-2. `integrate_dpd_data.py` → Merge into existing municipality files
-3. Updates `data/dpd_all_locations.json` (nationwide cache, ~1900 locations)
-
-### Weekly Update (`scripts/weekly_update.py`)
-Designed for GitHub Actions automation:
-1. Refresh all municipality GeoJSON files
-2. Update national overview
-3. Generate summary statistics
-4. Commit changes (if run via CI/CD)
 
 ## Performance Considerations
 

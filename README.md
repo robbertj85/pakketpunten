@@ -63,11 +63,7 @@ pakketpunten/
 │   ├── batch_generate.py   # Batch processing voor meerdere gemeentes
 │   ├── dhl_grid_fetch.py   # Complete DHL data ophalen (grid-based approach)
 │   ├── dpd_fetch_all.py    # Complete DPD data ophalen (single API call)
-│   ├── integrate_dhl_grid_data.py  # DHL data integreren in gemeente files
-│   ├── integrate_dpd_data.py       # DPD data integreren in gemeente files
-│   ├── weekly_update.py            # Weekelijkse update van alle data
-│   ├── create_national_overview.py # Genereer nationaal overzicht
-│   └── run_complete_dhl_update.py  # Complete DHL update workflow
+│   └── create_national_overview.py # Genereer nationaal overzicht
 └── webapp/                 # Next.js webapplicatie
     ├── app/                # Next.js App Router
     ├── components/         # React componenten (Map, Filters, Stats)

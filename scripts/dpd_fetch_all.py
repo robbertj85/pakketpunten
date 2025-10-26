@@ -141,7 +141,7 @@ def analyze_locations(locations: List[Dict]):
         print(f"   Longitude: {min(lons):.4f}° to {max(lons):.4f}°")
 
 
-def save_results(locations: List[Dict], output_file: str = "../data/dpd_all_locations.json"):
+def save_results(locations: List[Dict], output_file: str = None):
     """
     Save locations to JSON file.
 
@@ -149,14 +149,26 @@ def save_results(locations: List[Dict], output_file: str = "../data/dpd_all_loca
     ----------
     locations : list of dict
         DPD locations data
-    output_file : str
-        Output filename (default: ../data/dpd_all_locations.json)
+    output_file : str, optional
+        Output filename. If None, uses data/dpd_all_locations.json relative to project root
     """
     print()
     print("="*80)
     print("SAVING RESULTS")
     print("="*80)
     print()
+
+    # Default output path - works both locally and in GitHub Actions
+    if output_file is None:
+        # Get project root (parent of scripts directory)
+        script_dir = Path(__file__).parent
+        project_root = script_dir.parent
+        output_path = project_root / "data" / "dpd_all_locations.json"
+    else:
+        output_path = Path(output_file)
+
+    # Ensure output directory exists
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Create output structure matching DHL format
     output = {
@@ -172,17 +184,16 @@ def save_results(locations: List[Dict], output_file: str = "../data/dpd_all_loca
     }
 
     # Save to file
-    output_path = Path(output_file)
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     file_size_kb = output_path.stat().st_size / 1024
-    print(f"💾 Saved to: {output_file}")
+    print(f"💾 Saved to: {output_path}")
     print(f"   File size: {file_size_kb:.1f} KB")
     print(f"   Locations: {len(locations)}")
 
-    # Log to update file
-    log_file = Path("dpd_update_log.txt")
+    # Log to update file (in project root)
+    log_file = output_path.parent.parent / "dpd_update_log.txt"
     with open(log_file, 'a', encoding='utf-8') as f:
         f.write(f"{datetime.now().isoformat()} - Fetched {len(locations)} DPD locations\n")
     print(f"   Log updated: {log_file}")
