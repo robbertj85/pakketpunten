@@ -6,6 +6,10 @@ en weergegeven als interactieve kaarten met **Leaflet** en **Folium**.
 
 Dit project is bedoeld als basis voor geodata-analyse, ruimtelijke visualisatie en verdere uitbreiding naar een webapplicatie.
 
+**Disclaimer**
+
+Dit project wordt geleverd "as is" zonder garantie. Data is verzameld van publieke bronnen en kan onnauwkeurigheden bevatten. Verifieer locatiegegevens bij de vervoerders. Dit project is niet gelieerd aan de databronbedrijven.
+
 ---
 
 ## Functionaliteiten
