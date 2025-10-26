@@ -2,7 +2,7 @@
 
 Een Python-project voor het **verzamelen, analyseren en visualiseren van pakketpunten in Nederland**.  
 De data wordt opgehaald via verschillende API’s (zoals DHL en De Buren), geanalyseerd met **GeoPandas**,  
-en weergegeven als interactieve kaarten met **Folium**.
+en weergegeven als interactieve kaarten met **Leaflet** en **Folium**.
 
 Dit project is bedoeld als basis voor geodata-analyse, ruimtelijke visualisatie en verdere uitbreiding naar een webapplicatie.
 
@@ -12,9 +12,8 @@ Dit project is bedoeld als basis voor geodata-analyse, ruimtelijke visualisatie 
 
 - Ophalen van pakketpuntlocaties via API's en webscraping (voor DHL, DPD, PostNL, VintedGo en De Buren) voor een gegeven gemeente
 - Het toevoegen van buffers rondom bestaande pakketpunten
-- Het toevoegen van dummy data met de bezettingsgraad om een indicatie te geven van hoe de dekking van een gebied kan worden bepaald.
 - Export van resultaten naar **GeoPackage (.gpkg)** en **GeoJSON (.geojson)**
-- Interactieve kaartweergave in **Folium**, opgeslagen als HTML
+- Interactieve kaartweergave in **Folium** en **Leaflet**, opgeslagen als HTML
 - **Webapplicatie (Next.js)** voor interactieve visualisatie met filters en statistieken
 
 ---
@@ -23,15 +22,12 @@ Dit project is bedoeld als basis voor geodata-analyse, ruimtelijke visualisatie 
 
 Dit project verzamelt pakketpuntlocaties van de volgende bronnen:
 
-- **DHL Parcel** - Via publieke API (`api-gw.dhlparcel.nl`) - ~2000+ locaties
-- **DPD** - Via publieke API (`pickup.dpd.cz`) - 1,933 locaties (parcel shops + lockers)
+- **DHL Parcel** - Via publieke API (`api-gw.dhlparcel.nl`)
+- **DPD** - Via publieke API (`pickup.dpd.cz`) 
 - **PostNL** - Via publieke locatie-widget API
 - **VintedGo / Mondial Relay** - Via publieke website
 - **De Buren** - Via publieke kaart interface
 
-⚠️ **Belangrijk:** De bezettingsgraad (occupancy) data is **willekeurig gegenereerd** voor demonstratiedoeleinden en weerspiegelt geen echte capaciteitsgegevens.
-
-📋 **Voor uitgebreide informatie** over data bronnen, gebruiksrechten en attributie-vereisten, zie [DATA_SOURCES.md](./docs/DATA_SOURCES.md) 
 
 ---
 
@@ -140,9 +136,8 @@ Open [http://localhost:3000](http://localhost:3000) in je browser.
 - **Interactieve kaart** met OpenStreetMap en Leaflet
 - **Gemeente selectie** via dropdown (5 POC gemeentes beschikbaar)
 - **Filters:**
-  - Vervoerders (DHL, PostNL, VintedGo, De Buren)
-  - Bezettingsgraad (mock data, optioneel)
-  - Buffer zones (300m en 500m)
+  - Vervoerders (DHL, DPD, PostNL, VintedGo, De Buren)
+    - Buffer zones (300m en 500m)
 - **Statistieken** per gemeente en vervoerder
 - **Real-time logos** van vervoerders via Clearbit API
 - **Popup details** met locatie-informatie en ruwe JSON data
@@ -189,39 +184,6 @@ npm start
 ### Coordinate Systems
 
 - **WGS84 (EPSG:4326)** - Web maps, API output
-- **RD New (EPSG:28992)** - Dutch grid, metric calculations  
-
----
-
-## Toekomstige uitbreidingen
-
-### Korte termijn
-- ✅ ~~Webapplicatie met Next.js~~ (Voltooid - POC klaar)
-- ✅ ~~Interactieve filters en statistieken~~ (Voltooid)
-- ✅ ~~Mock data toggle voor bezettingsgraad~~ (Voltooid)
-- 🔄 Uitbreiding naar alle 345 Nederlandse gemeentes
-- 🔄 GitHub Actions voor wekelijkse data updates
-- 🔄 Deployment naar Vercel
-
-### Middellange termijn
-- 📋 Object storage integratie (Cloudflare R2 of AWS S3)
-- 📋 Performance optimalisatie (caching, lazy loading)
-- 📋 Search functionaliteit voor gemeentes
-- 📋 Export functionaliteit (download gefilterde data)
-- 📋 Dark mode voor webinterface
-
-### Lange termijn
-- 📋 Echte bezettingsgraad data via carrier API's (indien beschikbaar)
-- 📋 Historische data tracking en trending
-- 📋 Routeplanning integratie
-- 📋 Coverage gap analysis (ondergeserveerde gebieden)
-- 📋 Mobiele app (React Native)
-- 📋 API voor externe integraties
-
-**Legenda:**
-- ✅ Voltooid
-- 🔄 In ontwikkeling
-- 📋 Gepland
 
 ---
 
@@ -245,10 +207,9 @@ Data bronnen:
 - Gemeente grenzen © OpenStreetMap contributors
 - Bedrijfslogo's © respectieve merkhouders
 
-Bezettingsgraad data is willekeurig gegenereerd voor demonstratie (niet echt)
 ```
 
-Zie [DATA_SOURCES.md](./docs/DATA_SOURCES.md) voor volledige details over gebruiksrechten.
+
 
 
 
