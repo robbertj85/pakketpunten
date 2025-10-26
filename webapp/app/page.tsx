@@ -20,7 +20,7 @@ const Map = dynamic(() => import('@/components/Map'), {
 
 export default function Home() {
   const [municipalities, setMunicipalities] = useState<Municipality[]>([]);
-  const [selectedMunicipality, setSelectedMunicipality] = useState<string>('');
+  const [selectedMunicipality, setSelectedMunicipality] = useState<string>('zwolle');
   const [data, setData] = useState<PakketpuntData | null>(null);
   const [loading, setLoading] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
