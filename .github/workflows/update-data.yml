@@ -28,7 +28,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Generate pakketpunten data
-        run: python scripts/batch_generate.py
+        run: |
+          python scripts/batch_generate.py
+          python scripts/create_national_overview.py
         working-directory: ${{ github.workspace }}
 
       - name: Configure Git
@@ -38,5 +40,5 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git add webapp/public/data/*.geojson webapp/public/data/*.geojson.gz webapp/public/municipalities.json
+          git add webapp/public/data/*.geojson webapp/public/data/*.geojson.gz webapp/public/data/summary.json webapp/public/municipalities.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update pakketpunten data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)

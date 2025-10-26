@@ -50,12 +50,12 @@ def process_municipality(gemeente_data):
     print(f"{'='*60}")
 
     try:
-        # Fetch pakketpunten data
-        gdf_pakketpunten = get_data_pakketpunten(gemeente_name)
+        # Fetch pakketpunten data with carrier status
+        gdf_pakketpunten, carrier_status = get_data_pakketpunten(gemeente_name, return_carrier_status=True)
 
         if gdf_pakketpunten.empty:
             print(f"⚠️  No data found for {gemeente_name}")
-            return {"success": False, "error": "No data found", "count": 0}
+            return {"success": False, "error": "No data found", "count": 0, "carrier_status": carrier_status}
 
         # Add dummy occupancy data
         gdf_pakketpunten["bezettingsgraad"] = np.random.randint(0, 101, size=len(gdf_pakketpunten))
@@ -179,18 +179,31 @@ def process_municipality(gemeente_data):
         print(f"   Gzipped: {gz_size_kb:.1f} KB ({compression_ratio:.1f}% reduction)")
         print(f"   Output: {output_file}")
 
+        # Display carrier-level status
+        failed_carriers = [name for name, status in carrier_status.items() if not status['success']]
+        if failed_carriers:
+            print(f"   ⚠️  Failed carriers: {', '.join(failed_carriers)}")
+
         return {
             "success": True,
             "count": len(gdf_pakketpunten),
             "file_size_kb": file_size_kb,
-            "gz_size_kb": gz_size_kb
+            "gz_size_kb": gz_size_kb,
+            "carrier_status": carrier_status,
+            "generated_at": datetime.utcnow().isoformat() + "Z"
         }
 
     except Exception as e:
         print(f"❌ Error processing {gemeente_name}: {str(e)}")
         import traceback
         traceback.print_exc()
-        return {"success": False, "error": str(e), "count": 0}
+        return {
+            "success": False,
+            "error": str(e),
+            "count": 0,
+            "carrier_status": {},
+            "generated_at": datetime.utcnow().isoformat() + "Z"
+        }
 
 def main():
     """Main batch processing function."""
@@ -242,8 +255,46 @@ def main():
         for r in failed:
             print(f"   - {r['gemeente']}: {r.get('error', 'Unknown error')}")
 
-    # Save summary
-    summary_file = Path("public/data/summary.json")
+    # Aggregate carrier-level statistics
+    carrier_stats = {}
+    carriers = ['DHL', 'PostNL', 'DPD', 'VintedGo', 'DeBuren']
+
+    for carrier in carriers:
+        successful_fetches = 0
+        failed_fetches = 0
+        total_points = 0
+        latest_update = None
+
+        for r in successful:
+            carrier_status = r.get('carrier_status', {}).get(carrier, {})
+            if carrier_status.get('success'):
+                successful_fetches += 1
+                total_points += carrier_status.get('count', 0)
+                # Track latest update time
+                update_time = r.get('generated_at')
+                if update_time and (not latest_update or update_time > latest_update):
+                    latest_update = update_time
+            else:
+                failed_fetches += 1
+
+        carrier_stats[carrier] = {
+            'successful_municipalities': successful_fetches,
+            'failed_municipalities': failed_fetches,
+            'total_points': total_points,
+            'latest_update': latest_update,
+            'overall_success_rate': round(successful_fetches / len(results) * 100, 1) if results else 0
+        }
+
+    # Print carrier summary
+    print("\n📊 CARRIER STATUS SUMMARY:")
+    for carrier, stats in carrier_stats.items():
+        status_icon = "✅" if stats['failed_municipalities'] == 0 else "⚠️"
+        print(f"  {status_icon} {carrier}: {stats['successful_municipalities']}/{len(results)} municipalities ({stats['overall_success_rate']}%)")
+        if stats['failed_municipalities'] > 0:
+            print(f"     Failed in {stats['failed_municipalities']} municipalities")
+
+    # Save summary (use absolute path relative to script location)
+    summary_file = Path(__file__).parent.parent / "webapp" / "public" / "data" / "summary.json"
     summary_file.parent.mkdir(parents=True, exist_ok=True)
 
     with open(summary_file, "w", encoding="utf-8") as f:
@@ -252,6 +303,7 @@ def main():
             "total_municipalities": len(results),
             "successful": len(successful),
             "failed": len(failed),
+            "carrier_stats": carrier_stats,
             "results": results
         }, f, indent=2, ensure_ascii=False)
 
