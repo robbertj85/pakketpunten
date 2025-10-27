@@ -100,16 +100,9 @@ def get_data_dhl(lat, lon, radius, gemeente=None):
                 geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
                 gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
 
-                # Filter by municipality bounding box (fast pre-filter)
-                # Final polygon filter happens in get_data_pakketpunten()
-                from shapely.geometry import box
-                bbox_coords = get_gemeente_geometry(gemeente, mode="bbox")
-                bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon = bbox_coords
-                bbox = box(bottom_left_lon, bottom_left_lat, top_right_lon, top_right_lat)
-                gdf_filtered = gdf_all[gdf_all.geometry.within(bbox)].copy()
-
-                print(f"  📦 DHL: Loaded {len(gdf_filtered)} points from cache (bbox-filtered for {gemeente})")
-                return gdf_filtered
+                # Return all points - polygon filtering happens in get_data_pakketpunten()
+                print(f"  📦 DHL: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
 
         except Exception as e:
             print(f"  ⚠️  DHL cache load failed ({e}), falling back to API")
@@ -226,16 +219,9 @@ def get_data_dpd(gemeente):
                 geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
                 gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
 
-                # Filter by municipality bounding box (fast pre-filter)
-                # Final polygon filter happens in get_data_pakketpunten()
-                from shapely.geometry import box
-                bbox_coords = get_gemeente_geometry(gemeente, mode="bbox")
-                bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon = bbox_coords
-                bbox = box(bottom_left_lon, bottom_left_lat, top_right_lon, top_right_lat)
-                gdf_filtered = gdf_all[gdf_all.geometry.within(bbox)].copy()
-
-                print(f"  📦 DPD: Loaded {len(gdf_filtered)} points from cache (bbox-filtered for {gemeente})")
-                return gdf_filtered
+                # Return all points - polygon filtering happens in get_data_pakketpunten()
+                print(f"  📦 DPD: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
 
         except Exception as e:
             print(f"  ⚠️  DPD cache load failed ({e}), falling back to API")
