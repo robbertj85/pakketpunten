@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Vught",
     "slug": "vught",
-    "generated_at": "2025-10-25T18:07:40.093895Z",
+    "generated_at": "2025-10-27T10:41:14.193109Z",
     "total_points": 22,
     "providers": [
       "DHL",
@@ -35,7 +35,7 @@
         "straatNr": "50",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 2,
+        "bezettingsgraad": 38,
         "latitude": 51.633227,
         "longitude": 5.227984
       }
@@ -56,7 +56,7 @@
         "straatNr": "5",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 31,
+        "bezettingsgraad": 84,
         "latitude": 51.6452417,
         "longitude": 5.2823514
       }
@@ -77,9 +77,30 @@
         "straatNr": "19",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 96,
+        "bezettingsgraad": 83,
         "latitude": 51.6461821,
         "longitude": 5.2833836
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.294136915549816,
+          51.64559681025034
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Karwei Vught",
+        "straatNaam": "De Schakel",
+        "straatNr": "2-PS/108",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 77,
+        "latitude": 51.64559681025034,
+        "longitude": 5.294136915549816
       }
     },
     {
@@ -98,7 +119,7 @@
         "straatNr": "44",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 32,
+        "bezettingsgraad": 78,
         "latitude": 51.6467035,
         "longitude": 5.2842945
       }
@@ -119,30 +140,9 @@
         "straatNr": "52",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 30,
+        "bezettingsgraad": 78,
         "latitude": 51.658457,
         "longitude": 5.292772
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.294136915549816,
-          51.64559681025034
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Karwei Vught",
-        "straatNaam": "De Schakel",
-        "straatNr": "2",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 7,
-        "latitude": 51.64559681025034,
-        "longitude": 5.294136915549816
       }
     },
     {
@@ -158,12 +158,33 @@
         "type": "pakketpunt",
         "locatieNaam": "Schoenmakerij Donders",
         "straatNaam": "Raadhuisstraat",
-        "straatNr": "3",
+        "straatNr": "3-D",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 84,
         "latitude": 51.6574579,
         "longitude": 5.2989933
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.22869,
+          51.63034
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Autobedrijf Vd Heijden",
+        "straatNaam": "VINCENT VAN GOGHSTRAAT",
+        "straatNr": "25",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 82,
+        "latitude": 51.63034,
+        "longitude": 5.22869
       }
     },
     {
@@ -182,7 +203,7 @@
         "straatNr": "112",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 37,
+        "bezettingsgraad": 18,
         "latitude": 51.6458698,
         "longitude": 5.2837198
       }
@@ -203,30 +224,9 @@
         "straatNr": "2",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 15,
+        "bezettingsgraad": 90,
         "latitude": 51.6698969,
         "longitude": 5.2931775
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.22869,
-          51.63034
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Autobedrijf Vd Heijden",
-        "straatNaam": "VINCENT VAN GOGHSTRAAT",
-        "straatNr": "25",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 5,
-        "latitude": 51.63034,
-        "longitude": 5.22869
       }
     },
     {
@@ -245,7 +245,7 @@
         "straatNr": "20",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 64,
+        "bezettingsgraad": 13,
         "latitude": 51.6321706503476,
         "longitude": 5.22881527130846
       }
@@ -266,7 +266,7 @@
         "straatNr": "58",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 70,
         "latitude": 51.64587479,
         "longitude": 5.28166155
       }
@@ -287,7 +287,7 @@
         "straatNr": "23",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 45,
+        "bezettingsgraad": 67,
         "latitude": 51.6461997067191,
         "longitude": 5.28314894833315
       }
@@ -308,7 +308,7 @@
         "straatNr": "109",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 99,
+        "bezettingsgraad": 12,
         "latitude": 51.64582241,
         "longitude": 5.283395429
       }
@@ -329,7 +329,7 @@
         "straatNr": "2",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 39,
+        "bezettingsgraad": 4,
         "latitude": 51.64554387,
         "longitude": 5.294231986
       }
@@ -350,7 +350,7 @@
         "straatNr": "2",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 95,
+        "bezettingsgraad": 36,
         "latitude": 51.64554387,
         "longitude": 5.294231986
       }
@@ -371,7 +371,7 @@
         "straatNr": "4",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 44,
+        "bezettingsgraad": 19,
         "latitude": 51.6577006567882,
         "longitude": 5.29981435631627
       }
@@ -392,7 +392,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "social",
-        "bezettingsgraad": 63,
+        "bezettingsgraad": 86,
         "latitude": 51.6467036,
         "longitude": 5.2842946
       }
@@ -413,7 +413,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 58,
+        "bezettingsgraad": 16,
         "latitude": 51.6303,
         "longitude": 5.22863
       }
@@ -434,7 +434,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "locker",
-        "bezettingsgraad": 65,
+        "bezettingsgraad": 60,
         "latitude": 51.6453101,
         "longitude": 5.2866525
       }
@@ -455,7 +455,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 38,
+        "bezettingsgraad": 82,
         "latitude": 51.6461303,
         "longitude": 5.2834212
       }
@@ -476,7 +476,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 55,
+        "bezettingsgraad": 64,
         "latitude": 51.6594702,
         "longitude": 5.2351073
       }
@@ -4215,78 +4215,6 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              5.1544519,
-              51.6549191
-            ],
-            [
-              5.1545953,
-              51.6545338
-            ],
-            [
-              5.1556948,
-              51.6516014
-            ],
-            [
-              5.1564607,
-              51.6495582
-            ],
-            [
-              5.1566387,
-              51.6490633
-            ],
-            [
-              5.1568843,
-              51.6483807
-            ],
-            [
-              5.1573008,
-              51.6472231
-            ],
-            [
-              5.1573413,
-              51.6471103
-            ],
-            [
-              5.157559,
-              51.6465053
-            ],
-            [
-              5.1577327,
-              51.6460224
-            ],
-            [
-              5.1579745,
-              51.64535
-            ],
-            [
-              5.1583978,
-              51.6441732
-            ],
-            [
-              5.1586147,
-              51.6435702
-            ],
-            [
-              5.1589485,
-              51.6426421
-            ],
-            [
-              5.1589567,
-              51.6426192
-            ],
-            [
-              5.1589897,
-              51.6425276
-            ],
-            [
-              5.1592585,
-              51.6417802
-            ],
-            [
-              5.1595223,
-              51.6410467
-            ],
             [
               5.1600657,
               51.6395357
@@ -10066,6 +9994,78 @@
             [
               5.1544519,
               51.6549191
+            ],
+            [
+              5.1545953,
+              51.6545338
+            ],
+            [
+              5.1556948,
+              51.6516014
+            ],
+            [
+              5.1564607,
+              51.6495582
+            ],
+            [
+              5.1566387,
+              51.6490633
+            ],
+            [
+              5.1568843,
+              51.6483807
+            ],
+            [
+              5.1573008,
+              51.6472231
+            ],
+            [
+              5.1573413,
+              51.6471103
+            ],
+            [
+              5.157559,
+              51.6465053
+            ],
+            [
+              5.1577327,
+              51.6460224
+            ],
+            [
+              5.1579745,
+              51.64535
+            ],
+            [
+              5.1583978,
+              51.6441732
+            ],
+            [
+              5.1586147,
+              51.6435702
+            ],
+            [
+              5.1589485,
+              51.6426421
+            ],
+            [
+              5.1589567,
+              51.6426192
+            ],
+            [
+              5.1589897,
+              51.6425276
+            ],
+            [
+              5.1592585,
+              51.6417802
+            ],
+            [
+              5.1595223,
+              51.6410467
+            ],
+            [
+              5.1600657,
+              51.6395357
             ]
           ]
         ]

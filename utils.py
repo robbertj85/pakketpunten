@@ -25,8 +25,8 @@ GEMEENTE_NAME_MAPPING = {
     "Bergen (L.)": "Bergen",  # Limburg
     "Bergen (NH.)": "Bergen",  # Noord-Holland
 
-    # Full official names
-    "Nuenen": "Nuenen, Gerwen en Nederwetten",
+    # Abbreviated names (c.a. = cum annexis = with additions)
+    "Nuenen": "Nuenen c.a.",
 
     # Add more mappings as needed
 }
