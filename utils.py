@@ -15,6 +15,22 @@ from pathlib import Path
 # Cache for gemeente polygons to avoid duplicate Overpass API calls
 _gemeente_polygon_cache = {}
 
+# Municipality name mappings for special cases in Overpass API
+# Maps user-provided names to official OSM names
+GEMEENTE_NAME_MAPPING = {
+    # Names with special characters (OSM actually uses the apostrophe)
+    "s-Hertogenbosch": "'s-Hertogenbosch",  # Our data has no apostrophe, OSM has it
+
+    # Names with parentheses (disambiguation) - OSM uses without parentheses
+    "Bergen (L.)": "Bergen",  # Limburg
+    "Bergen (NH.)": "Bergen",  # Noord-Holland
+
+    # Full official names
+    "Nuenen": "Nuenen, Gerwen en Nederwetten",
+
+    # Add more mappings as needed
+}
+
 def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     """
     Haalt de exacte gemeentegrens (polygon) op uit OpenStreetMap via Overpass API.
@@ -37,80 +53,116 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     import time
     from shapely.geometry import shape
 
-    # Check cache first to avoid duplicate API calls
-    cache_key = f"{gemeente_naam}:{country_hint}"
+    # Apply name mapping for special cases
+    original_name = gemeente_naam
+    gemeente_naam = GEMEENTE_NAME_MAPPING.get(gemeente_naam, gemeente_naam)
+
+    # Check cache first to avoid duplicate API calls (use original name as key)
+    cache_key = f"{original_name}:{country_hint}"
     if cache_key in _gemeente_polygon_cache:
         return _gemeente_polygon_cache[cache_key]
 
     # Add rate limiting for Overpass API (be nice to the server)
     time.sleep(1)
 
-    try:
-        # Use Overpass API to get admin_level=8 boundary (municipality level)
-        # This ensures we get the full municipality, not just the city center
-        overpass_url = "https://overpass-api.de/api/interpreter"
+    # Retry logic with exponential backoff for timeouts
+    max_retries = 3
+    retry_delay = 2  # seconds
+    last_exception = None
 
-        # Overpass QL query to find municipality boundary with admin_level=8
-        query = f"""
-        [out:json][timeout:30];
-        area["name"="{gemeente_naam}"]["admin_level"="8"]["boundary"="administrative"]->.searchArea;
-        (
-          relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"];
-        );
-        out geom;
-        """
+    for attempt in range(max_retries):
+        try:
+            # Use Overpass API to get admin_level=8 boundary (municipality level)
+            # This ensures we get the full municipality, not just the city center
+            overpass_url = "https://overpass-api.de/api/interpreter"
 
-        response = requests.post(
-            overpass_url,
-            data={'data': query},
-            headers={'User-Agent': 'pakketpunten_boundary_fetcher/1.0'},
-            timeout=60
-        )
-        response.raise_for_status()
-        data = response.json()
+            # Overpass QL query to find municipality boundary with admin_level=8
+            query = f"""
+            [out:json][timeout:30];
+            area["name"="{gemeente_naam}"]["admin_level"="8"]["boundary"="administrative"]->.searchArea;
+            (
+              relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"];
+            );
+            out geom;
+            """
 
-        if not data.get('elements') or len(data['elements']) == 0:
-            raise ValueError(f"Gemeente '{gemeente_naam}' niet gevonden via Overpass API (admin_level=8).")
+            response = requests.post(
+                overpass_url,
+                data={'data': query},
+                headers={'User-Agent': 'pakketpunten_boundary_fetcher/1.0'},
+                timeout=60
+            )
+            response.raise_for_status()
+            data = response.json()
 
-        # Get the first relation (should be the municipality boundary)
-        relation = data['elements'][0]
+            if not data.get('elements') or len(data['elements']) == 0:
+                raise ValueError(f"Gemeente '{original_name}' niet gevonden via Overpass API (admin_level=8).")
 
-        if relation['type'] != 'relation':
-            raise ValueError(f"Verwachtte een relation, kreeg {relation['type']}.")
+            # Get the first relation (should be the municipality boundary)
+            relation = data['elements'][0]
 
-        # Extract geometry from Overpass format
-        # Overpass returns geometry in "members" array with "geometry" field
-        geojson_feature = {
-            "type": "Feature",
-            "properties": relation.get('tags', {}),
-            "geometry": _extract_geometry_from_overpass(relation)
-        }
+            if relation['type'] != 'relation':
+                raise ValueError(f"Verwachtte een relation, kreeg {relation['type']}.")
 
-        # Convert to Shapely geometry
-        geom = shape(geojson_feature['geometry'])
+            # Extract geometry from Overpass format
+            # Overpass returns geometry in "members" array with "geometry" field
+            geojson_feature = {
+                "type": "Feature",
+                "properties": relation.get('tags', {}),
+                "geometry": _extract_geometry_from_overpass(relation)
+            }
 
-        # Validate and fix geometry (common OSM issue: self-intersections)
-        if not geom.is_valid:
-            print(f"  ⚠️  Invalid geometry detected for '{gemeente_naam}', attempting to fix...")
-            geom = geom.buffer(0)  # Fix self-intersections and topology errors
+            # Convert to Shapely geometry
+            geom = shape(geojson_feature['geometry'])
 
-        if not geom.is_valid:
-            raise ValueError(f"Kon geometry voor '{gemeente_naam}' niet repareren.")
+            # Validate and fix geometry (common OSM issue: self-intersections)
+            if not geom.is_valid:
+                print(f"  ⚠️  Invalid geometry detected for '{original_name}', attempting to fix...")
+                geom = geom.buffer(0)  # Fix self-intersections and topology errors
 
-        # Create GeoDataFrame
-        gdf = gpd.GeoDataFrame(
-            {'gemeente': [gemeente_naam]},
-            geometry=[geom],
-            crs="EPSG:4326"
-        )
+            if not geom.is_valid:
+                raise ValueError(f"Kon geometry voor '{original_name}' niet repareren.")
 
-        # Cache the result
-        _gemeente_polygon_cache[cache_key] = gdf
+            # Create GeoDataFrame
+            gdf = gpd.GeoDataFrame(
+                {'gemeente': [original_name]},
+                geometry=[geom],
+                crs="EPSG:4326"
+            )
 
-        return gdf
+            # Cache the result
+            _gemeente_polygon_cache[cache_key] = gdf
 
-    except requests.RequestException as e:
-        raise ValueError(f"Overpass API fout voor '{gemeente_naam}': {e}")
+            return gdf
+
+        except requests.exceptions.HTTPError as e:
+            # Check if it's a timeout or rate limit error that we should retry
+            if e.response is not None and e.response.status_code in [429, 504, 503]:
+                last_exception = e
+                if attempt < max_retries - 1:
+                    wait_time = retry_delay * (2 ** attempt)  # Exponential backoff
+                    print(f"  ⏳ Overpass API timeout/rate limit for '{original_name}' (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s...")
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    raise ValueError(f"Overpass API fout voor '{original_name}': {e}")
+            else:
+                # Other HTTP errors should not be retried
+                raise ValueError(f"Overpass API fout voor '{original_name}': {e}")
+        except requests.RequestException as e:
+            # Network errors, timeouts, etc.
+            last_exception = e
+            if attempt < max_retries - 1:
+                wait_time = retry_delay * (2 ** attempt)
+                print(f"  ⏳ Network error for '{original_name}' (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s...")
+                time.sleep(wait_time)
+                continue
+            else:
+                raise ValueError(f"Overpass API fout voor '{original_name}': {e}")
+
+    # If we get here, all retries failed
+    if last_exception:
+        raise ValueError(f"Overpass API fout voor '{original_name}': {last_exception}")
 
 
 def _extract_geometry_from_overpass(relation):
