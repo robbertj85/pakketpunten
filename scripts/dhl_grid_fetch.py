@@ -26,7 +26,7 @@ NL_BOUNDS = {
 
 # Grid configuration
 SEARCH_RADIUS = 10000  # 10km radius per search circle
-GRID_SPACING_KM = 15   # 15km between grid points (ensures overlap)
+GRID_SPACING_KM = 12   # 12km between grid points (ensures better coverage with overlap)
 
 # API configuration
 DHL_API_URL = "https://api-gw.dhlparcel.nl/parcel-shop-locations/NL/by-geo"
