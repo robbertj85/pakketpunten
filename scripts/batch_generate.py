@@ -321,11 +321,26 @@ def main():
     print(f"\n💾 Summary saved to: {summary_file}")
     print(f"⏰ Completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Exit with error code only if any had real errors (not just "no data")
-    real_failures = [r for r in failed if "No data found" not in r.get('error', '')]
+    # Exit with error code only if any had real errors
+    # Exclude non-fatal errors: "No data found" and "Overpass API" timeouts
+    real_failures = [
+        r for r in failed
+        if "No data found" not in r.get('error', '')
+        and "Overpass API" not in r.get('error', '')
+    ]
+
+    # Count Overpass API failures separately
+    overpass_failures = [r for r in failed if "Overpass API" in r.get('error', '')]
+
     if real_failures:
-        print(f"\n⚠️  {len(real_failures)} municipalities had real errors (not just no data)")
+        print(f"\n⚠️  {len(real_failures)} municipalities had real errors (not just no data or API timeouts)")
         sys.exit(1)
+    elif overpass_failures:
+        print(f"\n⚠️  {len(overpass_failures)} municipalities had Overpass API timeouts (non-fatal):")
+        for r in overpass_failures:
+            print(f"   - {r['gemeente']}")
+        print(f"\n✅ All municipalities processed (some had transient API issues)")
+        sys.exit(0)
     else:
         print(f"\n✅ All municipalities processed successfully (some may have no data)")
         sys.exit(0)

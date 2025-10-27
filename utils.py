@@ -66,8 +66,8 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     time.sleep(1)
 
     # Retry logic with exponential backoff for timeouts
-    max_retries = 3
-    retry_delay = 2  # seconds
+    max_retries = 5  # Increased from 3 to handle transient Overpass API issues
+    retry_delay = 3  # seconds
     last_exception = None
 
     for attempt in range(max_retries):
@@ -77,8 +77,9 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
             overpass_url = "https://overpass-api.de/api/interpreter"
 
             # Overpass QL query to find municipality boundary with admin_level=8
+            # Increased timeout to 45s to reduce likelihood of 504 errors
             query = f"""
-            [out:json][timeout:30];
+            [out:json][timeout:45];
             area["name"="{gemeente_naam}"]["admin_level"="8"]["boundary"="administrative"]->.searchArea;
             (
               relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"];
@@ -90,7 +91,7 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
                 overpass_url,
                 data={'data': query},
                 headers={'User-Agent': 'pakketpunten_boundary_fetcher/1.0'},
-                timeout=60
+                timeout=90  # Increased from 60s to handle slower API responses
             )
             response.raise_for_status()
             data = response.json()
@@ -139,13 +140,16 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
             # Check if it's a timeout or rate limit error that we should retry
             if e.response is not None and e.response.status_code in [429, 504, 503]:
                 last_exception = e
+                error_type = "Gateway Timeout" if e.response.status_code == 504 else "Rate Limit/Service Unavailable"
                 if attempt < max_retries - 1:
                     wait_time = retry_delay * (2 ** attempt)  # Exponential backoff
-                    print(f"  ⏳ Overpass API timeout/rate limit for '{original_name}' (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s...")
+                    print(f"  ⏳ Overpass API {error_type} for '{original_name}' (HTTP {e.response.status_code})")
+                    print(f"     Attempt {attempt + 1}/{max_retries}, retrying in {wait_time}s...")
                     time.sleep(wait_time)
                     continue
                 else:
-                    raise ValueError(f"Overpass API fout voor '{original_name}': {e}")
+                    # All retries exhausted
+                    raise ValueError(f"Overpass API fout voor '{original_name}': {e.response.status_code} {error_type} after {max_retries} attempts")
             else:
                 # Other HTTP errors should not be retried
                 raise ValueError(f"Overpass API fout voor '{original_name}': {e}")
@@ -158,7 +162,7 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
                 time.sleep(wait_time)
                 continue
             else:
-                raise ValueError(f"Overpass API fout voor '{original_name}': {e}")
+                raise ValueError(f"Overpass API fout voor '{original_name}': Network error after {max_retries} attempts - {e}")
 
     # If we get here, all retries failed
     if last_exception:
@@ -255,6 +259,8 @@ def get_gemeente_geometry(gemeente_naam: str, mode: str = "bbox", country_hint: 
     Deze functie haalt de EXACTE gemeentegrens (admin_level=8) op en berekent daaruit
     de bbox of circle, zodat de zoekparameters consistent zijn met de boundary filtering.
 
+    Falls back to Nominatim geocoding if Overpass API fails (e.g., timeout, rate limit).
+
     Parameters
     ----------
     gemeente_naam : str
@@ -272,8 +278,32 @@ def get_gemeente_geometry(gemeente_naam: str, mode: str = "bbox", country_hint: 
         - bbox   -> (lat_min, lon_min, lat_max, lon_max)
         - circle -> (center_lat, center_lon, radius_meters)
     """
-    # Get the exact municipality boundary (admin_level=8)
-    gdf = get_gemeente_polygon(gemeente_naam, country_hint)
+    # Try to get the exact municipality boundary (admin_level=8) from Overpass API
+    try:
+        gdf = get_gemeente_polygon(gemeente_naam, country_hint)
+    except (ValueError, Exception) as e:
+        # Overpass API failed - fall back to Nominatim geocoding with generous search radius
+        print(f"  ⚠️  Overpass API unavailable for '{gemeente_naam}': {e}")
+        print(f"  🔄 Falling back to Nominatim geocoding with generous search area")
+
+        # Use Nominatim to get approximate center point
+        lat, lon = get_lat_lon(gemeente_naam)
+
+        if mode == "bbox":
+            # Create a generous bbox around the center point (~20km radius)
+            # 1 degree ≈ 111 km, so 0.18 degrees ≈ 20 km
+            bbox_radius_deg = 0.18
+            return (
+                lat - bbox_radius_deg,  # bottom_left_lat
+                lon - bbox_radius_deg,  # bottom_left_lon
+                lat + bbox_radius_deg,  # top_right_lat
+                lon + bbox_radius_deg   # top_right_lon
+            )
+        elif mode == "circle":
+            # Return center with 20km radius (generous to capture all points)
+            return lat, lon, 20000  # 20 km in meters
+        else:
+            raise ValueError(f"Onbekende mode: {mode}")
 
     # Extract bounds from the polygon
     bounds = gdf.total_bounds  # [minx, miny, maxx, maxy]
