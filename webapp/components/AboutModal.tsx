@@ -120,8 +120,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                   op een overzichtelijke kaart met filteropties en statistieken.
                 </p>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Het platform ondersteunt gemeenten, onderzoekers en beleidsmakers bij het analyseren
-                  van de toegankelijkheid van pakketpunten en het identificeren van onderbedeelde gebieden.
+                  De Pakketpuntenviewer ondersteunt gemeenten, onderzoekers en beleidsmakers bij het analyseren van de dekkingsgraad van pakketpunten over de gemeenten en het identificeren van onderbedeelde gebieden om nieuwe plaatsingen van pakketpunten mogelijk te maken.
                 </p>
               </section>
 
