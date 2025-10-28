@@ -140,9 +140,8 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
               <section>
                 <h4 className="text-md font-semibold text-gray-900 mb-2">Dankbetuiging</h4>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  Dit project is ontwikkeld in samenwerking met de{' '}
-                  <strong>Gemeente Zwolle</strong>, die de inspiratie en ondersteuning bood
-                  voor de ontwikkeling van dit visualisatieplatform.
+                  Dit prototype is gebaseerd op een concept van en in samenwerking met met de{' '}
+                  <strong>Gemeente Zwolle</strong>, waarvoor dank!
                 </p>
               </section>
 
