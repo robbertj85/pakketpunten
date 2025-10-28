@@ -44,7 +44,7 @@ export default function StatsPanel({ data, filters }: StatsPanelProps) {
         </p>
         {isNationalView && (
           <p className="text-xs text-blue-600 mt-1 font-medium">
-            {(data.metadata as any).municipalities_included} gemeentes
+            {(data.metadata as any).municipalities_included - 1} gemeentes
           </p>
         )}
       </div>
