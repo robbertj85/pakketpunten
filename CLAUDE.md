@@ -37,7 +37,49 @@ python batch_generate.py
 
 # Create national overview
 python scripts/create_national_overview.py
+
+# Generate provincial boundary chunks (for Nederland view)
+python scripts/create_provincial_boundaries.py
+
+# Statistical Analysis - Fetch CBS data and run correlation analysis
+python scripts/fetch_cbs_municipality_data.py  # Fetch area data from CBS
+python scripts/municipality_statistics_analysis.py  # Run statistical analysis
 ```
+
+### Statistical Analysis
+
+The project includes a comprehensive statistical analysis system that correlates municipality data with parcel point coverage. This is a **backend-only** analysis tool that generates reports - not integrated into the webapp.
+
+```bash
+# 1. Fetch municipality area data from CBS (Statistics Netherlands)
+source venv/bin/activate
+python scripts/fetch_cbs_municipality_data.py
+
+# 2. Run statistical analysis (correlation + linear regression)
+python scripts/municipality_statistics_analysis.py
+
+# 3. Generate professional PDF report with charts
+python scripts/generate_pdf_report.py
+
+# Output files (in output/ directory):
+# - municipality_statistics_analysis.txt (text report)
+# - municipality_statistics_data.json (detailed data)
+# - municipality_statistics_data.csv (CSV export)
+# - municipality_statistics_report.pdf (professional PDF with charts)
+```
+
+**Analysis Features**:
+- **Correlation Analysis**: Calculates Pearson correlation coefficients between parcel points and:
+  - Population (strong positive: ~0.92)
+  - Area in km² (weak positive: ~0.40)
+  - Population density
+- **Linear Regression Model**: Predicts expected parcel points based on population and area
+  - Formula: `Parcel Points = α + β₁(Population) + β₂(Area km²)`
+  - R² score: ~87% variance explained
+  - Interpretation: For every 1,000 inhabitants → ~0.3 additional parcel points expected
+- **Performance Rankings**: Identifies overperforming and underperforming municipalities
+  - Top overperformers: Municipalities with more parcel points than predicted
+  - Top underperformers: Municipalities with fewer parcel points than predicted
 
 ### Next.js Webapp
 
@@ -108,6 +150,16 @@ The Map component implements **adaptive rendering** for handling 1,000-50,000+ m
 **Data Loading**:
 - `/municipalities.json` → List of available municipalities
 - `/data/{slug}.geojson` → Complete municipality data (pakketpunten + buffer unions)
+- `/data/boundaries/index.json` → Provincial boundary index (for Nederland view)
+- `/data/boundaries/provincie-{slug}.geojson` → Individual province boundaries (12 files)
+
+**Provincial Boundary Loading** (Nederland view only):
+When viewing the national map with boundaries enabled, the system loads boundaries using a chunked approach:
+1. **Split Strategy**: The full Netherlands boundary (originally 187MB, too large for GitHub) is split into 12 provincial files (0.3-7.8 MB each)
+2. **Parallel Loading**: All 12 provincial files are loaded simultaneously using `loadProvincialBoundaries()` from `utils/boundaryLoader.ts`
+3. **Progress Tracking**: Real-time progress indicator shows "Loading: X/12 provinces (Y%)" with a progress bar
+4. **Automatic Merging**: Provincial boundaries are merged into a single GeoJSON FeatureCollection transparently
+5. **On-Demand**: Boundaries only load when user clicks the "Gemeentegrens" checkbox in the Nederland view
 
 ### TypeScript Types (`webapp/types/pakketpunten.ts`)
 
@@ -190,6 +242,9 @@ All API calls use `requests.Session()` with proxy bypass for specific domains (h
   - `{slug}.geojson` → Per-municipality data
   - `municipalities.json` → Municipality index
   - `summary.json` → Batch processing results
+  - `boundaries/` → Provincial boundary chunks (12 files, ~46MB total)
+    - `index.json` → Metadata about all provincial files
+    - `provincie-{slug}.geojson` → Individual province boundaries
 
 ## Performance Considerations
 
