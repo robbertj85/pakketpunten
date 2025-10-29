@@ -48,5 +48,7 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git add webapp/public/data/*.geojson webapp/public/data/summary.json webapp/public/municipalities.json
+          # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
+          find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
+          git add webapp/public/data/summary.json webapp/public/municipalities.json 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update pakketpunten data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)
