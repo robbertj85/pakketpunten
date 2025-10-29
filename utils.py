@@ -20,6 +20,7 @@ _gemeente_polygon_cache = {}
 GEMEENTE_NAME_MAPPING = {
     # Names with special characters (OSM actually uses the apostrophe)
     "s-Hertogenbosch": "'s-Hertogenbosch",  # Our data has no apostrophe, OSM has it
+    # "Den Haag": "'s-Gravenhage",  # Commented out - "Den Haag" works with ISO filter
 
     # Names with parentheses (disambiguation) - OSM uses without parentheses
     "Bergen (L.)": "Bergen",  # Limburg
@@ -78,9 +79,10 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
 
             # Overpass QL query to find municipality boundary with admin_level=8
             # Increased timeout to 45s to reduce likelihood of 504 errors
+            # Search within Netherlands (ISO3166-1=NL) to avoid getting wrong country (e.g., Breda, Iowa instead of Breda, NL)
             query = f"""
             [out:json][timeout:45];
-            area["name"="{gemeente_naam}"]["admin_level"="8"]["boundary"="administrative"]->.searchArea;
+            area["ISO3166-1"="NL"]["admin_level"="2"]->.searchArea;
             (
               relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"];
             );

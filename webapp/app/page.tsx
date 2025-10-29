@@ -7,6 +7,7 @@ import FilterPanel from '@/components/FilterPanel';
 import StatsPanel from '@/components/StatsPanel';
 import AboutModal from '@/components/AboutModal';
 import { Municipality, PakketpuntData, Filters, PakketpuntProperties } from '@/types/pakketpunten';
+import { loadProvincialBoundaries, BoundaryLoadProgress } from '@/utils/boundaryLoader';
 
 // Dynamically import Map component to avoid SSR issues with Leaflet
 const Map = dynamic(() => import('@/components/Map'), {
@@ -26,6 +27,7 @@ export default function Home() {
   const [showAbout, setShowAbout] = useState(false);
   const [boundariesLoaded, setBoundariesLoaded] = useState(false);
   const [boundariesLoading, setBoundariesLoading] = useState(false);
+  const [boundaryLoadProgress, setBoundaryLoadProgress] = useState<BoundaryLoadProgress | null>(null);
   const [filters, setFilters] = useState<Filters>({
     providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon'],
     showBuffer300: true,
@@ -142,6 +144,7 @@ export default function Home() {
   }, [selectedMunicipality]);
 
   // Load boundaries separately when user enables them for Nederland view
+  // Uses provincial chunks (12 files) for better performance and GitHub compatibility
   useEffect(() => {
     // Only load boundaries for Nederland view when user clicks checkbox
     if (selectedMunicipality !== 'nederland' || !filters.showBoundary || boundariesLoaded || boundariesLoading) {
@@ -149,17 +152,15 @@ export default function Home() {
     }
 
     setBoundariesLoading(true);
-    console.log('Loading Nederland boundaries...');
+    setBoundaryLoadProgress(null);
+    console.log('Loading provincial boundaries...');
 
-    fetch('/data/nederland-boundaries.geojson')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
+    loadProvincialBoundaries((progress) => {
+      setBoundaryLoadProgress(progress);
+      console.log(`Loading: ${progress.loaded}/${progress.total} provinces (${progress.percentage}%)`);
+    })
       .then((boundariesData) => {
-        console.log('Boundaries loaded successfully!');
+        console.log(`✅ Boundaries loaded successfully! ${boundariesData.metadata.total_boundaries} boundaries from ${boundariesData.metadata.provinces_loaded} provinces`);
         // Merge boundary features into existing data
         if (data) {
           setData({
@@ -168,9 +169,11 @@ export default function Home() {
           });
         }
         setBoundariesLoaded(true);
+        setBoundaryLoadProgress(null);
       })
       .catch((err) => {
         console.error('Error loading boundaries:', err);
+        setBoundaryLoadProgress(null);
       })
       .finally(() => setBoundariesLoading(false));
   }, [selectedMunicipality, filters.showBoundary, data, boundariesLoaded, boundariesLoading]);
@@ -263,6 +266,7 @@ export default function Home() {
                 availableProviders={data.metadata.providers}
                 providerCounts={providerCounts}
                 boundariesLoading={boundariesLoading}
+                boundaryLoadProgress={boundaryLoadProgress}
               />
             </>
           )}

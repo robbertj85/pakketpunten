@@ -1,6 +1,7 @@
 'use client';
 
 import { Filters } from '@/types/pakketpunten';
+import { BoundaryLoadProgress } from '@/utils/boundaryLoader';
 
 interface FilterPanelProps {
   filters: Filters;
@@ -8,6 +9,7 @@ interface FilterPanelProps {
   availableProviders?: string[];
   providerCounts?: Record<string, number>;
   boundariesLoading?: boolean;
+  boundaryLoadProgress?: BoundaryLoadProgress | null;
 }
 
 const PROVIDER_INFO = {
@@ -19,7 +21,7 @@ const PROVIDER_INFO = {
   DPD: { name: 'DPD', color: '#DC0032', textColor: '#FFFFFF' },
 };
 
-export default function FilterPanel({ filters, onChange, availableProviders, providerCounts, boundariesLoading }: FilterPanelProps) {
+export default function FilterPanel({ filters, onChange, availableProviders, providerCounts, boundariesLoading, boundaryLoadProgress }: FilterPanelProps) {
   const toggleProvider = (provider: string) => {
     const newProviders = filters.providers.includes(provider)
       ? filters.providers.filter((p) => p !== provider)
@@ -137,10 +139,26 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
               disabled={boundariesLoading}
               className="w-4 h-4 text-red-600 rounded focus:ring-2 focus:ring-red-500 disabled:opacity-50"
             />
-            <span className="text-sm text-gray-900">
-              Gemeentegrens
-              {boundariesLoading && <span className="ml-2 text-xs text-blue-600">(laden...)</span>}
-            </span>
+            <div className="flex-1">
+              <span className="text-sm text-gray-900">Gemeentegrens</span>
+              {boundariesLoading && boundaryLoadProgress && (
+                <div className="mt-1 text-xs text-blue-600">
+                  <div className="flex items-center gap-2">
+                    <span>Laden: {boundaryLoadProgress.loaded}/{boundaryLoadProgress.total} provincies</span>
+                    <span>({boundaryLoadProgress.percentage}%)</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                    <div
+                      className="bg-blue-600 h-1.5 rounded-full transition-all duration-300"
+                      style={{ width: `${boundaryLoadProgress.percentage}%` }}
+                    />
+                  </div>
+                </div>
+              )}
+              {boundariesLoading && !boundaryLoadProgress && (
+                <span className="ml-2 text-xs text-blue-600">(laden...)</span>
+              )}
+            </div>
           </label>
         </div>
       </div>

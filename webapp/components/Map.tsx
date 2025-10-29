@@ -34,7 +34,8 @@ interface MapProps {
 }
 
 // Component to fit bounds when data changes (only once, not on every zoom/pan)
-function FitBounds({ bounds }: { bounds: LatLngBoundsExpression | null }) {
+// Also handles fallback center when no bounds are available (e.g., 0 pakketpunten)
+function FitBounds({ bounds, fallbackCenter }: { bounds: LatLngBoundsExpression | null; fallbackCenter: [number, number] | null }) {
   const map = useMap();
   const [hasFit, setHasFit] = useState(false);
 
@@ -44,13 +45,18 @@ function FitBounds({ bounds }: { bounds: LatLngBoundsExpression | null }) {
     if (bounds && !hasFit) {
       map.fitBounds(bounds, { padding: [50, 50] });
       setHasFit(true);
+    } else if (!bounds && fallbackCenter && !hasFit) {
+      // No bounds available (e.g., 0 pakketpunten), but we have a boundary polygon
+      // Fly to the municipality's center
+      map.setView(fallbackCenter, 13, { animate: true });
+      setHasFit(true);
     }
-  }, [bounds, map, hasFit]);
+  }, [bounds, fallbackCenter, map, hasFit]);
 
-  // Reset hasFit when bounds change (i.e., new data loaded)
+  // Reset hasFit when bounds or fallbackCenter change (i.e., new data loaded)
   useEffect(() => {
     setHasFit(false);
-  }, [bounds]);
+  }, [bounds, fallbackCenter]);
 
   return null;
 }
@@ -441,11 +447,71 @@ function MapComponent(props?: MapProps) {
   // Calculate bounds from metadata
   const bounds: LatLngBoundsExpression | null = useMemo(() => {
     if (!data) return null;
+
+    // Validate bounds array exists and has 4 valid numbers
+    const metadataBounds = data.metadata.bounds;
+    if (!metadataBounds ||
+        metadataBounds.length !== 4 ||
+        metadataBounds.some((b: any) => b === null || b === undefined || isNaN(b))) {
+      console.warn(`Invalid or empty bounds for ${data.metadata.gemeente}, will use boundary centroid`);
+      return null; // Will try to use boundary centroid instead
+    }
+
     return [
-      [data.metadata.bounds[1], data.metadata.bounds[0]], // [miny, minx]
-      [data.metadata.bounds[3], data.metadata.bounds[2]], // [maxy, maxx]
+      [metadataBounds[1], metadataBounds[0]], // [miny, minx]
+      [metadataBounds[3], metadataBounds[2]], // [maxy, maxx]
     ];
   }, [data]);
+
+  // Calculate fallback center from boundary polygon when bounds are invalid
+  const fallbackCenter: [number, number] | null = useMemo(() => {
+    if (!data || bounds) return null; // Only use if bounds are invalid
+
+    // Look for boundary feature in the data
+    const boundaryFeature = data.features.find(
+      (f: any) => f.properties?.type === 'boundary'
+    );
+
+    if (boundaryFeature?.geometry?.coordinates) {
+      try {
+        // Calculate centroid of the boundary polygon
+        const coords = boundaryFeature.geometry.coordinates;
+
+        // Handle MultiPolygon or Polygon
+        const rings = boundaryFeature.geometry.type === 'MultiPolygon'
+          ? coords.flat()
+          : coords;
+
+        // Get outer ring (first ring)
+        const outerRing = rings[0];
+
+        if (outerRing && Array.isArray(outerRing) && outerRing.length > 0) {
+          // Calculate simple centroid
+          let sumLat = 0;
+          let sumLon = 0;
+          let count = 0;
+
+          for (const point of outerRing) {
+            if (Array.isArray(point) && point.length >= 2) {
+              sumLon += point[0];
+              sumLat += point[1];
+              count++;
+            }
+          }
+
+          if (count > 0) {
+            const center: [number, number] = [sumLat / count, sumLon / count];
+            console.log(`Using boundary centroid for ${data.metadata.gemeente}: [${center[0].toFixed(4)}, ${center[1].toFixed(4)}]`);
+            return center;
+          }
+        }
+      } catch (e) {
+        console.error(`Failed to calculate boundary centroid for ${data.metadata.gemeente}:`, e);
+      }
+    }
+
+    return null;
+  }, [data, bounds]);
 
   // Use simple markers based on user preference from filters
   const markerCount = points.length;
@@ -645,21 +711,25 @@ function MapComponent(props?: MapProps) {
     );
   }
 
+  // Check if municipality has 0 pakketpunten
+  const hasNoPakketpunten = points.length === 0;
+
   return (
-    <MapContainer
-      key={`map-${useSimpleMarkers ? 'simple' : 'detailed'}`} // Force remount when rendering mode changes
-      center={[52.3676, 4.9041]} // Amsterdam as default
-      zoom={12}
-      style={{ width: '100%', height: '100%' }}
-      className="z-0"
-      preferCanvas={useSimpleMarkers} // Use Canvas renderer for better performance
-    >
+    <div className="relative w-full h-full">
+      <MapContainer
+        key={`map-${useSimpleMarkers ? 'simple' : 'detailed'}`} // Force remount when rendering mode changes
+        center={[52.3676, 4.9041]} // Amsterdam as default
+        zoom={12}
+        style={{ width: '100%', height: '100%' }}
+        className="z-0"
+        preferCanvas={useSimpleMarkers} // Use Canvas renderer for better performance
+      >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <FitBounds bounds={bounds} />
+      <FitBounds bounds={bounds} fallbackCenter={fallbackCenter} />
       <ZoomWatcher onZoomChange={setCurrentZoom} />
       <ScaleControl />
 
@@ -712,6 +782,29 @@ function MapComponent(props?: MapProps) {
       {/* Render points with automatic spiderfy at zoom 15+ */}
       {markerElements}
     </MapContainer>
+
+      {/* Empty state overlay when municipality has 0 pakketpunten */}
+      {hasNoPakketpunten && (
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000] pointer-events-none">
+          <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg shadow-lg px-6 py-4 max-w-md">
+            <div className="flex items-start gap-3">
+              <svg className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <div>
+                <h3 className="font-semibold text-yellow-900 mb-1">
+                  Geen pakketpunten gevonden
+                </h3>
+                <p className="text-sm text-yellow-800">
+                  Deze gemeente heeft momenteel geen pakketpunten in onze database.
+                  De kaart toont wel de gemeentegrens.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 
