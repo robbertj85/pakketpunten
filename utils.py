@@ -22,14 +22,22 @@ GEMEENTE_NAME_MAPPING = {
     "s-Hertogenbosch": "'s-Hertogenbosch",  # Our data has no apostrophe, OSM has it
     # "Den Haag": "'s-Gravenhage",  # Commented out - "Den Haag" works with ISO filter
 
-    # Names with parentheses (disambiguation) - OSM uses without parentheses
-    "Bergen (L.)": "Bergen",  # Limburg
-    "Bergen (NH.)": "Bergen",  # Noord-Holland
+    # Names with parentheses (disambiguation) - OSM uses just "Bergen" as official name
+    # but uses nat_name to distinguish. We map to nat_name for accurate filtering.
+    "Bergen (L.)": "Bergen",  # Limburg - nat_name: "Bergen (L)", gemeentecode: 0893
+    "Bergen (NH.)": "Bergen",  # Noord-Holland - nat_name: "Bergen (NH)", gemeentecode: 0373
 
     # Abbreviated names (c.a. = cum annexis = with additions)
     "Nuenen": "Nuenen c.a.",
 
     # Add more mappings as needed
+}
+
+# Municipality codes for disambiguation when multiple municipalities share the same name
+# Maps user-provided names to CBS gemeentecode for precise OSM filtering
+GEMEENTE_CODE_MAPPING = {
+    "Bergen (L.)": "0893",   # Bergen in Limburg
+    "Bergen (NH.)": "0373",  # Bergen in Noord-Holland
 }
 
 def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
@@ -58,6 +66,9 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     original_name = gemeente_naam
     gemeente_naam = GEMEENTE_NAME_MAPPING.get(gemeente_naam, gemeente_naam)
 
+    # Check if we need to use gemeentecode for disambiguation
+    gemeentecode = GEMEENTE_CODE_MAPPING.get(original_name)
+
     # Check cache first to avoid duplicate API calls (use original name as key)
     cache_key = f"{original_name}:{country_hint}"
     if cache_key in _gemeente_polygon_cache:
@@ -80,14 +91,27 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
             # Overpass QL query to find municipality boundary with admin_level=8
             # Increased timeout to 45s to reduce likelihood of 504 errors
             # Search within Netherlands (ISO3166-1=NL) to avoid getting wrong country (e.g., Breda, Iowa instead of Breda, NL)
-            query = f"""
-            [out:json][timeout:45];
-            area["ISO3166-1"="NL"]["admin_level"="2"]->.searchArea;
-            (
-              relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"];
-            );
-            out geom;
-            """
+            # For ambiguous names (like Bergen), add ref:gemeentecode filter for precise matching
+            if gemeentecode:
+                # Use gemeentecode for disambiguation (e.g., Bergen L. vs Bergen NH.)
+                query = f"""
+                [out:json][timeout:45];
+                area["ISO3166-1"="NL"]["admin_level"="2"]->.searchArea;
+                (
+                  relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"]["ref:gemeentecode"="{gemeentecode}"];
+                );
+                out geom;
+                """
+            else:
+                # Standard query by name only
+                query = f"""
+                [out:json][timeout:45];
+                area["ISO3166-1"="NL"]["admin_level"="2"]->.searchArea;
+                (
+                  relation(area.searchArea)["admin_level"="8"]["boundary"="administrative"]["name"="{gemeente_naam}"];
+                );
+                out geom;
+                """
 
             response = requests.post(
                 overpass_url,
@@ -99,7 +123,10 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
             data = response.json()
 
             if not data.get('elements') or len(data['elements']) == 0:
-                raise ValueError(f"Gemeente '{original_name}' niet gevonden via Overpass API (admin_level=8).")
+                if gemeentecode:
+                    raise ValueError(f"Gemeente '{original_name}' niet gevonden via Overpass API (admin_level=8, gemeentecode={gemeentecode}).")
+                else:
+                    raise ValueError(f"Gemeente '{original_name}' niet gevonden via Overpass API (admin_level=8).")
 
             # Get the first relation (should be the municipality boundary)
             relation = data['elements'][0]
