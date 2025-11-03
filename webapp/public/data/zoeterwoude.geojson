@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Zoeterwoude",
     "slug": "zoeterwoude",
-    "generated_at": "2025-10-29T23:43:16.956247Z",
-    "total_points": 6,
+    "generated_at": "2025-11-03T03:58:15.478692Z",
+    "total_points": 7,
     "providers": [
       "DHL",
       "DPD",
@@ -34,7 +34,7 @@
         "straatNr": "311-PS/85",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 82,
+        "bezettingsgraad": 64,
         "latitude": 52.13870230860497,
         "longitude": 4.547786964700347
       }
@@ -55,7 +55,7 @@
         "straatNr": "46-B",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 17,
+        "bezettingsgraad": 3,
         "latitude": 52.1371301,
         "longitude": 4.5246256
       }
@@ -76,9 +76,30 @@
         "straatNr": "47",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 11,
+        "bezettingsgraad": 92,
         "latitude": 52.137874,
         "longitude": 4.52988
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5246256,
+          52.1371301
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Business Point - Omiex",
+        "straatNaam": "INDUSTRIEWEG",
+        "straatNr": "46B",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 16,
+        "latitude": 52.1371301,
+        "longitude": 4.5246256
       }
     },
     {
@@ -97,7 +118,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 53,
         "latitude": 52.11494,
         "longitude": 4.50024
       }
@@ -118,7 +139,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 33,
+        "bezettingsgraad": 89,
         "latitude": 52.1371493,
         "longitude": 4.5247893
       }
@@ -680,10 +701,6 @@
           [
             [
               [
-                4.525531431300536,
-                52.13449201867456
-              ],
-              [
                 4.525106869995706,
                 52.13445008760761
               ],
@@ -1066,6 +1083,10 @@
               [
                 4.525531431300536,
                 52.13449201867456
+              ],
+              [
+                4.525106869995706,
+                52.13445008760761
               ]
             ]
           ],
@@ -1876,10 +1897,6 @@
           [
             [
               [
-                4.525833350806346,
-                52.1336126550427
-              ],
-              [
                 4.525267280000371,
                 52.133556748079144
               ],
@@ -2230,6 +2247,10 @@
               [
                 4.525833350806346,
                 52.1336126550427
+              ],
+              [
+                4.525267280000371,
+                52.133556748079144
               ]
             ]
           ],

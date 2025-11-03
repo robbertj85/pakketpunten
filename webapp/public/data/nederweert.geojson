@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Nederweert",
     "slug": "nederweert",
-    "generated_at": "2025-10-29T23:21:32.082868Z",
-    "total_points": 14,
+    "generated_at": "2025-11-03T03:42:14.984013Z",
+    "total_points": 15,
     "providers": [
       "DHL",
       "DPD",
@@ -35,7 +35,7 @@
         "straatNr": "32",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 57,
+        "bezettingsgraad": 45,
         "latitude": 51.28449249267578,
         "longitude": 5.749326229095459
       }
@@ -56,7 +56,7 @@
         "straatNr": "4-A",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 84,
         "latitude": 51.276804,
         "longitude": 5.74355
       }
@@ -77,7 +77,7 @@
         "straatNr": "33",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 37,
+        "bezettingsgraad": 25,
         "latitude": 51.283015,
         "longitude": 5.753729
       }
@@ -98,7 +98,7 @@
         "straatNr": "422",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 85,
+        "bezettingsgraad": 63,
         "latitude": 51.2781187,
         "longitude": 5.7497525
       }
@@ -119,7 +119,7 @@
         "straatNr": "19-PS/89",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 74,
+        "bezettingsgraad": 76,
         "latitude": 51.305533,
         "longitude": 5.795465
       }
@@ -140,7 +140,7 @@
         "straatNr": "33",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 88,
+        "bezettingsgraad": 9,
         "latitude": 51.283015,
         "longitude": 5.753729
       }
@@ -161,7 +161,7 @@
         "straatNr": "422",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 89,
+        "bezettingsgraad": 99,
         "latitude": 51.278119,
         "longitude": 5.749753
       }
@@ -182,7 +182,7 @@
         "straatNr": "15",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 19,
+        "bezettingsgraad": 28,
         "latitude": 51.28911418,
         "longitude": 5.770814503
       }
@@ -203,7 +203,7 @@
         "straatNr": "30",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 97,
+        "bezettingsgraad": 2,
         "latitude": 51.28546382,
         "longitude": 5.748637549
       }
@@ -224,7 +224,7 @@
         "straatNr": "41",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 100,
+        "bezettingsgraad": 45,
         "latitude": 51.28489736,
         "longitude": 5.74869041
       }
@@ -245,7 +245,7 @@
         "straatNr": "422",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 23,
+        "bezettingsgraad": 64,
         "latitude": 51.2781164719837,
         "longitude": 5.74975472624008
       }
@@ -266,7 +266,7 @@
         "straatNr": "73",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 80,
+        "bezettingsgraad": 69,
         "latitude": 51.29887148,
         "longitude": 5.785550211
       }
@@ -287,7 +287,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "locker",
-        "bezettingsgraad": 75,
+        "bezettingsgraad": 19,
         "latitude": 51.305512,
         "longitude": 5.795499
       }
@@ -308,9 +308,30 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 78,
+        "bezettingsgraad": 64,
         "latitude": 51.2781255,
         "longitude": 5.749589
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.7495085,
+          51.284461
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Crystal & Ink",
+        "straatNaam": "Kerkstraat 28",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 93,
+        "latitude": 51.284461,
+        "longitude": 5.7495085
       }
     },
     {
@@ -761,20 +782,28 @@
           [
             [
               [
-                5.749726445457201,
-                51.281807587483804
+                5.749908705398047,
+                51.28177609418866
               ],
               [
-                5.7493048876995685,
-                51.28179591537526
+                5.749487147885632,
+                51.28176442273999
               ],
               [
-                5.748883535449116,
-                51.28181021128847
+                5.749065795983601,
+                51.28177871931279
               ],
               [
-                5.7484664458476145,
-                51.28185033757087
+                5.748648706830374,
+                51.28181884624796
+              ],
+              [
+                5.748239896540685,
+                51.28188441716898
+              ],
+              [
+                5.748206456850487,
+                51.281892038101006
               ],
               [
                 5.748057635014116,
@@ -977,20 +1006,24 @@
                 51.28623374163041
               ],
               [
-                5.75283044191907,
-                51.286050484529625
+                5.752764919064085,
+                51.286218076294574
               ],
               [
-                5.752913576522524,
-                51.28597945098811
+                5.7528461638701724,
+                51.28616129570251
               ],
               [
-                5.753128713087077,
-                51.285751788247815
+                5.753095850863903,
+                51.28594795269267
               ],
               [
-                5.753177455517122,
-                51.28568631476652
+                5.753310986373261,
+                51.28572028961623
+              ],
+              [
+                5.7533263261570005,
+                51.28569968425891
               ],
               [
                 5.753329012192503,
@@ -1173,12 +1206,12 @@
                 51.28175573057579
               ],
               [
-                5.749877988271738,
-                51.28182120270613
+                5.749911391185437,
+                51.28177633548834
               ],
               [
-                5.749726445457201,
-                51.281807587483804
+                5.749908705398047,
+                51.28177609418866
               ]
             ]
           ],
@@ -2377,8 +2410,12 @@
                 51.286823160376215
               ],
               [
-                5.754071108361081,
-                51.28659980100789
+                5.7540362896315855,
+                51.28666180387774
+              ],
+              [
+                5.754110416245974,
+                51.286598465787996
               ],
               [
                 5.754319668940042,
