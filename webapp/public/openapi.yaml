@@ -15,7 +15,7 @@ info:
     ## Features
     - ✅ No authentication required
     - ✅ CORS enabled for all origins
-    - ✅ Rate limited (100 requests per 15 minutes)
+    - ✅ Rate limited (15 requests per hour)
     - ✅ GeoJSON format (RFC 7946)
     - ✅ Multiple identifier types (name, slug, CBS code)
 
@@ -23,9 +23,9 @@ info:
     All responses are in GeoJSON format (FeatureCollection) with metadata.
 
     ## Rate Limiting
-    - **Limit**: 100 requests per 15 minutes per IP address
+    - **Limit**: 15 requests per hour per IP address
     - **Headers**: `X-RateLimit-Limit`, `X-RateLimit-Remaining`
-    - **Reset**: Rate limit resets every 15 minutes
+    - **Reset**: Rate limit resets every hour
 
     ## Data Updates
     Data is automatically updated weekly via GitHub Actions (Mondays at 02:00 UTC).

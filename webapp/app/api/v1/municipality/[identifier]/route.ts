@@ -4,8 +4,8 @@ import path from 'path';
 
 // Rate limiting configuration
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT = 100; // requests per window
-const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes in milliseconds
+const RATE_LIMIT = 15; // requests per window
+const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
 
 interface Municipality {
   name: string;
@@ -60,6 +60,7 @@ const MUNICIPALITY_ALIAS_MAPPING: Record<string, string> = {
   "'s hertogenbosch": "s-hertogenbosch",
   "s hertogenbosch": "s-hertogenbosch",
   "den bosch": "s-hertogenbosch",
+  "den-bosch": "s-hertogenbosch",  // Slug-style variation
   "bosch": "s-hertogenbosch",
 
   // Bergen variations (with/without regional identifiers)
@@ -207,7 +208,7 @@ export async function GET(
       return new NextResponse(
         JSON.stringify({
           error: 'Rate limit exceeded',
-          message: `Maximum ${RATE_LIMIT} requests per ${RATE_LIMIT_WINDOW / 60000} minutes`,
+          message: `Maximum ${RATE_LIMIT} requests per hour`,
         }),
         {
           status: 429,
