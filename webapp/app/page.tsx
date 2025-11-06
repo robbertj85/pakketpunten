@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import MunicipalitySelector from '@/components/MunicipalitySelector';
+import AddressSearchInput from '@/components/AddressSearchInput';
 import FilterPanel from '@/components/FilterPanel';
 import StatsPanel from '@/components/StatsPanel';
 import AboutModal from '@/components/AboutModal';
@@ -28,6 +29,10 @@ export default function Home() {
   const [boundariesLoaded, setBoundariesLoaded] = useState(false);
   const [boundariesLoading, setBoundariesLoading] = useState(false);
   const [boundaryLoadProgress, setBoundaryLoadProgress] = useState<BoundaryLoadProgress | null>(null);
+  const [targetCoordinates, setTargetCoordinates] = useState<{ latitude: number; longitude: number } | null>(null);
+
+  // Track previous municipality to detect manual changes vs address search changes
+  const previousMunicipality = useRef<string>(selectedMunicipality);
   const [filters, setFilters] = useState<Filters>({
     providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon'],
     showBuffer300: true,
@@ -84,6 +89,17 @@ export default function Home() {
       localStorage.setItem('lastSelectedMunicipality', selectedMunicipality);
     }
   }, [selectedMunicipality]);
+
+  // Clear target coordinates when municipality changes manually (not from address search)
+  useEffect(() => {
+    if (previousMunicipality.current !== selectedMunicipality && !targetCoordinates) {
+      // Municipality changed without targetCoordinates being set
+      // This means it was a manual change via dropdown
+      // Clear any old coordinates
+      setTargetCoordinates(null);
+    }
+    previousMunicipality.current = selectedMunicipality;
+  }, [selectedMunicipality, targetCoordinates]);
 
   // Load data when municipality changes
   useEffect(() => {
@@ -199,6 +215,25 @@ export default function Home() {
     }, {} as Record<string, number>);
   }, [data, filters]);
 
+  // Handle address selection from search
+  const handleAddressSelected = (
+    municipalitySlug: string,
+    coordinates: { latitude: number; longitude: number }
+  ) => {
+    console.log('Address selected:', coordinates, 'Municipality:', municipalitySlug);
+    // Store coordinates BEFORE changing municipality
+    // This way the coordinates persist through the municipality change
+    setTargetCoordinates(coordinates);
+    // Then change municipality (will trigger data load)
+    setSelectedMunicipality(municipalitySlug);
+  };
+
+  // Clear target coordinates after map has zoomed to them
+  const handleMapZoomedToTarget = () => {
+    console.log('Map zoomed to target, clearing coordinates');
+    setTargetCoordinates(null);
+  };
+
   return (
     <div className="h-screen flex flex-col">
       {/* Header */}
@@ -215,6 +250,14 @@ export default function Home() {
               municipalities={municipalities}
               selected={selectedMunicipality}
               onChange={setSelectedMunicipality}
+            />
+          </div>
+
+          {/* Address Search */}
+          <div className="flex-1 max-w-md">
+            <AddressSearchInput
+              municipalities={municipalities}
+              onAddressSelected={handleAddressSelected}
             />
           </div>
 
@@ -239,6 +282,17 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Data and Export
+            </a>
+            <a
+              href="/api/v1/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center"
+            >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+              API Docs
             </a>
             <button
               onClick={() => setShowAbout(true)}
@@ -274,7 +328,12 @@ export default function Home() {
 
         {/* Map */}
         <main className="flex-1 relative">
-          <Map data={data} filters={filters} />
+          <Map
+            data={data}
+            filters={filters}
+            targetCoordinates={targetCoordinates}
+            onZoomedToTarget={handleMapZoomedToTarget}
+          />
         </main>
       </div>
 

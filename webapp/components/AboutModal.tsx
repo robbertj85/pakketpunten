@@ -221,6 +221,10 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 <h4 className="text-md font-semibold text-gray-900 mb-2">Aanvullende Bronnen</h4>
                 <ul className="text-sm text-gray-700 space-y-2">
                   <li>
+                    <strong>Adreszoeken:</strong> PDOK Locatieserver
+                    <span className="text-gray-500 ml-2">Publieke Dienstverlening Op de Kaart</span>
+                  </li>
+                  <li>
                     <strong>Gemeentegrenzen:</strong> OpenStreetMap / Nominatim
                     <span className="text-gray-500 ml-2">© OpenStreetMap contributors</span>
                   </li>

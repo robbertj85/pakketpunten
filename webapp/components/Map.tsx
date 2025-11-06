@@ -31,29 +31,59 @@ import { PakketpuntData, PakketpuntFeature, Filters, PakketpuntProperties } from
 interface MapProps {
   data?: PakketpuntData | null;
   filters?: Filters;
+  targetCoordinates?: { latitude: number; longitude: number } | null;
+  onZoomedToTarget?: () => void;
 }
 
 // Component to fit bounds when data changes (only once, not on every zoom/pan)
 // Also handles fallback center when no bounds are available (e.g., 0 pakketpunten)
-function FitBounds({ bounds, fallbackCenter }: { bounds: LatLngBoundsExpression | null; fallbackCenter: [number, number] | null }) {
+// Also handles targetCoordinates when address search is used
+function FitBounds({
+  bounds,
+  fallbackCenter,
+  targetCoordinates,
+  onZoomedToTarget
+}: {
+  bounds: LatLngBoundsExpression | null;
+  fallbackCenter: [number, number] | null;
+  targetCoordinates?: { latitude: number; longitude: number } | null;
+  onZoomedToTarget?: () => void;
+}) {
   const map = useMap();
   const [hasFit, setHasFit] = useState(false);
 
   useEffect(() => {
-    // Only fit bounds once when bounds are first available
-    // Don't re-fit on zoom/pan changes
-    if (bounds && !hasFit) {
+    // Priority 1: If targetCoordinates provided (from address search), zoom to them
+    if (targetCoordinates && !hasFit) {
+      console.log('FitBounds: Zooming to target coordinates', targetCoordinates);
+      map.setView([targetCoordinates.latitude, targetCoordinates.longitude], 17, { animate: true });
+      setHasFit(true);
+      // Notify parent that we've zoomed to target after a short delay (to allow animation)
+      setTimeout(() => {
+        if (onZoomedToTarget) {
+          onZoomedToTarget();
+        }
+      }, 1000);
+    }
+    // Priority 2: Fit to municipality bounds
+    else if (bounds && !hasFit) {
+      console.log('FitBounds: Fitting to municipality bounds');
       map.fitBounds(bounds, { padding: [50, 50] });
       setHasFit(true);
-    } else if (!bounds && fallbackCenter && !hasFit) {
+    }
+    // Priority 3: Fallback to municipality center
+    else if (!bounds && fallbackCenter && !hasFit) {
       // No bounds available (e.g., 0 pakketpunten), but we have a boundary polygon
       // Fly to the municipality's center
+      console.log('FitBounds: Using fallback center');
       map.setView(fallbackCenter, 13, { animate: true });
       setHasFit(true);
     }
-  }, [bounds, fallbackCenter, map, hasFit]);
+  }, [bounds, fallbackCenter, targetCoordinates, map, hasFit, onZoomedToTarget]);
 
-  // Reset hasFit when bounds or fallbackCenter change (i.e., new data loaded)
+  // Reset hasFit when bounds or fallbackCenter change
+  // Note: We don't reset on targetCoordinates change because it gets cleared after zoom,
+  // and we don't want to re-fit to bounds after the user searched for an address
   useEffect(() => {
     setHasFit(false);
   }, [bounds, fallbackCenter]);
@@ -376,6 +406,8 @@ function MapComponent(props?: MapProps) {
 
   // Extract props with defaults AFTER hooks
   const data = props?.data ?? null;
+  const targetCoordinates = props?.targetCoordinates ?? null;
+  const onZoomedToTarget = props?.onZoomedToTarget;
   const activeFilters: Filters = props?.filters ?? {
     providers: [],
     showBuffer300: true,
@@ -729,7 +761,12 @@ function MapComponent(props?: MapProps) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <FitBounds bounds={bounds} fallbackCenter={fallbackCenter} />
+      <FitBounds
+        bounds={bounds}
+        fallbackCenter={fallbackCenter}
+        targetCoordinates={targetCoordinates}
+        onZoomedToTarget={onZoomedToTarget}
+      />
       <ZoomWatcher onZoomChange={setCurrentZoom} />
       <ScaleControl />
 

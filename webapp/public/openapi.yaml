@@ -1,0 +1,411 @@
+openapi: 3.0.3
+info:
+  title: Pakketpunten API
+  version: 1.0.0
+  description: |
+    REST API for retrieving parcel point (pakketpunten) data for Dutch municipalities.
+
+    This API provides access to comprehensive geospatial data about parcel pickup locations
+    across the Netherlands, including:
+    - **Parcel point locations** (coordinates, addresses, providers)
+    - **Coverage buffer zones** (300m and 400m radius)
+    - **Municipality boundaries**
+    - **Provider statistics** (DHL, PostNL, DPD, VintedGo, Amazon, De Buren)
+
+    ## Features
+    - ✅ No authentication required
+    - ✅ CORS enabled for all origins
+    - ✅ Rate limited (100 requests per 15 minutes)
+    - ✅ GeoJSON format (RFC 7946)
+    - ✅ Multiple identifier types (name, slug, CBS code)
+
+    ## Data Format
+    All responses are in GeoJSON format (FeatureCollection) with metadata.
+
+    ## Rate Limiting
+    - **Limit**: 100 requests per 15 minutes per IP address
+    - **Headers**: `X-RateLimit-Limit`, `X-RateLimit-Remaining`
+    - **Reset**: Rate limit resets every 15 minutes
+
+    ## Data Updates
+    Data is automatically updated weekly via GitHub Actions (Mondays at 02:00 UTC).
+
+    ## Disclaimer
+    **This API and all data are provided "as-is" without any warranties or guarantees.**
+
+    The data is collected from various public sources and may contain inaccuracies, outdated information, or errors.
+    We make no representations or warranties of any kind, express or implied, about:
+    - The completeness, accuracy, reliability, or availability of the data
+    - The suitability of the data for any particular purpose
+    - The uptime or availability of the API
+
+    Use this API and data at your own risk. The maintainers shall not be liable for any errors,
+    omissions, or any losses, injuries, or damages arising from its use.
+
+  contact:
+    name: GitHub Repository
+    url: https://github.com/robbertj85/pakketpunten
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://pakketpuntenviewer.nl/api/v1
+    description: Production server
+  - url: http://localhost:3000/api/v1
+    description: Local development server
+
+tags:
+  - name: Municipality Data
+    description: Retrieve parcel point data for Dutch municipalities
+
+paths:
+  /municipality/{identifier}:
+    get:
+      summary: Get municipality parcel point data
+      description: |
+        Retrieve complete parcel point data for a Dutch municipality.
+
+        The `identifier` parameter accepts three formats:
+        1. **Municipality name** (case-insensitive): `Amsterdam`, `Den Haag`, `'s-Hertogenbosch`
+        2. **URL slug**: `amsterdam`, `den-haag`, `s-hertogenbosch`
+        3. **CBS municipality code**: `GM0363`, `GM0518`, `GM0796`
+
+        Returns a GeoJSON FeatureCollection containing:
+        - Parcel point locations (type: `pakketpunt`)
+        - Buffer zones at 300m and 400m (type: `buffer_union_300m`, `buffer_union_400m`)
+        - Municipality boundary (type: `boundary`)
+
+      operationId: getMunicipalityData
+      tags:
+        - Municipality Data
+      parameters:
+        - name: identifier
+          in: path
+          required: true
+          description: |
+            Municipality identifier. Can be:
+            - Municipality name (e.g., `Amsterdam`)
+            - URL slug (e.g., `amsterdam`)
+            - CBS code (e.g., `GM0363`)
+          schema:
+            type: string
+          examples:
+            by_name:
+              summary: By municipality name
+              value: Amsterdam
+            by_slug:
+              summary: By URL slug
+              value: amsterdam
+            by_cbs_code:
+              summary: By CBS code
+              value: GM0363
+            special_case_den_haag:
+              summary: Den Haag (name)
+              value: Den Haag
+            special_case_s_hertogenbosch:
+              summary: "'s-Hertogenbosch (name)"
+              value: s-Hertogenbosch
+      responses:
+        "200":
+          description: Successful response with GeoJSON data
+          headers:
+            X-RateLimit-Limit:
+              description: Maximum number of requests allowed per time window
+              schema:
+                type: integer
+                example: 100
+            X-Municipality-Name:
+              description: Official municipality name
+              schema:
+                type: string
+                example: Amsterdam
+            X-Municipality-Slug:
+              description: URL-safe municipality slug
+              schema:
+                type: string
+                example: amsterdam
+            X-Municipality-Code:
+              description: CBS municipality code
+              schema:
+                type: string
+                example: GM0363
+            Cache-Control:
+              description: Cache control directive
+              schema:
+                type: string
+                example: public, max-age=3600, stale-while-revalidate=86400
+          content:
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/GeoJSONFeatureCollection"
+        "400":
+          description: Bad request - Invalid identifier or restricted municipality
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                missing_identifier:
+                  summary: Missing identifier
+                  value:
+                    error: Missing identifier
+                    message: Please provide a municipality identifier (name, slug, or CBS code)
+                nederland_restricted:
+                  summary: Nederland overview restricted
+                  value:
+                    error: Invalid municipality
+                    message: National overview data is not available via the API. Please use individual municipality endpoints.
+        "404":
+          description: Municipality not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                not_found:
+                  summary: Municipality not found
+                  value:
+                    error: Municipality not found
+                    message: "No municipality found for identifier: InvalidName"
+                    hint: "Try using a municipality name (e.g., Amsterdam), slug (e.g., amsterdam), or CBS code (e.g., GM0363)"
+        "429":
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              description: Number of seconds to wait before retrying
+              schema:
+                type: integer
+                example: 900
+            X-RateLimit-Limit:
+              description: Maximum number of requests allowed per time window
+              schema:
+                type: integer
+                example: 100
+            X-RateLimit-Remaining:
+              description: Number of requests remaining in current time window
+              schema:
+                type: integer
+                example: 0
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                rate_limit:
+                  summary: Rate limit exceeded
+                  value:
+                    error: Rate limit exceeded
+                    message: Maximum 100 requests per 15 minutes
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                internal_error:
+                  summary: Server error
+                  value:
+                    error: Internal server error
+                    message: An unexpected error occurred while processing your request
+
+components:
+  schemas:
+    GeoJSONFeatureCollection:
+      type: object
+      required:
+        - type
+        - metadata
+        - features
+      properties:
+        type:
+          type: string
+          enum: [FeatureCollection]
+          description: GeoJSON type (always "FeatureCollection")
+        metadata:
+          type: object
+          description: Municipality metadata
+          properties:
+            gemeente:
+              type: string
+              description: Municipality name
+              example: Amsterdam
+            slug:
+              type: string
+              description: URL-safe municipality slug
+              example: amsterdam
+            generated_at:
+              type: string
+              format: date-time
+              description: Timestamp when data was generated
+              example: "2025-01-15T10:30:00Z"
+            total_points:
+              type: integer
+              description: Total number of parcel points
+              example: 156
+            providers:
+              type: array
+              items:
+                type: string
+                enum: [DHL, PostNL, VintedGo, DeBuren, DPD, Amazon]
+              description: List of parcel providers in this municipality
+              example: ["DHL", "PostNL", "DPD"]
+            bounds:
+              type: array
+              items:
+                type: number
+              minItems: 4
+              maxItems: 4
+              description: Bounding box [minX, minY, maxX, maxY] in WGS84
+              example: [4.72, 52.28, 5.07, 52.43]
+        features:
+          type: array
+          description: GeoJSON features (parcel points, buffers, boundaries)
+          items:
+            $ref: "#/components/schemas/GeoJSONFeature"
+
+    GeoJSONFeature:
+      type: object
+      required:
+        - type
+        - properties
+        - geometry
+      properties:
+        type:
+          type: string
+          enum: [Feature]
+        properties:
+          oneOf:
+            - $ref: "#/components/schemas/PakketpuntProperties"
+            - $ref: "#/components/schemas/BufferProperties"
+            - $ref: "#/components/schemas/BoundaryProperties"
+        geometry:
+          $ref: "#/components/schemas/GeoJSONGeometry"
+
+    PakketpuntProperties:
+      type: object
+      description: Parcel point properties
+      required:
+        - type
+        - locatieNaam
+        - straatNaam
+        - straatNr
+        - vervoerder
+        - latitude
+        - longitude
+      properties:
+        type:
+          type: string
+          enum: [pakketpunt]
+        locatieNaam:
+          type: string
+          description: Location name (e.g., store name)
+          example: Albert Heijn Amsterdam Centraal
+        straatNaam:
+          type: string
+          description: Street name
+          example: Stationsplein
+        straatNr:
+          type: string
+          description: Street number
+          example: "15"
+        vervoerder:
+          type: string
+          enum: [DHL, PostNL, VintedGo, DeBuren, DPD, Amazon]
+          description: Parcel carrier/provider
+          example: DHL
+        puntType:
+          type: string
+          description: Type of parcel point
+          example: ServicePoint
+        bezettingsgraad:
+          type: integer
+          minimum: 0
+          maximum: 100
+          description: Occupancy rate (0-100%, randomly generated for demo)
+          example: 45
+        latitude:
+          type: number
+          format: double
+          description: Latitude (WGS84)
+          example: 52.379189
+        longitude:
+          type: number
+          format: double
+          description: Longitude (WGS84)
+          example: 4.900272
+
+    BufferProperties:
+      type: object
+      description: Buffer zone properties
+      required:
+        - type
+        - buffer_m
+      properties:
+        type:
+          type: string
+          enum: [buffer_union_300m, buffer_union_400m]
+          description: Buffer type (300m or 400m radius)
+        buffer_m:
+          type: integer
+          enum: [300, 400]
+          description: Buffer radius in meters
+          example: 300
+
+    BoundaryProperties:
+      type: object
+      description: Municipality boundary properties
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum: [boundary]
+          description: Feature type (municipality boundary)
+
+    GeoJSONGeometry:
+      type: object
+      description: GeoJSON geometry (Point, Polygon, or MultiPolygon)
+      required:
+        - type
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum: [Point, Polygon, MultiPolygon]
+        coordinates:
+          oneOf:
+            - type: array
+              items:
+                type: number
+              minItems: 2
+              maxItems: 3
+              description: Point coordinates [longitude, latitude]
+            - type: array
+              items:
+                type: array
+              description: Polygon or MultiPolygon coordinates
+
+    Error:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error type
+          example: Municipality not found
+        message:
+          type: string
+          description: Human-readable error message
+          example: "No municipality found for identifier: InvalidName"
+        hint:
+          type: string
+          description: Optional hint for resolving the error
+          example: "Try using a municipality name (e.g., Amsterdam), slug (e.g., amsterdam), or CBS code (e.g., GM0363)"
+
+externalDocs:
+  description: GitHub Repository
+  url: https://github.com/robbertj85/pakketpunten
