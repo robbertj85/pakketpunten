@@ -66,10 +66,34 @@ paths:
       description: |
         Retrieve complete parcel point data for a Dutch municipality.
 
-        The `identifier` parameter accepts three formats:
-        1. **Municipality name** (case-insensitive): `Amsterdam`, `Den Haag`, `'s-Hertogenbosch`
-        2. **URL slug**: `amsterdam`, `den-haag`, `s-hertogenbosch`
-        3. **CBS municipality code**: `GM0363`, `GM0518`, `GM0796`
+        The `identifier` parameter accepts **multiple formats and variations**:
+
+        **1. Municipality name** (case-insensitive):
+        - Standard: `Amsterdam`, `Rotterdam`, `Utrecht`
+        - Common names: `Den Haag`, `Den Bosch`
+        - Official CBS names: `'s-Gravenhage`, `'s-Hertogenbosch`
+        - English names: `The Hague`
+
+        **2. URL slug**:
+        - `amsterdam`, `den-haag`, `s-hertogenbosch`
+
+        **3. CBS municipality code**:
+        - `GM0363` (Amsterdam), `GM0518` (Den Haag), `GM0796` ('s-Hertogenbosch)
+
+        **4. Alternative spellings** (supported via fuzzy matching):
+        - With/without apostrophes: `s-Gravenhage`, `sgravenhage`
+        - Regional identifiers: `Bergen Noord-Holland`, `Bergen (NH)`, `Bergen NH`
+        - Abbreviated forms: `Hengelo (O)`, `Beek (L)`, `Rijswijk (ZH)`
+
+        ### Supported Name Variations
+
+        Common municipalities with multiple accepted names:
+        - **Den Haag**: `'s-Gravenhage`, `s-Gravenhage`, `The Hague`, `Haag`
+        - **'s-Hertogenbosch**: `Den Bosch`, `Bosch`, `shertogenbosch`
+        - **Bergen (NH.)**: `Bergen Noord-Holland`, `Bergen (NH)`, `Bergen NH`
+        - **Bergen (L.)**: `Bergen Limburg`, `Bergen (L)`, `Bergen L`
+        - **Hengelo**: `Hengelo (O)`, `Hengelo Overijssel`
+        - **Valkenburg aan de Geul**: `Valkenburg`, `Valkenburg (L)`
 
         Returns a GeoJSON FeatureCollection containing:
         - Parcel point locations (type: `pakketpunt`)
@@ -84,8 +108,8 @@ paths:
           in: path
           required: true
           description: |
-            Municipality identifier. Can be:
-            - Municipality name (e.g., `Amsterdam`)
+            Municipality identifier. Supports multiple formats:
+            - Municipality name (standard or alternative spellings)
             - URL slug (e.g., `amsterdam`)
             - CBS code (e.g., `GM0363`)
           schema:
@@ -94,6 +118,21 @@ paths:
             by_name:
               summary: By municipality name
               value: Amsterdam
+            by_common_name:
+              summary: By common name (Den Haag)
+              value: Den Haag
+            by_official_name:
+              summary: By official CBS name
+              value: "'s-Gravenhage"
+            by_english_name:
+              summary: By English name
+              value: The Hague
+            by_alternative_name:
+              summary: By alternative name (Den Bosch)
+              value: Den Bosch
+            by_regional_identifier:
+              summary: By regional identifier
+              value: Bergen Noord-Holland
             by_slug:
               summary: By URL slug
               value: amsterdam

@@ -36,6 +36,112 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
+// Mapping table for common Dutch municipality name variations
+// Maps alternative names/spellings to canonical slugs in our database
+//
+// Common variations:
+// 1. Apostrophe 's-: Official CBS names vs common names
+// 2. Spaces/hyphens: Different formatting styles
+// 3. Parenthetical disambiguation: With/without regional identifiers
+// 4. Historical names: Old spellings still in use
+const MUNICIPALITY_ALIAS_MAPPING: Record<string, string> = {
+  // Den Haag / 's-Gravenhage variations
+  "'s-gravenhage": "den-haag",
+  "s-gravenhage": "den-haag",
+  "sgravenhage": "den-haag",
+  "'s gravenhage": "den-haag",
+  "s gravenhage": "den-haag",
+  "the hague": "den-haag",
+  "haag": "den-haag",
+
+  // Den Bosch / 's-Hertogenbosch variations
+  "'s-hertogenbosch": "s-hertogenbosch",
+  "shertogenbosch": "s-hertogenbosch",
+  "'s hertogenbosch": "s-hertogenbosch",
+  "s hertogenbosch": "s-hertogenbosch",
+  "den bosch": "s-hertogenbosch",
+  "bosch": "s-hertogenbosch",
+
+  // Bergen variations (with/without regional identifiers)
+  "bergen (nh)": "bergen-(nh.)",
+  "bergen nh": "bergen-(nh.)",
+  "bergen noord-holland": "bergen-(nh.)",
+  "bergen noord holland": "bergen-(nh.)",
+  "bergen (noord-holland)": "bergen-(nh.)",
+  "bergen n.h.": "bergen-(nh.)",
+  "bergen n-h": "bergen-(nh.)",
+
+  "bergen (l)": "bergen-(l.)",
+  "bergen l": "bergen-(l.)",
+  "bergen limburg": "bergen-(l.)",
+  "bergen (limburg)": "bergen-(l.)",
+  "bergen l.": "bergen-(l.)",
+
+  // Hengelo variations
+  "hengelo (o)": "hengelo",
+  "hengelo o": "hengelo",
+  "hengelo (overijssel)": "hengelo",
+  "hengelo overijssel": "hengelo",
+  "hengelo o.": "hengelo",
+
+  "hengelo (gld)": "hengelo",
+  "hengelo gld": "hengelo",
+  "hengelo (gelderland)": "hengelo",
+  "hengelo gelderland": "hengelo",
+
+  // Beek variations
+  "beek (l)": "beek",
+  "beek l": "beek",
+  "beek (limburg)": "beek",
+  "beek limburg": "beek",
+  "beek l.": "beek",
+
+  // Laren variations
+  "laren (nh)": "laren",
+  "laren nh": "laren",
+  "laren (noord-holland)": "laren",
+  "laren noord-holland": "laren",
+  "laren noord holland": "laren",
+  "laren n.h.": "laren",
+
+  // Middelburg variations
+  "middelburg (z)": "middelburg",
+  "middelburg z": "middelburg",
+  "middelburg (zeeland)": "middelburg",
+  "middelburg zeeland": "middelburg",
+  "middelburg z.": "middelburg",
+
+  // Rijswijk variations
+  "rijswijk (zh)": "rijswijk",
+  "rijswijk zh": "rijswijk",
+  "rijswijk (zuid-holland)": "rijswijk",
+  "rijswijk zuid-holland": "rijswijk",
+  "rijswijk zuid holland": "rijswijk",
+  "rijswijk z.h.": "rijswijk",
+
+  // Stein variations
+  "stein (l)": "stein",
+  "stein l": "stein",
+  "stein (limburg)": "stein",
+  "stein limburg": "stein",
+  "stein l.": "stein",
+
+  // Groningen variations
+  "groningen (gemeente)": "groningen",
+
+  // Utrecht variations
+  "utrecht (gemeente)": "utrecht",
+
+  // Valkenburg variations
+  "valkenburg (zh)": "valkenburg-aan-de-geul",
+  "valkenburg (l)": "valkenburg-aan-de-geul",
+  "valkenburg": "valkenburg-aan-de-geul",
+
+  // Nuenen variations
+  "nuenen gerwen en nederwetten": "nuenen",
+  "nuenen, gerwen en nederwetten": "nuenen",
+};
+
 function normalizeIdentifier(identifier: string): string {
   return identifier.toLowerCase().trim();
 }
@@ -50,6 +156,13 @@ function findMunicipalityByIdentifier(
   let match = municipalities.find((m) => m.slug === normalized);
   if (match) return match;
 
+  // Try alias mapping (e.g., "Den Bosch" -> "s-hertogenbosch")
+  if (MUNICIPALITY_ALIAS_MAPPING[normalized]) {
+    const aliasSlug = MUNICIPALITY_ALIAS_MAPPING[normalized];
+    match = municipalities.find((m) => m.slug === aliasSlug);
+    if (match) return match;
+  }
+
   // Try CBS code match (e.g., GM0363 for Amsterdam)
   match = municipalities.find((m) => {
     if (!m.code) return false;
@@ -63,6 +176,16 @@ function findMunicipalityByIdentifier(
   match = municipalities.find(
     (m) => normalizeIdentifier(m.name) === normalized
   );
+  if (match) return match;
+
+  // Try fuzzy matching: remove special characters and spaces
+  // This helps with variations like "s-Hertogenbosch" vs "'s-Hertogenbosch"
+  const fuzzyNormalized = normalized.replace(/[''\-\s().]/g, '');
+  match = municipalities.find((m) => {
+    const fuzzyName = m.name.toLowerCase().replace(/[''\-\s().]/g, '');
+    const fuzzySlug = m.slug.replace(/[''\-\s().]/g, '');
+    return fuzzyName === fuzzyNormalized || fuzzySlug === fuzzyNormalized;
+  });
   if (match) return match;
 
   return null;
