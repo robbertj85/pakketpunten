@@ -61,6 +61,7 @@ const MUNICIPALITY_ALIAS_MAPPING: Record<string, string> = {
   "s hertogenbosch": "s-hertogenbosch",
   "den bosch": "s-hertogenbosch",
   "den-bosch": "s-hertogenbosch",  // Slug-style variation
+  "denbosch": "s-hertogenbosch",   // Without spaces/hyphens
   "bosch": "s-hertogenbosch",
 
   // Bergen variations (with/without regional identifiers)
