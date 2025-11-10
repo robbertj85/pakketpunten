@@ -3,12 +3,13 @@
   "metadata": {
     "gemeente": "Stede Broec",
     "slug": "stede-broec",
-    "generated_at": "2025-11-03T03:49:51.434604Z",
-    "total_points": 14,
+    "generated_at": "2025-11-10T03:54:27.097706Z",
+    "total_points": 15,
     "providers": [
       "DHL",
       "DPD",
-      "PostNL"
+      "PostNL",
+      "VintedGo"
     ],
     "bounds": [
       5.2168353,
@@ -34,7 +35,7 @@
         "straatNr": "25-PS/94",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 12,
+        "bezettingsgraad": 97,
         "latitude": 52.6932058,
         "longitude": 5.2168353
       }
@@ -55,7 +56,7 @@
         "straatNr": "23",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 51,
+        "bezettingsgraad": 74,
         "latitude": 52.6936781,
         "longitude": 5.2173262
       }
@@ -76,7 +77,7 @@
         "straatNr": "15-PS/108",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 96,
+        "bezettingsgraad": 24,
         "latitude": 52.69388718455675,
         "longitude": 5.22490128091593
       }
@@ -97,7 +98,7 @@
         "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 51,
+        "bezettingsgraad": 35,
         "latitude": 52.697547912597656,
         "longitude": 5.234157085418701
       }
@@ -118,7 +119,7 @@
         "straatNr": "36",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 5,
+        "bezettingsgraad": 67,
         "latitude": 52.697258,
         "longitude": 5.234334
       }
@@ -139,7 +140,7 @@
         "straatNr": "190-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 15,
+        "bezettingsgraad": 9,
         "latitude": 52.6971397,
         "longitude": 5.2347855
       }
@@ -160,7 +161,7 @@
         "straatNr": "216",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 47,
+        "bezettingsgraad": 8,
         "latitude": 52.69800567626953,
         "longitude": 5.234780311584473
       }
@@ -181,7 +182,7 @@
         "straatNr": "9-PS/93",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 0,
+        "bezettingsgraad": 72,
         "latitude": 52.6899866,
         "longitude": 5.239148
       }
@@ -202,7 +203,7 @@
         "straatNr": "12",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 13,
         "latitude": 52.6917383,
         "longitude": 5.2536746
       }
@@ -223,7 +224,7 @@
         "straatNr": "23",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 80,
+        "bezettingsgraad": 6,
         "latitude": 52.693678,
         "longitude": 5.217326
       }
@@ -244,7 +245,7 @@
         "straatNr": "15",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 83,
+        "bezettingsgraad": 86,
         "latitude": 52.693993,
         "longitude": 5.224656
       }
@@ -265,7 +266,7 @@
         "straatNr": "15",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 56,
+        "bezettingsgraad": 67,
         "latitude": 52.69333552,
         "longitude": 5.231337366
       }
@@ -286,7 +287,7 @@
         "straatNr": "49",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 8,
+        "bezettingsgraad": 80,
         "latitude": 52.69522858,
         "longitude": 5.235842198
       }
@@ -307,9 +308,30 @@
         "straatNr": "22",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 82,
+        "bezettingsgraad": 43,
         "latitude": 52.6936481411256,
         "longitude": 5.25182236273575
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.234358,
+          52.6971897
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "De Bierbroeders & Friends",
+        "straatNaam": "De Middend 34-36",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 20,
+        "latitude": 52.6971897,
+        "longitude": 5.234358
       }
     },
     {
@@ -656,24 +678,20 @@
                 52.69591380348055
               ],
               [
-                5.230432611110108,
-                52.69597409515534
+                5.230404838281108,
+                52.69596982975983
               ],
               [
-                5.230424771800152,
-                52.695982002389925
+                5.230261728042628,
+                52.6961526345796
               ],
               [
-                5.2302377222416565,
-                52.696220933768906
+                5.230114125471951,
+                52.696401553974866
               ],
               [
-                5.230090119305003,
-                52.69646985312997
-              ],
-              [
-                5.230086995741928,
-                52.696477359913196
+                5.230077576299169,
+                52.6964893918082
               ],
               [
                 5.230060784811552,
@@ -1152,10 +1170,6 @@
           [
             [
               [
-                5.243396538912466,
-                52.68920917922177
-              ],
-              [
                 5.2432506649663235,
                 52.688959888660825
               ],
@@ -1410,6 +1424,10 @@
               [
                 5.243396538912466,
                 52.68920917922177
+              ],
+              [
+                5.2432506649663235,
+                52.688959888660825
               ]
             ]
           ],
@@ -2032,7 +2050,7 @@
                 52.696986370407394
               ],
               [
-                5.228128896490219,
+                5.22812889649022,
                 52.6968981737176
               ],
               [
