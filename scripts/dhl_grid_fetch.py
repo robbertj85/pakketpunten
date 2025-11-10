@@ -126,7 +126,8 @@ def subdivide_grid_cell(lat: float, lon: float, radius: int) -> List[Tuple[float
     new_radius = radius // 2
 
     # Calculate offsets (about 1/2 of original radius in each direction)
-    offset_km = new_radius * 0.7  # 0.7 ensures overlap
+    # IMPORTANT: radius is in meters, convert to km for offset calculation
+    offset_km = (new_radius / 1000) * 0.7  # 0.7 ensures overlap
     lat_offset, lon_offset = km_to_lat_lon_offset(offset_km, lat)
 
     # Create 4 subcells
@@ -190,7 +191,7 @@ def fetch_all_dhl_locations_grid() -> Dict[Tuple, Dict]:
         print(f"{len(locations)} results ({new_count} new, {len(all_locations)} total unique)")
 
         # If we hit the limit and radius is still divisible, subdivide
-        if len(locations) >= API_LIMIT and radius > 2000:  # Don't subdivide below 2km
+        if len(locations) >= API_LIMIT and radius > 100:  # Don't subdivide below 100m - go as small as needed for dense city centers
             print(f"  ⚠️  Hit 50-limit! Subdividing into 4 smaller cells...")
             subcells = subdivide_grid_cell(lat, lon, radius)
             cells_to_process.extend(subcells)

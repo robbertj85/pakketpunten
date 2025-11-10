@@ -48,6 +48,8 @@ jobs:
 
       - name: Commit and push if changed
         run: |
+          # Add cache files (DHL and DPD nationwide data)
+          git add data/dhl_all_locations.json data/dpd_all_locations.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
           git add webapp/public/data/summary.json webapp/public/municipalities.json 2>/dev/null || true
