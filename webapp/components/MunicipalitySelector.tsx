@@ -179,7 +179,7 @@ export default function MunicipalitySelector({
           onFocus={() => setShowDropdown(true)}
           onKeyDown={handleKeyDown}
           placeholder={selectedMunicipality ? displayValue : "Selecteer gemeente..."}
-          className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 text-sm"
+          className="w-full px-3 md:px-4 py-2.5 md:py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 text-sm"
           autoComplete="off"
           role="combobox"
           aria-autocomplete="list"
@@ -200,19 +200,19 @@ export default function MunicipalitySelector({
             ref={dropdownRef}
             id="municipality-listbox"
             role="listbox"
-            className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-96 overflow-y-auto"
+            className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-[60vh] md:max-h-96 overflow-y-auto"
           >
             {filteredMunicipalities.length > 0 ? (
               <>
                 <div className="sticky top-0 bg-gray-50 px-3 py-2 text-xs text-gray-500 border-b flex items-center justify-between">
                   <span>{filteredMunicipalities.filter(m => m.slug !== 'nederland').length} gemeentes</span>
                   <div className="flex items-center gap-2">
-                    <kbd className="px-1.5 py-0.5 text-xs font-mono bg-white border border-gray-300 rounded">
+                    <kbd className="hidden md:inline-block px-1.5 py-0.5 text-xs font-mono bg-white border border-gray-300 rounded">
                       ⌘K
                     </kbd>
                     <button
                       onClick={toggleSort}
-                      className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                      className="text-blue-600 hover:text-blue-800 flex items-center gap-1 p-1 -m-1"
                       title={sortOrder === 'asc' ? 'Sorteer Z-A' : 'Sorteer A-Z'}
                       tabIndex={-1}
                     >
@@ -232,12 +232,12 @@ export default function MunicipalitySelector({
                     data-index={index}
                     onClick={() => handleSelect(m.slug)}
                     onMouseEnter={() => setHighlightedIndex(index)}
-                    className={`w-full text-left px-4 py-2 transition-colors ${
+                    className={`w-full text-left px-3 md:px-4 py-3 md:py-2 transition-colors ${
                       index === highlightedIndex
                         ? 'bg-blue-100'
                         : m.slug === selected
                         ? 'bg-blue-50'
-                        : 'hover:bg-gray-50'
+                        : 'hover:bg-gray-50 active:bg-gray-100'
                     }`}
                     tabIndex={-1}
                   >
@@ -247,7 +247,7 @@ export default function MunicipalitySelector({
                         <div className="text-xs text-gray-500">{m.province}</div>
                       </div>
                       {m.slug === selected && (
-                        <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       )}
@@ -256,8 +256,8 @@ export default function MunicipalitySelector({
                 ))}
               </>
             ) : (
-              <div className="px-4 py-8 text-center text-sm text-gray-500">
-                Geen gemeentes gevonden voor "{searchTerm}"
+              <div className="px-4 py-6 md:py-8 text-center text-sm text-gray-500">
+                Geen gemeentes gevonden voor &quot;{searchTerm}&quot;
               </div>
             )}
           </div>
