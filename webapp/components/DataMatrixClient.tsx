@@ -1,0 +1,261 @@
+'use client';
+
+import { useState } from 'react';
+import TrendIndicator from './TrendIndicator';
+import MunicipalityHistoryModal from './MunicipalityHistoryModal';
+import { HistoryData, MunicipalityHistoryEntry } from '@/types/history';
+
+interface ProviderCounts {
+  [provider: string]: number;
+}
+
+interface MunicipalityData {
+  name: string;
+  slug: string;
+  providers: ProviderCounts;
+  total: number;
+}
+
+interface DataMatrixClientProps {
+  data: MunicipalityData[];
+  providers: string[];
+  providerTotals: ProviderCounts;
+  grandTotal: number;
+  historyData: HistoryData | null;
+}
+
+export default function DataMatrixClient({
+  data,
+  providers,
+  providerTotals,
+  grandTotal,
+  historyData
+}: DataMatrixClientProps) {
+  const [selectedMunicipality, setSelectedMunicipality] = useState<{
+    name: string;
+    slug: string;
+    history: MunicipalityHistoryEntry[];
+  } | null>(null);
+
+  // Get trend data
+  const trend = historyData?.trend;
+  const snapshots = historyData?.snapshots || [];
+  const latestSnapshot = snapshots[snapshots.length - 1];
+  const previousSnapshot = snapshots[snapshots.length - 2];
+
+  // Calculate municipality-level trends
+  const getMunicipalityTrend = (slug: string): number | null => {
+    if (!historyData?.municipalities[slug]) return null;
+    const history = historyData.municipalities[slug].history;
+    if (history.length < 2) return null;
+    const latest = history[history.length - 1];
+    const previous = history[history.length - 2];
+    return latest.total - previous.total;
+  };
+
+  const handleMunicipalityClick = (municipality: MunicipalityData) => {
+    const history = historyData?.municipalities[municipality.slug]?.history || [];
+    if (history.length > 0) {
+      setSelectedMunicipality({
+        name: municipality.name,
+        slug: municipality.slug,
+        history
+      });
+    }
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Summary Stats with Trends */}
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold text-gray-900">Overzicht</h2>
+          {latestSnapshot && (
+            <span className="text-xs text-gray-500">
+              Laatste update: {new Date(latestSnapshot.date).toLocaleDateString('nl-NL')}
+            </span>
+          )}
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="text-center p-4 bg-blue-50 rounded-lg">
+            <div className="text-2xl font-bold text-blue-900">{data.length}</div>
+            <div className="text-sm text-blue-700">Locaties</div>
+          </div>
+          <div className="group text-center p-4 bg-green-50 rounded-lg cursor-default">
+            <div className="text-2xl font-bold text-green-900">{grandTotal.toLocaleString('nl-NL')}</div>
+            <div className="text-sm text-green-700">Totaal Pakketpunten</div>
+            {trend && (
+              <div className="mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <TrendIndicator change={trend.change.total} label="week" />
+              </div>
+            )}
+          </div>
+          {providers.map(provider => (
+            <div key={provider} className="group text-center p-4 bg-gray-50 rounded-lg cursor-default">
+              <div className="text-2xl font-bold text-gray-900">{providerTotals[provider].toLocaleString('nl-NL')}</div>
+              <div className="text-sm text-gray-700">{provider}</div>
+              {trend?.change.providers[provider] !== undefined && (
+                <div className="mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <TrendIndicator change={trend.change.providers[provider]} />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Historical trend summary - visible on hover */}
+        {snapshots.length > 1 && (
+          <div className="group mt-4 pt-4 border-t border-gray-200 cursor-default">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm gap-2">
+              <span className="text-gray-600">
+                Trend over {snapshots.length} weken (sinds {snapshots[0].week_label})
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-gray-900 font-medium">
+                  {snapshots[0].totals.total.toLocaleString('nl-NL')} → {latestSnapshot?.totals.total.toLocaleString('nl-NL')}
+                </span>
+                {latestSnapshot && (
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <TrendIndicator
+                      change={latestSnapshot.totals.total - snapshots[0].totals.total}
+                      label="totaal"
+                    />
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Data Matrix Table */}
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-6 border-b border-gray-200">
+          <h2 className="text-lg font-bold text-gray-900">Pakketpunten per Gemeente en Vervoerder</h2>
+          <p className="text-sm text-gray-600 mt-1">
+            Klik op een gemeente voor historische ontwikkeling
+          </p>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider sticky left-0 bg-gray-50 z-10">
+                  Gemeente
+                </th>
+                {providers.map(provider => (
+                  <th key={provider} className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                    {provider}
+                  </th>
+                ))}
+                <th className="px-4 py-3 text-center text-xs font-semibold text-gray-900 uppercase tracking-wider bg-gray-100">
+                  Totaal
+                </th>
+                <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                  Trend
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {data.map((municipality) => {
+                const trend = getMunicipalityTrend(municipality.slug);
+                const hasHistory = (historyData?.municipalities[municipality.slug]?.history.length || 0) > 0;
+
+                return (
+                  <tr
+                    key={municipality.slug}
+                    className={`hover:bg-gray-50 ${municipality.slug === 'nederland' ? 'bg-blue-50 font-semibold' : ''} ${hasHistory ? 'cursor-pointer' : ''}`}
+                    onClick={() => hasHistory && handleMunicipalityClick(municipality)}
+                  >
+                    <td className={`px-6 py-4 whitespace-nowrap text-sm text-gray-900 sticky left-0 z-10 ${municipality.slug === 'nederland' ? 'bg-blue-50' : 'bg-white hover:bg-gray-50'}`}>
+                      {municipality.name}
+                      {municipality.slug === 'nederland' && (
+                        <span className="ml-2 text-xs text-blue-600">(Landelijk)</span>
+                      )}
+                    </td>
+                    {providers.map(provider => {
+                      const count = municipality.providers[provider] || 0;
+                      return (
+                        <td key={provider} className="px-4 py-4 text-center text-sm">
+                          {count > 0 ? (
+                            <span className="text-gray-900">{count}</span>
+                          ) : (
+                            <span className="text-gray-400">-</span>
+                          )}
+                        </td>
+                      );
+                    })}
+                    <td className="px-4 py-4 text-center text-sm font-semibold text-gray-900 bg-gray-50">
+                      {municipality.total}
+                    </td>
+                    <td className="px-4 py-4 text-center">
+                      {trend !== null ? (
+                        <TrendIndicator change={trend} />
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+
+              {/* Totals Row */}
+              <tr className="bg-gray-100 font-semibold border-t-2 border-gray-300">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 sticky left-0 bg-gray-100 z-10">
+                  TOTAAL
+                </td>
+                {providers.map(provider => (
+                  <td key={provider} className="px-4 py-4 text-center text-sm text-gray-900">
+                    {providerTotals[provider].toLocaleString('nl-NL')}
+                  </td>
+                ))}
+                <td className="px-4 py-4 text-center text-sm text-gray-900 bg-gray-200">
+                  {grandTotal.toLocaleString('nl-NL')}
+                </td>
+                <td className="px-4 py-4 text-center">
+                  {trend && <TrendIndicator change={trend.change.total} />}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Legend */}
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h3 className="font-semibold text-gray-900 mb-3">Leeswijzer</h3>
+        <ul className="text-sm text-gray-700 space-y-2">
+          <li className="flex items-center">
+            <span className="w-4 h-4 bg-blue-50 border border-blue-200 rounded mr-2"></span>
+            <strong className="mr-1">Nederland</strong> - Landelijk overzicht (exacte som van alle gemeentes met boundary filtering)
+          </li>
+          <li className="flex items-center">
+            <span className="text-blue-600 mr-2 cursor-pointer">↗</span>
+            <strong className="mr-1">Klikbare rijen</strong> - Klik op een gemeente voor historische data en trends
+          </li>
+          <li className="flex items-center">
+            <TrendIndicator change={5} />
+            <span className="ml-2"><strong className="mr-1">Trend</strong> - Verandering ten opzichte van vorige week</span>
+          </li>
+          <li className="flex items-center">
+            <span className="text-gray-400 mr-2">-</span>
+            Geen pakketpunten van deze vervoerder in gemeente
+          </li>
+        </ul>
+      </div>
+
+      {/* Municipality History Modal */}
+      {selectedMunicipality && (
+        <MunicipalityHistoryModal
+          isOpen={true}
+          onClose={() => setSelectedMunicipality(null)}
+          municipalityName={selectedMunicipality.name}
+          municipalitySlug={selectedMunicipality.slug}
+          history={selectedMunicipality.history}
+        />
+      )}
+    </div>
+  );
+}

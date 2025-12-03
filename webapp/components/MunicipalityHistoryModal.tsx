@@ -1,0 +1,244 @@
+'use client';
+
+import { MunicipalityHistoryEntry } from '@/types/history';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
+
+interface MunicipalityHistoryModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  municipalityName: string;
+  municipalitySlug: string;
+  history: MunicipalityHistoryEntry[];
+}
+
+// Provider colors matching the main app
+const PROVIDER_COLORS: { [key: string]: string } = {
+  DHL: '#FFCC00',
+  PostNL: '#FF6600',
+  DPD: '#DC0032',
+  VintedGo: '#09B1BA',
+  DeBuren: '#4CAF50',
+};
+
+export default function MunicipalityHistoryModal({
+  isOpen,
+  onClose,
+  municipalityName,
+  municipalitySlug,
+  history
+}: MunicipalityHistoryModalProps) {
+  if (!isOpen) return null;
+
+  // Get all providers across all history entries
+  const allProviders = new Set<string>();
+  history.forEach(entry => {
+    Object.keys(entry.providers).forEach(p => allProviders.add(p));
+  });
+  const providers = Array.from(allProviders).sort();
+
+  // Prepare chart data (reverse to show oldest first)
+  const chartData = [...history].map(entry => ({
+    week: entry.week_label,
+    date: entry.date,
+    total: entry.total,
+    ...entry.providers
+  }));
+
+  // Calculate overall trend
+  const firstEntry = history[0];
+  const lastEntry = history[history.length - 1];
+  const totalChange = lastEntry ? lastEntry.total - (firstEntry?.total || 0) : 0;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+      <div className="bg-white rounded-t-xl sm:rounded-lg shadow-xl w-full sm:max-w-4xl max-h-[85vh] sm:max-h-[90vh] overflow-hidden flex flex-col">
+        {/* Header */}
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 flex justify-between items-center">
+          <div>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900">{municipalityName}</h2>
+            <p className="text-xs sm:text-sm text-gray-600">Historische ontwikkeling pakketpunten</p>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 -mr-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition"
+            aria-label="Sluiten"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
+          {/* Summary stats */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="bg-blue-50 rounded-lg p-3 sm:p-4">
+              <div className="text-xl sm:text-2xl font-bold text-blue-900">{lastEntry?.total || 0}</div>
+              <div className="text-xs sm:text-sm text-blue-700">Huidige stand</div>
+            </div>
+            <div className={`rounded-lg p-3 sm:p-4 ${totalChange >= 0 ? 'bg-green-50' : 'bg-red-50'}`}>
+              <div className={`text-xl sm:text-2xl font-bold ${totalChange >= 0 ? 'text-green-900' : 'text-red-900'}`}>
+                {totalChange >= 0 ? '+' : ''}{totalChange}
+              </div>
+              <div className={`text-xs sm:text-sm ${totalChange >= 0 ? 'text-green-700' : 'text-red-700'}`}>
+                Sinds {firstEntry?.week_label}
+              </div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+              <div className="text-xl sm:text-2xl font-bold text-gray-900">{history.length}</div>
+              <div className="text-xs sm:text-sm text-gray-700">Metingen</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+              <div className="text-xl sm:text-2xl font-bold text-gray-900">{providers.length}</div>
+              <div className="text-xs sm:text-sm text-gray-700">Vervoerders</div>
+            </div>
+          </div>
+
+          {/* Chart */}
+          <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4">
+            <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Ontwikkeling over tijd</h3>
+            <div className="h-48 sm:h-64">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis
+                    dataKey="week"
+                    tick={{ fontSize: 12 }}
+                    tickFormatter={(value) => value.split('-')[1]}
+                  />
+                  <YAxis tick={{ fontSize: 12 }} />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: 'white',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '8px',
+                      fontSize: '12px'
+                    }}
+                    labelFormatter={(label) => `Week ${label}`}
+                  />
+                  <Legend />
+                  <Line
+                    type="monotone"
+                    dataKey="total"
+                    name="Totaal"
+                    stroke="#3b82f6"
+                    strokeWidth={2}
+                    dot={{ fill: '#3b82f6', strokeWidth: 2 }}
+                  />
+                  {providers.map(provider => (
+                    <Line
+                      key={provider}
+                      type="monotone"
+                      dataKey={provider}
+                      name={provider}
+                      stroke={PROVIDER_COLORS[provider] || '#888888'}
+                      strokeWidth={1.5}
+                      dot={{ fill: PROVIDER_COLORS[provider] || '#888888', strokeWidth: 1 }}
+                    />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* History table */}
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div className="px-4 py-3 border-b border-gray-200 bg-gray-50">
+              <h3 className="font-semibold text-gray-900">Wekelijkse data</h3>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 border-b border-gray-200">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Week</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Periode</th>
+                    {providers.map(provider => (
+                      <th key={provider} className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase">
+                        {provider}
+                      </th>
+                    ))}
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-900 uppercase bg-gray-100">Totaal</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase">Verschil</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {[...history].reverse().map((entry, idx, arr) => {
+                    const prevEntry = arr[idx + 1];
+                    const diff = prevEntry ? entry.total - prevEntry.total : 0;
+
+                    return (
+                      <tr key={entry.date} className="hover:bg-gray-50">
+                        <td className="px-4 py-3 whitespace-nowrap font-medium text-gray-900">
+                          {entry.week_label}
+                        </td>
+                        <td className="px-4 py-3 whitespace-nowrap text-gray-600 text-xs">
+                          {formatDateRange(entry.date_from, entry.date_to)}
+                        </td>
+                        {providers.map(provider => (
+                          <td key={provider} className="px-4 py-3 text-center text-gray-900">
+                            {entry.providers[provider] || <span className="text-gray-400">-</span>}
+                          </td>
+                        ))}
+                        <td className="px-4 py-3 text-center font-semibold text-gray-900 bg-gray-50">
+                          {entry.total}
+                        </td>
+                        <td className="px-4 py-3 text-center">
+                          {idx < arr.length - 1 ? (
+                            <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
+                              diff > 0 ? 'bg-green-50 text-green-700' :
+                              diff < 0 ? 'bg-red-50 text-red-700' :
+                              'bg-gray-50 text-gray-500'
+                            }`}>
+                              {diff > 0 ? '+' : ''}{diff}
+                            </span>
+                          ) : (
+                            <span className="text-gray-400">-</span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200 bg-gray-50">
+          <button
+            onClick={onClose}
+            className="w-full px-4 py-3 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:bg-blue-800 transition font-medium text-base sm:text-sm"
+          >
+            Sluiten
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function formatDateRange(from: string, to: string): string {
+  const fromDate = new Date(from);
+  const toDate = new Date(to);
+
+  const fromDay = fromDate.getDate();
+  const toDay = toDate.getDate();
+  const fromMonth = fromDate.toLocaleString('nl-NL', { month: 'short' });
+  const toMonth = toDate.toLocaleString('nl-NL', { month: 'short' });
+
+  if (fromMonth === toMonth) {
+    return `${fromDay} - ${toDay} ${fromMonth}`;
+  }
+  return `${fromDay} ${fromMonth} - ${toDay} ${toMonth}`;
+}
