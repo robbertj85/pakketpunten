@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Mook en Middelaar",
     "slug": "mook-en-middelaar",
-    "generated_at": "2025-12-01T06:32:37.188445Z",
-    "total_points": 8,
+    "generated_at": "2025-12-08T03:46:12.275726Z",
+    "total_points": 9,
     "providers": [
       "DHL",
       "DPD",
@@ -35,7 +35,7 @@
         "straatNr": "41-PS/75",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 39,
+        "bezettingsgraad": 59,
         "latitude": 51.756759,
         "longitude": 5.8740627
       }
@@ -56,7 +56,7 @@
         "straatNr": "13-PS/89",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 26,
+        "bezettingsgraad": 17,
         "latitude": 51.75118864056992,
         "longitude": 5.885136130508426
       }
@@ -77,9 +77,30 @@
         "straatNr": "31",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 90,
+        "bezettingsgraad": 41,
         "latitude": 51.768121107023084,
         "longitude": 5.8732587972623795
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8740627,
+          51.756759
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat - De Buren - TotalEn",
+        "straatNaam": "RIJKSWEG",
+        "straatNr": "41",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 10,
+        "latitude": 51.756759,
+        "longitude": 5.8740627
       }
     },
     {
@@ -98,7 +119,7 @@
         "straatNr": "31",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 67,
         "latitude": 51.767837,
         "longitude": 5.873392
       }
@@ -119,7 +140,7 @@
         "straatNr": "13",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 20,
+        "bezettingsgraad": 4,
         "latitude": 51.75104598,
         "longitude": 5.884882765
       }
@@ -140,7 +161,7 @@
         "straatNr": "13",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 53,
+        "bezettingsgraad": 9,
         "latitude": 51.75104641,
         "longitude": 5.884781396
       }
@@ -161,7 +182,7 @@
         "straatNr": "13",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 21,
+        "bezettingsgraad": 6,
         "latitude": 51.76726565,
         "longitude": 5.873153296
       }
@@ -182,7 +203,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 9,
+        "bezettingsgraad": 28,
         "latitude": 51.7677792,
         "longitude": 5.8732588
       }
