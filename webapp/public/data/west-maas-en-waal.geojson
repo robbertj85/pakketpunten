@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "West Maas en Waal",
     "slug": "west-maas-en-waal",
-    "generated_at": "2025-12-08T03:59:32.294835Z",
-    "total_points": 17,
+    "generated_at": "2025-12-15T04:08:01.879444Z",
+    "total_points": 18,
     "providers": [
       "DHL",
       "DPD",
@@ -35,7 +35,7 @@
         "straatNr": "3",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 98,
+        "bezettingsgraad": 34,
         "latitude": 51.847938,
         "longitude": 5.431614
       }
@@ -56,7 +56,7 @@
         "straatNr": "2-A",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 20,
+        "bezettingsgraad": 37,
         "latitude": 51.8206387,
         "longitude": 5.5349689
       }
@@ -77,7 +77,7 @@
         "straatNr": "1-PS/133",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 100,
+        "bezettingsgraad": 87,
         "latitude": 51.880608,
         "longitude": 5.510291
       }
@@ -98,7 +98,7 @@
         "straatNr": "122-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 54,
+        "bezettingsgraad": 79,
         "latitude": 51.8811998,
         "longitude": 5.5096402
       }
@@ -119,7 +119,7 @@
         "straatNr": "46-02",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 34,
+        "bezettingsgraad": 59,
         "latitude": 51.878724,
         "longitude": 5.523427
       }
@@ -140,7 +140,7 @@
         "straatNr": "2A",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 84,
+        "bezettingsgraad": 86,
         "latitude": 51.8203725,
         "longitude": 5.5326343
       }
@@ -161,7 +161,7 @@
         "straatNr": "9",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 41,
+        "bezettingsgraad": 50,
         "latitude": 51.8473192,
         "longitude": 5.4335846
       }
@@ -182,7 +182,7 @@
         "straatNr": "40",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 43,
+        "bezettingsgraad": 18,
         "latitude": 51.882788,
         "longitude": 5.514464
       }
@@ -203,7 +203,7 @@
         "straatNr": "46-02",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 77,
+        "bezettingsgraad": 71,
         "latitude": 51.879905,
         "longitude": 5.522601
       }
@@ -224,7 +224,7 @@
         "straatNr": "125",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 88,
+        "bezettingsgraad": 15,
         "latitude": 51.88093173,
         "longitude": 5.510276478
       }
@@ -245,7 +245,7 @@
         "straatNr": "4",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 20,
+        "bezettingsgraad": 12,
         "latitude": 51.88076594,
         "longitude": 5.522083533
       }
@@ -266,7 +266,7 @@
         "straatNr": "25",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 67,
+        "bezettingsgraad": 89,
         "latitude": 51.82489479,
         "longitude": 5.474236921
       }
@@ -287,7 +287,7 @@
         "straatNr": "1",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 85,
+        "bezettingsgraad": 74,
         "latitude": 51.88012066,
         "longitude": 5.472121897
       }
@@ -308,7 +308,7 @@
         "straatNr": "2",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 39,
+        "bezettingsgraad": 5,
         "latitude": 51.82036689,
         "longitude": 5.534839998
       }
@@ -329,7 +329,7 @@
         "straatNr": "5",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 80,
+        "bezettingsgraad": 77,
         "latitude": 51.84803672,
         "longitude": 5.431715652
       }
@@ -350,7 +350,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 71,
+        "bezettingsgraad": 57,
         "latitude": 51.84794,
         "longitude": 5.43161
       }
@@ -371,9 +371,30 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 15,
+        "bezettingsgraad": 22,
         "latitude": 51.88289,
         "longitude": 5.5145
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.522566,
+          51.88001
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Schuurman Schoenen - Beneden-leeuwen",
+        "straatNaam": "Van Heemstraweg 46-02",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "locker",
+        "bezettingsgraad": 24,
+        "latitude": 51.88001,
+        "longitude": 5.522566
       }
     },
     {
@@ -1656,24 +1677,28 @@
                 51.88154382348481
               ],
               [
-                5.526358444181509,
-                51.881287010405245
+                5.5263271014895805,
+                51.88136508321396
               ],
               [
-                5.52636569712449,
-                51.88125634528661
+                5.526412405026336,
+                51.881276620235845
               ],
               [
-                5.526447397030338,
-                51.881171619109686
+                5.5265944771299225,
+                51.881037189304756
               ],
               [
-                5.526629468523203,
-                51.88093218812137
+                5.526737750166951,
+                51.88078786644682
               ],
               [
-                5.526772741032413,
-                51.880682865217565
+                5.5268408449117,
+                51.88053105292044
+              ],
+              [
+                5.526851113298699,
+                51.88048763588543
               ],
               [
                 5.526875835337329,
@@ -3476,20 +3501,24 @@
                 51.88180308374416
               ],
               [
-                5.527730460203297,
-                51.88159263449647
+                5.5276830336676195,
+                51.881710779832964
               ],
               [
-                5.527972331606285,
-                51.88127455213376
+                5.527694587533963,
+                51.881698797647346
               ],
               [
-                5.528163352792091,
-                51.88094211938862
+                5.527937343082186,
+                51.88137955371153
               ],
               [
-                5.528249603370562,
-                51.880727248355925
+                5.5281283649717095,
+                51.88104712102753
+              ],
+              [
+                5.528260392892501,
+                51.880718208159315
               ],
               [
                 5.528263335137901,
