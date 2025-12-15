@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import TrendIndicator from './TrendIndicator';
 import MunicipalityHistoryModal from './MunicipalityHistoryModal';
-import { HistoryData, MunicipalityHistoryEntry } from '@/types/history';
+import ProviderHistoryModal from './ProviderHistoryModal';
+import TotalOverviewModal from './TotalOverviewModal';
+import { HistoryData, MunicipalityHistoryEntry, HistorySnapshot } from '@/types/history';
 
 interface ProviderCounts {
   [provider: string]: number;
@@ -37,6 +39,13 @@ export default function DataMatrixClient({
     history: MunicipalityHistoryEntry[];
   } | null>(null);
 
+  const [selectedProvider, setSelectedProvider] = useState<{
+    name: string;
+    snapshots: HistorySnapshot[];
+  } | null>(null);
+
+  const [showTotalOverview, setShowTotalOverview] = useState(false);
+
   // Get trend data
   const trend = historyData?.trend;
   const snapshots = historyData?.snapshots || [];
@@ -64,6 +73,15 @@ export default function DataMatrixClient({
     }
   };
 
+  const handleProviderClick = (providerName: string) => {
+    if (snapshots.length > 0) {
+      setSelectedProvider({
+        name: providerName,
+        snapshots: snapshots
+      });
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Summary Stats with Trends */}
@@ -82,7 +100,10 @@ export default function DataMatrixClient({
             <div className="text-2xl font-bold text-blue-900">{data.length}</div>
             <div className="text-sm text-blue-700">Locaties</div>
           </div>
-          <div className="group text-center p-4 bg-green-50 rounded-lg cursor-default">
+          <div
+            className="group text-center p-4 bg-green-50 rounded-lg cursor-pointer hover:bg-green-100 hover:shadow-md transition-all"
+            onClick={() => snapshots.length > 0 && setShowTotalOverview(true)}
+          >
             <div className="text-2xl font-bold text-green-900">{grandTotal.toLocaleString('nl-NL')}</div>
             <div className="text-sm text-green-700">Totaal Pakketpunten</div>
             {trend && (
@@ -92,7 +113,11 @@ export default function DataMatrixClient({
             )}
           </div>
           {providers.map(provider => (
-            <div key={provider} className="group text-center p-4 bg-gray-50 rounded-lg cursor-default">
+            <div
+              key={provider}
+              className="group text-center p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 hover:shadow-md transition-all"
+              onClick={() => handleProviderClick(provider)}
+            >
               <div className="text-2xl font-bold text-gray-900">{providerTotals[provider].toLocaleString('nl-NL')}</div>
               <div className="text-sm text-gray-700">{provider}</div>
               {trend?.change.providers[provider] !== undefined && (
@@ -134,7 +159,7 @@ export default function DataMatrixClient({
         <div className="p-6 border-b border-gray-200">
           <h2 className="text-lg font-bold text-gray-900">Pakketpunten per Gemeente en Vervoerder</h2>
           <p className="text-sm text-gray-600 mt-1">
-            Klik op een gemeente voor historische ontwikkeling
+            Klik op een gemeente of vervoerder voor historische ontwikkeling en grafieken
           </p>
         </div>
 
@@ -146,7 +171,11 @@ export default function DataMatrixClient({
                   Gemeente
                 </th>
                 {providers.map(provider => (
-                  <th key={provider} className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                  <th
+                    key={provider}
+                    className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition-colors"
+                    onClick={() => handleProviderClick(provider)}
+                  >
                     {provider}
                   </th>
                 ))}
@@ -236,6 +265,14 @@ export default function DataMatrixClient({
             <strong className="mr-1">Klikbare rijen</strong> - Klik op een gemeente voor historische data en trends
           </li>
           <li className="flex items-center">
+            <span className="text-green-600 mr-2 cursor-pointer">📊</span>
+            <strong className="mr-1">Totaal Pakketpunten</strong> - Klik voor marktaandeel en groei van alle vervoerders
+          </li>
+          <li className="flex items-center">
+            <span className="text-blue-600 mr-2 cursor-pointer">📈</span>
+            <strong className="mr-1">Klikbare vervoerders</strong> - Klik op een vervoerdernaam voor historische data en grafieken
+          </li>
+          <li className="flex items-center">
             <TrendIndicator change={5} />
             <span className="ml-2"><strong className="mr-1">Trend</strong> - Verandering ten opzichte van vorige week</span>
           </li>
@@ -254,6 +291,26 @@ export default function DataMatrixClient({
           municipalityName={selectedMunicipality.name}
           municipalitySlug={selectedMunicipality.slug}
           history={selectedMunicipality.history}
+        />
+      )}
+
+      {/* Provider History Modal */}
+      {selectedProvider && (
+        <ProviderHistoryModal
+          isOpen={true}
+          onClose={() => setSelectedProvider(null)}
+          providerName={selectedProvider.name}
+          snapshots={selectedProvider.snapshots}
+        />
+      )}
+
+      {/* Total Overview Modal */}
+      {showTotalOverview && (
+        <TotalOverviewModal
+          isOpen={true}
+          onClose={() => setShowTotalOverview(false)}
+          snapshots={snapshots}
+          providers={providers}
         />
       )}
     </div>
