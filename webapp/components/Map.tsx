@@ -145,39 +145,39 @@ const PROVIDER_INFO: Record<string, {
     background: '#FFCC00',
     borderColor: '#D40511',
     color: '#FFCC00',
-    logoUrl: 'https://logo.clearbit.com/dhl.com',
+    logoUrl: '/logos/dhl.svg',
   },
   PostNL: {
     background: '#FF6600',
     color: '#FF6600',
-    logoUrl: 'https://logo.clearbit.com/postnl.nl',
+    logoUrl: '/logos/postnl.svg',
   },
   VintedGo: {
     background: '#09B1BA',
     color: '#09B1BA',
-    logoUrl: 'https://logo.clearbit.com/vinted.com',
+    logoUrl: '/logos/vintedgo.svg',
   },
   DeBuren: {
     background: '#4CAF50',
     color: '#4CAF50',
-    logoUrl: 'https://logo.clearbit.com/deburen.nl',
+    logoUrl: '/logos/deburen.png',
   },
   Amazon: {
     background: '#FF9900',
     borderColor: '#146EB4',
     color: '#FF9900',
-    logoUrl: 'https://logo.clearbit.com/amazon.com',
+    logoUrl: '/logos/amazon.svg',
   },
   DPD: {
     background: '#DC0032',
     color: '#DC0032',
-    logoUrl: 'https://logo.clearbit.com/dpd.com',
+    logoUrl: '/logos/dpd.svg',
   },
   FedEx: {
     background: '#4D148C',
     borderColor: '#FF6600',
     color: '#4D148C',
-    logoUrl: 'https://logo.clearbit.com/fedex.com',
+    logoUrl: '/logos/fedex.svg',
   },
 };
 

@@ -140,7 +140,7 @@ The Map component implements **adaptive rendering** for handling 1,000-50,000+ m
 1. **Canvas Rendering**: Uses Leaflet's `preferCanvas` when `useSimpleMarkers` is enabled (10x faster for large datasets)
 2. **Simple vs Detailed Markers**:
    - Simple mode: Colored `CircleMarker` elements (4-6px radius based on zoom)
-   - Detailed mode: Custom `divIcon` with carrier logos loaded from Clearbit API
+   - Detailed mode: Custom `divIcon` with carrier logos (local SVGs in `/public/logos/`)
 3. **Automatic Spiderfy**: At zoom ≥15, markers with identical coordinates are spread in a circular pattern with blue connecting lines
 4. **Provider Render Priority**: Randomized hourly using seeded RNG to ensure fair visibility (prevents one carrier from always being on top)
 5. **Dynamic Icon Sizing**: Marker size scales with zoom level (34px → 42px → 48px) for better clickability
@@ -281,7 +281,7 @@ Bezettingsgraad data is willekeurig gegenereerd voor demonstratie (niet echt)
 - **DPD via `api_client.get_data_dpd()`**: Limited to 100 results (use `dpd_fetch_all.py` + integration script for complete coverage)
 - **Amazon via OSM**: OpenStreetMap data is community-maintained and may have gaps
 - **De Buren**: Web scraping - may break if website structure changes
-- **Logo loading**: Relies on Clearbit API availability (falls back to initials)
+- **Logo loading**: Uses local SVG files in `webapp/public/logos/` (falls back to initials if missing)
 - **Nederland view**: Very large dataset (50,000+ markers) - simple markers recommended
 
 ## Provider Coverage Summary
