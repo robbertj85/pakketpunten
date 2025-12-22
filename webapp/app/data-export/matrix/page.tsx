@@ -60,11 +60,11 @@ async function getMunicipalityData(): Promise<MunicipalityData[]> {
 
 async function getHistoryData(): Promise<HistoryData | null> {
   try {
-    const historyPath = path.join(process.cwd(), 'public', 'data', 'history.json');
+    const historyPath = path.join(process.cwd(), 'public', 'data', 'totals_history.json');
     const content = await fs.readFile(historyPath, 'utf-8');
     return JSON.parse(content) as HistoryData;
   } catch (error) {
-    console.error('Error reading history.json:', error);
+    console.error('Error reading totals_history.json:', error);
     return null;
   }
 }

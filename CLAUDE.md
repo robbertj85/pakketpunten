@@ -242,6 +242,7 @@ All API calls use `requests.Session()` with proxy bypass for specific domains (h
   - `{slug}.geojson` → Per-municipality data
   - `municipalities.json` → Municipality index
   - `summary.json` → Batch processing results
+  - `totals_history.json` → Historical weekly snapshots (append-only, updated via `scripts/update_totals_history.py`)
   - `boundaries/` → Provincial boundary chunks (12 files, ~46MB total)
     - `index.json` → Metadata about all provincial files
     - `provincie-{slug}.geojson` → Individual province boundaries

@@ -41,8 +41,8 @@ jobs:
           python scripts/create_national_overview.py
         working-directory: ${{ github.workspace }}
 
-      - name: Generate historical data
-        run: python scripts/generate_history.py
+      - name: Update totals history
+        run: python scripts/update_totals_history.py
         working-directory: ${{ github.workspace }}
 
       - name: Configure Git
@@ -56,5 +56,5 @@ jobs:
           git add data/dhl_all_locations.json data/dpd_all_locations.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
-          git add webapp/public/data/summary.json webapp/public/data/history.json webapp/public/municipalities.json 2>/dev/null || true
+          git add webapp/public/data/summary.json webapp/public/data/totals_history.json webapp/public/municipalities.json 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update pakketpunten data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)
