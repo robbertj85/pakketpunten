@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Drechterland",
     "slug": "drechterland",
-    "generated_at": "2025-12-15T03:41:29.889392Z",
-    "total_points": 16,
+    "generated_at": "2025-12-22T03:46:55.281547Z",
+    "total_points": 17,
     "providers": [
       "DHL",
       "DPD",
@@ -35,7 +35,7 @@
         "straatNr": "19",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 95,
+        "bezettingsgraad": 47,
         "latitude": 52.6495422,
         "longitude": 5.1625867
       }
@@ -56,9 +56,30 @@
         "straatNr": "9",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 51,
+        "bezettingsgraad": 58,
         "latitude": 52.6651815,
         "longitude": 5.2066815
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.1876432,
+          52.6743941
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Witte Adelaar E-commerce",
+        "straatNaam": "Houterweg",
+        "straatNr": "50",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 14,
+        "latitude": 52.6743941,
+        "longitude": 5.1876432
       }
     },
     {
@@ -77,7 +98,7 @@
         "straatNr": "50-DB/23",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 77,
+        "bezettingsgraad": 61,
         "latitude": 52.67448,
         "longitude": 5.18785
       }
@@ -98,7 +119,7 @@
         "straatNr": "47",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 96,
+        "bezettingsgraad": 77,
         "latitude": 52.6951597,
         "longitude": 5.1774796
       }
@@ -119,7 +140,7 @@
         "straatNr": "50",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 68,
+        "bezettingsgraad": 49,
         "latitude": 52.6743941,
         "longitude": 5.1876432
       }
@@ -140,7 +161,7 @@
         "straatNr": "20 A",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 66,
+        "bezettingsgraad": 20,
         "latitude": 52.6666646,
         "longitude": 5.1013669
       }
@@ -161,7 +182,7 @@
         "straatNr": "19",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 36,
+        "bezettingsgraad": 10,
         "latitude": 52.6495422,
         "longitude": 5.1625867
       }
@@ -182,7 +203,7 @@
         "straatNr": "50",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 9,
+        "bezettingsgraad": 41,
         "latitude": 52.6743941,
         "longitude": 5.1876432
       }
@@ -203,7 +224,7 @@
         "straatNr": "60",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 92,
+        "bezettingsgraad": 88,
         "latitude": 52.66362468,
         "longitude": 5.20016534
       }
@@ -224,7 +245,7 @@
         "straatNr": "17",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 79,
+        "bezettingsgraad": 8,
         "latitude": 52.69557899,
         "longitude": 5.176643113
       }
@@ -245,7 +266,7 @@
         "straatNr": "4",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 19,
+        "bezettingsgraad": 13,
         "latitude": 52.6956701333033,
         "longitude": 5.17736748960089
       }
@@ -266,7 +287,7 @@
         "straatNr": "20",
         "vervoerder": "PostNL",
         "puntType": "",
-        "bezettingsgraad": 51,
+        "bezettingsgraad": 3,
         "latitude": 52.66666374,
         "longitude": 5.10137665
       }
@@ -287,7 +308,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "social",
-        "bezettingsgraad": 74,
+        "bezettingsgraad": 99,
         "latitude": 52.66518,
         "longitude": 5.20669
       }
@@ -308,7 +329,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 37,
+        "bezettingsgraad": 76,
         "latitude": 52.69516,
         "longitude": 5.17748
       }
@@ -329,7 +350,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 35,
+        "bezettingsgraad": 49,
         "latitude": 52.6496043,
         "longitude": 5.1628063
       }
@@ -350,7 +371,7 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 77,
+        "bezettingsgraad": 65,
         "latitude": 52.6743529,
         "longitude": 5.1878964
       }
@@ -923,14 +944,6 @@
           [
             [
               [
-                5.180917897711899,
-                52.69345533551797
-              ],
-              [
-                5.180626379768373,
-                52.69325878872541
-              ],
-              [
                 5.180304560552179,
                 52.69308054839512
               ],
@@ -995,7 +1008,7 @@
                 52.693247736553175
               ],
               [
-                5.174264277383686,
+                5.174264277383687,
                 52.6933055398804
               ],
               [
@@ -1225,11 +1238,23 @@
               [
                 5.180917897711899,
                 52.69345533551797
+              ],
+              [
+                5.180626379768373,
+                52.69325878872541
+              ],
+              [
+                5.180304560552179,
+                52.69308054839512
               ]
             ]
           ],
           [
             [
+              [
+                5.20408139368069,
+                52.66235984116472
+              ],
               [
                 5.203858624533465,
                 52.662132558120206
@@ -1661,10 +1686,6 @@
               [
                 5.20408139368069,
                 52.66235984116472
-              ],
-              [
-                5.203858624533465,
-                52.662132558120206
               ]
             ]
           ],
@@ -2531,14 +2552,6 @@
           [
             [
               [
-                5.182063937152413,
-                52.69288719031086
-              ],
-              [
-                5.181675245320875,
-                52.692625131465746
-              ],
-              [
                 5.181246154118265,
                 52.692387481242164
               ],
@@ -2829,11 +2842,23 @@
               [
                 5.182063937152413,
                 52.69288719031086
+              ],
+              [
+                5.181675245320875,
+                52.692625131465746
+              ],
+              [
+                5.181246154118265,
+                52.692387481242164
               ]
             ]
           ],
           [
             [
+              [
+                5.204356665970976,
+                52.66108928976429
+              ],
               [
                 5.203927759657677,
                 52.66085171956916
@@ -3003,7 +3028,7 @@
                 52.66715219160273
               ],
               [
-                5.201682439508613,
+                5.201682439508614,
                 52.66709517592446
               ],
               [
@@ -3209,10 +3234,6 @@
               [
                 5.204356665970976,
                 52.66108928976429
-              ],
-              [
-                5.203927759657677,
-                52.66085171956916
               ]
             ]
           ],
@@ -3281,6 +3302,10 @@
               [
                 5.186195399549216,
                 52.670910043174594
+              ],
+              [
+                5.186147819366106,
+                52.670920301704996
               ],
               [
                 5.186147819366106,
@@ -3383,7 +3408,7 @@
                 52.67737748528118
               ],
               [
-                5.1844344286133595,
+                5.184434428613361,
                 52.67741070800385
               ],
               [
