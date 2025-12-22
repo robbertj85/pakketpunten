@@ -472,12 +472,17 @@ def get_data_vintedgo(lat, lon, south, west, north, east):
         f"&bounds=%7B%22south%22%3A{south}%2C%22west%22%3A{west}%2C%22north%22%3A{north}%2C%22east%22%3A{east}%7D"
         "&region=europe")
 
-    headers = {"User-Agent": "Mozilla/5.0"}  
+    headers = {"User-Agent": "Mozilla/5.0"}
     txt = requests.get(url, headers=headers, timeout=30).text
     points = extract_points_array(txt)
 
     # pak de puntenlijst uit
     points_list = points[3]['points']
+
+    # Handle empty results
+    if not points_list:
+        return gpd.GeoDataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'vervoerder', 'geometry'],
+                                 crs="EPSG:4326")
 
     # return als dataframe
     df = pd.json_normalize(points_list)
