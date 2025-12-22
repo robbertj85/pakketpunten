@@ -593,6 +593,11 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
 
     gdf = gdf[desired_order]
 
+    # Update carrier_status counts after polygon filtering
     if return_carrier_status:
+        for carrier in carrier_status:
+            if carrier_status[carrier]['success']:
+                filtered_count = len(gdf[gdf['vervoerder'] == carrier])
+                carrier_status[carrier]['count'] = filtered_count
         return gdf, carrier_status
     return gdf
