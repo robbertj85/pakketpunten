@@ -61,7 +61,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
       <div className="bg-white rounded-t-xl sm:rounded-lg shadow-xl w-full sm:max-w-3xl max-h-[70vh] sm:max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 flex justify-between items-center">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 flex justify-between items-center bg-white flex-shrink-0">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Over dit project</h2>
           <button
             onClick={onClose}
@@ -75,7 +75,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
         </div>
 
         {/* Tabs - scrollable on mobile */}
-        <div className="flex border-b border-gray-200 px-2 sm:px-6 overflow-x-auto scrollbar-hide">
+        <div className="flex border-b border-gray-200 px-2 sm:px-6 overflow-x-auto scrollbar-hide bg-white flex-shrink-0">
           <button
             onClick={() => setActiveTab('about')}
             className={`py-3 px-3 sm:px-4 font-medium text-xs sm:text-sm border-b-2 transition-colors whitespace-nowrap ${
