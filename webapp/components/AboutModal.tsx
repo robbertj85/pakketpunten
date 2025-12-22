@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface CarrierStats {
   successful_municipalities: number;
@@ -30,6 +30,14 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
   const [activeTab, setActiveTab] = useState<'about' | 'sources' | 'usage' | 'links'>('about');
   const [updateStatus, setUpdateStatus] = useState<UpdateStatus | null>(null);
   const [loading, setLoading] = useState(true);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Reset scroll position when tab changes
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTop = 0;
+    }
+  }, [activeTab]);
 
   // Fetch update status when modal opens
   useEffect(() => {
@@ -111,7 +119,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div ref={contentRef} className="flex-1 overflow-y-auto px-4 sm:px-6 py-3 sm:py-4">
           {activeTab === 'about' && (
             <div className="space-y-4">
               <section>
