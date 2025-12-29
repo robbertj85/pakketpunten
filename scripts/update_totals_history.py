@@ -200,6 +200,21 @@ def main():
     for slug in history['municipalities']:
         history['municipalities'][slug]['history'].sort(key=lambda x: x['date'])
 
+    # Sync nederland municipality entry from snapshots (since we skip nederland.geojson to avoid double-counting)
+    nederland_history = []
+    for snapshot in history['snapshots']:
+        nederland_history.append({
+            'date': snapshot['date'],
+            'week': snapshot['week'],
+            'year': snapshot['year'],
+            'week_label': snapshot['week_label'],
+            'date_from': snapshot['date_from'],
+            'date_to': snapshot['date_to'],
+            'total': snapshot['totals']['total'],
+            'providers': snapshot['totals']['providers']
+        })
+    history['municipalities']['nederland'] = {'history': nederland_history}
+
     # Update metadata
     history['updated_at'] = now.isoformat().replace('+00:00', 'Z')
 
