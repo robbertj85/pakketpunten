@@ -1,343 +1,339 @@
 """
-Fetch all Amazon Hub Locker and Counter locations in the Netherlands from OpenStreetMap.
+Fetch all Amazon Hub Locker and Counter locations in the Netherlands.
 
-Amazon does not provide a public API for querying pickup locations.
-This script uses the Overpass API to fetch Amazon locations from OpenStreetMap,
-which is community-maintained open data.
+Uses Playwright to interact with amazon.nl/ulp and capture the fetch_locations API.
+Searches by municipality name and clicks on autocomplete suggestions to trigger searches.
 
-Data source: OpenStreetMap (Open Data Commons Open Database License - ODbL)
-Attribution: © OpenStreetMap contributors
-API: https://overpass-api.de/api/interpreter
+Prerequisites:
+    pip install playwright
+    playwright install chromium
 
-Note: OSM data completeness depends on community contributions.
-Not all Amazon locations may be mapped in OSM.
+Usage:
+    python scripts/amazon_fetch_all.py
 """
 
 import json
-import requests
+import time
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List
-from collections import defaultdict
+
+try:
+    from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
+except ImportError:
+    print("Playwright not installed. Run:")
+    print("   pip install playwright")
+    print("   playwright install chromium")
+    exit(1)
+
+
+def load_municipalities() -> List[str]:
+    """
+    Load municipality names from municipalities.json.
+    Returns a list of 342 municipality names (excluding "Nederland (totaal)").
+    """
+    municipalities_file = Path(__file__).parent.parent / "webapp" / "public" / "municipalities.json"
+
+    with open(municipalities_file, 'r', encoding='utf-8') as f:
+        municipalities = json.load(f)
+
+    # Filter out "Nederland (totaal)" and extract just the names
+    names = [
+        m['name'] for m in municipalities
+        if m.get('code') is not None
+    ]
+
+    print(f"Loaded {len(names)} municipality names")
+    return names
 
 
 def fetch_all_amazon_locations() -> List[Dict]:
     """
-    Fetch all Amazon Hub Locker and Counter locations in Netherlands from OpenStreetMap.
-
-    Returns
-    -------
-    list of dict
-        Complete list of Amazon locations with standardized format
+    Fetch all Amazon Hub locations in the Netherlands using municipality-based search.
+    Uses autocomplete selection to properly trigger location searches.
     """
-    print("="*80)
-    print("AMAZON HUB COMPLETE LOCATION FETCH (via OpenStreetMap)")
-    print("="*80)
+    print("=" * 80)
+    print("AMAZON HUB COMPLETE LOCATION FETCH (via Playwright)")
+    print("Search method: Municipality names with autocomplete")
+    print("=" * 80)
     print()
 
-    print("📡 Querying Overpass API (OpenStreetMap)...")
-    print("   Endpoint: https://overpass-api.de/api/interpreter")
-    print("   Region: Netherlands")
-    print("   Data: amenity=parcel_locker with Amazon branding")
+    municipalities = load_municipalities()
     print()
 
-    # Overpass QL query to find all Amazon lockers in Netherlands
-    # Searches for:
-    # 1. Parcel lockers with operator=Amazon
-    # 2. Parcel lockers with brand=Amazon
-    # 3. Parcel lockers with "Amazon" in the name
-    overpass_query = """
-    [out:json][timeout:90];
-    area["ISO3166-1"="NL"][admin_level=2]->.searchArea;
-    (
-      node["amenity"="parcel_locker"]["operator"~"Amazon",i](area.searchArea);
-      node["amenity"="parcel_locker"]["brand"~"Amazon",i](area.searchArea);
-      node["name"~"Amazon",i]["amenity"="parcel_locker"](area.searchArea);
-    );
-    out body;
-    >;
-    out skel qt;
-    """
+    all_locations: Dict[str, Dict] = {}  # Keyed by location ID for deduplication
 
-    try:
-        response = requests.post(
-            "https://overpass-api.de/api/interpreter",
-            data={'data': overpass_query},
-            timeout=120,  # Longer timeout for complete dataset
+    with sync_playwright() as p:
+        print("Launching browser...")
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            locale="nl-NL",
+            viewport={"width": 1280, "height": 800},
         )
-        response.raise_for_status()
-        data = response.json()
+        page = context.new_page()
 
-        # Extract nodes from Overpass response
-        elements = data.get('elements', [])
-        nodes = [elem for elem in elements if elem.get('type') == 'node']
+        # Response handler to capture location data
+        captured_responses = []
 
-        if not nodes:
-            print("⚠️  No Amazon locations found in OpenStreetMap")
-            print("   This could mean:")
-            print("   - Amazon locations haven't been mapped in OSM yet")
-            print("   - Amazon has limited presence in Netherlands")
-            print("   - Different tagging scheme is used")
-            print()
-            print("   Consider:")
-            print("   - Contributing to OpenStreetMap")
-            print("   - Checking https://www.amazon.nl/ulp/view for actual locations")
-            return []
+        def handle_response(response):
+            if 'fetch_locations' in response.url:
+                try:
+                    if 'json' in response.headers.get('content-type', ''):
+                        body = response.text()
+                        captured_responses.append(body)
+                except:
+                    pass
 
-        print(f"✅ Successfully fetched {len(nodes)} Amazon locations from OSM")
+        page.on("response", handle_response)
 
-        # Convert OSM data to standardized format
-        locations = []
-        seen_ids = set()
+        # Navigate to ULP page
+        print("Loading amazon.nl/ulp...")
+        try:
+            page.goto("https://www.amazon.nl/ulp", wait_until="networkidle", timeout=60000)
+        except PlaywrightTimeout:
+            print("Page load timeout, continuing anyway...")
 
-        for node in nodes:
-            node_id = node.get('id')
-            if node_id in seen_ids:
+        time.sleep(5)
+
+        # Accept cookies if present
+        accept_btn = page.query_selector('#sp-cc-accept')
+        if accept_btn:
+            accept_btn.click()
+            time.sleep(2)
+
+        print()
+
+        # Search each municipality
+        total = len(municipalities)
+        start_time = time.time()
+        failed_searches = []
+
+        for idx, municipality in enumerate(municipalities):
+            # Progress update every 10 municipalities
+            if idx % 10 == 0:
+                elapsed = time.time() - start_time
+                rate = idx / elapsed if elapsed > 0 else 0
+                eta = (total - idx) / rate if rate > 0 else 0
+                print(f"Progress: {idx}/{total} ({idx*100//total}%) - {len(all_locations)} unique locations - ETA: {eta/60:.1f} min", flush=True)
+
+            # Clear previous responses
+            captured_responses.clear()
+
+            # Find search input (might need to re-find after interactions)
+            search_input = page.query_selector('#lsView input[type="text"]')
+            if not search_input:
+                search_input = page.query_selector('input[placeholder*="Voer"]')
+
+            if not search_input:
+                failed_searches.append(municipality)
                 continue
-            seen_ids.add(node_id)
 
-            tags = node.get('tags', {})
-            lat = node.get('lat')
-            lon = node.get('lon')
+            try:
+                # Clear and type the municipality name
+                search_input.click()
+                time.sleep(0.2)
+                search_input.fill('')
+                time.sleep(0.2)
+                search_input.type(municipality, delay=50)
+                time.sleep(1.2)  # Wait for autocomplete
 
-            # Extract location information
-            name = tags.get('name', tags.get('ref', 'Amazon Hub'))
-            operator = tags.get('operator', tags.get('brand', 'Amazon'))
-            street = tags.get('addr:street', '')
-            housenumber = tags.get('addr:housenumber', '')
-            postcode = tags.get('addr:postcode', '')
-            city = tags.get('addr:city', '')
+                # Look for autocomplete suggestions
+                suggestions = page.query_selector_all('#lsView li')
 
-            # Determine type (locker vs counter)
-            locker_type = tags.get('parcel_locker:type', '')
-            if not locker_type:
-                # Infer from name or other tags
-                if 'counter' in name.lower():
-                    locker_type = 'counter'
-                elif 'locker' in name.lower():
-                    locker_type = 'locker'
-                else:
-                    locker_type = 'locker'  # Default
+                # Click on the first matching suggestion
+                clicked = False
+                for suggestion in suggestions:
+                    try:
+                        text = suggestion.inner_text().lower()
+                        if text.startswith(municipality.lower()):
+                            suggestion.click()
+                            clicked = True
+                            time.sleep(2.5)  # Wait for API response
+                            break
+                    except:
+                        continue
 
-            # Additional metadata
-            opening_hours = tags.get('opening_hours', '')
-            phone = tags.get('phone', '')
-            website = tags.get('website', '')
+                # If no exact match, click first suggestion
+                if not clicked and suggestions:
+                    try:
+                        suggestions[0].click()
+                        time.sleep(2.5)
+                    except:
+                        pass
 
-            # Parcel services
-            parcel_pickup = tags.get('parcel_pickup', 'yes')
-            parcel_mail_in = tags.get('parcel_mail_in', '')
+            except Exception as e:
+                failed_searches.append(municipality)
+                # Try to recover by refreshing
+                try:
+                    page.goto("https://www.amazon.nl/ulp", wait_until="networkidle", timeout=30000)
+                    time.sleep(3)
+                    # Re-accept cookies if needed
+                    accept_btn = page.query_selector('#sp-cc-accept')
+                    if accept_btn:
+                        accept_btn.click()
+                        time.sleep(2)
+                except:
+                    pass
+                continue
 
-            location = {
-                'osm_id': node_id,
-                'osm_type': 'node',
-                'locatieNaam': name,
-                'operator': operator,
-                'straatNaam': street,
-                'straatNr': housenumber,
-                'postcode': postcode,
-                'city': city,
-                'latitude': lat,
-                'longitude': lon,
-                'puntType': locker_type,
-                'vervoerder': 'Amazon',
-                'opening_hours': opening_hours,
-                'phone': phone,
-                'website': website,
-                'parcel_pickup': parcel_pickup,
-                'parcel_mail_in': parcel_mail_in,
-                'osm_tags': tags,  # Keep original tags for reference
-            }
+            # Process captured responses
+            for resp_body in captured_responses:
+                try:
+                    data = json.loads(resp_body)
+                    locations = data.get('locationList') or []
 
-            locations.append(location)
+                    for loc in locations:
+                        loc_id = loc.get('id')
+                        if not loc_id or loc_id in all_locations:
+                            continue
 
-        return locations
+                        # Extract coordinates
+                        coords = loc.get('location', {})
+                        latitude = coords.get('latitude', 0)
+                        longitude = coords.get('longitude', 0)
 
-    except requests.exceptions.Timeout:
-        print("❌ Request timed out after 120 seconds")
-        print("   Overpass API might be overloaded. Try again later.")
-        return []
-    except requests.exceptions.RequestException as e:
-        print(f"❌ Network error: {e}")
-        return []
-    except json.JSONDecodeError:
-        print("❌ Invalid JSON response from Overpass API")
-        return []
-    except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-        import traceback
-        traceback.print_exc()
-        return []
+                        # Skip if no valid coordinates
+                        if not latitude or latitude == 0:
+                            continue
+
+                        # Store location with standardized format
+                        address = loc.get('addressLine1', '') or loc.get('addressLine2', '') or ''
+                        all_locations[loc_id] = {
+                            'id': loc_id,
+                            'locatieNaam': loc.get('name', ''),
+                            'straatNaam': address.strip(),
+                            'straatNr': '',
+                            'postcode': loc.get('postalCode', ''),
+                            'city': loc.get('city', ''),
+                            'latitude': latitude,
+                            'longitude': longitude,
+                            'puntType': loc.get('accessPointType', '').lower(),
+                            'apisType': loc.get('apisAccessPointType', ''),
+                            'vervoerder': 'Amazon',
+                        }
+
+                except json.JSONDecodeError:
+                    continue
+
+            # Small delay between searches
+            time.sleep(0.3)
+
+        browser.close()
+
+    locations_list = list(all_locations.values())
+    print()
+    print(f"Fetched {len(locations_list)} unique Amazon locations")
+
+    if failed_searches:
+        print(f"Failed searches ({len(failed_searches)}): {', '.join(failed_searches[:10])}...")
+
+    return locations_list
 
 
 def analyze_locations(locations: List[Dict]):
-    """Analyze fetched locations and print statistics."""
+    """Print statistics about fetched locations."""
     print()
-    print("="*80)
+    print("=" * 80)
     print("ANALYSIS")
-    print("="*80)
+    print("=" * 80)
     print()
 
     if not locations:
-        print("⚠️  No locations to analyze")
+        print("No locations to analyze")
         return
 
     # Count by type
-    type_counts = defaultdict(int)
+    type_counts = {}
     for loc in locations:
         loc_type = loc.get('puntType', 'unknown')
-        type_counts[loc_type] += 1
+        type_counts[loc_type] = type_counts.get(loc_type, 0) + 1
 
-    print("📦 By type:")
+    print("By type:")
     for loc_type, count in sorted(type_counts.items(), key=lambda x: -x[1]):
         print(f"   {loc_type:20s}: {count:4d}")
 
-    # Count by city (top 10)
-    city_counts = defaultdict(int)
+    # Count by city (top 15)
+    city_counts = {}
     for loc in locations:
         city = loc.get('city', 'Unknown')
         if city:
-            city_counts[city] += 1
+            # Normalize city names (some are uppercase)
+            city_normalized = city.title()
+            city_counts[city_normalized] = city_counts.get(city_normalized, 0) + 1
 
     if city_counts:
         print()
-        print("🏙️  Top 10 cities by location count:")
-        for i, (city, count) in enumerate(sorted(city_counts.items(), key=lambda x: -x[1])[:10], 1):
-            print(f"   {i:2d}. {city:25s}: {count:3d} locations")
+        print("Top 15 cities:")
+        for i, (city, count) in enumerate(sorted(city_counts.items(), key=lambda x: -x[1])[:15], 1):
+            print(f"   {i:2d}. {city:25s}: {count:3d}")
 
-    # Data completeness
-    print()
-    print("📊 Data completeness:")
-    with_address = sum(1 for loc in locations if loc.get('straatNaam'))
-    with_postcode = sum(1 for loc in locations if loc.get('postcode'))
-    with_city = sum(1 for loc in locations if loc.get('city'))
-    with_hours = sum(1 for loc in locations if loc.get('opening_hours'))
-    with_phone = sum(1 for loc in locations if loc.get('phone'))
-
-    total = len(locations)
-    print(f"   With street address: {with_address:4d} ({with_address/total*100:.1f}%)")
-    print(f"   With postcode:       {with_postcode:4d} ({with_postcode/total*100:.1f}%)")
-    print(f"   With city:           {with_city:4d} ({with_city/total*100:.1f}%)")
-    print(f"   With opening hours:  {with_hours:4d} ({with_hours/total*100:.1f}%)")
-    print(f"   With phone:          {with_phone:4d} ({with_phone/total*100:.1f}%)")
-
-    # Geographic distribution
-    lats = [loc.get('latitude', 0) for loc in locations if loc.get('latitude')]
-    lons = [loc.get('longitude', 0) for loc in locations if loc.get('longitude')]
+    # Geographic bounds
+    lats = [loc['latitude'] for loc in locations if loc.get('latitude')]
+    lons = [loc['longitude'] for loc in locations if loc.get('longitude')]
 
     if lats and lons:
         print()
-        print("🌍 Geographic coverage:")
-        print(f"   Latitude:  {min(lats):.4f}° to {max(lats):.4f}°")
-        print(f"   Longitude: {min(lons):.4f}° to {max(lons):.4f}°")
+        print("Geographic coverage:")
+        print(f"   Latitude:  {min(lats):.4f} to {max(lats):.4f}")
+        print(f"   Longitude: {min(lons):.4f} to {max(lons):.4f}")
 
-    # OSM data quality note
+
+def save_results(locations: List[Dict]):
+    """Save locations to JSON file."""
     print()
-    print("ℹ️  Data Quality Note:")
-    print("   This data comes from OpenStreetMap, maintained by volunteers.")
-    print("   Coverage may be incomplete. Consider contributing to OSM:")
-    print("   https://www.openstreetmap.org/")
-
-
-def save_results(locations: List[Dict], output_file: str = "../data/amazon_all_locations.json"):
-    """
-    Save locations to JSON file.
-
-    Parameters
-    ----------
-    locations : list of dict
-        Amazon locations data
-    output_file : str
-        Output filename (default: ../data/amazon_all_locations.json)
-    """
-    print()
-    print("="*80)
+    print("=" * 80)
     print("SAVING RESULTS")
-    print("="*80)
+    print("=" * 80)
     print()
 
-    # Create output structure
     output = {
         "metadata": {
             "total_locations": len(locations),
-            "method": "openstreetmap-overpass-api",
-            "source": "https://www.openstreetmap.org",
-            "api": "https://overpass-api.de/api/interpreter",
-            "license": "ODbL (Open Database License)",
-            "attribution": "© OpenStreetMap contributors",
+            "method": "playwright-scraping-municipality-autocomplete",
+            "source": "https://www.amazon.nl/ulp",
             "country": "Netherlands",
             "fetched_at": datetime.utcnow().isoformat() + "Z",
-            "note": "Data completeness depends on OSM community contributions"
         },
         "locations": locations
     }
 
-    # Save to file
-    output_path = Path(output_file)
+    # Save to data directory (same format as other carriers)
+    output_path = Path(__file__).parent.parent / "data" / "amazon_all_locations.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     file_size_kb = output_path.stat().st_size / 1024
-    print(f"💾 Saved to: {output_file}")
+    print(f"Saved to: {output_path}")
     print(f"   File size: {file_size_kb:.1f} KB")
     print(f"   Locations: {len(locations)}")
 
-    # Log to update file
-    log_file = Path("amazon_update_log.txt")
-    with open(log_file, 'a', encoding='utf-8') as f:
-        f.write(f"{datetime.now().isoformat()} - Fetched {len(locations)} Amazon locations from OSM\n")
-    print(f"   Log updated: {log_file}")
+    # Update log
+    log_path = Path(__file__).parent / "amazon_update_log.txt"
+    with open(log_path, 'a', encoding='utf-8') as f:
+        f.write(f"{datetime.now().isoformat()} - Fetched {len(locations)} Amazon locations via Playwright (municipality autocomplete)\n")
 
 
 def main():
-    """Main execution function."""
     print()
-    print("Starting Amazon Hub location fetch from OpenStreetMap...")
+    print(f"Starting Amazon Hub location fetch...")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
 
-    # Fetch all locations
     locations = fetch_all_amazon_locations()
 
-    if not locations:
-        print()
-        print("❌ No locations fetched")
-        print()
-        print("⚠️  This is expected if Amazon locations aren't mapped in OSM yet.")
-        print("   The script will still create an empty cache file.")
-        print()
-
-    # Analyze (even if empty)
     if locations:
         analyze_locations(locations)
-
-    # Save (even if empty - creates cache file)
-    save_results(locations)
-
-    print()
-    print("="*80)
-    print("✅ COMPLETE!")
-    print("="*80)
-    print()
-
-    if locations:
-        print("Next steps:")
-        print("  1. Run: python integrate_amazon_data.py")
-        print("     (Integrate Amazon data into municipality files)")
-        print()
-        print("  2. Or regenerate everything:")
-        print("     python weekly_update.py")
+        save_results(locations)
     else:
-        print("⚠️  No Amazon locations found in OpenStreetMap.")
-        print("   The integration will work but return no Amazon data.")
-        print("   Consider contributing Amazon Hub locations to OSM!")
-    print()
+        print("No locations fetched")
 
-    return 0
+    print()
+    print("=" * 80)
+    print("COMPLETE!")
+    print("=" * 80)
 
 
 if __name__ == "__main__":
-    import sys
-    sys.exit(main())
+    main()

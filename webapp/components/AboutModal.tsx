@@ -225,6 +225,14 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                   url="https://deburen.nl"
                   color="#4CAF50"
                 />
+
+                <DataSourceCard
+                  name="Amazon Hub (Lockers & Counters)"
+                  endpoint="amazon.nl/ulp"
+                  type="Browser Automation"
+                  url="https://www.amazon.nl/ulp"
+                  color="#FF9900"
+                />
               </div>
 
               <section className="border-t pt-4 mt-4">
@@ -335,6 +343,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 <div className="space-y-2 text-sm text-gray-700">
                   <p><strong>DHL, PostNL, DPD:</strong> Publieke API's voor consumentengebruik. Respecteer rate limits en gebruiksvoorwaarden.</p>
                   <p><strong>VintedGo, De Buren:</strong> Data verzameld via publiek toegankelijke websites. Niet geschikt voor high-frequency scraping.</p>
+                  <p><strong>Amazon Hub:</strong> Data verzameld via browser automatisering. Gecached en wekelijks bijgewerkt.</p>
                   <p><strong>Algemeen:</strong> Geen geautomatiseerde hoge-frequentie verzoeken. Gebruik cached data waar mogelijk.</p>
                 </div>
               </section>
@@ -352,6 +361,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
 - DPD Netherlands (https://www.dpd.com/nl)
 - VintedGo / Mondial Relay (https://vintedgo.com)
 - De Buren (https://deburen.nl)
+- Amazon Hub Lockers & Counters (https://www.amazon.nl/ulp)
 - Gemeente grenzen © OpenStreetMap contributors
 
 Project: Pakketpunten Nederland
@@ -451,6 +461,27 @@ License: MIT`}
                     Dashboard Openen
                   </a>
                   <p className="text-xs text-gray-500 mt-2">Autoriteit Consument & Markt (ACM)</p>
+                </div>
+
+                <div className="border border-gray-200 rounded-lg p-4 hover:border-green-300 transition">
+                  <h4 className="font-semibold text-gray-900 mb-2">A Greener Last Mile: Carbon Emission Impact of Pickup Points</h4>
+                  <p className="text-sm text-gray-700 mb-3">
+                    Wetenschappelijke studie over de CO₂-impact van afhaalpunten in last-mile pakketbezorging.
+                    Analyseert hoe pakketpunten en pakketkluizen bijdragen aan duurzamere stadslogistiek
+                    vergeleken met traditionele thuisbezorging.
+                  </p>
+                  <a
+                    href="https://www.sciencedirect.com/science/article/pii/S1364032123004872"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm text-green-600 hover:text-green-800 font-medium"
+                  >
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Lees Artikel (ScienceDirect)
+                  </a>
+                  <p className="text-xs text-gray-500 mt-2">Renewable and Sustainable Energy Reviews | Augustus 2023</p>
                 </div>
               </div>
             </div>

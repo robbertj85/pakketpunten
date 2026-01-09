@@ -8,12 +8,247 @@ import re, json, ast
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 from pathlib import Path
+from datetime import datetime
 
 
 # ---------- loading data ----------
 
-# Cache for gemeente polygons to avoid duplicate Overpass API calls
+# In-memory cache for gemeente polygons (session-level)
 _gemeente_polygon_cache = {}
+
+# Persistent cache configuration
+POLYGON_CACHE_FILE = Path(__file__).parent / "data" / "municipality_polygon_cache.json"
+
+# Persistent cache data (loaded on first use)
+_persistent_polygon_cache = None
+_persistent_cache_modified = False
+
+
+def _is_cache_refresh_week() -> bool:
+    """
+    Check if current date is in a cache refresh week.
+    Cache refreshes in the last week of June and last week of December.
+    This aligns with Dutch municipal reorganizations (typically Jan 1).
+    """
+    today = datetime.now()
+    month = today.month
+    day = today.day
+
+    # Last week of June (days 24-30)
+    if month == 6 and day >= 24:
+        return True
+
+    # Last week of December (days 25-31)
+    if month == 12 and day >= 25:
+        return True
+
+    return False
+
+
+def _load_persistent_cache() -> dict:
+    """Load the persistent polygon cache from disk."""
+    global _persistent_polygon_cache
+
+    if _persistent_polygon_cache is not None:
+        return _persistent_polygon_cache
+
+    if POLYGON_CACHE_FILE.exists():
+        try:
+            with open(POLYGON_CACHE_FILE, 'r', encoding='utf-8') as f:
+                _persistent_polygon_cache = json.load(f)
+            print(f"  📦 Loaded polygon cache: {len(_persistent_polygon_cache)} municipalities")
+        except (json.JSONDecodeError, IOError) as e:
+            print(f"  ⚠️  Could not load polygon cache: {e}")
+            _persistent_polygon_cache = {}
+    else:
+        _persistent_polygon_cache = {}
+
+    return _persistent_polygon_cache
+
+
+def _save_persistent_cache() -> None:
+    """Save the persistent polygon cache to disk."""
+    global _persistent_polygon_cache, _persistent_cache_modified
+
+    if _persistent_polygon_cache is None or not _persistent_cache_modified:
+        return
+
+    try:
+        POLYGON_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with open(POLYGON_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(_persistent_polygon_cache, f, indent=2, ensure_ascii=False)
+        _persistent_cache_modified = False
+    except IOError as e:
+        print(f"  ⚠️  Could not save polygon cache: {e}")
+
+
+def check_polygon_cache_expiry() -> None:
+    """
+    Check if polygon cache should be refreshed.
+    Cache is cleared in the last week of June and December to pick up
+    any Dutch municipal boundary changes (which typically happen Jan 1).
+    """
+    global _persistent_cache_modified
+
+    if not _is_cache_refresh_week():
+        return
+
+    cache = _load_persistent_cache()
+
+    if not cache:
+        return
+
+    # Check if cache was already refreshed this period
+    # by looking at the cached_at dates
+    today = datetime.now()
+    refresh_month = today.month  # 6 or 12
+    refresh_year = today.year
+
+    # Check if any entry was cached in the current refresh period
+    for data in cache.values():
+        cached_at = data.get('cached_at', '')
+        if cached_at:
+            try:
+                cached_date = datetime.fromisoformat(cached_at)
+                # If cached in same month/year during refresh week, already refreshed
+                if cached_date.year == refresh_year and cached_date.month == refresh_month and cached_date.day >= 24:
+                    print(f"  📦 Cache already refreshed this period (last update: {cached_at[:10]})")
+                    return
+            except ValueError:
+                continue
+
+    # Clear the cache for refresh
+    print(f"  🔄 Cache refresh period (last week of {'June' if refresh_month == 6 else 'December'})")
+    print(f"  🗑️  Clearing {len(cache)} cached polygons for refresh...")
+    cache.clear()
+    _persistent_cache_modified = True
+    _save_persistent_cache()
+
+
+def get_polygon_cache_stats() -> dict:
+    """Get statistics about the polygon cache."""
+    cache = _load_persistent_cache()
+
+    if not cache:
+        return {"total": 0, "next_refresh": _get_next_refresh_date()}
+
+    # Find oldest and newest cache dates
+    cached_dates = []
+    for data in cache.values():
+        cached_at = data.get('cached_at', '')
+        if cached_at:
+            try:
+                cached_dates.append(datetime.fromisoformat(cached_at))
+            except ValueError:
+                continue
+
+    return {
+        "total": len(cache),
+        "oldest_cached": min(cached_dates).strftime('%Y-%m-%d') if cached_dates else None,
+        "newest_cached": max(cached_dates).strftime('%Y-%m-%d') if cached_dates else None,
+        "next_refresh": _get_next_refresh_date(),
+        "is_refresh_week": _is_cache_refresh_week(),
+    }
+
+
+def _get_next_refresh_date() -> str:
+    """Get the next cache refresh date."""
+    today = datetime.now()
+
+    # Check if we're before or after June 24
+    june_refresh = datetime(today.year, 6, 24)
+    dec_refresh = datetime(today.year, 12, 25)
+
+    if today < june_refresh:
+        return june_refresh.strftime('%Y-%m-%d')
+    elif today < dec_refresh:
+        return dec_refresh.strftime('%Y-%m-%d')
+    else:
+        return datetime(today.year + 1, 6, 24).strftime('%Y-%m-%d')
+
+
+def _get_cached_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
+    """
+    Get a municipality polygon from persistent cache if available.
+    Returns GeoDataFrame or None if not cached.
+    """
+    from shapely import wkt
+
+    cache = _load_persistent_cache()
+    cache_key = f"{gemeente_naam}:{country_hint}"
+
+    if cache_key not in cache:
+        return None
+
+    entry = cache[cache_key]
+
+    try:
+        geom = wkt.loads(entry['geometry_wkt'])
+        gdf = gpd.GeoDataFrame(
+            {'gemeente': [gemeente_naam]},
+            geometry=[geom],
+            crs="EPSG:4326"
+        )
+        return gdf
+    except Exception as e:
+        print(f"  ⚠️  Could not load cached polygon for '{gemeente_naam}': {e}")
+        return None
+
+
+def _cache_polygon(gemeente_naam: str, gdf: gpd.GeoDataFrame, country_hint: str = "Nederland"):
+    """Store a municipality polygon in the persistent cache."""
+    global _persistent_cache_modified
+
+    from shapely import wkt
+
+    cache = _load_persistent_cache()
+    cache_key = f"{gemeente_naam}:{country_hint}"
+
+    # Convert geometry to WKT for storage
+    geom = gdf.geometry.iloc[0]
+    geometry_wkt = wkt.dumps(geom, rounding_precision=6)
+
+    cache[cache_key] = {
+        'geometry_wkt': geometry_wkt,
+        'cached_at': datetime.now().isoformat(),
+        'gemeente': gemeente_naam
+    }
+
+    _persistent_cache_modified = True
+    _save_persistent_cache()
+
+# Initialize Nominatim geolocator (with user agent)
+_nominatim_geolocator = Nominatim(user_agent="pakketpunten_app")
+
+
+def get_lat_lon(gemeente_naam: str) -> tuple:
+    """
+    Get latitude and longitude for a municipality using Nominatim geocoding.
+
+    Args:
+        gemeente_naam: Name of the municipality
+
+    Returns:
+        tuple: (latitude, longitude)
+
+    Raises:
+        ValueError: If geocoding fails
+    """
+    import time
+
+    # Add Netherlands to improve geocoding accuracy
+    query = f"{gemeente_naam}, Netherlands"
+
+    try:
+        location = _nominatim_geolocator.geocode(query, timeout=10)
+        if location:
+            # Rate limit compliance - 1 request per second
+            time.sleep(1)
+            return (location.latitude, location.longitude)
+        else:
+            raise ValueError(f"Could not geocode '{gemeente_naam}'")
+    except Exception as e:
+        raise ValueError(f"Geocoding failed for '{gemeente_naam}': {e}")
 
 # Municipality name mappings for special cases in Overpass API
 # Maps user-provided names to official OSM names
@@ -47,6 +282,10 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     Deze functie gebruikt admin_level=8 om volledige gemeentegrenzen op te halen,
     inclusief samengevoegde gebieden (bijv. Rotterdam met Hoek van Holland en Rozenburg).
 
+    Uses a two-level caching strategy:
+    1. In-memory cache (session-level, instant)
+    2. Persistent file cache (survives restarts, expires after 25 batch runs)
+
     Parameters
     ----------
     gemeente_naam : str
@@ -69,10 +308,17 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
     # Check if we need to use gemeentecode for disambiguation
     gemeentecode = GEMEENTE_CODE_MAPPING.get(original_name)
 
-    # Check cache first to avoid duplicate API calls (use original name as key)
+    # Level 1: Check in-memory cache first (fastest)
     cache_key = f"{original_name}:{country_hint}"
     if cache_key in _gemeente_polygon_cache:
         return _gemeente_polygon_cache[cache_key]
+
+    # Level 2: Check persistent file cache (avoids API call)
+    cached_gdf = _get_cached_polygon(original_name, country_hint)
+    if cached_gdf is not None:
+        # Store in in-memory cache for subsequent calls in same session
+        _gemeente_polygon_cache[cache_key] = cached_gdf
+        return cached_gdf
 
     # Add rate limiting for Overpass API (be nice to the server)
     time.sleep(1)
@@ -160,8 +406,9 @@ def get_gemeente_polygon(gemeente_naam: str, country_hint: str = "Nederland"):
                 crs="EPSG:4326"
             )
 
-            # Cache the result
-            _gemeente_polygon_cache[cache_key] = gdf
+            # Cache the result at both levels
+            _gemeente_polygon_cache[cache_key] = gdf  # In-memory (session)
+            _cache_polygon(original_name, gdf, country_hint)  # Persistent (file)
 
             return gdf
 

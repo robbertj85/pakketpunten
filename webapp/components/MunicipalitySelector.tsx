@@ -30,9 +30,16 @@ export default function MunicipalitySelector({
     ? `${selectedMunicipality.name} (${selectedMunicipality.province})`
     : '';
 
-  // Sort and filter municipalities
+  // Get Nederland separately (always shown as sticky footer)
+  const nederland = useMemo(() =>
+    municipalities.find(m => m.slug === 'nederland'),
+    [municipalities]
+  );
+
+  // Sort and filter municipalities (excluding Nederland)
   const filteredMunicipalities = useMemo(() => {
-    let filtered = municipalities;
+    // Exclude Nederland from regular list (it will be sticky at bottom)
+    let filtered = municipalities.filter(m => m.slug !== 'nederland');
 
     // Filter by search term
     if (searchTerm) {
@@ -42,12 +49,8 @@ export default function MunicipalitySelector({
       );
     }
 
-    // Sort alphabetically, keeping Nederland at the bottom
+    // Sort alphabetically
     filtered = [...filtered].sort((a, b) => {
-      // Always keep Nederland at the bottom
-      if (a.slug === 'nederland') return 1;
-      if (b.slug === 'nederland') return -1;
-
       const nameA = a.name.toLowerCase();
       const nameB = b.name.toLowerCase();
       return sortOrder === 'asc'
@@ -124,11 +127,14 @@ export default function MunicipalitySelector({
       return;
     }
 
+    // Total items including sticky Nederland
+    const totalItems = filteredMunicipalities.length + (nederland ? 1 : 0);
+
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
         setHighlightedIndex(prev =>
-          prev < filteredMunicipalities.length - 1 ? prev + 1 : prev
+          prev < totalItems - 1 ? prev + 1 : prev
         );
         break;
 
@@ -141,6 +147,9 @@ export default function MunicipalitySelector({
         e.preventDefault();
         if (highlightedIndex >= 0 && highlightedIndex < filteredMunicipalities.length) {
           handleSelect(filteredMunicipalities[highlightedIndex].slug);
+        } else if (highlightedIndex === filteredMunicipalities.length && nederland) {
+          // Nederland is selected (sticky footer)
+          handleSelect(nederland.slug);
         } else if (filteredMunicipalities.length === 1) {
           // Auto-select if only one result
           handleSelect(filteredMunicipalities[0].slug);
@@ -202,62 +211,97 @@ export default function MunicipalitySelector({
             role="listbox"
             className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-[60vh] md:max-h-96 overflow-y-auto"
           >
+            {/* Header */}
+            <div className="sticky top-0 bg-gray-50 px-3 py-2 text-xs text-gray-500 border-b flex items-center justify-between z-10">
+              <span>{filteredMunicipalities.length} gemeentes</span>
+              <div className="flex items-center gap-2">
+                <kbd className="hidden md:inline-block px-1.5 py-0.5 text-xs font-mono bg-white border border-gray-300 rounded">
+                  ⌘K
+                </kbd>
+                <button
+                  onClick={toggleSort}
+                  className="text-blue-600 hover:text-blue-800 flex items-center gap-1 p-1 -m-1"
+                  title={sortOrder === 'asc' ? 'Sorteer Z-A' : 'Sorteer A-Z'}
+                  tabIndex={-1}
+                >
+                  {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortOrder === 'asc' ? "M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" : "M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"} />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Municipality list */}
             {filteredMunicipalities.length > 0 ? (
-              <>
-                <div className="sticky top-0 bg-gray-50 px-3 py-2 text-xs text-gray-500 border-b flex items-center justify-between">
-                  <span>{filteredMunicipalities.filter(m => m.slug !== 'nederland').length} gemeentes</span>
-                  <div className="flex items-center gap-2">
-                    <kbd className="hidden md:inline-block px-1.5 py-0.5 text-xs font-mono bg-white border border-gray-300 rounded">
-                      ⌘K
-                    </kbd>
-                    <button
-                      onClick={toggleSort}
-                      className="text-blue-600 hover:text-blue-800 flex items-center gap-1 p-1 -m-1"
-                      title={sortOrder === 'asc' ? 'Sorteer Z-A' : 'Sorteer A-Z'}
-                      tabIndex={-1}
-                    >
-                      {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sortOrder === 'asc' ? "M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" : "M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"} />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                {filteredMunicipalities.map((m, index) => (
-                  <button
-                    key={m.slug}
-                    id={`municipality-option-${index}`}
-                    role="option"
-                    aria-selected={m.slug === selected}
-                    data-index={index}
-                    onClick={() => handleSelect(m.slug)}
-                    onMouseEnter={() => setHighlightedIndex(index)}
-                    className={`w-full text-left px-3 md:px-4 py-3 md:py-2 transition-colors ${
-                      index === highlightedIndex
-                        ? 'bg-blue-100'
-                        : m.slug === selected
-                        ? 'bg-blue-50'
-                        : 'hover:bg-gray-50 active:bg-gray-100'
-                    }`}
-                    tabIndex={-1}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">{m.name}</div>
-                        <div className="text-xs text-gray-500">{m.province}</div>
-                      </div>
-                      {m.slug === selected && (
-                        <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
+              filteredMunicipalities.map((m, index) => (
+                <button
+                  key={m.slug}
+                  id={`municipality-option-${index}`}
+                  role="option"
+                  aria-selected={m.slug === selected}
+                  data-index={index}
+                  onClick={() => handleSelect(m.slug)}
+                  onMouseEnter={() => setHighlightedIndex(index)}
+                  className={`w-full text-left px-3 md:px-4 py-3 md:py-2 transition-colors ${
+                    index === highlightedIndex
+                      ? 'bg-blue-100'
+                      : m.slug === selected
+                      ? 'bg-blue-50'
+                      : 'hover:bg-gray-50 active:bg-gray-100'
+                  }`}
+                  tabIndex={-1}
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">{m.name}</div>
+                      <div className="text-xs text-gray-500">{m.province}</div>
                     </div>
-                  </button>
-                ))}
-              </>
+                    {m.slug === selected && (
+                      <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </div>
+                </button>
+              ))
             ) : (
               <div className="px-4 py-6 md:py-8 text-center text-sm text-gray-500">
                 Geen gemeentes gevonden voor &quot;{searchTerm}&quot;
+              </div>
+            )}
+
+            {/* Sticky Nederland footer */}
+            {nederland && (
+              <div className="sticky bottom-0 border-t border-gray-200 bg-white shadow-[0_-2px_4px_rgba(0,0,0,0.05)]">
+                <button
+                  id={`municipality-option-nederland`}
+                  role="option"
+                  aria-selected={nederland.slug === selected}
+                  data-index={filteredMunicipalities.length}
+                  onClick={() => handleSelect(nederland.slug)}
+                  onMouseEnter={() => setHighlightedIndex(filteredMunicipalities.length)}
+                  className={`w-full text-left px-3 md:px-4 py-3 md:py-2 transition-colors ${
+                    highlightedIndex === filteredMunicipalities.length
+                      ? 'bg-blue-100'
+                      : nederland.slug === selected
+                      ? 'bg-blue-50'
+                      : 'hover:bg-gray-50 active:bg-gray-100'
+                  }`}
+                  tabIndex={-1}
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">{nederland.name}</div>
+                      <div className="text-xs text-gray-500">Landelijk overzicht</div>
+                    </div>
+                    {nederland.slug === selected && (
+                      <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </div>
+                </button>
               </div>
             )}
           </div>

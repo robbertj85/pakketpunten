@@ -278,178 +278,79 @@ def get_data_dpd(gemeente):
 
 # ---------- data ophalen voor "Amazon" ----------
 
-def get_data_amazon(lat=None, lon=None, radius=None):
+def get_data_amazon(gemeente=None):
     """
-    Fetch Amazon Hub Locker and Counter locations from OpenStreetMap via Overpass API.
+    Fetch Amazon Hub Locker and Counter locations from cached data.
 
-    Amazon does not provide a public API for querying pickup locations.
-    This function uses OpenStreetMap data which is community-maintained and
-    may not be 100% complete or up-to-date.
-
-    For complete Amazon coverage, use amazon_fetch_all.py + integrate_amazon_data.py
-    which fetches all Amazon locations in the Netherlands once and caches them.
-
-    Data source: OpenStreetMap (Open Data Commons Open Database License - ODbL)
-    Attribution: © OpenStreetMap contributors
+    Uses pre-fetched data from scripts/amazon_fetch_all.py which scrapes
+    amazon.nl/ulp using Playwright. Run that script first to populate the cache.
 
     Parameters
     ----------
-    lat : float, optional
-        Center latitude for bounding box search (default: None = all Netherlands)
-    lon : float, optional
-        Center longitude for bounding box search (default: None = all Netherlands)
-    radius : float, optional
-        Search radius in km (default: None = all Netherlands)
+    gemeente : str, optional
+        Municipality name (not used for filtering here, polygon filtering
+        happens in get_data_pakketpunten)
 
     Returns
     -------
     geopandas.GeoDataFrame
         GeoDataFrame with Amazon Hub location data
     """
-    import json
     from pathlib import Path
+    import json
+    from shapely.geometry import Point
 
-    # Try to load from cache file first (faster and more reliable)
-    cache_file = Path("data/amazon_all_locations.json")
+    # Load from cache file
+    cache_file = Path(__file__).parent / "data" / "amazon_all_locations.json"
 
     if cache_file.exists():
         try:
             with open(cache_file, 'r', encoding='utf-8') as f:
-                all_locations = json.load(f)
+                cache_data = json.load(f)
 
-            # If lat/lon/radius provided, filter cached data
-            if lat is not None and lon is not None and radius is not None:
-                from math import radians, sin, cos, sqrt, atan2
-
-                def haversine_distance(lat1, lon1, lat2, lon2):
-                    """Calculate distance in km between two points"""
-                    R = 6371  # Earth radius in km
-                    dlat = radians(lat2 - lat1)
-                    dlon = radians(lon2 - lon1)
-                    a = sin(dlat/2)**2 + cos(radians(lat1)) * cos(radians(lat2)) * sin(dlon/2)**2
-                    c = 2 * atan2(sqrt(a), sqrt(1-a))
-                    return R * c
-
-                filtered_locations = [
-                    loc for loc in all_locations
-                    if haversine_distance(lat, lon, loc['latitude'], loc['longitude']) <= radius
-                ]
+            # Handle both old format (plain list) and new format (with metadata)
+            if isinstance(cache_data, dict) and 'locations' in cache_data:
+                locations = cache_data.get('locations', [])
+            elif isinstance(cache_data, list):
+                locations = cache_data
             else:
-                filtered_locations = all_locations
+                locations = []
 
-            if filtered_locations:
-                df = pd.DataFrame(filtered_locations)
-                return df_to_gdf(df, "Amazon")
+            if locations:
+                # Convert to DataFrame with standardized columns
+                rows = []
+                for loc in locations:
+                    rows.append({
+                        'locatieNaam': loc.get('locatieNaam', loc.get('name', '')),
+                        'straatNaam': loc.get('straatNaam', loc.get('address', '')),
+                        'straatNr': loc.get('straatNr', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': loc.get('puntType', loc.get('type', '')),
+                        'vervoerder': 'Amazon',
+                    })
+
+                df = pd.DataFrame(rows)
+
+                # Filter out rows without coordinates
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                # Create GeoDataFrame
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                # Return all points - polygon filtering happens in get_data_pakketpunten()
+                print(f"  📦 Amazon: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
 
         except Exception as e:
-            print(f"  ⚠️  Error loading Amazon cache: {e}, falling back to Overpass API")
+            print(f"  ⚠️  Amazon cache load failed ({e})")
 
-    # Fallback to Overpass API if no cache
-    session = make_session()
-
-    # Overpass API endpoint
-    overpass_url = "https://overpass-api.de/api/interpreter"
-
-    # Build Overpass QL query
-    # Query for parcel lockers with Amazon as operator or brand in Netherlands
-    if lat is not None and lon is not None and radius is not None:
-        # Bounding box search around point
-        radius_deg = radius / 111  # Rough conversion km to degrees
-        bbox = f"{lat-radius_deg},{lon-radius_deg},{lat+radius_deg},{lon+radius_deg}"
-        overpass_query = f"""
-        [out:json][timeout:30];
-        (
-          node["amenity"="parcel_locker"]["operator"~"Amazon",i]({bbox});
-          node["amenity"="parcel_locker"]["brand"~"Amazon",i]({bbox});
-          node["name"~"Amazon",i]["amenity"="parcel_locker"]({bbox});
-        );
-        out body;
-        """
-    else:
-        # Query all of Netherlands
-        overpass_query = """
-        [out:json][timeout:60];
-        area["ISO3166-1"="NL"][admin_level=2]->.searchArea;
-        (
-          node["amenity"="parcel_locker"]["operator"~"Amazon",i](area.searchArea);
-          node["amenity"="parcel_locker"]["brand"~"Amazon",i](area.searchArea);
-          node["name"~"Amazon",i]["amenity"="parcel_locker"](area.searchArea);
-        );
-        out body;
-        """
-
-    try:
-        response = session.post(
-            overpass_url,
-            data={'data': overpass_query},
-            timeout=90,
-        )
-        response.raise_for_status()
-        data = response.json()
-
-        elements = data.get('elements', [])
-
-        if not elements:
-            print("  ℹ️  No Amazon locations found in OpenStreetMap")
-            print("     Consider contributing to OSM or running: python scripts/amazon_fetch_all.py")
-            df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder'])
-            return df_to_gdf(df, "Amazon")
-
-        # Convert OSM data to standardized format
-        rows = []
-        seen = set()  # Deduplicate by ID
-
-        for elem in elements:
-            if elem['type'] != 'node':
-                continue
-
-            elem_id = elem.get('id')
-            if elem_id in seen:
-                continue
-            seen.add(elem_id)
-
-            tags = elem.get('tags', {})
-            lat_val = elem.get('lat')
-            lon_val = elem.get('lon')
-
-            # Extract name (Amazon locker code/name)
-            name = tags.get('name', tags.get('ref', 'Amazon Hub'))
-
-            # Extract address
-            street = tags.get('addr:street', '')
-            house_number = tags.get('addr:housenumber', '')
-
-            # Determine type (Locker vs Counter)
-            locker_type = tags.get('parcel_locker:type', '')
-            if not locker_type:
-                # Infer from name
-                if 'counter' in name.lower():
-                    locker_type = 'counter'
-                else:
-                    locker_type = 'locker'
-
-            rows.append({
-                'locatieNaam': name,
-                'straatNaam': street,
-                'straatNr': house_number,
-                'latitude': lat_val,
-                'longitude': lon_val,
-                'puntType': locker_type,
-                'vervoerder': 'Amazon',
-            })
-
-        if not rows:
-            df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder'])
-            return df_to_gdf(df, "Amazon")
-
-        df = pd.DataFrame(rows)
-        gdf = df_to_gdf(df, "Amazon")
-        return gdf
-
-    except Exception as e:
-        print(f"  ⚠️  Amazon Overpass API error: {e}")
-        df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder'])
-        return df_to_gdf(df, "Amazon")
+    # No cache available
+    print("  ⚠️  Amazon cache not found. Run: python scripts/amazon_fetch_all.py")
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder'])
+    from shapely.geometry import Point
+    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
 
 
 # ---------- data ophalen voor "VintedGo" ----------
@@ -503,7 +404,14 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
     carrier_status = {}
     gdfs_to_concat = []
 
-    # gdf_amazon = get_data_amazon(lat, lon, radius)  # Disabled: No OSM data available yet
+    # Amazon
+    try:
+        gdf_amazon = get_data_amazon(gemeente)
+        gdfs_to_concat.append(gdf_amazon)
+        carrier_status['Amazon'] = {'success': True, 'count': len(gdf_amazon), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  Amazon fetch failed: {e}")
+        carrier_status['Amazon'] = {'success': False, 'count': 0, 'error': str(e)}
 
     # De Buren
     try:

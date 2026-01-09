@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from api_client import get_data_pakketpunten
 from geo_analysis import get_bufferzones
-from utils import get_gemeente_polygon
+from utils import get_gemeente_polygon, check_polygon_cache_expiry, get_polygon_cache_stats
 import numpy as np
 import geopandas as gpd
 
@@ -221,6 +221,17 @@ def main():
     print("🚀 Starting batch data generation")
     print(f"⏰ Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
+    # Check if polygon cache should be refreshed (last week of June/December)
+    print("\n📦 Checking polygon cache...")
+    check_polygon_cache_expiry()
+    cache_stats = get_polygon_cache_stats()
+    if cache_stats['total'] > 0:
+        print(f"   Cached polygons: {cache_stats['total']}")
+        print(f"   Cache dates: {cache_stats.get('oldest_cached', 'N/A')} to {cache_stats.get('newest_cached', 'N/A')}")
+        print(f"   Next refresh: {cache_stats['next_refresh']}")
+    else:
+        print("   No cached polygons (will fetch from Overpass API)")
+
     # Load municipalities
     municipalities = load_municipalities()
     total = len(municipalities)
@@ -268,7 +279,7 @@ def main():
 
     # Aggregate carrier-level statistics
     carrier_stats = {}
-    carriers = ['DHL', 'PostNL', 'DPD', 'VintedGo', 'DeBuren']
+    carriers = ['DHL', 'PostNL', 'DPD', 'Amazon', 'VintedGo', 'DeBuren']
 
     for carrier in carriers:
         successful_fetches = 0
@@ -319,6 +330,11 @@ def main():
         }, f, indent=2, ensure_ascii=False)
 
     print(f"\n💾 Summary saved to: {summary_file}")
+
+    # Print final cache statistics
+    final_cache_stats = get_polygon_cache_stats()
+    print(f"\n📦 Polygon cache: {final_cache_stats['total']} municipalities cached")
+
     print(f"⏰ Completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     # Exit with error code only if any had real errors
