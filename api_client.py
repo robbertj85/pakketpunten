@@ -451,46 +451,57 @@ def get_data_gls(gemeente=None):
     import json
     from shapely.geometry import Point
 
-    # Load from cache file
-    cache_file = Path(__file__).parent / "data" / "gls_poc_locations.json"
+    # Load from cache file (try all_locations first, fall back to POC)
+    cache_file = Path(__file__).parent / "data" / "gls_all_locations.json"
+    poc_file = Path(__file__).parent / "data" / "gls_poc_locations.json"
 
+    # Determine which file to use
+    locations = []
     if cache_file.exists():
         try:
             with open(cache_file, 'r', encoding='utf-8') as f:
                 cache_data = json.load(f)
-
             locations = cache_data.get('locations', [])
+        except:
+            pass
 
-            if locations:
-                # Convert to DataFrame with standardized columns
-                rows = []
-                for loc in locations:
-                    rows.append({
-                        'locatieNaam': loc.get('locatieNaam', ''),
-                        'straatNaam': loc.get('straatNaam', ''),
-                        'straatNr': loc.get('straatNr', ''),
-                        'latitude': loc.get('latitude'),
-                        'longitude': loc.get('longitude'),
-                        'puntType': loc.get('puntType', ''),
-                        'vervoerder': 'GLS',
-                        'canPickup': True,   # GLS: All locations support pickup
-                        'canDropoff': True,  # GLS: All locations support dropoff
-                    })
+    # Fall back to POC file if all_locations is empty
+    if not locations and poc_file.exists():
+        try:
+            with open(poc_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+            locations = cache_data.get('locations', [])
+            print(f"  ℹ️  GLS: Using POC cache (run fetch-gls-data workflow for full data)")
+        except:
+            pass
 
-                df = pd.DataFrame(rows)
+    if locations:
+        # Convert to DataFrame with standardized columns
+        rows = []
+        for loc in locations:
+            rows.append({
+                'locatieNaam': loc.get('locatieNaam', ''),
+                'straatNaam': loc.get('straatNaam', ''),
+                'straatNr': loc.get('straatNr', ''),
+                'latitude': loc.get('latitude'),
+                'longitude': loc.get('longitude'),
+                'puntType': loc.get('puntType', ''),
+                'vervoerder': 'GLS',
+                'canPickup': True,   # GLS: All locations support pickup
+                'canDropoff': True,  # GLS: All locations support dropoff
+            })
 
-                # Filter out rows without coordinates
-                df = df.dropna(subset=['latitude', 'longitude'])
+        df = pd.DataFrame(rows)
 
-                # Create GeoDataFrame
-                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
-                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+        # Filter out rows without coordinates
+        df = df.dropna(subset=['latitude', 'longitude'])
 
-                print(f"  📦 GLS: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
-                return gdf_all
+        # Create GeoDataFrame
+        geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+        gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
 
-        except Exception as e:
-            print(f"  ⚠️  GLS cache load failed ({e})")
+        print(f"  📦 GLS: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+        return gdf_all
 
     # No cache available
     print("  ⚠️  GLS cache not found. Run: python scripts/gls_fetch_poc.py")
@@ -523,51 +534,62 @@ def get_data_fedex(gemeente=None):
     import json
     from shapely.geometry import Point
 
-    # Load from cache file
-    cache_file = Path(__file__).parent / "data" / "fedex_poc_locations.json"
+    # Load from cache file (try all_locations first, fall back to POC)
+    cache_file = Path(__file__).parent / "data" / "fedex_all_locations.json"
+    poc_file = Path(__file__).parent / "data" / "fedex_poc_locations.json"
 
+    # Determine which file to use
+    locations = []
     if cache_file.exists():
         try:
             with open(cache_file, 'r', encoding='utf-8') as f:
                 cache_data = json.load(f)
-
             locations = cache_data.get('locations', [])
+        except:
+            pass
 
-            if locations:
-                # Convert to DataFrame with standardized columns
-                rows = []
-                for loc in locations:
-                    punt_type = loc.get('puntType', '')
-                    # FedEx: puntType is 'pickup' or 'dropoff' - indicates capability
-                    can_pickup = punt_type == 'pickup'
-                    can_dropoff = punt_type == 'dropoff'
+    # Fall back to POC file if all_locations is empty
+    if not locations and poc_file.exists():
+        try:
+            with open(poc_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+            locations = cache_data.get('locations', [])
+            print(f"  ℹ️  FedEx: Using POC cache (run fetch-fedex-data workflow for full data)")
+        except:
+            pass
 
-                    rows.append({
-                        'locatieNaam': loc.get('locatieNaam', ''),
-                        'straatNaam': loc.get('straatNaam', ''),
-                        'straatNr': loc.get('straatNr', ''),
-                        'latitude': loc.get('latitude'),
-                        'longitude': loc.get('longitude'),
-                        'puntType': 'shop',  # FedEx: All locations are staffed shops
-                        'vervoerder': 'FedEx',
-                        'canPickup': can_pickup,
-                        'canDropoff': can_dropoff,
-                    })
+    if locations:
+        # Convert to DataFrame with standardized columns
+        rows = []
+        for loc in locations:
+            punt_type = loc.get('puntType', '')
+            # FedEx: puntType is 'pickup' or 'dropoff' - indicates capability
+            can_pickup = punt_type == 'pickup'
+            can_dropoff = punt_type == 'dropoff'
 
-                df = pd.DataFrame(rows)
+            rows.append({
+                'locatieNaam': loc.get('locatieNaam', ''),
+                'straatNaam': loc.get('straatNaam', ''),
+                'straatNr': loc.get('straatNr', ''),
+                'latitude': loc.get('latitude'),
+                'longitude': loc.get('longitude'),
+                'puntType': 'shop',  # FedEx: All locations are staffed shops
+                'vervoerder': 'FedEx',
+                'canPickup': can_pickup,
+                'canDropoff': can_dropoff,
+            })
 
-                # Filter out rows without coordinates
-                df = df.dropna(subset=['latitude', 'longitude'])
+        df = pd.DataFrame(rows)
 
-                # Create GeoDataFrame
-                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
-                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+        # Filter out rows without coordinates
+        df = df.dropna(subset=['latitude', 'longitude'])
 
-                print(f"  📦 FedEx: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
-                return gdf_all
+        # Create GeoDataFrame
+        geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+        gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
 
-        except Exception as e:
-            print(f"  ⚠️  FedEx cache load failed ({e})")
+        print(f"  📦 FedEx: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+        return gdf_all
 
     # No cache available
     print("  ⚠️  FedEx cache not found. Run: python scripts/fedex_fetch_poc.py")

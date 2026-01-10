@@ -1,0 +1,44 @@
+name: Fetch GLS Data
+
+on:
+  # Run on schedule (before main update job)
+  schedule:
+    - cron: '0 0 * * 1'  # Monday 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  fetch-gls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install requests playwright
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Fetch GLS data
+        run: python scripts/gls_fetch_all.py
+        timeout-minutes: 45
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push GLS data
+        run: |
+          git add data/gls_all_locations.json 2>/dev/null || true
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update GLS data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)

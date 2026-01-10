@@ -2,7 +2,7 @@ name: Update Pakketpunten Data
 
 on:
   schedule:
-    # Run weekly on Monday at 02:00 UTC (Sunday night to Monday)
+    # Run weekly on Monday at 02:00 UTC (after GLS/FedEx workflows complete)
     - cron: '0 2 * * 1'
   # Allow manual trigger
   workflow_dispatch:
@@ -10,6 +10,7 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
 
     steps:
       - name: Checkout repository
@@ -27,33 +28,37 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Install Playwright for GLS/FedEx scraping
-        run: |
-          pip install playwright
-          playwright install chromium
-          playwright install-deps chromium
-
       - name: Fetch DHL grid data (nationwide cache)
         run: python scripts/dhl_grid_fetch.py
         working-directory: ${{ github.workspace }}
+        timeout-minutes: 30
 
       - name: Fetch DPD data (nationwide cache)
         run: python scripts/dpd_fetch_all.py
         working-directory: ${{ github.workspace }}
+        timeout-minutes: 15
 
-      - name: Fetch GLS data (nationwide cache)
-        run: python scripts/gls_fetch_poc.py
-        working-directory: ${{ github.workspace }}
+      # GLS and FedEx data are fetched by separate workflows (fetch-gls-data.yml, fetch-fedex-data.yml)
+      # Those workflows run earlier and commit their cache files to the repo
+      # This workflow uses the already-committed cache files
 
-      - name: Fetch FedEx data (nationwide cache)
-        run: python scripts/fedex_fetch_poc.py
-        working-directory: ${{ github.workspace }}
+      - name: Check GLS/FedEx cache status
+        run: |
+          echo "=== Cache file status ==="
+          ls -la data/gls_all_locations.json data/fedex_all_locations.json 2>/dev/null || echo "Cache files not found"
+          if [ -f data/gls_all_locations.json ]; then
+            echo "GLS: $(python -c "import json; d=json.load(open('data/gls_all_locations.json')); print(len(d.get('locations', [])))" 2>/dev/null || echo '0') locations"
+          fi
+          if [ -f data/fedex_all_locations.json ]; then
+            echo "FedEx: $(python -c "import json; d=json.load(open('data/fedex_all_locations.json')); print(len(d.get('locations', [])))" 2>/dev/null || echo '0') locations"
+          fi
 
       - name: Generate pakketpunten data
         run: |
           python scripts/batch_generate.py
           python scripts/create_national_overview.py
         working-directory: ${{ github.workspace }}
+        timeout-minutes: 60
 
       - name: Update totals history
         run: python scripts/update_totals_history.py
@@ -66,8 +71,8 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          # Add cache files (DHL, DPD, GLS, FedEx nationwide data)
-          git add data/dhl_all_locations.json data/dpd_all_locations.json data/gls_poc_locations.json data/fedex_poc_locations.json 2>/dev/null || true
+          # Add cache files (DHL, DPD data - GLS/FedEx committed by their own workflows)
+          git add data/dhl_all_locations.json data/dpd_all_locations.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
           git add webapp/public/data/summary.json webapp/public/data/totals_history.json webapp/public/municipalities.json 2>/dev/null || true

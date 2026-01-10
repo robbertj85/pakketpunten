@@ -1,0 +1,44 @@
+name: Fetch FedEx Data
+
+on:
+  # Run on schedule (before main update job, with plenty of time)
+  schedule:
+    - cron: '0 18 * * 0'  # Sunday 18:00 UTC (gives 8+ hours before main job)
+  workflow_dispatch:
+
+jobs:
+  fetch-fedex:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # 6 hours max
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install requests playwright
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Fetch FedEx data
+        run: python scripts/fedex_fetch_all.py
+        timeout-minutes: 330  # 5.5 hours
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push FedEx data
+        run: |
+          git add data/fedex_all_locations.json 2>/dev/null || true
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update FedEx data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)
