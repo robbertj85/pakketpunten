@@ -238,6 +238,24 @@ def scrape_directory_page(page) -> List[Dict]:
 
                 # Only add if we have at least a name
                 if location.get('name') and location.get('name') != 'NL':
+                    # Map to standardized field names for api_client
+                    location['locatieNaam'] = location.get('name', '')
+                    location['straatNaam'] = location.get('street', '')
+                    location['straatNr'] = ''  # Street number is usually part of street in FedEx data
+
+                    # Parse street number from street if present
+                    street = location.get('street', '')
+                    street_match = re.match(r'^(.+?)\s+(\d+[A-Za-z]?)$', street)
+                    if street_match:
+                        location['straatNaam'] = street_match.group(1)
+                        location['straatNr'] = street_match.group(2)
+
+                    # Determine pickup/dropoff capability
+                    if location.get('accepts_dropoff', True):
+                        location['puntType'] = 'dropoff'
+                    else:
+                        location['puntType'] = 'pickup'
+
                     location['vervoerder'] = 'FedEx'
                     locations.append(location)
 
@@ -387,48 +405,73 @@ def fetch_fedex_locations_poc(cities: List[str]) -> Dict[str, List[Dict]]:
     return results
 
 
-def save_poc_results(results: Dict[str, List[Dict]]):
-    """Save POC results to JSON file."""
+def load_municipalities() -> List[str]:
+    """Load all municipality names from the data file."""
+    municipalities_file = Path(__file__).parent.parent / "data" / "municipalities_all.json"
+    with open(municipalities_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return [m['name'] for m in data]
+
+
+def save_results(results: Dict[str, List[Dict]]):
+    """Save results to cache file for api_client.py to use."""
+    # Deduplicate locations by coordinates or name+postcode
+    all_locations = []
+    seen = set()
+
+    for locs in results.values():
+        for loc in locs:
+            # Create unique key
+            if loc.get('latitude') and loc.get('longitude'):
+                key = f"{loc['latitude']:.6f}_{loc['longitude']:.6f}"
+            else:
+                key = f"{loc.get('name', '')}_{loc.get('postcode', '')}"
+
+            if key not in seen:
+                seen.add(key)
+                all_locations.append(loc)
+
     output = {
         "metadata": {
-            "type": "proof_of_concept",
             "method": "playwright-scraping",
             "source": "https://local.fedex.com/nl-nl",
             "fetched_at": datetime.now(timezone.utc).isoformat(),
+            "total_locations": len(all_locations),
         },
-        "results_by_city": results,
-        "all_locations": [loc for locs in results.values() for loc in locs]
+        "locations": all_locations
     }
 
-    output_path = Path(__file__).parent.parent / "data" / "fedex_poc_results.json"
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path = Path(__file__).parent.parent / "data" / "fedex_poc_locations.json"
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(cache_path, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print()
-    print(f"Results saved to: {output_path}")
+    print(f"Saved {len(all_locations)} unique locations to: {cache_path}")
 
 
 def main():
     print()
-    print(f"FedEx Location Fetch - Proof of Concept")
+    print(f"FedEx Location Fetch - All Municipalities")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
 
-    # Test cities as specified
-    test_cities = ["Rotterdam", "Elburg", "Amsterdam"]
+    # Load all municipalities
+    all_municipalities = load_municipalities()
+    print(f"Loaded {len(all_municipalities)} municipalities to search")
+    print()
 
-    results = fetch_fedex_locations_poc(test_cities)
+    results = fetch_fedex_locations_poc(all_municipalities)
 
     if any(results.values()):
-        save_poc_results(results)
+        save_results(results)
     else:
         print("\nNo locations found - may need to adjust scraping approach")
 
     print()
     print("=" * 80)
-    print("POC COMPLETE!")
+    print("COMPLETE!")
     print("=" * 80)
 
 

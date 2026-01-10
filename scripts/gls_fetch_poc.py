@@ -492,32 +492,46 @@ def analyze_results(results: Dict[str, List[Dict]], all_locations: Dict[str, Dic
     print(f"\nTotal unique locations across all searches: {len(all_locations)}")
 
 
+def load_municipalities() -> List[str]:
+    """Load all municipality names from the data file."""
+    municipalities_file = Path(__file__).parent.parent / "data" / "municipalities_all.json"
+    with open(municipalities_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return [m['name'] for m in data]
+
+
 def main():
     print()
-    print(f"GLS Parcel Shop Location Fetch POC")
+    print(f"GLS Parcel Shop Location Fetch - All Municipalities")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
 
-    # Search terms to test
-    search_terms = ["Rotterdam", "Elburg", "Amsterdam"]
+    # Load all municipalities
+    all_municipalities = load_municipalities()
+    print(f"Loaded {len(all_municipalities)} municipalities to search")
+    print()
 
-    results, all_locations = fetch_gls_locations(search_terms, headless=True)
+    results, all_locations = fetch_gls_locations(all_municipalities, headless=True)
 
     analyze_results(results, all_locations)
 
-    # Save raw data for analysis
-    output_path = Path(__file__).parent / "gls_poc_results.json"
-    with open(output_path, 'w', encoding='utf-8') as f:
+    # Save to cache file for api_client.py to use
+    cache_path = Path(__file__).parent.parent / "data" / "gls_poc_locations.json"
+
+    # Convert to list format expected by api_client
+    locations_list = list(all_locations.values())
+
+    with open(cache_path, 'w', encoding='utf-8') as f:
         json.dump({
             'metadata': {
                 'fetched_at': datetime.now(timezone.utc).isoformat(),
-                'search_terms': search_terms,
+                'total_municipalities_searched': len(all_municipalities),
+                'total_locations': len(locations_list),
             },
-            'results': {k: [loc for loc in v] for k, v in results.items()},
-            'all_locations': list(all_locations.values())
+            'locations': locations_list
         }, f, indent=2, ensure_ascii=False, default=str)
 
-    print(f"\nSaved results to: {output_path}")
+    print(f"\nSaved {len(locations_list)} locations to: {cache_path}")
 
     print("\n" + "=" * 80)
     print("COMPLETE!")
