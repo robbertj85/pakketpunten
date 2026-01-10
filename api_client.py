@@ -33,6 +33,9 @@ def get_data_deburen(gemeente):
 
     df_ = df[df["city"] == gemeente.lower()]
     gdf = df_to_gdf(df_, "DeBuren")
+    # DeBuren: All locations support both pickup and dropoff
+    gdf['canPickup'] = True
+    gdf['canDropoff'] = True
     return gdf
 
 
@@ -80,6 +83,12 @@ def get_data_dhl(lat, lon, radius, gemeente=None):
                 for loc in locations:
                     geo = loc.get('geoLocation', {})
                     addr = loc.get('address', {})
+                    service_types = loc.get('serviceTypes', [])
+
+                    # DHL: Check serviceTypes for pickup/dropoff capability
+                    # parcel-last-mile = pickup (receive), parcel-first-mile = dropoff (send)
+                    can_pickup = 'parcel-last-mile' in service_types
+                    can_dropoff = 'parcel-first-mile' in service_types
 
                     rows.append({
                         'locatieNaam': loc.get('name', ''),
@@ -89,6 +98,8 @@ def get_data_dhl(lat, lon, radius, gemeente=None):
                         'longitude': geo.get('longitude'),
                         'puntType': loc.get('shopType', ''),
                         'vervoerder': 'DHL',
+                        'canPickup': can_pickup,
+                        'canDropoff': can_dropoff,
                     })
 
                 df = pd.DataFrame(rows)
@@ -128,40 +139,99 @@ def get_data_dhl(lat, lon, radius, gemeente=None):
 
 # ---------- data ophalen voor "PostNL" ----------
 
+# PostNL location type mapping based on properties.id
+# 405 = Pakket- en briefautomaat (locker)
+# 1, 2, 404, 408 = Postkantoor/ServicePoint (shop)
+POSTNL_TYPE_MAPPING = {
+    405: 'automaat',      # Locker
+    1: 'servicepunt',     # Shop
+    2: 'servicepunt',     # Shop
+    404: 'servicepunt',   # Shop (e.g., GAMMA)
+    408: 'servicepunt',   # Shop
+}
+
 
 def get_data_postnl(bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon):
     """
+    Fetch PostNL parcel points within a bounding box.
+
     Parameters
     ----------
-    gemeente : str
-        Naam van de gemeente waarvoor de pakketpunten moeten worden opgehaald.
+    bottom_left_lat, bottom_left_lon, top_right_lat, top_right_lon : float
+        Bounding box coordinates for the search area.
 
     Returns
     -------
     geopandas.GeoDataFrame
-        Een GeoDataFrame met de pakketpuntlocaties binnen de opgegeven gemeente.
+        GeoDataFrame with PostNL parcel point locations including puntType.
     """
+    from shapely.geometry import Point
+
     session = make_session()
-                      
-    data= fetch_json(
-        url= "https://productprijslokatie.postnl.nl/location-widget/api/locations",
+
+    data = fetch_json(
+        url="https://productprijslokatie.postnl.nl/location-widget/api/locations",
         params={
-            "country": "nld", # alleen nederlandse locaties ophalen 
-            "business": "false", # alleen particuliere afhaalpunten, geen zakelijke
-            "filters": "[]", # geen extra filters
+            "country": "nld",
+            "business": "false",
+            "filters": "[]",
             "productFilters": '[{"productId":"23"}]',
-            "defaultFilters": "[]", # geen extra filters
-            "bottomLeftLat": bottom_left_lat,#"52.44490000000000", # boundingbox zoekgebied
-            "bottomLeftLon": bottom_left_lon,#"5.878000000000000", # boundingbox zoekgebied
-            "topRightLat": top_right_lat,#"52.59230000000000", # boundingbox zoekgebied
-            "topRightLon": top_right_lon,#"6.358900000000000", # boundingbox zoekgebied
-            "lang": "NL", # taal in het nederlands
+            "defaultFilters": "[]",
+            "bottomLeftLat": bottom_left_lat,
+            "bottomLeftLon": bottom_left_lon,
+            "topRightLat": top_right_lat,
+            "topRightLon": top_right_lon,
+            "lang": "NL",
         },
         no_proxy_domains=["productprijslokatie.postnl.nl"],
         session=session,
     )
-    df = json_to_dataframe(data)
-    gdf = df_to_gdf(df, "PostNL")
+
+    # Extract items from response
+    items = data.get('items', []) if isinstance(data, dict) else data
+
+    if not items:
+        # Return empty GeoDataFrame with correct structure
+        df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder'])
+        return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
+
+    # Convert to DataFrame with standardized columns
+    rows = []
+    for loc in items:
+        coords = loc.get('coordinates', {})
+        addr = loc.get('internationalAddress', {})
+        props = loc.get('properties', {})
+
+        # Map properties.id to puntType
+        prop_id = props.get('id')
+        punt_type = POSTNL_TYPE_MAPPING.get(prop_id, 'servicepunt')
+
+        # Build street number with extension
+        street_nr = str(addr.get('buildingNumber', ''))
+        if addr.get('buildingNumberExtension'):
+            street_nr += addr.get('buildingNumberExtension')
+
+        rows.append({
+            'locatieNaam': loc.get('locationName', ''),
+            'straatNaam': addr.get('streetName', ''),
+            'straatNr': street_nr,
+            'latitude': coords.get('latitude'),
+            'longitude': coords.get('longitude'),
+            'puntType': punt_type,
+            'vervoerder': 'PostNL',
+            'canPickup': True,   # PostNL: All locations support pickup
+            'canDropoff': True,  # PostNL: All locations support dropoff
+        })
+
+    df = pd.DataFrame(rows)
+
+    # Filter out rows without coordinates
+    df = df.dropna(subset=['latitude', 'longitude'])
+
+    # Create GeoDataFrame
+    geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+    gdf = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
     return gdf
 
 
@@ -208,6 +278,8 @@ def get_data_dpd(gemeente):
                         'longitude': loc.get('longitude'),
                         'puntType': loc.get('pickup_network_type', ''),
                         'vervoerder': 'DPD',
+                        'canPickup': bool(loc.get('pickup_allowed', 0)),
+                        'canDropoff': bool(loc.get('dropoff_allowed', 0)),
                     })
 
                 df = pd.DataFrame(rows)
@@ -328,6 +400,8 @@ def get_data_amazon(gemeente=None):
                         'longitude': loc.get('longitude'),
                         'puntType': loc.get('puntType', loc.get('type', '')),
                         'vervoerder': 'Amazon',
+                        'canPickup': True,   # Amazon: Pickup only (receive packages)
+                        'canDropoff': False, # Amazon: No dropoff (cannot send packages)
                     })
 
                 df = pd.DataFrame(rows)
@@ -348,7 +422,156 @@ def get_data_amazon(gemeente=None):
 
     # No cache available
     print("  ⚠️  Amazon cache not found. Run: python scripts/amazon_fetch_all.py")
-    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder'])
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
+    from shapely.geometry import Point
+    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
+
+
+# ---------- data ophalen voor "GLS" ----------
+
+def get_data_gls(gemeente=None):
+    """
+    Fetch GLS parcel points from cached data.
+
+    Uses pre-fetched data from scripts/gls_fetch_poc.py which scrapes
+    gls-info.nl using Playwright. Run that script first to populate the cache.
+
+    Parameters
+    ----------
+    gemeente : str, optional
+        Municipality name (not used for filtering here, polygon filtering
+        happens in get_data_pakketpunten)
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        GeoDataFrame with GLS parcel point locations
+    """
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    # Load from cache file
+    cache_file = Path(__file__).parent / "data" / "gls_poc_locations.json"
+
+    if cache_file.exists():
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                # Convert to DataFrame with standardized columns
+                rows = []
+                for loc in locations:
+                    rows.append({
+                        'locatieNaam': loc.get('locatieNaam', ''),
+                        'straatNaam': loc.get('straatNaam', ''),
+                        'straatNr': loc.get('straatNr', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': loc.get('puntType', ''),
+                        'vervoerder': 'GLS',
+                        'canPickup': True,   # GLS: All locations support pickup
+                        'canDropoff': True,  # GLS: All locations support dropoff
+                    })
+
+                df = pd.DataFrame(rows)
+
+                # Filter out rows without coordinates
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                # Create GeoDataFrame
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                print(f"  📦 GLS: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
+
+        except Exception as e:
+            print(f"  ⚠️  GLS cache load failed ({e})")
+
+    # No cache available
+    print("  ⚠️  GLS cache not found. Run: python scripts/gls_fetch_poc.py")
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
+    from shapely.geometry import Point
+    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
+
+
+# ---------- data ophalen voor "FedEx" ----------
+
+def get_data_fedex(gemeente=None):
+    """
+    Fetch FedEx parcel points from cached data.
+
+    Uses pre-fetched data from scripts/fedex_fetch_poc.py which scrapes
+    local.fedex.com using Playwright. Run that script first to populate the cache.
+
+    Parameters
+    ----------
+    gemeente : str, optional
+        Municipality name (not used for filtering here, polygon filtering
+        happens in get_data_pakketpunten)
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        GeoDataFrame with FedEx parcel point locations
+    """
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    # Load from cache file
+    cache_file = Path(__file__).parent / "data" / "fedex_poc_locations.json"
+
+    if cache_file.exists():
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                # Convert to DataFrame with standardized columns
+                rows = []
+                for loc in locations:
+                    punt_type = loc.get('puntType', '')
+                    # FedEx: puntType is 'pickup' or 'dropoff' - indicates capability
+                    can_pickup = punt_type == 'pickup'
+                    can_dropoff = punt_type == 'dropoff'
+
+                    rows.append({
+                        'locatieNaam': loc.get('locatieNaam', ''),
+                        'straatNaam': loc.get('straatNaam', ''),
+                        'straatNr': loc.get('straatNr', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': 'shop',  # FedEx: All locations are staffed shops
+                        'vervoerder': 'FedEx',
+                        'canPickup': can_pickup,
+                        'canDropoff': can_dropoff,
+                    })
+
+                df = pd.DataFrame(rows)
+
+                # Filter out rows without coordinates
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                # Create GeoDataFrame
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                print(f"  📦 FedEx: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
+
+        except Exception as e:
+            print(f"  ⚠️  FedEx cache load failed ({e})")
+
+    # No cache available
+    print("  ⚠️  FedEx cache not found. Run: python scripts/fedex_fetch_poc.py")
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
     from shapely.geometry import Point
     return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
 
@@ -382,12 +605,15 @@ def get_data_vintedgo(lat, lon, south, west, north, east):
 
     # Handle empty results
     if not points_list:
-        return gpd.GeoDataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'vervoerder', 'geometry'],
+        return gpd.GeoDataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'vervoerder', 'geometry', 'canPickup', 'canDropoff'],
                                  crs="EPSG:4326")
 
     # return als dataframe
     df = pd.json_normalize(points_list)
     gdf = df_to_gdf(df, "VintedGo")
+    # VintedGo: All locations support both pickup and dropoff
+    gdf['canPickup'] = True
+    gdf['canDropoff'] = True
     return gdf
 
 
@@ -458,6 +684,24 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
         print(f"  ⚠️  VintedGo fetch failed: {e}")
         carrier_status['VintedGo'] = {'success': False, 'count': 0, 'error': str(e)}
 
+    # GLS
+    try:
+        gdf_gls = get_data_gls(gemeente)
+        gdfs_to_concat.append(gdf_gls)
+        carrier_status['GLS'] = {'success': True, 'count': len(gdf_gls), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  GLS fetch failed: {e}")
+        carrier_status['GLS'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # FedEx
+    try:
+        gdf_fedex = get_data_fedex(gemeente)
+        gdfs_to_concat.append(gdf_fedex)
+        carrier_status['FedEx'] = {'success': True, 'count': len(gdf_fedex), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  FedEx fetch failed: {e}")
+        carrier_status['FedEx'] = {'success': False, 'count': 0, 'error': str(e)}
+
     # Combine all successful fetches
     if gdfs_to_concat:
         gdf = gpd.GeoDataFrame(
@@ -496,8 +740,15 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
     "longitude",
     "geometry",
     "puntType",
-    "vervoerder"
+    "vervoerder",
+    "canPickup",
+    "canDropoff"
     ]
+
+    # Ensure all columns exist (for backwards compatibility)
+    for col in ['canPickup', 'canDropoff']:
+        if col not in gdf.columns:
+            gdf[col] = True  # Default to True if missing
 
     gdf = gdf[desired_order]
 

@@ -27,12 +27,26 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Install Playwright for GLS/FedEx scraping
+        run: |
+          pip install playwright
+          playwright install chromium
+          playwright install-deps chromium
+
       - name: Fetch DHL grid data (nationwide cache)
         run: python scripts/dhl_grid_fetch.py
         working-directory: ${{ github.workspace }}
 
       - name: Fetch DPD data (nationwide cache)
         run: python scripts/dpd_fetch_all.py
+        working-directory: ${{ github.workspace }}
+
+      - name: Fetch GLS data (nationwide cache)
+        run: python scripts/gls_fetch_poc.py
+        working-directory: ${{ github.workspace }}
+
+      - name: Fetch FedEx data (nationwide cache)
+        run: python scripts/fedex_fetch_poc.py
         working-directory: ${{ github.workspace }}
 
       - name: Generate pakketpunten data
@@ -52,8 +66,8 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          # Add cache files (DHL and DPD nationwide data)
-          git add data/dhl_all_locations.json data/dpd_all_locations.json 2>/dev/null || true
+          # Add cache files (DHL, DPD, GLS, FedEx nationwide data)
+          git add data/dhl_all_locations.json data/dpd_all_locations.json data/gls_poc_locations.json data/fedex_poc_locations.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
           git add webapp/public/data/summary.json webapp/public/data/totals_history.json webapp/public/municipalities.json 2>/dev/null || true

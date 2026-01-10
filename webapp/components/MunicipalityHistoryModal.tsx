@@ -27,6 +27,9 @@ const PROVIDER_COLORS: { [key: string]: string } = {
   DPD: '#DC0032',
   VintedGo: '#09B1BA',
   DeBuren: '#4CAF50',
+  Amazon: '#FF9900',
+  GLS: '#003C7E',
+  FedEx: '#4D148C',
 };
 
 export default function MunicipalityHistoryModal({

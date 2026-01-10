@@ -7,7 +7,7 @@ import AddressSearchInput from '@/components/AddressSearchInput';
 import FilterPanel from '@/components/FilterPanel';
 import StatsPanel from '@/components/StatsPanel';
 import AboutModal from '@/components/AboutModal';
-import { Municipality, PakketpuntData, Filters, PakketpuntProperties } from '@/types/pakketpunten';
+import { Municipality, PakketpuntData, Filters, PakketpuntProperties, PakketpuntFeature, PointCategory, ServiceFilter, getPointCategory } from '@/types/pakketpunten';
 import { loadProvincialBoundaries, BoundaryLoadProgress } from '@/utils/boundaryLoader';
 
 // Mobile menu icon component
@@ -38,7 +38,8 @@ function FilterIcon({ className }: { className?: string }) {
 }
 
 // Dynamically import Map component to avoid SSR issues with Leaflet
-const Map = dynamic(() => import('@/components/Map'), {
+// Named MapView to avoid collision with JavaScript's native Map class
+const MapView = dynamic(() => import('@/components/Map'), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center bg-gray-100">
@@ -77,7 +78,7 @@ export default function Home() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
   const [filters, setFilters] = useState<Filters>({
-    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon'],
+    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'FedEx', 'Amazon', 'GLS'],
     showBuffer300: true,
     showBuffer400: true,
     showBufferFill: false,
@@ -86,6 +87,9 @@ export default function Home() {
     minOccupancy: 0,
     maxOccupancy: 100,
     showMockData: false,
+    pointCategories: ['locker', 'shop'],
+    showOnlySharedLocations: false,
+    serviceFilters: ['pickup', 'dropoff'],
   });
 
   // Load municipalities on mount
@@ -193,6 +197,9 @@ export default function Home() {
           minOccupancy: 0,
           maxOccupancy: 100,
           showMockData: false,
+          pointCategories: ['locker', 'shop'],
+          showOnlySharedLocations: false,
+          serviceFilters: ['pickup', 'dropoff'],
         });
       })
       .catch((err) => {
@@ -237,15 +244,36 @@ export default function Home() {
       .finally(() => setBoundariesLoading(false));
   }, [selectedMunicipality, filters.showBoundary, data, boundariesLoaded, boundariesLoading]);
 
-  // Calculate provider counts for filtered data
+  // Helper: Check if a point matches service filters
+  const matchesServiceFilters = (props: PakketpuntProperties): boolean => {
+    const wantsPickup = filters.serviceFilters.includes('pickup');
+    const wantsDropoff = filters.serviceFilters.includes('dropoff');
+
+    // If both filters selected, show locations that support at least one
+    // If only pickup selected, show locations that support pickup
+    // If only dropoff selected, show locations that support dropoff
+    if (wantsPickup && wantsDropoff) {
+      return props.canPickup || props.canDropoff;
+    } else if (wantsPickup) {
+      return props.canPickup;
+    } else if (wantsDropoff) {
+      return props.canDropoff;
+    }
+    return false; // No service filters selected
+  };
+
+  // Calculate provider counts for filtered data (considering category + service filters)
   const providerCounts = useMemo(() => {
     if (!data) return {};
 
     const points = data.features.filter(f => f.properties.type === 'pakketpunt');
     const filteredPoints = points.filter((feature) => {
       const props = feature.properties as PakketpuntProperties;
+      const category = getPointCategory(props.puntType);
       return (
         filters.providers.includes(props.vervoerder) &&
+        filters.pointCategories.includes(category) &&
+        matchesServiceFilters(props) &&
         props.bezettingsgraad >= filters.minOccupancy &&
         props.bezettingsgraad <= filters.maxOccupancy
       );
@@ -256,6 +284,93 @@ export default function Home() {
       acc[props.vervoerder] = (acc[props.vervoerder] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
+  }, [data, filters]);
+
+  // Calculate category counts for filtered data (considering provider + service filters)
+  const categoryCounts = useMemo(() => {
+    if (!data) return { locker: 0, shop: 0 } as Record<PointCategory, number>;
+
+    const points = data.features.filter(f => f.properties.type === 'pakketpunt');
+    const filteredPoints = points.filter((feature) => {
+      const props = feature.properties as PakketpuntProperties;
+      const category = getPointCategory(props.puntType);
+      return (
+        filters.providers.includes(props.vervoerder) &&
+        filters.pointCategories.includes(category) &&
+        matchesServiceFilters(props) &&
+        props.bezettingsgraad >= filters.minOccupancy &&
+        props.bezettingsgraad <= filters.maxOccupancy
+      );
+    });
+
+    return filteredPoints.reduce((acc, feature) => {
+      const props = feature.properties as PakketpuntProperties;
+      const category = getPointCategory(props.puntType);
+      acc[category] = (acc[category] || 0) + 1;
+      return acc;
+    }, { locker: 0, shop: 0 } as Record<PointCategory, number>);
+  }, [data, filters]);
+
+  // Calculate service counts for filtered data (considering provider + category filters)
+  const serviceCounts = useMemo(() => {
+    if (!data) return { pickup: 0, dropoff: 0 } as Record<ServiceFilter, number>;
+
+    const points = data.features.filter(f => f.properties.type === 'pakketpunt');
+    const filteredPoints = points.filter((feature) => {
+      const props = feature.properties as PakketpuntProperties;
+      const category = getPointCategory(props.puntType);
+      return (
+        filters.providers.includes(props.vervoerder) &&
+        filters.pointCategories.includes(category) &&
+        props.bezettingsgraad >= filters.minOccupancy &&
+        props.bezettingsgraad <= filters.maxOccupancy
+      );
+    });
+
+    return filteredPoints.reduce((acc, feature) => {
+      const props = feature.properties as PakketpuntProperties;
+      if (props.canPickup) acc.pickup = (acc.pickup || 0) + 1;
+      if (props.canDropoff) acc.dropoff = (acc.dropoff || 0) + 1;
+      return acc;
+    }, { pickup: 0, dropoff: 0 } as Record<ServiceFilter, number>);
+  }, [data, filters]);
+
+  // Calculate shared location count (points at addresses with multiple carriers)
+  const sharedLocationCount = useMemo(() => {
+    if (!data) return 0;
+
+    const points = data.features.filter(f => f.properties.type === 'pakketpunt');
+    const filteredPoints = points.filter((feature) => {
+      const props = feature.properties as PakketpuntProperties;
+      const category = getPointCategory(props.puntType);
+      return (
+        filters.providers.includes(props.vervoerder) &&
+        filters.pointCategories.includes(category) &&
+        props.bezettingsgraad >= filters.minOccupancy &&
+        props.bezettingsgraad <= filters.maxOccupancy
+      );
+    });
+
+    // Group by coordinates
+    const coordGroups = new Map<string, PakketpuntFeature[]>();
+    filteredPoints.forEach((feature) => {
+      const coords = feature.geometry.coordinates as [number, number];
+      const key = `${coords[1].toFixed(6)},${coords[0].toFixed(6)}`;
+      if (!coordGroups.has(key)) {
+        coordGroups.set(key, []);
+      }
+      coordGroups.get(key)!.push(feature as PakketpuntFeature);
+    });
+
+    // Count points at shared locations (2+ points at same coordinates)
+    let count = 0;
+    coordGroups.forEach((group) => {
+      if (group.length >= 2) {
+        count += group.length;
+      }
+    });
+
+    return count;
   }, [data, filters]);
 
   // Handle address selection from search
@@ -455,6 +570,9 @@ export default function Home() {
                 onChange={setFilters}
                 availableProviders={data.metadata.providers}
                 providerCounts={providerCounts}
+                categoryCounts={categoryCounts}
+                serviceCounts={serviceCounts}
+                sharedLocationCount={sharedLocationCount}
                 boundariesLoading={boundariesLoading}
                 boundaryLoadProgress={boundaryLoadProgress}
               />
@@ -464,7 +582,7 @@ export default function Home() {
 
         {/* Map */}
         <main className="flex-1 relative">
-          <Map
+          <MapView
             data={data}
             filters={filters}
             targetCoordinates={targetCoordinates}

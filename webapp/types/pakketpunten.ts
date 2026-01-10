@@ -10,11 +10,13 @@ export interface PakketpuntProperties {
   locatieNaam: string;
   straatNaam: string;
   straatNr: string;
-  vervoerder: 'DHL' | 'PostNL' | 'VintedGo' | 'DeBuren' | 'DPD' | 'FedEx' | 'Amazon';
+  vervoerder: 'DHL' | 'PostNL' | 'VintedGo' | 'DeBuren' | 'DPD' | 'FedEx' | 'Amazon' | 'GLS';
   puntType: string;
   bezettingsgraad: number;
   latitude: number;
   longitude: number;
+  canPickup: boolean;
+  canDropoff: boolean;
 }
 
 export interface BufferProperties {
@@ -57,4 +59,46 @@ export interface Filters {
   minOccupancy: number;
   maxOccupancy: number;
   showMockData: boolean;
+  pointCategories: PointCategory[];
+  showOnlySharedLocations: boolean;
+  serviceFilters: ServiceFilter[];
+}
+
+// Service capability filter: pickup (receive) vs dropoff (send)
+export type ServiceFilter = 'pickup' | 'dropoff';
+
+// Normalized point category: locker (automated) vs shop (staffed)
+export type PointCategory = 'locker' | 'shop';
+
+// Mapping of carrier-specific puntType values to normalized categories
+// Lockers (automated machines):
+//   - DHL: packStation
+//   - PostNL: automaat
+//   - DPD: dpd_box
+//   - Amazon: locker
+//   - DeBuren: Buitenkluis
+//   - GLS: locker
+// Shops (staffed locations):
+//   - DHL: parcelShop
+//   - PostNL: servicepunt
+//   - DPD: pickup_point
+//   - Amazon: 3p (3rd party counter)
+//   - VintedGo: parcel_shop, social
+//   - DeBuren: Afhaalpunt, Afhaalcentrum
+//   - GLS: parcel_shop
+//   - FedEx: pickup
+const LOCKER_TYPES = new Set([
+  'packStation',      // DHL
+  'automaat',         // PostNL
+  'dpd_box',          // DPD
+  'locker',           // Amazon, VintedGo
+  'Buitenkluis',      // DeBuren
+]);
+
+export function getPointCategory(puntType: string): PointCategory {
+  return LOCKER_TYPES.has(puntType) ? 'locker' : 'shop';
+}
+
+export function getCategoryLabel(category: PointCategory): string {
+  return category === 'locker' ? 'Pakketautomaat' : 'Afhaalpunt';
 }

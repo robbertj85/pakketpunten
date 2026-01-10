@@ -1,6 +1,6 @@
 'use client';
 
-import { PakketpuntData, Filters, PakketpuntProperties } from '@/types/pakketpunten';
+import { PakketpuntData, Filters, PakketpuntProperties, PakketpuntFeature, getPointCategory } from '@/types/pakketpunten';
 
 interface StatsPanelProps {
   data: PakketpuntData | null;
@@ -16,14 +16,37 @@ export default function StatsPanel({ data, filters }: StatsPanelProps) {
 
   // Calculate filtered stats
   const points = data.features.filter(f => f.properties.type === 'pakketpunt');
-  const filteredPoints = points.filter((feature) => {
+  let filteredPoints = points.filter((feature) => {
     const props = feature.properties as PakketpuntProperties;
+    const category = getPointCategory(props.puntType);
     return (
       filters.providers.includes(props.vervoerder) &&
+      filters.pointCategories.includes(category) &&
       props.bezettingsgraad >= filters.minOccupancy &&
       props.bezettingsgraad <= filters.maxOccupancy
     );
   });
+
+  // Apply shared locations filter if enabled
+  if (filters.showOnlySharedLocations) {
+    const coordGroups = new Map<string, PakketpuntFeature[]>();
+    filteredPoints.forEach((feature) => {
+      const coords = feature.geometry.coordinates as [number, number];
+      const key = `${coords[1].toFixed(6)},${coords[0].toFixed(6)}`;
+      if (!coordGroups.has(key)) {
+        coordGroups.set(key, []);
+      }
+      coordGroups.get(key)!.push(feature as PakketpuntFeature);
+    });
+
+    const sharedPoints: PakketpuntFeature[] = [];
+    coordGroups.forEach((group) => {
+      if (group.length >= 2) {
+        sharedPoints.push(...group);
+      }
+    });
+    filteredPoints = sharedPoints;
+  }
 
   const avgOccupancy =
     filteredPoints.length > 0

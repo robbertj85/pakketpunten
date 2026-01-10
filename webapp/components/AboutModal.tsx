@@ -2,25 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-interface CarrierStats {
-  successful_municipalities: number;
-  failed_municipalities: number;
-  total_points: number;
-  latest_update: string | null;
-  overall_success_rate: number;
-}
-
-interface UpdateStatus {
-  last_update: string;
-  total_municipalities: number;
-  successful_municipalities: number;
-  failed_municipalities: number;
-  carrier_stats: {
-    [key: string]: CarrierStats;
-  };
-  github_actions_url: string;
-}
-
 interface AboutModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -28,8 +9,6 @@ interface AboutModalProps {
 
 export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
   const [activeTab, setActiveTab] = useState<'about' | 'sources' | 'usage' | 'links'>('about');
-  const [updateStatus, setUpdateStatus] = useState<UpdateStatus | null>(null);
-  const [loading, setLoading] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
 
   // Reset scroll position when tab changes
@@ -38,22 +17,6 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
       contentRef.current.scrollTop = 0;
     }
   }, [activeTab]);
-
-  // Fetch update status when modal opens
-  useEffect(() => {
-    if (isOpen) {
-      fetch('/api/update-status')
-        .then(res => res.json())
-        .then(data => {
-          setUpdateStatus(data);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error('Failed to fetch update status:', err);
-          setLoading(false);
-        });
-    }
-  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -233,6 +196,22 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                   url="https://www.amazon.nl/ulp"
                   color="#FF9900"
                 />
+
+                <DataSourceCard
+                  name="GLS ParcelShop"
+                  endpoint="apm.gls.nl/glspoints/nearby"
+                  type="Browser Automation"
+                  url="https://www.gls-info.nl/parcel-shop"
+                  color="#003C7E"
+                />
+
+                <DataSourceCard
+                  name="FedEx Ship Center"
+                  endpoint="local.fedex.com/nl-nl"
+                  type="Browser Automation"
+                  url="https://local.fedex.com/nl-nl"
+                  color="#4D148C"
+                />
               </div>
 
               <section className="border-t pt-4 mt-4">
@@ -262,68 +241,15 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 <p className="text-sm text-blue-800 mb-3">
                   Data wordt wekelijks geüpdatet via geautomatiseerde scripts.
                 </p>
-
-                {loading ? (
-                  <div className="text-xs text-blue-700">Laden van update status...</div>
-                ) : updateStatus ? (
-                  <div className="space-y-3">
-                    {/* Last update timestamp */}
-                    <div className="text-xs text-blue-900">
-                      <strong>Laatste update:</strong>{' '}
-                      {new Date(updateStatus.last_update).toLocaleString('nl-NL', {
-                        day: '2-digit',
-                        month: 'long',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                      })}
-                    </div>
-
-                    {/* Carrier status summary */}
-                    <div>
-                      <div className="text-xs font-semibold text-blue-900 mb-1">Status per vervoerder:</div>
-                      <div className="space-y-1">
-                        {Object.entries(updateStatus.carrier_stats).map(([carrier, stats]) => {
-                          const hasFailures = stats.failed_municipalities > 0;
-                          const statusColor = hasFailures ? 'text-orange-700' : 'text-green-700';
-                          const bgColor = hasFailures ? 'bg-orange-100' : 'bg-green-50';
-
-                          return (
-                            <div key={carrier} className={`text-xs px-2 py-1 rounded ${bgColor} ${statusColor}`}>
-                              <span className="font-medium">{carrier}:</span>{' '}
-                              {hasFailures ? (
-                                <span>
-                                  {stats.successful_municipalities}/{updateStatus.total_municipalities} gemeenten ({stats.failed_municipalities} mislukt)
-                                </span>
-                              ) : (
-                                <span>Alle {stats.successful_municipalities} gemeenten bijgewerkt</span>
-                              )}
-                              {' • '}
-                              <span className="text-gray-600">{stats.total_points.toLocaleString()} punten</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Link to GitHub Actions */}
-                    <div>
-                      <a
-                        href={updateStatus.github_actions_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-xs text-blue-700 hover:text-blue-900 font-medium"
-                      >
-                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        Bekijk volledige logs op GitHub Actions
-                      </a>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-xs text-blue-700">Update status niet beschikbaar</div>
-                )}
+                <a
+                  href="/data-export"
+                  className="inline-flex items-center text-sm text-blue-700 hover:text-blue-900 font-medium"
+                >
+                  <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                  Bekijk gedetailleerde update status op de Data pagina
+                </a>
               </section>
             </div>
           )}

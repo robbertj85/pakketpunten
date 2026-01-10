@@ -2,7 +2,6 @@ from api_client import get_data_pakketpunten
 from geo_analysis import get_bufferzones
 from visualize import create_map
 from utils import save_output, get_gemeente_polygon
-import numpy as np
 import argparse
 import sys
 
@@ -10,8 +9,8 @@ def main(gemeente, filename, format):
     # Laad geodataframe met alle gevonden pakketpunten
     gdf_pakketpunten = get_data_pakketpunten(gemeente)
 
-    # Voeg een extra kolom toe met dummie data over bezettingsgraad
-    gdf_pakketpunten["bezettingsgraad"] = np.random.randint(0, 101, size=len(gdf_pakketpunten))
+    # Voeg een extra kolom toe met placeholder data voor bezettingsgraad (vast op 50)
+    gdf_pakketpunten["bezettingsgraad"] = 50
 
     # voeg een buffer met radius van 300 en 400 meter rondom de pakketpunten toe
     gdf_buffers300, gdf_bufferunion300 = get_bufferzones(gdf_pakketpunten, radius=300)

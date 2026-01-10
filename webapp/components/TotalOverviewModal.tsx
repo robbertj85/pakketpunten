@@ -33,6 +33,7 @@ const PROVIDER_COLORS: { [key: string]: string } = {
   DeBuren: '#4CAF50',
   Amazon: '#FF9900',
   FedEx: '#4D148C',
+  GLS: '#003C7E',
 };
 
 // Provider logos
@@ -44,6 +45,7 @@ const PROVIDER_LOGOS: { [key: string]: string } = {
   DeBuren: '/logos/deburen.png',
   Amazon: '/logos/amazon.svg',
   FedEx: '/logos/fedex.svg',
+  GLS: '/logos/gls.svg',
 };
 
 export default function TotalOverviewModal({

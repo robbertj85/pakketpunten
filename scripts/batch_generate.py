@@ -15,7 +15,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from api_client import get_data_pakketpunten
 from geo_analysis import get_bufferzones
 from utils import get_gemeente_polygon, check_polygon_cache_expiry, get_polygon_cache_stats
-import numpy as np
 import geopandas as gpd
 
 def load_municipalities():
@@ -78,8 +77,8 @@ def process_municipality(gemeente_data):
             print(f"✅ Created empty GeoJSON for {gemeente_name}")
             return {"success": True, "error": "No data found (empty GeoJSON created)", "count": 0, "carrier_status": carrier_status}
 
-        # Add dummy occupancy data
-        gdf_pakketpunten["bezettingsgraad"] = np.random.randint(0, 101, size=len(gdf_pakketpunten))
+        # Add placeholder occupancy data (fixed at 50)
+        gdf_pakketpunten["bezettingsgraad"] = 50
 
         # Replace NaN values with None for valid JSON
         gdf_pakketpunten = gdf_pakketpunten.fillna("")
@@ -119,7 +118,9 @@ def process_municipality(gemeente_data):
                     "puntType": row.get("puntType", ""),
                     "bezettingsgraad": int(row["bezettingsgraad"]),
                     "latitude": row["latitude"],
-                    "longitude": row["longitude"]
+                    "longitude": row["longitude"],
+                    "canPickup": bool(row.get("canPickup", True)),
+                    "canDropoff": bool(row.get("canDropoff", True))
                 }
             })
 
@@ -279,7 +280,7 @@ def main():
 
     # Aggregate carrier-level statistics
     carrier_stats = {}
-    carriers = ['DHL', 'PostNL', 'DPD', 'Amazon', 'VintedGo', 'DeBuren']
+    carriers = ['DHL', 'PostNL', 'DPD', 'Amazon', 'VintedGo', 'DeBuren', 'GLS', 'FedEx']
 
     for carrier in carriers:
         successful_fetches = 0

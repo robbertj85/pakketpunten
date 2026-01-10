@@ -26,7 +26,7 @@ import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, CircleMarker, 
 import type { LatLngBoundsExpression } from 'leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { PakketpuntData, PakketpuntFeature, Filters, PakketpuntProperties } from '@/types/pakketpunten';
+import { PakketpuntData, PakketpuntFeature, Filters, PakketpuntProperties, getPointCategory } from '@/types/pakketpunten';
 
 interface MapProps {
   data?: PakketpuntData | null;
@@ -179,6 +179,12 @@ const PROVIDER_INFO: Record<string, {
     color: '#4D148C',
     logoUrl: '/logos/fedex.svg',
   },
+  GLS: {
+    background: '#FFC600',
+    borderColor: '#003C7E',
+    color: '#003C7E',
+    logoUrl: '/logos/gls.svg',
+  },
 };
 
 // Performance thresholds
@@ -205,8 +211,8 @@ function getMarkerSize(zoom: number): { size: number; logoSize: number; fontSize
   }
 }
 
-// Create custom icon for each provider with dynamic sizing
-function createProviderIcon(provider: string, zoom: number) {
+// Create custom icon for each provider with dynamic sizing and service indicators
+function createProviderIcon(provider: string, zoom: number, canPickup?: boolean, canDropoff?: boolean) {
   const info = PROVIDER_INFO[provider] || {
     background: '#666',
     logoUrl: '',
@@ -215,34 +221,90 @@ function createProviderIcon(provider: string, zoom: number) {
   const borderColor = info.borderColor || 'white';
   const { size, logoSize, fontSize } = getMarkerSize(zoom);
 
+  // Generate service indicator arrows
+  const arrowSize = Math.max(10, size * 0.28);
+  const arrowOffset = size * 0.35;
+
+  // Show arrows only when one service is available (not both)
+  const showPickupArrow = canPickup && !canDropoff;
+  const showDropoffArrow = canDropoff && !canPickup;
+
+  const pickupArrow = showPickupArrow ? `
+    <div style="
+      position: absolute;
+      bottom: -${arrowSize * 0.3}px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: ${arrowSize}px;
+      height: ${arrowSize}px;
+      background: #2563eb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      border: 1.5px solid white;
+    ">
+      <svg width="${arrowSize * 0.6}" height="${arrowSize * 0.6}" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  ` : '';
+
+  const dropoffArrow = showDropoffArrow ? `
+    <div style="
+      position: absolute;
+      top: -${arrowSize * 0.3}px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: ${arrowSize}px;
+      height: ${arrowSize}px;
+      background: #2563eb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      border: 1.5px solid white;
+    ">
+      <svg width="${arrowSize * 0.6}" height="${arrowSize * 0.6}" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </div>
+  ` : '';
+
   return L.divIcon({
     className: 'custom-marker',
     html: `
-      <div style="
-        width: ${size}px;
-        height: ${size}px;
-        background: white;
-        border: 2.5px solid ${borderColor};
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.4);
-        overflow: hidden;
-      ">
-        <img
-          src="${info.logoUrl}"
-          alt="${provider}"
-          style="
-            width: ${logoSize}px;
-            height: ${logoSize}px;
-            object-fit: contain;
-          "
-          onerror="this.style.display='none'; const div = document.createElement('div'); div.textContent='${provider.substring(0, 2)}'; div.style.cssText='font-size:${fontSize}px;font-weight:bold;color:${info.background}'; this.parentElement.appendChild(div);"
-        />
+      <div style="position: relative; width: ${size}px; height: ${size}px;">
+        <div style="
+          width: ${size}px;
+          height: ${size}px;
+          background: white;
+          border: 2.5px solid ${borderColor};
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+          overflow: hidden;
+        ">
+          <img
+            src="${info.logoUrl}"
+            alt="${provider}"
+            style="
+              width: ${logoSize}px;
+              height: ${logoSize}px;
+              object-fit: contain;
+            "
+            onerror="this.style.display='none'; const div = document.createElement('div'); div.textContent='${provider.substring(0, 2)}'; div.style.cssText='font-size:${fontSize}px;font-weight:bold;color:${info.background}'; this.parentElement.appendChild(div);"
+          />
+        </div>
+        ${pickupArrow}
+        ${dropoffArrow}
       </div>
     `,
-    iconSize: [size, size],
+    iconSize: [size, size + arrowSize],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -size / 2],
   });
@@ -418,11 +480,30 @@ function MapComponent(props?: MapProps) {
     minOccupancy: 0,
     maxOccupancy: 100,
     showMockData: false,
+    pointCategories: ['locker', 'shop'],
+    showOnlySharedLocations: false,
+    serviceFilters: ['pickup', 'dropoff'],
   };
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Helper to check if point matches service filters
+  const matchesServiceFilters = (props: PakketpuntProperties): boolean => {
+    const wantsPickup = activeFilters.serviceFilters.includes('pickup');
+    const wantsDropoff = activeFilters.serviceFilters.includes('dropoff');
+
+    // If both filters selected, show locations that support at least one
+    if (wantsPickup && wantsDropoff) {
+      return props.canPickup || props.canDropoff;
+    } else if (wantsPickup) {
+      return props.canPickup;
+    } else if (wantsDropoff) {
+      return props.canDropoff;
+    }
+    return false; // No service filters selected
+  };
 
   // Filter features based on selected filters (do this before early returns to maintain hook order)
   const filteredFeatures = useMemo(() => {
@@ -433,6 +514,17 @@ function MapComponent(props?: MapProps) {
 
       // Provider filter
       if (!activeFilters.providers.includes(props.vervoerder)) {
+        return false;
+      }
+
+      // Point category filter (locker vs shop)
+      const category = getPointCategory(props.puntType);
+      if (!activeFilters.pointCategories.includes(category)) {
+        return false;
+      }
+
+      // Service capability filter (pickup vs dropoff)
+      if (!matchesServiceFilters(props)) {
         return false;
       }
 
@@ -457,10 +549,35 @@ function MapComponent(props?: MapProps) {
   }, [data, activeFilters]);
 
   // Separate points, buffers, and boundaries
-  const points = useMemo(() =>
-    filteredFeatures.filter(f => f.properties.type === 'pakketpunt'),
-    [filteredFeatures]
-  );
+  const points = useMemo(() => {
+    const allPoints = filteredFeatures.filter(f => f.properties.type === 'pakketpunt');
+
+    // If not filtering for shared locations, return all points
+    if (!activeFilters.showOnlySharedLocations) {
+      return allPoints;
+    }
+
+    // Group by coordinates to find shared locations
+    const coordGroups = new Map<string, PakketpuntFeature[]>();
+    allPoints.forEach((feature) => {
+      const coords = feature.geometry.coordinates as [number, number];
+      const key = `${coords[1].toFixed(6)},${coords[0].toFixed(6)}`;
+      if (!coordGroups.has(key)) {
+        coordGroups.set(key, []);
+      }
+      coordGroups.get(key)!.push(feature);
+    });
+
+    // Only keep points at shared locations (2+ points at same coordinates)
+    const sharedPoints: PakketpuntFeature[] = [];
+    coordGroups.forEach((group) => {
+      if (group.length >= 2) {
+        sharedPoints.push(...group);
+      }
+    });
+
+    return sharedPoints;
+  }, [filteredFeatures, activeFilters.showOnlySharedLocations]);
   const buffers = useMemo(() =>
     filteredFeatures.filter(f => f.properties.type === 'buffer_union_300m' || f.properties.type === 'buffer_union_400m'),
     [filteredFeatures]
@@ -597,6 +714,13 @@ function MapComponent(props?: MapProps) {
                     <span className="font-semibold">Type:</span> {props.puntType}
                   </p>
                 )}
+                <p className="mt-1">
+                  <span className="font-semibold">Services:</span>{' '}
+                  {props.canPickup && <span>↓ Ophalen</span>}
+                  {props.canPickup && props.canDropoff && ' / '}
+                  {props.canDropoff && <span>↑ Verzenden</span>}
+                  {!props.canPickup && !props.canDropoff && <span className="text-gray-400">Onbekend</span>}
+                </p>
                 <p className="text-xs text-gray-500 mt-1">
                   {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
                 </p>
@@ -643,7 +767,7 @@ function MapComponent(props?: MapProps) {
           <Marker
             key={`point-${idx}`}
             position={[lat, lng]}
-            icon={createProviderIcon(props.vervoerder, currentZoom)}
+            icon={createProviderIcon(props.vervoerder, currentZoom, props.canPickup, props.canDropoff)}
           >
             <Popup
               maxWidth={600}
@@ -663,6 +787,13 @@ function MapComponent(props?: MapProps) {
                     <span className="font-semibold">Type:</span> {props.puntType}
                   </p>
                 )}
+                <p className="mt-1">
+                  <span className="font-semibold">Services:</span>{' '}
+                  {props.canPickup && <span>↓ Ophalen</span>}
+                  {props.canPickup && props.canDropoff && ' / '}
+                  {props.canDropoff && <span>↑ Verzenden</span>}
+                  {!props.canPickup && !props.canDropoff && <span className="text-gray-400">Onbekend</span>}
+                </p>
                 <p className="text-xs text-gray-500 mt-1">
                   {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
                 </p>

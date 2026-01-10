@@ -12,6 +12,7 @@ export default function DataExportLayout({
 
   const isDownloads = pathname === '/data-export';
   const isMatrix = pathname === '/data-export/matrix';
+  const isUpdates = pathname === '/data-export/updates';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -20,9 +21,9 @@ export default function DataExportLayout({
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center mb-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">📦 Pakketpunten - Data and Export</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Pakketpunten - Data</h1>
               <p className="text-sm text-gray-600">
-                Download pakketpunten data of bekijk statistieken
+                Download pakketpunten data, bekijk statistieken en update status
               </p>
             </div>
             <Link
@@ -60,6 +61,19 @@ export default function DataExportLayout({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
               Data Matrix
+            </Link>
+            <Link
+              href="/data-export/updates"
+              className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 ${
+                isUpdates
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+              }`}
+            >
+              <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Updates
             </Link>
           </nav>
         </div>
