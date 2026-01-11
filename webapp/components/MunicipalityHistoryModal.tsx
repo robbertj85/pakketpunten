@@ -29,7 +29,6 @@ const PROVIDER_COLORS: { [key: string]: string } = {
   DeBuren: '#4CAF50',
   Amazon: '#FF9900',
   GLS: '#003C7E',
-  FedEx: '#4D148C',
 };
 
 export default function MunicipalityHistoryModal({

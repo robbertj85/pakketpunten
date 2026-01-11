@@ -204,14 +204,6 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                   url="https://www.gls-info.nl/parcel-shop"
                   color="#003C7E"
                 />
-
-                <DataSourceCard
-                  name="FedEx Ship Center"
-                  endpoint="local.fedex.com/nl-nl"
-                  type="Browser Automation"
-                  url="https://local.fedex.com/nl-nl"
-                  color="#4D148C"
-                />
               </div>
 
               <section className="border-t pt-4 mt-4">

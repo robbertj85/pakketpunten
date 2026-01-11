@@ -23,7 +23,6 @@ const PROVIDER_INFO = {
   Amazon: { name: 'Amazon', color: '#FF9900', textColor: '#146EB4' },
   DPD: { name: 'DPD', color: '#DC0032', textColor: '#FFFFFF' },
   GLS: { name: 'GLS', color: '#003C7E', textColor: '#FFC600' },
-  FedEx: { name: 'FedEx', color: '#4D148C', textColor: '#FF6600' },
 };
 
 const CATEGORY_INFO: Record<PointCategory, { name: string }> = {

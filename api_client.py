@@ -510,94 +510,6 @@ def get_data_gls(gemeente=None):
     return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
 
 
-# ---------- data ophalen voor "FedEx" ----------
-
-def get_data_fedex(gemeente=None):
-    """
-    Fetch FedEx parcel points from cached data.
-
-    Uses pre-fetched data from scripts/fedex_fetch_poc.py which scrapes
-    local.fedex.com using Playwright. Run that script first to populate the cache.
-
-    Parameters
-    ----------
-    gemeente : str, optional
-        Municipality name (not used for filtering here, polygon filtering
-        happens in get_data_pakketpunten)
-
-    Returns
-    -------
-    geopandas.GeoDataFrame
-        GeoDataFrame with FedEx parcel point locations
-    """
-    from pathlib import Path
-    import json
-    from shapely.geometry import Point
-
-    # Load from cache file (try all_locations first, fall back to POC)
-    cache_file = Path(__file__).parent / "data" / "fedex_all_locations.json"
-    poc_file = Path(__file__).parent / "data" / "fedex_poc_locations.json"
-
-    # Determine which file to use
-    locations = []
-    if cache_file.exists():
-        try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
-                cache_data = json.load(f)
-            locations = cache_data.get('locations', [])
-        except:
-            pass
-
-    # Fall back to POC file if all_locations is empty
-    if not locations and poc_file.exists():
-        try:
-            with open(poc_file, 'r', encoding='utf-8') as f:
-                cache_data = json.load(f)
-            locations = cache_data.get('locations', [])
-            print(f"  ℹ️  FedEx: Using POC cache (run fetch-fedex-data workflow for full data)")
-        except:
-            pass
-
-    if locations:
-        # Convert to DataFrame with standardized columns
-        rows = []
-        for loc in locations:
-            punt_type = loc.get('puntType', '')
-            # FedEx: puntType is 'pickup' or 'dropoff' - indicates capability
-            can_pickup = punt_type == 'pickup'
-            can_dropoff = punt_type == 'dropoff'
-
-            rows.append({
-                'locatieNaam': loc.get('locatieNaam', ''),
-                'straatNaam': loc.get('straatNaam', ''),
-                'straatNr': loc.get('straatNr', ''),
-                'latitude': loc.get('latitude'),
-                'longitude': loc.get('longitude'),
-                'puntType': 'shop',  # FedEx: All locations are staffed shops
-                'vervoerder': 'FedEx',
-                'canPickup': can_pickup,
-                'canDropoff': can_dropoff,
-            })
-
-        df = pd.DataFrame(rows)
-
-        # Filter out rows without coordinates
-        df = df.dropna(subset=['latitude', 'longitude'])
-
-        # Create GeoDataFrame
-        geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
-        gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
-
-        print(f"  📦 FedEx: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
-        return gdf_all
-
-    # No cache available
-    print("  ⚠️  FedEx cache not found. Run: python scripts/fedex_fetch_poc.py")
-    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
-    from shapely.geometry import Point
-    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
-
-
 # ---------- data ophalen voor "VintedGo" ----------
 
 def get_data_vintedgo(lat, lon, south, west, north, east):
@@ -714,15 +626,6 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
     except Exception as e:
         print(f"  ⚠️  GLS fetch failed: {e}")
         carrier_status['GLS'] = {'success': False, 'count': 0, 'error': str(e)}
-
-    # FedEx
-    try:
-        gdf_fedex = get_data_fedex(gemeente)
-        gdfs_to_concat.append(gdf_fedex)
-        carrier_status['FedEx'] = {'success': True, 'count': len(gdf_fedex), 'error': None}
-    except Exception as e:
-        print(f"  ⚠️  FedEx fetch failed: {e}")
-        carrier_status['FedEx'] = {'success': False, 'count': 0, 'error': str(e)}
 
     # Combine all successful fetches
     if gdfs_to_concat:

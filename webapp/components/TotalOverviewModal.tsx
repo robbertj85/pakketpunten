@@ -32,7 +32,6 @@ const PROVIDER_COLORS: { [key: string]: string } = {
   VintedGo: '#09B1BA',
   DeBuren: '#4CAF50',
   Amazon: '#FF9900',
-  FedEx: '#4D148C',
   GLS: '#003C7E',
 };
 
@@ -44,7 +43,6 @@ const PROVIDER_LOGOS: { [key: string]: string } = {
   VintedGo: '/logos/vintedgo.svg',
   DeBuren: '/logos/deburen.png',
   Amazon: '/logos/amazon.svg',
-  FedEx: '/logos/fedex.svg',
   GLS: '/logos/gls.svg',
 };
 
