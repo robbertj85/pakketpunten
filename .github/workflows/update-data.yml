@@ -68,7 +68,9 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          # Add cache files (DHL, DPD data - GLS/FedEx committed by their own workflows)
+          # Pull latest changes first (in case repo was updated during workflow)
+          git pull --rebase origin main || true
+          # Add cache files (DHL, DPD data - GLS committed by separate workflow)
           git add data/dhl_all_locations.json data/dpd_all_locations.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +

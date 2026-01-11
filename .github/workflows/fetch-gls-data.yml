@@ -40,5 +40,7 @@ jobs:
 
       - name: Commit and push GLS data
         run: |
+          # Pull latest changes first (in case repo was updated during workflow)
+          git pull --rebase origin main || true
           git add data/gls_all_locations.json 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update GLS data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)
