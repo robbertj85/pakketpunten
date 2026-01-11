@@ -38,19 +38,16 @@ jobs:
         working-directory: ${{ github.workspace }}
         timeout-minutes: 15
 
-      # GLS and FedEx data are fetched by separate workflows (fetch-gls-data.yml, fetch-fedex-data.yml)
-      # Those workflows run earlier and commit their cache files to the repo
-      # This workflow uses the already-committed cache files
+      # GLS data is fetched by separate workflow (fetch-gls-data.yml)
+      # That workflow runs earlier and commits the cache file to the repo
+      # This workflow uses the already-committed cache file
 
-      - name: Check GLS/FedEx cache status
+      - name: Check GLS cache status
         run: |
           echo "=== Cache file status ==="
-          ls -la data/gls_all_locations.json data/fedex_all_locations.json 2>/dev/null || echo "Cache files not found"
+          ls -la data/gls_all_locations.json 2>/dev/null || echo "GLS cache not found"
           if [ -f data/gls_all_locations.json ]; then
             echo "GLS: $(python -c "import json; d=json.load(open('data/gls_all_locations.json')); print(len(d.get('locations', [])))" 2>/dev/null || echo '0') locations"
-          fi
-          if [ -f data/fedex_all_locations.json ]; then
-            echo "FedEx: $(python -c "import json; d=json.load(open('data/fedex_all_locations.json')); print(len(d.get('locations', [])))" 2>/dev/null || echo '0') locations"
           fi
 
       - name: Generate pakketpunten data
