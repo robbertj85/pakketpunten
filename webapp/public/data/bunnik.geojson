@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Bunnik",
     "slug": "bunnik",
-    "generated_at": "2026-01-09T22:00:38.834504Z",
+    "generated_at": "2026-01-12T03:43:39.081625Z",
     "total_points": 5,
     "providers": [
       "Amazon",
@@ -34,9 +34,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 3,
+        "bezettingsgraad": 50,
         "latitude": 52.05017053,
-        "longitude": 5.233215016
+        "longitude": 5.233215016,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -55,9 +57,11 @@
         "straatNr": "32-H",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 99,
+        "bezettingsgraad": 50,
         "latitude": 52.0500475,
-        "longitude": 5.2330896
+        "longitude": 5.2330896,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -76,9 +80,11 @@
         "straatNr": "3-PS/117",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 7,
+        "bezettingsgraad": 50,
         "latitude": 52.06744927726319,
-        "longitude": 5.199673367742398
+        "longitude": 5.199673367742398,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -94,12 +100,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Primera Odijk",
         "straatNaam": "De Meent",
-        "straatNr": "24",
+        "straatNr": "24B",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 28,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.05017053,
-        "longitude": 5.233215016
+        "longitude": 5.233215016,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -115,12 +123,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Boekhandel van Ravenswaaij",
         "straatNaam": "van Hardenbroeklaan",
-        "straatNr": "20",
+        "straatNr": "20-26",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 46,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.06781105,
-        "longitude": 5.200019366
+        "longitude": 5.200019366,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Gennep",
     "slug": "gennep",
-    "generated_at": "2026-01-09T22:04:31.801176Z",
+    "generated_at": "2026-01-12T03:47:29.951924Z",
     "total_points": 14,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 55,
+        "bezettingsgraad": 50,
         "latitude": 51.69873605,
-        "longitude": 5.971604008
+        "longitude": 5.971604008,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 97,
+        "bezettingsgraad": 50,
         "latitude": 51.698148,
-        "longitude": 5.969149
+        "longitude": 5.969149,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "32",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 72,
+        "bezettingsgraad": 50,
         "latitude": 51.724464416503906,
-        "longitude": 5.950387954711914
+        "longitude": 5.950387954711914,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "16-PS/101",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 73,
+        "bezettingsgraad": 50,
         "latitude": 51.7060061,
-        "longitude": 5.9724188
+        "longitude": 5.9724188,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "20",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 4,
+        "bezettingsgraad": 50,
         "latitude": 51.702516208639516,
-        "longitude": 5.969474781919722
+        "longitude": 5.969474781919722,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +151,11 @@
         "straatNr": "61",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 2,
+        "bezettingsgraad": 50,
         "latitude": 51.7111518,
-        "longitude": 6.0216807
+        "longitude": 6.0216807,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -162,9 +174,11 @@
         "straatNr": "26",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 97,
+        "bezettingsgraad": 50,
         "latitude": 51.7005365,
-        "longitude": 5.9697153
+        "longitude": 5.9697153,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -183,9 +197,11 @@
         "straatNr": "32",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 54,
+        "bezettingsgraad": 50,
         "latitude": 51.725043,
-        "longitude": 5.951196
+        "longitude": 5.951196,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -203,10 +219,12 @@
         "straatNaam": "Zandstraat",
         "straatNr": "73",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 10,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.69873605,
-        "longitude": 5.971604008
+        "longitude": 5.971604008,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -222,12 +240,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Bruna Gennep",
         "straatNaam": "Zandstraat",
-        "straatNr": "56",
+        "straatNr": "56B",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 54,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.69980917,
-        "longitude": 5.970909067
+        "longitude": 5.970909067,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -243,12 +263,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Spar",
         "straatNaam": "Kerkstraat",
-        "straatNr": "1",
+        "straatNr": "1A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 11,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.72355416,
-        "longitude": 5.949491657
+        "longitude": 5.949491657,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -267,9 +289,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 55,
+        "bezettingsgraad": 50,
         "latitude": 51.70219,
-        "longitude": 5.96956
+        "longitude": 5.96956,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -288,9 +312,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 86,
+        "bezettingsgraad": 50,
         "latitude": 51.6980601,
-        "longitude": 5.9692649
+        "longitude": 5.9692649,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -309,9 +335,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 4,
+        "bezettingsgraad": 50,
         "latitude": 51.724993,
-        "longitude": 5.9512294
+        "longitude": 5.9512294,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

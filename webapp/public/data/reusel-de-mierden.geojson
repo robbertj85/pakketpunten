@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Reusel-De Mierden",
     "slug": "reusel-de-mierden",
-    "generated_at": "2026-01-09T22:15:12.694001Z",
+    "generated_at": "2026-01-12T03:57:41.746064Z",
     "total_points": 8,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 60,
+        "bezettingsgraad": 50,
         "latitude": 51.40620393842,
-        "longitude": 5.14874267281676
+        "longitude": 5.14874267281676,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "9",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 10,
+        "bezettingsgraad": 50,
         "latitude": 51.360313,
-        "longitude": 5.157526
+        "longitude": 5.157526,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "74",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 45,
+        "bezettingsgraad": 50,
         "latitude": 51.3618167,
-        "longitude": 5.1614044
+        "longitude": 5.1614044,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "22A",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 50,
         "latitude": 51.3573967,
-        "longitude": 5.1470075
+        "longitude": 5.1470075,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "9",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 87,
+        "bezettingsgraad": 50,
         "latitude": 51.360013,
-        "longitude": 5.15624
+        "longitude": 5.15624,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -140,10 +150,12 @@
         "straatNaam": "Markt",
         "straatNr": "76",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 85,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.3619959589366,
-        "longitude": 5.16160855046502
+        "longitude": 5.16160855046502,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -161,10 +173,12 @@
         "straatNaam": "Dorpsplein",
         "straatNr": "24",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 32,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.40620393842,
-        "longitude": 5.14874267281676
+        "longitude": 5.14874267281676,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +197,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 74,
+        "bezettingsgraad": 50,
         "latitude": 51.36001,
-        "longitude": 5.15625
+        "longitude": 5.15625,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

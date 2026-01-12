@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Schiermonnikoog",
     "slug": "schiermonnikoog",
-    "generated_at": "2026-01-09T22:16:23.057260Z",
+    "generated_at": "2026-01-12T03:58:50.745823Z",
     "total_points": 3,
     "providers": [
       "DHL",
@@ -34,9 +34,11 @@
         "straatNr": "38",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 28,
+        "bezettingsgraad": 50,
         "latitude": 53.478092193603516,
-        "longitude": 6.156630516052246
+        "longitude": 6.156630516052246,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -55,9 +57,11 @@
         "straatNr": "38",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 40,
+        "bezettingsgraad": 50,
         "latitude": 53.4782568,
-        "longitude": 6.1575832
+        "longitude": 6.1575832,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -75,10 +79,12 @@
         "straatNaam": "Reeweg",
         "straatNr": "9",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 95,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.4774116,
-        "longitude": 6.161531775
+        "longitude": 6.161531775,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

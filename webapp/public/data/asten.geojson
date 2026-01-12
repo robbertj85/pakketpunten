@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Asten",
     "slug": "asten",
-    "generated_at": "2026-01-09T21:58:12.987632Z",
+    "generated_at": "2026-01-12T03:41:18.807959Z",
     "total_points": 14,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 6,
+        "bezettingsgraad": 50,
         "latitude": 51.3844453,
-        "longitude": 5.76384427
+        "longitude": 5.76384427,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "27",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 71,
+        "bezettingsgraad": 50,
         "latitude": 51.405120849609375,
-        "longitude": 5.743372440338135
+        "longitude": 5.743372440338135,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "11",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 82,
+        "bezettingsgraad": 50,
         "latitude": 51.4050407409668,
-        "longitude": 5.744598388671875
+        "longitude": 5.744598388671875,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "16-17",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 50,
         "latitude": 51.4049931,
-        "longitude": 5.7447677
+        "longitude": 5.7447677,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "108",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 23,
+        "bezettingsgraad": 50,
         "latitude": 51.4034078,
-        "longitude": 5.7573301
+        "longitude": 5.7573301,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +151,11 @@
         "straatNr": "4",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 3,
+        "bezettingsgraad": 50,
         "latitude": 51.413856506347656,
-        "longitude": 5.745391845703125
+        "longitude": 5.745391845703125,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -162,9 +174,11 @@
         "straatNr": "45",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 15,
+        "bezettingsgraad": 50,
         "latitude": 51.386273,
-        "longitude": 5.76357
+        "longitude": 5.76357,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +197,11 @@
         "straatNr": "71",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 92,
+        "bezettingsgraad": 50,
         "latitude": 51.405037,
-        "longitude": 5.74686
+        "longitude": 5.74686,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -203,10 +219,12 @@
         "straatNaam": "Vorstermansplein",
         "straatNr": "4",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 29,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.3844453,
-        "longitude": 5.76384427
+        "longitude": 5.76384427,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -224,10 +242,12 @@
         "straatNaam": "Burgemeester Ruttenplein",
         "straatNr": "4",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 6,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.40531475,
-        "longitude": 5.744657786
+        "longitude": 5.744657786,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -243,12 +263,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Burgemeester Ruttenplein",
-        "straatNr": "4",
+        "straatNr": "4PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 41,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.40530581,
-        "longitude": 5.744643344
+        "longitude": 5.744643344,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -267,9 +289,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 7,
+        "bezettingsgraad": 50,
         "latitude": 51.38628,
-        "longitude": 5.76427
+        "longitude": 5.76427,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -288,9 +312,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 50,
         "latitude": 51.40496,
-        "longitude": 5.74339
+        "longitude": 5.74339,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -309,9 +335,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "social",
-        "bezettingsgraad": 71,
+        "bezettingsgraad": 50,
         "latitude": 51.40341,
-        "longitude": 5.75733
+        "longitude": 5.75733,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

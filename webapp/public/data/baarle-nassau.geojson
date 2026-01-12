@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Baarle-Nassau",
     "slug": "baarle-nassau",
-    "generated_at": "2026-01-09T21:58:17.730247Z",
+    "generated_at": "2026-01-12T03:41:23.272432Z",
     "total_points": 9,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 47,
+        "bezettingsgraad": 50,
         "latitude": 51.45606009,
-        "longitude": 4.857760381
+        "longitude": 4.857760381,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "33-PS/85",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 97,
+        "bezettingsgraad": 50,
         "latitude": 51.44622394164505,
-        "longitude": 4.93506037212548
+        "longitude": 4.93506037212548,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "13",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 70,
+        "bezettingsgraad": 50,
         "latitude": 51.443136,
-        "longitude": 4.940748
+        "longitude": 4.940748,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "33-A",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 32,
+        "bezettingsgraad": 50,
         "latitude": 51.4463014,
-        "longitude": 4.9349167
+        "longitude": 4.9349167,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -117,12 +125,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Parallelweg",
-        "straatNr": "2",
+        "straatNr": "2PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 74,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.44066,
-        "longitude": 4.927208291
+        "longitude": 4.927208291,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -140,10 +150,12 @@
         "straatNaam": "Nieuwstraat",
         "straatNr": "15",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 30,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.44329125,
-        "longitude": 4.928864651
+        "longitude": 4.928864651,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -161,10 +173,12 @@
         "straatNaam": "Bernardusstraat",
         "straatNr": "17",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 39,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.45606009,
-        "longitude": 4.857760381
+        "longitude": 4.857760381,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -180,12 +194,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Sint Annaplein",
-        "straatNr": "15",
+        "straatNr": "15PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 85,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.44412186,
-        "longitude": 4.932092733
+        "longitude": 4.932092733,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -204,9 +220,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 52,
+        "bezettingsgraad": 50,
         "latitude": 51.4446836,
-        "longitude": 4.8992596
+        "longitude": 4.8992596,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

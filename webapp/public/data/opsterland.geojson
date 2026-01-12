@@ -3,14 +3,15 @@
   "metadata": {
     "gemeente": "Opsterland",
     "slug": "opsterland",
-    "generated_at": "2026-01-09T22:13:57.138366Z",
-    "total_points": 43,
+    "generated_at": "2026-01-12T03:56:28.587639Z",
+    "total_points": 44,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
-      "VintedGo"
+      "VintedGo",
+      "GLS"
     ],
     "bounds": [
       6.000319096,
@@ -36,9 +37,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 12,
+        "bezettingsgraad": 50,
         "latitude": 53.00218138,
-        "longitude": 6.066376086
+        "longitude": 6.066376086,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +60,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 75,
+        "bezettingsgraad": 50,
         "latitude": 53.0030687317421,
-        "longitude": 6.06519818567035
+        "longitude": 6.06519818567035,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -78,9 +83,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 40,
+        "bezettingsgraad": 50,
         "latitude": 53.058758,
-        "longitude": 6.205841
+        "longitude": 6.205841,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -99,9 +106,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 39,
+        "bezettingsgraad": 50,
         "latitude": 53.03209873,
-        "longitude": 6.138247577
+        "longitude": 6.138247577,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -120,9 +129,11 @@
         "straatNr": "4",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 32,
+        "bezettingsgraad": 50,
         "latitude": 53.018995,
-        "longitude": 6.020916
+        "longitude": 6.020916,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +152,11 @@
         "straatNr": "8-PS/89",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 26,
+        "bezettingsgraad": 50,
         "latitude": 53.004704,
-        "longitude": 6.064755
+        "longitude": 6.064755,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -162,9 +175,11 @@
         "straatNr": "52",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 77,
+        "bezettingsgraad": 50,
         "latitude": 53.00241470336914,
-        "longitude": 6.063583850860596
+        "longitude": 6.063583850860596,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +198,11 @@
         "straatNr": "63-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 67,
+        "bezettingsgraad": 50,
         "latitude": 53.0015622,
-        "longitude": 6.0631946
+        "longitude": 6.0631946,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -204,9 +221,11 @@
         "straatNr": "8-PS/101",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 93,
+        "bezettingsgraad": 50,
         "latitude": 53.003133625468756,
-        "longitude": 6.067422997890402
+        "longitude": 6.067422997890402,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -225,9 +244,11 @@
         "straatNr": "36",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 55,
+        "bezettingsgraad": 50,
         "latitude": 53.0591408,
-        "longitude": 6.075512
+        "longitude": 6.075512,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -246,9 +267,11 @@
         "straatNr": "110",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 29,
+        "bezettingsgraad": 50,
         "latitude": 53.05921936035156,
-        "longitude": 6.081002712249756
+        "longitude": 6.081002712249756,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -267,9 +290,11 @@
         "straatNr": "99",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 56,
+        "bezettingsgraad": 50,
         "latitude": 53.0365851,
-        "longitude": 6.1496381
+        "longitude": 6.1496381,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -288,9 +313,11 @@
         "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 5,
+        "bezettingsgraad": 50,
         "latitude": 53.0542015,
-        "longitude": 6.1782253
+        "longitude": 6.1782253,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -309,9 +336,11 @@
         "straatNr": "18",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 62,
+        "bezettingsgraad": 50,
         "latitude": 53.07542419433594,
-        "longitude": 6.171372413635254
+        "longitude": 6.171372413635254,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -330,9 +359,11 @@
         "straatNr": "49",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 22,
+        "bezettingsgraad": 50,
         "latitude": 53.0929638,
-        "longitude": 6.1734981
+        "longitude": 6.1734981,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -351,9 +382,11 @@
         "straatNr": "54",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 72,
+        "bezettingsgraad": 50,
         "latitude": 53.095411,
-        "longitude": 6.168914
+        "longitude": 6.168914,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -372,9 +405,11 @@
         "straatNr": "7",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 12,
+        "bezettingsgraad": 50,
         "latitude": 53.0999755859375,
-        "longitude": 6.134056568145752
+        "longitude": 6.134056568145752,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -393,9 +428,11 @@
         "straatNr": "107",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 7,
+        "bezettingsgraad": 50,
         "latitude": 53.10950469970703,
-        "longitude": 6.1715264320373535
+        "longitude": 6.1715264320373535,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -414,9 +451,11 @@
         "straatNr": "110-112",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 0,
+        "bezettingsgraad": 50,
         "latitude": 53.058925,
-        "longitude": 6.081557
+        "longitude": 6.081557,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -435,9 +474,11 @@
         "straatNr": "49",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 15,
+        "bezettingsgraad": 50,
         "latitude": 53.0929638,
-        "longitude": 6.1734981
+        "longitude": 6.1734981,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -456,9 +497,11 @@
         "straatNr": "14",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 82,
+        "bezettingsgraad": 50,
         "latitude": 53.0068131,
-        "longitude": 6.0434647
+        "longitude": 6.0434647,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -477,9 +520,11 @@
         "straatNr": "99",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 55,
+        "bezettingsgraad": 50,
         "latitude": 53.0365851,
-        "longitude": 6.1496381
+        "longitude": 6.1496381,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -497,10 +542,12 @@
         "straatNaam": "Binnenwei",
         "straatNr": "45",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 67,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.03209873,
-        "longitude": 6.138247577
+        "longitude": 6.138247577,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -516,12 +563,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Molenlaan",
-        "straatNr": "8",
+        "straatNr": "8PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 20,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 53.058853782271,
-        "longitude": 6.07503335904115
+        "longitude": 6.07503335904115,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -539,10 +588,12 @@
         "straatNaam": "Molenlaan",
         "straatNr": "8",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 35,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.058738,
-        "longitude": 6.074461
+        "longitude": 6.074461,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -560,10 +611,12 @@
         "straatNaam": "Buorsterwyk",
         "straatNr": "1",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 65,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.018253,
-        "longitude": 6.093815
+        "longitude": 6.093815,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -581,10 +634,12 @@
         "straatNaam": "Merkebuorren",
         "straatNr": "70",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 89,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.058758,
-        "longitude": 6.205841
+        "longitude": 6.205841,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -600,12 +655,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Dokter Prakkenleane",
-        "straatNr": "19",
+        "straatNr": "19PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 43,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 53.0940136777373,
-        "longitude": 6.1747438297186
+        "longitude": 6.1747438297186,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -623,10 +680,12 @@
         "straatNaam": "Dokter Prakkenleane",
         "straatNr": "19",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 100,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.09401368,
-        "longitude": 6.17474383
+        "longitude": 6.17474383,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -642,12 +701,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Formanjestrjitte",
-        "straatNr": "6",
+        "straatNr": "6PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 68,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 53.00290566,
-        "longitude": 6.067013061
+        "longitude": 6.067013061,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -663,12 +724,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Poiesz Supermarkt (144)",
         "straatNaam": "Formanjestrjitte",
-        "straatNr": "6",
+        "straatNr": "6-8",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 55,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.00290566,
-        "longitude": 6.067013061
+        "longitude": 6.067013061,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -684,12 +747,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Primera Gorredijk",
         "straatNaam": "Lijnbaan",
-        "straatNr": "1",
+        "straatNr": "13",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 8,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.0030687317421,
-        "longitude": 6.06519818567035
+        "longitude": 6.06519818567035,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -707,10 +772,12 @@
         "straatNaam": "Langewal",
         "straatNr": "19",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 15,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.00218138,
-        "longitude": 6.066376086
+        "longitude": 6.066376086,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -728,10 +795,12 @@
         "straatNaam": "Doarpsstrjitte",
         "straatNr": "13",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 32,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.0704747,
-        "longitude": 6.000319096
+        "longitude": 6.000319096,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -747,12 +816,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Duerswaldmer Wei",
-        "straatNr": "2",
+        "straatNr": "2PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 37,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 53.0804007812742,
-        "longitude": 6.25512940843235
+        "longitude": 6.25512940843235,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -770,10 +841,12 @@
         "straatNaam": "Duerswaldmer Wei",
         "straatNr": "2",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 7,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.08040078,
-        "longitude": 6.255129408
+        "longitude": 6.255129408,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -792,9 +865,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 80,
+        "bezettingsgraad": 50,
         "latitude": 53.1089716,
-        "longitude": 6.1688603
+        "longitude": 6.1688603,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -813,9 +888,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 99,
+        "bezettingsgraad": 50,
         "latitude": 53.0589244,
-        "longitude": 6.0815574
+        "longitude": 6.0815574,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -834,9 +911,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 55,
+        "bezettingsgraad": 50,
         "latitude": 53.00681,
-        "longitude": 6.04347
+        "longitude": 6.04347,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -855,9 +934,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 14,
+        "bezettingsgraad": 50,
         "latitude": 53.00266,
-        "longitude": 6.06489
+        "longitude": 6.06489,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -876,9 +957,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 50,
         "latitude": 53.05914,
-        "longitude": 6.07551
+        "longitude": 6.07551,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -897,9 +980,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "locker",
-        "bezettingsgraad": 72,
+        "bezettingsgraad": 50,
         "latitude": 53.0946915,
-        "longitude": 6.1953633
+        "longitude": 6.1953633,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -918,9 +1003,34 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 59,
+        "bezettingsgraad": 50,
         "latitude": 53.0365574,
-        "longitude": 6.1498285
+        "longitude": 6.1498285,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2551294,
+          53.0804007
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Duerswaldmer Wei",
+        "straatNr": "2",
+        "vervoerder": "GLS",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 53.0804007,
+        "longitude": 6.2551294,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1635,6 +1745,10 @@
           [
             [
               [
+                6.024839860203876,
+                53.017703305582074
+              ],
+              [
                 6.024611004795188,
                 53.01747760182183
               ],
@@ -1889,10 +2003,6 @@
               [
                 6.024839860203876,
                 53.017703305582074
-              ],
-              [
-                6.024611004795188,
-                53.01747760182183
               ]
             ]
           ],
@@ -2163,10 +2273,6 @@
           [
             [
               [
-                6.0977366157804695,
-                53.01695891833343
-              ],
-              [
                 6.097507386821429,
                 53.01673335472584
               ],
@@ -2421,11 +2527,19 @@
               [
                 6.0977366157804695,
                 53.01695891833343
+              ],
+              [
+                6.097507386821429,
+                53.01673335472584
               ]
             ]
           ],
           [
             [
+              [
+                6.142169109173977,
+                53.03080319731277
+              ],
               [
                 6.141939576857701,
                 53.030577720385324
@@ -2681,19 +2795,11 @@
               [
                 6.142169109173977,
                 53.03080319731277
-              ],
-              [
-                6.141939576857701,
-                53.030577720385324
               ]
             ]
           ],
           [
             [
-              [
-                6.153750086570042,
-                53.035261489375095
-              ],
               [
                 6.153520470653349,
                 53.03503603512813
@@ -2965,11 +3071,31 @@
               [
                 6.153750086570042,
                 53.035261489375095
+              ],
+              [
+                6.153520470653349,
+                53.03503603512813
               ]
             ]
           ],
           [
             [
+              [
+                6.076133776688885,
+                53.05623771188306
+              ],
+              [
+                6.075718959355791,
+                53.056150971221356
+              ],
+              [
+                6.07529202935743,
+                53.05608914369229
+              ],
+              [
+                6.074857097564063,
+                53.05605282462408
+              ],
               [
                 6.074418351851964,
                 53.05604236372714
@@ -3401,22 +3527,6 @@
               [
                 6.076133776688885,
                 53.05623771188306
-              ],
-              [
-                6.075718959355791,
-                53.056150971221356
-              ],
-              [
-                6.07529202935743,
-                53.05608914369229
-              ],
-              [
-                6.074857097564063,
-                53.05605282462408
-              ],
-              [
-                6.074418351851964,
-                53.05604236372714
               ]
             ]
           ],
@@ -4007,6 +4117,10 @@
           [
             [
               [
+                6.18214762404712,
+                53.05290466423508
+              ],
+              [
                 6.181917767396114,
                 53.05267926617194
               ],
@@ -4261,10 +4375,6 @@
               [
                 6.18214762404712,
                 53.05290466423508
-              ],
-              [
-                6.181917767396114,
-                53.05267926617194
               ]
             ]
           ],
@@ -4799,108 +4909,120 @@
           [
             [
               [
-                6.2588213867290285,
-                53.07887618746906
+                6.259051773043846,
+                53.07910135479006
               ],
               [
-                6.258555440397562,
-                53.0786656228632
+                6.258821378722528,
+                53.07887610746927
               ],
               [
-                6.258256503471792,
-                53.078471768599464
+                6.258555432391592,
+                53.07866554286339
               ],
               [
-                6.257927454932943,
-                53.07829649136785
+                6.258256495466412,
+                53.078471688599656
               ],
               [
-                6.25757146359981,
-                53.078141478952844
+                6.257927446928202,
+                53.07829641136801
               ],
               [
-                6.257191957615083,
-                53.078008223987915
+                6.257571455595755,
+                53.078141398952965
               ],
               [
-                6.256792591440026,
-                53.077898009589326
+                6.257191949611753,
+                53.078008143988015
               ],
               [
-                6.256377210674936,
-                53.077811897006384
+                6.256792583437455,
+                53.07789792958939
               ],
               [
-                6.255949815043689,
-                53.07775071540835
+                6.256377202673145,
+                53.07781181700645
               ],
               [
-                6.255514519898035,
-                53.07771505390403
+                6.2559498070426995,
+                53.07775063540836
               ],
               [
-                6.255075516611463,
-                53.07770525587254
+                6.255514511897855,
+                53.077714973903994
               ],
               [
-                6.254637032243064,
-                53.077721415658715
+                6.255075508612092,
+                53.077705175872445
               ],
               [
-                6.254203288858705,
-                53.07776337766497
+                6.254637024244494,
+                53.07772133565861
               ],
               [
-                6.253778462900136,
-                53.07783073784894
+                6.254203280860928,
+                53.07776329766487
               ],
               [
-                6.253366644992156,
-                53.077922847611376
+                6.25377845490313,
+                53.07783065784883
               ],
               [
-                6.252971800573846,
-                53.07803882003831
+                6.253366636995888,
+                53.07792276761119
               ],
               [
-                6.25259773173198,
-                53.078177538436464
+                6.25297179257828,
+                53.07803874003809
               ],
               [
-                6.252248040603342,
-                53.078337667080774
+                6.25259772373708,
+                53.07817745843626
               ],
               [
-                6.251926094697649,
-                53.07851766406987
+                6.252248032609056,
+                53.07833758708051
               ],
               [
-                6.251634994474536,
-                53.078715796166804
+                6.251926086703919,
+                53.07851758406958
               ],
               [
-                6.251377543486598,
-                53.0789301554823
+                6.251634986481306,
+                53.07871571616652
               ],
               [
-                6.2511562213758385,
-                53.07915867783983
+                6.251377535493797,
+                53.07893007548202
               ],
               [
-                6.250973159983868,
-                53.07939916264615
+                6.251156213383402,
+                53.079158597839516
               ],
               [
-                6.250830122806135,
-                53.07964929407655
+                6.250973151991723,
+                53.07939908264583
               ],
               [
-                6.25072848798877,
-                53.079906663370934
+                6.250830114814202,
+                53.07964921407625
               ],
               [
-                6.250669235032469,
-                53.080168792025596
+                6.250728479996977,
+                53.07990658337059
+              ],
+              [
+                6.250669227040733,
+                53.080168712025255
+              ],
+              [
+                6.250652927340631,
+                53.080433075658696
+              ],
+              [
+                6.250652935381972,
+                53.08043315485476
               ],
               [
                 6.250652935332387,
@@ -5047,32 +5169,28 @@
                 53.08010419671906
               ],
               [
-                6.259509296676078,
-                53.07984300321076
+                6.259579012985733,
+                53.080104195680214
               ],
               [
-                6.259509296439081,
-                53.07984300266892
+                6.259579004822411,
+                53.08010411544519
               ],
               [
-                6.259509296243601,
-                53.07984300193657
+                6.259509288235645,
+                53.079842921936866
               ],
               [
-                6.259397400597251,
-                53.07958718085458
+                6.259397392589553,
+                53.079587100854866
               ],
               [
-                6.25924440418916,
-                53.07933919577952
+                6.25924439618179,
+                53.079339115779796
               ],
               [
-                6.259051781050815,
-                53.07910143478983
-              ],
-              [
-                6.2588213867290285,
-                53.07887618746906
+                6.259051773043846,
+                53.07910135479006
               ]
             ]
           ],
@@ -6451,6 +6569,10 @@
           [
             [
               [
+                6.026147760940286,
+                53.01727271064825
+              ],
+              [
                 6.025842614923223,
                 53.01697177550685
               ],
@@ -6705,10 +6827,6 @@
               [
                 6.026147760940286,
                 53.01727271064825
-              ],
-              [
-                6.025842614923223,
-                53.01697177550685
               ]
             ]
           ],
@@ -6979,10 +7097,6 @@
           [
             [
               [
-                6.099043768277313,
-                53.01652752769225
-              ],
-              [
                 6.098738124218284,
                 53.01622677942526
               ],
@@ -7237,11 +7351,19 @@
               [
                 6.099043768277313,
                 53.01652752769225
+              ],
+              [
+                6.098738124218284,
+                53.01622677942526
               ]
             ]
           ],
           [
             [
+              [
+                6.1434762337028,
+                53.030371323008545
+              ],
               [
                 6.143170185178715,
                 53.03007069031862
@@ -7497,19 +7619,11 @@
               [
                 6.1434762337028,
                 53.030371323008545
-              ],
-              [
-                6.143170185178715,
-                53.03007069031862
               ]
             ]
           ],
           [
             [
-              [
-                6.155057229202687,
-                53.03482948909343
-              ],
               [
                 6.154751069214083,
                 53.034528886645255
@@ -7781,11 +7895,31 @@
               [
                 6.155057229202687,
                 53.03482948909343
+              ],
+              [
+                6.154751069214083,
+                53.034528886645255
               ]
             ]
           ],
           [
             [
+              [
+                6.076138245187789,
+                53.05528862345793
+              ],
+              [
+                6.0755690159776545,
+                53.0552061883681
+              ],
+              [
+                6.074989118566502,
+                53.055157763901924
+              ],
+              [
+                6.074404136341863,
+                53.05514381630312
+              ],
               [
                 6.073819701613422,
                 53.05516447986432
@@ -8169,22 +8303,6 @@
               [
                 6.076138245187789,
                 53.05528862345793
-              ],
-              [
-                6.0755690159776545,
-                53.0552061883681
-              ],
-              [
-                6.074989118566502,
-                53.055157763901924
-              ],
-              [
-                6.074404136341863,
-                53.05514381630312
-              ],
-              [
-                6.073819701613422,
-                53.05516447986432
               ]
             ]
           ],
@@ -8767,6 +8885,10 @@
           [
             [
               [
+                6.183455012417798,
+                53.052472355570785
+              ],
+              [
                 6.183148531454818,
                 53.052171828037295
               ],
@@ -9021,10 +9143,6 @@
               [
                 6.183455012417798,
                 53.052472355570785
-              ],
-              [
-                6.183148531454818,
-                53.052171828037295
               ]
             ]
           ],
@@ -9559,108 +9677,120 @@
           [
             [
               [
-                6.260051987739779,
-                53.07836796312253
+                6.260359177568846,
+                53.07866820966011
               ],
               [
-                6.259697389439048,
-                53.07808721378769
+                6.2600519797311085,
+                53.07836788312283
               ],
               [
-                6.259298806019036,
-                53.0778287450248
+                6.259697381431088,
+                53.07808713378797
               ],
               [
-                6.258860076154052,
-                53.07759504561597
+                6.259298798011859,
+                53.07782866502504
               ],
               [
-                6.25838542487735,
-                53.07738836580344
+                6.258860068147731,
+                53.07759496561617
               ],
               [
-                6.257879422898486,
-                53.0772106956343
+                6.258385416871943,
+                53.07738828580358
               ],
               [
-                6.257346942601856,
-                53.07706374581033
+                6.257879414894042,
+                53.07721061563444
               ],
               [
-                6.2567931111495545,
-                53.07694893122679
+                6.2573469345984245,
+                53.077063665810435
               ],
               [
-                6.256223261139121,
-                53.07686735735824
+                6.256793103147167,
+                53.076948851226824
               ],
               [
-                6.255642879290046,
-                53.07681980962184
+                6.2562232531377955,
+                53.07686727735825
               ],
               [
-                6.255057553651607,
-                53.07680674582048
+                6.255642871289801,
+                53.07681972962178
               ],
               [
-                6.254472919838582,
-                53.07682829173799
+                6.255057545652445,
+                53.07680666582041
               ],
               [
-                6.253894606810623,
-                53.076884239928816
+                6.254472911840492,
+                53.07682821173785
               ],
               [
-                6.253328182715471,
-                53.07697405171391
+                6.253894598813586,
+                53.07688415992863
               ],
               [
-                6.2527791013154586,
-                53.07709686236328
+                6.253328174719463,
+                53.076973971713706
               ],
               [
-                6.252252649511338,
-                53.07725148941581
+                6.252779093320435,
+                53.07709678236302
               ],
               [
-                6.251753896467011,
-                53.07743644405681
+                6.252252641517256,
+                53.07725140941555
               ],
               [
-                6.251287644823551,
-                53.0776499454432
+                6.251753888473811,
+                53.077436364056496
               ],
               [
-                6.2508583844710985,
-                53.07788993783995
+                6.251287636831169,
+                53.07764986544289
               ],
               [
-                6.2504702493229205,
-                53.078154110402416
+                6.250858376479457,
+                53.07788985783956
               ],
               [
-                6.250126977507372,
-                53.078439919415246
+                6.250470241331946,
+                53.07815403040203
               ],
               [
-                6.249831875360952,
-                53.07874461277401
+                6.250126969516971,
+                53.07843983941487
               ],
               [
-                6.249587785569564,
-                53.07906525647417
+                6.249831867371037,
+                53.078744532773584
               ],
               [
-                6.249397059765342,
-                53.07939876285365
+                6.249587777580035,
+                53.07906517647376
               ],
               [
-                6.249261535844047,
-                53.07974192031643
+                6.249397051776099,
+                53.07939868285324
               ],
               [
-                6.249182520222783,
-                53.0800914242525
+                6.249261527854989,
+                53.07974184031604
+              ],
+              [
+                6.249182512233801,
+                53.08009134425206
+              ],
+              [
+                6.249160767221557,
+                53.08044382885533
+              ],
+              [
+                6.2491607752601785,
+                53.08044390805153
               ],
               [
                 6.249160775210567,
@@ -9807,32 +9937,28 @@
                 53.080005296976104
               ],
               [
-                6.260969233345897,
-                53.07965704011669
+                6.261062200003202,
+                53.08000529593723
               ],
               [
-                6.260969233108886,
-                53.07965703957487
+                6.261062191837159,
+                53.08000521570232
               ],
               [
-                6.26096923291338,
-                53.07965703884252
+                6.260969224902771,
+                53.07965695884289
               ],
               [
-                6.260820028201951,
-                53.079315945860834
+                6.260820020191685,
+                53.07931586586122
               ],
               [
-                6.260616023848009,
-                53.078985301462104
+                6.2606160158381785,
+                53.07898522146245
               ],
               [
-                6.260359185578138,
-                53.07866828965978
-              ],
-              [
-                6.260051987739779,
-                53.07836796312253
+                6.260359177568846,
+                53.07866820966011
               ]
             ]
           ],

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Oudewater",
     "slug": "oudewater",
-    "generated_at": "2026-01-09T22:14:16.395640Z",
+    "generated_at": "2026-01-12T03:56:46.993721Z",
     "total_points": 10,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 83,
+        "bezettingsgraad": 50,
         "latitude": 52.0238237932549,
-        "longitude": 4.87176954828378
+        "longitude": 4.87176954828378,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "3",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 28,
+        "bezettingsgraad": 50,
         "latitude": 52.0235121,
-        "longitude": 4.871854
+        "longitude": 4.871854,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "35-PS/75",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 54,
+        "bezettingsgraad": 50,
         "latitude": 52.025019,
-        "longitude": 4.86752
+        "longitude": 4.86752,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "19",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 48,
+        "bezettingsgraad": 50,
         "latitude": 52.036274,
-        "longitude": 4.867886
+        "longitude": 4.867886,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "3",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 92,
+        "bezettingsgraad": 50,
         "latitude": 52.023512,
-        "longitude": 4.871854
+        "longitude": 4.871854,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -138,12 +148,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Joostenplein",
-        "straatNr": "35",
+        "straatNr": "35PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 1,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.02500946174,
-        "longitude": 4.86750136461
+        "longitude": 4.86750136461,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -159,12 +171,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Optie 1 Oudewater",
         "straatNaam": "Leeuweringerstraat",
-        "straatNr": "26",
+        "straatNr": "26A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 48,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.0238237932549,
-        "longitude": 4.87176954828378
+        "longitude": 4.87176954828378,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -182,10 +196,12 @@
         "straatNaam": "Wagenerf",
         "straatNr": "1",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 72,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.0311545,
-        "longitude": 4.86482163
+        "longitude": 4.86482163,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -204,9 +220,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 62,
+        "bezettingsgraad": 50,
         "latitude": 52.02334,
-        "longitude": 4.87224
+        "longitude": 4.87224,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -225,9 +243,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "locker",
-        "bezettingsgraad": 76,
+        "bezettingsgraad": 50,
         "latitude": 52.0237132,
-        "longitude": 4.871857
+        "longitude": 4.871857,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

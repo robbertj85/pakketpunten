@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Uithoorn",
     "slug": "uithoorn",
-    "generated_at": "2026-01-09T22:18:49.914174Z",
+    "generated_at": "2026-01-12T04:01:14.816599Z",
     "total_points": 18,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 79,
+        "bezettingsgraad": 50,
         "latitude": 52.24568155,
-        "longitude": 4.827252104
+        "longitude": 4.827252104,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 66,
+        "bezettingsgraad": 50,
         "latitude": 52.23327114,
-        "longitude": 4.833395293
+        "longitude": 4.833395293,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 74,
+        "bezettingsgraad": 50,
         "latitude": 52.23223427,
-        "longitude": 4.828884993
+        "longitude": 4.828884993,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 34,
+        "bezettingsgraad": 50,
         "latitude": 52.24155468,
-        "longitude": 4.844287824
+        "longitude": 4.844287824,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "35",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 54,
+        "bezettingsgraad": 50,
         "latitude": 52.2540289,
-        "longitude": 4.8018959
+        "longitude": 4.8018959,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +151,11 @@
         "straatNr": "37",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 76,
+        "bezettingsgraad": 50,
         "latitude": 52.2453348,
-        "longitude": 4.8218817
+        "longitude": 4.8218817,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -162,9 +174,11 @@
         "straatNr": "96-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 0,
+        "bezettingsgraad": 50,
         "latitude": 52.2459197,
-        "longitude": 4.8268555
+        "longitude": 4.8268555,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +197,11 @@
         "straatNr": "121",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 53,
+        "bezettingsgraad": 50,
         "latitude": 52.23846435546875,
-        "longitude": 4.823281764984131
+        "longitude": 4.823281764984131,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -204,9 +220,11 @@
         "straatNr": "4-PS/87",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 70,
+        "bezettingsgraad": 50,
         "latitude": 52.24154482402193,
-        "longitude": 4.831540730668505
+        "longitude": 4.831540730668505,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -225,9 +243,11 @@
         "straatNr": "20",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 12,
+        "bezettingsgraad": 50,
         "latitude": 52.2325484,
-        "longitude": 4.8301127
+        "longitude": 4.8301127,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -245,10 +265,12 @@
         "straatNaam": "Amstelplein",
         "straatNr": "81",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 18,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.23223427,
-        "longitude": 4.828884993
+        "longitude": 4.828884993,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -266,10 +288,12 @@
         "straatNaam": "Zijdelwaardplein",
         "straatNr": "91",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 23,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.24568155,
-        "longitude": 4.827252104
+        "longitude": 4.827252104,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -285,12 +309,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Zijdelwaardplein",
-        "straatNr": "60",
+        "straatNr": "60PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 44,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.2466179768516,
-        "longitude": 4.82760639831076
+        "longitude": 4.82760639831076,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -306,12 +332,14 @@
         "type": "pakketpunt",
         "locatieNaam": "The Read Shop Uithoorn",
         "straatNaam": "Zijdelwaardplein",
-        "straatNr": "58",
+        "straatNr": "58C",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 3,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.2468427320303,
-        "longitude": 4.82761821615981
+        "longitude": 4.82761821615981,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -329,10 +357,12 @@
         "straatNaam": "Koningin Julianalaan",
         "straatNr": "49",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 20,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.23327114,
-        "longitude": 4.833395293
+        "longitude": 4.833395293,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -348,12 +378,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Adas  V.O.F.",
         "straatNaam": "Ondernemingsweg",
-        "straatNr": "56",
+        "straatNr": "56N",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 6,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.24155468,
-        "longitude": 4.844287824
+        "longitude": 4.844287824,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -372,9 +404,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 69,
+        "bezettingsgraad": 50,
         "latitude": 52.2381348,
-        "longitude": 4.8234133
+        "longitude": 4.8234133,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -393,9 +427,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 98,
+        "bezettingsgraad": 50,
         "latitude": 52.23299,
-        "longitude": 4.83097
+        "longitude": 4.83097,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

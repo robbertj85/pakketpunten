@@ -3,14 +3,15 @@
   "metadata": {
     "gemeente": "Waalre",
     "slug": "waalre",
-    "generated_at": "2026-01-09T22:20:44.070722Z",
-    "total_points": 8,
+    "generated_at": "2026-01-12T04:03:03.736326Z",
+    "total_points": 9,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
-      "VintedGo"
+      "VintedGo",
+      "GLS"
     ],
     "bounds": [
       5.438487839575003,
@@ -36,9 +37,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 53,
+        "bezettingsgraad": 50,
         "latitude": 51.39507065,
-        "longitude": 5.474836708
+        "longitude": 5.474836708,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +60,11 @@
         "straatNr": "13-C",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 89,
+        "bezettingsgraad": 50,
         "latitude": 51.396525146223574,
-        "longitude": 5.438487839575003
+        "longitude": 5.438487839575003,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +83,11 @@
         "straatNr": "13c",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 5,
+        "bezettingsgraad": 50,
         "latitude": 51.3963705,
-        "longitude": 5.4385437
+        "longitude": 5.4385437,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -98,10 +105,12 @@
         "straatNaam": "Den Hof",
         "straatNr": "20",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 70,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.39507065,
-        "longitude": 5.474836708
+        "longitude": 5.474836708,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -119,10 +128,12 @@
         "straatNaam": "De Bus",
         "straatNr": "38",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 20,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.38702604,
-        "longitude": 5.44577324
+        "longitude": 5.44577324,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -138,12 +149,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "De Bus",
-        "straatNr": "38",
+        "straatNr": "38PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 27,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.386955,
-        "longitude": 5.4456684
+        "longitude": 5.4456684,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -159,12 +172,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Ballonnenconcurrent.nl B.V.",
         "straatNaam": "Van Dijklaan",
-        "straatNr": "13",
+        "straatNr": "13C",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 0,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.3963687250108,
-        "longitude": 5.43854333725273
+        "longitude": 5.43854333725273,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +198,34 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 45,
+        "bezettingsgraad": 50,
         "latitude": 51.3963846,
-        "longitude": 5.4385093
+        "longitude": 5.4385093,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4456684,
+          51.386955
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "De Bus",
+        "straatNr": "38",
+        "vervoerder": "GLS",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 51.386955,
+        "longitude": 5.4456684,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -195,6 +235,10 @@
         "coordinates": [
           [
             [
+              [
+                5.448399694566233,
+                51.384869088438876
+              ],
               [
                 5.448059789275824,
                 51.384711625200744
@@ -466,10 +510,6 @@
               [
                 5.448399694566233,
                 51.384869088438876
-              ],
-              [
-                5.448059789275824,
-                51.384711625200744
               ]
             ]
           ],
@@ -1048,6 +1088,10 @@
           [
             [
               [
+                5.449310070027256,
+                51.384173769149555
+              ],
+              [
                 5.448856866214127,
                 51.383963821476016
               ],
@@ -1318,10 +1362,6 @@
               [
                 5.449310070027256,
                 51.384173769149555
-              ],
-              [
-                5.448856866214127,
-                51.383963821476016
               ]
             ]
           ],

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Bergen (L.)",
     "slug": "bergen-(l.)",
-    "generated_at": "2026-01-09T21:59:00.411378Z",
+    "generated_at": "2026-01-12T03:42:04.040760Z",
     "total_points": 11,
     "providers": [
       "DHL",
@@ -35,9 +35,11 @@
         "straatNr": "28",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 9,
+        "bezettingsgraad": 50,
         "latitude": 51.5862631,
-        "longitude": 6.123144
+        "longitude": 6.123144,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "10",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 38,
+        "bezettingsgraad": 50,
         "latitude": 51.638182,
-        "longitude": 6.0089715
+        "longitude": 6.0089715,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "1205-DB/38",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 34,
+        "bezettingsgraad": 50,
         "latitude": 51.61176652,
-        "longitude": 6.03710123
+        "longitude": 6.03710123,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -98,9 +104,11 @@
         "straatNr": "1034-PS/75",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 50,
         "latitude": 51.611588,
-        "longitude": 6.040926
+        "longitude": 6.040926,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -119,9 +127,11 @@
         "straatNr": "21-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 26,
+        "bezettingsgraad": 50,
         "latitude": 51.6038939,
-        "longitude": 6.0491241
+        "longitude": 6.0491241,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -140,9 +150,11 @@
         "straatNr": "28",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 31,
+        "bezettingsgraad": 50,
         "latitude": 51.5862631,
-        "longitude": 6.123144
+        "longitude": 6.123144,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -161,9 +173,11 @@
         "straatNr": "1205",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 32,
+        "bezettingsgraad": 50,
         "latitude": 51.6117864,
-        "longitude": 6.038059
+        "longitude": 6.038059,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -182,9 +196,11 @@
         "straatNr": "10",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 36,
+        "bezettingsgraad": 50,
         "latitude": 51.638182,
-        "longitude": 6.0089715
+        "longitude": 6.0089715,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -202,10 +218,12 @@
         "straatNaam": "Mosaique",
         "straatNr": "8",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 73,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.6038651,
-        "longitude": 6.049874068
+        "longitude": 6.049874068,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -223,10 +241,12 @@
         "straatNaam": "Mosaique",
         "straatNr": "53",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 11,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.60333104,
-        "longitude": 6.048942432
+        "longitude": 6.048942432,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -245,9 +265,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 3,
+        "bezettingsgraad": 50,
         "latitude": 51.60333,
-        "longitude": 6.04893
+        "longitude": 6.04893,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

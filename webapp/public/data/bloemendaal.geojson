@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Bloemendaal",
     "slug": "bloemendaal",
-    "generated_at": "2026-01-09T21:59:46.473092Z",
+    "generated_at": "2026-01-12T03:42:48.811689Z",
     "total_points": 9,
     "providers": [
       "DHL",
@@ -35,9 +35,11 @@
         "straatNr": "44",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 19,
+        "bezettingsgraad": 50,
         "latitude": 52.3253208,
-        "longitude": 4.5924956
+        "longitude": 4.5924956,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "31",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 91,
+        "bezettingsgraad": 50,
         "latitude": 52.40523910522461,
-        "longitude": 4.621356010437012
+        "longitude": 4.621356010437012,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "31",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 87,
+        "bezettingsgraad": 50,
         "latitude": 52.4051705,
-        "longitude": 4.6214068
+        "longitude": 4.6214068,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -98,9 +104,11 @@
         "straatNr": "44",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 87,
+        "bezettingsgraad": 50,
         "latitude": 52.32531,
-        "longitude": 4.592501
+        "longitude": 4.592501,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -118,10 +126,12 @@
         "straatNaam": "Bloemendaalseweg",
         "straatNr": "234",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 94,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.39123996,
-        "longitude": 4.609298111
+        "longitude": 4.609298111,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -139,10 +149,12 @@
         "straatNaam": "Bloemendaalseweg",
         "straatNr": "78",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 32,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.40383664,
-        "longitude": 4.619657452
+        "longitude": 4.619657452,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -160,10 +172,12 @@
         "straatNaam": "Deken Zondaglaan",
         "straatNr": "55",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 62,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.31956518,
-        "longitude": 4.575146893
+        "longitude": 4.575146893,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -179,12 +193,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Drogisterij Zwetsloot",
         "straatNaam": "Schoollaan",
-        "straatNr": "24",
+        "straatNr": "24C",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 45,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.3205498607251,
-        "longitude": 4.59981444288225
+        "longitude": 4.59981444288225,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -203,9 +219,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 61,
+        "bezettingsgraad": 50,
         "latitude": 52.3253586,
-        "longitude": 4.5924839
+        "longitude": 4.5924839,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

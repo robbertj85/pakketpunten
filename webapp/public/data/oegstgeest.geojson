@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Oegstgeest",
     "slug": "oegstgeest",
-    "generated_at": "2026-01-09T22:12:56.431770Z",
+    "generated_at": "2026-01-12T03:55:30.130199Z",
     "total_points": 7,
     "providers": [
       "DHL",
@@ -33,9 +33,11 @@
         "straatNr": "5",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 50,
         "latitude": 52.178199768066406,
-        "longitude": 4.450843811035156
+        "longitude": 4.450843811035156,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -54,9 +56,11 @@
         "straatNr": "1-PS/127",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 84,
+        "bezettingsgraad": 50,
         "latitude": 52.199965739471736,
-        "longitude": 4.47691089672535
+        "longitude": 4.47691089672535,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -72,12 +76,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Lijtweg",
-        "straatNr": "2",
+        "straatNr": "2PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 96,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.1836178,
-        "longitude": 4.470629755
+        "longitude": 4.470629755,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -95,10 +101,12 @@
         "straatNaam": "Ommevoort",
         "straatNr": "10",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 29,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.18545602,
-        "longitude": 4.471220775
+        "longitude": 4.471220775,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -116,10 +124,12 @@
         "straatNaam": "de Kempenaerstraat",
         "straatNr": "11",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 20,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.17762204,
-        "longitude": 4.468252819
+        "longitude": 4.468252819,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -135,12 +145,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Rustenburgerpad",
-        "straatNr": "9",
+        "straatNr": "9PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 45,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.17806992,
-        "longitude": 4.450903184
+        "longitude": 4.450903184,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -158,10 +170,12 @@
         "straatNaam": "Haarlemmerstraatweg",
         "straatNr": "31",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 4,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.19864036,
-        "longitude": 4.473334169
+        "longitude": 4.473334169,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

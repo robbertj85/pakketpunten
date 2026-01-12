@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Alphen-Chaam",
     "slug": "alphen-chaam",
-    "generated_at": "2026-01-09T21:57:26.356190Z",
+    "generated_at": "2026-01-12T03:40:35.643093Z",
     "total_points": 7,
     "providers": [
       "Amazon",
@@ -35,9 +35,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 3,
+        "bezettingsgraad": 50,
         "latitude": 51.50475337,
-        "longitude": 4.778594224
+        "longitude": 4.778594224,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "32",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 83,
+        "bezettingsgraad": 50,
         "latitude": 51.5045652,
-        "longitude": 4.8635598
+        "longitude": 4.8635598,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "94-PS/149",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 66,
+        "bezettingsgraad": 50,
         "latitude": 51.505356,
-        "longitude": 4.860459
+        "longitude": 4.860459,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -98,9 +104,11 @@
         "straatNr": "86",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 56,
+        "bezettingsgraad": 50,
         "latitude": 51.505111,
-        "longitude": 4.778573
+        "longitude": 4.778573,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -116,12 +124,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Tabak en Gemak Chaam",
         "straatNaam": "Brouwerij",
-        "straatNr": "40",
+        "straatNr": "40A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 68,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.5047472698124,
-        "longitude": 4.86057866456712
+        "longitude": 4.86057866456712,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -139,10 +149,12 @@
         "straatNaam": "Willibrordplein",
         "straatNr": "5",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 37,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.4834166552215,
-        "longitude": 4.95464807951036
+        "longitude": 4.95464807951036,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -160,10 +172,12 @@
         "straatNaam": "Galderseweg",
         "straatNr": "92",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 90,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.50475337,
-        "longitude": 4.778594224
+        "longitude": 4.778594224,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

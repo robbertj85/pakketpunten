@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Eemnes",
     "slug": "eemnes",
-    "generated_at": "2026-01-09T22:03:21.792542Z",
+    "generated_at": "2026-01-12T03:46:22.008223Z",
     "total_points": 2,
     "providers": [
       "DHL",
@@ -33,9 +33,11 @@
         "straatNr": "24-D",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 100,
+        "bezettingsgraad": 50,
         "latitude": 52.25304,
-        "longitude": 5.264645
+        "longitude": 5.264645,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -51,12 +53,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Primera Eemnes",
         "straatNaam": "Laarderweg",
-        "straatNr": "24",
+        "straatNr": "24G",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 66,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.25303822,
-        "longitude": 5.264644762
+        "longitude": 5.264644762,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

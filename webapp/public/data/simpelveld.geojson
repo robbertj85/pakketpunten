@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Simpelveld",
     "slug": "simpelveld",
-    "generated_at": "2026-01-09T22:16:33.095145Z",
+    "generated_at": "2026-01-12T03:59:00.045481Z",
     "total_points": 6,
     "providers": [
       "DHL",
@@ -35,9 +35,11 @@
         "straatNr": "6",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 50,
         "latitude": 50.834089,
-        "longitude": 5.98308
+        "longitude": 5.98308,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "5",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 87,
+        "bezettingsgraad": 50,
         "latitude": 50.8337991,
-        "longitude": 5.9820544
+        "longitude": 5.9820544,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "46",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 60,
+        "bezettingsgraad": 50,
         "latitude": 50.8322765,
-        "longitude": 5.9879396
+        "longitude": 5.9879396,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -95,12 +101,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Giftclub Simpelveld",
         "straatNaam": "Kloosterplein",
-        "straatNr": "42",
+        "straatNr": "42A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 46,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 50.83458804,
-        "longitude": 5.985502194
+        "longitude": 5.985502194,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -116,12 +124,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Gasthof",
-        "straatNr": "2",
+        "straatNr": "2PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 17,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 50.8173767975889,
-        "longitude": 6.01050909110209
+        "longitude": 6.01050909110209,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -140,9 +150,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 85,
+        "bezettingsgraad": 50,
         "latitude": 50.83228,
-        "longitude": 5.98794
+        "longitude": 5.98794,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

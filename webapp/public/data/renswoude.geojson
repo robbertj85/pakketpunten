@@ -3,14 +3,15 @@
   "metadata": {
     "gemeente": "Renswoude",
     "slug": "renswoude",
-    "generated_at": "2026-01-09T22:15:08.146852Z",
-    "total_points": 3,
+    "generated_at": "2026-01-12T03:57:37.393577Z",
+    "total_points": 4,
     "providers": [
       "DHL",
-      "PostNL"
+      "PostNL",
+      "GLS"
     ],
     "bounds": [
-      5.53750059255369,
+      5.53750059,
       52.0738134453032,
       5.540257,
       52.075024
@@ -33,9 +34,11 @@
         "straatNr": "1-PS/75",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 11,
+        "bezettingsgraad": 50,
         "latitude": 52.075024,
-        "longitude": 5.540257
+        "longitude": 5.540257,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -51,12 +54,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Het Rokertje B.V.",
         "straatNaam": "Vendelier",
-        "straatNr": "1",
+        "straatNr": "1A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 18,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.0738134453032,
-        "longitude": 5.53755824107429
+        "longitude": 5.53755824107429,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -72,12 +77,37 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Dorpsplein",
-        "straatNr": "14",
+        "straatNr": "14PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 72,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.0740202443414,
-        "longitude": 5.53750059255369
+        "longitude": 5.53750059255369,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.53750059,
+          52.0740202
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Dorpsplein",
+        "straatNr": "14",
+        "vervoerder": "GLS",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 52.0740202,
+        "longitude": 5.53750059,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -187,16 +217,24 @@
               52.07329281146885
             ],
             [
-              5.53322801915497,
-              52.07344782153926
+              5.533228048419412,
+              52.07344769825927
             ],
             [
-              5.533207147923449,
-              52.073499608430225
+              5.533207145374043,
+              52.07349956408877
             ],
             [
-              5.53314499434639,
-              52.073761435417104
+              5.533144991797032,
+              52.0737613910756
+            ],
+            [
+              5.533124784306056,
+              52.074025711318676
+            ],
+            [
+              5.533124787397649,
+              52.07402574856758
             ],
             [
               5.533124786855411,
@@ -537,16 +575,24 @@
               52.07311923075047
             ],
             [
-              5.531796894077099,
-              52.07327424037989
+              5.531796923345374,
+              52.07327411710024
             ],
             [
-              5.5317760212693825,
-              52.07332602701933
+              5.531776018721406,
+              52.0733259826778
             ],
             [
-              5.531693138822795,
-              52.073675128665705
+              5.531693136274879,
+              52.07367508432419
+            ],
+            [
+              5.531666181513652,
+              52.07402751098867
+            ],
+            [
+              5.531666184604032,
+              52.074027548237595
             ],
             [
               5.531666184061561,

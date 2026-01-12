@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Laren",
     "slug": "laren",
-    "generated_at": "2026-01-09T22:09:14.725784Z",
+    "generated_at": "2026-01-12T03:51:57.910150Z",
     "total_points": 7,
     "providers": [
       "Amazon",
@@ -37,9 +37,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 89,
+        "bezettingsgraad": 50,
         "latitude": 52.2553919832006,
-        "longitude": 5.22628171752384
+        "longitude": 5.22628171752384,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -58,9 +60,11 @@
         "straatNr": "32",
         "vervoerder": "DeBuren",
         "puntType": "Afhaalcentrum",
-        "bezettingsgraad": 21,
+        "bezettingsgraad": 50,
         "latitude": 52.2549051,
-        "longitude": 5.227988
+        "longitude": 5.227988,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -79,9 +83,11 @@
         "straatNr": "9",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 49,
+        "bezettingsgraad": 50,
         "latitude": 52.257826,
-        "longitude": 5.223279
+        "longitude": 5.223279,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -100,9 +106,11 @@
         "straatNr": "2-4",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 50,
         "latitude": 52.2553928,
-        "longitude": 5.2262824
+        "longitude": 5.2262824,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -120,10 +128,12 @@
         "straatNaam": "Sint Janstraat",
         "straatNr": "2",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 1,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.2553919832006,
-        "longitude": 5.22628171752384
+        "longitude": 5.22628171752384,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -139,12 +149,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Plein 1945",
-        "straatNr": "3",
+        "straatNr": "3PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 5,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.25474952,
-        "longitude": 5.229740328
+        "longitude": 5.229740328,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -163,9 +175,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 98,
+        "bezettingsgraad": 50,
         "latitude": 52.2553617,
-        "longitude": 5.2262997
+        "longitude": 5.2262997,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

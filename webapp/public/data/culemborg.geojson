@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Culemborg",
     "slug": "culemborg",
-    "generated_at": "2026-01-09T22:01:12.324996Z",
+    "generated_at": "2026-01-12T03:44:10.584656Z",
     "total_points": 16,
     "providers": [
       "Amazon",
@@ -35,9 +35,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 4,
+        "bezettingsgraad": 50,
         "latitude": 51.95226829,
-        "longitude": 5.237710892
+        "longitude": 5.237710892,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 95,
+        "bezettingsgraad": 50,
         "latitude": 51.9522963244518,
-        "longitude": 5.23855449737738
+        "longitude": 5.23855449737738,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 68,
+        "bezettingsgraad": 50,
         "latitude": 51.94638882,
-        "longitude": 5.223331283
+        "longitude": 5.223331283,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -98,9 +104,11 @@
         "straatNr": "5-PS/95",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 72,
+        "bezettingsgraad": 50,
         "latitude": 51.94807839302263,
-        "longitude": 5.2243536838345275
+        "longitude": 5.2243536838345275,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -119,9 +127,11 @@
         "straatNr": "10-PS/117",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 6,
+        "bezettingsgraad": 50,
         "latitude": 51.95248261061232,
-        "longitude": 5.238340154940945
+        "longitude": 5.238340154940945,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -140,9 +150,11 @@
         "straatNr": "30",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 40,
+        "bezettingsgraad": 50,
         "latitude": 51.9549417,
-        "longitude": 5.2253657
+        "longitude": 5.2253657,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -161,9 +173,11 @@
         "straatNr": "30",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 53,
+        "bezettingsgraad": 50,
         "latitude": 51.9549417,
-        "longitude": 5.2253657
+        "longitude": 5.2253657,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -181,10 +195,12 @@
         "straatNaam": "Koopmansgildeplein",
         "straatNr": "16",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 98,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.94938314,
-        "longitude": 5.205792936
+        "longitude": 5.205792936,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -200,12 +216,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Koopmansgildeplein",
-        "straatNr": "16",
+        "straatNr": "16PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 29,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.9493741327771,
-        "longitude": 5.20577842644188
+        "longitude": 5.20577842644188,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -223,10 +241,12 @@
         "straatNaam": "Houtweg",
         "straatNr": "8",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 97,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.94638882,
-        "longitude": 5.223331283
+        "longitude": 5.223331283,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -242,12 +262,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Parallelweg West",
-        "straatNr": "5",
+        "straatNr": "5PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 94,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.9480616983579,
-        "longitude": 5.22409607667607
+        "longitude": 5.22409607667607,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -265,10 +287,12 @@
         "straatNaam": "Parallelweg West",
         "straatNr": "5",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 24,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.94807071,
-        "longitude": 5.224110589
+        "longitude": 5.224110589,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -286,10 +310,12 @@
         "straatNaam": "Markt",
         "straatNr": "27",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 32,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.95736587,
-        "longitude": 5.225080674
+        "longitude": 5.225080674,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -307,10 +333,12 @@
         "straatNaam": "Chopinplein",
         "straatNr": "5",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 97,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.95226829,
-        "longitude": 5.237710892
+        "longitude": 5.237710892,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -326,12 +354,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Chopinplein",
-        "straatNr": "10",
+        "straatNr": "10PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 77,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.9522331682013,
-        "longitude": 5.23836560176175
+        "longitude": 5.23836560176175,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -349,10 +379,12 @@
         "straatNaam": "Chopinplein",
         "straatNr": "12",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 70,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.9522963244518,
-        "longitude": 5.23855449737738
+        "longitude": 5.23855449737738,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

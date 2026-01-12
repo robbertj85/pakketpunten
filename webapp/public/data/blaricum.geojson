@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Blaricum",
     "slug": "blaricum",
-    "generated_at": "2026-01-09T21:59:41.962577Z",
+    "generated_at": "2026-01-12T03:42:44.057967Z",
     "total_points": 4,
     "providers": [
       "Amazon",
@@ -33,9 +33,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 31,
+        "bezettingsgraad": 50,
         "latitude": 52.28980475,
-        "longitude": 5.280797965
+        "longitude": 5.280797965,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -51,12 +53,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Hooibrug",
-        "straatNr": "1",
+        "straatNr": "1PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 93,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.2868057863861,
-        "longitude": 5.26521131511643
+        "longitude": 5.26521131511643,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -72,12 +76,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Business Point Van der Wal",
         "straatNaam": "Binnendelta",
-        "straatNr": "1",
+        "straatNr": "1T",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 55,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.28980475,
-        "longitude": 5.280797965
+        "longitude": 5.280797965,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -95,10 +101,12 @@
         "straatNaam": "Huizerweg",
         "straatNr": "8",
         "vervoerder": "PostNL",
-        "puntType": "",
+        "puntType": "servicepunt",
         "bezettingsgraad": 50,
         "latitude": 52.27351577,
-        "longitude": 5.243710066
+        "longitude": 5.243710066,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

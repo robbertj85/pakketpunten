@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Landsmeer",
     "slug": "landsmeer",
-    "generated_at": "2026-01-09T22:09:05.018994Z",
+    "generated_at": "2026-01-12T03:51:48.743233Z",
     "total_points": 4,
     "providers": [
       "DHL",
@@ -35,9 +35,11 @@
         "straatNr": "45",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 59,
+        "bezettingsgraad": 50,
         "latitude": 52.4245446,
-        "longitude": 4.9106762
+        "longitude": 4.9106762,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "22",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 28,
+        "bezettingsgraad": 50,
         "latitude": 52.4285038,
-        "longitude": 4.9142675
+        "longitude": 4.9142675,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -74,12 +78,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Kip Online",
         "straatNaam": "Zuideinde",
-        "straatNr": "45",
+        "straatNr": "45B",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 12,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.42449888,
-        "longitude": 4.910526792
+        "longitude": 4.910526792,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -98,9 +104,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 0,
+        "bezettingsgraad": 50,
         "latitude": 52.428505,
-        "longitude": 4.914269
+        "longitude": 4.914269,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

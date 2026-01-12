@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Zandvoort",
     "slug": "zandvoort",
-    "generated_at": "2026-01-09T22:22:48.251022Z",
+    "generated_at": "2026-01-12T04:05:04.168921Z",
     "total_points": 6,
     "providers": [
       "DHL",
@@ -35,9 +35,11 @@
         "straatNr": "6",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 14,
+        "bezettingsgraad": 50,
         "latitude": 52.37896,
-        "longitude": 4.549354
+        "longitude": 4.549354,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "9",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 3,
+        "bezettingsgraad": 50,
         "latitude": 52.372629,
-        "longitude": 4.529939
+        "longitude": 4.529939,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "38C",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 63,
+        "bezettingsgraad": 50,
         "latitude": 52.3717614,
-        "longitude": 4.528374
+        "longitude": 4.528374,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -97,10 +103,12 @@
         "straatNaam": "Grote Krocht",
         "straatNr": "18",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 88,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.37161553,
-        "longitude": 4.530625015
+        "longitude": 4.530625015,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -119,9 +127,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 4,
+        "bezettingsgraad": 50,
         "latitude": 52.37384,
-        "longitude": 4.53063
+        "longitude": 4.53063,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -140,9 +150,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 57,
+        "bezettingsgraad": 50,
         "latitude": 52.3718341,
-        "longitude": 4.5284157
+        "longitude": 4.5284157,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

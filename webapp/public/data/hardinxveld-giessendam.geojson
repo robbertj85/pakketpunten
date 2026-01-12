@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Hardinxveld-Giessendam",
     "slug": "hardinxveld-giessendam",
-    "generated_at": "2026-01-09T22:05:49.302726Z",
+    "generated_at": "2026-01-12T03:48:42.572539Z",
     "total_points": 10,
     "providers": [
       "Amazon",
@@ -35,9 +35,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 43,
+        "bezettingsgraad": 50,
         "latitude": 51.82344316,
-        "longitude": 4.885782611
+        "longitude": 4.885782611,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 41,
+        "bezettingsgraad": 50,
         "latitude": 51.8259113,
-        "longitude": 4.832982523
+        "longitude": 4.832982523,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "29",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 50,
         "latitude": 51.8234345,
-        "longitude": 4.8857596
+        "longitude": 4.8857596,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -98,9 +104,11 @@
         "straatNr": "9",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 42,
+        "bezettingsgraad": 50,
         "latitude": 51.8335726,
-        "longitude": 4.8357863
+        "longitude": 4.8357863,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -119,9 +127,11 @@
         "straatNr": "3-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 70,
+        "bezettingsgraad": 50,
         "latitude": 51.8270157,
-        "longitude": 4.8332286
+        "longitude": 4.8332286,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -140,9 +150,11 @@
         "straatNr": "69",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 7,
+        "bezettingsgraad": 50,
         "latitude": 51.826335,
-        "longitude": 4.831026
+        "longitude": 4.831026,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -158,12 +170,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Juliana van Stolbergstr",
-        "straatNr": "93",
+        "straatNr": "93PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 16,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.8237660760416,
-        "longitude": 4.87935320100368
+        "longitude": 4.87935320100368,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -181,10 +195,12 @@
         "straatNaam": "Rembrandtstraat",
         "straatNr": "29",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 80,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.82344316,
-        "longitude": 4.885782611
+        "longitude": 4.885782611,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -202,10 +218,12 @@
         "straatNaam": "Den Bogerd",
         "straatNr": "30",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 29,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.8259113,
-        "longitude": 4.832982523
+        "longitude": 4.832982523,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -224,9 +242,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 52,
+        "bezettingsgraad": 50,
         "latitude": 51.82684955,
-        "longitude": 4.83324261
+        "longitude": 4.83324261,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

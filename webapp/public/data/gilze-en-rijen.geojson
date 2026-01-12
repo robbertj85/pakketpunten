@@ -3,14 +3,15 @@
   "metadata": {
     "gemeente": "Gilze en Rijen",
     "slug": "gilze-en-rijen",
-    "generated_at": "2026-01-09T22:04:36.455324Z",
-    "total_points": 18,
+    "generated_at": "2026-01-12T03:47:34.468229Z",
+    "total_points": 19,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
-      "VintedGo"
+      "VintedGo",
+      "GLS"
     ],
     "bounds": [
       4.9118409,
@@ -36,9 +37,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 93,
+        "bezettingsgraad": 50,
         "latitude": 51.54469829,
-        "longitude": 4.941724827
+        "longitude": 4.941724827,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +60,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 26,
+        "bezettingsgraad": 50,
         "latitude": 51.5451676404459,
-        "longitude": 4.94937519114875
+        "longitude": 4.94937519114875,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -78,9 +83,11 @@
         "straatNr": "30",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 36,
+        "bezettingsgraad": 50,
         "latitude": 51.5440887,
-        "longitude": 4.9416505
+        "longitude": 4.9416505,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +106,11 @@
         "straatNr": "14",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 29,
+        "bezettingsgraad": 50,
         "latitude": 51.5795961,
-        "longitude": 4.9289521
+        "longitude": 4.9289521,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +129,11 @@
         "straatNr": "20-PS/108",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 84,
+        "bezettingsgraad": 50,
         "latitude": 51.584751649715116,
-        "longitude": 4.927959878081018
+        "longitude": 4.927959878081018,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +152,11 @@
         "straatNr": "3-PS/165",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 79,
+        "bezettingsgraad": 50,
         "latitude": 51.587721,
-        "longitude": 4.920607
+        "longitude": 4.920607,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -162,9 +175,11 @@
         "straatNr": "22",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 98,
+        "bezettingsgraad": 50,
         "latitude": 51.5882886,
-        "longitude": 4.9184474
+        "longitude": 4.9184474,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +198,11 @@
         "straatNr": "75",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 45,
+        "bezettingsgraad": 50,
         "latitude": 51.58741,
-        "longitude": 4.92011
+        "longitude": 4.92011,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -204,9 +221,11 @@
         "straatNr": "116a",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 63,
+        "bezettingsgraad": 50,
         "latitude": 51.5485289,
-        "longitude": 4.942854
+        "longitude": 4.942854,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -224,10 +243,12 @@
         "straatNaam": "Stationsstraat",
         "straatNr": "69",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 26,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.5870599304047,
-        "longitude": 4.92042969892483
+        "longitude": 4.92042969892483,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -245,10 +266,12 @@
         "straatNaam": "Wilhelminaplein",
         "straatNr": "6",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 25,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.58837389,
-        "longitude": 4.918583591
+        "longitude": 4.918583591,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -264,12 +287,14 @@
         "type": "pakketpunt",
         "locatieNaam": "GSM Gilze-Rijen",
         "straatNaam": "Hoofdstraat",
-        "straatNr": "7",
+        "straatNr": "7A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 69,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.58882342,
-        "longitude": 4.918607809
+        "longitude": 4.918607809,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -287,10 +312,12 @@
         "straatNaam": "Hoofdstraat",
         "straatNr": "21",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 89,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.5896403758025,
-        "longitude": 4.91835405930051
+        "longitude": 4.91835405930051,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -308,10 +335,12 @@
         "straatNaam": "Nieuwstraat",
         "straatNr": "44",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 16,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.54469829,
-        "longitude": 4.941724827
+        "longitude": 4.941724827,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -329,10 +358,12 @@
         "straatNaam": "Burgemeester Krollaan",
         "straatNr": "7",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 0,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.5451676404459,
-        "longitude": 4.94937519114875
+        "longitude": 4.94937519114875,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -351,9 +382,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 65,
+        "bezettingsgraad": 50,
         "latitude": 51.5485823,
-        "longitude": 4.9419166
+        "longitude": 4.9419166,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -372,9 +405,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 94,
+        "bezettingsgraad": 50,
         "latitude": 51.54656,
-        "longitude": 4.94263
+        "longitude": 4.94263,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -393,9 +428,34 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 100,
+        "bezettingsgraad": 50,
         "latitude": 51.5894974,
-        "longitude": 4.9118409
+        "longitude": 4.9118409,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9201357,
+          51.5873486
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Dierenspeciaalzaak Rijen",
+        "straatNaam": "Stationsstraat",
+        "straatNr": "75",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.5873486,
+        "longitude": 4.9201357,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -838,8 +898,16 @@
                 51.5857735153057
               ],
               [
-                4.916553124463765,
-                51.58586706862542
+                4.916621404418947,
+                51.58577861741313
+              ],
+              [
+                4.916552064963221,
+                51.58583608048857
+              ],
+              [
+                4.916509460577755,
+                51.58587971925761
               ],
               [
                 4.916431497437311,

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Montfoort",
     "slug": "montfoort",
-    "generated_at": "2026-01-09T22:11:39.521447Z",
+    "generated_at": "2026-01-12T03:54:15.120343Z",
     "total_points": 11,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 37,
+        "bezettingsgraad": 50,
         "latitude": 52.0431810027592,
-        "longitude": 4.94617713123145
+        "longitude": 4.94617713123145,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "24",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 21,
+        "bezettingsgraad": 50,
         "latitude": 52.0639903,
-        "longitude": 4.9181231
+        "longitude": 4.9181231,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "54",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 90,
+        "bezettingsgraad": 50,
         "latitude": 52.0454736,
-        "longitude": 4.9477926
+        "longitude": 4.9477926,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 79,
+        "bezettingsgraad": 50,
         "latitude": 52.046506,
-        "longitude": 4.949975
+        "longitude": 4.949975,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "15",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 0,
+        "bezettingsgraad": 50,
         "latitude": 52.04949188232422,
-        "longitude": 4.952705383300781
+        "longitude": 4.952705383300781,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +151,11 @@
         "straatNr": "2",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 69,
+        "bezettingsgraad": 50,
         "latitude": 52.0464858,
-        "longitude": 4.9500535
+        "longitude": 4.9500535,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -159,12 +171,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Cigo Montfoort",
         "straatNaam": "Julianalaan",
-        "straatNr": "2",
+        "straatNr": "2A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 96,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.0431810027592,
-        "longitude": 4.94617713123145
+        "longitude": 4.94617713123145,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -180,12 +194,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Boslaan",
-        "straatNr": "40",
+        "straatNr": "40PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 72,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.047227046479,
-        "longitude": 4.95137061722953
+        "longitude": 4.95137061722953,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -201,12 +217,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Laan van Rapijnen",
-        "straatNr": "27",
+        "straatNr": "27PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 1,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.0633548321768,
-        "longitude": 4.91707529850976
+        "longitude": 4.91707529850976,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -225,9 +243,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 38,
+        "bezettingsgraad": 50,
         "latitude": 52.0465847,
-        "longitude": 4.9500119
+        "longitude": 4.9500119,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -246,9 +266,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 18,
+        "bezettingsgraad": 50,
         "latitude": 52.045436,
-        "longitude": 4.9477529
+        "longitude": 4.9477529,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

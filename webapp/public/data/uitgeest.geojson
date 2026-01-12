@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Uitgeest",
     "slug": "uitgeest",
-    "generated_at": "2026-01-09T22:18:45.065146Z",
+    "generated_at": "2026-01-12T04:01:10.008815Z",
     "total_points": 2,
     "providers": [
       "PostNL",
@@ -30,12 +30,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Middelweg",
-        "straatNr": "80",
+        "straatNr": "80PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 33,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.52568783,
-        "longitude": 4.710477343
+        "longitude": 4.710477343,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -54,9 +56,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "locker",
-        "bezettingsgraad": 12,
+        "bezettingsgraad": 50,
         "latitude": 52.5288047,
-        "longitude": 4.716543
+        "longitude": 4.716543,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

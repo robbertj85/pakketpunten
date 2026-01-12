@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Vlieland",
     "slug": "vlieland",
-    "generated_at": "2026-01-09T22:20:06.478063Z",
+    "generated_at": "2026-01-12T04:02:26.915619Z",
     "total_points": 3,
     "providers": [
       "DHL",
@@ -34,9 +34,11 @@
         "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 61,
+        "bezettingsgraad": 50,
         "latitude": 53.29629898071289,
-        "longitude": 5.072669506072998
+        "longitude": 5.072669506072998,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -55,9 +57,11 @@
         "straatNr": "2",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 48,
+        "bezettingsgraad": 50,
         "latitude": 53.2964407,
-        "longitude": 5.0734083
+        "longitude": 5.0734083,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -75,10 +79,12 @@
         "straatNaam": "Dorpsstraat",
         "straatNr": "74",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 49,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.2960334,
-        "longitude": 5.069592262
+        "longitude": 5.069592262,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

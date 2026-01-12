@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Doesburg",
     "slug": "doesburg",
-    "generated_at": "2026-01-09T22:02:23.896229Z",
+    "generated_at": "2026-01-12T03:45:25.273014Z",
     "total_points": 10,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 66,
+        "bezettingsgraad": 50,
         "latitude": 52.01345163,
-        "longitude": 6.136463924
+        "longitude": 6.136463924,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "8-DB/38",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 18,
+        "bezettingsgraad": 50,
         "latitude": 52.0024656,
-        "longitude": 6.1375156
+        "longitude": 6.1375156,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "4",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 61,
+        "bezettingsgraad": 50,
         "latitude": 52.007694,
-        "longitude": 6.138664
+        "longitude": 6.138664,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "15",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 60,
+        "bezettingsgraad": 50,
         "latitude": 52.01361083984375,
-        "longitude": 6.13690710067749
+        "longitude": 6.13690710067749,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "15",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 22,
+        "bezettingsgraad": 50,
         "latitude": 52.0136519,
-        "longitude": 6.136421
+        "longitude": 6.136421,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -141,9 +151,11 @@
         "straatNr": "8",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 94,
+        "bezettingsgraad": 50,
         "latitude": 52.0024656,
-        "longitude": 6.1375156
+        "longitude": 6.1375156,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -162,9 +174,11 @@
         "straatNr": "1",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 95,
+        "bezettingsgraad": 50,
         "latitude": 52.0069718,
-        "longitude": 6.1543425
+        "longitude": 6.1543425,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -182,10 +196,12 @@
         "straatNaam": "Meipoortstraat",
         "straatNr": "12",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 26,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.01345163,
-        "longitude": 6.136463924
+        "longitude": 6.136463924,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -204,9 +220,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "social",
-        "bezettingsgraad": 84,
+        "bezettingsgraad": 50,
         "latitude": 52.00424,
-        "longitude": 6.14838
+        "longitude": 6.14838,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -225,9 +243,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 12,
+        "bezettingsgraad": 50,
         "latitude": 52.01366,
-        "longitude": 6.13655
+        "longitude": 6.13655,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

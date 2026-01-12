@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Beuningen",
     "slug": "beuningen",
-    "generated_at": "2026-01-09T21:59:28.453741Z",
+    "generated_at": "2026-01-12T03:42:31.023253Z",
     "total_points": 19,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 13,
+        "bezettingsgraad": 50,
         "latitude": 51.8558438,
-        "longitude": 5.813986168
+        "longitude": 5.813986168,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 37,
+        "bezettingsgraad": 50,
         "latitude": 51.8697327125745,
-        "longitude": 5.7404001476164
+        "longitude": 5.7404001476164,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "9-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 69,
+        "bezettingsgraad": 50,
         "latitude": 51.8602584,
-        "longitude": 5.7699667
+        "longitude": 5.7699667,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "176-C",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 34,
+        "bezettingsgraad": 50,
         "latitude": 51.8601096,
-        "longitude": 5.7714897
+        "longitude": 5.7714897,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "43-PS/117",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 90,
+        "bezettingsgraad": 50,
         "latitude": 51.861614,
-        "longitude": 5.770829
+        "longitude": 5.770829,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +151,11 @@
         "straatNr": "82",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 80,
+        "bezettingsgraad": 50,
         "latitude": 51.866896,
-        "longitude": 5.768971
+        "longitude": 5.768971,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -162,9 +174,11 @@
         "straatNr": "13-DB/58",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 56,
+        "bezettingsgraad": 50,
         "latitude": 51.8586428,
-        "longitude": 5.8036164
+        "longitude": 5.8036164,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +197,11 @@
         "straatNr": "108",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 64,
+        "bezettingsgraad": 50,
         "latitude": 51.862434,
-        "longitude": 5.772281
+        "longitude": 5.772281,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -204,9 +220,11 @@
         "straatNr": "13a",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 46,
+        "bezettingsgraad": 50,
         "latitude": 51.85869897,
-        "longitude": 5.80344388
+        "longitude": 5.80344388,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -225,9 +243,11 @@
         "straatNr": "28A",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 52,
+        "bezettingsgraad": 50,
         "latitude": 51.87017,
-        "longitude": 5.738999
+        "longitude": 5.738999,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -243,12 +263,14 @@
         "type": "pakketpunt",
         "locatieNaam": "MobileCare",
         "straatNaam": "De Klef",
-        "straatNr": "32",
+        "straatNr": "32A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 67,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.8697327125745,
-        "longitude": 5.7404001476164
+        "longitude": 5.7404001476164,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -264,12 +286,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Claudiuslaan",
-        "straatNr": "60",
+        "straatNr": "60PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 65,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.852224855232,
-        "longitude": 5.7528683958598
+        "longitude": 5.7528683958598,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -285,12 +309,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Gamma",
         "straatNaam": "Claudiuslaan",
-        "straatNr": "60",
+        "straatNr": "60B",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 37,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.851175,
-        "longitude": 5.753066
+        "longitude": 5.753066,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -308,10 +334,12 @@
         "straatNaam": "Thorbeckeplein",
         "straatNr": "13",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 66,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.86023767,
-        "longitude": 5.770114227
+        "longitude": 5.770114227,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -327,12 +355,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Bruna Wito",
         "straatNaam": "Julianaplein",
-        "straatNr": "28",
+        "straatNr": "28-30",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 34,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.86143786,
-        "longitude": 5.771416478
+        "longitude": 5.771416478,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -348,12 +378,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Jumbo",
         "straatNaam": "Leegstraat",
-        "straatNr": "7",
+        "straatNr": "7C",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 67,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.88078664,
-        "longitude": 5.706502028
+        "longitude": 5.706502028,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -369,12 +401,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Laan 1945",
-        "straatNr": "22",
+        "straatNr": "22PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 61,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.8558438035123,
-        "longitude": 5.8139861678432
+        "longitude": 5.8139861678432,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -392,10 +426,12 @@
         "straatNaam": "Laan 1945",
         "straatNr": "22",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 15,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.8558438,
-        "longitude": 5.813986168
+        "longitude": 5.813986168,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -414,9 +450,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 0,
+        "bezettingsgraad": 50,
         "latitude": 51.86235,
-        "longitude": 5.77228
+        "longitude": 5.77228,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

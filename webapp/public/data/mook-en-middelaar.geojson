@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Mook en Middelaar",
     "slug": "mook-en-middelaar",
-    "generated_at": "2026-01-09T22:11:44.310380Z",
+    "generated_at": "2026-01-12T03:54:19.474543Z",
     "total_points": 12,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 65,
+        "bezettingsgraad": 50,
         "latitude": 51.76726565,
-        "longitude": 5.873153296
+        "longitude": 5.873153296,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 8,
+        "bezettingsgraad": 50,
         "latitude": 51.7677229605915,
-        "longitude": 5.87341899065353
+        "longitude": 5.87341899065353,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "41-PS/75",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 22,
+        "bezettingsgraad": 50,
         "latitude": 51.756759,
-        "longitude": 5.8740627
+        "longitude": 5.8740627,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "13-PS/89",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 3,
+        "bezettingsgraad": 50,
         "latitude": 51.75118864056992,
-        "longitude": 5.885136130508426
+        "longitude": 5.885136130508426,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -120,9 +128,11 @@
         "straatNr": "31",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 31,
+        "bezettingsgraad": 50,
         "latitude": 51.768121107023084,
-        "longitude": 5.8732587972623795
+        "longitude": 5.8732587972623795,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -141,9 +151,11 @@
         "straatNr": "41",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 15,
+        "bezettingsgraad": 50,
         "latitude": 51.756759,
-        "longitude": 5.8740627
+        "longitude": 5.8740627,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -162,9 +174,11 @@
         "straatNr": "31",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 19,
+        "bezettingsgraad": 50,
         "latitude": 51.767837,
-        "longitude": 5.873392
+        "longitude": 5.873392,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -180,12 +194,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Prinses Beatrixstraat",
-        "straatNr": "13",
+        "straatNr": "13PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 57,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 51.75104598,
-        "longitude": 5.884882765
+        "longitude": 5.884882765,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -203,10 +219,12 @@
         "straatNaam": "Prinses Beatrixstraat",
         "straatNr": "13",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 79,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.75104641,
-        "longitude": 5.884781396
+        "longitude": 5.884781396,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -224,10 +242,12 @@
         "straatNaam": "Prinsenweg",
         "straatNr": "13",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 55,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.76726565,
-        "longitude": 5.873153296
+        "longitude": 5.873153296,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -245,10 +265,12 @@
         "straatNaam": "Prinsenweg",
         "straatNr": "31",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 97,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 51.7677229605915,
-        "longitude": 5.87341899065353
+        "longitude": 5.87341899065353,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -269,7 +291,9 @@
         "puntType": "parcel_shop",
         "bezettingsgraad": 50,
         "latitude": 51.7677792,
-        "longitude": 5.8732588
+        "longitude": 5.8732588,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

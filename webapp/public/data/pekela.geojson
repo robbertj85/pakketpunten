@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Pekela",
     "slug": "pekela",
-    "generated_at": "2026-01-09T22:14:35.234873Z",
+    "generated_at": "2026-01-12T03:57:04.886029Z",
     "total_points": 11,
     "providers": [
       "DHL",
@@ -34,9 +34,11 @@
         "straatNr": "56-PS/67",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 51,
+        "bezettingsgraad": 50,
         "latitude": 53.079436884447084,
-        "longitude": 6.968836455451347
+        "longitude": 6.968836455451347,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -55,9 +57,11 @@
         "straatNr": "100-DB/58",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 23,
+        "bezettingsgraad": 50,
         "latitude": 53.0835843,
-        "longitude": 6.9746212
+        "longitude": 6.9746212,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -76,9 +80,11 @@
         "straatNr": "107-PS/75",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 61,
+        "bezettingsgraad": 50,
         "latitude": 53.1071204,
-        "longitude": 7.0026383
+        "longitude": 7.0026383,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -97,9 +103,11 @@
         "straatNr": "55-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 84,
+        "bezettingsgraad": 50,
         "latitude": 53.1029587,
-        "longitude": 7.0069905
+        "longitude": 7.0069905,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -118,9 +126,11 @@
         "straatNr": "100 A",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 21,
+        "bezettingsgraad": 50,
         "latitude": 53.0835843,
-        "longitude": 6.9746212
+        "longitude": 6.9746212,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -139,9 +149,11 @@
         "straatNr": "1",
         "vervoerder": "DPD",
         "puntType": "dpd_box",
-        "bezettingsgraad": 21,
+        "bezettingsgraad": 50,
         "latitude": 53.1086543899,
-        "longitude": 7.002551001
+        "longitude": 7.002551001,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -160,9 +172,11 @@
         "straatNr": "54",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 40,
+        "bezettingsgraad": 50,
         "latitude": 53.0932431,
-        "longitude": 6.9903375
+        "longitude": 6.9903375,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -180,10 +194,12 @@
         "straatNaam": "Kerkstraat",
         "straatNr": "2",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 13,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.0787968608596,
-        "longitude": 6.96812060086148
+        "longitude": 6.96812060086148,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -199,12 +215,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Albatrosstraat B",
-        "straatNr": "56",
+        "straatNr": "56PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 37,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 53.07914574,
-        "longitude": 6.968924337
+        "longitude": 6.968924337,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -222,10 +240,12 @@
         "straatNaam": "Albatrosstraat B",
         "straatNr": "56",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 80,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.07914574,
-        "longitude": 6.968924337
+        "longitude": 6.968924337,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -243,10 +263,12 @@
         "straatNaam": "de Helling",
         "straatNr": "14",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 65,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 53.10339674,
-        "longitude": 7.007694871
+        "longitude": 7.007694871,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

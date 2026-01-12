@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Hilversum",
     "slug": "hilversum",
-    "generated_at": "2026-01-09T22:07:19.332887Z",
+    "generated_at": "2026-01-12T03:50:08.458172Z",
     "total_points": 60,
     "providers": [
       "Amazon",
@@ -36,9 +36,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 39,
+        "bezettingsgraad": 50,
         "latitude": 52.2272018107079,
-        "longitude": 5.18272357728092
+        "longitude": 5.18272357728092,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -57,9 +59,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 15,
+        "bezettingsgraad": 50,
         "latitude": 52.225319152786,
-        "longitude": 5.17523876984303
+        "longitude": 5.17523876984303,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -78,9 +82,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 63,
+        "bezettingsgraad": 50,
         "latitude": 52.179143597917,
-        "longitude": 5.17757807930346
+        "longitude": 5.17757807930346,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -99,9 +105,11 @@
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
-        "bezettingsgraad": 19,
+        "bezettingsgraad": 50,
         "latitude": 52.2704896333412,
-        "longitude": 5.13785267623418
+        "longitude": 5.13785267623418,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -120,30 +128,11 @@
         "straatNr": "259",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 32,
+        "bezettingsgraad": 50,
         "latitude": 52.1791458,
-        "longitude": 5.1775773
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.152247,
-          52.210736
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Tamoil Hilversum",
-        "straatNaam": "Zoutmanlaan",
-        "straatNr": "5",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 67,
-        "latitude": 52.210736,
-        "longitude": 5.152247
+        "longitude": 5.1775773,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -162,9 +151,11 @@
         "straatNr": "43-PS/85",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 82,
+        "bezettingsgraad": 50,
         "latitude": 52.2249235,
-        "longitude": 5.1959557
+        "longitude": 5.1959557,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -183,9 +174,11 @@
         "straatNr": "59-PS/51",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 74,
+        "bezettingsgraad": 50,
         "latitude": 52.2273461,
-        "longitude": 5.1896528
+        "longitude": 5.1896528,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -204,9 +197,34 @@
         "straatNr": "57-C",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 73,
+        "bezettingsgraad": 50,
         "latitude": 52.222119,
-        "longitude": 5.174864
+        "longitude": 5.174864,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.152247,
+          52.210736
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tamoil Hilversum",
+        "straatNaam": "Zoutmanlaan",
+        "straatNr": "5",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.210736,
+        "longitude": 5.152247,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -225,9 +243,11 @@
         "straatNr": "33-A",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 16,
+        "bezettingsgraad": 50,
         "latitude": 52.2242075,
-        "longitude": 5.1754172
+        "longitude": 5.1754172,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -246,30 +266,11 @@
         "straatNr": "49",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 88,
+        "bezettingsgraad": 50,
         "latitude": 52.2248491,
-        "longitude": 5.1749157
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.191619,
-          52.230615
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "JW van Loenen IJzerhandel",
-        "straatNaam": "Jan van der Heijdenstraat",
-        "straatNr": "55-57",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 59,
-        "latitude": 52.230615,
-        "longitude": 5.191619
+        "longitude": 5.1749157,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -288,9 +289,11 @@
         "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 20,
+        "bezettingsgraad": 50,
         "latitude": 52.27032470703125,
-        "longitude": 5.1379499435424805
+        "longitude": 5.1379499435424805,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -309,9 +312,11 @@
         "straatNr": "47",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 23,
+        "bezettingsgraad": 50,
         "latitude": 52.272605895996094,
-        "longitude": 5.140721321105957
+        "longitude": 5.140721321105957,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -330,9 +335,11 @@
         "straatNr": "1-A",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 52,
+        "bezettingsgraad": 50,
         "latitude": 52.2234479,
-        "longitude": 5.1470603
+        "longitude": 5.1470603,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -351,9 +358,11 @@
         "straatNr": "419-C",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 10,
+        "bezettingsgraad": 50,
         "latitude": 52.2220756,
-        "longitude": 5.1500992
+        "longitude": 5.1500992,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -372,9 +381,11 @@
         "straatNr": "18-PS/67",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 82,
+        "bezettingsgraad": 50,
         "latitude": 52.22097499838376,
-        "longitude": 5.149097810219796
+        "longitude": 5.149097810219796,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -393,9 +404,11 @@
         "straatNr": "115-PS/101",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 26,
+        "bezettingsgraad": 50,
         "latitude": 52.21632,
-        "longitude": 5.14176
+        "longitude": 5.14176,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -414,9 +427,11 @@
         "straatNr": "30",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 56,
+        "bezettingsgraad": 50,
         "latitude": 52.2215367,
-        "longitude": 5.1556391
+        "longitude": 5.1556391,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -435,9 +450,11 @@
         "straatNr": "45-PS/67",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 5,
+        "bezettingsgraad": 50,
         "latitude": 52.237972516360415,
-        "longitude": 5.17606052680343
+        "longitude": 5.17606052680343,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -456,9 +473,11 @@
         "straatNr": "29-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 54,
+        "bezettingsgraad": 50,
         "latitude": 52.22545,
-        "longitude": 5.175818
+        "longitude": 5.175818,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -477,9 +496,11 @@
         "straatNr": "35",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 26,
+        "bezettingsgraad": 50,
         "latitude": 52.22880935668945,
-        "longitude": 5.181662082672119
+        "longitude": 5.181662082672119,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -498,9 +519,11 @@
         "straatNr": "155-PS/87",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 69,
+        "bezettingsgraad": 50,
         "latitude": 52.23295900674695,
-        "longitude": 5.188813779290014
+        "longitude": 5.188813779290014,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -519,9 +542,34 @@
         "straatNr": "90-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 29,
+        "bezettingsgraad": 50,
         "latitude": 52.2325692,
-        "longitude": 5.1917291
+        "longitude": 5.1917291,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.191619,
+          52.230615
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "JW van Loenen IJzerhandel",
+        "straatNaam": "Jan van der Heijdenstraat",
+        "straatNr": "55-57",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.230615,
+        "longitude": 5.191619,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -540,9 +588,11 @@
         "straatNr": "33A",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 19,
+        "bezettingsgraad": 50,
         "latitude": 52.2242075,
-        "longitude": 5.1754172
+        "longitude": 5.1754172,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -561,9 +611,11 @@
         "straatNr": "42E",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 34,
+        "bezettingsgraad": 50,
         "latitude": 52.2205781,
-        "longitude": 5.1679153
+        "longitude": 5.1679153,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -582,9 +634,11 @@
         "straatNr": "30",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 29,
+        "bezettingsgraad": 50,
         "latitude": 52.2215367,
-        "longitude": 5.1556391
+        "longitude": 5.1556391,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -603,9 +657,11 @@
         "straatNr": "259",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 80,
+        "bezettingsgraad": 50,
         "latitude": 52.179146,
-        "longitude": 5.177577
+        "longitude": 5.177577,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -624,9 +680,11 @@
         "straatNr": "223",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 2,
+        "bezettingsgraad": 50,
         "latitude": 52.216139,
-        "longitude": 5.171886
+        "longitude": 5.171886,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -645,9 +703,11 @@
         "straatNr": "47",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 92,
+        "bezettingsgraad": 50,
         "latitude": 52.22333,
-        "longitude": 5.17639
+        "longitude": 5.17639,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -666,9 +726,11 @@
         "straatNr": "35",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 75,
+        "bezettingsgraad": 50,
         "latitude": 52.2293861,
-        "longitude": 5.1816749
+        "longitude": 5.1816749,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -686,10 +748,12 @@
         "straatNaam": "Schoutenstraat",
         "straatNr": "4",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 77,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.22544086,
-        "longitude": 5.172955026
+        "longitude": 5.172955026,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -705,12 +769,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Verlengde Zuiderloswal",
-        "straatNr": "30",
+        "straatNr": "30PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 2,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.22313391,
-        "longitude": 5.150911285
+        "longitude": 5.150911285,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -728,10 +794,12 @@
         "straatNaam": "Kerkstraat",
         "straatNr": "39",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 58,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.225319152786,
-        "longitude": 5.17523876984303
+        "longitude": 5.17523876984303,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -749,10 +817,12 @@
         "straatNaam": "Verlengde Zuiderloswal",
         "straatNr": "30",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 44,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.22205643,
-        "longitude": 5.151443842
+        "longitude": 5.151443842,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -768,12 +838,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Stephensonlaan",
-        "straatNr": "42",
+        "straatNr": "42PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 68,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.23843355,
-        "longitude": 5.175879096
+        "longitude": 5.175879096,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -791,10 +863,12 @@
         "straatNaam": "Hilvertshof",
         "straatNr": "51",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 69,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.22477305,
-        "longitude": 5.176441474
+        "longitude": 5.176441474,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -810,12 +884,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Groest",
-        "straatNr": "7",
+        "straatNr": "7PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 92,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.2264664077974,
-        "longitude": 5.17849714421871
+        "longitude": 5.17849714421871,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -831,12 +907,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "2e Loswal",
-        "straatNr": "4",
+        "straatNr": "4PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 65,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.2230701634919,
-        "longitude": 5.1460528337689
+        "longitude": 5.1460528337689,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -854,10 +932,12 @@
         "straatNaam": "2e Loswal",
         "straatNr": "4",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 61,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.22307016,
-        "longitude": 5.146052834
+        "longitude": 5.146052834,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -875,10 +955,12 @@
         "straatNaam": "Koninginneweg",
         "straatNr": "167",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 99,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.227295780836,
-        "longitude": 5.17991297984702
+        "longitude": 5.17991297984702,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -896,10 +978,12 @@
         "straatNaam": "Korte Noorderweg",
         "straatNr": "33",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 7,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.229149854936,
-        "longitude": 5.1817580798996
+        "longitude": 5.1817580798996,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -917,10 +1001,12 @@
         "straatNaam": "Kleine Drift",
         "straatNr": "3",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 97,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.2272018107079,
-        "longitude": 5.18272357728092
+        "longitude": 5.18272357728092,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -938,10 +1024,12 @@
         "straatNaam": "Emmastraat",
         "straatNr": "34",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 88,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.221074648584,
-        "longitude": 5.1790345876888
+        "longitude": 5.1790345876888,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -959,10 +1047,12 @@
         "straatNaam": "Gijsbrecht van Amstelstraat",
         "straatNr": "118",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 74,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.2161256930439,
-        "longitude": 5.17089269708164
+        "longitude": 5.17089269708164,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -980,10 +1070,12 @@
         "straatNaam": "Gijsbrecht van Amstelstraat",
         "straatNr": "123",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 82,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.2158464,
-        "longitude": 5.170528239
+        "longitude": 5.170528239,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -999,12 +1091,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakket- en briefautomaat",
         "straatNaam": "Larenseweg",
-        "straatNr": "155",
+        "straatNr": "155PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 86,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.23285596,
-        "longitude": 5.188465047
+        "longitude": 5.188465047,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1022,10 +1116,12 @@
         "straatNaam": "Neuweg",
         "straatNr": "196",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 69,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.21337854,
-        "longitude": 5.167716312
+        "longitude": 5.167716312,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1041,12 +1137,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Primera Seinhorst",
         "straatNaam": "Jan van der Heijdenstraat",
-        "straatNr": "41",
+        "straatNr": "41A",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 91,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.23200718,
-        "longitude": 5.191498863
+        "longitude": 5.191498863,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1062,12 +1160,14 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat",
         "straatNaam": "Seinstraat",
-        "straatNr": "3",
+        "straatNr": "3PBA",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 15,
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
         "latitude": 52.2323586966159,
-        "longitude": 5.19209747471405
+        "longitude": 5.19209747471405,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1085,10 +1185,12 @@
         "straatNaam": "Oosterengweg",
         "straatNr": "68",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 5,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.21868369,
-        "longitude": 5.194835246
+        "longitude": 5.194835246,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1106,10 +1208,12 @@
         "straatNaam": "De Meent",
         "straatNr": "19",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 63,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.2704896333412,
-        "longitude": 5.13785267623418
+        "longitude": 5.13785267623418,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1127,10 +1231,12 @@
         "straatNaam": "Utrechtseweg",
         "straatNr": "259",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 33,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.179143597917,
-        "longitude": 5.17757807930346
+        "longitude": 5.17757807930346,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1149,9 +1255,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 30,
+        "bezettingsgraad": 50,
         "latitude": 52.22154,
-        "longitude": 5.15564
+        "longitude": 5.15564,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1170,9 +1278,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 73,
+        "bezettingsgraad": 50,
         "latitude": 52.22294,
-        "longitude": 5.14455
+        "longitude": 5.14455,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1191,9 +1301,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 39,
+        "bezettingsgraad": 50,
         "latitude": 52.21606,
-        "longitude": 5.17104
+        "longitude": 5.17104,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1212,9 +1324,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 100,
+        "bezettingsgraad": 50,
         "latitude": 52.22662,
-        "longitude": 5.17368
+        "longitude": 5.17368,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1233,9 +1347,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "locker",
-        "bezettingsgraad": 29,
+        "bezettingsgraad": 50,
         "latitude": 52.2249235,
-        "longitude": 5.1959557
+        "longitude": 5.1959557,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1254,9 +1370,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 33,
+        "bezettingsgraad": 50,
         "latitude": 52.2293097,
-        "longitude": 5.1818288
+        "longitude": 5.1818288,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -1275,9 +1393,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 38,
+        "bezettingsgraad": 50,
         "latitude": 52.2205983,
-        "longitude": 5.1678686
+        "longitude": 5.1678686,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {

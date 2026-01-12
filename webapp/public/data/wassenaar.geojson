@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Wassenaar",
     "slug": "wassenaar",
-    "generated_at": "2026-01-09T22:21:02.659831Z",
+    "generated_at": "2026-01-12T04:03:21.962783Z",
     "total_points": 10,
     "providers": [
       "DHL",
@@ -35,9 +35,11 @@
         "straatNr": "154",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 77,
+        "bezettingsgraad": 50,
         "latitude": 52.1428623,
-        "longitude": 4.3950756
+        "longitude": 4.3950756,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -56,9 +58,11 @@
         "straatNr": "40-PS/89",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 54,
+        "bezettingsgraad": 50,
         "latitude": 52.1472307,
-        "longitude": 4.399542
+        "longitude": 4.399542,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -77,9 +81,11 @@
         "straatNr": "88",
         "vervoerder": "DHL",
         "puntType": "parcelShop",
-        "bezettingsgraad": 54,
+        "bezettingsgraad": 50,
         "latitude": 52.145481,
-        "longitude": 4.399131
+        "longitude": 4.399131,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -98,9 +104,11 @@
         "straatNr": "447-PS/87",
         "vervoerder": "DHL",
         "puntType": "packStation",
-        "bezettingsgraad": 55,
+        "bezettingsgraad": 50,
         "latitude": 52.13918895177978,
-        "longitude": 4.410115901252102
+        "longitude": 4.410115901252102,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -119,9 +127,11 @@
         "straatNr": "40",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 81,
+        "bezettingsgraad": 50,
         "latitude": 52.1472307,
-        "longitude": 4.399542
+        "longitude": 4.399542,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -140,9 +150,11 @@
         "straatNr": "8",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
-        "bezettingsgraad": 75,
+        "bezettingsgraad": 50,
         "latitude": 52.1447361,
-        "longitude": 4.404343
+        "longitude": 4.404343,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -160,10 +172,12 @@
         "straatNaam": "Van Hogendorpstraat",
         "straatNr": "135",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 81,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.14534249,
-        "longitude": 4.394770311
+        "longitude": 4.394770311,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -179,12 +193,14 @@
         "type": "pakketpunt",
         "locatieNaam": "GAMMA Wassenaar Compact",
         "straatNaam": "Hofcampweg",
-        "straatNr": "296",
+        "straatNr": "296-300",
         "vervoerder": "PostNL",
-        "puntType": "",
-        "bezettingsgraad": 20,
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
         "latitude": 52.14812334,
-        "longitude": 4.396242667
+        "longitude": 4.396242667,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -203,9 +219,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 70,
+        "bezettingsgraad": 50,
         "latitude": 52.142294,
-        "longitude": 4.3943526
+        "longitude": 4.3943526,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -224,9 +242,11 @@
         "straatNr": "",
         "vervoerder": "VintedGo",
         "puntType": "parcel_shop",
-        "bezettingsgraad": 35,
+        "bezettingsgraad": 50,
         "latitude": 52.144649,
-        "longitude": 4.402907
+        "longitude": 4.402907,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
