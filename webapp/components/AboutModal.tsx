@@ -218,10 +218,6 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                     <span className="text-gray-500 ml-2">© OpenStreetMap contributors</span>
                   </li>
                   <li>
-                    <strong>Bedrijfslogo's:</strong> Clearbit Logo API
-                    <span className="text-gray-500 ml-2">© Respectieve merkhouders</span>
-                  </li>
-                  <li>
                     <strong>Kaartachtergrond:</strong> OpenStreetMap tiles
                     <span className="text-gray-500 ml-2">© OpenStreetMap contributors</span>
                   </li>
@@ -259,7 +255,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
               <section>
                 <h4 className="text-md font-semibold text-gray-900 mb-3">API Provider Policies</h4>
                 <div className="space-y-2 text-sm text-gray-700">
-                  <p><strong>DHL, PostNL, DPD:</strong> Publieke API's voor consumentengebruik. Respecteer rate limits en gebruiksvoorwaarden.</p>
+                  <p><strong>DHL, PostNL, DPD, GLS:</strong> Publieke API's voor consumentengebruik. Respecteer rate limits en gebruiksvoorwaarden.</p>
                   <p><strong>VintedGo, De Buren:</strong> Data verzameld via publiek toegankelijke websites. Niet geschikt voor high-frequency scraping.</p>
                   <p><strong>Amazon Hub:</strong> Data verzameld via browser automatisering. Gecached en wekelijks bijgewerkt.</p>
                   <p><strong>Algemeen:</strong> Geen geautomatiseerde hoge-frequentie verzoeken. Gebruik cached data waar mogelijk.</p>

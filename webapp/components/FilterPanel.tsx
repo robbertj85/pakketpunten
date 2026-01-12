@@ -27,7 +27,7 @@ const PROVIDER_INFO = {
 
 const CATEGORY_INFO: Record<PointCategory, { name: string }> = {
   locker: { name: 'Pakketautomaat' },
-  shop: { name: 'Afhaalpunt' },
+  shop: { name: 'Pakketpunt' },
 };
 
 const SERVICE_INFO: Record<ServiceFilter, { name: string; description: string }> = {

@@ -99,5 +99,5 @@ export function getPointCategory(puntType: string): PointCategory {
 }
 
 export function getCategoryLabel(category: PointCategory): string {
-  return category === 'locker' ? 'Pakketautomaat' : 'Afhaalpunt';
+  return category === 'locker' ? 'Pakketautomaat' : 'Pakketpunt';
 }
