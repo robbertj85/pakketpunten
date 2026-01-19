@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Lansingerland",
     "slug": "lansingerland",
-    "generated_at": "2026-01-12T03:51:53.529334Z",
-    "total_points": 29,
+    "generated_at": "2026-01-19T03:53:43.170304Z",
+    "total_points": 30,
     "providers": [
       "Amazon",
       "DHL",
@@ -338,6 +338,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.9783986,
         "longitude": 4.4529456,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.501392,
+          51.988563
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DPD Pakketautomaat - Plus Koelhuis",
+        "straatNaam": "DE VLASHOECK",
+        "straatNr": "24-30",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 50,
+        "latitude": 51.988563,
+        "longitude": 4.501392,
         "canPickup": true,
         "canDropoff": false
       }
@@ -2319,10 +2342,6 @@
           [
             [
               [
-                4.4590927175021955,
-                51.98902087343256
-              ],
-              [
                 4.458914433857661,
                 51.988780242576084
               ],
@@ -2601,6 +2620,10 @@
               [
                 4.4590927175021955,
                 51.98902087343256
+              ],
+              [
+                4.458914433857661,
+                51.988780242576084
               ]
             ]
           ],
@@ -4699,10 +4722,6 @@
           [
             [
               [
-                4.460444702991795,
-                51.98868754808681
-              ],
-              [
                 4.460206983951442,
                 51.98836670958122
               ],
@@ -4973,6 +4992,10 @@
               [
                 4.460444702991795,
                 51.98868754808681
+              ],
+              [
+                4.460206983951442,
+                51.98836670958122
               ]
             ]
           ],

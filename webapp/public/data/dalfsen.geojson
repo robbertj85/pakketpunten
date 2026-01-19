@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Dalfsen",
     "slug": "dalfsen",
-    "generated_at": "2026-01-12T03:44:15.146447Z",
+    "generated_at": "2026-01-19T03:45:37.915390Z",
     "total_points": 39,
     "providers": [
       "Amazon",
@@ -464,29 +464,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2912875,
-          52.5734498
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "My Colorful Interior",
-        "straatNaam": "GROTE MARKT",
-        "straatNr": "21b",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.5734498,
-        "longitude": 6.2912875,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.263621068,
           52.50938718
         ]
@@ -777,6 +754,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.5106365,
         "longitude": 6.2685356,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.266034,
+          52.5089545
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Vve De Goldkamp ",
+        "straatNaam": "Goldkampstraat 41",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 52.5089545,
+        "longitude": 6.266034,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1643,10 +1643,6 @@
           [
             [
               [
-                6.273023134943627,
-                52.56508461678597
-              ],
-              [
                 6.272795375738208,
                 52.56485935934546
               ],
@@ -1901,15 +1897,15 @@
               [
                 6.273023134943627,
                 52.56508461678597
+              ],
+              [
+                6.272795375738208,
+                52.56485935934546
               ]
             ]
           ],
           [
             [
-              [
-                6.28355007939821,
-                52.59307871955347
-              ],
               [
                 6.283979016595594,
                 52.59303665636997
@@ -2313,6 +2309,10 @@
               [
                 6.28355007939821,
                 52.59307871955347
+              ],
+              [
+                6.283979016595594,
+                52.59303665636997
               ]
             ]
           ],
@@ -4087,10 +4087,6 @@
           [
             [
               [
-                6.2743151614789445,
-                52.56465129287755
-              ],
-              [
                 6.274011477277358,
                 52.564350952810166
               ],
@@ -4345,15 +4341,15 @@
               [
                 6.2743151614789445,
                 52.56465129287755
+              ],
+              [
+                6.274011477277358,
+                52.564350952810166
               ]
             ]
           ],
           [
             [
-              [
-                6.283712918413071,
-                52.593971923805704
-              ],
               [
                 6.284284845869435,
                 52.59391583841933
@@ -4729,6 +4725,10 @@
               [
                 6.283712918413071,
                 52.593971923805704
+              ],
+              [
+                6.284284845869435,
+                52.59391583841933
               ]
             ]
           ],

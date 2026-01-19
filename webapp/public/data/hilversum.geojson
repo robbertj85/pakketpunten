@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Hilversum",
     "slug": "hilversum",
-    "generated_at": "2026-01-12T03:50:08.458172Z",
-    "total_points": 60,
+    "generated_at": "2026-01-19T03:51:49.717759Z",
+    "total_points": 59,
     "providers": [
       "Amazon",
       "DHL",
@@ -269,6 +269,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.2248491,
         "longitude": 5.1749157,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.191619,
+          52.230615
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "JW van Loenen IJzerhandel",
+        "straatNaam": "Jan van der Heijdenstraat",
+        "straatNr": "55-57",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.230615,
+        "longitude": 5.191619,
         "canPickup": true,
         "canDropoff": true
       }
@@ -545,29 +568,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.2325692,
         "longitude": 5.1917291,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.191619,
-          52.230615
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "JW van Loenen IJzerhandel",
-        "straatNaam": "Jan van der Heijdenstraat",
-        "straatNr": "55-57",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.230615,
-        "longitude": 5.191619,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1028,29 +1028,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.221074648584,
         "longitude": 5.1790345876888,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.17089269708164,
-          52.2161256930439
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Stomerij De Cirkel",
-        "straatNaam": "Gijsbrecht van Amstelstraat",
-        "straatNr": "118",
-        "vervoerder": "PostNL",
-        "puntType": "servicepunt",
-        "bezettingsgraad": 50,
-        "latitude": 52.2161256930439,
-        "longitude": 5.17089269708164,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1860,16 +1837,12 @@
                 52.21755066860924
               ],
               [
-                5.167287713273097,
-                52.21766058822907
+                5.167414841850246,
+                52.21774726685784
               ],
               [
-                5.167490949598225,
-                52.217829972063605
-              ],
-              [
-                5.167581342314858,
-                52.21789160296502
+                5.167668157872451,
+                52.217889145062514
               ],
               [
                 5.167498214063778,
@@ -3300,16 +3273,8 @@
                 52.218873817797686
               ],
               [
-                5.17122684440903,
-                52.21881218976327
-              ],
-              [
-                5.171309974180555,
-                52.21880983369123
-              ],
-              [
-                5.171313316462756,
-                52.218809535421876
+                5.171208680293694,
+                52.218799806767436
               ],
               [
                 5.17144274431381,
@@ -4252,11 +4217,11 @@
                 52.21944692278393
               ],
               [
-                5.152785737188751,
+                5.15278573718875,
                 52.21949070444483
               ],
               [
-                5.15275570914135,
+                5.152755709141351,
                 52.219484038202665
               ],
               [
@@ -7810,10 +7775,6 @@
               [
                 5.1325437792811766,
                 52.26893740226064
-              ],
-              [
-                5.132446628730661,
-                52.2691021522209
               ],
               [
                 5.13244662873066,

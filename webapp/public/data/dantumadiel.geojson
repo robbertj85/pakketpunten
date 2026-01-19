@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Dantumadiel",
     "slug": "dantumadiel",
-    "generated_at": "2026-01-12T03:44:19.573471Z",
-    "total_points": 32,
+    "generated_at": "2026-01-19T03:45:42.582068Z",
+    "total_points": 34,
     "providers": [
       "Amazon",
       "DHL",
@@ -509,6 +509,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.99566455434486,
+          53.2939050908691
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Conradi-Veenlandstrjitte",
+        "straatNr": "22PBA",
+        "vervoerder": "PostNL",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 53.2939050908691,
+        "longitude": 5.99566455434486,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.994706793,
           53.23974463
         ]
@@ -730,6 +753,29 @@
         "bezettingsgraad": 50,
         "latitude": 53.2939622,
         "longitude": 5.9954828,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.99566455,
+          53.293905
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Conradi-Veenlandstrjitte",
+        "straatNr": "22",
+        "vervoerder": "GLS",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 53.293905,
+        "longitude": 5.99566455,
         "canPickup": true,
         "canDropoff": true
       }
@@ -2605,10 +2651,6 @@
           [
             [
               [
-                6.00303093347177,
-                53.302137499950994
-              ],
-              [
                 6.002800677802632,
                 53.301911777170226
               ],
@@ -2863,6 +2905,10 @@
               [
                 6.00303093347177,
                 53.302137499950994
+              ],
+              [
+                6.002800677802632,
+                53.301911777170226
               ]
             ]
           ]
@@ -4493,10 +4539,6 @@
           [
             [
               [
-                6.004347657871848,
-                53.301707169489625
-              ],
-              [
                 6.004040644750431,
                 53.301406209007546
               ],
@@ -4751,6 +4793,10 @@
               [
                 6.004347657871848,
                 53.301707169489625
+              ],
+              [
+                6.004040644750431,
+                53.301406209007546
               ]
             ]
           ]

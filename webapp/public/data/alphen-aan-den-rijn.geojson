@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Alphen aan den Rijn",
     "slug": "alphen-aan-den-rijn",
-    "generated_at": "2026-01-12T03:40:31.028701Z",
+    "generated_at": "2026-01-19T03:41:38.778885Z",
     "total_points": 75,
     "providers": [
       "Amazon",
@@ -578,29 +578,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.665445,
-          52.142502
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Lekker Makkelijk",
-        "straatNaam": "Sterrenlaan",
-        "straatNr": "170-PS/177",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.142502,
-        "longitude": 4.665445,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.667212,
           52.142442
         ]
@@ -615,6 +592,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.142442,
         "longitude": 4.667212,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.665445,
+          52.142502
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Lekker Makkelijk",
+        "straatNaam": "Sterrenlaan",
+        "straatNr": "170-PS/177",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.142502,
+        "longitude": 4.665445,
         "canPickup": true,
         "canDropoff": true
       }

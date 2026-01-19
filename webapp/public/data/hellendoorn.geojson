@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Hellendoorn",
     "slug": "hellendoorn",
-    "generated_at": "2026-01-12T03:49:27.842054Z",
+    "generated_at": "2026-01-19T03:51:06.337851Z",
     "total_points": 49,
     "providers": [
       "Amazon",
@@ -554,29 +554,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4645572,
-          52.3649725
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - Anytime",
-        "straatNaam": "GROTESTRAAT",
-        "straatNr": "49",
-        "vervoerder": "DPD",
-        "puntType": "dpd_box",
-        "bezettingsgraad": 50,
-        "latitude": 52.3649725,
-        "longitude": 6.4645572,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.470369,
           52.3651681
         ]
@@ -798,6 +775,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.3609252615948,
         "longitude": 6.49514079093933,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.49018496375313,
+          52.358634287973
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Nijverheidsweg",
+        "straatNr": "2B PBA",
+        "vervoerder": "PostNL",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.358634287973,
+        "longitude": 6.49018496375313,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3139,10 +3139,6 @@
           [
             [
               [
-                6.473335657959524,
-                52.378839248871024
-              ],
-              [
                 6.473107847468428,
                 52.37861436734597
               ],
@@ -3533,6 +3529,10 @@
               [
                 6.473335657959524,
                 52.378839248871024
+              ],
+              [
+                6.473107847468428,
+                52.37861436734597
               ]
             ]
           ],
@@ -4313,10 +4313,6 @@
               [
                 6.497814145871657,
                 52.36308784993913
-              ],
-              [
-                6.497919726187852,
-                52.363014300574484
               ],
               [
                 6.497919726187852,
@@ -5451,7 +5447,7 @@
                 52.36867695271301
               ],
               [
-                6.463396455494739,
+                6.46339645549474,
                 52.368493892077794
               ],
               [
@@ -6635,6 +6631,10 @@
           [
             [
               [
+                6.473966225385839,
+                52.37782373457052
+              ],
+              [
                 6.473572734038148,
                 52.37756592002342
               ],
@@ -6993,10 +6993,6 @@
               [
                 6.473966225385839,
                 52.37782373457052
-              ],
-              [
-                6.473572734038148,
-                52.37756592002342
               ]
             ]
           ],
