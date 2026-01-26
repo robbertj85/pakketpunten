@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Valkenswaard",
     "slug": "valkenswaard",
-    "generated_at": "2026-01-19T04:04:11.908961Z",
-    "total_points": 30,
+    "generated_at": "2026-01-26T04:20:25.409429Z",
+    "total_points": 31,
     "providers": [
       "Amazon",
       "DHL",
@@ -707,6 +707,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.352127,
         "longitude": 5.46865328,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4597905,
+          51.3522987
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "The Repair House",
+        "straatNaam": "Eindhovenseweg",
+        "straatNr": "28",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.3522987,
+        "longitude": 5.4597905,
         "canPickup": true,
         "canDropoff": true
       }

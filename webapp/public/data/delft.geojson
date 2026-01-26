@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Delft",
     "slug": "delft",
-    "generated_at": "2026-01-19T03:46:07.984861Z",
-    "total_points": 64,
+    "generated_at": "2026-01-26T04:03:21.943534Z",
+    "total_points": 65,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -302,29 +302,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3466426,
-          51.9944637
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "DHL Buurtpunt ViaTim & Anneke",
-        "straatNaam": "Diepenbrockstraat",
-        "straatNr": "136",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9944637,
-        "longitude": 4.3466426,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.366926035431844,
           52.02809857835713
         ]
@@ -440,20 +417,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3355951,
-          52.0132007
+          4.364685673572599,
+          52.00923381442064
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "De Witte Tulp",
-        "straatNaam": "Van Schuijlenburchstraat",
-        "straatNr": "66",
+        "locatieNaam": "Pakketautomaat MediaMarkt Delft",
+        "straatNaam": "Bastiaansplein",
+        "straatNr": "137-PS/85",
         "vervoerder": "DHL",
-        "puntType": "parcelShop",
+        "puntType": "packStation",
         "bezettingsgraad": 50,
-        "latitude": 52.0132007,
-        "longitude": 4.3355951,
+        "latitude": 52.00923381442064,
+        "longitude": 4.364685673572599,
         "canPickup": true,
         "canDropoff": true
       }
@@ -601,6 +578,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.3466426,
+          51.9944637
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DHL Buurtpunt ViaTim & Anneke",
+        "straatNaam": "Diepenbrockstraat",
+        "straatNr": "136",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9944637,
+        "longitude": 4.3466426,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.3516798,
           51.997085
         ]
@@ -684,6 +684,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.004474,
         "longitude": 4.350815,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3355951,
+          52.0132007
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "De Witte Tulp",
+        "straatNaam": "Van Schuijlenburchstraat",
+        "straatNr": "66",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.0132007,
+        "longitude": 4.3355951,
         "canPickup": true,
         "canDropoff": true
       }
@@ -5669,10 +5692,6 @@
           [
             [
               [
-                4.366558755399235,
-                52.0254117647117
-              ],
-              [
                 4.366133611574128,
                 52.02544690804121
               ],
@@ -5955,6 +5974,10 @@
               [
                 4.366558755399235,
                 52.0254117647117
+              ],
+              [
+                4.366133611574128,
+                52.02544690804121
               ]
             ]
           ]
@@ -8975,10 +8998,6 @@
           [
             [
               [
-                4.3664363380373326,
-                52.02451615838302
-              ],
-              [
                 4.365869490673402,
                 52.02456301526041
               ],
@@ -9257,6 +9276,10 @@
               [
                 4.3664363380373326,
                 52.02451615838302
+              ],
+              [
+                4.365869490673402,
+                52.02456301526041
               ]
             ]
           ]

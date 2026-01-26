@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Best",
     "slug": "best",
-    "generated_at": "2026-01-19T03:43:43.954815Z",
-    "total_points": 32,
+    "generated_at": "2026-01-26T04:01:02.942564Z",
+    "total_points": 33,
     "providers": [
       "Amazon",
       "DHL",
@@ -132,6 +132,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.5125088,
         "longitude": 5.3950471,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.394906,
+          51.4987732
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Speelgoed en Techniek",
+        "straatNaam": "Koningin Julianaweg",
+        "straatNr": "35",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.4987732,
+        "longitude": 5.394906,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3241,7 +3264,7 @@
                 51.500259396138865
               ],
               [
-                5.410549989665961,
+                5.410549989665962,
                 51.50021400141618
               ],
               [

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Eindhoven",
     "slug": "eindhoven",
-    "generated_at": "2026-01-19T03:48:06.230344Z",
-    "total_points": 192,
+    "generated_at": "2026-01-26T04:05:13.903838Z",
+    "total_points": 193,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -1720,6 +1720,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.452295,
         "longitude": 5.471878,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.458367,
+          51.447208
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Good Day Concept Store",
+        "straatNaam": "LEIDINGSTRAAT",
+        "straatNr": "6",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 51.447208,
+        "longitude": 5.458367,
         "canPickup": true,
         "canDropoff": false
       }
@@ -9470,6 +9493,10 @@
           [
             [
               [
+                5.456913568585099,
+                51.43921438766346
+              ],
+              [
                 5.456628913122264,
                 51.439018478325266
               ],
@@ -11180,10 +11207,6 @@
               [
                 5.456913568585099,
                 51.43921438766346
-              ],
-              [
-                5.456628913122264,
-                51.439018478325266
               ]
             ],
             [
@@ -12738,7 +12761,7 @@
                 51.457177711699195
               ],
               [
-                5.471338201060388,
+                5.471338201060387,
                 51.457286350975195
               ],
               [
@@ -15786,10 +15809,6 @@
           [
             [
               [
-                5.48869507072669,
-                51.474261528779515
-              ],
-              [
                 5.488295890859817,
                 51.474172724044976
               ],
@@ -16396,6 +16415,10 @@
               [
                 5.48869507072669,
                 51.474261528779515
+              ],
+              [
+                5.488295890859817,
+                51.474172724044976
               ]
             ]
           ],
