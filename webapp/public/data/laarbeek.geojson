@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Laarbeek",
     "slug": "laarbeek",
-    "generated_at": "2026-01-26T04:10:11.502711Z",
-    "total_points": 18,
+    "generated_at": "2026-02-02T04:38:28.430281Z",
+    "total_points": 19,
     "providers": [
       "Amazon",
       "DHL",
@@ -200,6 +200,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.5210609436,
         "longitude": 5.5938196182,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.6288332,
+          51.538153
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Charisma Kapsalon",
+        "straatNaam": "PIET VAN THIELPLEIN",
+        "straatNr": "13a",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 51.538153,
+        "longitude": 5.6288332,
         "canPickup": true,
         "canDropoff": false
       }

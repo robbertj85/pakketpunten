@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Meppel",
     "slug": "meppel",
-    "generated_at": "2026-01-26T04:12:17.710269Z",
-    "total_points": 51,
+    "generated_at": "2026-02-02T04:40:39.971085Z",
+    "total_points": 52,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -730,6 +730,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.6920191,
         "longitude": 6.17719,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.189926,
+          52.698776
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "AR Shop",
+        "straatNaam": "HOOFDSTRAAT",
+        "straatNr": "9",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 52.698776,
+        "longitude": 6.189926,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1530,10 +1553,6 @@
           [
             [
               [
-                6.178007985885267,
-                52.689369287692124
-              ],
-              [
                 6.177576608455115,
                 52.68933333130484
               ],
@@ -1856,6 +1875,10 @@
               [
                 6.178007985885267,
                 52.689369287692124
+              ],
+              [
+                6.177576608455115,
+                52.68933333130484
               ]
             ]
           ],
@@ -3854,10 +3877,6 @@
           [
             [
               [
-                6.228237564168175,
-                52.688649581439215
-              ],
-              [
                 6.227941428507543,
                 52.68845562457738
               ],
@@ -4128,6 +4147,10 @@
               [
                 6.228237564168175,
                 52.688649581439215
+              ],
+              [
+                6.227941428507543,
+                52.68845562457738
               ]
             ]
           ],
@@ -4402,7 +4425,7 @@
                 52.694443731808285
               ],
               [
-                6.221425804665993,
+                6.221425804665994,
                 52.694414163892844
               ],
               [
