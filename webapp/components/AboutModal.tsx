@@ -397,6 +397,28 @@ License: MIT`}
                   </a>
                   <p className="text-xs text-gray-500 mt-2">Renewable and Sustainable Energy Reviews | Augustus 2023</p>
                 </div>
+
+                <div className="border border-gray-200 rounded-lg p-4 hover:border-purple-300 transition">
+                  <h4 className="font-semibold text-gray-900 mb-2">Drivers of Consumers' Adoption of Parcel Lockers</h4>
+                  <p className="text-sm text-gray-700 mb-3">
+                    Studie naar consumentenadoptie van pakketkluizen in opkomende economieën (case study: Medellín, Colombia).
+                    Belangrijkste bevindingen: gemak en leversnelheid zijn de sterkste drivers; innovatieve en milieubewuste
+                    consumenten adopteren sneller. Opvallend: hoewel respondenten zichzelf als milieubewust beschouwen,
+                    zien ze geen sterke link tussen pakketkluizen en milieuvoordelen — dit wijst op een kenniskloof.
+                  </p>
+                  <a
+                    href="https://www.sciencedirect.com/science/article/pii/S259019822600031X"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm text-purple-600 hover:text-purple-800 font-medium"
+                  >
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Lees Artikel (Open Access)
+                  </a>
+                  <p className="text-xs text-gray-500 mt-2">Transportation Research Interdisciplinary Perspectives | Januari 2026</p>
+                </div>
               </div>
             </div>
           )}
