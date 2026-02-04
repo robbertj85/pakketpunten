@@ -21,7 +21,7 @@
  */
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, CircleMarker, Polyline } from 'react-leaflet';
 import type { LatLngBoundsExpression } from 'leaflet';
 import L from 'leaflet';
@@ -33,60 +33,110 @@ interface MapProps {
   filters?: Filters;
   targetCoordinates?: { latitude: number; longitude: number } | null;
   onZoomedToTarget?: () => void;
+  searchLocationMarker?: { latitude: number; longitude: number } | null;
+  highlightedPoints?: Set<string> | null; // Set of "lat,lng" keys for highlighted points
 }
 
 // Component to fit bounds when data changes (only once, not on every zoom/pan)
 // Also handles fallback center when no bounds are available (e.g., 0 pakketpunten)
-// Also handles targetCoordinates when address search is used
+// Also handles targetCoordinates and searchLocationMarker for zooming to specific locations
 function FitBounds({
   bounds,
   fallbackCenter,
   targetCoordinates,
+  searchLocationMarker,
   onZoomedToTarget
 }: {
   bounds: LatLngBoundsExpression | null;
   fallbackCenter: [number, number] | null;
   targetCoordinates?: { latitude: number; longitude: number } | null;
+  searchLocationMarker?: { latitude: number; longitude: number } | null;
   onZoomedToTarget?: () => void;
 }) {
   const map = useMap();
-  const [hasFit, setHasFit] = useState(false);
+  const lastBoundsRef = useRef<string | null>(null);
+  const lastTargetRef = useRef<{ latitude: number; longitude: number } | null>(null);
+  const lastSearchLocationRef = useRef<{ latitude: number; longitude: number } | null>(null);
+  // Timestamp of last zoom to specific location - ignore bounds fitting for 2 seconds after
+  const lastZoomTimestampRef = useRef<number>(0);
 
+  // Handle target coordinates (clicking on a result) - always zoom when new coordinates are provided
   useEffect(() => {
-    // Priority 1: If targetCoordinates provided (from address search), zoom to them
-    if (targetCoordinates && !hasFit) {
-      console.log('FitBounds: Zooming to target coordinates', targetCoordinates);
-      map.setView([targetCoordinates.latitude, targetCoordinates.longitude], 17, { animate: true });
-      setHasFit(true);
-      // Notify parent that we've zoomed to target after a short delay (to allow animation)
-      setTimeout(() => {
-        if (onZoomedToTarget) {
-          onZoomedToTarget();
-        }
-      }, 1000);
-    }
-    // Priority 2: Fit to municipality bounds
-    else if (bounds && !hasFit) {
-      console.log('FitBounds: Fitting to municipality bounds');
-      map.fitBounds(bounds, { padding: [50, 50] });
-      setHasFit(true);
-    }
-    // Priority 3: Fallback to municipality center
-    else if (!bounds && fallbackCenter && !hasFit) {
-      // No bounds available (e.g., 0 pakketpunten), but we have a boundary polygon
-      // Fly to the municipality's center
-      console.log('FitBounds: Using fallback center');
-      map.setView(fallbackCenter, 13, { animate: true });
-      setHasFit(true);
-    }
-  }, [bounds, fallbackCenter, targetCoordinates, map, hasFit, onZoomedToTarget]);
+    if (targetCoordinates) {
+      const isNewTarget = !lastTargetRef.current ||
+        lastTargetRef.current.latitude !== targetCoordinates.latitude ||
+        lastTargetRef.current.longitude !== targetCoordinates.longitude;
 
-  // Reset hasFit when bounds or fallbackCenter change
-  // Note: We don't reset on targetCoordinates change because it gets cleared after zoom,
-  // and we don't want to re-fit to bounds after the user searched for an address
+      if (isNewTarget) {
+        console.log('FitBounds: Zooming to target coordinates', targetCoordinates);
+        lastZoomTimestampRef.current = Date.now(); // Mark zoom time
+        map.setView([targetCoordinates.latitude, targetCoordinates.longitude], 17, { animate: true });
+        lastTargetRef.current = targetCoordinates;
+
+        setTimeout(() => {
+          if (onZoomedToTarget) {
+            onZoomedToTarget();
+          }
+        }, 1000);
+      }
+    }
+  }, [targetCoordinates, map, onZoomedToTarget]);
+
+  // Handle search location marker - zoom to search location
   useEffect(() => {
-    setHasFit(false);
-  }, [bounds, fallbackCenter]);
+    if (searchLocationMarker) {
+      const isNewLocation = !lastSearchLocationRef.current ||
+        lastSearchLocationRef.current.latitude !== searchLocationMarker.latitude ||
+        lastSearchLocationRef.current.longitude !== searchLocationMarker.longitude;
+
+      if (isNewLocation) {
+        console.log('FitBounds: Zooming to search location', searchLocationMarker);
+        lastZoomTimestampRef.current = Date.now(); // Mark zoom time
+        map.setView([searchLocationMarker.latitude, searchLocationMarker.longitude], 15, { animate: true });
+        lastSearchLocationRef.current = searchLocationMarker;
+      }
+    } else {
+      // Clear the ref when search is cleared
+      lastSearchLocationRef.current = null;
+    }
+  }, [searchLocationMarker, map]);
+
+  // Handle initial bounds fit (only when NO specific location zoom has occurred recently)
+  useEffect(() => {
+    // Skip if we zoomed to a specific location within the last 2 seconds
+    const timeSinceZoom = Date.now() - lastZoomTimestampRef.current;
+    if (timeSinceZoom < 2000) {
+      console.log('FitBounds: Skipping bounds fit - recently zoomed to specific location');
+      return;
+    }
+
+    // NEVER fit bounds if search location is active
+    if (searchLocationMarker) {
+      console.log('FitBounds: Skipping bounds fit - search location active');
+      return;
+    }
+
+    // Don't fit bounds if we have target coordinates
+    if (targetCoordinates) {
+      console.log('FitBounds: Skipping bounds fit - target coordinates active');
+      return;
+    }
+
+    // Create a string key for current bounds to track changes
+    const boundsKey = bounds ? JSON.stringify(bounds) : (fallbackCenter ? `center-${fallbackCenter.join(',')}` : null);
+
+    // Only fit if bounds actually changed
+    if (boundsKey && boundsKey !== lastBoundsRef.current) {
+      if (bounds) {
+        console.log('FitBounds: Fitting to municipality bounds');
+        map.fitBounds(bounds, { padding: [50, 50] });
+      } else if (fallbackCenter) {
+        console.log('FitBounds: Using fallback center');
+        map.setView(fallbackCenter, 13, { animate: true });
+      }
+      lastBoundsRef.current = boundsKey;
+    }
+  }, [bounds, fallbackCenter, targetCoordinates, searchLocationMarker, map]);
 
   return null;
 }
@@ -206,22 +256,25 @@ function getMarkerSize(zoom: number): { size: number; logoSize: number; fontSize
 }
 
 // Create custom icon for each provider with dynamic sizing and service indicators
-function createProviderIcon(provider: string, zoom: number, canPickup?: boolean, canDropoff?: boolean) {
+function createProviderIcon(provider: string, zoom: number, canPickup?: boolean, canDropoff?: boolean, grayed?: boolean) {
   const info = PROVIDER_INFO[provider] || {
     background: '#666',
     logoUrl: '',
   };
 
-  const borderColor = info.borderColor || 'white';
+  const borderColor = grayed ? '#9ca3af' : (info.borderColor || 'white');
   const { size, logoSize, fontSize } = getMarkerSize(zoom);
 
-  // Generate service indicator arrows
-  const arrowSize = Math.max(10, size * 0.28);
-  const arrowOffset = size * 0.35;
+  // Reduce size for grayed markers
+  const actualSize = grayed ? size * 0.85 : size;
+  const actualLogoSize = grayed ? logoSize * 0.85 : logoSize;
 
-  // Show arrows only when one service is available (not both)
-  const showPickupArrow = canPickup && !canDropoff;
-  const showDropoffArrow = canDropoff && !canPickup;
+  // Generate service indicator arrows (only for highlighted markers)
+  const arrowSize = Math.max(10, size * 0.28);
+
+  // Show arrows only when one service is available (not both) and not grayed
+  const showPickupArrow = !grayed && canPickup && !canDropoff;
+  const showDropoffArrow = !grayed && canDropoff && !canPickup;
 
   const pickupArrow = showPickupArrow ? `
     <div style="
@@ -267,28 +320,31 @@ function createProviderIcon(provider: string, zoom: number, canPickup?: boolean,
     </div>
   ` : '';
 
+  // Grayscale and opacity filter for non-highlighted markers
+  const filterStyle = grayed ? 'filter: grayscale(100%); opacity: 0.5;' : '';
+
   return L.divIcon({
     className: 'custom-marker',
     html: `
-      <div style="position: relative; width: ${size}px; height: ${size}px;">
+      <div style="position: relative; width: ${actualSize}px; height: ${actualSize}px; ${filterStyle}">
         <div style="
-          width: ${size}px;
-          height: ${size}px;
+          width: ${actualSize}px;
+          height: ${actualSize}px;
           background: white;
           border: 2.5px solid ${borderColor};
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+          box-shadow: 0 3px 8px rgba(0,0,0,${grayed ? '0.2' : '0.4'});
           overflow: hidden;
         ">
           <img
             src="${info.logoUrl}"
             alt="${provider}"
             style="
-              width: ${logoSize}px;
-              height: ${logoSize}px;
+              width: ${actualLogoSize}px;
+              height: ${actualLogoSize}px;
               object-fit: contain;
             "
             onerror="this.style.display='none'; const div = document.createElement('div'); div.textContent='${provider.substring(0, 2)}'; div.style.cssText='font-size:${fontSize}px;font-weight:bold;color:${info.background}'; this.parentElement.appendChild(div);"
@@ -364,6 +420,46 @@ function createProviderIconWithBadge(provider: string, count: number) {
     iconSize: [34, 34],
     iconAnchor: [17, 17],
     popupAnchor: [0, -17],
+  });
+}
+
+// Create custom icon for search location marker (blue pin)
+function createSearchLocationIcon() {
+  return L.divIcon({
+    className: 'search-location-marker',
+    html: `
+      <div style="
+        width: 32px;
+        height: 32px;
+        position: relative;
+      ">
+        <div style="
+          width: 24px;
+          height: 24px;
+          background: #2563eb;
+          border: 3px solid white;
+          border-radius: 50%;
+          box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+          position: absolute;
+          top: 0;
+          left: 4px;
+        "></div>
+        <div style="
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 12px solid #2563eb;
+          position: absolute;
+          bottom: 0;
+          left: 8px;
+          filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+        "></div>
+      </div>
+    `,
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
   });
 }
 
@@ -464,6 +560,8 @@ function MapComponent(props?: MapProps) {
   const data = props?.data ?? null;
   const targetCoordinates = props?.targetCoordinates ?? null;
   const onZoomedToTarget = props?.onZoomedToTarget;
+  const searchLocationMarker = props?.searchLocationMarker ?? null;
+  const highlightedPoints = props?.highlightedPoints ?? null;
   const activeFilters: Filters = props?.filters ?? {
     providers: [],
     showBuffer300: true,
@@ -660,6 +758,13 @@ function MapComponent(props?: MapProps) {
   const markerCount = points.length;
   const useSimpleMarkers = activeFilters.useSimpleMarkers;
 
+  // Helper to check if a point is highlighted
+  const isPointHighlighted = (props: PakketpuntProperties): boolean => {
+    if (!highlightedPoints) return true; // No highlight filter = all highlighted
+    const key = `${props.latitude.toFixed(6)},${props.longitude.toFixed(6)}`;
+    return highlightedPoints.has(key);
+  };
+
   // Memoize marker rendering to prevent unnecessary re-renders
   const markerElements = useMemo(() => {
     if (spreadPoints.length === 0) return null;
@@ -672,7 +777,12 @@ function MapComponent(props?: MapProps) {
       return spreadPoints.map((feature, idx) => {
         const props = feature.properties as PakketpuntProperties;
         const coords = feature.geometry.coordinates as [number, number];
-        const color = PROVIDER_INFO[props.vervoerder]?.color || '#666';
+        const baseColor = PROVIDER_INFO[props.vervoerder]?.color || '#666';
+        const isHighlighted = isPointHighlighted(props);
+
+        // Gray out non-highlighted points
+        const color = isHighlighted ? baseColor : '#9ca3af';
+        const opacity = isHighlighted ? PERFORMANCE_CONFIG.SIMPLE_MARKER_OPACITY : 0.4;
 
         // Apply offset for spiderfy effect at high zoom
         const lat = coords[1] + (feature.offsetLat || 0);
@@ -682,11 +792,11 @@ function MapComponent(props?: MapProps) {
           <CircleMarker
             key={`point-${idx}`}
             center={[lat, lng]}
-            radius={circleRadius}
+            radius={isHighlighted ? circleRadius : circleRadius - 1}
             pathOptions={{
               fillColor: color,
-              fillOpacity: PERFORMANCE_CONFIG.SIMPLE_MARKER_OPACITY,
-              color: 'white',
+              fillOpacity: opacity,
+              color: isHighlighted ? 'white' : '#d1d5db',
               weight: 1,
             }}
           >
@@ -752,6 +862,7 @@ function MapComponent(props?: MapProps) {
       return spreadPoints.map((feature, idx) => {
         const props = feature.properties as PakketpuntProperties;
         const coords = feature.geometry.coordinates as [number, number];
+        const isHighlighted = isPointHighlighted(props);
 
         // Apply offset for spiderfy effect at high zoom
         const lat = coords[1] + (feature.offsetLat || 0);
@@ -761,7 +872,8 @@ function MapComponent(props?: MapProps) {
           <Marker
             key={`point-${idx}`}
             position={[lat, lng]}
-            icon={createProviderIcon(props.vervoerder, currentZoom, props.canPickup, props.canDropoff)}
+            icon={createProviderIcon(props.vervoerder, currentZoom, props.canPickup, props.canDropoff, !isHighlighted)}
+            zIndexOffset={isHighlighted ? 1000 : 0}
           >
             <Popup
               maxWidth={600}
@@ -821,7 +933,7 @@ function MapComponent(props?: MapProps) {
         );
       });
     }
-  }, [spreadPoints, useSimpleMarkers, currentZoom]);
+  }, [spreadPoints, useSimpleMarkers, currentZoom, highlightedPoints]);
 
   // Render spider leg lines connecting offset markers to original location
   const spiderLegLines = useMemo(() => {
@@ -890,6 +1002,7 @@ function MapComponent(props?: MapProps) {
         bounds={bounds}
         fallbackCenter={fallbackCenter}
         targetCoordinates={targetCoordinates}
+        searchLocationMarker={searchLocationMarker}
         onZoomedToTarget={onZoomedToTarget}
       />
       <ZoomWatcher onZoomChange={setCurrentZoom} />
@@ -943,6 +1056,24 @@ function MapComponent(props?: MapProps) {
 
       {/* Render points with automatic spiderfy at zoom 15+ */}
       {markerElements}
+
+      {/* Render search location marker (blue pin) */}
+      {searchLocationMarker && (
+        <Marker
+          position={[searchLocationMarker.latitude, searchLocationMarker.longitude]}
+          icon={createSearchLocationIcon()}
+          zIndexOffset={1000}
+        >
+          <Popup>
+            <div className="text-sm">
+              <h3 className="font-bold text-gray-900">Uw zoeklocatie</h3>
+              <p className="text-xs text-gray-500 mt-1">
+                {searchLocationMarker.latitude.toFixed(6)}, {searchLocationMarker.longitude.toFixed(6)}
+              </p>
+            </div>
+          </Popup>
+        </Marker>
+      )}
     </MapContainer>
 
       {/* Empty state overlay when municipality has 0 pakketpunten */}

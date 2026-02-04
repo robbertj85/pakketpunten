@@ -74,7 +74,8 @@ interface AddressSearchInputProps {
   municipalities: Municipality[];
   onAddressSelected: (
     municipalitySlug: string,
-    coordinates: { latitude: number; longitude: number }
+    coordinates: { latitude: number; longitude: number },
+    displayName: string
   ) => void;
 }
 
@@ -204,7 +205,7 @@ export default function AddressSearchInput({
       }
 
       // Notify parent component
-      onAddressSelected(municipality.slug, details.coordinates);
+      onAddressSelected(municipality.slug, details.coordinates, details.displayName);
     } catch (err) {
       console.error('Address lookup error:', err);
       setError('Adres ophalen mislukt. Probeer het opnieuw.');

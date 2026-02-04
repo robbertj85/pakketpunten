@@ -7,6 +7,7 @@ import AddressSearchInput from '@/components/AddressSearchInput';
 import FilterPanel from '@/components/FilterPanel';
 import StatsPanel from '@/components/StatsPanel';
 import AboutModal from '@/components/AboutModal';
+import NearestPointsFinder from '@/components/NearestPointsFinder';
 import { Municipality, PakketpuntData, Filters, PakketpuntProperties, PakketpuntFeature, PointCategory, ServiceFilter, getPointCategory } from '@/types/pakketpunten';
 import { loadProvincialBoundaries, BoundaryLoadProgress } from '@/utils/boundaryLoader';
 
@@ -58,10 +59,19 @@ export default function Home() {
   const [boundariesLoading, setBoundariesLoading] = useState(false);
   const [boundaryLoadProgress, setBoundaryLoadProgress] = useState<BoundaryLoadProgress | null>(null);
   const [targetCoordinates, setTargetCoordinates] = useState<{ latitude: number; longitude: number } | null>(null);
+  const [searchLocationMarker, setSearchLocationMarker] = useState<{ latitude: number; longitude: number } | null>(null);
+  const [highlightedPoints, setHighlightedPoints] = useState<Set<string> | null>(null);
 
   // Mobile UI state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+
+  // Nearest Points Finder state
+  const [nearestPointsOpen, setNearestPointsOpen] = useState(false);
+  const [lastAddressSearch, setLastAddressSearch] = useState<{
+    coordinates: { latitude: number; longitude: number };
+    displayName: string;
+  } | null>(null);
 
   // Track previous municipality to detect manual changes vs address search changes
   const previousMunicipality = useRef<string>(selectedMunicipality);
@@ -182,6 +192,11 @@ export default function Home() {
         setData(data);
         // Reset boundaries loaded state when changing municipality
         setBoundariesLoaded(false);
+        // NOTE: Don't clear searchLocationMarker here - it should persist when
+        // NearestPointsFinder triggers a municipality change. It's cleared when:
+        // 1. User manually changes municipality via dropdown
+        // 2. User uses main address search
+        // 3. User closes the NearestPointsFinder panel
 
         // Reset filters when changing municipality
         // Automatically use simple markers for Nederland view (better performance)
@@ -373,12 +388,20 @@ export default function Home() {
     return count;
   }, [data, filters]);
 
-  // Handle address selection from search
+  // Handle address selection from main search (NOT NearestPointsFinder)
   const handleAddressSelected = (
     municipalitySlug: string,
-    coordinates: { latitude: number; longitude: number }
+    coordinates: { latitude: number; longitude: number },
+    displayName: string
   ) => {
     console.log('Address selected:', coordinates, 'Municipality:', municipalitySlug);
+    // Close the top 10 panel and clear highlighting (new search cancels filtering)
+    setNearestPointsOpen(false);
+    setHighlightedPoints(null);
+    // Show marker at the searched location
+    setSearchLocationMarker(coordinates);
+    // Store the address search for potential use by NearestPointsFinder
+    setLastAddressSearch({ coordinates, displayName });
     // Store coordinates BEFORE changing municipality
     // This way the coordinates persist through the municipality change
     setTargetCoordinates(coordinates);
@@ -409,6 +432,11 @@ export default function Home() {
               municipalities={municipalities}
               selected={selectedMunicipality}
               onChange={(slug) => {
+                // Close top 10 panel and clear search state when manually changing municipality
+                setNearestPointsOpen(false);
+                setSearchLocationMarker(null);
+                setHighlightedPoints(null);
+                setLastAddressSearch(null);
                 setSelectedMunicipality(slug);
                 setMobileSidebarOpen(false);
               }}
@@ -422,6 +450,46 @@ export default function Home() {
               onAddressSelected={handleAddressSelected}
             />
           </div>
+
+          {/* Nearest Points Finder toggle button */}
+          <button
+            onClick={() => {
+              if (nearestPointsOpen) {
+                // Closing - only clear highlighting, keep marker visible
+                setNearestPointsOpen(false);
+                setHighlightedPoints(null);
+              } else {
+                // Opening
+                setNearestPointsOpen(true);
+              }
+            }}
+            className={`hidden md:flex items-center justify-center w-10 h-10 rounded-lg transition ${
+              nearestPointsOpen
+                ? 'bg-blue-600 text-white'
+                : lastAddressSearch
+                  ? 'bg-blue-100 text-blue-600 hover:bg-blue-200 ring-2 ring-blue-400'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+            title={lastAddressSearch
+              ? `Dichtstbijzijnde pakketpunten bij "${lastAddressSearch.displayName}"`
+              : "Dichtstbijzijnde pakketpunten zoeken"
+            }
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </button>
 
           {/* Loading indicator */}
           {loading && (
@@ -484,14 +552,27 @@ export default function Home() {
             <div className="md:hidden px-3 py-2 border-b border-gray-100">
               <AddressSearchInput
                 municipalities={municipalities}
-                onAddressSelected={(slug, coords) => {
-                  handleAddressSelected(slug, coords);
+                onAddressSelected={(slug, coords, displayName) => {
+                  handleAddressSelected(slug, coords, displayName);
                   setMobileMenuOpen(false);
                 }}
               />
             </div>
             {/* Mobile menu items */}
             <div className="px-3 py-2 space-y-1">
+              <button
+                onClick={() => {
+                  setNearestPointsOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition"
+              >
+                <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Dichtstbijzijnde zoeken
+              </button>
               <a
                 href="/data-export"
                 className="flex items-center px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition"
@@ -587,6 +668,8 @@ export default function Home() {
             filters={filters}
             targetCoordinates={targetCoordinates}
             onZoomedToTarget={handleMapZoomedToTarget}
+            searchLocationMarker={searchLocationMarker}
+            highlightedPoints={highlightedPoints}
           />
 
           {/* Mobile floating filter button */}
@@ -602,6 +685,24 @@ export default function Home() {
               </span>
             )}
           </button>
+
+          {/* Nearest Points Finder - right side panel */}
+          <NearestPointsFinder
+            isOpen={nearestPointsOpen}
+            onClose={() => {
+              // Only clear highlighting, keep marker visible for re-toggling
+              setNearestPointsOpen(false);
+              setHighlightedPoints(null);
+            }}
+            municipalities={municipalities}
+            currentMunicipalityData={data}
+            filters={filters}
+            onMunicipalityChange={setSelectedMunicipality}
+            onSearchLocationChange={setSearchLocationMarker}
+            onHighlightedPointsChange={setHighlightedPoints}
+            onPointSelect={(coords) => setTargetCoordinates(coords)}
+            initialSearch={lastAddressSearch}
+          />
         </main>
       </div>
 
