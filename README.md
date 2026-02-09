@@ -2,9 +2,9 @@
 
 Een systeem voor het **verzamelen, analyseren en visualiseren van pakketpunten in Nederland**, bestaande uit een Python backend voor dataverzameling en een Next.js webapplicatie voor interactieve kaartvisualisatie.
 
-Data wordt wekelijks automatisch bijgewerkt via GitHub Actions voor alle **343 Nederlandse gemeenten**.
+Data wordt wekelijks automatisch bijgewerkt via GitHub Actions voor alle **342 Nederlandse gemeenten**.
 
-**Disclaimer** — Dit project wordt geleverd "as is" zonder garantie. Data is verzameld van publieke bronnen en kan onnauwkeurigheden bevatten. Verifieer locatiegegevens bij de vervoerders. Dit project is niet gelieerd aan de databronbedrijven.
+**Disclaimer** — Dit project wordt geleverd "as is" zonder garantie. Data is verzameld van publieke bronnen en kan onnauwkeurigheden bevatten. Verifieer locatiegegevens. Dit project is niet gelieerd aan de databronbedrijven.
 
 ---
 
@@ -16,8 +16,8 @@ Data wordt wekelijks automatisch bijgewerkt via GitHub Actions voor alle **343 N
 | DHL | Publieke REST API | ~4.380 | Grid-based cache |
 | DPD | Publieke REST API | ~2.100 | Cache (enkele API call) |
 | VintedGo | Web scraping | ~2.090 | Per gemeente (bounds) |
-| Amazon | OSM Overpass API | ~1.220 | Per gemeente |
-| GLS | Publieke REST API | ~950 | Landelijk cache |
+| Amazon | Browser automation | ~1.220 | Per gemeente |
+| GLS | Browser automation | ~950 | Landelijk cache |
 | De Buren | Web scraping | ~165 | Per gemeente |
 | **Totaal** | | **~15.460** | |
 
@@ -31,8 +31,8 @@ De Next.js webapp biedt een interactieve kaartvisualisatie op [pakketpunten.nl](
 
 ### Features
 
-- **Interactieve kaart** met OpenStreetMap en Leaflet voor alle 343 gemeenten + nationaal overzicht
-- **Adaptieve rendering** — canvas rendering en vereenvoudigde markers voor grote datasets (50.000+ punten)
+- **Interactieve kaart** met OpenStreetMap en Leaflet voor alle 342 gemeenten + nationaal overzicht
+- **Adaptieve rendering** — canvas rendering en vereenvoudigde markers voor grote datasets (15.000+ punten)
 - **Filters** — per vervoerder, bufferzone (300m/400m), bezettingsgraad, punttype
 - **Statistieken** — per gemeente en vervoerder, met historische trends
 - **Adres zoeken** — zoek naar een adres en vind nabijgelegen pakketpunten
@@ -91,23 +91,6 @@ python scripts/create_national_overview.py
 # Provinciale grenzen genereren (voor Nederland view)
 python scripts/create_provincial_boundaries.py
 ```
-
-### Statistische Analyse
-
-Het project bevat een statistisch analyse-systeem dat gemeentedata correleert met pakketpuntdekking.
-
-```bash
-# CBS data ophalen (bevolking, oppervlakte)
-python scripts/fetch_cbs_municipality_data.py
-
-# Correlatie- en regressieanalyse uitvoeren
-python scripts/municipality_statistics_analysis.py
-
-# Professioneel PDF rapport genereren
-python scripts/generate_pdf_report.py
-```
-
-De analyse omvat Pearson-correlatie, lineaire regressie (R² ~87%), en ranglijsten van over- en onderpresterende gemeenten.
 
 ---
 
@@ -170,7 +153,7 @@ pakketpunten/
 
 Data wordt wekelijks automatisch bijgewerkt via GitHub Actions:
 
-- **`update-data.yml`** — Elke zondag: haalt data op voor alle 343 gemeenten, genereert nationaal overzicht, werkt historische snapshots bij
+- **`update-data.yml`** — Elke zondag: haalt data op voor alle 342 gemeenten, genereert nationaal overzicht, werkt historische snapshots bij
 - **`fetch-gls-data.yml`** — Elke zondag: vernieuwt de GLS landelijke cache
 
 Handmatig triggeren kan via `gh workflow run update-data.yml`.
@@ -212,7 +195,7 @@ Data bronnen:
 - PostNL (https://www.postnl.nl)
 - DPD (https://www.dpd.nl)
 - GLS Netherlands (https://gls-group.com/NL)
-- Amazon (via OpenStreetMap)
+- Amazon (via https://www.amazon.nl/ulp)
 - VintedGo / Mondial Relay (https://vintedgo.com)
 - De Buren (https://deburen.nl)
 - Gemeente grenzen (c) OpenStreetMap contributors
