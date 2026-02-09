@@ -1,37 +1,113 @@
-# 📦 Pakketpunten Data
+# Pakketpunten Nederland
 
-Een Python-project voor het **verzamelen, analyseren en visualiseren van pakketpunten in Nederland**.  
-De data wordt opgehaald via verschillende API’s (zoals DHL en De Buren), geanalyseerd met **GeoPandas**,  
-en weergegeven als interactieve kaarten met **Leaflet** en **Folium**.
+Een systeem voor het **verzamelen, analyseren en visualiseren van pakketpunten in Nederland**, bestaande uit een Python backend voor dataverzameling en een Next.js webapplicatie voor interactieve kaartvisualisatie.
 
-Dit project is bedoeld als basis voor geodata-analyse, ruimtelijke visualisatie en verdere uitbreiding naar een webapplicatie.
+Data wordt wekelijks automatisch bijgewerkt via GitHub Actions voor alle **343 Nederlandse gemeenten**.
 
-**Disclaimer**
-
-Dit project wordt geleverd "as is" zonder garantie. Data is verzameld van publieke bronnen en kan onnauwkeurigheden bevatten. Verifieer locatiegegevens bij de vervoerders. Dit project is niet gelieerd aan de databronbedrijven.
+**Disclaimer** — Dit project wordt geleverd "as is" zonder garantie. Data is verzameld van publieke bronnen en kan onnauwkeurigheden bevatten. Verifieer locatiegegevens bij de vervoerders. Dit project is niet gelieerd aan de databronbedrijven.
 
 ---
 
-## Functionaliteiten
+## Huidige Dekking
 
-- Ophalen van pakketpuntlocaties via API's en webscraping (voor DHL, DPD, PostNL, VintedGo en De Buren) voor een gegeven gemeente
-- Het toevoegen van buffers rondom bestaande pakketpunten
-- Export van resultaten naar **GeoPackage (.gpkg)** en **GeoJSON (.geojson)**
-- Interactieve kaartweergave in **Folium** en **Leaflet**, opgeslagen als HTML
-- **Webapplicatie (Next.js)** voor interactieve visualisatie met filters en statistieken
+| Vervoerder | Methode | Locaties | Landelijk ophalen |
+|------------|---------|----------|-------------------|
+| PostNL | Publieke Widget API | ~4.560 | Per gemeente (bbox) |
+| DHL | Publieke REST API | ~4.380 | Grid-based cache |
+| DPD | Publieke REST API | ~2.100 | Cache (enkele API call) |
+| VintedGo | Web scraping | ~2.090 | Per gemeente (bounds) |
+| Amazon | OSM Overpass API | ~1.220 | Per gemeente |
+| GLS | Publieke REST API | ~950 | Landelijk cache |
+| De Buren | Web scraping | ~165 | Per gemeente |
+| **Totaal** | | **~15.460** | |
+
+Data wordt bijgehouden sinds november 2025 met wekelijkse snapshots.
 
 ---
 
-## Data Bronnen
+## Webapplicatie
 
-Dit project verzamelt pakketpuntlocaties van de volgende bronnen:
+De Next.js webapp biedt een interactieve kaartvisualisatie op [pakketpunten.nl](https://pakketpunten.nl).
 
-- **DHL Parcel** - Via publieke API (`api-gw.dhlparcel.nl`)
-- **DPD** - Via publieke API (`pickup.dpd.cz`) 
-- **PostNL** - Via publieke locatie-widget API
-- **VintedGo / Mondial Relay** - Via publieke website
-- **De Buren** - Via publieke kaart interface
+### Features
 
+- **Interactieve kaart** met OpenStreetMap en Leaflet voor alle 343 gemeenten + nationaal overzicht
+- **Adaptieve rendering** — canvas rendering en vereenvoudigde markers voor grote datasets (50.000+ punten)
+- **Filters** — per vervoerder, bufferzone (300m/400m), bezettingsgraad, punttype
+- **Statistieken** — per gemeente en vervoerder, met historische trends
+- **Adres zoeken** — zoek naar een adres en vind nabijgelegen pakketpunten
+- **Dichtstbijzijnde punten** — vind pakketpunten binnen 500m van een locatie
+- **Gemeentegrenzen** — provinciale grenzen weergave in nationaal overzicht
+- **Data export** — download data als GeoJSON of CSV via de API
+- **Data matrix** — vergelijk dekking over alle gemeenten en vervoerders
+- **Automatische spiderfy** — overlappende markers worden gespreid op hoog zoomniveau
+- **Eerlijke zichtbaarheid** — vervoerder render-volgorde roteert elk uur
+
+### Installatie
+
+```bash
+cd webapp
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in je browser.
+
+---
+
+## Python Backend
+
+### Installatie
+
+```bash
+git clone https://github.com/robbertj85/pakketpunten.git
+cd pakketpunten
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Gebruik
+
+```bash
+# Enkele gemeente verwerken
+python main.py --gemeente Amsterdam --filename test --format geojson
+
+# Complete DHL data ophalen (grid-based, ~3.800+ locaties) - eenmalig
+python scripts/dhl_grid_fetch.py
+
+# Complete DPD data ophalen - eenmalig
+python scripts/dpd_fetch_all.py
+
+# Complete GLS data ophalen - eenmalig
+python scripts/gls_fetch_all.py
+
+# Alle gemeenten batch verwerken (gebruikt caches automatisch)
+python scripts/batch_generate.py
+
+# Nationaal overzicht genereren
+python scripts/create_national_overview.py
+
+# Provinciale grenzen genereren (voor Nederland view)
+python scripts/create_provincial_boundaries.py
+```
+
+### Statistische Analyse
+
+Het project bevat een statistisch analyse-systeem dat gemeentedata correleert met pakketpuntdekking.
+
+```bash
+# CBS data ophalen (bevolking, oppervlakte)
+python scripts/fetch_cbs_municipality_data.py
+
+# Correlatie- en regressieanalyse uitvoeren
+python scripts/municipality_statistics_analysis.py
+
+# Professioneel PDF rapport genereren
+python scripts/generate_pdf_report.py
+```
+
+De analyse omvat Pearson-correlatie, lineaire regressie (R² ~87%), en ranglijsten van over- en onderpresterende gemeenten.
 
 ---
 
@@ -39,162 +115,94 @@ Dit project verzamelt pakketpuntlocaties van de volgende bronnen:
 
 ```
 pakketpunten/
-├── main.py                 # Hoofdscript: haalt data op, voert analyse uit
-├── api_client.py           # API-aanroepen (DHL, DPD, PostNL, VintedGo, De Buren)
-├── utils.py                # Algemene hulpfuncties
-├── geo_analysis.py         # Geografische analyses (buffers, unions, etc.)
-├── visualize.py            # Kaartweergave met Folium (legacy)
-├── requirements.txt        # Benodigde Python-pakketten
-├── update.sh               # Automatische update script
-├── README.md               # Projectdocumentatie
-├── data/                   # Data bestanden en logs
+├── main.py                  # Hoofdscript: data ophalen en analyse
+├── api_client.py            # API-aanroepen (DHL, DPD, PostNL, GLS, VintedGo, De Buren, Amazon)
+├── geo_analysis.py          # Geografische analyses (buffers, unions)
+├── utils.py                 # Hulpfuncties (CRS, geocoding, sessies)
+├── visualize.py             # Kaartweergave met Folium (legacy)
+├── requirements.txt         # Python dependencies
+├── data/                    # Gecachte data en logs
 │   ├── dhl_all_locations.json
 │   ├── dpd_all_locations.json
-│   ├── municipalities_all.json
-│   ├── gemeenten-2025.xlsx
-│   └── *_update_log.txt
-├── docs/                   # Documentatie
-│   ├── CLAUDE.md           # Technische documentatie voor ontwikkelaars
-│   ├── AUTOMATION.md       # Automatisering documentatie
-│   ├── DATA_SOURCES.md     # Uitgebreide documentatie over databronnen
-│   ├── DHL_GRID_WORKFLOW.md
-│   └── QUICKSTART_AUTOMATION.md
-├── scripts/                # Automation en data processing scripts
-│   ├── batch_generate.py   # Batch processing voor meerdere gemeentes
-│   ├── dhl_grid_fetch.py   # Complete DHL data ophalen (grid-based approach)
-│   ├── dpd_fetch_all.py    # Complete DPD data ophalen (single API call)
-│   └── create_national_overview.py # Genereer nationaal overzicht
-└── webapp/                 # Next.js webapplicatie
-    ├── app/                # Next.js App Router
-    ├── components/         # React componenten (Map, Filters, Stats)
-    ├── types/              # TypeScript type definities
-    ├── public/             # Statische bestanden
-    │   ├── data/           # GeoJSON bestanden per gemeente
-    │   └── municipalities.json
-    └── package.json
+│   └── gls_all_locations.json
+├── scripts/                 # Automatisering en data processing
+│   ├── batch_generate.py    # Batch verwerking alle gemeenten
+│   ├── dhl_grid_fetch.py    # Landelijke DHL data (grid-based)
+│   ├── dpd_fetch_all.py     # Landelijke DPD data
+│   ├── gls_fetch_all.py     # Landelijke GLS data
+│   ├── create_national_overview.py
+│   ├── create_provincial_boundaries.py
+│   ├── update_totals_history.py
+│   ├── fetch_cbs_municipality_data.py
+│   ├── municipality_statistics_analysis.py
+│   └── generate_pdf_report.py
+├── .github/workflows/       # GitHub Actions
+│   ├── update-data.yml      # Wekelijkse data-update (alle vervoerders)
+│   └── fetch-gls-data.yml   # Wekelijkse GLS data-update
+├── docs/                    # Documentatie
+└── webapp/                  # Next.js webapplicatie
+    ├── app/                 # Next.js App Router (pagina's + API routes)
+    │   ├── page.tsx         # Hoofdpagina met kaart
+    │   ├── data-export/     # Data export pagina + matrix view
+    │   └── api/             # REST API (download, geocode, v1)
+    ├── components/          # React componenten
+    │   ├── Map.tsx          # Leaflet kaart met adaptieve rendering
+    │   ├── FilterPanel.tsx  # Vervoerder filters en opties
+    │   ├── StatsPanel.tsx   # Statistieken dashboard
+    │   ├── MunicipalitySelector.tsx
+    │   ├── AddressSearchInput.tsx
+    │   ├── NearestPointsFinder.tsx
+    │   ├── AboutModal.tsx
+    │   └── ...              # History modals, trends, clusters
+    ├── utils/               # Hulpfuncties
+    │   ├── boundaryLoader.ts
+    │   └── distanceUtils.ts
+    ├── types/               # TypeScript type definities
+    └── public/
+        ├── data/            # GeoJSON per gemeente + nationaal overzicht
+        ├── logos/           # Vervoerder logo's (SVG/PNG)
+        └── municipalities.json
 ```
 
 ---
 
-## Gebruik
+## Automatisering
 
-### Python Data Generatie
+Data wordt wekelijks automatisch bijgewerkt via GitHub Actions:
 
-#### Installatie
+- **`update-data.yml`** — Elke zondag: haalt data op voor alle 343 gemeenten, genereert nationaal overzicht, werkt historische snapshots bij
+- **`fetch-gls-data.yml`** — Elke zondag: vernieuwt de GLS landelijke cache
 
-```bash
-git clone https://github.com/Ida-BirdsEye/pakketpunten.git
-cd pakketpunten
-
-# Maak virtual environment
-python3 -m venv venv
-source venv/bin/activate  # Op Windows: venv\Scripts\activate
-
-# Installeer dependencies
-pip install -r requirements.txt
-```
-
-#### Enkele gemeente verwerken
-
-```bash
-python main.py --gemeente Amsterdam --filename test --format geojson
-```
-
-#### Meerdere gemeentes in batch verwerken
-
-```bash
-python scripts/batch_generate.py
-```
-
-Dit genereert GeoJSON bestanden voor alle gemeentes in `data/municipalities_all.json` en plaatst ze in `webapp/public/data/`.
-
-#### Resultaten bekijken
-- **Kaart:** `output/kaart.html` → open in je browser
-- **GeoPackage / GeoJSON:** open in QGIS, GeoPandas of een andere GIS-tool
+Handmatig triggeren kan via `gh workflow run update-data.yml`.
 
 ---
 
-### Webapplicatie (Next.js)
+## Technische Details
 
-#### Installatie
+### Coordinatensystemen
 
-```bash
-cd webapp
-npm install
-```
+- **WGS84 (EPSG:4326)** — API I/O, GeoJSON, webkaarten (graden)
+- **RD New (EPSG:28992)** — Metrische berekeningen, buffers (meters)
 
-#### Development server starten
+Altijd transformeren naar RD New voor afstandsberekeningen, daarna terug naar WGS84 voor output.
 
-```bash
-npm run dev
-```
+### Stack
 
-Open [http://localhost:3000](http://localhost:3000) in je browser.
-
-#### Features
-
-- **Interactieve kaart** met OpenStreetMap en Leaflet
-- **Gemeente selectie** via dropdown (5 POC gemeentes beschikbaar)
-- **Filters:**
-  - Vervoerders (DHL, DPD, PostNL, VintedGo, De Buren)
-    - Buffer zones (300m en 500m)
-- **Statistieken** per gemeente en vervoerder
-- **Real-time logos** van vervoerders via Clearbit API
-- **Popup details** met locatie-informatie en ruwe JSON data
-
-#### Productie build
-
-```bash
-npm run build
-npm start
-```
-
----
-
-## Technische details
-
-### Python Backend
-
-- **Taal:** Python 3.10+
-- **Belangrijkste libraries:**
-  - `geopandas` - Geospatial data processing
-  - `shapely` - Geometric operations
-  - `folium` - Interactive maps (legacy)
-  - `requests` - API calls
-  - `fiona` - Geospatial file I/O
-  - `pandas` - Data manipulation
-  - `geopy` - Geocoding
-
-### Next.js Frontend
-
-- **Framework:** Next.js 16 (App Router)
-- **Taal:** TypeScript
-- **Belangrijkste libraries:**
-  - `react-leaflet` - Interactive maps
-  - `leaflet` - Mapping library
-  - `tailwindcss` - Styling
-
-### Bestandsformaten
-
-- `.gpkg` → GeoPackage (voor GIS-software)
-- `.geojson` → Webvriendelijk formaat
-- `.html` → Interactieve kaartweergave (legacy)
-- `.json` → Metadata en configuratie
-
-### Coordinate Systems
-
-- **WGS84 (EPSG:4326)** - Web maps, API output
+| Component | Technologie |
+|-----------|------------|
+| Backend | Python 3.10+, GeoPandas, Shapely, Requests |
+| Frontend | Next.js 16, TypeScript, React, Leaflet, Tailwind CSS |
+| CI/CD | GitHub Actions |
+| Hosting | Vercel (webapp), GitHub (data) |
 
 ---
 
 ## Licentie
 
 Dit project is vrijgegeven onder de **MIT-licentie**.
-Je mag de code gebruiken, aanpassen en verspreiden zolang de originele auteursvermelding behouden blijft.
+De licentie geldt voor de **broncode**, niet voor de **data**.
 
 ### Data Attributie
-
-⚠️ **Let op:** De MIT-licentie geldt voor de **broncode**, niet voor de **data**.
 
 Bij gebruik van de gegenereerde data moet de volgende attributie worden opgenomen:
 
@@ -202,14 +210,10 @@ Bij gebruik van de gegenereerde data moet de volgende attributie worden opgenome
 Data bronnen:
 - DHL Parcel Netherlands (https://www.dhl.nl)
 - PostNL (https://www.postnl.nl)
+- DPD (https://www.dpd.nl)
+- GLS Netherlands (https://gls-group.com/NL)
+- Amazon (via OpenStreetMap)
 - VintedGo / Mondial Relay (https://vintedgo.com)
 - De Buren (https://deburen.nl)
-- Gemeente grenzen © OpenStreetMap contributors
-- Bedrijfslogo's © respectieve merkhouders
-
+- Gemeente grenzen (c) OpenStreetMap contributors
 ```
-
-
-
-
-
