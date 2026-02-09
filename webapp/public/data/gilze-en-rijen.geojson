@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Gilze en Rijen",
     "slug": "gilze-en-rijen",
-    "generated_at": "2026-02-09T04:33:18.832639Z",
-    "total_points": 18,
+    "generated_at": "2026-02-09T21:38:59.816307Z",
+    "total_points": 19,
     "providers": [
       "Amazon",
       "DHL",
@@ -247,6 +247,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.5870599304047,
         "longitude": 4.92042969892483,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.918583591,
+          51.58837389
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna Rijen",
+        "straatNaam": "Wilhelminaplein",
+        "straatNr": "6",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.58837389,
+        "longitude": 4.918583591,
         "canPickup": true,
         "canDropoff": true
       }

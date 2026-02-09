@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Noordenveld",
     "slug": "noordenveld",
-    "generated_at": "2026-02-09T04:40:36.608034Z",
-    "total_points": 43,
+    "generated_at": "2026-02-09T21:46:38.558145Z",
+    "total_points": 44,
     "providers": [
       "Amazon",
       "DHL",
@@ -566,6 +566,29 @@
         "straatNr": "15PBA",
         "vervoerder": "PostNL",
         "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 53.1320037,
+        "longitude": 6.400095412,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.400095412,
+          53.1320037
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Poiesz",
+        "straatNaam": "Roderweg",
+        "straatNr": "15B",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
         "bezettingsgraad": 50,
         "latitude": 53.1320037,
         "longitude": 6.400095412,
@@ -1534,7 +1557,7 @@
                 53.130474666242904
               ],
               [
-                6.403681481554444,
+                6.403681481554446,
                 53.13039185399596
               ],
               [
@@ -2490,7 +2513,7 @@
                 53.069524522585105
               ],
               [
-                6.459149424567315,
+                6.459149424567307,
                 53.069472805275055
               ],
               [
@@ -2850,10 +2873,6 @@
           [
             [
               [
-                6.434826319883172,
-                53.14673561510626
-              ],
-              [
                 6.434594653104289,
                 53.14651071450307
               ],
@@ -3108,6 +3127,10 @@
               [
                 6.434826319883172,
                 53.14673561510626
+              ],
+              [
+                6.434594653104289,
+                53.14651071450307
               ]
             ]
           ],

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Eijsden-Margraten",
     "slug": "eijsden-margraten",
-    "generated_at": "2026-02-09T04:32:22.556437Z",
-    "total_points": 28,
+    "generated_at": "2026-02-09T21:38:01.453078Z",
+    "total_points": 29,
     "providers": [
       "Amazon",
       "DHL",
@@ -408,6 +408,29 @@
         "bezettingsgraad": 50,
         "latitude": 50.8204829873219,
         "longitude": 5.82310989089691,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.70870719891376,
+          50.7774060339647
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Readshop Eijsden",
+        "straatNaam": "Breusterstraat",
+        "straatNr": "46",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 50.7774060339647,
+        "longitude": 5.70870719891376,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1713,6 +1736,10 @@
           [
             [
               [
+                5.71955187064318,
+                50.80795110200862
+              ],
+              [
                 5.719157998678143,
                 50.80786308131591
               ],
@@ -2025,7 +2052,7 @@
                 50.811537919263465
               ],
               [
-                5.72359449518039,
+                5.723594495180389,
                 50.81153399188083
               ],
               [
@@ -2627,10 +2654,6 @@
               [
                 5.71955187064318,
                 50.80795110200862
-              ],
-              [
-                5.719157998678143,
-                50.80786308131591
               ]
             ]
           ],

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Opsterland",
     "slug": "opsterland",
-    "generated_at": "2026-02-09T04:41:58.524991Z",
+    "generated_at": "2026-02-09T21:48:00.317409Z",
     "total_points": 45,
     "providers": [
       "Amazon",
@@ -532,29 +532,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.1496381,
-          53.0365851
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Administratiekantoor Hemrik",
-        "straatNaam": "BINNENWEI",
-        "straatNr": "99",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 53.0365851,
-        "longitude": 6.1496381,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.138247577,
           53.03209873
         ]
@@ -727,6 +704,29 @@
         "straatNr": "6PBA",
         "vervoerder": "PostNL",
         "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 53.00290566,
+        "longitude": 6.067013061,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.067013061,
+          53.00290566
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Poiesz Supermarkt (144)",
+        "straatNaam": "Formanjestrjitte",
+        "straatNr": "6-8",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
         "bezettingsgraad": 50,
         "latitude": 53.00290566,
         "longitude": 6.067013061,
@@ -2576,10 +2576,6 @@
           [
             [
               [
-                6.0977366157804695,
-                53.01695891833343
-              ],
-              [
                 6.097507386821429,
                 53.01673335472584
               ],
@@ -2834,6 +2830,10 @@
               [
                 6.0977366157804695,
                 53.01695891833343
+              ],
+              [
+                6.097507386821429,
+                53.01673335472584
               ]
             ]
           ],
@@ -3103,10 +3103,6 @@
           ],
           [
             [
-              [
-                6.153750086570042,
-                53.035261489375095
-              ],
               [
                 6.153520470653349,
                 53.03503603512813
@@ -3378,6 +3374,10 @@
               [
                 6.153750086570042,
                 53.035261489375095
+              ],
+              [
+                6.153520470653349,
+                53.03503603512813
               ]
             ]
           ],
@@ -7680,10 +7680,6 @@
           [
             [
               [
-                6.099043768277313,
-                53.01652752769225
-              ],
-              [
                 6.098738124218284,
                 53.01622677942526
               ],
@@ -7938,6 +7934,10 @@
               [
                 6.099043768277313,
                 53.01652752769225
+              ],
+              [
+                6.098738124218284,
+                53.01622677942526
               ]
             ]
           ],
@@ -8207,10 +8207,6 @@
           ],
           [
             [
-              [
-                6.155057229202687,
-                53.03482948909343
-              ],
               [
                 6.154751069214083,
                 53.034528886645255
@@ -8482,6 +8478,10 @@
               [
                 6.155057229202687,
                 53.03482948909343
+              ],
+              [
+                6.154751069214083,
+                53.034528886645255
               ]
             ]
           ],

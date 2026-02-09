@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Amstelveen",
     "slug": "amstelveen",
-    "generated_at": "2026-02-09T04:26:55.399651Z",
-    "total_points": 37,
+    "generated_at": "2026-02-09T21:32:25.713858Z",
+    "total_points": 38,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -501,6 +501,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.2920707145433,
         "longitude": 4.85503090289943,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.839319011,
+          52.28839482
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Amstelveen",
+        "straatNaam": "Zetterij",
+        "straatNr": "12",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.28839482,
+        "longitude": 4.839319011,
         "canPickup": true,
         "canDropoff": true
       }
@@ -2673,6 +2696,10 @@
           [
             [
               [
+                4.849971083845505,
+                52.30854504258129
+              ],
+              [
                 4.84968356190044,
                 52.308347674918906
               ],
@@ -2999,10 +3026,6 @@
               [
                 4.849971083845505,
                 52.30854504258129
-              ],
-              [
-                4.84968356190044,
-                52.308347674918906
               ]
             ]
           ],
@@ -5957,6 +5980,10 @@
           [
             [
               [
+                4.850728022820796,
+                52.30771687983619
+              ],
+              [
                 4.850304429091162,
                 52.307478024862185
               ],
@@ -6263,10 +6290,6 @@
               [
                 4.850728022820796,
                 52.30771687983619
-              ],
-              [
-                4.850304429091162,
-                52.307478024862185
               ]
             ]
           ],

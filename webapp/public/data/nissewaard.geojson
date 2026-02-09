@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Nissewaard",
     "slug": "nissewaard",
-    "generated_at": "2026-02-09T04:40:23.182233Z",
-    "total_points": 64,
+    "generated_at": "2026-02-09T21:46:24.484073Z",
+    "total_points": 65,
     "providers": [
       "Amazon",
       "DHL",
@@ -913,6 +913,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.8494808879632,
         "longitude": 4.32817438464455,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.32867467373136,
+          51.8498090033856
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Budget supermarket",
+        "straatNaam": "Nieuwstraat",
+        "straatNr": "194",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.8498090033856,
+        "longitude": 4.32867467373136,
         "canPickup": true,
         "canDropoff": true
       }
