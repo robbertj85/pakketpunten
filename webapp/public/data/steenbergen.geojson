@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Steenbergen",
     "slug": "steenbergen",
-    "generated_at": "2026-02-02T04:47:11.311479Z",
-    "total_points": 26,
+    "generated_at": "2026-02-09T04:45:18.040351Z",
+    "total_points": 27,
     "providers": [
       "Amazon",
       "DHL",
@@ -85,6 +85,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.5844718,
         "longitude": 4.3143088,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3175998,
+          51.5867248
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Shoeby Steenbergen",
+        "straatNaam": "Kaaistraat",
+        "straatNr": "42",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.5867248,
+        "longitude": 4.3175998,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1618,10 +1641,6 @@
           [
             [
               [
-                4.414157700965899,
-                51.568501648946786
-              ],
-              [
                 4.4139812958121745,
                 51.56826094340311
               ],
@@ -1876,6 +1895,10 @@
               [
                 4.414157700965899,
                 51.568501648946786
+              ],
+              [
+                4.4139812958121745,
+                51.56826094340311
               ]
             ]
           ],
@@ -3738,10 +3761,6 @@
           [
             [
               [
-                4.415497451264557,
-                51.56816879321716
-              ],
-              [
                 4.415262237026639,
                 51.5678478551005
               ],
@@ -3996,6 +4015,10 @@
               [
                 4.415497451264557,
                 51.56816879321716
+              ],
+              [
+                4.415262237026639,
+                51.5678478551005
               ]
             ]
           ],
