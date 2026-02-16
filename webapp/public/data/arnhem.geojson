@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Arnhem",
     "slug": "arnhem",
-    "generated_at": "2026-02-09T21:32:40.841151Z",
+    "generated_at": "2026-02-16T04:26:51.158381Z",
     "total_points": 154,
     "providers": [
       "Amazon",
@@ -1154,6 +1154,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.917059,
+          51.9840266
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GSM Euromarket",
+        "straatNaam": "Steenstraat",
+        "straatNr": "57",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9840266,
+        "longitude": 5.917059,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.9054478,
           51.9813402
         ]
@@ -1191,29 +1214,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.98487091064453,
         "longitude": 5.91819429397583,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.913111344180259,
-          51.98444890579386
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat MediaMarkt Arnhem",
-        "straatNaam": "Velperplein",
-        "straatNr": "13-PS/69",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.98444890579386,
-        "longitude": 5.913111344180259,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1398,6 +1398,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.9870884,
         "longitude": 5.9142262,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.913111344180259,
+          51.98444890579386
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat MediaMarkt Arnhem",
+        "straatNaam": "Velperplein",
+        "straatNr": "13-PS/69",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.98444890579386,
+        "longitude": 5.913111344180259,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3031,29 +3054,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.9828516,
         "longitude": 5.9035729,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.905379,
-          51.9815978
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Reell Brand Store",
-        "straatNaam": "Rijnstraat 24",
-        "straatNr": "",
-        "vervoerder": "VintedGo",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9815978,
-        "longitude": 5.905379,
         "canPickup": true,
         "canDropoff": true
       }

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Zaltbommel",
     "slug": "zaltbommel",
-    "generated_at": "2026-02-09T21:56:29.728276Z",
+    "generated_at": "2026-02-16T04:51:59.739494Z",
     "total_points": 37,
     "providers": [
       "Amazon",
@@ -255,6 +255,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.269489,
+          51.798225
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat DHL Zaltbommel",
+        "straatNaam": "Heksekamp",
+        "straatNr": "29-PS/75",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.798225,
+        "longitude": 5.269489,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.091641,
           51.815947
         ]
@@ -338,29 +361,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.8133139,
         "longitude": 5.247044,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.269489,
-          51.798225
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat DHL Zaltbommel",
-        "straatNaam": "Heksekamp",
-        "straatNr": "29-PS/75",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.798225,
-        "longitude": 5.269489,
         "canPickup": true,
         "canDropoff": true
       }

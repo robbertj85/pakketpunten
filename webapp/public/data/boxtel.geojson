@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Boxtel",
     "slug": "boxtel",
-    "generated_at": "2026-02-09T21:34:47.221507Z",
+    "generated_at": "2026-02-16T04:29:03.770087Z",
     "total_points": 37,
     "providers": [
       "Amazon",
@@ -394,29 +394,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.3175326,
-          51.5711011
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "ViaTim & Sjannie",
-        "straatNaam": "PASTOOR MANDERSSTRAAT",
-        "straatNr": "4",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 51.5711011,
-        "longitude": 5.3175326,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.3314304,
           51.5852161
         ]
@@ -546,6 +523,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.58854707,
         "longitude": 5.320047958,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.33149500921552,
+          51.5850565151703
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Brederodeweg",
+        "straatNr": "26PBA",
+        "vervoerder": "PostNL",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 51.5850565151703,
+        "longitude": 5.33149500921552,
         "canPickup": true,
         "canDropoff": true
       }
@@ -928,7 +928,7 @@
                 51.568404527762766
               ],
               [
-                5.317536779284362,
+                5.317536779284361,
                 51.56840452929286
               ],
               [
@@ -1064,7 +1064,7 @@
                 51.57379767891177
               ],
               [
-                5.317528523393504,
+                5.317528523393503,
                 51.57379767738167
               ],
               [
@@ -1423,10 +1423,6 @@
           ],
           [
             [
-              [
-                5.326853927061082,
-                51.58523418280661
-              ],
               [
                 5.3264337879086545,
                 51.58519513660464
@@ -2128,12 +2124,16 @@
                 51.585213964816944
               ],
               [
-                5.32710643630071,
+                5.327106436300709,
                 51.58527372345833
               ],
               [
                 5.326853927061082,
                 51.58523418280661
+              ],
+              [
+                5.3264337879086545,
+                51.58519513660464
               ]
             ]
           ],
@@ -3520,7 +3520,7 @@
                 51.567505669005435
               ],
               [
-                5.317538155370194,
+                5.317538155370193,
                 51.56750567053554
               ],
               [
@@ -3656,7 +3656,7 @@
                 51.5746965372031
               ],
               [
-                5.317527146867015,
+                5.317527146867013,
                 51.57469653567298
               ],
               [
@@ -4452,7 +4452,7 @@
                 51.59157774778598
               ],
               [
-                5.325961111769274,
+                5.3259611117692724,
                 51.591578335818795
               ],
               [
