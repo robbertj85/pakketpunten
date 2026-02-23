@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "De Bilt",
     "slug": "de-bilt",
-    "generated_at": "2026-02-16T04:30:16.472217Z",
+    "generated_at": "2026-02-23T04:27:43.572900Z",
     "total_points": 32,
     "providers": [
       "Amazon",
@@ -142,6 +142,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.184686660766602,
+          52.120182037353516
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Mijn Droomkapper",
+        "straatNaam": "Planetenbaan",
+        "straatNr": "21",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.120182037353516,
+        "longitude": 5.184686660766602,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.167550086975098,
           52.160396575927734
         ]
@@ -225,29 +248,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.1282213,
         "longitude": 5.2085952,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.184686660766602,
-          52.120182037353516
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Mijn Droomkapper",
-        "straatNaam": "Planetenbaan",
-        "straatNr": "21",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.120182037353516,
-        "longitude": 5.184686660766602,
         "canPickup": true,
         "canDropoff": true
       }

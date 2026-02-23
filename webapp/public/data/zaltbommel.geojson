@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Zaltbommel",
     "slug": "zaltbommel",
-    "generated_at": "2026-02-16T04:51:59.739494Z",
+    "generated_at": "2026-02-23T04:47:52.844162Z",
     "total_points": 37,
     "providers": [
       "Amazon",
@@ -232,52 +232,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.2561492919921875,
-          51.79663848876953
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat van der Valk P2",
-        "straatNaam": "Hogeweg",
-        "straatNr": "65-PS/94",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.79663848876953,
-        "longitude": 5.2561492919921875,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.269489,
-          51.798225
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat DHL Zaltbommel",
-        "straatNaam": "Heksekamp",
-        "straatNr": "29-PS/75",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.798225,
-        "longitude": 5.269489,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.091641,
           51.815947
         ]
@@ -361,6 +315,52 @@
         "bezettingsgraad": 50,
         "latitude": 51.8133139,
         "longitude": 5.247044,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2561492919921875,
+          51.79663848876953
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat van der Valk P2",
+        "straatNaam": "Hogeweg",
+        "straatNr": "65-PS/94",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.79663848876953,
+        "longitude": 5.2561492919921875,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.269489,
+          51.798225
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat DHL Zaltbommel",
+        "straatNaam": "Heksekamp",
+        "straatNr": "29-PS/75",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.798225,
+        "longitude": 5.269489,
         "canPickup": true,
         "canDropoff": true
       }

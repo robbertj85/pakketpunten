@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Nijkerk",
     "slug": "nijkerk",
-    "generated_at": "2026-02-16T04:41:11.156588Z",
+    "generated_at": "2026-02-23T04:37:47.580622Z",
     "total_points": 46,
     "providers": [
       "Amazon",
@@ -325,29 +325,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.4785489,
-          52.2274533
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Lidl Amperestraat",
-        "straatNaam": "Amperestraat",
-        "straatNr": "5-PS/59",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.2274533,
-        "longitude": 5.4785489,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.4817947,
           52.2258329
         ]
@@ -362,6 +339,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.2258329,
         "longitude": 5.4817947,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4785489,
+          52.2274533
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Lidl Amperestraat",
+        "straatNaam": "Amperestraat",
+        "straatNr": "5-PS/59",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.2274533,
+        "longitude": 5.4785489,
         "canPickup": true,
         "canDropoff": true
       }

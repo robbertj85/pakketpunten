@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Vlaardingen",
     "slug": "vlaardingen",
-    "generated_at": "2026-02-16T04:49:14.994657Z",
+    "generated_at": "2026-02-23T04:45:18.902718Z",
     "total_points": 52,
     "providers": [
       "Amazon",
@@ -302,6 +302,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.3614238,
+          51.9102613
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "AD Shop Vlaardingen-Oost Metro",
+        "straatNaam": "Burgemeester van Lierplein",
+        "straatNr": "83",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9102613,
+        "longitude": 4.3614238,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.3118513,
           51.9153474
         ]
@@ -408,29 +431,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.910572,
         "longitude": 4.366732,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.3614238,
-          51.9102613
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "AD Shop Vlaardingen-Oost Metro",
-        "straatNaam": "Burgemeester van Lierplein",
-        "straatNr": "83",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9102613,
-        "longitude": 4.3614238,
         "canPickup": true,
         "canDropoff": true
       }
