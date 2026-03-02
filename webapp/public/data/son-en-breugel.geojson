@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Son en Breugel",
     "slug": "son-en-breugel",
-    "generated_at": "2026-02-23T04:42:35.637417Z",
+    "generated_at": "2026-03-02T04:34:23.842876Z",
     "total_points": 20,
     "providers": [
       "Amazon",
@@ -279,6 +279,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.51099,
+          51.51929
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Hippe Kadooz",
+        "straatNaam": "EVERTSENLAAN",
+        "straatNr": "32",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 51.51929,
+        "longitude": 5.51099,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.492130321,
           51.51091136
         ]
@@ -454,29 +477,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.5118055,
         "longitude": 5.4917375,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.5121615,
-          51.5190892
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat",
-        "straatNaam": "Van Gentlaan",
-        "straatNr": "8",
-        "vervoerder": "GLS",
-        "puntType": "locker",
-        "bezettingsgraad": 50,
-        "latitude": 51.5190892,
-        "longitude": 5.5121615,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1569,7 +1569,7 @@
                 51.516598145693386
               ],
               [
-                5.510436309299618,
+                5.51043630929962,
                 51.51661834593086
               ],
               [
@@ -1685,7 +1685,7 @@
                 51.52187179731524
               ],
               [
-                5.509743088753218,
+                5.509743088753222,
                 51.52187192507387
               ],
               [
@@ -2845,7 +2845,7 @@
                 51.515648857824544
               ],
               [
-                5.51004512292628,
+                5.510045122926281,
                 51.51574713962692
               ],
               [
@@ -2961,7 +2961,7 @@
                 51.52273239215763
               ],
               [
-                5.5093271451204515,
+                5.509327145120454,
                 51.522732519919224
               ],
               [

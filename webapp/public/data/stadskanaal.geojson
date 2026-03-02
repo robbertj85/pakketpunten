@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Stadskanaal",
     "slug": "stadskanaal",
-    "generated_at": "2026-02-23T04:42:40.061581Z",
-    "total_points": 50,
+    "generated_at": "2026-03-02T04:34:28.306817Z",
+    "total_points": 51,
     "providers": [
       "Amazon",
       "DHL",
@@ -910,6 +910,29 @@
         "straatNr": "28",
         "vervoerder": "PostNL",
         "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 53.0356854475304,
+        "longitude": 7.04305684409571,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.04305684409571,
+          53.0356854475304
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Dorpsstraat",
+        "straatNr": "28PBA",
+        "vervoerder": "PostNL",
+        "puntType": "automaat",
         "bezettingsgraad": 50,
         "latitude": 53.0356854475304,
         "longitude": 7.04305684409571,

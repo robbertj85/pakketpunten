@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Hellendoorn",
     "slug": "hellendoorn",
-    "generated_at": "2026-02-23T04:32:38.102164Z",
-    "total_points": 49,
+    "generated_at": "2026-03-02T04:24:12.299918Z",
+    "total_points": 50,
     "providers": [
       "Amazon",
       "DHL",
@@ -238,7 +238,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Top 1 Toys Nijverdal",
+        "locatieNaam": "Speelgoedwinkel Nijverda",
         "straatNaam": "Grotestraat",
         "straatNr": "176",
         "vervoerder": "DHL",
@@ -545,6 +545,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.3882028,
         "longitude": 6.4493183,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.4645572,
+          52.3649725
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat - De Buren - Anytime",
+        "straatNaam": "GROTESTRAAT",
+        "straatNr": "49",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 50,
+        "latitude": 52.3649725,
+        "longitude": 6.4645572,
         "canPickup": true,
         "canDropoff": false
       }
@@ -3539,6 +3562,10 @@
           [
             [
               [
+                6.478254375722864,
+                52.354309912178756
+              ],
+              [
                 6.478026667249556,
                 52.35408503873015
               ],
@@ -3793,10 +3820,6 @@
               [
                 6.478254375722864,
                 52.354309912178756
-              ],
-              [
-                6.478026667249556,
-                52.35408503873015
               ]
             ]
           ],
@@ -4313,6 +4336,10 @@
               [
                 6.497814145871657,
                 52.36308784993913
+              ],
+              [
+                6.497919726187852,
+                52.363014300574484
               ],
               [
                 6.497919726187852,
@@ -6631,10 +6658,6 @@
           [
             [
               [
-                6.473966225385839,
-                52.37782373457052
-              ],
-              [
                 6.473572734038148,
                 52.37756592002342
               ],
@@ -6993,6 +7016,10 @@
               [
                 6.473966225385839,
                 52.37782373457052
+              ],
+              [
+                6.473572734038148,
+                52.37756592002342
               ]
             ]
           ],
@@ -7331,7 +7358,7 @@
                 52.36183012164669
               ],
               [
-                6.487561031852221,
+                6.487561031852222,
                 52.36184819707545
               ],
               [

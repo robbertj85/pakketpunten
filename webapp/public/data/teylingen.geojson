@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Teylingen",
     "slug": "teylingen",
-    "generated_at": "2026-02-23T04:43:30.032524Z",
+    "generated_at": "2026-03-02T04:35:18.402383Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -232,6 +232,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.5219159,
+          52.2263002
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Sassenheim",
+        "straatNaam": "Hoofdstraat",
+        "straatNr": "197-PS/73",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.2263002,
+        "longitude": 4.5219159,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.4816367,
           52.2210454
         ]
@@ -269,29 +292,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.2274843,
         "longitude": 4.5254721,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.5219159,
-          52.2263002
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Sassenheim",
-        "straatNaam": "Hoofdstraat",
-        "straatNr": "197-PS/73",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.2263002,
-        "longitude": 4.5219159,
         "canPickup": true,
         "canDropoff": true
       }

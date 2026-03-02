@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Assen",
     "slug": "assen",
-    "generated_at": "2026-02-23T04:24:34.255572Z",
-    "total_points": 74,
+    "generated_at": "2026-03-02T04:16:03.827619Z",
+    "total_points": 75,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -1559,6 +1559,29 @@
         "bezettingsgraad": 50,
         "latitude": 53.0087086,
         "longitude": 6.5783943,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.5609991,
+          52.9951326
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Mobieltjes En Zo",
+        "straatNaam": "Forum 5",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.9951326,
+        "longitude": 6.5609991,
         "canPickup": true,
         "canDropoff": true
       }
@@ -6604,6 +6627,10 @@
           [
             [
               [
+                6.58078339867647,
+                52.98604473808724
+              ],
+              [
                 6.580348767639935,
                 52.986010254908685
               ],
@@ -6876,7 +6903,7 @@
                 52.986353160825495
               ],
               [
-                6.582047046240998,
+                6.582047046241001,
                 52.98630662928981
               ],
               [
@@ -6894,10 +6921,6 @@
               [
                 6.58078339867647,
                 52.98604473808724
-              ],
-              [
-                6.580348767639935,
-                52.986010254908685
               ]
             ]
           ]
@@ -9524,7 +9547,7 @@
                 53.0039800096198
               ],
               [
-                6.58138624711213,
+                6.581386247112131,
                 53.004102845133154
               ],
               [
