@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Renswoude",
     "slug": "renswoude",
-    "generated_at": "2026-03-02T04:32:23.703522Z",
-    "total_points": 3,
+    "generated_at": "2026-03-02T15:40:55.828027Z",
+    "total_points": 4,
     "providers": [
+      "Amazon",
       "DHL",
       "PostNL"
     ],
@@ -17,6 +18,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.53755824107429,
+          52.0738134453032
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Het Rokertje B.V.",
+        "straatNaam": "Vendelier 1 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.0738134453032,
+        "longitude": 5.53755824107429,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {

@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Terschelling",
     "slug": "terschelling",
-    "generated_at": "2026-03-02T04:35:09.404059Z",
-    "total_points": 5,
+    "generated_at": "2026-03-02T15:43:44.955378Z",
+    "total_points": 8,
     "providers": [
+      "Amazon",
       "DHL",
       "PostNL"
     ],
@@ -17,6 +18,75 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.215172374,
+          53.36034948
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar Berghuis",
+        "straatNaam": "Boomstraat 9",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.36034948,
+        "longitude": 5.215172374,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.28545835133294,
+          53.3825416290749
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Terschelling",
+        "straatNaam": "Westerburen 1",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.3825416290749,
+        "longitude": 5.28545835133294,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.323777376,
+          53.39379914
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar Cupido",
+        "straatNaam": "Lies 15",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.39379914,
+        "longitude": 5.323777376,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -139,10 +209,6 @@
         "coordinates": [
           [
             [
-              [
-                5.218065681243587,
-                53.35811427344042
-              ],
               [
                 5.217803115605297,
                 53.3579014338032
@@ -276,7 +342,7 @@
                 53.36131147316564
               ],
               [
-                5.211099004668589,
+                5.211099004668587,
                 53.36149439697068
               ],
               [
@@ -420,7 +486,7 @@
                 53.358644389337925
               ],
               [
-                5.218386408484975,
+                5.2183864084849745,
                 53.358461482683026
               ],
               [
@@ -430,6 +496,10 @@
               [
                 5.218065681243587,
                 53.35811427344042
+              ],
+              [
+                5.217803115605297,
+                53.3579014338032
               ]
             ]
           ],
@@ -1072,10 +1142,6 @@
           [
             [
               [
-                5.219316416674331,
-                53.357616836822956
-              ],
-              [
                 5.218966325526424,
                 53.357333054098
               ],
@@ -1362,11 +1428,19 @@
               [
                 5.219316416674331,
                 53.357616836822956
+              ],
+              [
+                5.218966325526424,
+                53.357333054098
               ]
             ]
           ],
           [
             [
+              [
+                5.289278039734316,
+                53.37976658461877
+              ],
               [
                 5.288804740195708,
                 53.379556095879536
@@ -1702,10 +1776,6 @@
               [
                 5.289278039734316,
                 53.37976658461877
-              ],
-              [
-                5.288804740195708,
-                53.379556095879536
               ]
             ]
           ],

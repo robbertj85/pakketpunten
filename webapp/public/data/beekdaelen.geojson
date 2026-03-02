@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Beekdaelen",
     "slug": "beekdaelen",
-    "generated_at": "2026-03-02T04:16:35.915464Z",
-    "total_points": 30,
+    "generated_at": "2026-03-02T15:24:44.184082Z",
+    "total_points": 31,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.823757213,
+          50.90427493
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Plus Kaumanns Schimmert",
+        "straatNaam": "Weidestraat 3",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.90427493,
+        "longitude": 5.823757213,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Goes",
     "slug": "goes",
-    "generated_at": "2026-03-02T04:22:27.534710Z",
-    "total_points": 57,
+    "generated_at": "2026-03-02T15:30:42.817533Z",
+    "total_points": 58,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.875094896,
+          51.50713046
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Goes",
+        "straatNaam": "Goese Poort 4",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.50713046,
+        "longitude": 3.875094896,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -3572,7 +3595,7 @@
                 51.49050014826479
               ],
               [
-                3.8936597268671242,
+                3.893659726867121,
                 51.490505671067424
               ],
               [
@@ -4450,7 +4473,7 @@
                 51.53269111227215
               ],
               [
-                3.823456975255945,
+                3.8234569752559477,
                 51.53268311303015
               ],
               [

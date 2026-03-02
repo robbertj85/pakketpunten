@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Tholen",
     "slug": "tholen",
-    "generated_at": "2026-03-02T04:35:22.888472Z",
-    "total_points": 33,
+    "generated_at": "2026-03-02T15:43:59.058056Z",
+    "total_points": 34,
     "providers": [
       "Amazon",
       "DHL",
@@ -20,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.220506438,
+          51.53204641
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Boekhandel Oostdijk",
+        "straatNaam": "Kerkstraat 24 -26",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.53204641,
+        "longitude": 4.220506438,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -6127,7 +6150,7 @@
                 51.528443020839134
               ],
               [
-                4.221495410926793,
+                4.221495410926795,
                 51.528508655751544
               ],
               [

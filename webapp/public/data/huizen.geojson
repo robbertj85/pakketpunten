@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Huizen",
     "slug": "huizen",
-    "generated_at": "2026-03-02T04:25:30.622377Z",
-    "total_points": 21,
+    "generated_at": "2026-03-02T15:33:51.753930Z",
+    "total_points": 22,
     "providers": [
       "Amazon",
       "DHL",
@@ -39,6 +39,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.29427996,
         "longitude": 5.261760783,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26542185814376,
+          52.2955600382989
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Maraya Restaurant",
+        "straatNaam": "Oostkade 46",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.2955600382989,
+        "longitude": 5.26542185814376,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1815,6 +1838,10 @@
           [
             [
               [
+                5.261768384176014,
+                52.291583658191506
+              ],
+              [
                 5.26133734524198,
                 52.291596184135585
               ],
@@ -2181,10 +2208,6 @@
               [
                 5.261768384176014,
                 52.291583658191506
-              ],
-              [
-                5.26133734524198,
-                52.291596184135585
               ]
             ]
           ]
@@ -3175,6 +3198,10 @@
           [
             [
               [
+                5.260626938968367,
+                52.29075275005944
+              ],
+              [
                 5.2600685847789075,
                 52.29083787631322
               ],
@@ -3521,10 +3548,6 @@
               [
                 5.260626938968367,
                 52.29075275005944
-              ],
-              [
-                5.2600685847789075,
-                52.29083787631322
               ]
             ]
           ]

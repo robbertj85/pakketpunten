@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Schiedam",
     "slug": "schiedam",
-    "generated_at": "2026-03-02T04:33:33.382666Z",
+    "generated_at": "2026-03-02T15:42:07.682011Z",
     "total_points": 54,
     "providers": [
       "Amazon",
@@ -20,52 +20,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.407252264,
-          51.92130537
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Spar City Schiedam",
-        "straatNaam": "Stationsplein 4",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.92130537,
-        "longitude": 4.407252264,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.398567763,
-          51.93610014
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "GAMMA Schiedam-Noord",
-        "straatNaam": "'s-Gravelandseweg 363",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.93610014,
-        "longitude": 4.398567763,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -154,6 +108,52 @@
         "bezettingsgraad": 50,
         "latitude": 51.9173187855399,
         "longitude": 4.40133577958462,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.407252264,
+          51.92130537
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar City Schiedam",
+        "straatNaam": "Stationsplein 4",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.92130537,
+        "longitude": 4.407252264,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.398567763,
+          51.93610014
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Schiedam-Noord",
+        "straatNaam": "'s-Gravelandseweg 363",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.93610014,
+        "longitude": 4.398567763,
         "canPickup": true,
         "canDropoff": false
       }

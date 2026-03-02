@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Beuningen",
     "slug": "beuningen",
-    "generated_at": "2026-03-02T04:17:21.585316Z",
-    "total_points": 21,
+    "generated_at": "2026-03-02T15:25:32.539508Z",
+    "total_points": 23,
     "providers": [
       "Amazon",
       "DHL",
@@ -39,6 +39,52 @@
         "bezettingsgraad": 50,
         "latitude": 51.8558438,
         "longitude": 5.813986168,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.771416478,
+          51.86143786
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna Wito",
+        "straatNaam": "Julianaplein 28 -30",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.86143786,
+        "longitude": 5.771416478,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.753066,
+          51.851175
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Gamma",
+        "straatNaam": "Claudiuslaan 60 B",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.851175,
+        "longitude": 5.753066,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1411,10 +1457,6 @@
           [
             [
               [
-                5.75368651607682,
-                51.86358712568349
-              ],
-              [
                 5.753501828682029,
                 51.86334848514056
               ],
@@ -1669,6 +1711,10 @@
               [
                 5.75368651607682,
                 51.86358712568349
+              ],
+              [
+                5.753501828682029,
+                51.86334848514056
               ]
             ]
           ],
@@ -2243,10 +2289,6 @@
           [
             [
               [
-                5.817999323002378,
-                51.854797223879885
-              ],
-              [
                 5.817814331230628,
                 51.85455868463465
               ],
@@ -2517,6 +2559,10 @@
               [
                 5.817999323002378,
                 51.854797223879885
+              ],
+              [
+                5.817814331230628,
+                51.85455868463465
               ]
             ]
           ],
@@ -3603,10 +3649,6 @@
           [
             [
               [
-                5.755024953179452,
-                51.86323896774488
-              ],
-              [
                 5.754778696211677,
                 51.86292078308796
               ],
@@ -3861,6 +3903,10 @@
               [
                 5.755024953179452,
                 51.86323896774488
+              ],
+              [
+                5.754778696211677,
+                51.86292078308796
               ]
             ]
           ],
@@ -4427,10 +4473,6 @@
           [
             [
               [
-                5.81933699908801,
-                51.85444833343544
-              ],
-              [
                 5.8190903363055915,
                 51.85413028384654
               ],
@@ -4941,6 +4983,10 @@
               [
                 5.81933699908801,
                 51.85444833343544
+              ],
+              [
+                5.8190903363055915,
+                51.85413028384654
               ]
             ]
           ]

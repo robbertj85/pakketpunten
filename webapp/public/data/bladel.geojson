@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Bladel",
     "slug": "bladel",
-    "generated_at": "2026-03-02T04:17:30.407859Z",
-    "total_points": 19,
+    "generated_at": "2026-03-02T15:25:41.213915Z",
+    "total_points": 20,
     "providers": [
       "Amazon",
       "DHL",
@@ -39,6 +39,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.36784888,
         "longitude": 5.221259674,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.243173151,
+          51.39513179
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Teurlings De Mulder",
+        "straatNaam": "Dorpsstraat 30 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.39513179,
+        "longitude": 5.243173151,
         "canPickup": true,
         "canDropoff": false
       }

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Meppel",
     "slug": "meppel",
-    "generated_at": "2026-03-02T04:28:24.106183Z",
-    "total_points": 50,
+    "generated_at": "2026-03-02T15:36:51.865595Z",
+    "total_points": 51,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -155,6 +155,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.686847,
         "longitude": 6.184411053,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.218848917,
+          52.6966051
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DA - The Readshop Oosterboer",
+        "straatNaam": "Ruskenstuk 14 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.6966051,
+        "longitude": 6.218848917,
         "canPickup": true,
         "canDropoff": false
       }
@@ -3827,10 +3850,6 @@
           [
             [
               [
-                6.228237564168175,
-                52.688649581439215
-              ],
-              [
                 6.227941428507543,
                 52.68845562457738
               ],
@@ -4101,6 +4120,10 @@
               [
                 6.228237564168175,
                 52.688649581439215
+              ],
+              [
+                6.227941428507543,
+                52.68845562457738
               ]
             ]
           ],
@@ -6951,10 +6974,6 @@
           [
             [
               [
-                6.229369791724371,
-                52.68807141889188
-              ],
-              [
                 6.2289749433301616,
                 52.6878128132991
               ],
@@ -7473,6 +7492,10 @@
               [
                 6.229369791724371,
                 52.68807141889188
+              ],
+              [
+                6.2289749433301616,
+                52.6878128132991
               ]
             ]
           ],

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Heeze-Leende",
     "slug": "heeze-leende",
-    "generated_at": "2026-03-02T04:24:03.141790Z",
-    "total_points": 21,
+    "generated_at": "2026-03-02T15:32:22.141981Z",
+    "total_points": 22,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.578307969,
+          51.37878507
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Lektura",
+        "straatNaam": "Jan Deckersstraat 19 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.37878507,
+        "longitude": 5.578307969,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -1436,7 +1459,7 @@
                 51.384582310210114
               ],
               [
-                5.578975221173881,
+                5.578975221173879,
                 51.38450566706717
               ],
               [
@@ -2144,7 +2167,7 @@
                 51.38567642184525
               ],
               [
-                5.580396693461508,
+                5.580396693461506,
                 51.385638691094755
               ],
               [
@@ -3528,10 +3551,6 @@
                 51.388093446242074
               ],
               [
-                5.571141349302593,
-                51.388093446242074
-              ],
-              [
                 5.571144743521118,
                 51.38809933466606
               ],
@@ -4060,7 +4079,7 @@
                 51.37394483283772
               ],
               [
-                5.573529382627232,
+                5.573529382627233,
                 51.37395766770653
               ],
               [

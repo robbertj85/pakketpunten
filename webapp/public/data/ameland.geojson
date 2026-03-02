@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Ameland",
     "slug": "ameland",
-    "generated_at": "2026-03-02T04:15:34.604773Z",
-    "total_points": 5,
+    "generated_at": "2026-03-02T15:23:39.675688Z",
+    "total_points": 6,
     "providers": [
       "Amazon",
       "DHL",
@@ -19,6 +19,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.636077322,
+          53.44107061
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "De Markthal VOF",
+        "straatNaam": "Olfert Pieter Lapstraat 6",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.44107061,
+        "longitude": 5.636077322,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -286,7 +309,7 @@
                 53.44371242951739
               ],
               [
-                5.637047122131939,
+                5.637047122131941,
                 53.44370124563476
               ],
               [
@@ -438,7 +461,7 @@
                 53.4384713973011
               ],
               [
-                5.637332385735958,
+                5.637332385735959,
                 53.43848258141909
               ],
               [
@@ -994,10 +1017,6 @@
           [
             [
               [
-                5.636646522307802,
-                53.43749278762593
-              ],
-              [
                 5.636056485622584,
                 53.4374767029132
               ],
@@ -1292,6 +1311,10 @@
               [
                 5.636646522307802,
                 53.43749278762593
+              ],
+              [
+                5.636056485622584,
+                53.4374767029132
               ]
             ]
           ],

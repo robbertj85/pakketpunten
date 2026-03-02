@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Wassenaar",
     "slug": "wassenaar",
-    "generated_at": "2026-03-02T04:38:09.659006Z",
-    "total_points": 11,
+    "generated_at": "2026-03-02T15:46:49.870327Z",
+    "total_points": 12,
     "providers": [
+      "Amazon",
       "DHL",
       "DPD",
       "PostNL",
@@ -19,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.40289635735777,
+          52.144556673823
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "TeleCombinatie Wassenaar",
+        "straatNaam": "Stadhoudersplein 13",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.144556673823,
+        "longitude": 4.40289635735777,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -892,6 +916,10 @@
           [
             [
               [
+                4.414325970555041,
+                52.138440990238635
+              ],
+              [
                 4.414186538976729,
                 52.13819068169448
               ],
@@ -1146,10 +1174,6 @@
               [
                 4.414325970555041,
                 52.138440990238635
-              ],
-              [
-                4.414186538976729,
-                52.13819068169448
               ]
             ]
           ]

@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Duiven",
     "slug": "duiven",
-    "generated_at": "2026-03-02T04:20:47.304109Z",
-    "total_points": 20,
+    "generated_at": "2026-03-02T15:28:59.711841Z",
+    "total_points": 22,
     "providers": [
+      "Amazon",
       "DHL",
       "DPD",
       "PostNL",
@@ -19,6 +20,52 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.990589184,
+          51.9645574
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "My Parts Automaterialen",
+        "straatNaam": "Fotograaf 10 -24",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.9645574,
+        "longitude": 5.990589184,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.02208198732825,
+          51.9494707412011
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Dr. Phone",
+        "straatNaam": "Pastoriestraat 8",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.9494707412011,
+        "longitude": 6.02208198732825,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -1419,10 +1466,6 @@
           [
             [
               [
-                6.022297088635093,
-                51.9627043508108
-              ],
-              [
                 6.0221105666259716,
                 51.962466140065466
               ],
@@ -1677,11 +1720,19 @@
               [
                 6.022297088635093,
                 51.9627043508108
+              ],
+              [
+                6.0221105666259716,
+                51.962466140065466
               ]
             ]
           ],
           [
             [
+              [
+                5.994607897881666,
+                51.9635047958795
+              ],
               [
                 5.994421519328059,
                 51.9632665410312
@@ -2057,10 +2108,6 @@
               [
                 5.994607897881666,
                 51.9635047958795
-              ],
-              [
-                5.994421519328059,
-                51.9632665410312
               ]
             ]
           ],
@@ -4191,6 +4238,10 @@
           [
             [
               [
+                5.995947426407613,
+                51.96315389606237
+              ],
+              [
                 5.995698914593297,
                 51.962836225689855
               ],
@@ -4533,10 +4584,6 @@
               [
                 5.995947426407613,
                 51.96315389606237
-              ],
-              [
-                5.995698914593297,
-                51.962836225689855
               ]
             ]
           ]

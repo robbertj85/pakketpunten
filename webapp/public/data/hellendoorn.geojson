@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Hellendoorn",
     "slug": "hellendoorn",
-    "generated_at": "2026-03-02T04:24:12.299918Z",
-    "total_points": 50,
+    "generated_at": "2026-03-02T15:32:31.271048Z",
+    "total_points": 52,
     "providers": [
       "Amazon",
       "DHL",
@@ -39,6 +39,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.3655264772348,
         "longitude": 6.46008006467152,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.455467981,
+          52.36484914
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DA / Readshop",
+        "straatNaam": "Smidsweg 7 C",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.36484914,
+        "longitude": 6.455467981,
         "canPickup": true,
         "canDropoff": false
       }
@@ -108,6 +131,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.38882523,
         "longitude": 6.448979746,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.49018496375313,
+          52.358634287973
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "VDM Nijverdal B.V.",
+        "straatNaam": "Nijverheidsweg 2 B",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.358634287973,
+        "longitude": 6.49018496375313,
         "canPickup": true,
         "canDropoff": false
       }
@@ -3562,10 +3608,6 @@
           [
             [
               [
-                6.478254375722864,
-                52.354309912178756
-              ],
-              [
                 6.478026667249556,
                 52.35408503873015
               ],
@@ -3820,6 +3862,10 @@
               [
                 6.478254375722864,
                 52.354309912178756
+              ],
+              [
+                6.478026667249556,
+                52.35408503873015
               ]
             ]
           ],
@@ -4336,10 +4382,6 @@
               [
                 6.497814145871657,
                 52.36308784993913
-              ],
-              [
-                6.497919726187852,
-                52.363014300574484
               ],
               [
                 6.497919726187852,
@@ -6658,6 +6700,10 @@
           [
             [
               [
+                6.473966225385839,
+                52.37782373457052
+              ],
+              [
                 6.473572734038148,
                 52.37756592002342
               ],
@@ -7016,10 +7062,6 @@
               [
                 6.473966225385839,
                 52.37782373457052
-              ],
-              [
-                6.473572734038148,
-                52.37756592002342
               ]
             ]
           ],
@@ -7358,7 +7400,7 @@
                 52.36183012164669
               ],
               [
-                6.487561031852222,
+                6.487561031852221,
                 52.36184819707545
               ],
               [

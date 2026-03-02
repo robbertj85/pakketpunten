@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Vught",
     "slug": "vught",
-    "generated_at": "2026-03-02T04:37:41.251792Z",
-    "total_points": 25,
+    "generated_at": "2026-03-02T15:46:21.837430Z",
+    "total_points": 27,
     "providers": [
       "Amazon",
       "DHL",
@@ -20,6 +20,52 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.29981435631627,
+          51.6577006567882
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna",
+        "straatNaam": "Baron van Hovellplein 4",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.6577006567882,
+        "longitude": 5.29981435631627,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.28166155,
+          51.64587479
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera",
+        "straatNaam": "Moleneindplein 58",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.64587479,
+        "longitude": 5.28166155,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -1863,6 +1909,14 @@
           [
             [
               [
+                5.300256776572757,
+                51.65487840200998
+              ],
+              [
+                5.299844208678372,
+                51.654813796100974
+              ],
+              [
                 5.299423447515813,
                 51.654774652943146
               ],
@@ -2281,14 +2335,6 @@
               [
                 5.300256776572757,
                 51.65487840200998
-              ],
-              [
-                5.299844208678372,
-                51.654813796100974
-              ],
-              [
-                5.299423447515813,
-                51.654774652943146
               ]
             ]
           ],
@@ -3703,6 +3749,14 @@
           [
             [
               [
+                5.300677902889996,
+                51.654018564936756
+              ],
+              [
+                5.30012782226752,
+                51.65393242537599
+              ],
+              [
                 5.299566818136664,
                 51.65388023552027
               ],
@@ -4077,14 +4131,6 @@
               [
                 5.300677902889996,
                 51.654018564936756
-              ],
-              [
-                5.30012782226752,
-                51.65393242537599
-              ],
-              [
-                5.299566818136664,
-                51.65388023552027
               ]
             ]
           ],

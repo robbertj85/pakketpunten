@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Papendrecht",
     "slug": "papendrecht",
-    "generated_at": "2026-03-02T04:31:42.813191Z",
-    "total_points": 21,
+    "generated_at": "2026-03-02T15:40:13.964055Z",
+    "total_points": 23,
     "providers": [
       "Amazon",
       "DHL",
@@ -39,6 +39,52 @@
         "bezettingsgraad": 50,
         "latitude": 51.84455562,
         "longitude": 4.68248072,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.68443719,
+          51.82612266
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna Papendrecht 8308",
+        "straatNaam": "Meentpassage 7",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.82612266,
+        "longitude": 4.68443719,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.684977371,
+          51.82590118
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Phone Connect Papendrecht",
+        "straatNaam": "Meentpassage 15",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.82590118,
+        "longitude": 4.684977371,
         "canPickup": true,
         "canDropoff": false
       }
@@ -883,10 +929,6 @@
           [
             [
               [
-                4.685892463549238,
-                51.833587794007826
-              ],
-              [
                 4.685713577603559,
                 51.83334750160033
               ],
@@ -1261,6 +1303,10 @@
               [
                 4.685892463549238,
                 51.833587794007826
+              ],
+              [
+                4.685713577603559,
+                51.83334750160033
               ]
             ]
           ],

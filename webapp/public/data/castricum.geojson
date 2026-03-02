@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Castricum",
     "slug": "castricum",
-    "generated_at": "2026-03-02T04:18:48.201711Z",
-    "total_points": 17,
+    "generated_at": "2026-03-02T15:26:58.907923Z",
+    "total_points": 18,
     "providers": [
+      "Amazon",
       "DeBuren",
       "DHL",
       "DPD",
@@ -19,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.662958962,
+          52.54701346
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Vivant Rozing",
+        "straatNaam": "Bakkerspleintje 1 C",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.54701346,
+        "longitude": 4.662958962,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -822,7 +846,7 @@
                 52.54837736907113
               ],
               [
-                4.670474605686717,
+                4.670474605686716,
                 52.548407862959294
               ],
               [
@@ -2546,7 +2570,7 @@
                 52.54767704284392
               ],
               [
-                4.669550699976715,
+                4.669550699976713,
                 52.547707536299214
               ],
               [

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Berg en Dal",
     "slug": "berg-en-dal",
-    "generated_at": "2026-03-02T04:16:45.120670Z",
-    "total_points": 33,
+    "generated_at": "2026-03-02T15:24:53.116567Z",
+    "total_points": 34,
     "providers": [
       "Amazon",
       "DHL",
@@ -108,6 +108,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.77822776,
         "longitude": 5.933262487,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.994040987,
+          51.83888056
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Buurtsuper Leuth",
+        "straatNaam": "Kerkplein 9 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.83888056,
+        "longitude": 5.994040987,
         "canPickup": true,
         "canDropoff": false
       }
@@ -5653,6 +5676,10 @@
               [
                 5.94218483407086,
                 51.85974477170639
+              ],
+              [
+                5.942231673592971,
+                51.85972708620074
               ],
               [
                 5.942231673592972,

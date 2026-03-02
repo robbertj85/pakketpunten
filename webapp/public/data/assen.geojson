@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Assen",
     "slug": "assen",
-    "generated_at": "2026-03-02T04:16:03.827619Z",
-    "total_points": 75,
+    "generated_at": "2026-03-02T15:24:11.447928Z",
+    "total_points": 79,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -22,6 +22,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.579063,
+          52.99452
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "De Vermeer",
+        "straatNaam": "Pelikaanstraat 2 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.99452,
+        "longitude": 6.579063,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -87,6 +110,75 @@
         "bezettingsgraad": 50,
         "latitude": 52.9975465,
         "longitude": 6.560281343,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.564058358,
+          52.99510086
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar City Assen",
+        "straatNaam": "Noordersingel 9 -11",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.99510086,
+        "longitude": 6.564058358,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.557879052,
+          53.00680867
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tinq Shop Noorderpark",
+        "straatNaam": "Zwartwatersweg 133 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.00680867,
+        "longitude": 6.557879052,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.57121811,
+          53.00915773
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Shell Industrieweg",
+        "straatNaam": "Industrieweg 46 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.00915773,
+        "longitude": 6.57121811,
         "canPickup": true,
         "canDropoff": false
       }
@@ -2791,7 +2883,7 @@
                 52.99980103354612
               ],
               [
-                6.557933907586239,
+                6.557933907586241,
                 52.99983786728824
               ],
               [
@@ -3695,6 +3787,10 @@
           [
             [
               [
+                6.524007653007241,
+                52.995499644630854
+              ],
+              [
                 6.523740941519474,
                 52.995289666892795
               ],
@@ -4181,10 +4277,6 @@
               [
                 6.524007653007241,
                 52.995499644630854
-              ],
-              [
-                6.523740941519474,
-                52.995289666892795
               ]
             ]
           ],
@@ -5899,7 +5991,7 @@
                 53.0072480969358
               ],
               [
-                6.57453528133322,
+                6.574535281333222,
                 53.007355242249716
               ],
               [
@@ -6363,10 +6455,6 @@
           [
             [
               [
-                6.576485726368803,
-                53.022831522937594
-              ],
-              [
                 6.57621859389427,
                 53.02262166523206
               ],
@@ -6621,15 +6709,15 @@
               [
                 6.576485726368803,
                 53.022831522937594
+              ],
+              [
+                6.57621859389427,
+                53.02262166523206
               ]
             ]
           ],
           [
             [
-              [
-                6.58078339867647,
-                52.98604473808724
-              ],
               [
                 6.580348767639935,
                 52.986010254908685
@@ -6903,7 +6991,7 @@
                 52.986353160825495
               ],
               [
-                6.582047046241001,
+                6.582047046240998,
                 52.98630662928981
               ],
               [
@@ -6921,6 +7009,10 @@
               [
                 6.58078339867647,
                 52.98604473808724
+              ],
+              [
+                6.580348767639935,
+                52.986010254908685
               ]
             ]
           ]
@@ -9547,7 +9639,7 @@
                 53.0039800096198
               ],
               [
-                6.581386247112131,
+                6.58138624711213,
                 53.004102845133154
               ],
               [
@@ -10731,10 +10823,6 @@
           [
             [
               [
-                6.57771099844167,
-                53.0223200440039
-              ],
-              [
                 6.577354818744046,
                 53.02204023720886
               ],
@@ -10989,6 +11077,10 @@
               [
                 6.57771099844167,
                 53.0223200440039
+              ],
+              [
+                6.577354818744046,
+                53.02204023720886
               ]
             ]
           ]

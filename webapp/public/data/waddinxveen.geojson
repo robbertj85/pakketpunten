@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Waddinxveen",
     "slug": "waddinxveen",
-    "generated_at": "2026-03-02T04:37:59.839948Z",
-    "total_points": 24,
+    "generated_at": "2026-03-02T15:46:40.485318Z",
+    "total_points": 26,
     "providers": [
       "Amazon",
       "DHL",
@@ -20,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.659314799,
+          52.04854376
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "HUBO",
+        "straatNaam": "Noordkade 28 -30",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.04854376,
+        "longitude": 4.659314799,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -108,6 +131,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.0277408316995,
         "longitude": 4.6616199515848,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.635976247,
+          52.03717068
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Plus Zuidplas",
+        "straatNaam": "Zuidplaslaan 184 -186",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.03717068,
+        "longitude": 4.635976247,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1428,14 +1474,6 @@
           [
             [
               [
-                4.654084457703664,
-                52.038667834720655
-              ],
-              [
-                4.653769458763147,
-                52.03848816248362
-              ],
-              [
                 4.653427422303454,
                 52.038328395240136
               ],
@@ -2434,6 +2472,14 @@
               [
                 4.654084457703664,
                 52.038667834720655
+              ],
+              [
+                4.653769458763147,
+                52.03848816248362
+              ],
+              [
+                4.653427422303454,
+                52.038328395240136
               ]
             ],
             [
@@ -2446,7 +2492,7 @@
                 52.04710201988712
               ],
               [
-                4.655522962902659,
+                4.65552296290266,
                 52.04707880867944
               ],
               [
@@ -3834,14 +3880,6 @@
           [
             [
               [
-                4.654705355393721,
-                52.037799173531425
-              ],
-              [
-                4.654249309853912,
-                52.03758615392697
-              ],
-              [
                 4.653761608116894,
                 52.03740172530265
               ],
@@ -4628,6 +4666,14 @@
               [
                 4.654705355393721,
                 52.037799173531425
+              ],
+              [
+                4.654249309853912,
+                52.03758615392697
+              ],
+              [
+                4.653761608116894,
+                52.03740172530265
               ]
             ]
           ]

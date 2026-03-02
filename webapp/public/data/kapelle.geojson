@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Kapelle",
     "slug": "kapelle",
-    "generated_at": "2026-03-02T04:25:53.324190Z",
-    "total_points": 14,
+    "generated_at": "2026-03-02T15:34:16.828249Z",
+    "total_points": 15,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.95649306,
+          51.48591525
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Boekhandel Lectori",
+        "straatNaam": "Weststraat 9 -11",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.48591525,
+        "longitude": 3.95649306,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -1199,10 +1222,6 @@
           [
             [
               [
-                4.010756255188656,
-                51.51115791197636
-              ],
-              [
                 4.010620955944529,
                 51.510907125011784
               ],
@@ -1457,6 +1476,10 @@
               [
                 4.010756255188656,
                 51.51115791197636
+              ],
+              [
+                4.010620955944529,
+                51.510907125011784
               ]
             ]
           ],
@@ -2619,10 +2642,6 @@
           [
             [
               [
-                4.012142310610555,
-                51.51091328175016
-              ],
-              [
                 4.01196190268827,
                 51.51057890119768
               ],
@@ -2877,6 +2896,10 @@
               [
                 4.012142310610555,
                 51.51091328175016
+              ],
+              [
+                4.01196190268827,
+                51.51057890119768
               ]
             ]
           ],

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Oldebroek",
     "slug": "oldebroek",
-    "generated_at": "2026-03-02T04:30:34.004383Z",
-    "total_points": 24,
+    "generated_at": "2026-03-02T15:39:03.354391Z",
+    "total_points": 25,
     "providers": [
       "Amazon",
       "DHL",
@@ -40,6 +40,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.4491708663373,
         "longitude": 5.90197208785901,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.99253916664231,
+          52.4630150956723
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Beestenboel Wezep PpP",
+        "straatNaam": "Stationsweg 7 C",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.4630150956723,
+        "longitude": 5.99253916664231,
         "canPickup": true,
         "canDropoff": false
       }

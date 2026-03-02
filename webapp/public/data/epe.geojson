@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Epe",
     "slug": "epe",
-    "generated_at": "2026-03-02T04:21:47.182329Z",
+    "generated_at": "2026-03-02T15:30:00.565321Z",
     "total_points": 40,
     "providers": [
       "Amazon",
@@ -20,29 +20,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.96891985939825,
-          52.2871440736162
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Kar-Tel",
-        "straatNaam": "Kosterstraat 2",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.2871440736162,
-        "longitude": 5.96891985939825,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -131,6 +108,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.31374239,
         "longitude": 5.973741103,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96891985939825,
+          52.2871440736162
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Kar-Tel",
+        "straatNaam": "Kosterstraat 2",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.2871440736162,
+        "longitude": 5.96891985939825,
         "canPickup": true,
         "canDropoff": false
       }

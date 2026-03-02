@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Maassluis",
     "slug": "maassluis",
-    "generated_at": "2026-03-02T04:28:00.956041Z",
-    "total_points": 18,
+    "generated_at": "2026-03-02T15:36:28.808104Z",
+    "total_points": 20,
     "providers": [
       "Amazon",
       "DHL",
@@ -25,6 +25,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.25262936091049,
+          51.920795414533
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Jos Lock  2 Wielers",
+        "straatNaam": "Haven 11",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.920795414533,
+        "longitude": 4.25262936091049,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.255290534,
           51.92191773
         ]
@@ -39,6 +62,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.92191773,
         "longitude": 4.255290534,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.243529294,
+          51.92192073
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "MeerServices Automatisering B.V.",
+        "straatNaam": "Industrieweg 50 -56",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.92192073,
+        "longitude": 4.243529294,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1266,7 +1312,7 @@
                 51.92448835755694
               ],
               [
-                4.2424969970510205,
+                4.242496997051019,
                 51.92453779929968
               ],
               [

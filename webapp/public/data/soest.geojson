@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Soest",
     "slug": "soest",
-    "generated_at": "2026-03-02T04:34:14.702500Z",
-    "total_points": 36,
+    "generated_at": "2026-03-02T15:42:48.312737Z",
+    "total_points": 38,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -50,6 +50,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.30569607322006,
+          52.1797328814661
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Your Inkstation Soest",
+        "straatNaam": "Steenhoffstraat 61 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.1797328814661,
+        "longitude": 5.30569607322006,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.2791224,
           52.1784267
         ]
@@ -64,6 +87,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.1784267,
         "longitude": 5.2791224,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.273182206,
+          52.17878024
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "KARWEI Soest",
+        "straatNaam": "Weteringpad 13",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.17878024,
+        "longitude": 5.273182206,
         "canPickup": true,
         "canDropoff": false
       }
@@ -3426,6 +3472,10 @@
           [
             [
               [
+                5.300694300060686,
+                52.18354547974368
+              ],
+              [
                 5.300405590626538,
                 52.18334920592374
               ],
@@ -3796,10 +3846,6 @@
               [
                 5.300694300060686,
                 52.18354547974368
-              ],
-              [
-                5.300405590626538,
-                52.18334920592374
               ]
             ]
           ]
@@ -4468,6 +4514,10 @@
               [
                 5.268017707967951,
                 52.17707577343928
+              ],
+              [
+                5.2679708351289145,
+                52.17715589493936
               ],
               [
                 5.267970835128914,
@@ -5812,6 +5862,10 @@
           [
             [
               [
+                5.301825675090055,
+                52.18297611649609
+              ],
+              [
                 5.301440728013884,
                 52.182714421575305
               ],
@@ -6158,10 +6212,6 @@
               [
                 5.301825675090055,
                 52.18297611649609
-              ],
-              [
-                5.301440728013884,
-                52.182714421575305
               ]
             ]
           ]

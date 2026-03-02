@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Altena",
     "slug": "altena",
-    "generated_at": "2026-03-02T04:15:29.864153Z",
-    "total_points": 76,
+    "generated_at": "2026-03-02T15:23:34.947859Z",
+    "total_points": 82,
     "providers": [
       "Amazon",
       "DHL",
@@ -20,6 +20,52 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.026947115,
+          51.79424542
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar Kraaij",
+        "straatNaam": "Parelplein 10",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.79424542,
+        "longitude": 5.026947115,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.95835804784437,
+          51.8120906566901
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Kadookuz & So",
+        "straatNaam": "De Hoogjens 1 B",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.8120906566901,
+        "longitude": 4.95835804784437,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -48,20 +94,112 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.95835804784437,
-          51.8120906566901
+          4.883019978,
+          51.80328805
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Kadookuz & So",
-        "straatNaam": "De Hoogjens 1 B",
+        "locatieNaam": "Hubo Werkendam",
+        "straatNaam": "Vierlinghstraat 9 -11",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
         "bezettingsgraad": 50,
-        "latitude": 51.8120906566901,
-        "longitude": 4.95835804784437,
+        "latitude": 51.80328805,
+        "longitude": 4.883019978,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.900083971,
+          51.73623359
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Drogisterij 't Vijzeltje",
+        "straatNaam": "Jachtsloot 2 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.73623359,
+        "longitude": 4.900083971,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.10332204291391,
+          51.7738804664436
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Cadeau Shop Duijzer",
+        "straatNaam": "Groeneweg 1 E",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.7738804664436,
+        "longitude": 5.10332204291391,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.089708678,
+          51.73773101
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar van Horssen",
+        "straatNaam": "Hoofdstraat 37 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.73773101,
+        "longitude": 5.089708678,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.129720132,
+          51.75625208
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "CIGO Lucas",
+        "straatNaam": "Markt 69 A-71",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.75625208,
+        "longitude": 5.129720132,
         "canPickup": true,
         "canDropoff": false
       }
@@ -2072,10 +2210,6 @@
           [
             [
               [
-                4.903866996272919,
-                51.734156876485066
-              ],
-              [
                 4.903615397729451,
                 51.733943286427014
               ],
@@ -2362,6 +2496,10 @@
               [
                 4.903866996272919,
                 51.734156876485066
+              ],
+              [
+                4.903615397729451,
+                51.733943286427014
               ]
             ]
           ],
@@ -2876,7 +3014,7 @@
                 51.805538194743896
               ],
               [
-                4.885949799539008,
+                4.88594979953901,
                 51.80544247264962
               ],
               [
@@ -3108,6 +3246,10 @@
           [
             [
               [
+                4.890878878395838,
+                51.80663697261403
+              ],
+              [
                 4.8904523891624345,
                 51.80664815277687
               ],
@@ -3132,7 +3274,7 @@
                 51.807081158010405
               ],
               [
-                4.888416113636123,
+                4.88841611363612,
                 51.80709981609833
               ],
               [
@@ -3678,10 +3820,6 @@
               [
                 4.890878878395838,
                 51.80663697261403
-              ],
-              [
-                4.8904523891624345,
-                51.80664815277687
               ]
             ]
           ],
@@ -4668,10 +4806,6 @@
           [
             [
               [
-                4.928276695295784,
-                51.775150830816614
-              ],
-              [
                 4.928024753169032,
                 51.774937293721926
               ],
@@ -4942,11 +5076,19 @@
               [
                 4.928276695295784,
                 51.775150830816614
+              ],
+              [
+                4.928024753169032,
+                51.774937293721926
               ]
             ]
           ],
           [
             [
+              [
+                5.053445768022194,
+                51.78107981310525
+              ],
               [
                 5.053101932328836,
                 51.78123647205393
@@ -5390,10 +5532,6 @@
               [
                 5.053445768022194,
                 51.78107981310525
-              ],
-              [
-                5.053101932328836,
-                51.78123647205393
               ]
             ]
           ],
@@ -7160,6 +7298,10 @@
           [
             [
               [
+                5.133197144744245,
+                51.753813882855
+              ],
+              [
                 5.132944352197054,
                 51.75360078556025
               ],
@@ -7550,10 +7692,6 @@
               [
                 5.133197144744245,
                 51.753813882855
-              ],
-              [
-                5.132944352197054,
-                51.75360078556025
               ]
             ]
           ],
@@ -8418,7 +8556,7 @@
                 51.77641541351283
               ],
               [
-                5.10555196590858,
+                5.105551965908579,
                 51.776351014479985
               ],
               [
@@ -8734,10 +8872,6 @@
           [
             [
               [
-                4.905075941755517,
-                51.73366247566638
-              ],
-              [
                 4.904740473588141,
                 51.73337769224266
               ],
@@ -9024,6 +9158,10 @@
               [
                 4.905075941755517,
                 51.73366247566638
+              ],
+              [
+                4.904740473588141,
+                51.73337769224266
               ]
             ]
           ],
@@ -9533,10 +9671,6 @@
           ],
           [
             [
-              [
-                4.8836283454853495,
-                51.799712565566125
-              ],
               [
                 4.883060165162644,
                 51.799692812943206
@@ -10304,6 +10438,10 @@
               [
                 4.8836283454853495,
                 51.799712565566125
+              ],
+              [
+                4.883060165162644,
+                51.799692812943206
               ]
             ]
           ],
@@ -11246,6 +11384,10 @@
           [
             [
               [
+                5.051764548475082,
+                51.78077478723415
+              ],
+              [
                 5.0513806004654604,
                 51.781035122197665
               ],
@@ -11628,10 +11770,6 @@
               [
                 5.051764548475082,
                 51.78077478723415
-              ],
-              [
-                5.0513806004654604,
-                51.781035122197665
               ]
             ]
           ],
@@ -13282,6 +13420,10 @@
           [
             [
               [
+                5.134404106088294,
+                51.75331711760832
+              ],
+              [
                 5.134067045990849,
                 51.7530329912125
               ],
@@ -13648,10 +13790,6 @@
               [
                 5.134404106088294,
                 51.75331711760832
-              ],
-              [
-                5.134067045990849,
-                51.7530329912125
               ]
             ]
           ],

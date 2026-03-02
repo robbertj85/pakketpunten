@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Vlaardingen",
     "slug": "vlaardingen",
-    "generated_at": "2026-03-02T04:37:09.707462Z",
-    "total_points": 52,
+    "generated_at": "2026-03-02T15:45:47.797399Z",
+    "total_points": 54,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -72,6 +72,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.3393683,
+          51.9104936
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Amazon Locker - Isa",
+        "straatNaam": "Liesveld",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 51.9104936,
+        "longitude": 4.3393683,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.34209095675617,
           51.9089955387947
         ]
@@ -86,6 +109,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.9089955387947,
         "longitude": 4.34209095675617,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.346648492,
+          51.93060033
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna  De loper",
+        "straatNaam": "De Loper 11 -13",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.93060033,
+        "longitude": 4.346648492,
         "canPickup": true,
         "canDropoff": false
       }
@@ -3129,10 +3175,6 @@
           [
             [
               [
-                4.3407996103811906,
-                51.91675568766193
-              ],
-              [
                 4.3405849307093805,
                 51.91652678791495
               ],
@@ -3387,6 +3429,10 @@
               [
                 4.3407996103811906,
                 51.91675568766193
+              ],
+              [
+                4.3405849307093805,
+                51.91652678791495
               ]
             ]
           ],
@@ -4197,10 +4243,6 @@
           [
             [
               [
-                4.3513255268762965,
-                51.92856302120977
-              ],
-              [
                 4.351110737442321,
                 51.92833414076093
               ],
@@ -4559,6 +4601,10 @@
               [
                 4.3513255268762965,
                 51.92856302120977
+              ],
+              [
+                4.351110737442321,
+                51.92833414076093
               ]
             ]
           ],
@@ -7137,6 +7183,14 @@
           [
             [
               [
+                4.351997538519872,
+                51.92755914643424
+              ],
+              [
+                4.351620358240798,
+                51.92729437914879
+              ],
+              [
                 4.351203021836111,
                 51.92705374177888
               ],
@@ -7615,14 +7669,6 @@
               [
                 4.351997538519872,
                 51.92755914643424
-              ],
-              [
-                4.351620358240798,
-                51.92729437914879
-              ],
-              [
-                4.351203021836111,
-                51.92705374177888
               ]
             ]
           ]

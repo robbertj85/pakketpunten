@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Drechterland",
     "slug": "drechterland",
-    "generated_at": "2026-03-02T04:20:29.112542Z",
-    "total_points": 17,
+    "generated_at": "2026-03-02T15:28:41.542017Z",
+    "total_points": 19,
     "providers": [
+      "Amazon",
       "DHL",
       "DPD",
       "PostNL",
@@ -20,6 +21,52 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.176643113,
+          52.69557899
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Gemakswinkel Hoogkarspel",
+        "straatNaam": "Raadhuisplein 17",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.69557899,
+        "longitude": 5.176643113,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.10137665,
+          52.66666374
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Intratuin Hoorn",
+        "straatNaam": "Noorderdracht 20 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.66666374,
+        "longitude": 5.10137665,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -2515,7 +2562,7 @@
                 52.699102615415406
               ],
               [
-                5.1758010476340015,
+                5.175801047634,
                 52.69913288119481
               ],
               [
@@ -3063,6 +3110,10 @@
                 52.670920301704996
               ],
               [
+                5.186147819366106,
+                52.670920301704996
+              ],
+              [
                 5.1859422177977015,
                 52.670951239598054
               ],
@@ -3159,7 +3210,7 @@
                 52.67737748528118
               ],
               [
-                5.1844344286133595,
+                5.184434428613361,
                 52.67741070800385
               ],
               [

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Waalwijk",
     "slug": "waalwijk",
-    "generated_at": "2026-03-02T04:37:54.943924Z",
+    "generated_at": "2026-03-02T15:46:35.575072Z",
     "total_points": 39,
     "providers": [
       "Amazon",
@@ -72,29 +72,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.05726174136195,
-          51.6825983932272
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "ESKA Fulfilment V.O.F.+",
-        "straatNaam": "Elzenweg 15",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.6825983932272,
-        "longitude": 5.05726174136195,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.064744126,
           51.68978311
         ]
@@ -109,6 +86,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.68978311,
         "longitude": 5.064744126,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.05726174136195,
+          51.6825983932272
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "ESKA Fulfilment V.O.F.+",
+        "straatNaam": "Elzenweg 15",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.6825983932272,
+        "longitude": 5.05726174136195,
         "canPickup": true,
         "canDropoff": false
       }

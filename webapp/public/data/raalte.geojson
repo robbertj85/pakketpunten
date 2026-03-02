@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Raalte",
     "slug": "raalte",
-    "generated_at": "2026-03-02T04:32:10.178895Z",
+    "generated_at": "2026-03-02T15:40:42.154469Z",
     "total_points": 46,
     "providers": [
       "Amazon",
@@ -40,6 +40,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.43576518,
         "longitude": 6.235589018,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.282593763,
+          52.3305829
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Plus Kolkman Heeten",
+        "straatNaam": "Dorpsstraat 36",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.3305829,
+        "longitude": 6.282593763,
         "canPickup": true,
         "canDropoff": false
       }
@@ -109,29 +132,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.3852020326838,
         "longitude": 6.27561810454971,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.282593763,
-          52.3305829
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Plus Kolkman Heeten",
-        "straatNaam": "Dorpsstraat 36",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.3305829,
-        "longitude": 6.282593763,
         "canPickup": true,
         "canDropoff": false
       }

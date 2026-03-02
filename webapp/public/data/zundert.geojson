@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Zundert",
     "slug": "zundert",
-    "generated_at": "2026-03-02T04:40:25.485038Z",
-    "total_points": 24,
+    "generated_at": "2026-03-02T15:49:06.471077Z",
+    "total_points": 25,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.584900027,
+          51.45380221
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Gewoon Coop",
+        "straatNaam": "Pastoor de Bakkerstraat 15",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.45380221,
+        "longitude": 4.584900027,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -49,20 +72,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.584900027,
-          51.45380221
+          4.642760314,
+          51.45420361
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Gewoon Coop",
-        "straatNaam": "Pastoor de Bakkerstraat 15",
+        "locatieNaam": "Boon's Dagmarkt Wernhout",
+        "straatNaam": "Wernhoutseweg 135 A",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
         "bezettingsgraad": 50,
-        "latitude": 51.45380221,
-        "longitude": 4.584900027,
+        "latitude": 51.45420361,
+        "longitude": 4.642760314,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1709,10 +1732,6 @@
           [
             [
               [
-                4.660842116120578,
-                51.467302715819
-              ],
-              [
                 4.660504344206445,
                 51.467142967281106
               ],
@@ -2127,15 +2146,15 @@
               [
                 4.660842116120578,
                 51.467302715819
+              ],
+              [
+                4.660504344206445,
+                51.467142967281106
               ]
             ]
           ],
           [
             [
-              [
-                4.70322309137095,
-                51.513288530039596
-              ],
               [
                 4.702812676335791,
                 51.51322182425722
@@ -2559,6 +2578,10 @@
               [
                 4.70322309137095,
                 51.513288530039596
+              ],
+              [
+                4.702812676335791,
+                51.51322182425722
               ]
             ]
           ],
@@ -4309,10 +4332,6 @@
           [
             [
               [
-                4.703654174165467,
-                51.512430868835295
-              ],
-              [
                 4.703106963848927,
                 51.5123419295035
               ],
@@ -4695,6 +4714,10 @@
               [
                 4.703654174165467,
                 51.512430868835295
+              ],
+              [
+                4.703106963848927,
+                51.5123419295035
               ]
             ]
           ],

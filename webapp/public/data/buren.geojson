@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Buren",
     "slug": "buren",
-    "generated_at": "2026-03-02T04:18:39.349873Z",
-    "total_points": 27,
+    "generated_at": "2026-03-02T15:26:49.714230Z",
+    "total_points": 29,
     "providers": [
       "Amazon",
       "DHL",
@@ -20,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.332694199,
+          51.90861378
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Boons Markt Buren",
+        "straatNaam": "Graafschapsstraat 2 B",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.90861378,
+        "longitude": 5.332694199,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -85,6 +108,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.970225474705,
         "longitude": 5.45361220836639,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.485469123,
+          51.95331961
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "BP Express Ingen/bij ons thuis",
+        "straatNaam": "De Brei 12",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.95331961,
+        "longitude": 5.485469123,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1441,10 +1487,6 @@
           [
             [
               [
-                5.285976037922018,
-                51.94693749708082
-              ],
-              [
                 5.285793495636619,
                 51.94669812754463
               ],
@@ -1795,6 +1837,10 @@
               [
                 5.285976037922018,
                 51.94693749708082
+              ],
+              [
+                5.285793495636619,
+                51.94669812754463
               ]
             ]
           ],

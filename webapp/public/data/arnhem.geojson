@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Arnhem",
     "slug": "arnhem",
-    "generated_at": "2026-03-02T04:15:59.338150Z",
-    "total_points": 153,
+    "generated_at": "2026-03-02T15:24:06.710405Z",
+    "total_points": 155,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -22,6 +22,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.91710272347438,
+          51.9789154209181
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Ergosunline",
+        "straatNaam": "Boulevard Heuvelink 3 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.9789154209181,
+        "longitude": 5.91710272347438,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -87,6 +110,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.97657147,
         "longitude": 5.966240689,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.860117614,
+          51.96089413
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera",
+        "straatNaam": "Elderveldplein 8 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.96089413,
+        "longitude": 5.860117614,
         "canPickup": true,
         "canDropoff": false
       }
@@ -8709,10 +8755,6 @@
           [
             [
               [
-                5.908511057474783,
-                51.99999090797654
-              ],
-              [
                 5.90819134679413,
                 51.99981461559662
               ],
@@ -9127,6 +9169,10 @@
               [
                 5.908511057474783,
                 51.99999090797654
+              ],
+              [
+                5.90819134679413,
+                51.99981461559662
               ]
             ]
           ],
@@ -9472,6 +9518,10 @@
           ],
           [
             [
+              [
+                5.934078419604674,
+                52.00299638046422
+              ],
               [
                 5.9337585871680965,
                 52.002820157807726
@@ -10299,10 +10349,6 @@
               [
                 5.934078419604674,
                 52.00299638046422
-              ],
-              [
-                5.9337585871680965,
-                52.002820157807726
               ]
             ]
           ],
@@ -16181,7 +16227,7 @@
                 51.99066367488204
               ],
               [
-                5.914993264752286,
+                5.914993264752284,
                 51.99064884493008
               ],
               [
@@ -19267,10 +19313,6 @@
           [
             [
               [
-                5.908153101453148,
-                51.99872840948889
-              ],
-              [
                 5.90763464540223,
                 51.99857985083644
               ],
@@ -19637,6 +19679,10 @@
               [
                 5.908153101453148,
                 51.99872840948889
+              ],
+              [
+                5.90763464540223,
+                51.99857985083644
               ]
             ]
           ],

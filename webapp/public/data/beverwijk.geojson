@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Beverwijk",
     "slug": "beverwijk",
-    "generated_at": "2026-03-02T04:17:25.986172Z",
-    "total_points": 47,
+    "generated_at": "2026-03-02T15:25:36.869904Z",
+    "total_points": 49,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -63,6 +63,52 @@
         "bezettingsgraad": 50,
         "latitude": 52.4839110573834,
         "longitude": 4.66141675219513,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.66037856396729,
+          52.4834822791739
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tabakszaak Beverwijk",
+        "straatNaam": "Breestraat 164",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.4834822791739,
+        "longitude": 4.66037856396729,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.665002947,
+          52.49598539
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera",
+        "straatNaam": "Wijkerbaan 7",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.49598539,
+        "longitude": 4.665002947,
         "canPickup": true,
         "canDropoff": false
       }
@@ -3314,10 +3360,6 @@
           [
             [
               [
-                4.677455079552678,
-                52.47194846722043
-              ],
-              [
                 4.677235985353347,
                 52.47172019837881
               ],
@@ -3382,7 +3424,7 @@
                 52.47080576443592
               ],
               [
-                4.671461344840309,
+                4.671461344840311,
                 52.47081897949303
               ],
               [
@@ -3808,6 +3850,10 @@
               [
                 4.677455079552678,
                 52.47194846722043
+              ],
+              [
+                4.677235985353347,
+                52.47172019837881
               ]
             ]
           ]
@@ -5336,7 +5382,7 @@
                 52.49473537064993
               ],
               [
-                4.670481403813761,
+                4.670481403813762,
                 52.49466878187959
               ],
               [

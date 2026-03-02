@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Stede Broec",
     "slug": "stede-broec",
-    "generated_at": "2026-03-02T04:34:37.276579Z",
-    "total_points": 15,
+    "generated_at": "2026-03-02T15:43:11.679163Z",
+    "total_points": 16,
     "providers": [
+      "Amazon",
       "DHL",
       "PostNL",
       "VintedGo",
@@ -19,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.231337366,
+          52.69333552
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Grootebroek",
+        "straatNaam": "Industrieweg 15 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.69333552,
+        "longitude": 5.231337366,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -2052,7 +2076,7 @@
                 52.696986370407394
               ],
               [
-                5.22812889649022,
+                5.228128896490219,
                 52.6968981737176
               ],
               [
@@ -2840,7 +2864,7 @@
                 52.69469794733466
               ],
               [
-                5.257594275740289,
+                5.2575942757402885,
                 52.694425423474236
               ],
               [

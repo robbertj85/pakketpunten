@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Barendrecht",
     "slug": "barendrecht",
-    "generated_at": "2026-03-02T04:16:21.792626Z",
-    "total_points": 30,
+    "generated_at": "2026-03-02T15:24:30.103703Z",
+    "total_points": 31,
     "providers": [
       "Amazon",
       "DHL",
@@ -62,6 +62,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.86314455,
         "longitude": 4.524913374,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.545684565,
+          51.86805027
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "KARWEI Barendrecht-Reijerwaard",
+        "straatNaam": "Lorentzweg 4",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.86805027,
+        "longitude": 4.545684565,
         "canPickup": true,
         "canDropoff": false
       }
@@ -2550,10 +2573,6 @@
           [
             [
               [
-                4.553211486293892,
-                51.85035682655928
-              ],
-              [
                 4.553033243582182,
                 51.85011633409179
               ],
@@ -2840,6 +2859,10 @@
               [
                 4.553211486293892,
                 51.85035682655928
+              ],
+              [
+                4.553033243582182,
+                51.85011633409179
               ]
             ]
           ],

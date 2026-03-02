@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Cranendonck",
     "slug": "cranendonck",
-    "generated_at": "2026-03-02T04:18:57.155537Z",
-    "total_points": 15,
+    "generated_at": "2026-03-02T15:27:08.152480Z",
+    "total_points": 16,
     "providers": [
       "Amazon",
       "DHL",
@@ -20,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.574043149,
+          51.27383934
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna Budel (8075)",
+        "straatNaam": "Markt 9",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.27383934,
+        "longitude": 5.574043149,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -48,20 +71,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.574043149,
-          51.27383934
+          5.58250844478607,
+          51.2660972917649
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Bruna Budel (8075)",
-        "straatNaam": "Markt 9",
+        "locatieNaam": "Praxis",
+        "straatNaam": "Instraat 6 A",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
         "bezettingsgraad": 50,
-        "latitude": 51.27383934,
-        "longitude": 5.574043149,
+        "latitude": 51.2660972917649,
+        "longitude": 5.58250844478607,
         "canPickup": true,
         "canDropoff": false
       }
@@ -669,6 +692,10 @@
           [
             [
               [
+                5.57715962245371,
+                51.27195028951548
+              ],
+              [
                 5.5768754939462015,
                 51.271754671870625
               ],
@@ -983,10 +1010,6 @@
               [
                 5.57715962245371,
                 51.27195028951548
-              ],
-              [
-                5.5768754939462015,
-                51.271754671870625
               ]
             ]
           ],
@@ -2893,7 +2916,7 @@
                 51.26441077665354
               ],
               [
-                5.577292480454432,
+                5.57729248045443,
                 51.26461706820268
               ],
               [

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Heemstede",
     "slug": "heemstede",
-    "generated_at": "2026-03-02T04:23:44.702936Z",
+    "generated_at": "2026-03-02T15:32:03.678880Z",
     "total_points": 13,
     "providers": [
       "Amazon",
@@ -25,29 +25,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.620824519,
-          52.348245
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Primera de Pijp",
-        "straatNaam": "Raadhuisstraat 30",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.348245,
-        "longitude": 4.620824519,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.62601073067079,
           52.3453663760303
         ]
@@ -62,6 +39,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.3453663760303,
         "longitude": 4.62601073067079,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.620824519,
+          52.348245
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera de Pijp",
+        "straatNaam": "Raadhuisstraat 30",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.348245,
+        "longitude": 4.620824519,
         "canPickup": true,
         "canDropoff": false
       }

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Zwijndrecht",
     "slug": "zwijndrecht",
-    "generated_at": "2026-03-02T04:40:39.321053Z",
+    "generated_at": "2026-03-02T15:49:20.197251Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -25,29 +25,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.65114323112973,
-          51.8227006509698
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Boekhandel Vos & van der Leer",
-        "straatNaam": "Hof van Holland 63",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.8227006509698,
-        "longitude": 4.65114323112973,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.6468115217886,
           51.8153116697148
         ]
@@ -62,6 +39,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.8153116697148,
         "longitude": 4.6468115217886,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.65114323112973,
+          51.8227006509698
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Boekhandel Vos & van der Leer",
+        "straatNaam": "Hof van Holland 63",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.8227006509698,
+        "longitude": 4.65114323112973,
         "canPickup": true,
         "canDropoff": false
       }

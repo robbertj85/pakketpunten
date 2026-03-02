@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Gennep",
     "slug": "gennep",
-    "generated_at": "2026-03-02T04:22:13.442605Z",
-    "total_points": 12,
+    "generated_at": "2026-03-02T15:30:28.670460Z",
+    "total_points": 14,
     "providers": [
       "Amazon",
       "DHL",
@@ -39,6 +39,52 @@
         "bezettingsgraad": 50,
         "latitude": 51.69873605,
         "longitude": 5.971604008,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.970909067,
+          51.69980917
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna Gennep",
+        "straatNaam": "Zandstraat 56 B",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.69980917,
+        "longitude": 5.970909067,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.949491657,
+          51.72355416
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar",
+        "straatNaam": "Kerkstraat 1 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.72355416,
+        "longitude": 5.949491657,
         "canPickup": true,
         "canDropoff": false
       }
@@ -896,10 +942,6 @@
           [
             [
               [
-                5.953304745885117,
-                51.72226463064093
-              ],
-              [
                 5.953082864851211,
                 51.722038720941846
               ],
@@ -1234,6 +1276,10 @@
               [
                 5.953304745885117,
                 51.72226463064093
+              ],
+              [
+                5.953082864851211,
+                51.722038720941846
               ]
             ]
           ]
@@ -1764,10 +1810,6 @@
           [
             [
               [
-                5.954575726328191,
-                51.72183475873687
-              ],
-              [
                 5.954279879809797,
                 51.72153354891351
               ],
@@ -2094,6 +2136,10 @@
               [
                 5.954575726328191,
                 51.72183475873687
+              ],
+              [
+                5.954279879809797,
+                51.72153354891351
               ]
             ]
           ]

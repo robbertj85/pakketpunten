@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Ermelo",
     "slug": "ermelo",
-    "generated_at": "2026-03-02T04:21:51.548555Z",
-    "total_points": 25,
+    "generated_at": "2026-03-02T15:30:05.800857Z",
+    "total_points": 27,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -26,6 +26,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.624160578,
+          52.30022918
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Ermelo",
+        "straatNaam": "Stationsstraat 61 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.30022918,
+        "longitude": 5.624160578,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.620416951,
           52.29923001
         ]
@@ -40,6 +63,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.29923001,
         "longitude": 5.620416951,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.60010772164228,
+          52.3164977835785
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "'s Heeren Loo Leerwerkplein",
+        "straatNaam": "Zusterkamp 2",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.3164977835785,
+        "longitude": 5.60010772164228,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1742,6 +1788,10 @@
           [
             [
               [
+                5.5926161247720945,
+                52.307337315216465
+              ],
+              [
                 5.592185031089375,
                 52.30735104739202
               ],
@@ -2012,19 +2062,11 @@
               [
                 5.5926161247720945,
                 52.307337315216465
-              ],
-              [
-                5.592185031089375,
-                52.30735104739202
               ]
             ]
           ],
           [
             [
-              [
-                5.604167437237591,
-                52.315458571502745
-              ],
               [
                 5.603981671078663,
                 52.31521971403852
@@ -2280,6 +2322,10 @@
               [
                 5.604167437237591,
                 52.315458571502745
+              ],
+              [
+                5.603981671078663,
+                52.31521971403852
               ]
             ]
           ],
@@ -3350,6 +3396,10 @@
           [
             [
               [
+                5.5926119661076745,
+                52.306438551943664
+              ],
+              [
                 5.592037186096321,
                 52.306456861138734
               ],
@@ -3620,19 +3670,11 @@
               [
                 5.5926119661076745,
                 52.306438551943664
-              ],
-              [
-                5.592037186096321,
-                52.306456861138734
               ]
             ]
           ],
           [
             [
-              [
-                5.605520632870974,
-                52.315112135118255
-              ],
               [
                 5.605272937340699,
                 52.31479366124882
@@ -3888,6 +3930,10 @@
               [
                 5.605520632870974,
                 52.315112135118255
+              ],
+              [
+                5.605272937340699,
+                52.31479366124882
               ]
             ]
           ],

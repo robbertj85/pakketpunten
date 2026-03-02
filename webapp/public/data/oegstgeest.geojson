@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Oegstgeest",
     "slug": "oegstgeest",
-    "generated_at": "2026-03-02T04:30:16.020144Z",
-    "total_points": 7,
+    "generated_at": "2026-03-02T15:38:44.988499Z",
+    "total_points": 8,
     "providers": [
+      "Amazon",
       "DHL",
       "DPD",
       "PostNL"
@@ -18,6 +19,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.471220775,
+          52.18545602
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Oegstgeest",
+        "straatNaam": "Ommevoort 10",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.18545602,
+        "longitude": 4.471220775,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -186,10 +210,6 @@
         "coordinates": [
           [
             [
-              [
-                4.473101208725426,
-                52.1765957473774
-              ],
               [
                 4.4730018987351325,
                 52.176338284851425
@@ -469,6 +489,10 @@
               [
                 4.473101208725426,
                 52.1765957473774
+              ],
+              [
+                4.4730018987351325,
+                52.176338284851425
               ]
             ]
           ],
@@ -1431,10 +1455,6 @@
           [
             [
               [
-                4.474538517076032,
-                52.17643151675386
-              ],
-              [
                 4.474406093415156,
                 52.176088234943876
               ],
@@ -1937,6 +1957,10 @@
               [
                 4.474538517076032,
                 52.17643151675386
+              ],
+              [
+                4.474406093415156,
+                52.176088234943876
               ]
             ]
           ],
