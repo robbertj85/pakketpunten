@@ -1,0 +1,47 @@
+name: Fetch Amazon Data
+
+on:
+  # Run on schedule (before main update job)
+  schedule:
+    - cron: '30 0 * * 1'  # Monday 00:30 UTC (after GLS at 00:00)
+  workflow_dispatch:
+
+jobs:
+  fetch-amazon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install requests playwright
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Fetch Amazon data
+        run: python scripts/amazon_fetch_all.py
+        timeout-minutes: 90
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push Amazon data
+        run: |
+          # Pull latest changes first (in case repo was updated during workflow)
+          git pull --rebase origin main || true
+          git add data/amazon_all_locations.json 2>/dev/null || true
+          git add scripts/amazon_update_log.txt 2>/dev/null || true
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update Amazon data - $(date +'%Y-%m-%d %H:%M UTC')" && git push)
