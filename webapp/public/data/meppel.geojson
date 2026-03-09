@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Meppel",
     "slug": "meppel",
-    "generated_at": "2026-03-02T15:36:51.865595Z",
-    "total_points": 51,
+    "generated_at": "2026-03-09T04:30:35.927313Z",
+    "total_points": 52,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -684,6 +684,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.69193526,
         "longitude": 6.19752669,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2248407,
+          52.690384
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat - De Buren - TinQ Ho",
+        "straatNaam": "HOOGEVEENSEWEG",
+        "straatNr": "44",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 50,
+        "latitude": 52.690384,
+        "longitude": 6.2248407,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1530,10 +1553,6 @@
           [
             [
               [
-                6.178007985885267,
-                52.689369287692124
-              ],
-              [
                 6.177576608455115,
                 52.68933333130484
               ],
@@ -1856,6 +1875,10 @@
               [
                 6.178007985885267,
                 52.689369287692124
+              ],
+              [
+                6.177576608455115,
+                52.68933333130484
               ]
             ]
           ],
@@ -4398,7 +4421,7 @@
                 52.694443731808285
               ],
               [
-                6.221425804665993,
+                6.221425804665994,
                 52.694414163892844
               ],
               [
@@ -6974,6 +6997,10 @@
           [
             [
               [
+                6.229369791724371,
+                52.68807141889188
+              ],
+              [
                 6.2289749433301616,
                 52.6878128132991
               ],
@@ -7492,10 +7519,6 @@
               [
                 6.229369791724371,
                 52.68807141889188
-              ],
-              [
-                6.2289749433301616,
-                52.6878128132991
               ]
             ]
           ],

@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Hillegom",
     "slug": "hillegom",
-    "generated_at": "2026-03-02T15:33:04.947616Z",
-    "total_points": 18,
+    "generated_at": "2026-03-09T04:26:59.767066Z",
+    "total_points": 19,
     "providers": [
+      "Amazon",
       "DHL",
       "DPD",
       "PostNL",
@@ -19,6 +20,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.579052621,
+          52.29272658
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "The Read Shop Hillegom",
+        "straatNaam": "Hoofdstraat 85",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.29272658,
+        "longitude": 4.579052621,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -857,7 +881,7 @@
                 52.2953554250265
               ],
               [
-                4.576414587261632,
+                4.576414587261633,
                 52.29543019536874
               ],
               [
@@ -2009,7 +2033,7 @@
                 52.29503374500084
               ],
               [
-                4.574484604651341,
+                4.5744846046513405,
                 52.29525987289318
               ],
               [

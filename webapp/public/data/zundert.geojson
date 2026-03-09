@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Zundert",
     "slug": "zundert",
-    "generated_at": "2026-03-02T15:49:06.471077Z",
+    "generated_at": "2026-03-09T04:42:26.194244Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.642760314,
+          51.45420361
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Boon's Dagmarkt Wernhout",
+        "straatNaam": "Wernhoutseweg 135 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.45420361,
+        "longitude": 4.642760314,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -63,29 +86,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.45380221,
         "longitude": 4.584900027,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.642760314,
-          51.45420361
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Boon's Dagmarkt Wernhout",
-        "straatNaam": "Wernhoutseweg 135 A",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.45420361,
-        "longitude": 4.642760314,
         "canPickup": true,
         "canDropoff": false
       }

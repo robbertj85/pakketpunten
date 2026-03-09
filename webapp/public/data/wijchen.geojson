@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Wijchen",
     "slug": "wijchen",
-    "generated_at": "2026-03-02T15:47:47.069613Z",
+    "generated_at": "2026-03-09T04:41:09.733258Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -26,29 +26,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.724615476,
-          51.7998313
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Vivant Robben",
-        "straatNaam": "Zuiderpoort 7",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.7998313,
-        "longitude": 5.724615476,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.65474247555547,
           51.8518386828788
         ]
@@ -63,6 +40,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.8518386828788,
         "longitude": 5.65474247555547,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.724615476,
+          51.7998313
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Vivant Robben",
+        "straatNaam": "Zuiderpoort 7",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.7998313,
+        "longitude": 5.724615476,
         "canPickup": true,
         "canDropoff": false
       }

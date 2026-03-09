@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Oost Gelre",
     "slug": "oost-gelre",
-    "generated_at": "2026-03-02T15:39:21.412565Z",
+    "generated_at": "2026-03-09T04:33:02.303139Z",
     "total_points": 40,
     "providers": [
       "Amazon",
@@ -486,29 +486,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6232273,
-          52.0377928
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Hubo Groenlo",
-        "straatNaam": "PARALLELWEG",
-        "straatNr": "3",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.0377928,
-        "longitude": 6.6232273,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.5682239,
           51.9884813
         ]
@@ -546,6 +523,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.9865257,
         "longitude": 6.564097,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6232273,
+          52.0377928
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DPD Pakketautomaat - Hubo Groenlo",
+        "straatNaam": "PARALLELWEG",
+        "straatNr": "3",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 50,
+        "latitude": 52.0377928,
+        "longitude": 6.6232273,
         "canPickup": true,
         "canDropoff": false
       }

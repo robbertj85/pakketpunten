@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Haarlem",
     "slug": "haarlem",
-    "generated_at": "2026-03-02T15:31:21.982255Z",
+    "generated_at": "2026-03-09T04:25:21.663921Z",
     "total_points": 97,
     "providers": [
       "Amazon",
@@ -21,29 +21,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.654567877,
-          52.39347904
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "GAMMA Haarlem",
-        "straatNaam": "Heringaweg 6",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.39347904,
-        "longitude": 4.654567877,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -95,29 +72,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.662204697,
-          52.3783815
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Tabakspeciaalzaak Ebbeling",
-        "straatNaam": "Prinses Beatrixplein 37",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.3783815,
-        "longitude": 4.662204697,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.630870023,
           52.3814391
         ]
@@ -132,6 +86,52 @@
         "bezettingsgraad": 50,
         "latitude": 52.3814391,
         "longitude": 4.630870023,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.654567877,
+          52.39347904
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Haarlem",
+        "straatNaam": "Heringaweg 6",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.39347904,
+        "longitude": 4.654567877,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.662204697,
+          52.3783815
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tabakspeciaalzaak Ebbeling",
+        "straatNaam": "Prinses Beatrixplein 37",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.3783815,
+        "longitude": 4.662204697,
         "canPickup": true,
         "canDropoff": false
       }

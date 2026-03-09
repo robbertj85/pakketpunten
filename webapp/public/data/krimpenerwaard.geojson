@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Krimpenerwaard",
     "slug": "krimpenerwaard",
-    "generated_at": "2026-03-02T15:34:40.048047Z",
+    "generated_at": "2026-03-09T04:28:29.165474Z",
     "total_points": 47,
     "providers": [
       "Amazon",
@@ -71,29 +71,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.68295658158113,
-          51.8967193247966
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "WMW Huisraadplein",
-        "straatNaam": "Raadhuisplein 45",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.8967193247966,
-        "longitude": 4.68295658158113,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.85190376187858,
           51.9463186078838
         ]
@@ -108,6 +85,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.9463186078838,
         "longitude": 4.85190376187858,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.68295658158113,
+          51.8967193247966
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "WMW Huisraadplein",
+        "straatNaam": "Raadhuisplein 45",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.8967193247966,
+        "longitude": 4.68295658158113,
         "canPickup": true,
         "canDropoff": false
       }

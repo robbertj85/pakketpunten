@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Moerdijk",
     "slug": "moerdijk",
-    "generated_at": "2026-03-02T15:37:15.424249Z",
-    "total_points": 44,
+    "generated_at": "2026-03-09T04:30:59.471575Z",
+    "total_points": 45,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,52 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.513999276,
+          51.61124904
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "SPAR Standdaarbuiten",
+        "straatNaam": "Markt 19",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.61124904,
+        "longitude": 4.513999276,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.626666473,
+          51.70097156
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "het Winkelmandje",
+        "straatNaam": "Grintweg 44",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.70097156,
+        "longitude": 4.626666473,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -118,29 +164,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.513999276,
-          51.61124904
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "SPAR Standdaarbuiten",
-        "straatNaam": "Markt 19",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.61124904,
-        "longitude": 4.513999276,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.533710508,
           51.66319792
         ]
@@ -155,29 +178,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.66319792,
         "longitude": 4.533710508,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.626666473,
-          51.70097156
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "het Winkelmandje",
-        "straatNaam": "Grintweg 44",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.70097156,
-        "longitude": 4.626666473,
         "canPickup": true,
         "canDropoff": false
       }
@@ -316,6 +316,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.6443153,
         "longitude": 4.6039104,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.603714,
+          51.644665
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Schoenherstellerij Marco Grol",
+        "straatNaam": "Noordhaven",
+        "straatNr": "110",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.644665,
+        "longitude": 4.603714,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3297,16 +3320,28 @@
                 51.64669578883137
               ],
               [
-                4.601205743421468,
-                51.6468342747047
+                4.60091517026973,
+                51.64672325489932
               ],
               [
-                4.601588278932095,
-                51.64694999035544
+                4.600928397695287,
+                51.64673087670247
               ],
               [
-                4.601931984476782,
-                51.64702910967854
+                4.601267293793661,
+                51.64689079767719
+              ],
+              [
+                4.6016297564862425,
+                51.64702928224068
+              ],
+              [
+                4.602012294731888,
+                51.64714499650895
+              ],
+              [
+                4.602138665483425,
+                51.64717408593771
               ],
               [
                 4.602152015482606,
@@ -3393,7 +3428,7 @@
                 51.64658837662598
               ],
               [
-                4.609147677918181,
+                4.609147677918183,
                 51.64652570529914
               ],
               [
@@ -6345,20 +6380,20 @@
                 51.6474377056309
               ],
               [
-                4.6005109424702715,
-                51.647622356578125
+                4.600084181473885,
+                51.647459302141826
               ],
               [
-                4.601020996730706,
-                51.64777664686547
+                4.600451671249001,
+                51.64763271742547
               ],
               [
-                4.601092184589249,
-                51.64779303416032
+                4.600934959889755,
+                51.64781736662618
               ],
               [
-                4.6011194086818925,
-                51.64781213067892
+                4.601342391351249,
+                51.64794061165278
               ],
               [
                 4.601535510862138,

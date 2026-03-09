@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Krimpen aan den IJssel",
     "slug": "krimpen-aan-den-ijssel",
-    "generated_at": "2026-03-02T15:34:34.884439Z",
+    "generated_at": "2026-03-09T04:28:24.458555Z",
     "total_points": 29,
     "providers": [
       "Amazon",
@@ -132,6 +132,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.92049,
         "longitude": 4.58601,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5837061,
+          51.9164527
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Dierentotaalzaak Ons Schuurtje",
+        "straatNaam": "Noorderstraat",
+        "straatNr": "23-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9164527,
+        "longitude": 4.5837061,
         "canPickup": true,
         "canDropoff": true
       }
@@ -270,29 +293,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.91481492997442,
         "longitude": 4.587139652528767,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.5837061,
-          51.9164527
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Dierentotaalzaak Ons Schuurtje",
-        "straatNaam": "Noorderstraat",
-        "straatNr": "23-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9164527,
-        "longitude": 4.5837061,
         "canPickup": true,
         "canDropoff": true
       }

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Overbetuwe",
     "slug": "overbetuwe",
-    "generated_at": "2026-03-02T15:40:09.519471Z",
+    "generated_at": "2026-03-09T04:33:47.760903Z",
     "total_points": 56,
     "providers": [
       "Amazon",
@@ -49,52 +49,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.813370636,
-          51.96094706
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Albert Heijn",
-        "straatNaam": "Polenplein 24 A",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.96094706,
-        "longitude": 5.813370636,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.860122018,
-          51.91575457
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "GAMMA Elst",
-        "straatNaam": "Industrieweg Oost 2 C",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.91575457,
-        "longitude": 5.860122018,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.86317634921918,
           51.906340375929
         ]
@@ -118,20 +72,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.791952394,
-          51.91078699
+          5.860122018,
+          51.91575457
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Supermarkt Valburg",
-        "straatNaam": "Tielsestraat 35",
+        "locatieNaam": "GAMMA Elst",
+        "straatNaam": "Industrieweg Oost 2 C",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
         "bezettingsgraad": 50,
-        "latitude": 51.91078699,
-        "longitude": 5.791952394,
+        "latitude": 51.91575457,
+        "longitude": 5.860122018,
         "canPickup": true,
         "canDropoff": false
       }
@@ -178,6 +132,52 @@
         "bezettingsgraad": 50,
         "latitude": 51.92103907,
         "longitude": 5.721688061,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.791952394,
+          51.91078699
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Supermarkt Valburg",
+        "straatNaam": "Tielsestraat 35",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.91078699,
+        "longitude": 5.791952394,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.813370636,
+          51.96094706
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Albert Heijn",
+        "straatNaam": "Polenplein 24 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.96094706,
+        "longitude": 5.813370636,
         "canPickup": true,
         "canDropoff": false
       }

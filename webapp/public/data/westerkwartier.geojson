@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Westerkwartier",
     "slug": "westerkwartier",
-    "generated_at": "2026-03-02T15:47:14.609751Z",
+    "generated_at": "2026-03-09T04:40:37.000409Z",
     "total_points": 103,
     "providers": [
       "Amazon",
@@ -118,6 +118,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.441455714,
+          53.30946606
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Buurtsuper Ubels",
+        "straatNaam": "Torenstraat 5",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.30946606,
+        "longitude": 6.441455714,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.460405449,
           53.2558403
         ]
@@ -155,29 +178,6 @@
         "bezettingsgraad": 50,
         "latitude": 53.2558403,
         "longitude": 6.460405449,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.441455714,
-          53.30946606
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Buurtsuper Ubels",
-        "straatNaam": "Torenstraat 5",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 53.30946606,
-        "longitude": 6.441455714,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1205,7 +1205,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Business Point - van Breden",
+        "locatieNaam": "Business Point - Van Breden",
         "straatNaam": "OOSTERWEG",
         "straatNr": "65",
         "vervoerder": "DPD",

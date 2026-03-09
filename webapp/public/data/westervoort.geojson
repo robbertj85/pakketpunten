@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Westervoort",
     "slug": "westervoort",
-    "generated_at": "2026-03-02T15:47:23.668816Z",
-    "total_points": 20,
+    "generated_at": "2026-03-09T04:40:46.724366Z",
+    "total_points": 21,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96808148584319,
+          51.9624955601997
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna Westervoort",
+        "straatNaam": "Dorpsplein 25 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.9624955601997,
+        "longitude": 5.96808148584319,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {

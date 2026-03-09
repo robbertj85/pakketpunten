@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Drechterland",
     "slug": "drechterland",
-    "generated_at": "2026-03-02T15:28:41.542017Z",
-    "total_points": 19,
+    "generated_at": "2026-03-09T04:22:47.761442Z",
+    "total_points": 20,
     "providers": [
       "Amazon",
       "DHL",
@@ -86,6 +86,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.6495422,
         "longitude": 5.1625867,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.1876432,
+          52.6743941
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Witte Adelaar E-commerce",
+        "straatNaam": "Houterweg",
+        "straatNr": "50",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.6743941,
+        "longitude": 5.1876432,
         "canPickup": true,
         "canDropoff": true
       }
@@ -746,10 +769,6 @@
           [
             [
               [
-                5.105480341117488,
-                52.66564177557344
-              ],
-              [
                 5.105295808203421,
                 52.66540215812355
               ],
@@ -1020,6 +1039,10 @@
               [
                 5.105480341117488,
                 52.66564177557344
+              ],
+              [
+                5.105295808203421,
+                52.66540215812355
               ]
             ]
           ],
@@ -2186,10 +2209,6 @@
           [
             [
               [
-                5.106848195319959,
-                52.66530108777488
-              ],
-              [
                 5.106602143836689,
                 52.66498160057263
               ],
@@ -2460,6 +2479,10 @@
               [
                 5.106848195319959,
                 52.66530108777488
+              ],
+              [
+                5.106602143836689,
+                52.66498160057263
               ]
             ]
           ],
@@ -2562,7 +2585,7 @@
                 52.699102615415406
               ],
               [
-                5.175801047634,
+                5.1758010476340015,
                 52.69913288119481
               ],
               [

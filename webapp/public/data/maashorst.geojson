@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Maashorst",
     "slug": "maashorst",
-    "generated_at": "2026-03-02T15:36:24.378228Z",
+    "generated_at": "2026-03-09T04:30:09.073331Z",
     "total_points": 64,
     "providers": [
       "Amazon",
@@ -140,6 +140,52 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.65494665849042,
+          51.6445189718134
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GD Logistics",
+        "straatNaam": "Rudigerstraat 39 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.6445189718134,
+        "longitude": 5.65494665849042,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.65606388872172,
+          51.6550510134327
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "T&W Pakkethuis",
+        "straatNaam": "Zadelmakerstraat 8",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.6550510134327,
+        "longitude": 5.65606388872172,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.640020147,
           51.65707326
         ]
@@ -200,52 +246,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.6969398315348,
         "longitude": 5.6740752634576,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.65494665849042,
-          51.6445189718134
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "GD Logistics",
-        "straatNaam": "Rudigerstraat 39 A",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.6445189718134,
-        "longitude": 5.65494665849042,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.65606388872172,
-          51.6550510134327
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "T&W Pakkethuis",
-        "straatNaam": "Zadelmakerstraat 8",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.6550510134327,
-        "longitude": 5.65606388872172,
         "canPickup": true,
         "canDropoff": false
       }
