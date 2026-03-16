@@ -5,30 +5,55 @@ const nextConfig: NextConfig = {
   compress: true,
 
   async headers() {
+    const securityHeaders = [
+      {
+        key: 'X-Content-Type-Options',
+        value: 'nosniff',
+      },
+      {
+        key: 'X-XSS-Protection',
+        value: '1; mode=block',
+      },
+      {
+        key: 'Referrer-Policy',
+        value: 'strict-origin-when-cross-origin',
+      },
+      {
+        key: 'Permissions-Policy',
+        value: 'camera=(), microphone=(), geolocation=()',
+      },
+    ];
+
     return [
       {
-        // Apply security headers to all routes
-        source: '/:path*',
+        // Embed route: allow iframe embedding from any origin
+        source: '/embed',
         headers: [
+          ...securityHeaders,
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https://logo.clearbit.com https://*.tile.openstreetmap.org https://unpkg.com",
+              "font-src 'self' data:",
+              "connect-src 'self' https://va.vercel-scripts.com",
+              "worker-src 'self' blob:",
+              "child-src 'self' blob:",
+              "frame-ancestors *",
+            ].join('; '),
           },
+        ],
+      },
+      {
+        // All other routes: deny iframe embedding
+        source: '/((?!embed).*)',
+        headers: [
+          ...securityHeaders,
           {
             key: 'X-Frame-Options',
             value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
           },
           {
             key: 'Content-Security-Policy',

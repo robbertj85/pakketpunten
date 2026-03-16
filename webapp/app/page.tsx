@@ -7,6 +7,7 @@ import AddressSearchInput from '@/components/AddressSearchInput';
 import FilterPanel from '@/components/FilterPanel';
 import StatsPanel from '@/components/StatsPanel';
 import AboutModal from '@/components/AboutModal';
+import ShareModal from '@/components/ShareModal';
 import NearestPointsFinder from '@/components/NearestPointsFinder';
 import { Municipality, PakketpuntData, Filters, PakketpuntProperties, PakketpuntFeature, PointCategory, ServiceFilter, getPointCategory } from '@/types/pakketpunten';
 import { loadProvincialBoundaries, BoundaryLoadProgress } from '@/utils/boundaryLoader';
@@ -55,6 +56,7 @@ export default function Home() {
   const [data, setData] = useState<PakketpuntData | null>(null);
   const [loading, setLoading] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [showShare, setShowShare] = useState(false);
   const [boundariesLoaded, setBoundariesLoaded] = useState(false);
   const [boundariesLoading, setBoundariesLoading] = useState(false);
   const [boundaryLoadProgress, setBoundaryLoadProgress] = useState<BoundaryLoadProgress | null>(null);
@@ -121,10 +123,14 @@ export default function Home() {
 
         setMunicipalities(sortedData);
 
-        // Check localStorage for last selected municipality
+        // Priority: 1) URL ?gemeente= param, 2) localStorage, 3) default Zwolle
+        const urlParams = new URLSearchParams(window.location.search);
+        const gemeenteParam = urlParams.get('gemeente');
         const lastSelected = localStorage.getItem('lastSelectedMunicipality');
 
-        if (lastSelected && sortedData.find((m: Municipality) => m.slug === lastSelected)) {
+        if (gemeenteParam && sortedData.find((m: Municipality) => m.slug === gemeenteParam)) {
+          setSelectedMunicipality(gemeenteParam);
+        } else if (lastSelected && sortedData.find((m: Municipality) => m.slug === lastSelected)) {
           // Use last selected if it exists in the data
           setSelectedMunicipality(lastSelected);
         } else {
@@ -140,10 +146,13 @@ export default function Home() {
       .catch((err) => console.error('Error loading municipalities:', err));
   }, []);
 
-  // Save selected municipality to localStorage
+  // Save selected municipality to localStorage and update URL
   useEffect(() => {
     if (selectedMunicipality) {
       localStorage.setItem('lastSelectedMunicipality', selectedMunicipality);
+      const url = new URL(window.location.href);
+      url.searchParams.set('gemeente', selectedMunicipality);
+      window.history.replaceState({}, '', url.toString());
     }
   }, [selectedMunicipality]);
 
@@ -525,6 +534,15 @@ export default function Home() {
               API
             </a>
             <button
+              onClick={() => setShowShare(true)}
+              className="px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center"
+            >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+              </svg>
+              Delen
+            </button>
+            <button
               onClick={() => setShowAbout(true)}
               className="px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition flex items-center"
             >
@@ -593,6 +611,18 @@ export default function Home() {
                 </svg>
                 API Documentatie
               </a>
+              <button
+                onClick={() => {
+                  setShowShare(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition"
+              >
+                <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+                Delen / Embed
+              </button>
               <button
                 onClick={() => {
                   setShowAbout(true);
@@ -725,6 +755,16 @@ export default function Home() {
 
       {/* About Modal */}
       <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />
+
+      {/* Share Modal */}
+      <ShareModal
+        isOpen={showShare}
+        onClose={() => setShowShare(false)}
+        municipality={selectedMunicipality}
+        municipalityName={
+          municipalities.find(m => m.slug === selectedMunicipality)?.name || selectedMunicipality
+        }
+      />
     </div>
   );
 }
