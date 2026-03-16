@@ -16,10 +16,11 @@ export default function ShareModal({ isOpen, onClose, municipality, municipality
   const [embedHeight, setEmbedHeight] = useState('500');
   const modalRef = useRef<HTMLDivElement>(null);
 
+  const isNederland = municipality === 'nederland';
   const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
   const shareUrl = `${baseUrl}/?gemeente=${municipality}`;
   const embedUrl = `${baseUrl}/embed?gemeente=${municipality}`;
-  const embedCode = `<iframe src="${embedUrl}" width="${embedWidth}" height="${embedHeight}" frameborder="0" style="border:0;border-radius:8px;" allowfullscreen></iframe>`;
+  const embedCode = `<iframe src="${embedUrl}" width="${embedWidth}" height="${embedHeight}" style="border:none;border-radius:8px;" loading="lazy" allowfullscreen></iframe>`;
 
   useEffect(() => {
     if (!isOpen) {
@@ -88,103 +89,116 @@ export default function ShareModal({ isOpen, onClose, municipality, municipality
         </div>
 
         <div className="px-5 py-4 space-y-5">
-          {/* Share link */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              Directe link naar {municipalityName}
-            </label>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                readOnly
-                value={shareUrl}
-                className="flex-1 px-3 py-2 text-sm bg-gray-50 border border-gray-300 rounded-lg text-gray-700 font-mono select-all"
-                onClick={(e) => (e.target as HTMLInputElement).select()}
-              />
-              <button
-                onClick={() => copyToClipboard(shareUrl, 'link')}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition whitespace-nowrap ${
-                  copiedLink
-                    ? 'bg-green-100 text-green-700'
-                    : 'bg-blue-600 text-white hover:bg-blue-700'
-                }`}
-              >
-                {copiedLink ? 'Gekopieerd!' : 'Kopieer'}
-              </button>
+          {isNederland ? (
+            <div className="text-center py-6">
+              <svg className="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-sm text-gray-600">Delen is beschikbaar per gemeente.</p>
+              <p className="text-xs text-gray-400 mt-1">Selecteer een gemeente om een deelbare link of embed code te genereren.</p>
             </div>
-          </div>
-
-          {/* Embed code */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              Embed code
-            </label>
-            <p className="text-xs text-gray-500 mb-2">
-              Plak deze code op je website om de kaart van {municipalityName} in te sluiten.
-            </p>
-
-            {/* Size controls */}
-            <div className="flex gap-3 mb-2">
-              <div className="flex-1">
-                <label className="block text-xs text-gray-500 mb-1">Breedte</label>
-                <select
-                  value={embedWidth}
-                  onChange={(e) => setEmbedWidth(e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-lg bg-white"
-                >
-                  <option value="100%">100%</option>
-                  <option value="800">800px</option>
-                  <option value="600">600px</option>
-                  <option value="400">400px</option>
-                </select>
+          ) : (
+            <>
+              {/* Share link */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Directe link naar {municipalityName}
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    readOnly
+                    value={shareUrl}
+                    className="flex-1 px-3 py-2 text-sm bg-gray-50 border border-gray-300 rounded-lg text-gray-700 font-mono select-all"
+                    onClick={(e) => (e.target as HTMLInputElement).select()}
+                  />
+                  <button
+                    onClick={() => copyToClipboard(shareUrl, 'link')}
+                    className={`px-3 py-2 text-sm font-medium rounded-lg transition whitespace-nowrap ${
+                      copiedLink
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                    }`}
+                  >
+                    {copiedLink ? 'Gekopieerd!' : 'Kopieer'}
+                  </button>
+                </div>
               </div>
-              <div className="flex-1">
-                <label className="block text-xs text-gray-500 mb-1">Hoogte</label>
-                <select
-                  value={embedHeight}
-                  onChange={(e) => setEmbedHeight(e.target.value)}
-                  className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-lg bg-white"
-                >
-                  <option value="400">400px</option>
-                  <option value="500">500px</option>
-                  <option value="600">600px</option>
-                  <option value="800">800px</option>
-                </select>
+
+              {/* Embed code */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Embed code
+                </label>
+                <p className="text-xs text-gray-500 mb-2">
+                  Plak deze code op je website om de kaart van {municipalityName} in te sluiten.
+                </p>
+
+                {/* Size controls */}
+                <div className="flex gap-3 mb-2">
+                  <div className="flex-1">
+                    <label className="block text-xs text-gray-500 mb-1">Breedte</label>
+                    <select
+                      value={embedWidth}
+                      onChange={(e) => setEmbedWidth(e.target.value)}
+                      className="w-full px-2 py-1.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white"
+                    >
+                      <option value="100%">100%</option>
+                      <option value="800">800px</option>
+                      <option value="600">600px</option>
+                      <option value="400">400px</option>
+                    </select>
+                  </div>
+                  <div className="flex-1">
+                    <label className="block text-xs text-gray-500 mb-1">Hoogte</label>
+                    <select
+                      value={embedHeight}
+                      onChange={(e) => setEmbedHeight(e.target.value)}
+                      className="w-full px-2 py-1.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white"
+                    >
+                      <option value="400">400px</option>
+                      <option value="500">500px</option>
+                      <option value="600">600px</option>
+                      <option value="800">800px</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <pre className="px-3 py-2 text-xs bg-gray-50 border border-gray-300 rounded-lg text-gray-700 font-mono overflow-x-auto whitespace-pre-wrap break-all">
+                    {embedCode}
+                  </pre>
+                  <button
+                    onClick={() => copyToClipboard(embedCode, 'embed')}
+                    className={`absolute top-2 right-2 px-2 py-1 text-xs font-medium rounded transition ${
+                      copiedEmbed
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {copiedEmbed ? 'Gekopieerd!' : 'Kopieer'}
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <div className="relative">
-              <pre className="px-3 py-2 text-xs bg-gray-50 border border-gray-300 rounded-lg text-gray-700 font-mono overflow-x-auto whitespace-pre-wrap break-all">
-                {embedCode}
-              </pre>
-              <button
-                onClick={() => copyToClipboard(embedCode, 'embed')}
-                className={`absolute top-2 right-2 px-2 py-1 text-xs font-medium rounded transition ${
-                  copiedEmbed
-                    ? 'bg-green-100 text-green-700'
-                    : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
-                }`}
-              >
-                {copiedEmbed ? 'Gekopieerd!' : 'Kopieer'}
-              </button>
-            </div>
-          </div>
-
-          {/* Preview */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              Voorbeeld
-            </label>
-            <div className="border border-gray-200 rounded-lg overflow-hidden bg-gray-100" style={{ height: '250px' }}>
-              <iframe
-                src={embedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                title={`Pakketpunten ${municipalityName}`}
-              />
-            </div>
-          </div>
+              {/* Preview */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Voorbeeld
+                </label>
+                <div className="border border-gray-200 rounded-lg overflow-hidden bg-gray-100" style={{ height: '250px' }}>
+                  <iframe
+                    src={embedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 'none' }}
+                    loading="lazy"
+                    title={`Pakketpunten ${municipalityName}`}
+                  />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
