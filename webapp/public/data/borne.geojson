@@ -3,12 +3,11 @@
   "metadata": {
     "gemeente": "Borne",
     "slug": "borne",
-    "generated_at": "2026-03-09T04:20:11.164567Z",
-    "total_points": 16,
+    "generated_at": "2026-03-16T04:45:19.938381Z",
+    "total_points": 15,
     "providers": [
       "Amazon",
       "DHL",
-      "DPD",
       "PostNL",
       "VintedGo",
       "GLS"
@@ -180,29 +179,6 @@
         "longitude": 6.720370767204863,
         "canPickup": true,
         "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7565484,
-          52.3015707
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Marskramer & Top1Toys Borne",
-        "straatNaam": "GROTESTRAAT",
-        "straatNr": "162 A",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.3015707,
-        "longitude": 6.7565484,
-        "canPickup": true,
-        "canDropoff": false
       }
     },
     {
@@ -396,6 +372,10 @@
         "coordinates": [
           [
             [
+              [
+                6.758703628421655,
+                52.294557942050986
+              ],
               [
                 6.75855058960307,
                 52.29431055092627
@@ -995,10 +975,6 @@
               [
                 6.758703628421655,
                 52.294557942050986
-              ],
-              [
-                6.75855058960307,
-                52.29431055092627
               ]
             ]
           ],
@@ -1545,6 +1521,10 @@
           [
             [
               [
+                6.760097961819403,
+                52.29428082191715
+              ],
+              [
                 6.759893901407516,
                 52.2939509694574
               ],
@@ -2047,10 +2027,6 @@
               [
                 6.760097961819403,
                 52.29428082191715
-              ],
-              [
-                6.759893901407516,
-                52.2939509694574
               ]
             ]
           ],

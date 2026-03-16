@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Schiedam",
     "slug": "schiedam",
-    "generated_at": "2026-03-09T04:35:40.538795Z",
+    "generated_at": "2026-03-16T05:01:59.226998Z",
     "total_points": 55,
     "providers": [
       "Amazon",
@@ -416,6 +416,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.400268832989085,
+          51.9155257371609
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat HEMA Schiedam",
+        "straatNaam": "Nieuwe Passage",
+        "straatNr": "43-PS/73",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.9155257371609,
+        "longitude": 4.400268832989085,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.400437831878662,
           51.915374755859375
         ]
@@ -453,29 +476,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.9147791,
         "longitude": 4.3995236,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.4001743,
-          51.9147927
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "HEMA Schiedam",
-        "straatNaam": "Nieuwe Passage",
-        "straatNr": "43",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9147927,
-        "longitude": 4.4001743,
         "canPickup": true,
         "canDropoff": true
       }

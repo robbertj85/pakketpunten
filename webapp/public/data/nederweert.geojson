@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Nederweert",
     "slug": "nederweert",
-    "generated_at": "2026-03-09T04:31:26.717592Z",
-    "total_points": 22,
+    "generated_at": "2026-03-16T04:57:23.123179Z",
+    "total_points": 21,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,52 +21,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.748637549,
-          51.28546382
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Bruna",
-        "straatNaam": "Lambertushof 30",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.28546382,
-        "longitude": 5.748637549,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.770814503,
-          51.28911418
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Janssen diervoeders",
-        "straatNaam": "Kreijel 15",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.28911418,
-        "longitude": 5.770814503,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -109,6 +63,52 @@
         "bezettingsgraad": 50,
         "latitude": 51.28489736,
         "longitude": 5.74869041,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.748637549,
+          51.28546382
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna",
+        "straatNaam": "Lambertushof 30",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.28546382,
+        "longitude": 5.748637549,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.770814503,
+          51.28911418
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Janssen diervoeders",
+        "straatNaam": "Kreijel 15",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.28911418,
+        "longitude": 5.770814503,
         "canPickup": true,
         "canDropoff": false
       }
@@ -400,7 +400,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Gewoon Coop Ospel",
+        "locatieNaam": "Boon's Markt Phicoop",
         "straatNaam": "Onze Lieve Vrouwestraat",
         "straatNr": "73",
         "vervoerder": "PostNL",
@@ -500,29 +500,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.2988625,
         "longitude": 5.78553579,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.749589,
-          51.2781255
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Home Garden Deco",
-        "straatNaam": "Pannenweg",
-        "straatNr": "422",
-        "vervoerder": "GLS",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 51.2781255,
-        "longitude": 5.749589,
         "canPickup": true,
         "canDropoff": true
       }
@@ -927,7 +904,7 @@
                 51.27543419152902
               ],
               [
-                5.7492574236564655,
+                5.749257423656467,
                 51.27543944983162
               ],
               [
