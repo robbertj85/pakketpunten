@@ -16,7 +16,9 @@ const MapView = dynamic(() => import('@/components/Map'), {
 
 function EmbedContent() {
   const searchParams = useSearchParams();
-  const gemeente = searchParams.get('gemeente') || 'zwolle';
+  const rawParam = searchParams.get('gemeente') || 'zwolle';
+  // Map URL alias to internal slug
+  const gemeente = rawParam === 'alle-gemeenten' ? 'nederland' : rawParam;
 
   const [data, setData] = useState<PakketpuntData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -62,7 +64,7 @@ function EmbedContent() {
           {loading ? 'Laden...' : `${municipalityName} — Pakketpunten`}
         </span>
         <a
-          href={`${typeof window !== 'undefined' ? window.location.origin : ''}/?gemeente=${gemeente}`}
+          href={`${typeof window !== 'undefined' ? window.location.origin : ''}/?gemeente=${gemeente === 'nederland' ? 'alle-gemeenten' : gemeente}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs text-blue-600 hover:text-blue-800 hover:underline font-medium"

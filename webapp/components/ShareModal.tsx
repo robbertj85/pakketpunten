@@ -16,10 +16,10 @@ export default function ShareModal({ isOpen, onClose, municipality, municipality
   const [embedHeight, setEmbedHeight] = useState('500');
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const isNederland = municipality === 'nederland';
   const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-  const shareUrl = `${baseUrl}/?gemeente=${municipality}`;
-  const embedUrl = `${baseUrl}/embed?gemeente=${municipality}`;
+  const urlSlug = municipality === 'nederland' ? 'alle-gemeenten' : municipality;
+  const shareUrl = `${baseUrl}/?gemeente=${urlSlug}`;
+  const embedUrl = `${baseUrl}/embed?gemeente=${urlSlug}`;
   const embedCode = `<iframe src="${embedUrl}" width="${embedWidth}" height="${embedHeight}" style="border:none;border-radius:8px;" loading="lazy" allowfullscreen></iframe>`;
 
   useEffect(() => {
@@ -89,16 +89,6 @@ export default function ShareModal({ isOpen, onClose, municipality, municipality
         </div>
 
         <div className="px-5 py-4 space-y-5">
-          {isNederland ? (
-            <div className="text-center py-6">
-              <svg className="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <p className="text-sm text-gray-600">Delen is beschikbaar per gemeente.</p>
-              <p className="text-xs text-gray-400 mt-1">Selecteer een gemeente om een deelbare link of embed code te genereren.</p>
-            </div>
-          ) : (
-            <>
               {/* Share link */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -197,8 +187,6 @@ export default function ShareModal({ isOpen, onClose, municipality, municipality
                   />
                 </div>
               </div>
-            </>
-          )}
         </div>
       </div>
     </div>

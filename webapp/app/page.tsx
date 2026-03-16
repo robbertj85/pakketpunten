@@ -125,7 +125,9 @@ export default function Home() {
 
         // Priority: 1) URL ?gemeente= param, 2) localStorage, 3) default Zwolle
         const urlParams = new URLSearchParams(window.location.search);
-        const gemeenteParam = urlParams.get('gemeente');
+        const rawParam = urlParams.get('gemeente');
+        // Map URL alias to internal slug
+        const gemeenteParam = rawParam === 'alle-gemeenten' ? 'nederland' : rawParam;
         const lastSelected = localStorage.getItem('lastSelectedMunicipality');
 
         if (gemeenteParam && sortedData.find((m: Municipality) => m.slug === gemeenteParam)) {
@@ -151,7 +153,9 @@ export default function Home() {
     if (selectedMunicipality) {
       localStorage.setItem('lastSelectedMunicipality', selectedMunicipality);
       const url = new URL(window.location.href);
-      url.searchParams.set('gemeente', selectedMunicipality);
+      // Use URL-friendly alias for the national view
+      const urlSlug = selectedMunicipality === 'nederland' ? 'alle-gemeenten' : selectedMunicipality;
+      url.searchParams.set('gemeente', urlSlug);
       window.history.replaceState({}, '', url.toString());
     }
   }, [selectedMunicipality]);
