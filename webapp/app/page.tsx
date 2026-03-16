@@ -52,7 +52,7 @@ const MapView = dynamic(() => import('@/components/Map'), {
 
 export default function Home() {
   const [municipalities, setMunicipalities] = useState<Municipality[]>([]);
-  const [selectedMunicipality, setSelectedMunicipality] = useState<string>('zwolle');
+  const [selectedMunicipality, setSelectedMunicipality] = useState<string>('');
   const [data, setData] = useState<PakketpuntData | null>(null);
   const [loading, setLoading] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
@@ -149,8 +149,9 @@ export default function Home() {
   }, []);
 
   // Save selected municipality to localStorage and update URL
+  // Only runs after municipalities are loaded to avoid overwriting URL params on initial render
   useEffect(() => {
-    if (selectedMunicipality) {
+    if (selectedMunicipality && municipalities.length > 0) {
       localStorage.setItem('lastSelectedMunicipality', selectedMunicipality);
       const url = new URL(window.location.href);
       // Use URL-friendly alias for the national view
@@ -158,7 +159,7 @@ export default function Home() {
       url.searchParams.set('gemeente', urlSlug);
       window.history.replaceState({}, '', url.toString());
     }
-  }, [selectedMunicipality]);
+  }, [selectedMunicipality, municipalities]);
 
   // Clear target coordinates when municipality changes manually (not from address search)
   useEffect(() => {
