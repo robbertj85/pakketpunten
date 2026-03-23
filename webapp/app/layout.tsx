@@ -15,8 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pakketpuntenviewer",
-  description: "Interactieve kaart van pakketpunten in Nederland",
+  title: "Pakketpuntenviewer - Alle pakketpunten in Nederland op de kaart",
+  description: "Bekijk en vergelijk alle 18.000+ pakketpunten en pakketautomaten in Nederland. DHL, PostNL, DPD, InPost, Budbee, GLS, Amazon, VintedGo, ViaTim en De Buren op een interactieve kaart per gemeente.",
+  openGraph: {
+    title: "Pakketpuntenviewer - Alle pakketpunten in Nederland",
+    description: "Bekijk en vergelijk alle 18.000+ pakketpunten en pakketautomaten in Nederland van 10 vervoerders op een interactieve kaart per gemeente.",
+    type: "website",
+    locale: "nl_NL",
+    url: "https://pakketpuntenviewer.nl",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -38,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="nl">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
