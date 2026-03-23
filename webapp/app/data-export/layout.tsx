@@ -18,7 +18,7 @@ export default function DataExportLayout({
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-[1600px] mx-auto px-4 py-4">
           <div className="flex justify-between items-center mb-4">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Pakketpunten - Data</h1>
@@ -80,7 +80,7 @@ export default function DataExportLayout({
       </header>
 
       {/* Page Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-[1600px] mx-auto px-4 py-8">
         {children}
       </main>
     </div>

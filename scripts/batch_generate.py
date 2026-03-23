@@ -280,7 +280,12 @@ def main():
 
     # Aggregate carrier-level statistics
     carrier_stats = {}
-    carriers = ['DHL', 'PostNL', 'DPD', 'Amazon', 'VintedGo', 'DeBuren', 'GLS', 'FedEx']
+    # Dynamically collect all carriers from the results
+    all_carriers = set()
+    for r in successful:
+        for carrier_name in r.get('carrier_status', {}).keys():
+            all_carriers.add(carrier_name)
+    carriers = sorted(all_carriers)
 
     for carrier in carriers:
         successful_fetches = 0
