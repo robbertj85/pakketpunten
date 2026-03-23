@@ -1,64 +1,78 @@
 {
-  "generated_at": "2026-03-23T13:34:26.707307Z",
+  "generated_at": "2026-03-23T20:22:11.090881Z",
   "total_municipalities": 342,
   "successful": 342,
   "failed": 0,
   "carrier_stats": {
+    "Amazon": {
+      "successful_municipalities": 342,
+      "failed_municipalities": 0,
+      "total_points": 1532,
+      "latest_update": "2026-03-23T20:22:11.088144Z",
+      "overall_success_rate": 100.0
+    },
+    "Budbee": {
+      "successful_municipalities": 342,
+      "failed_municipalities": 0,
+      "total_points": 196,
+      "latest_update": "2026-03-23T20:22:11.088144Z",
+      "overall_success_rate": 100.0
+    },
     "DHL": {
       "successful_municipalities": 342,
       "failed_municipalities": 0,
-      "total_points": 4458,
-      "latest_update": "2026-03-23T13:34:26.704582Z",
-      "overall_success_rate": 100.0
-    },
-    "PostNL": {
-      "successful_municipalities": 342,
-      "failed_municipalities": 0,
-      "total_points": 4656,
-      "latest_update": "2026-03-23T13:34:26.704582Z",
+      "total_points": 4459,
+      "latest_update": "2026-03-23T20:22:11.088144Z",
       "overall_success_rate": 100.0
     },
     "DPD": {
       "successful_municipalities": 342,
       "failed_municipalities": 0,
       "total_points": 2309,
-      "latest_update": "2026-03-23T13:34:26.704582Z",
-      "overall_success_rate": 100.0
-    },
-    "Amazon": {
-      "successful_municipalities": 342,
-      "failed_municipalities": 0,
-      "total_points": 1532,
-      "latest_update": "2026-03-23T13:34:26.704582Z",
-      "overall_success_rate": 100.0
-    },
-    "VintedGo": {
-      "successful_municipalities": 342,
-      "failed_municipalities": 0,
-      "total_points": 2221,
-      "latest_update": "2026-03-23T13:34:26.704582Z",
+      "latest_update": "2026-03-23T20:22:11.088144Z",
       "overall_success_rate": 100.0
     },
     "DeBuren": {
       "successful_municipalities": 342,
       "failed_municipalities": 0,
       "total_points": 170,
-      "latest_update": "2026-03-23T13:34:26.704582Z",
+      "latest_update": "2026-03-23T20:22:11.088144Z",
       "overall_success_rate": 100.0
     },
     "GLS": {
       "successful_municipalities": 342,
       "failed_municipalities": 0,
       "total_points": 960,
-      "latest_update": "2026-03-23T13:34:26.704582Z",
+      "latest_update": "2026-03-23T20:22:11.088144Z",
       "overall_success_rate": 100.0
     },
-    "FedEx": {
-      "successful_municipalities": 0,
-      "failed_municipalities": 342,
-      "total_points": 0,
-      "latest_update": null,
-      "overall_success_rate": 0.0
+    "InPost": {
+      "successful_municipalities": 342,
+      "failed_municipalities": 0,
+      "total_points": 942,
+      "latest_update": "2026-03-23T20:22:11.088144Z",
+      "overall_success_rate": 100.0
+    },
+    "PostNL": {
+      "successful_municipalities": 342,
+      "failed_municipalities": 0,
+      "total_points": 4655,
+      "latest_update": "2026-03-23T20:22:11.088144Z",
+      "overall_success_rate": 100.0
+    },
+    "ViaTim": {
+      "successful_municipalities": 342,
+      "failed_municipalities": 0,
+      "total_points": 393,
+      "latest_update": "2026-03-23T20:22:11.088144Z",
+      "overall_success_rate": 100.0
+    },
+    "VintedGo": {
+      "successful_municipalities": 342,
+      "failed_municipalities": 0,
+      "total_points": 2223,
+      "latest_update": "2026-03-23T20:22:11.088144Z",
+      "overall_success_rate": 100.0
     }
   },
   "results": [
@@ -120,7 +134,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:06:43.205217Z"
+      "generated_at": "2026-03-23T19:55:10.887833Z"
     },
     {
       "gemeente": "Aalsmeer",
@@ -180,7 +194,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:06:48.113897Z"
+      "generated_at": "2026-03-23T19:55:16.098122Z"
     },
     {
       "gemeente": "Aalten",
@@ -240,7 +254,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:06:52.889088Z"
+      "generated_at": "2026-03-23T19:55:21.159154Z"
     },
     {
       "gemeente": "Achtkarspelen",
@@ -300,14 +314,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:06:57.965859Z"
+      "generated_at": "2026-03-23T19:55:25.785175Z"
     },
     {
       "gemeente": "Alblasserdam",
       "slug": "alblasserdam",
       "success": true,
-      "count": 27,
-      "file_size_kb": 134.79296875,
+      "count": 26,
+      "file_size_kb": 133.9609375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -356,11 +370,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:02.791136Z"
+      "generated_at": "2026-03-23T19:55:30.381306Z"
     },
     {
       "gemeente": "Albrandswaard",
@@ -420,7 +434,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:07.689938Z"
+      "generated_at": "2026-03-23T19:55:34.870925Z"
     },
     {
       "gemeente": "Alkmaar",
@@ -480,7 +494,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:12.752454Z"
+      "generated_at": "2026-03-23T19:55:39.921214Z"
     },
     {
       "gemeente": "Almelo",
@@ -540,7 +554,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:17.444419Z"
+      "generated_at": "2026-03-23T19:55:44.594353Z"
     },
     {
       "gemeente": "Almere",
@@ -600,7 +614,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:22.418195Z"
+      "generated_at": "2026-03-23T19:55:49.454981Z"
     },
     {
       "gemeente": "Alphen aan den Rijn",
@@ -660,7 +674,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:27.574879Z"
+      "generated_at": "2026-03-23T19:55:54.373553Z"
     },
     {
       "gemeente": "Alphen-Chaam",
@@ -720,7 +734,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:32.554304Z"
+      "generated_at": "2026-03-23T19:55:59.168314Z"
     },
     {
       "gemeente": "Altena",
@@ -780,7 +794,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:38.128579Z"
+      "generated_at": "2026-03-23T19:56:04.846047Z"
     },
     {
       "gemeente": "Ameland",
@@ -840,7 +854,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:43.053087Z"
+      "generated_at": "2026-03-23T19:56:09.839086Z"
     },
     {
       "gemeente": "Amersfoort",
@@ -900,7 +914,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:48.001538Z"
+      "generated_at": "2026-03-23T19:56:14.703472Z"
     },
     {
       "gemeente": "Amstelveen",
@@ -960,14 +974,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:52.832346Z"
+      "generated_at": "2026-03-23T19:56:19.434240Z"
     },
     {
       "gemeente": "Amsterdam",
       "slug": "amsterdam",
       "success": true,
-      "count": 700,
-      "file_size_kb": 2527.9912109375,
+      "count": 699,
+      "file_size_kb": 2527.458984375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -1016,11 +1030,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 46,
+          "count": 45,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:07:58.823735Z"
+      "generated_at": "2026-03-23T19:56:25.048658Z"
     },
     {
       "gemeente": "Apeldoorn",
@@ -1080,7 +1094,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:04.215865Z"
+      "generated_at": "2026-03-23T19:56:29.985642Z"
     },
     {
       "gemeente": "Arnhem",
@@ -1140,14 +1154,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:09.158223Z"
+      "generated_at": "2026-03-23T19:56:34.668727Z"
     },
     {
       "gemeente": "Assen",
       "slug": "assen",
       "success": true,
-      "count": 88,
-      "file_size_kb": 416.939453125,
+      "count": 86,
+      "file_size_kb": 416.7001953125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -1196,11 +1210,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:13.862279Z"
+      "generated_at": "2026-03-23T19:56:39.215858Z"
     },
     {
       "gemeente": "Asten",
@@ -1260,7 +1274,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:19.087796Z"
+      "generated_at": "2026-03-23T19:56:43.675122Z"
     },
     {
       "gemeente": "Baarle-Nassau",
@@ -1320,7 +1334,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:23.805673Z"
+      "generated_at": "2026-03-23T19:56:48.246133Z"
     },
     {
       "gemeente": "Baarn",
@@ -1380,7 +1394,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:28.614707Z"
+      "generated_at": "2026-03-23T19:56:52.860838Z"
     },
     {
       "gemeente": "Barendrecht",
@@ -1440,7 +1454,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:33.560079Z"
+      "generated_at": "2026-03-23T19:56:57.520563Z"
     },
     {
       "gemeente": "Barneveld",
@@ -1500,7 +1514,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:38.868904Z"
+      "generated_at": "2026-03-23T19:57:02.284279Z"
     },
     {
       "gemeente": "Beek",
@@ -1560,7 +1574,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:43.347933Z"
+      "generated_at": "2026-03-23T19:57:06.953509Z"
     },
     {
       "gemeente": "Beekdaelen",
@@ -1620,7 +1634,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:48.277095Z"
+      "generated_at": "2026-03-23T19:57:11.654766Z"
     },
     {
       "gemeente": "Beesel",
@@ -1680,7 +1694,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:52.857589Z"
+      "generated_at": "2026-03-23T19:57:16.115715Z"
     },
     {
       "gemeente": "Berg en Dal",
@@ -1740,7 +1754,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:08:57.838236Z"
+      "generated_at": "2026-03-23T19:57:20.582615Z"
     },
     {
       "gemeente": "Bergeijk",
@@ -1800,7 +1814,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:02.519481Z"
+      "generated_at": "2026-03-23T19:57:25.064075Z"
     },
     {
       "gemeente": "Bergen (L.)",
@@ -1860,7 +1874,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:07.216457Z"
+      "generated_at": "2026-03-23T19:57:29.632918Z"
     },
     {
       "gemeente": "Bergen (NH.)",
@@ -1920,7 +1934,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:11.946760Z"
+      "generated_at": "2026-03-23T19:57:34.107400Z"
     },
     {
       "gemeente": "Bergen op Zoom",
@@ -1980,7 +1994,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:17.942011Z"
+      "generated_at": "2026-03-23T19:57:38.604308Z"
     },
     {
       "gemeente": "Berkelland",
@@ -2040,7 +2054,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:22.895839Z"
+      "generated_at": "2026-03-23T19:57:43.317651Z"
     },
     {
       "gemeente": "Bernheze",
@@ -2100,7 +2114,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:27.507163Z"
+      "generated_at": "2026-03-23T19:57:47.831647Z"
     },
     {
       "gemeente": "Best",
@@ -2160,7 +2174,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:32.275009Z"
+      "generated_at": "2026-03-23T19:57:52.356996Z"
     },
     {
       "gemeente": "Beuningen",
@@ -2220,7 +2234,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:37.080400Z"
+      "generated_at": "2026-03-23T19:57:56.839704Z"
     },
     {
       "gemeente": "Beverwijk",
@@ -2280,7 +2294,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:41.646586Z"
+      "generated_at": "2026-03-23T19:58:01.458340Z"
     },
     {
       "gemeente": "Bladel",
@@ -2340,7 +2354,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:46.265405Z"
+      "generated_at": "2026-03-23T19:58:05.940947Z"
     },
     {
       "gemeente": "Blaricum",
@@ -2400,7 +2414,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:50.731293Z"
+      "generated_at": "2026-03-23T19:58:10.393922Z"
     },
     {
       "gemeente": "Bloemendaal",
@@ -2460,7 +2474,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:09:55.382058Z"
+      "generated_at": "2026-03-23T19:58:14.899867Z"
     },
     {
       "gemeente": "Bodegraven-Reeuwijk",
@@ -2520,7 +2534,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:00.025871Z"
+      "generated_at": "2026-03-23T19:58:19.497810Z"
     },
     {
       "gemeente": "Boekel",
@@ -2580,7 +2594,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:06.067257Z"
+      "generated_at": "2026-03-23T19:58:23.765945Z"
     },
     {
       "gemeente": "Borger-Odoorn",
@@ -2640,7 +2654,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:11.365221Z"
+      "generated_at": "2026-03-23T19:58:28.376130Z"
     },
     {
       "gemeente": "Borne",
@@ -2700,7 +2714,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:15.948666Z"
+      "generated_at": "2026-03-23T19:58:33.001921Z"
     },
     {
       "gemeente": "Borsele",
@@ -2760,7 +2774,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:20.620591Z"
+      "generated_at": "2026-03-23T19:58:37.497937Z"
     },
     {
       "gemeente": "Boxtel",
@@ -2820,7 +2834,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:25.086557Z"
+      "generated_at": "2026-03-23T19:58:41.895817Z"
     },
     {
       "gemeente": "Breda",
@@ -2880,7 +2894,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:29.987470Z"
+      "generated_at": "2026-03-23T19:58:46.756154Z"
     },
     {
       "gemeente": "Bronckhorst",
@@ -2940,7 +2954,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:34.800042Z"
+      "generated_at": "2026-03-23T19:58:51.507613Z"
     },
     {
       "gemeente": "Brummen",
@@ -3000,7 +3014,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:39.536436Z"
+      "generated_at": "2026-03-23T19:58:56.133806Z"
     },
     {
       "gemeente": "Brunssum",
@@ -3060,7 +3074,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:44.005415Z"
+      "generated_at": "2026-03-23T19:59:00.659905Z"
     },
     {
       "gemeente": "Bunnik",
@@ -3120,7 +3134,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:48.671445Z"
+      "generated_at": "2026-03-23T19:59:05.473257Z"
     },
     {
       "gemeente": "Bunschoten",
@@ -3180,7 +3194,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:53.634354Z"
+      "generated_at": "2026-03-23T19:59:09.834945Z"
     },
     {
       "gemeente": "Buren",
@@ -3240,14 +3254,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:10:58.778952Z"
+      "generated_at": "2026-03-23T19:59:14.750160Z"
     },
     {
       "gemeente": "Capelle aan den IJssel",
       "slug": "capelle-aan-den-ijssel",
       "success": true,
-      "count": 45,
-      "file_size_kb": 298.8125,
+      "count": 44,
+      "file_size_kb": 298.17578125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -3296,11 +3310,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:03.544264Z"
+      "generated_at": "2026-03-23T19:59:19.270153Z"
     },
     {
       "gemeente": "Castricum",
@@ -3360,7 +3374,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:08.221219Z"
+      "generated_at": "2026-03-23T19:59:23.668860Z"
     },
     {
       "gemeente": "Coevorden",
@@ -3420,14 +3434,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:13.211226Z"
+      "generated_at": "2026-03-23T19:59:28.251127Z"
     },
     {
       "gemeente": "Cranendonck",
       "slug": "cranendonck",
       "success": true,
-      "count": 18,
-      "file_size_kb": 178.8486328125,
+      "count": 17,
+      "file_size_kb": 176.99609375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -3451,7 +3465,7 @@
         },
         "PostNL": {
           "success": true,
-          "count": 6,
+          "count": 5,
           "error": null
         },
         "VintedGo": {
@@ -3480,7 +3494,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:18.392796Z"
+      "generated_at": "2026-03-23T19:59:32.841638Z"
     },
     {
       "gemeente": "Culemborg",
@@ -3540,7 +3554,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:22.891935Z"
+      "generated_at": "2026-03-23T19:59:37.932185Z"
     },
     {
       "gemeente": "Dalfsen",
@@ -3600,7 +3614,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:27.738047Z"
+      "generated_at": "2026-03-23T19:59:42.300760Z"
     },
     {
       "gemeente": "Dantumadiel",
@@ -3660,7 +3674,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:32.445140Z"
+      "generated_at": "2026-03-23T19:59:47.263240Z"
     },
     {
       "gemeente": "De Bilt",
@@ -3720,7 +3734,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:37.535559Z"
+      "generated_at": "2026-03-23T19:59:51.970515Z"
     },
     {
       "gemeente": "De Fryske Marren",
@@ -3780,7 +3794,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:42.749489Z"
+      "generated_at": "2026-03-23T19:59:56.821356Z"
     },
     {
       "gemeente": "De Ronde Venen",
@@ -3840,7 +3854,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:48.008022Z"
+      "generated_at": "2026-03-23T20:00:02.178434Z"
     },
     {
       "gemeente": "De Wolden",
@@ -3900,14 +3914,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:52.778520Z"
+      "generated_at": "2026-03-23T20:00:07.721622Z"
     },
     {
       "gemeente": "Delft",
       "slug": "delft",
       "success": true,
-      "count": 71,
-      "file_size_kb": 333.78515625,
+      "count": 68,
+      "file_size_kb": 331.2255859375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -3956,18 +3970,18 @@
         },
         "Budbee": {
           "success": true,
-          "count": 3,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:11:57.630443Z"
+      "generated_at": "2026-03-23T20:00:13.041187Z"
     },
     {
       "gemeente": "Den Haag",
       "slug": "den-haag",
       "success": true,
-      "count": 517,
-      "file_size_kb": 1310.3447265625,
+      "count": 501,
+      "file_size_kb": 1303.482421875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -4016,11 +4030,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 25,
+          "count": 9,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:03.091638Z"
+      "generated_at": "2026-03-23T20:00:18.447583Z"
     },
     {
       "gemeente": "Den Helder",
@@ -4080,7 +4094,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:07.691718Z"
+      "generated_at": "2026-03-23T20:00:22.839955Z"
     },
     {
       "gemeente": "Deurne",
@@ -4140,7 +4154,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:12.319002Z"
+      "generated_at": "2026-03-23T20:00:28.745036Z"
     },
     {
       "gemeente": "Deventer",
@@ -4200,7 +4214,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:17.249874Z"
+      "generated_at": "2026-03-23T20:00:33.568092Z"
     },
     {
       "gemeente": "Diemen",
@@ -4260,7 +4274,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:22.191724Z"
+      "generated_at": "2026-03-23T20:00:38.331823Z"
     },
     {
       "gemeente": "Dijk en Waard",
@@ -4320,7 +4334,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:27.092524Z"
+      "generated_at": "2026-03-23T20:00:43.256867Z"
     },
     {
       "gemeente": "Dinkelland",
@@ -4380,7 +4394,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:32.416521Z"
+      "generated_at": "2026-03-23T20:00:47.946331Z"
     },
     {
       "gemeente": "Doesburg",
@@ -4440,7 +4454,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:37.208286Z"
+      "generated_at": "2026-03-23T20:00:52.299256Z"
     },
     {
       "gemeente": "Doetinchem",
@@ -4500,7 +4514,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:41.878747Z"
+      "generated_at": "2026-03-23T20:00:57.182879Z"
     },
     {
       "gemeente": "Dongen",
@@ -4560,7 +4574,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:46.407770Z"
+      "generated_at": "2026-03-23T20:01:02.078420Z"
     },
     {
       "gemeente": "Dordrecht",
@@ -4620,7 +4634,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:51.337033Z"
+      "generated_at": "2026-03-23T20:01:07.716771Z"
     },
     {
       "gemeente": "Drechterland",
@@ -4680,7 +4694,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:12:55.872847Z"
+      "generated_at": "2026-03-23T20:01:12.440757Z"
     },
     {
       "gemeente": "Drimmelen",
@@ -4740,7 +4754,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:00.557313Z"
+      "generated_at": "2026-03-23T20:01:17.239827Z"
     },
     {
       "gemeente": "Dronten",
@@ -4800,7 +4814,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:05.825515Z"
+      "generated_at": "2026-03-23T20:01:21.933549Z"
     },
     {
       "gemeente": "Druten",
@@ -4860,14 +4874,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:10.504143Z"
+      "generated_at": "2026-03-23T20:01:26.444569Z"
     },
     {
       "gemeente": "Duiven",
       "slug": "duiven",
       "success": true,
-      "count": 23,
-      "file_size_kb": 179.892578125,
+      "count": 22,
+      "file_size_kb": 179.064453125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -4916,11 +4930,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:15.640963Z"
+      "generated_at": "2026-03-23T20:01:31.170754Z"
     },
     {
       "gemeente": "Echt-Susteren",
@@ -4980,7 +4994,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:20.478404Z"
+      "generated_at": "2026-03-23T20:01:35.887077Z"
     },
     {
       "gemeente": "Edam-Volendam",
@@ -5040,14 +5054,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:25.125224Z"
+      "generated_at": "2026-03-23T20:01:40.476733Z"
     },
     {
       "gemeente": "Ede",
       "slug": "ede",
       "success": true,
-      "count": 108,
-      "file_size_kb": 565.23828125,
+      "count": 107,
+      "file_size_kb": 565.71875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -5096,11 +5110,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 4,
+          "count": 3,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:30.366031Z"
+      "generated_at": "2026-03-23T20:01:45.777650Z"
     },
     {
       "gemeente": "Eemnes",
@@ -5160,7 +5174,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:35.187665Z"
+      "generated_at": "2026-03-23T20:01:50.445900Z"
     },
     {
       "gemeente": "Eemsdelta",
@@ -5220,7 +5234,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:40.215527Z"
+      "generated_at": "2026-03-23T20:01:55.374978Z"
     },
     {
       "gemeente": "Eersel",
@@ -5280,7 +5294,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:44.830277Z"
+      "generated_at": "2026-03-23T20:01:59.942166Z"
     },
     {
       "gemeente": "Eijsden-Margraten",
@@ -5340,14 +5354,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:49.513914Z"
+      "generated_at": "2026-03-23T20:02:04.495253Z"
     },
     {
       "gemeente": "Eindhoven",
       "slug": "eindhoven",
       "success": true,
-      "count": 213,
-      "file_size_kb": 981.9716796875,
+      "count": 212,
+      "file_size_kb": 981.453125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -5396,11 +5410,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 8,
+          "count": 7,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:54.429189Z"
+      "generated_at": "2026-03-23T20:02:09.336521Z"
     },
     {
       "gemeente": "Elburg",
@@ -5460,7 +5474,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:13:59.096529Z"
+      "generated_at": "2026-03-23T20:02:13.870097Z"
     },
     {
       "gemeente": "Emmen",
@@ -5520,7 +5534,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:04.496822Z"
+      "generated_at": "2026-03-23T20:02:18.585740Z"
     },
     {
       "gemeente": "Enkhuizen",
@@ -5580,7 +5594,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:09.371256Z"
+      "generated_at": "2026-03-23T20:02:23.045364Z"
     },
     {
       "gemeente": "Enschede",
@@ -5640,7 +5654,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:15.990923Z"
+      "generated_at": "2026-03-23T20:02:27.844512Z"
     },
     {
       "gemeente": "Epe",
@@ -5700,7 +5714,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:21.329907Z"
+      "generated_at": "2026-03-23T20:02:32.333692Z"
     },
     {
       "gemeente": "Ermelo",
@@ -5760,7 +5774,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:26.441270Z"
+      "generated_at": "2026-03-23T20:02:36.918644Z"
     },
     {
       "gemeente": "Etten-Leur",
@@ -5820,7 +5834,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:31.031780Z"
+      "generated_at": "2026-03-23T20:02:41.316700Z"
     },
     {
       "gemeente": "Geertruidenberg",
@@ -5880,7 +5894,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:35.676757Z"
+      "generated_at": "2026-03-23T20:02:45.665593Z"
     },
     {
       "gemeente": "Geldrop-Mierlo",
@@ -5940,7 +5954,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:40.291338Z"
+      "generated_at": "2026-03-23T20:02:50.157416Z"
     },
     {
       "gemeente": "Gemert-Bakel",
@@ -6000,7 +6014,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:44.937733Z"
+      "generated_at": "2026-03-23T20:02:54.683645Z"
     },
     {
       "gemeente": "Gennep",
@@ -6060,7 +6074,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:49.261833Z"
+      "generated_at": "2026-03-23T20:02:59.143302Z"
     },
     {
       "gemeente": "Gilze en Rijen",
@@ -6120,7 +6134,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:53.763221Z"
+      "generated_at": "2026-03-23T20:03:03.772817Z"
     },
     {
       "gemeente": "Goeree-Overflakkee",
@@ -6180,7 +6194,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:14:58.804326Z"
+      "generated_at": "2026-03-23T20:03:08.848126Z"
     },
     {
       "gemeente": "Goes",
@@ -6240,7 +6254,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:05.240711Z"
+      "generated_at": "2026-03-23T20:03:13.661362Z"
     },
     {
       "gemeente": "Goirle",
@@ -6300,7 +6314,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:10.229152Z"
+      "generated_at": "2026-03-23T20:03:18.194179Z"
     },
     {
       "gemeente": "Gooise Meren",
@@ -6360,7 +6374,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:15.161155Z"
+      "generated_at": "2026-03-23T20:03:22.801373Z"
     },
     {
       "gemeente": "Gorinchem",
@@ -6420,14 +6434,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:19.840673Z"
+      "generated_at": "2026-03-23T20:03:27.189149Z"
     },
     {
       "gemeente": "Gouda",
       "slug": "gouda",
       "success": true,
-      "count": 45,
-      "file_size_kb": 257.9150390625,
+      "count": 43,
+      "file_size_kb": 255.9716796875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -6476,18 +6490,18 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:24.511669Z"
+      "generated_at": "2026-03-23T20:03:31.906122Z"
     },
     {
       "gemeente": "Groningen",
       "slug": "groningen",
       "success": true,
-      "count": 243,
-      "file_size_kb": 1185.5869140625,
+      "count": 239,
+      "file_size_kb": 1183.421875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -6516,7 +6530,7 @@
         },
         "VintedGo": {
           "success": true,
-          "count": 29,
+          "count": 30,
           "error": null
         },
         "GLS": {
@@ -6536,11 +6550,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 6,
+          "count": 1,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:29.528735Z"
+      "generated_at": "2026-03-23T20:03:36.700311Z"
     },
     {
       "gemeente": "Gulpen-Wittem",
@@ -6600,7 +6614,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:34.566013Z"
+      "generated_at": "2026-03-23T20:03:41.152192Z"
     },
     {
       "gemeente": "Haaksbergen",
@@ -6660,14 +6674,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:39.327754Z"
+      "generated_at": "2026-03-23T20:03:45.671319Z"
     },
     {
       "gemeente": "Haarlem",
       "slug": "haarlem",
       "success": true,
-      "count": 105,
-      "file_size_kb": 476.3486328125,
+      "count": 104,
+      "file_size_kb": 478.91015625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -6716,18 +6730,18 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:44.109046Z"
+      "generated_at": "2026-03-23T20:03:50.211592Z"
     },
     {
       "gemeente": "Haarlemmermeer",
       "slug": "haarlemmermeer",
       "success": true,
-      "count": 116,
-      "file_size_kb": 772.6435546875,
+      "count": 117,
+      "file_size_kb": 773.7314453125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -6741,7 +6755,7 @@
         },
         "DHL": {
           "success": true,
-          "count": 38,
+          "count": 39,
           "error": null
         },
         "DPD": {
@@ -6780,7 +6794,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:49.221536Z"
+      "generated_at": "2026-03-23T20:03:55.136602Z"
     },
     {
       "gemeente": "Halderberge",
@@ -6840,7 +6854,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:53.722887Z"
+      "generated_at": "2026-03-23T20:03:59.635864Z"
     },
     {
       "gemeente": "Hardenberg",
@@ -6900,7 +6914,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:15:58.809131Z"
+      "generated_at": "2026-03-23T20:04:04.676332Z"
     },
     {
       "gemeente": "Harderwijk",
@@ -6960,7 +6974,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:03.547790Z"
+      "generated_at": "2026-03-23T20:04:09.240369Z"
     },
     {
       "gemeente": "Hardinxveld-Giessendam",
@@ -7020,7 +7034,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:08.264023Z"
+      "generated_at": "2026-03-23T20:04:13.800561Z"
     },
     {
       "gemeente": "Harlingen",
@@ -7080,7 +7094,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:13.118271Z"
+      "generated_at": "2026-03-23T20:04:18.410070Z"
     },
     {
       "gemeente": "Hattem",
@@ -7140,7 +7154,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:17.625501Z"
+      "generated_at": "2026-03-23T20:04:22.809188Z"
     },
     {
       "gemeente": "Heemskerk",
@@ -7200,7 +7214,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:22.462658Z"
+      "generated_at": "2026-03-23T20:04:27.301288Z"
     },
     {
       "gemeente": "Heemstede",
@@ -7260,7 +7274,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:27.076451Z"
+      "generated_at": "2026-03-23T20:04:31.658261Z"
     },
     {
       "gemeente": "Heerde",
@@ -7320,7 +7334,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:31.649664Z"
+      "generated_at": "2026-03-23T20:04:36.353878Z"
     },
     {
       "gemeente": "Heerenveen",
@@ -7380,7 +7394,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:36.730300Z"
+      "generated_at": "2026-03-23T20:04:41.361493Z"
     },
     {
       "gemeente": "Heerlen",
@@ -7440,7 +7454,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:41.405804Z"
+      "generated_at": "2026-03-23T20:04:46.184957Z"
     },
     {
       "gemeente": "Heeze-Leende",
@@ -7500,7 +7514,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:46.617421Z"
+      "generated_at": "2026-03-23T20:04:50.758789Z"
     },
     {
       "gemeente": "Heiloo",
@@ -7560,7 +7574,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:51.171758Z"
+      "generated_at": "2026-03-23T20:04:55.156958Z"
     },
     {
       "gemeente": "Hellendoorn",
@@ -7620,7 +7634,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:16:55.771195Z"
+      "generated_at": "2026-03-23T20:04:59.732028Z"
     },
     {
       "gemeente": "Helmond",
@@ -7680,7 +7694,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:00.289331Z"
+      "generated_at": "2026-03-23T20:05:05.603205Z"
     },
     {
       "gemeente": "Hendrik-Ido-Ambacht",
@@ -7740,7 +7754,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:04.930235Z"
+      "generated_at": "2026-03-23T20:05:10.180224Z"
     },
     {
       "gemeente": "Hengelo",
@@ -7800,7 +7814,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:09.649959Z"
+      "generated_at": "2026-03-23T20:05:14.928194Z"
     },
     {
       "gemeente": "Het Hogeland",
@@ -7860,7 +7874,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:14.559904Z"
+      "generated_at": "2026-03-23T20:05:19.884221Z"
     },
     {
       "gemeente": "Heumen",
@@ -7920,7 +7934,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:19.441412Z"
+      "generated_at": "2026-03-23T20:05:24.440680Z"
     },
     {
       "gemeente": "Heusden",
@@ -7980,7 +7994,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:24.239914Z"
+      "generated_at": "2026-03-23T20:05:29.205944Z"
     },
     {
       "gemeente": "Hillegom",
@@ -8040,7 +8054,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:28.902452Z"
+      "generated_at": "2026-03-23T20:05:33.657241Z"
     },
     {
       "gemeente": "Hilvarenbeek",
@@ -8100,7 +8114,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:33.862154Z"
+      "generated_at": "2026-03-23T20:05:38.383990Z"
     },
     {
       "gemeente": "Hilversum",
@@ -8160,7 +8174,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:38.666048Z"
+      "generated_at": "2026-03-23T20:05:42.828081Z"
     },
     {
       "gemeente": "Hoeksche Waard",
@@ -8220,7 +8234,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:44.644049Z"
+      "generated_at": "2026-03-23T20:05:48.270853Z"
     },
     {
       "gemeente": "Hof van Twente",
@@ -8280,7 +8294,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:49.738769Z"
+      "generated_at": "2026-03-23T20:05:52.924999Z"
     },
     {
       "gemeente": "Hollands Kroon",
@@ -8340,7 +8354,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:54.871560Z"
+      "generated_at": "2026-03-23T20:05:57.721499Z"
     },
     {
       "gemeente": "Hoogeveen",
@@ -8400,7 +8414,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:17:59.714060Z"
+      "generated_at": "2026-03-23T20:06:02.252980Z"
     },
     {
       "gemeente": "Hoorn",
@@ -8460,7 +8474,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:04.852465Z"
+      "generated_at": "2026-03-23T20:06:06.962382Z"
     },
     {
       "gemeente": "Horst aan de Maas",
@@ -8520,7 +8534,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:09.829541Z"
+      "generated_at": "2026-03-23T20:06:11.652225Z"
     },
     {
       "gemeente": "Houten",
@@ -8580,7 +8594,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:14.679587Z"
+      "generated_at": "2026-03-23T20:06:16.446919Z"
     },
     {
       "gemeente": "Huizen",
@@ -8640,7 +8654,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:19.519036Z"
+      "generated_at": "2026-03-23T20:06:21.073819Z"
     },
     {
       "gemeente": "Hulst",
@@ -8700,7 +8714,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:24.255121Z"
+      "generated_at": "2026-03-23T20:06:25.743567Z"
     },
     {
       "gemeente": "IJsselstein",
@@ -8760,7 +8774,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:29.094395Z"
+      "generated_at": "2026-03-23T20:06:30.300863Z"
     },
     {
       "gemeente": "Kaag en Braassem",
@@ -8820,7 +8834,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:33.992175Z"
+      "generated_at": "2026-03-23T20:06:35.138620Z"
     },
     {
       "gemeente": "Kampen",
@@ -8880,7 +8894,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:38.795292Z"
+      "generated_at": "2026-03-23T20:06:39.960300Z"
     },
     {
       "gemeente": "Kapelle",
@@ -8940,7 +8954,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:43.388938Z"
+      "generated_at": "2026-03-23T20:06:44.494683Z"
     },
     {
       "gemeente": "Katwijk",
@@ -9000,7 +9014,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:48.076698Z"
+      "generated_at": "2026-03-23T20:06:49.137622Z"
     },
     {
       "gemeente": "Kerkrade",
@@ -9060,7 +9074,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:52.749158Z"
+      "generated_at": "2026-03-23T20:06:53.689426Z"
     },
     {
       "gemeente": "Koggenland",
@@ -9120,7 +9134,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:18:57.429010Z"
+      "generated_at": "2026-03-23T20:06:58.385215Z"
     },
     {
       "gemeente": "Krimpen aan den IJssel",
@@ -9180,14 +9194,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:02.153072Z"
+      "generated_at": "2026-03-23T20:07:03.059602Z"
     },
     {
       "gemeente": "Krimpenerwaard",
       "slug": "krimpenerwaard",
       "success": true,
-      "count": 55,
-      "file_size_kb": 426.0185546875,
+      "count": 54,
+      "file_size_kb": 425.4931640625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -9236,11 +9250,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:07.137410Z"
+      "generated_at": "2026-03-23T20:07:07.979855Z"
     },
     {
       "gemeente": "Laarbeek",
@@ -9300,7 +9314,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:11.845739Z"
+      "generated_at": "2026-03-23T20:07:12.524229Z"
     },
     {
       "gemeente": "Land van Cuijk",
@@ -9360,7 +9374,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:16.970565Z"
+      "generated_at": "2026-03-23T20:07:17.448776Z"
     },
     {
       "gemeente": "Landgraaf",
@@ -9420,7 +9434,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:21.479838Z"
+      "generated_at": "2026-03-23T20:07:21.844106Z"
     },
     {
       "gemeente": "Landsmeer",
@@ -9480,14 +9494,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:26.223691Z"
+      "generated_at": "2026-03-23T20:07:26.549096Z"
     },
     {
       "gemeente": "Lansingerland",
       "slug": "lansingerland",
       "success": true,
-      "count": 36,
-      "file_size_kb": 310.9365234375,
+      "count": 34,
+      "file_size_kb": 302.2109375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -9536,11 +9550,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:31.352255Z"
+      "generated_at": "2026-03-23T20:07:31.897955Z"
     },
     {
       "gemeente": "Laren",
@@ -9600,7 +9614,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:36.027482Z"
+      "generated_at": "2026-03-23T20:07:36.359446Z"
     },
     {
       "gemeente": "Leeuwarden",
@@ -9660,14 +9674,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:40.928078Z"
+      "generated_at": "2026-03-23T20:07:41.226835Z"
     },
     {
       "gemeente": "Leiden",
       "slug": "leiden",
       "success": true,
-      "count": 80,
-      "file_size_kb": 364.267578125,
+      "count": 79,
+      "file_size_kb": 363.228515625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -9716,11 +9730,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:45.958473Z"
+      "generated_at": "2026-03-23T20:07:45.859978Z"
     },
     {
       "gemeente": "Leiderdorp",
@@ -9780,14 +9794,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:50.953939Z"
+      "generated_at": "2026-03-23T20:07:50.465117Z"
     },
     {
       "gemeente": "Leidschendam-Voorburg",
       "slug": "leidschendam-voorburg",
       "success": true,
-      "count": 46,
-      "file_size_kb": 295.6142578125,
+      "count": 43,
+      "file_size_kb": 294.3759765625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -9836,18 +9850,18 @@
         },
         "Budbee": {
           "success": true,
-          "count": 3,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:19:56.005534Z"
+      "generated_at": "2026-03-23T20:07:55.414697Z"
     },
     {
       "gemeente": "Lelystad",
       "slug": "lelystad",
       "success": true,
-      "count": 102,
-      "file_size_kb": 437.5908203125,
+      "count": 100,
+      "file_size_kb": 437.115234375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -9861,7 +9875,7 @@
         },
         "DHL": {
           "success": true,
-          "count": 19,
+          "count": 18,
           "error": null
         },
         "DPD": {
@@ -9896,11 +9910,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:01.122399Z"
+      "generated_at": "2026-03-23T20:08:00.427765Z"
     },
     {
       "gemeente": "Leudal",
@@ -9960,7 +9974,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:06.166931Z"
+      "generated_at": "2026-03-23T20:08:05.438890Z"
     },
     {
       "gemeente": "Leusden",
@@ -10020,7 +10034,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:11.183742Z"
+      "generated_at": "2026-03-23T20:08:10.109315Z"
     },
     {
       "gemeente": "Lingewaard",
@@ -10080,7 +10094,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:16.186243Z"
+      "generated_at": "2026-03-23T20:08:14.946917Z"
     },
     {
       "gemeente": "Lisse",
@@ -10140,7 +10154,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:20.920656Z"
+      "generated_at": "2026-03-23T20:08:19.527445Z"
     },
     {
       "gemeente": "Lochem",
@@ -10200,14 +10214,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:25.749942Z"
+      "generated_at": "2026-03-23T20:08:24.361597Z"
     },
     {
       "gemeente": "Loon op Zand",
       "slug": "loon-op-zand",
       "success": true,
-      "count": 28,
-      "file_size_kb": 169.8017578125,
+      "count": 27,
+      "file_size_kb": 169.3681640625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -10256,11 +10270,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:30.895941Z"
+      "generated_at": "2026-03-23T20:08:29.083055Z"
     },
     {
       "gemeente": "Lopik",
@@ -10320,7 +10334,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:35.807406Z"
+      "generated_at": "2026-03-23T20:08:33.899570Z"
     },
     {
       "gemeente": "Losser",
@@ -10380,7 +10394,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:40.563975Z"
+      "generated_at": "2026-03-23T20:08:38.666106Z"
     },
     {
       "gemeente": "Maasdriel",
@@ -10440,7 +10454,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:45.321080Z"
+      "generated_at": "2026-03-23T20:08:43.355899Z"
     },
     {
       "gemeente": "Maasgouw",
@@ -10500,7 +10514,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:49.969387Z"
+      "generated_at": "2026-03-23T20:08:47.979139Z"
     },
     {
       "gemeente": "Maashorst",
@@ -10560,14 +10574,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:54.524014Z"
+      "generated_at": "2026-03-23T20:08:52.618098Z"
     },
     {
       "gemeente": "Maassluis",
       "slug": "maassluis",
       "success": true,
-      "count": 23,
-      "file_size_kb": 111.63671875,
+      "count": 21,
+      "file_size_kb": 110.7880859375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -10616,11 +10630,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:20:59.122185Z"
+      "generated_at": "2026-03-23T20:08:57.164158Z"
     },
     {
       "gemeente": "Maastricht",
@@ -10680,7 +10694,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:03.981537Z"
+      "generated_at": "2026-03-23T20:09:01.815693Z"
     },
     {
       "gemeente": "Medemblik",
@@ -10740,7 +10754,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:08.850294Z"
+      "generated_at": "2026-03-23T20:09:06.707340Z"
     },
     {
       "gemeente": "Meerssen",
@@ -10800,7 +10814,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:13.498302Z"
+      "generated_at": "2026-03-23T20:09:11.175973Z"
     },
     {
       "gemeente": "Meierijstad",
@@ -10860,7 +10874,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:18.470908Z"
+      "generated_at": "2026-03-23T20:09:15.968588Z"
     },
     {
       "gemeente": "Meppel",
@@ -10920,7 +10934,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:23.069375Z"
+      "generated_at": "2026-03-23T20:09:20.620893Z"
     },
     {
       "gemeente": "Middelburg",
@@ -10980,7 +10994,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:29.229865Z"
+      "generated_at": "2026-03-23T20:09:25.292484Z"
     },
     {
       "gemeente": "Midden-Delfland",
@@ -11040,7 +11054,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:34.163363Z"
+      "generated_at": "2026-03-23T20:09:30.417962Z"
     },
     {
       "gemeente": "Midden-Drenthe",
@@ -11100,7 +11114,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:38.872251Z"
+      "generated_at": "2026-03-23T20:09:35.296046Z"
     },
     {
       "gemeente": "Midden-Groningen",
@@ -11160,7 +11174,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:43.835471Z"
+      "generated_at": "2026-03-23T20:09:40.069273Z"
     },
     {
       "gemeente": "Moerdijk",
@@ -11220,7 +11234,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:48.552648Z"
+      "generated_at": "2026-03-23T20:09:44.717254Z"
     },
     {
       "gemeente": "Molenlanden",
@@ -11280,7 +11294,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:53.849911Z"
+      "generated_at": "2026-03-23T20:09:49.879847Z"
     },
     {
       "gemeente": "Montferland",
@@ -11340,7 +11354,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:21:58.887077Z"
+      "generated_at": "2026-03-23T20:09:54.467088Z"
     },
     {
       "gemeente": "Montfoort",
@@ -11400,7 +11414,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:03.838294Z"
+      "generated_at": "2026-03-23T20:09:58.991245Z"
     },
     {
       "gemeente": "Mook en Middelaar",
@@ -11460,7 +11474,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:08.377229Z"
+      "generated_at": "2026-03-23T20:10:05.589936Z"
     },
     {
       "gemeente": "Neder-Betuwe",
@@ -11520,7 +11534,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:13.351715Z"
+      "generated_at": "2026-03-23T20:10:10.459675Z"
     },
     {
       "gemeente": "Nederweert",
@@ -11580,14 +11594,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:18.161061Z"
+      "generated_at": "2026-03-23T20:10:15.206935Z"
     },
     {
       "gemeente": "Nieuwegein",
       "slug": "nieuwegein",
       "success": true,
-      "count": 64,
-      "file_size_kb": 368.974609375,
+      "count": 63,
+      "file_size_kb": 367.9609375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -11636,11 +11650,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 3,
+          "count": 2,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:22.874511Z"
+      "generated_at": "2026-03-23T20:10:19.968572Z"
     },
     {
       "gemeente": "Nieuwkoop",
@@ -11700,7 +11714,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:28.019818Z"
+      "generated_at": "2026-03-23T20:10:25.098058Z"
     },
     {
       "gemeente": "Nijkerk",
@@ -11760,14 +11774,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:33.286787Z"
+      "generated_at": "2026-03-23T20:10:29.877971Z"
     },
     {
       "gemeente": "Nijmegen",
       "slug": "nijmegen",
       "success": true,
-      "count": 161,
-      "file_size_kb": 701.212890625,
+      "count": 162,
+      "file_size_kb": 701.7451171875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -11796,7 +11810,7 @@
         },
         "VintedGo": {
           "success": true,
-          "count": 18,
+          "count": 19,
           "error": null
         },
         "GLS": {
@@ -11820,14 +11834,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:38.222730Z"
+      "generated_at": "2026-03-23T20:10:34.679176Z"
     },
     {
       "gemeente": "Nissewaard",
       "slug": "nissewaard",
       "success": true,
-      "count": 78,
-      "file_size_kb": 328.7001953125,
+      "count": 77,
+      "file_size_kb": 327.28515625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -11876,11 +11890,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 1,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:43.292730Z"
+      "generated_at": "2026-03-23T20:10:39.542614Z"
     },
     {
       "gemeente": "Noardeast-Fryslân",
@@ -11940,7 +11954,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:48.389199Z"
+      "generated_at": "2026-03-23T20:10:44.422162Z"
     },
     {
       "gemeente": "Noord-Beveland",
@@ -12000,7 +12014,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:53.019500Z"
+      "generated_at": "2026-03-23T20:10:49.007294Z"
     },
     {
       "gemeente": "Noordenveld",
@@ -12060,7 +12074,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:22:57.859815Z"
+      "generated_at": "2026-03-23T20:10:53.592715Z"
     },
     {
       "gemeente": "Noordoostpolder",
@@ -12120,14 +12134,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:02.619278Z"
+      "generated_at": "2026-03-23T20:10:58.390473Z"
     },
     {
       "gemeente": "Noordwijk",
       "slug": "noordwijk",
       "success": true,
-      "count": 47,
-      "file_size_kb": 246.0673828125,
+      "count": 46,
+      "file_size_kb": 245.0400390625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -12176,11 +12190,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:07.275212Z"
+      "generated_at": "2026-03-23T20:11:02.970038Z"
     },
     {
       "gemeente": "Nuenen",
@@ -12240,7 +12254,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:11.880908Z"
+      "generated_at": "2026-03-23T20:11:07.704190Z"
     },
     {
       "gemeente": "Nunspeet",
@@ -12300,7 +12314,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:17.093024Z"
+      "generated_at": "2026-03-23T20:11:12.355338Z"
     },
     {
       "gemeente": "Oegstgeest",
@@ -12360,7 +12374,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:21.627986Z"
+      "generated_at": "2026-03-23T20:11:16.905415Z"
     },
     {
       "gemeente": "Oirschot",
@@ -12420,7 +12434,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:26.235556Z"
+      "generated_at": "2026-03-23T20:11:21.515314Z"
     },
     {
       "gemeente": "Oisterwijk",
@@ -12480,7 +12494,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:30.965786Z"
+      "generated_at": "2026-03-23T20:11:26.064730Z"
     },
     {
       "gemeente": "Oldambt",
@@ -12540,7 +12554,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:36.440516Z"
+      "generated_at": "2026-03-23T20:11:30.833137Z"
     },
     {
       "gemeente": "Oldebroek",
@@ -12600,7 +12614,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:41.017964Z"
+      "generated_at": "2026-03-23T20:11:35.561957Z"
     },
     {
       "gemeente": "Oldenzaal",
@@ -12660,7 +12674,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:45.478180Z"
+      "generated_at": "2026-03-23T20:11:40.025722Z"
     },
     {
       "gemeente": "Olst-Wijhe",
@@ -12720,7 +12734,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:50.162395Z"
+      "generated_at": "2026-03-23T20:11:44.612765Z"
     },
     {
       "gemeente": "Ommen",
@@ -12780,7 +12794,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:54.844675Z"
+      "generated_at": "2026-03-23T20:11:49.340419Z"
     },
     {
       "gemeente": "Oost Gelre",
@@ -12840,7 +12854,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:23:59.487820Z"
+      "generated_at": "2026-03-23T20:11:54.026920Z"
     },
     {
       "gemeente": "Oosterhout",
@@ -12900,7 +12914,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:04.215397Z"
+      "generated_at": "2026-03-23T20:11:58.591585Z"
     },
     {
       "gemeente": "Ooststellingwerf",
@@ -12960,7 +12974,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:08.971878Z"
+      "generated_at": "2026-03-23T20:12:03.449964Z"
     },
     {
       "gemeente": "Oostzaan",
@@ -13020,7 +13034,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:13.782568Z"
+      "generated_at": "2026-03-23T20:12:08.269631Z"
     },
     {
       "gemeente": "Opmeer",
@@ -13080,7 +13094,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:19.107532Z"
+      "generated_at": "2026-03-23T20:12:12.761159Z"
     },
     {
       "gemeente": "Opsterland",
@@ -13140,7 +13154,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:24.246979Z"
+      "generated_at": "2026-03-23T20:12:17.630318Z"
     },
     {
       "gemeente": "Oss",
@@ -13200,7 +13214,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:29.454080Z"
+      "generated_at": "2026-03-23T20:12:22.636037Z"
     },
     {
       "gemeente": "Oude IJsselstreek",
@@ -13260,7 +13274,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:34.147803Z"
+      "generated_at": "2026-03-23T20:12:27.334744Z"
     },
     {
       "gemeente": "Ouder-Amstel",
@@ -13320,7 +13334,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:38.838269Z"
+      "generated_at": "2026-03-23T20:12:32.212112Z"
     },
     {
       "gemeente": "Oudewater",
@@ -13380,7 +13394,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:43.383669Z"
+      "generated_at": "2026-03-23T20:12:36.718126Z"
     },
     {
       "gemeente": "Overbetuwe",
@@ -13440,7 +13454,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:48.185624Z"
+      "generated_at": "2026-03-23T20:12:41.568031Z"
     },
     {
       "gemeente": "Papendrecht",
@@ -13500,7 +13514,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:52.822802Z"
+      "generated_at": "2026-03-23T20:12:46.159593Z"
     },
     {
       "gemeente": "Peel en Maas",
@@ -13560,7 +13574,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:24:57.806884Z"
+      "generated_at": "2026-03-23T20:12:50.938659Z"
     },
     {
       "gemeente": "Pekela",
@@ -13620,14 +13634,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:06.267952Z"
+      "generated_at": "2026-03-23T20:12:55.329325Z"
     },
     {
       "gemeente": "Pijnacker-Nootdorp",
       "slug": "pijnacker-nootdorp",
       "success": true,
-      "count": 35,
-      "file_size_kb": 287.2470703125,
+      "count": 33,
+      "file_size_kb": 285.021484375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -13676,11 +13690,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 3,
+          "count": 1,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:11.246860Z"
+      "generated_at": "2026-03-23T20:13:00.655260Z"
     },
     {
       "gemeente": "Purmerend",
@@ -13740,7 +13754,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:15.981288Z"
+      "generated_at": "2026-03-23T20:13:05.495055Z"
     },
     {
       "gemeente": "Putten",
@@ -13800,7 +13814,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:20.602698Z"
+      "generated_at": "2026-03-23T20:13:10.046976Z"
     },
     {
       "gemeente": "Raalte",
@@ -13860,14 +13874,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:25.623301Z"
+      "generated_at": "2026-03-23T20:13:14.717704Z"
     },
     {
       "gemeente": "Reimerswaal",
       "slug": "reimerswaal",
       "success": true,
-      "count": 26,
-      "file_size_kb": 188.646484375,
+      "count": 25,
+      "file_size_kb": 186.9140625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -13916,11 +13930,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:30.326783Z"
+      "generated_at": "2026-03-23T20:13:19.463246Z"
     },
     {
       "gemeente": "Renkum",
@@ -13980,7 +13994,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:35.248176Z"
+      "generated_at": "2026-03-23T20:13:24.114378Z"
     },
     {
       "gemeente": "Renswoude",
@@ -14040,7 +14054,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:39.750567Z"
+      "generated_at": "2026-03-23T20:13:28.613342Z"
     },
     {
       "gemeente": "Reusel-De Mierden",
@@ -14100,14 +14114,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:44.228848Z"
+      "generated_at": "2026-03-23T20:13:33.017581Z"
     },
     {
       "gemeente": "Rheden",
       "slug": "rheden",
       "success": true,
-      "count": 34,
-      "file_size_kb": 271.849609375,
+      "count": 33,
+      "file_size_kb": 271.3212890625,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -14156,11 +14170,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:48.807735Z"
+      "generated_at": "2026-03-23T20:13:37.672770Z"
     },
     {
       "gemeente": "Rhenen",
@@ -14220,14 +14234,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:53.567138Z"
+      "generated_at": "2026-03-23T20:13:42.408361Z"
     },
     {
       "gemeente": "Ridderkerk",
       "slug": "ridderkerk",
       "success": true,
-      "count": 54,
-      "file_size_kb": 261.7587890625,
+      "count": 52,
+      "file_size_kb": 260.7177734375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -14276,11 +14290,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:25:58.422851Z"
+      "generated_at": "2026-03-23T20:13:47.081671Z"
     },
     {
       "gemeente": "Rijssen-Holten",
@@ -14340,7 +14354,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:03.734513Z"
+      "generated_at": "2026-03-23T20:13:51.646766Z"
     },
     {
       "gemeente": "Rijswijk",
@@ -14400,7 +14414,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:08.441206Z"
+      "generated_at": "2026-03-23T20:13:56.398307Z"
     },
     {
       "gemeente": "Roerdalen",
@@ -14460,7 +14474,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:13.134298Z"
+      "generated_at": "2026-03-23T20:14:01.101818Z"
     },
     {
       "gemeente": "Roermond",
@@ -14520,7 +14534,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:17.927906Z"
+      "generated_at": "2026-03-23T20:14:05.874085Z"
     },
     {
       "gemeente": "Roosendaal",
@@ -14580,14 +14594,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:22.498334Z"
+      "generated_at": "2026-03-23T20:14:10.537231Z"
     },
     {
       "gemeente": "Rotterdam",
       "slug": "rotterdam",
       "success": true,
-      "count": 605,
-      "file_size_kb": 1987.5966796875,
+      "count": 593,
+      "file_size_kb": 1988.5751953125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -14601,7 +14615,7 @@
         },
         "DHL": {
           "success": true,
-          "count": 149,
+          "count": 150,
           "error": null
         },
         "DPD": {
@@ -14636,11 +14650,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 16,
+          "count": 3,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:28.834390Z"
+      "generated_at": "2026-03-23T20:14:17.302626Z"
     },
     {
       "gemeente": "Rozendaal",
@@ -14759,7 +14773,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:38.401661Z"
+      "generated_at": "2026-03-23T20:14:26.463951Z"
     },
     {
       "gemeente": "Schagen",
@@ -14819,7 +14833,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:43.089994Z"
+      "generated_at": "2026-03-23T20:14:31.128634Z"
     },
     {
       "gemeente": "Scherpenzeel",
@@ -14879,14 +14893,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:47.752682Z"
+      "generated_at": "2026-03-23T20:14:35.621012Z"
     },
     {
       "gemeente": "Schiedam",
       "slug": "schiedam",
       "success": true,
-      "count": 61,
-      "file_size_kb": 280.029296875,
+      "count": 60,
+      "file_size_kb": 281.0576171875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -14935,11 +14949,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 1,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:52.450198Z"
+      "generated_at": "2026-03-23T20:14:40.325865Z"
     },
     {
       "gemeente": "Schiermonnikoog",
@@ -14999,7 +15013,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:26:56.971483Z"
+      "generated_at": "2026-03-23T20:14:44.756412Z"
     },
     {
       "gemeente": "Schouwen-Duiveland",
@@ -15059,7 +15073,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:02.174360Z"
+      "generated_at": "2026-03-23T20:14:49.562721Z"
     },
     {
       "gemeente": "Simpelveld",
@@ -15119,7 +15133,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:06.965966Z"
+      "generated_at": "2026-03-23T20:14:54.093366Z"
     },
     {
       "gemeente": "Sint-Michielsgestel",
@@ -15179,7 +15193,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:11.770133Z"
+      "generated_at": "2026-03-23T20:14:58.748887Z"
     },
     {
       "gemeente": "Sittard-Geleen",
@@ -15239,7 +15253,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:16.885978Z"
+      "generated_at": "2026-03-23T20:15:05.746848Z"
     },
     {
       "gemeente": "Sliedrecht",
@@ -15299,7 +15313,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:21.588823Z"
+      "generated_at": "2026-03-23T20:15:10.404605Z"
     },
     {
       "gemeente": "Sluis",
@@ -15359,7 +15373,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:26.498563Z"
+      "generated_at": "2026-03-23T20:15:15.182896Z"
     },
     {
       "gemeente": "Smallingerland",
@@ -15419,7 +15433,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:31.296170Z"
+      "generated_at": "2026-03-23T20:15:20.112514Z"
     },
     {
       "gemeente": "Soest",
@@ -15479,7 +15493,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:35.966137Z"
+      "generated_at": "2026-03-23T20:15:24.648206Z"
     },
     {
       "gemeente": "Someren",
@@ -15539,7 +15553,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:40.831173Z"
+      "generated_at": "2026-03-23T20:15:29.413617Z"
     },
     {
       "gemeente": "Son en Breugel",
@@ -15599,7 +15613,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:45.429976Z"
+      "generated_at": "2026-03-23T20:15:34.047941Z"
     },
     {
       "gemeente": "Stadskanaal",
@@ -15659,7 +15673,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:50.026342Z"
+      "generated_at": "2026-03-23T20:15:38.692607Z"
     },
     {
       "gemeente": "Staphorst",
@@ -15719,7 +15733,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:54.954485Z"
+      "generated_at": "2026-03-23T20:15:43.289788Z"
     },
     {
       "gemeente": "Stede Broec",
@@ -15779,7 +15793,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:27:59.419631Z"
+      "generated_at": "2026-03-23T20:15:47.757750Z"
     },
     {
       "gemeente": "Steenbergen",
@@ -15839,7 +15853,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:05.018535Z"
+      "generated_at": "2026-03-23T20:15:52.354529Z"
     },
     {
       "gemeente": "Steenwijkerland",
@@ -15899,7 +15913,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:09.891299Z"
+      "generated_at": "2026-03-23T20:15:57.263040Z"
     },
     {
       "gemeente": "Stein",
@@ -15959,7 +15973,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:14.472307Z"
+      "generated_at": "2026-03-23T20:16:01.855824Z"
     },
     {
       "gemeente": "Stichtse Vecht",
@@ -16019,7 +16033,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:19.709075Z"
+      "generated_at": "2026-03-23T20:16:06.770658Z"
     },
     {
       "gemeente": "Súdwest-Fryslân",
@@ -16079,7 +16093,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:24.789952Z"
+      "generated_at": "2026-03-23T20:16:11.788341Z"
     },
     {
       "gemeente": "Terneuzen",
@@ -16139,7 +16153,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:29.945725Z"
+      "generated_at": "2026-03-23T20:16:16.613515Z"
     },
     {
       "gemeente": "Terschelling",
@@ -16199,7 +16213,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:34.796404Z"
+      "generated_at": "2026-03-23T20:16:21.243238Z"
     },
     {
       "gemeente": "Texel",
@@ -16259,7 +16273,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:39.424594Z"
+      "generated_at": "2026-03-23T20:16:25.967006Z"
     },
     {
       "gemeente": "Teylingen",
@@ -16319,7 +16333,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:44.222738Z"
+      "generated_at": "2026-03-23T20:16:30.458725Z"
     },
     {
       "gemeente": "Tholen",
@@ -16379,7 +16393,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:49.062863Z"
+      "generated_at": "2026-03-23T20:16:35.341327Z"
     },
     {
       "gemeente": "Tiel",
@@ -16439,14 +16453,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:53.722935Z"
+      "generated_at": "2026-03-23T20:16:39.901909Z"
     },
     {
       "gemeente": "Tilburg",
       "slug": "tilburg",
       "success": true,
-      "count": 218,
-      "file_size_kb": 901.2177734375,
+      "count": 217,
+      "file_size_kb": 900.9052734375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -16495,11 +16509,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 4,
+          "count": 3,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:28:58.634372Z"
+      "generated_at": "2026-03-23T20:16:44.823093Z"
     },
     {
       "gemeente": "Tubbergen",
@@ -16559,7 +16573,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:03.535047Z"
+      "generated_at": "2026-03-23T20:16:49.488459Z"
     },
     {
       "gemeente": "Twenterand",
@@ -16619,7 +16633,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:08.468604Z"
+      "generated_at": "2026-03-23T20:16:54.500877Z"
     },
     {
       "gemeente": "Tynaarlo",
@@ -16679,7 +16693,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:13.443256Z"
+      "generated_at": "2026-03-23T20:16:59.198357Z"
     },
     {
       "gemeente": "Tytsjerksteradiel",
@@ -16739,7 +16753,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:18.713784Z"
+      "generated_at": "2026-03-23T20:17:04.192745Z"
     },
     {
       "gemeente": "Uitgeest",
@@ -16799,7 +16813,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:23.366052Z"
+      "generated_at": "2026-03-23T20:17:08.659849Z"
     },
     {
       "gemeente": "Uithoorn",
@@ -16859,7 +16873,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:28.227545Z"
+      "generated_at": "2026-03-23T20:17:13.633932Z"
     },
     {
       "gemeente": "Urk",
@@ -16919,14 +16933,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:32.859315Z"
+      "generated_at": "2026-03-23T20:17:19.066503Z"
     },
     {
       "gemeente": "Utrecht",
       "slug": "utrecht",
       "success": true,
-      "count": 283,
-      "file_size_kb": 1213.6533203125,
+      "count": 282,
+      "file_size_kb": 1213.248046875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -16975,11 +16989,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 1,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:37.835347Z"
+      "generated_at": "2026-03-23T20:17:24.129547Z"
     },
     {
       "gemeente": "Utrechtse Heuvelrug",
@@ -17039,7 +17053,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:42.600405Z"
+      "generated_at": "2026-03-23T20:17:29.636760Z"
     },
     {
       "gemeente": "Vaals",
@@ -17099,7 +17113,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:47.254892Z"
+      "generated_at": "2026-03-23T20:17:34.380107Z"
     },
     {
       "gemeente": "Valkenburg aan de Geul",
@@ -17159,7 +17173,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:52.044988Z"
+      "generated_at": "2026-03-23T20:17:40.377975Z"
     },
     {
       "gemeente": "Valkenswaard",
@@ -17219,7 +17233,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:29:56.659199Z"
+      "generated_at": "2026-03-23T20:17:44.845726Z"
     },
     {
       "gemeente": "Veendam",
@@ -17279,7 +17293,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:01.144387Z"
+      "generated_at": "2026-03-23T20:17:49.227713Z"
     },
     {
       "gemeente": "Veenendaal",
@@ -17339,7 +17353,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:06.097253Z"
+      "generated_at": "2026-03-23T20:17:53.831177Z"
     },
     {
       "gemeente": "Veere",
@@ -17399,7 +17413,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:11.360537Z"
+      "generated_at": "2026-03-23T20:17:58.719629Z"
     },
     {
       "gemeente": "Veldhoven",
@@ -17459,7 +17473,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:16.452654Z"
+      "generated_at": "2026-03-23T20:18:03.485961Z"
     },
     {
       "gemeente": "Velsen",
@@ -17519,7 +17533,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:21.185559Z"
+      "generated_at": "2026-03-23T20:18:08.173491Z"
     },
     {
       "gemeente": "Venlo",
@@ -17579,7 +17593,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:25.951979Z"
+      "generated_at": "2026-03-23T20:18:12.980258Z"
     },
     {
       "gemeente": "Venray",
@@ -17639,7 +17653,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:30.767742Z"
+      "generated_at": "2026-03-23T20:18:17.800747Z"
     },
     {
       "gemeente": "Vijfheerenlanden",
@@ -17699,14 +17713,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:35.652701Z"
+      "generated_at": "2026-03-23T20:18:22.880908Z"
     },
     {
       "gemeente": "Vlaardingen",
       "slug": "vlaardingen",
       "success": true,
-      "count": 63,
-      "file_size_kb": 266.927734375,
+      "count": 60,
+      "file_size_kb": 264.5703125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -17755,11 +17769,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 3,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:41.751550Z"
+      "generated_at": "2026-03-23T20:18:27.545902Z"
     },
     {
       "gemeente": "Vlieland",
@@ -17819,7 +17833,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:46.265341Z"
+      "generated_at": "2026-03-23T20:18:32.098199Z"
     },
     {
       "gemeente": "Vlissingen",
@@ -17879,7 +17893,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:51.204028Z"
+      "generated_at": "2026-03-23T20:18:36.786309Z"
     },
     {
       "gemeente": "Voerendaal",
@@ -17939,14 +17953,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:30:55.949777Z"
+      "generated_at": "2026-03-23T20:18:41.242852Z"
     },
     {
       "gemeente": "Voorne aan Zee",
       "slug": "voorne-aan-zee",
       "success": true,
-      "count": 62,
-      "file_size_kb": 426.623046875,
+      "count": 61,
+      "file_size_kb": 424.908203125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -17995,18 +18009,18 @@
         },
         "Budbee": {
           "success": true,
-          "count": 3,
+          "count": 2,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:00.738973Z"
+      "generated_at": "2026-03-23T20:18:45.984200Z"
     },
     {
       "gemeente": "Voorschoten",
       "slug": "voorschoten",
       "success": true,
-      "count": 15,
-      "file_size_kb": 120.447265625,
+      "count": 13,
+      "file_size_kb": 118.2021484375,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -18055,11 +18069,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:05.636671Z"
+      "generated_at": "2026-03-23T20:18:50.668297Z"
     },
     {
       "gemeente": "Voorst",
@@ -18119,7 +18133,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:10.332357Z"
+      "generated_at": "2026-03-23T20:18:55.230752Z"
     },
     {
       "gemeente": "Vught",
@@ -18179,7 +18193,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:14.929978Z"
+      "generated_at": "2026-03-23T20:18:59.833429Z"
     },
     {
       "gemeente": "Waadhoeke",
@@ -18239,7 +18253,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:19.722856Z"
+      "generated_at": "2026-03-23T20:19:04.651445Z"
     },
     {
       "gemeente": "Waalre",
@@ -18299,7 +18313,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:24.418841Z"
+      "generated_at": "2026-03-23T20:19:09.250212Z"
     },
     {
       "gemeente": "Waalwijk",
@@ -18359,7 +18373,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:29.330927Z"
+      "generated_at": "2026-03-23T20:19:14.016702Z"
     },
     {
       "gemeente": "Waddinxveen",
@@ -18419,7 +18433,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:34.319724Z"
+      "generated_at": "2026-03-23T20:19:18.787360Z"
     },
     {
       "gemeente": "Wageningen",
@@ -18479,14 +18493,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:38.821446Z"
+      "generated_at": "2026-03-23T20:19:23.483899Z"
     },
     {
       "gemeente": "Wassenaar",
       "slug": "wassenaar",
       "success": true,
-      "count": 13,
-      "file_size_kb": 121.3271484375,
+      "count": 12,
+      "file_size_kb": 120.7861328125,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -18535,11 +18549,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:43.663395Z"
+      "generated_at": "2026-03-23T20:19:28.306422Z"
     },
     {
       "gemeente": "Waterland",
@@ -18599,7 +18613,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:48.566160Z"
+      "generated_at": "2026-03-23T20:19:33.188981Z"
     },
     {
       "gemeente": "Weert",
@@ -18659,7 +18673,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:53.212722Z"
+      "generated_at": "2026-03-23T20:19:37.881675Z"
     },
     {
       "gemeente": "West Betuwe",
@@ -18719,7 +18733,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:31:58.696003Z"
+      "generated_at": "2026-03-23T20:19:43.199653Z"
     },
     {
       "gemeente": "West Maas en Waal",
@@ -18779,14 +18793,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:03.494587Z"
+      "generated_at": "2026-03-23T20:19:48.074987Z"
     },
     {
       "gemeente": "Westerkwartier",
       "slug": "westerkwartier",
       "success": true,
-      "count": 109,
-      "file_size_kb": 921.28125,
+      "count": 108,
+      "file_size_kb": 920.7451171875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -18835,11 +18849,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:08.684311Z"
+      "generated_at": "2026-03-23T20:19:52.906098Z"
     },
     {
       "gemeente": "Westerveld",
@@ -18899,7 +18913,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:13.385396Z"
+      "generated_at": "2026-03-23T20:19:57.766898Z"
     },
     {
       "gemeente": "Westervoort",
@@ -18959,7 +18973,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:17.964349Z"
+      "generated_at": "2026-03-23T20:20:02.355512Z"
     },
     {
       "gemeente": "Westerwolde",
@@ -19019,14 +19033,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:22.744332Z"
+      "generated_at": "2026-03-23T20:20:07.335890Z"
     },
     {
       "gemeente": "Westland",
       "slug": "westland",
       "success": true,
-      "count": 90,
-      "file_size_kb": 475.9755859375,
+      "count": 88,
+      "file_size_kb": 474.1904296875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -19075,11 +19089,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:27.837783Z"
+      "generated_at": "2026-03-23T20:20:12.511571Z"
     },
     {
       "gemeente": "Weststellingwerf",
@@ -19139,7 +19153,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:32.540260Z"
+      "generated_at": "2026-03-23T20:20:17.320406Z"
     },
     {
       "gemeente": "Wierden",
@@ -19199,7 +19213,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:37.109747Z"
+      "generated_at": "2026-03-23T20:20:22.129970Z"
     },
     {
       "gemeente": "Wijchen",
@@ -19259,7 +19273,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:41.691649Z"
+      "generated_at": "2026-03-23T20:20:26.787476Z"
     },
     {
       "gemeente": "Wijdemeren",
@@ -19319,7 +19333,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:46.646792Z"
+      "generated_at": "2026-03-23T20:20:31.605257Z"
     },
     {
       "gemeente": "Wijk bij Duurstede",
@@ -19379,7 +19393,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:51.611063Z"
+      "generated_at": "2026-03-23T20:20:36.348145Z"
     },
     {
       "gemeente": "Winterswijk",
@@ -19439,7 +19453,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:32:56.203526Z"
+      "generated_at": "2026-03-23T20:20:40.898866Z"
     },
     {
       "gemeente": "Woensdrecht",
@@ -19499,7 +19513,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:00.872962Z"
+      "generated_at": "2026-03-23T20:20:45.375085Z"
     },
     {
       "gemeente": "Woerden",
@@ -19559,7 +19573,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:05.583800Z"
+      "generated_at": "2026-03-23T20:20:49.967614Z"
     },
     {
       "gemeente": "Wormerland",
@@ -19619,7 +19633,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:10.555978Z"
+      "generated_at": "2026-03-23T20:20:54.710119Z"
     },
     {
       "gemeente": "Woudenberg",
@@ -19679,7 +19693,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:15.363484Z"
+      "generated_at": "2026-03-23T20:20:59.324024Z"
     },
     {
       "gemeente": "Zaanstad",
@@ -19739,7 +19753,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:20.201378Z"
+      "generated_at": "2026-03-23T20:21:04.462974Z"
     },
     {
       "gemeente": "Zaltbommel",
@@ -19799,7 +19813,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:25.121357Z"
+      "generated_at": "2026-03-23T20:21:09.252088Z"
     },
     {
       "gemeente": "Zandvoort",
@@ -19859,7 +19873,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:29.937922Z"
+      "generated_at": "2026-03-23T20:21:13.821334Z"
     },
     {
       "gemeente": "Zeewolde",
@@ -19919,7 +19933,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:34.836537Z"
+      "generated_at": "2026-03-23T20:21:18.753698Z"
     },
     {
       "gemeente": "Zeist",
@@ -19979,7 +19993,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:39.654150Z"
+      "generated_at": "2026-03-23T20:21:23.568486Z"
     },
     {
       "gemeente": "Zevenaar",
@@ -20039,14 +20053,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:44.317655Z"
+      "generated_at": "2026-03-23T20:21:28.077605Z"
     },
     {
       "gemeente": "Zoetermeer",
       "slug": "zoetermeer",
       "success": true,
-      "count": 69,
-      "file_size_kb": 387.4453125,
+      "count": 67,
+      "file_size_kb": 385.23046875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -20095,11 +20109,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 3,
+          "count": 1,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:49.109963Z"
+      "generated_at": "2026-03-23T20:21:32.689164Z"
     },
     {
       "gemeente": "Zoeterwoude",
@@ -20159,7 +20173,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:53.628746Z"
+      "generated_at": "2026-03-23T20:21:37.282309Z"
     },
     {
       "gemeente": "Zuidplas",
@@ -20219,7 +20233,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:33:58.383217Z"
+      "generated_at": "2026-03-23T20:21:42.348050Z"
     },
     {
       "gemeente": "Zundert",
@@ -20279,14 +20293,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:34:02.922974Z"
+      "generated_at": "2026-03-23T20:21:46.902810Z"
     },
     {
       "gemeente": "Zutphen",
       "slug": "zutphen",
       "success": true,
-      "count": 62,
-      "file_size_kb": 401.8134765625,
+      "count": 61,
+      "file_size_kb": 401.3935546875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -20335,11 +20349,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 1,
+          "count": 0,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:34:07.609291Z"
+      "generated_at": "2026-03-23T20:21:51.898040Z"
     },
     {
       "gemeente": "Zwartewaterland",
@@ -20399,7 +20413,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:34:12.140499Z"
+      "generated_at": "2026-03-23T20:21:56.396213Z"
     },
     {
       "gemeente": "Zwijndrecht",
@@ -20459,14 +20473,14 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:34:17.070935Z"
+      "generated_at": "2026-03-23T20:22:01.332091Z"
     },
     {
       "gemeente": "Zwolle",
       "slug": "zwolle",
       "success": true,
-      "count": 118,
-      "file_size_kb": 654.564453125,
+      "count": 117,
+      "file_size_kb": 656.248046875,
       "carrier_status": {
         "Amazon": {
           "success": true,
@@ -20515,11 +20529,11 @@
         },
         "Budbee": {
           "success": true,
-          "count": 2,
+          "count": 1,
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:34:21.780597Z"
+      "generated_at": "2026-03-23T20:22:06.044511Z"
     },
     {
       "gemeente": "s-Hertogenbosch",
@@ -20579,7 +20593,7 @@
           "error": null
         }
       },
-      "generated_at": "2026-03-23T13:34:26.704582Z"
+      "generated_at": "2026-03-23T20:22:11.088144Z"
     }
   ]
 }
