@@ -30,6 +30,9 @@ const PROVIDER_COLORS: { [key: string]: string } = {
   DeBuren: '#4CAF50',
   Amazon: '#FF9900',
   GLS: '#003C7E',
+  ViaTim: '#E3007A',
+  InPost: '#FFCD00',
+  Budbee: '#00C389',
 };
 
 // Provider logos
@@ -41,6 +44,9 @@ const PROVIDER_LOGOS: { [key: string]: string } = {
   DeBuren: '/logos/deburen.png',
   Amazon: '/logos/amazon.svg',
   GLS: '/logos/gls.svg',
+  ViaTim: '/logos/viatim.svg',
+  InPost: '/logos/inpost.svg',
+  Budbee: '/logos/budbee.svg',
 };
 
 export default function ProviderHistoryModal({

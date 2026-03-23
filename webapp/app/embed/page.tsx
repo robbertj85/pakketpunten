@@ -24,7 +24,7 @@ function EmbedContent() {
   const [loading, setLoading] = useState(true);
 
   const filters = useMemo<Filters>(() => ({
-    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS'],
+    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS', 'ViaTim', 'InPost', 'Budbee'],
     showBuffer300: false,
     showBuffer400: false,
     showBufferFill: false,

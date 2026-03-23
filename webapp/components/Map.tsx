@@ -229,6 +229,22 @@ const PROVIDER_INFO: Record<string, {
     color: '#003C7E',
     logoUrl: '/logos/gls.svg',
   },
+  ViaTim: {
+    background: '#E3007A',
+    color: '#E3007A',
+    logoUrl: '/logos/viatim.svg',
+  },
+  InPost: {
+    background: '#FFCD00',
+    borderColor: '#3B3B3B',
+    color: '#FFCD00',
+    logoUrl: '/logos/inpost.svg',
+  },
+  Budbee: {
+    background: '#00C389',
+    color: '#00C389',
+    logoUrl: '/logos/budbee.svg',
+  },
 };
 
 // Performance thresholds
@@ -482,14 +498,14 @@ function seededRandom(seed: number): number {
 // Helper function to get provider render priority (higher = renders on top)
 // Randomizes order hourly to give all providers fair visibility
 function getProviderPriority(vervoerder: string): number {
-  const providers = ['GLS', 'DPD', 'Amazon', 'VintedGo', 'DeBuren', 'PostNL', 'DHL'];
+  const providers = ['Budbee', 'ViaTim', 'InPost', 'GLS', 'DPD', 'Amazon', 'VintedGo', 'DeBuren', 'PostNL', 'DHL'];
 
   // Get hourly seed for stable randomization
   const seed = getHourlySeed();
 
   // Create shuffled priorities based on hourly seed
   const shuffledPriorities: Record<string, number> = {};
-  const availablePositions = [1, 2, 3, 4, 5, 6, 7];
+  const availablePositions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   providers.forEach((provider, index) => {
     // Use provider name + seed to create unique seed per provider

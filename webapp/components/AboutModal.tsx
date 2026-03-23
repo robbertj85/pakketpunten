@@ -204,6 +204,30 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                   url="https://www.gls-info.nl/parcel-shop"
                   color="#003C7E"
                 />
+
+                <DataSourceCard
+                  name="ViaTim"
+                  endpoint="production.viapunt-api.viatim.nl/public/servicepoints"
+                  type="Public REST API"
+                  url="https://viatim.nl"
+                  color="#E3007A"
+                />
+
+                <DataSourceCard
+                  name="InPost / Mondial Relay"
+                  endpoint="api-global-points.easypack24.net/v1/points"
+                  type="Public REST API"
+                  url="https://inpost.nl"
+                  color="#FFCD00"
+                />
+
+                <DataSourceCard
+                  name="Budbee / Instabee"
+                  endpoint="DPD cache + OpenStreetMap"
+                  type="Cache + OSM"
+                  url="https://budbee.com"
+                  color="#00C389"
+                />
               </div>
 
               <section className="border-t pt-4 mt-4">

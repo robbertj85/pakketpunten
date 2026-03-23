@@ -29,6 +29,9 @@ const PROVIDER_COLORS: { [key: string]: string } = {
   DeBuren: '#4CAF50',
   Amazon: '#FF9900',
   GLS: '#003C7E',
+  ViaTim: '#E3007A',
+  InPost: '#FFCD00',
+  Budbee: '#00C389',
 };
 
 export default function MunicipalityHistoryModal({

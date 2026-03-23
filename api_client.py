@@ -510,6 +510,201 @@ def get_data_gls(gemeente=None):
     return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
 
 
+# ---------- data ophalen voor "ViaTim" ----------
+
+def get_data_viatim(gemeente=None):
+    """
+    Fetch ViaTim service point locations from cached data.
+
+    Uses pre-fetched data from scripts/viatim_fetch_all.py.
+
+    Parameters
+    ----------
+    gemeente : str, optional
+        Municipality name (not used for filtering here, polygon filtering
+        happens in get_data_pakketpunten)
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        GeoDataFrame with ViaTim service point locations
+    """
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    cache_file = Path(__file__).parent / "data" / "viatim_all_locations.json"
+
+    if cache_file.exists():
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                rows = []
+                for loc in locations:
+                    rows.append({
+                        'locatieNaam': loc.get('locatieNaam', ''),
+                        'straatNaam': loc.get('straatNaam', ''),
+                        'straatNr': loc.get('straatNr', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': 'servicepunt',
+                        'vervoerder': 'ViaTim',
+                        'canPickup': True,
+                        'canDropoff': True,
+                    })
+
+                df = pd.DataFrame(rows)
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                print(f"  📦 ViaTim: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
+
+        except Exception as e:
+            print(f"  ⚠️  ViaTim cache load failed ({e})")
+
+    print("  ⚠️  ViaTim cache not found. Run: python scripts/viatim_fetch_all.py")
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
+    from shapely.geometry import Point
+    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
+
+
+# ---------- data ophalen voor "InPost" ----------
+
+def get_data_inpost(gemeente=None):
+    """
+    Fetch InPost parcel locker and PUDO locations from cached data.
+
+    Uses pre-fetched data from scripts/inpost_fetch_all.py.
+
+    Parameters
+    ----------
+    gemeente : str, optional
+        Municipality name (not used for filtering here, polygon filtering
+        happens in get_data_pakketpunten)
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        GeoDataFrame with InPost location data
+    """
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    cache_file = Path(__file__).parent / "data" / "inpost_all_locations.json"
+
+    if cache_file.exists():
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                rows = []
+                for loc in locations:
+                    rows.append({
+                        'locatieNaam': loc.get('locatieNaam', ''),
+                        'straatNaam': loc.get('straatNaam', ''),
+                        'straatNr': loc.get('straatNr', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': loc.get('puntType', 'servicepunt'),
+                        'vervoerder': 'InPost',
+                        'canPickup': True,
+                        'canDropoff': True,
+                    })
+
+                df = pd.DataFrame(rows)
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                print(f"  📦 InPost: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
+
+        except Exception as e:
+            print(f"  ⚠️  InPost cache load failed ({e})")
+
+    print("  ⚠️  InPost cache not found. Run: python scripts/inpost_fetch_all.py")
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
+    from shapely.geometry import Point
+    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
+
+
+# ---------- data ophalen voor "Budbee" ----------
+
+def get_data_budbee(gemeente=None):
+    """
+    Fetch Budbee box/locker locations from cached data.
+
+    Uses pre-fetched data from scripts/budbee_fetch_all.py (DPD cache + OSM).
+
+    Parameters
+    ----------
+    gemeente : str, optional
+        Municipality name (not used for filtering here, polygon filtering
+        happens in get_data_pakketpunten)
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        GeoDataFrame with Budbee locker locations
+    """
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    cache_file = Path(__file__).parent / "data" / "budbee_all_locations.json"
+
+    if cache_file.exists():
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                rows = []
+                for loc in locations:
+                    rows.append({
+                        'locatieNaam': loc.get('locatieNaam', ''),
+                        'straatNaam': loc.get('straatNaam', ''),
+                        'straatNr': loc.get('straatNr', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': loc.get('puntType', 'automaat'),
+                        'vervoerder': 'Budbee',
+                        'canPickup': True,
+                        'canDropoff': True,
+                    })
+
+                df = pd.DataFrame(rows)
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                print(f"  📦 Budbee: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
+
+        except Exception as e:
+            print(f"  ⚠️  Budbee cache load failed ({e})")
+
+    print("  ⚠️  Budbee cache not found. Run: python scripts/budbee_fetch_all.py")
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
+    from shapely.geometry import Point
+    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
+
+
 # ---------- data ophalen voor "VintedGo" ----------
 
 def get_data_vintedgo(lat, lon, south, west, north, east):
@@ -626,6 +821,33 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
     except Exception as e:
         print(f"  ⚠️  GLS fetch failed: {e}")
         carrier_status['GLS'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # ViaTim
+    try:
+        gdf_viatim = get_data_viatim(gemeente)
+        gdfs_to_concat.append(gdf_viatim)
+        carrier_status['ViaTim'] = {'success': True, 'count': len(gdf_viatim), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  ViaTim fetch failed: {e}")
+        carrier_status['ViaTim'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # InPost
+    try:
+        gdf_inpost = get_data_inpost(gemeente)
+        gdfs_to_concat.append(gdf_inpost)
+        carrier_status['InPost'] = {'success': True, 'count': len(gdf_inpost), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  InPost fetch failed: {e}")
+        carrier_status['InPost'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # Budbee
+    try:
+        gdf_budbee = get_data_budbee(gemeente)
+        gdfs_to_concat.append(gdf_budbee)
+        carrier_status['Budbee'] = {'success': True, 'count': len(gdf_budbee), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  Budbee fetch failed: {e}")
+        carrier_status['Budbee'] = {'success': False, 'count': 0, 'error': str(e)}
 
     # Combine all successful fetches
     if gdfs_to_concat:

@@ -38,6 +38,21 @@ jobs:
         working-directory: ${{ github.workspace }}
         timeout-minutes: 15
 
+      - name: Fetch ViaTim data (nationwide cache)
+        run: python scripts/viatim_fetch_all.py
+        working-directory: ${{ github.workspace }}
+        timeout-minutes: 5
+
+      - name: Fetch InPost data (nationwide cache)
+        run: python scripts/inpost_fetch_all.py
+        working-directory: ${{ github.workspace }}
+        timeout-minutes: 10
+
+      - name: Fetch Budbee data (DPD cache + OSM)
+        run: python scripts/budbee_fetch_all.py
+        working-directory: ${{ github.workspace }}
+        timeout-minutes: 10
+
       # GLS data is fetched by separate workflow (fetch-gls-data.yml)
       # That workflow runs earlier and commits the cache file to the repo
       # This workflow uses the already-committed cache file
@@ -70,8 +85,8 @@ jobs:
         run: |
           # Pull latest changes first (in case repo was updated during workflow)
           git pull --rebase origin main || true
-          # Add cache files (DHL, DPD data - GLS committed by separate workflow)
-          git add data/dhl_all_locations.json data/dpd_all_locations.json 2>/dev/null || true
+          # Add cache files (DHL, DPD, ViaTim, InPost, Budbee - GLS committed by separate workflow)
+          git add data/dhl_all_locations.json data/dpd_all_locations.json data/viatim_all_locations.json data/inpost_all_locations.json data/budbee_all_locations.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
           git add webapp/public/data/summary.json webapp/public/data/totals_history.json webapp/public/municipalities.json 2>/dev/null || true

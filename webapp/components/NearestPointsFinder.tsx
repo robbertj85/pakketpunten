@@ -41,6 +41,9 @@ const PROVIDER_INFO: Record<string, { color: string; logoUrl: string; borderColo
   Amazon: { color: '#FF9900', logoUrl: '/logos/amazon.svg', borderColor: '#146EB4' },
   DPD: { color: '#DC0032', logoUrl: '/logos/dpd.svg' },
   GLS: { color: '#003C7E', logoUrl: '/logos/gls.svg', borderColor: '#FFC600' },
+  ViaTim: { color: '#E3007A', logoUrl: '/logos/viatim.svg' },
+  InPost: { color: '#FFCD00', logoUrl: '/logos/inpost.svg', borderColor: '#3B3B3B' },
+  Budbee: { color: '#00C389', logoUrl: '/logos/budbee.svg' },
 };
 
 interface SearchResult {

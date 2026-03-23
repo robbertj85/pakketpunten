@@ -90,7 +90,7 @@ export default function Home() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
   const [filters, setFilters] = useState<Filters>({
-    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS'],
+    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS', 'ViaTim', 'InPost', 'Budbee'],
     showBuffer300: true,
     showBuffer400: true,
     showBufferFill: false,
@@ -217,7 +217,7 @@ export default function Home() {
         // Don't automatically show boundaries - user must click checkbox to load them
         const isNederland = selectedMunicipality === 'nederland';
         setFilters({
-          providers: data.metadata.providers || ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS'],
+          providers: data.metadata.providers || ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS', 'ViaTim', 'InPost', 'Budbee'],
           showBuffer300: true,
           showBuffer400: true,
           showBufferFill: false,
