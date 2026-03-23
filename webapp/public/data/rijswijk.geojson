@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Rijswijk",
     "slug": "rijswijk",
-    "generated_at": "2026-03-23T04:46:10.585020Z",
-    "total_points": 64,
+    "generated_at": "2026-03-23T13:26:08.430818Z",
+    "total_points": 67,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -12,7 +12,9 @@
       "DPD",
       "PostNL",
       "VintedGo",
-      "GLS"
+      "GLS",
+      "InPost",
+      "Budbee"
     ],
     "bounds": [
       4.30765281399519,
@@ -1490,6 +1492,75 @@
         "bezettingsgraad": 50,
         "latitude": 52.0362274,
         "longitude": 4.31258248,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.33282,
+          52.04885
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "TELSIM TELECOM",
+        "straatNaam": "HENDRIK RAVESTEIJNPLEIN 85",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.04885,
+        "longitude": 4.33282,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.32216,
+          52.04204
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DIERENSHOP RIJSWIJK",
+        "straatNaam": "HUIS TE LANDELAAN 45",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.04204,
+        "longitude": 4.32216,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.315156,
+          52.036015
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "UR350 Pakketautomaat Budbee",
+        "straatNaam": "BOGAARDPLEIN",
+        "straatNr": "22",
+        "vervoerder": "Budbee",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.036015,
+        "longitude": 4.315156,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3678,7 +3749,7 @@
                 52.05216337342634
               ],
               [
-                4.335540974774564,
+                4.335540974774565,
                 52.05213939831134
               ],
               [
@@ -3766,24 +3837,32 @@
                 52.04757450049047
               ],
               [
-                4.336533462510612,
-                52.047473209849436
+                4.336606737804723,
+                52.04750774170374
               ],
               [
-                4.336423371550161,
-                52.04735615146011
+                4.336490971696161,
+                52.04738464935951
               ],
               [
-                4.336172740851597,
-                52.04714135899849
+                4.3362403405136565,
+                52.04716985704141
               ],
               [
-                4.335889174100267,
-                52.04694274712694
+                4.335956773281649,
+                52.046971245332195
               ],
               [
-                4.335575402296474,
-                52.046762228360805
+                4.335643001005071,
+                52.046790726745705
+              ],
+              [
+                4.33530204543429,
+                52.04663003954735
+              ],
+              [
+                4.335264495269008,
+                52.04661570229614
               ],
               [
                 4.335234447186038,
@@ -5898,28 +5977,32 @@
                 52.047128734688044
               ],
               [
-                4.337689340063724,
-                52.04688805066644
+                4.33772768281848,
+                52.04691010874121
               ],
               [
-                4.337647669627597,
-                52.04686841332536
+                4.337714575410327,
+                52.04689617218329
               ],
               [
-                4.337646975215814,
-                52.046867674984064
+                4.337380396805658,
+                52.04660978574682
               ],
               [
-                4.337312797256382,
-                52.046581288356265
+                4.337002305658474,
+                52.04634497361527
               ],
               [
-                4.3369347067500765,
-                52.04631647600823
+                4.336583943366422,
+                52.04610428567337
               ],
               [
-                4.336516345088382,
-                52.04607578782682
+                4.336129338901374,
+                52.04589003947354
+              ],
+              [
+                4.336091789088258,
+                52.04587570248549
               ],
               [
                 4.336061741237098,

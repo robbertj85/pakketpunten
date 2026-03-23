@@ -3,14 +3,15 @@
   "metadata": {
     "gemeente": "Winterswijk",
     "slug": "winterswijk",
-    "generated_at": "2026-03-23T04:52:50.173921Z",
-    "total_points": 31,
+    "generated_at": "2026-03-23T13:32:56.192533Z",
+    "total_points": 32,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
-      "VintedGo"
+      "VintedGo",
+      "InPost"
     ],
     "bounds": [
       6.7016711,
@@ -736,6 +737,29 @@
     {
       "type": "Feature",
       "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7228,
+          51.96749
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "IRFAN'S 2HANDS FIETSEN",
+        "straatNaam": "WEURDEN 54",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.96749,
+        "longitude": 6.7228,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
           [
@@ -1373,7 +1397,7 @@
                 51.97491316357635
               ],
               [
-                6.708412198963406,
+                6.708412198963408,
                 51.97485411303554
               ],
               [

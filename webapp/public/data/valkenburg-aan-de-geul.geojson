@@ -3,15 +3,16 @@
   "metadata": {
     "gemeente": "Valkenburg aan de Geul",
     "slug": "valkenburg-aan-de-geul",
-    "generated_at": "2026-03-23T04:49:47.941506Z",
-    "total_points": 17,
+    "generated_at": "2026-03-23T13:29:52.035452Z",
+    "total_points": 18,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
       "VintedGo",
-      "GLS"
+      "GLS",
+      "ViaTim"
     ],
     "bounds": [
       5.7734014,
@@ -408,6 +409,29 @@
         "bezettingsgraad": 50,
         "latitude": 50.8707345,
         "longitude": 5.8321022,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.83210394221132,
+          50.8707348186163
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "ViaTim En Marlies Dierx ",
+        "straatNaam": "Napoleonstraat",
+        "straatNr": "19",
+        "vervoerder": "ViaTim",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 50.8707348186163,
+        "longitude": 5.83210394221132,
         "canPickup": true,
         "canDropoff": true
       }
@@ -944,7 +968,7 @@
                 50.87064323880863
               ],
               [
-                5.814845691666927,
+                5.81484569166693,
                 50.870648370518104
               ],
               [
@@ -2504,7 +2528,7 @@
                 50.86981481209279
               ],
               [
-                5.814294421577659,
+                5.8142944215776575,
                 50.8698199437214
               ],
               [

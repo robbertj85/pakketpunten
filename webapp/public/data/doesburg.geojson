@@ -3,15 +3,16 @@
   "metadata": {
     "gemeente": "Doesburg",
     "slug": "doesburg",
-    "generated_at": "2026-03-23T04:33:01.743154Z",
-    "total_points": 11,
+    "generated_at": "2026-03-23T13:12:37.203503Z",
+    "total_points": 12,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
       "VintedGo",
-      "GLS"
+      "GLS",
+      "InPost"
     ],
     "bounds": [
       6.136421,
@@ -277,10 +278,37 @@
     {
       "type": "Feature",
       "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.13663,
+          52.01364
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "ALLES'Z",
+        "straatNaam": "MEIPOORTSTRAAT 19",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.01364,
+        "longitude": 6.13663,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
           [
             [
+              [
+                6.1388539332828955,
+                52.01119429964016
+              ],
               [
                 6.138483866458426,
                 52.01106061818077
@@ -572,15 +600,15 @@
               [
                 6.1388539332828955,
                 52.01119429964016
-              ],
-              [
-                6.138483866458426,
-                52.01106061818077
               ]
             ]
           ],
           [
             [
+              [
+                6.141682844294647,
+                52.00165618705487
+              ],
               [
                 6.141534226739575,
                 52.001407982647294
@@ -1068,19 +1096,11 @@
               [
                 6.141682844294647,
                 52.00165618705487
-              ],
-              [
-                6.141534226739575,
-                52.001407982647294
               ]
             ]
           ],
           [
             [
-              [
-                6.152547210877509,
-                52.00343020259175
-              ],
               [
                 6.152398527306007,
                 52.00318201210273
@@ -1504,6 +1524,10 @@
               [
                 6.152547210877509,
                 52.00343020259175
+              ],
+              [
+                6.152398527306007,
+                52.00318201210273
               ]
             ]
           ]

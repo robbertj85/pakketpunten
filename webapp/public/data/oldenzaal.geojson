@@ -3,15 +3,16 @@
   "metadata": {
     "gemeente": "Oldenzaal",
     "slug": "oldenzaal",
-    "generated_at": "2026-03-23T04:43:53.647201Z",
-    "total_points": 36,
+    "generated_at": "2026-03-23T13:23:45.468855Z",
+    "total_points": 38,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
       "VintedGo",
-      "GLS"
+      "GLS",
+      "InPost"
     ],
     "bounds": [
       6.904834,
@@ -845,6 +846,52 @@
         "bezettingsgraad": 50,
         "latitude": 52.3234169,
         "longitude": 6.92565807,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.90643,
+          52.31467
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "CIGO DE THIJ",
+        "straatNaam": "Johanna van Burenlaan 198",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.31467,
+        "longitude": 6.90643,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.92776,
+          52.3121
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "JULIA'S STOFFENSTUDIO",
+        "straatNaam": "DEURNINGERSTRAAT 2",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.3121,
+        "longitude": 6.92776,
         "canPickup": true,
         "canDropoff": true
       }
@@ -2013,12 +2060,16 @@
                 52.31203459955107
               ],
               [
-                6.923460754814808,
-                52.31220008823361
+                6.923362468133354,
+                52.312147772521534
               ],
               [
-                6.923457416863432,
-                52.31227342647507
+                6.9233620375418985,
+                52.31215723262133
+              ],
+              [
+                6.923381535518588,
+                52.31232697827571
               ],
               [
                 6.923367030034549,
@@ -2889,7 +2940,7 @@
                 52.31319538261487
               ],
               [
-                6.902708395016317,
+                6.902708395016315,
                 52.31321467767473
               ],
               [

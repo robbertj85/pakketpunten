@@ -3,15 +3,16 @@
   "metadata": {
     "gemeente": "Hendrik-Ido-Ambacht",
     "slug": "hendrik-ido-ambacht",
-    "generated_at": "2026-03-23T04:37:21.337210Z",
-    "total_points": 38,
+    "generated_at": "2026-03-23T13:17:04.923130Z",
+    "total_points": 39,
     "providers": [
       "Amazon",
       "DeBuren",
       "DHL",
       "DPD",
       "PostNL",
-      "VintedGo"
+      "VintedGo",
+      "InPost"
     ],
     "bounds": [
       4.6215967679654,
@@ -891,6 +892,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.845478,
         "longitude": 4.6303252,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.64441,
+          51.84933
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "FIX PHONE AMBACHT",
+        "straatNaam": "De Schoof 148",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.84933,
+        "longitude": 4.64441,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3063,10 +3087,6 @@
           [
             [
               [
-                4.647732640011702,
-                51.832367540289454
-              ],
-              [
                 4.647331981280086,
                 51.83227586385645
               ],
@@ -3373,6 +3393,10 @@
               [
                 4.647732640011702,
                 51.832367540289454
+              ],
+              [
+                4.647331981280086,
+                51.83227586385645
               ]
             ]
           ],

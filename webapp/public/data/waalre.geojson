@@ -3,15 +3,16 @@
   "metadata": {
     "gemeente": "Waalre",
     "slug": "waalre",
-    "generated_at": "2026-03-23T04:51:19.404364Z",
-    "total_points": 9,
+    "generated_at": "2026-03-23T13:31:24.412932Z",
+    "total_points": 10,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
       "VintedGo",
-      "GLS"
+      "GLS",
+      "InPost"
     ],
     "bounds": [
       5.438487839575003,
@@ -224,6 +225,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.386955,
         "longitude": 5.4456684,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.43851,
+          51.39639
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "BALLONNENCONCURRENT.NL",
+        "straatNaam": "VAN DIJKLAAN 13C",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.39639,
+        "longitude": 5.43851,
         "canPickup": true,
         "canDropoff": true
       }
@@ -516,10 +540,6 @@
           [
             [
               [
-                5.478960066516008,
-                51.39428469020299
-              ],
-              [
                 5.478817057696687,
                 51.394035639322304
               ],
@@ -774,6 +794,10 @@
               [
                 5.478960066516008,
                 51.39428469020299
+              ],
+              [
+                5.478817057696687,
+                51.394035639322304
               ]
             ]
           ],
@@ -1368,10 +1392,6 @@
           [
             [
               [
-                5.480334487174388,
-                51.394022670023105
-              ],
-              [
                 5.480143800190352,
                 51.39369060438778
               ],
@@ -1626,6 +1646,10 @@
               [
                 5.480334487174388,
                 51.394022670023105
+              ],
+              [
+                5.480143800190352,
+                51.39369060438778
               ]
             ]
           ],

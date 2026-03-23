@@ -3,13 +3,14 @@
   "metadata": {
     "gemeente": "Oegstgeest",
     "slug": "oegstgeest",
-    "generated_at": "2026-03-23T04:43:30.854525Z",
-    "total_points": 8,
+    "generated_at": "2026-03-23T13:23:21.622160Z",
+    "total_points": 9,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
-      "PostNL"
+      "PostNL",
+      "Budbee"
     ],
     "bounds": [
       4.450903184,
@@ -199,6 +200,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.19864036,
         "longitude": 4.473334169,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.46878922,
+          52.17708833
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "UR469 Pakketautomaat Budbee",
+        "straatNaam": "TERWEEPLEIN",
+        "straatNr": "3",
+        "vervoerder": "Budbee",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.17708833,
+        "longitude": 4.46878922,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1091,10 +1115,6 @@
           [
             [
               [
-                4.4764756199471325,
-                52.196757922105554
-              ],
-              [
                 4.47616022707508,
                 52.19657777882269
               ],
@@ -1437,6 +1457,10 @@
               [
                 4.4764756199471325,
                 52.196757922105554
+              ],
+              [
+                4.47616022707508,
+                52.19657777882269
               ]
             ]
           ]
@@ -2231,10 +2255,6 @@
           [
             [
               [
-                4.477102188005233,
-                52.195890235080526
-              ],
-              [
                 4.476645383600758,
                 52.195676531758366
               ],
@@ -2561,6 +2581,10 @@
               [
                 4.477102188005233,
                 52.195890235080526
+              ],
+              [
+                4.476645383600758,
+                52.195676531758366
               ]
             ]
           ]

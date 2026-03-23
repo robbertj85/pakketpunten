@@ -3,15 +3,16 @@
   "metadata": {
     "gemeente": "Heiloo",
     "slug": "heiloo",
-    "generated_at": "2026-03-23T04:37:07.455366Z",
-    "total_points": 12,
+    "generated_at": "2026-03-23T13:16:51.164335Z",
+    "total_points": 13,
     "providers": [
       "Amazon",
       "DeBuren",
       "DHL",
       "DPD",
       "PostNL",
-      "VintedGo"
+      "VintedGo",
+      "Budbee"
     ],
     "bounds": [
       4.6875109,
@@ -293,6 +294,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.6049505,
         "longitude": 4.7114745,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.712081,
+          52.60576
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "UR417 Pakketautomaat Budbee",
+        "straatNaam": "T LOO",
+        "straatNr": "61",
+        "vervoerder": "Budbee",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.60576,
+        "longitude": 4.712081,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1241,10 +1265,6 @@
           [
             [
               [
-                4.72384982191988,
-                52.591955227399446
-              ],
-              [
                 4.723707214943599,
                 52.59170530386068
               ],
@@ -1499,6 +1519,10 @@
               [
                 4.72384982191988,
                 52.591955227399446
+              ],
+              [
+                4.723707214943599,
+                52.59170530386068
               ]
             ]
           ]
@@ -2265,7 +2289,7 @@
                 52.609279019828385
               ],
               [
-                4.711138056829296,
+                4.711138056829298,
                 52.60930430835617
               ],
               [
@@ -2420,10 +2444,6 @@
           ],
           [
             [
-              [
-                4.725265843150635,
-                52.59170223459726
-              ],
               [
                 4.725075691236511,
                 52.59136900540237
@@ -2679,6 +2699,10 @@
               [
                 4.725265843150635,
                 52.59170223459726
+              ],
+              [
+                4.725075691236511,
+                52.59136900540237
               ]
             ]
           ]

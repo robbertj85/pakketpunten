@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-23T04:54:25.572217Z",
+  "updated_at": "2026-03-23T13:34:31.394907Z",
   "snapshots": [
     {
       "date": "2025-11-17",
@@ -354,15 +354,18 @@
       "date_from": "2026-03-23",
       "date_to": "2026-03-29",
       "totals": {
-        "total": 16305,
+        "total": 17922,
         "providers": {
           "Amazon": 1532,
-          "DHL": 4463,
-          "DPD": 2308,
+          "DHL": 4458,
+          "DPD": 2309,
           "PostNL": 4656,
-          "VintedGo": 2216,
+          "VintedGo": 2221,
           "GLS": 960,
-          "DeBuren": 170
+          "InPost": 942,
+          "Budbee": 281,
+          "DeBuren": 170,
+          "ViaTim": 393
         }
       }
     }
@@ -686,15 +689,18 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 16305,
+          "total": 17922,
           "providers": {
             "Amazon": 1532,
-            "DHL": 4463,
-            "DPD": 2308,
+            "DHL": 4458,
+            "DPD": 2309,
             "PostNL": 4656,
-            "VintedGo": 2216,
+            "VintedGo": 2221,
             "GLS": 960,
-            "DeBuren": 170
+            "InPost": 942,
+            "Budbee": 281,
+            "DeBuren": 170,
+            "ViaTim": 393
           }
         }
       ]
@@ -999,14 +1005,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 37,
+          "total": 40,
           "providers": {
             "Amazon": 3,
             "DHL": 10,
             "DPD": 7,
             "PostNL": 8,
             "VintedGo": 3,
-            "GLS": 6
+            "GLS": 6,
+            "InPost": 3
           }
         }
       ]
@@ -1306,14 +1313,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 30,
+          "total": 33,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
             "DHL": 9,
             "DPD": 5,
             "PostNL": 9,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -1618,14 +1627,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 32,
           "providers": {
             "Amazon": 3,
             "DHL": 6,
             "DPD": 4,
             "PostNL": 9,
             "VintedGo": 6,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 3
           }
         }
       ]
@@ -1920,13 +1930,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 37,
+          "total": 41,
           "providers": {
             "Amazon": 4,
             "DHL": 13,
             "DPD": 4,
             "PostNL": 9,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -2221,13 +2233,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 24,
+          "total": 27,
           "providers": {
             "Amazon": 6,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 7,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -2825,7 +2839,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 96,
+          "total": 100,
           "providers": {
             "Amazon": 11,
             "DeBuren": 1,
@@ -2833,7 +2847,9 @@
             "DPD": 13,
             "PostNL": 30,
             "VintedGo": 12,
-            "GLS": 4
+            "GLS": 4,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -3146,7 +3162,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 108,
+          "total": 117,
           "providers": {
             "Amazon": 12,
             "DeBuren": 3,
@@ -3154,7 +3170,10 @@
             "DPD": 21,
             "PostNL": 25,
             "VintedGo": 18,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 2,
+            "InPost": 5,
+            "Budbee": 2
           }
         }
       ]
@@ -3477,7 +3496,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 177,
+          "total": 190,
           "providers": {
             "Amazon": 6,
             "DeBuren": 3,
@@ -3485,7 +3504,9 @@
             "DPD": 25,
             "PostNL": 61,
             "VintedGo": 23,
-            "GLS": 18
+            "GLS": 18,
+            "ViaTim": 5,
+            "InPost": 8
           }
         }
       ]
@@ -3798,14 +3819,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 78,
+          "total": 88,
           "providers": {
             "Amazon": 7,
             "DeBuren": 1,
             "DHL": 20,
             "DPD": 12,
             "PostNL": 30,
-            "VintedGo": 8
+            "VintedGo": 8,
+            "ViaTim": 4,
+            "InPost": 2,
+            "Budbee": 4
           }
         }
       ]
@@ -4382,13 +4406,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 82,
+          "total": 93,
           "providers": {
             "Amazon": 8,
             "DHL": 21,
             "DPD": 15,
             "PostNL": 18,
-            "VintedGo": 20
+            "VintedGo": 20,
+            "ViaTim": 5,
+            "InPost": 6
           }
         }
       ]
@@ -4975,14 +5001,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 134,
+          "total": 144,
           "providers": {
             "Amazon": 9,
             "DHL": 31,
             "DPD": 19,
             "PostNL": 44,
             "VintedGo": 11,
-            "GLS": 20
+            "GLS": 20,
+            "ViaTim": 2,
+            "InPost": 2,
+            "Budbee": 6
           }
         }
       ]
@@ -5305,7 +5334,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 41,
+          "total": 44,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
@@ -5313,7 +5342,9 @@
             "DPD": 6,
             "PostNL": 14,
             "VintedGo": 5,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -5636,15 +5667,18 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 606,
+          "total": 700,
           "providers": {
             "Amazon": 28,
             "DeBuren": 2,
             "DHL": 149,
-            "DPD": 147,
+            "DPD": 146,
             "PostNL": 151,
             "VintedGo": 93,
-            "GLS": 36
+            "GLS": 36,
+            "ViaTim": 6,
+            "InPost": 43,
+            "Budbee": 46
           }
         }
       ]
@@ -5957,14 +5991,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 182,
+          "total": 202,
           "providers": {
             "Amazon": 20,
             "DeBuren": 1,
             "DHL": 51,
             "DPD": 34,
             "PostNL": 50,
-            "VintedGo": 26
+            "VintedGo": 27,
+            "ViaTim": 5,
+            "InPost": 11,
+            "Budbee": 3
           }
         }
       ]
@@ -6287,7 +6324,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 158,
+          "total": 169,
           "providers": {
             "Amazon": 6,
             "DeBuren": 3,
@@ -6295,7 +6332,10 @@
             "DPD": 21,
             "PostNL": 35,
             "VintedGo": 19,
-            "GLS": 17
+            "GLS": 17,
+            "ViaTim": 4,
+            "InPost": 5,
+            "Budbee": 2
           }
         }
       ]
@@ -6618,7 +6658,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 79,
+          "total": 88,
           "providers": {
             "Amazon": 12,
             "DeBuren": 1,
@@ -6626,7 +6666,10 @@
             "DPD": 8,
             "PostNL": 23,
             "VintedGo": 9,
-            "GLS": 7
+            "GLS": 7,
+            "ViaTim": 1,
+            "InPost": 6,
+            "Budbee": 2
           }
         }
       ]
@@ -6920,13 +6963,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 14,
+          "total": 16,
           "providers": {
             "Amazon": 1,
             "DHL": 5,
             "DPD": 1,
             "PostNL": 3,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -7220,13 +7265,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 9,
+          "total": 10,
           "providers": {
             "Amazon": 1,
             "DHL": 2,
             "DPD": 1,
             "PostNL": 4,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -7514,13 +7560,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 21,
           "providers": {
             "Amazon": 3,
             "DHL": 5,
             "DPD": 2,
             "PostNL": 7,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 1
           }
         }
       ]
@@ -7811,13 +7858,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 32,
+          "total": 35,
           "providers": {
             "Amazon": 3,
             "DHL": 12,
             "DPD": 1,
             "PostNL": 9,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -8122,14 +8171,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 60,
+          "total": 62,
           "providers": {
             "Amazon": 8,
             "DHL": 16,
             "DPD": 7,
             "PostNL": 21,
             "VintedGo": 6,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -8434,14 +8485,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 25,
           "providers": {
             "Amazon": 2,
             "DHL": 7,
             "DPD": 2,
             "PostNL": 6,
             "VintedGo": 3,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 2
           }
         }
       ]
@@ -9036,13 +9088,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 15,
+          "total": 16,
           "providers": {
             "DHL": 5,
             "DPD": 2,
             "PostNL": 3,
             "VintedGo": 3,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1
           }
         }
       ]
@@ -9342,13 +9395,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 34,
+          "total": 38,
           "providers": {
             "Amazon": 4,
             "DHL": 10,
             "DPD": 6,
             "PostNL": 10,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -9933,12 +9989,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 13,
+          "total": 17,
           "providers": {
             "DHL": 6,
             "DPD": 4,
             "PostNL": 2,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "ViaTim": 2,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -10233,13 +10292,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 30,
           "providers": {
             "Amazon": 7,
             "DHL": 5,
             "DPD": 5,
             "PostNL": 9,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -10534,13 +10595,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 71,
+          "total": 77,
           "providers": {
             "Amazon": 12,
             "DHL": 19,
             "DPD": 6,
             "PostNL": 19,
-            "VintedGo": 15
+            "VintedGo": 15,
+            "ViaTim": 2,
+            "InPost": 4
           }
         }
       ]
@@ -10845,14 +10908,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 56,
+          "total": 62,
           "providers": {
             "Amazon": 5,
             "DHL": 18,
             "DPD": 8,
             "PostNL": 14,
             "VintedGo": 9,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -11147,13 +11213,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 30,
           "providers": {
             "Amazon": 2,
             "DHL": 7,
             "DPD": 4,
             "PostNL": 10,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -11458,14 +11526,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 37,
           "providers": {
             "Amazon": 1,
             "DHL": 8,
             "DPD": 6,
             "PostNL": 8,
             "VintedGo": 7,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -11760,13 +11830,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 24,
           "providers": {
             "Amazon": 4,
             "DHL": 7,
             "DPD": 3,
             "PostNL": 8,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -12079,14 +12150,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 47,
+          "total": 49,
           "providers": {
             "Amazon": 6,
             "DeBuren": 1,
             "DHL": 12,
             "DPD": 4,
             "PostNL": 17,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "InPost": 2
           }
         }
       ]
@@ -12381,13 +12453,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 21,
           "providers": {
             "Amazon": 3,
             "DHL": 8,
             "DPD": 1,
             "PostNL": 5,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1
           }
         }
       ]
@@ -13219,13 +13292,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 41,
+          "total": 46,
           "providers": {
             "Amazon": 6,
             "DHL": 11,
             "DPD": 6,
             "PostNL": 10,
-            "VintedGo": 8
+            "VintedGo": 8,
+            "ViaTim": 3,
+            "InPost": 2
           }
         }
       ]
@@ -13520,13 +13595,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 9,
+          "total": 10,
           "providers": {
             "Amazon": 1,
             "DHL": 3,
             "DPD": 1,
             "PostNL": 2,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -13822,13 +13898,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 31,
           "providers": {
             "Amazon": 5,
             "DHL": 9,
             "DPD": 4,
             "PostNL": 7,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -14131,14 +14209,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 16,
+          "total": 17,
           "providers": {
             "Amazon": 3,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 4,
             "VintedGo": 3,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 1
           }
         }
       ]
@@ -14443,14 +14522,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 25,
           "providers": {
             "Amazon": 2,
             "DHL": 5,
             "DPD": 2,
             "PostNL": 5,
             "VintedGo": 4,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 2,
+            "InPost": 1
           }
         }
       ]
@@ -14763,14 +14844,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 39,
+          "total": 43,
           "providers": {
             "Amazon": 3,
             "DeBuren": 1,
             "DHL": 12,
             "DPD": 5,
             "PostNL": 11,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -15093,7 +15176,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 168,
+          "total": 180,
           "providers": {
             "Amazon": 8,
             "DeBuren": 6,
@@ -15101,7 +15184,10 @@
             "DPD": 23,
             "PostNL": 46,
             "VintedGo": 16,
-            "GLS": 24
+            "GLS": 24,
+            "ViaTim": 2,
+            "InPost": 6,
+            "Budbee": 4
           }
         }
       ]
@@ -15406,14 +15492,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 46,
+          "total": 51,
           "providers": {
             "Amazon": 4,
             "DHL": 11,
             "DPD": 9,
             "PostNL": 11,
             "VintedGo": 5,
-            "GLS": 6
+            "GLS": 6,
+            "InPost": 5
           }
         }
       ]
@@ -15736,7 +15823,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 24,
+          "total": 26,
           "providers": {
             "Amazon": 3,
             "DeBuren": 1,
@@ -15744,7 +15831,9 @@
             "DPD": 3,
             "PostNL": 7,
             "VintedGo": 3,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -16031,13 +16120,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 28,
           "providers": {
             "Amazon": 1,
             "DHL": 7,
             "DPD": 6,
             "PostNL": 6,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 2,
+            "Budbee": 3
           }
         }
       ]
@@ -16300,12 +16391,13 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 7,
+          "total": 8,
           "providers": {
             "Amazon": 1,
             "DHL": 2,
             "PostNL": 3,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 1
           }
         }
       ]
@@ -16610,14 +16702,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 26,
+          "total": 28,
           "providers": {
             "Amazon": 3,
             "DHL": 8,
             "DPD": 3,
             "PostNL": 5,
             "VintedGo": 5,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -16912,13 +17006,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 29,
           "providers": {
             "Amazon": 5,
             "DHL": 6,
             "DPD": 3,
             "PostNL": 10,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1
           }
         }
       ]
@@ -17231,14 +17326,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 42,
+          "total": 45,
           "providers": {
             "Amazon": 4,
             "DeBuren": 2,
             "DHL": 15,
             "DPD": 4,
             "PostNL": 13,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -17525,13 +17622,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 21,
+          "total": 25,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
             "DHL": 7,
             "DPD": 7,
-            "PostNL": 5
+            "PostNL": 5,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -17854,7 +17953,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 45,
+          "total": 48,
           "providers": {
             "Amazon": 7,
             "DeBuren": 1,
@@ -17862,7 +17961,8 @@
             "DPD": 5,
             "PostNL": 11,
             "VintedGo": 6,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 3
           }
         }
       ]
@@ -18155,13 +18255,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 17,
+          "total": 18,
           "providers": {
             "Amazon": 3,
             "DHL": 6,
             "DPD": 1,
             "PostNL": 6,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -18443,13 +18544,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 21,
+          "total": 22,
           "providers": {
             "Amazon": 5,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 10,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -18772,7 +18874,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 41,
+          "total": 45,
           "providers": {
             "Amazon": 3,
             "DeBuren": 1,
@@ -18780,7 +18882,9 @@
             "DPD": 7,
             "PostNL": 8,
             "VintedGo": 7,
-            "GLS": 6
+            "GLS": 6,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -19085,14 +19189,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 36,
+          "total": 39,
           "providers": {
             "Amazon": 4,
             "DHL": 10,
             "DPD": 6,
             "PostNL": 9,
             "VintedGo": 2,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -19411,7 +19517,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 35,
+          "total": 38,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
@@ -19419,7 +19525,9 @@
             "DPD": 6,
             "PostNL": 11,
             "VintedGo": 4,
-            "GLS": 4
+            "GLS": 4,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -19714,13 +19822,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 67,
+          "total": 72,
           "providers": {
             "Amazon": 2,
             "DHL": 18,
             "DPD": 11,
             "PostNL": 26,
-            "VintedGo": 10
+            "VintedGo": 10,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -20015,13 +20125,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 34,
+          "total": 39,
           "providers": {
             "Amazon": 2,
             "DHL": 12,
             "DPD": 6,
             "PostNL": 11,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "ViaTim": 3,
+            "InPost": 2
           }
         }
       ]
@@ -20316,13 +20428,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 37,
           "providers": {
             "Amazon": 4,
             "DHL": 7,
             "DPD": 5,
             "PostNL": 10,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 2,
+            "InPost": 2
           }
         }
       ]
@@ -20635,14 +20749,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 63,
+          "total": 71,
           "providers": {
             "Amazon": 6,
             "DeBuren": 3,
             "DHL": 21,
             "DPD": 4,
             "PostNL": 21,
-            "VintedGo": 8
+            "VintedGo": 8,
+            "ViaTim": 4,
+            "InPost": 1,
+            "Budbee": 3
           }
         }
       ]
@@ -20965,15 +21082,18 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 461,
+          "total": 517,
           "providers": {
             "Amazon": 34,
             "DeBuren": 6,
-            "DHL": 108,
+            "DHL": 107,
             "DPD": 67,
             "PostNL": 131,
             "VintedGo": 73,
-            "GLS": 42
+            "GLS": 42,
+            "ViaTim": 6,
+            "InPost": 26,
+            "Budbee": 25
           }
         }
       ]
@@ -21268,13 +21388,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 48,
+          "total": 55,
           "providers": {
             "Amazon": 6,
             "DHL": 19,
             "DPD": 6,
             "PostNL": 12,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "InPost": 6,
+            "Budbee": 1
           }
         }
       ]
@@ -21597,7 +21719,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 30,
+          "total": 35,
           "providers": {
             "Amazon": 2,
             "DeBuren": 1,
@@ -21605,7 +21727,10 @@
             "DPD": 6,
             "PostNL": 7,
             "VintedGo": 3,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -21918,14 +22043,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 107,
+          "total": 114,
           "providers": {
             "Amazon": 13,
             "DeBuren": 4,
             "DHL": 34,
             "DPD": 17,
             "PostNL": 23,
-            "VintedGo": 16
+            "VintedGo": 16,
+            "ViaTim": 1,
+            "InPost": 6
           }
         }
       ]
@@ -22230,14 +22357,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 18,
+          "total": 20,
           "providers": {
             "Amazon": 2,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 8,
             "VintedGo": 1,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 2
           }
         }
       ]
@@ -22542,14 +22670,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 78,
+          "total": 89,
           "providers": {
             "Amazon": 9,
             "DHL": 20,
-            "DPD": 13,
+            "DPD": 14,
             "PostNL": 21,
             "VintedGo": 6,
-            "GLS": 9
+            "GLS": 9,
+            "ViaTim": 5,
+            "InPost": 5
           }
         }
       ]
@@ -22853,14 +22983,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 36,
+          "total": 39,
           "providers": {
             "Amazon": 5,
             "DHL": 10,
             "DPD": 5,
             "PostNL": 9,
             "VintedGo": 5,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 3
           }
         }
       ]
@@ -23163,14 +23294,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 11,
+          "total": 12,
           "providers": {
             "Amazon": 1,
             "DHL": 3,
             "DPD": 3,
             "PostNL": 1,
             "VintedGo": 2,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 1
           }
         }
       ]
@@ -23805,7 +23937,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 26,
+          "total": 28,
           "providers": {
             "Amazon": 2,
             "DeBuren": 1,
@@ -23813,7 +23945,8 @@
             "DPD": 3,
             "PostNL": 7,
             "VintedGo": 4,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 2
           }
         }
       ]
@@ -24126,14 +24259,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 105,
+          "total": 120,
           "providers": {
             "Amazon": 13,
             "DeBuren": 1,
             "DHL": 32,
             "DPD": 16,
             "PostNL": 28,
-            "VintedGo": 15
+            "VintedGo": 15,
+            "ViaTim": 5,
+            "InPost": 9,
+            "Budbee": 1
           }
         }
       ]
@@ -24430,14 +24566,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 23,
           "providers": {
             "Amazon": 2,
             "DHL": 3,
             "DPD": 5,
             "PostNL": 4,
             "VintedGo": 3,
-            "GLS": 3
+            "GLS": 3,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -24742,14 +24880,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 26,
           "providers": {
             "Amazon": 3,
             "DHL": 9,
             "DPD": 4,
             "PostNL": 4,
             "VintedGo": 2,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -25054,14 +25194,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 52,
+          "total": 56,
           "providers": {
             "Amazon": 7,
             "DHL": 14,
             "DPD": 7,
             "PostNL": 12,
             "VintedGo": 6,
-            "GLS": 6
+            "GLS": 6,
+            "ViaTim": 2,
+            "InPost": 2
           }
         }
       ]
@@ -25374,14 +25516,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 25,
+          "total": 27,
           "providers": {
             "Amazon": 3,
             "DeBuren": 1,
             "DHL": 8,
             "DPD": 3,
             "PostNL": 7,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 2
           }
         }
       ]
@@ -25660,13 +25803,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 23,
           "providers": {
             "Amazon": 2,
             "DHL": 6,
             "DPD": 2,
             "PostNL": 9,
-            "GLS": 3
+            "GLS": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -25971,14 +26115,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 35,
+          "total": 39,
           "providers": {
             "Amazon": 2,
             "DHL": 9,
             "DPD": 5,
             "PostNL": 11,
             "VintedGo": 3,
-            "GLS": 5
+            "GLS": 5,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -26271,13 +26417,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 26,
+          "total": 30,
           "providers": {
             "Amazon": 1,
             "DHL": 9,
             "DPD": 6,
             "PostNL": 6,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 1,
+            "Budbee": 3
           }
         }
       ]
@@ -26572,13 +26720,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 95,
+          "total": 108,
           "providers": {
             "Amazon": 6,
             "DHL": 32,
             "DPD": 15,
             "PostNL": 27,
-            "VintedGo": 15
+            "VintedGo": 16,
+            "ViaTim": 3,
+            "InPost": 5,
+            "Budbee": 4
           }
         }
       ]
@@ -27134,14 +27285,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 68,
+          "total": 77,
           "providers": {
             "Amazon": 6,
             "DHL": 19,
             "DPD": 9,
             "PostNL": 21,
             "VintedGo": 12,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 4,
+            "InPost": 5
           }
         }
       ]
@@ -27436,13 +27589,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 26,
+          "total": 27,
           "providers": {
             "Amazon": 4,
             "DHL": 6,
             "DPD": 3,
             "PostNL": 11,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -27747,14 +27901,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 30,
+          "total": 31,
           "providers": {
             "Amazon": 3,
             "DHL": 7,
             "DPD": 1,
             "PostNL": 9,
             "VintedGo": 3,
-            "GLS": 7
+            "GLS": 7,
+            "InPost": 1
           }
         }
       ]
@@ -28077,15 +28232,18 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 192,
+          "total": 213,
           "providers": {
             "Amazon": 10,
             "DeBuren": 6,
-            "DHL": 42,
+            "DHL": 41,
             "DPD": 22,
             "PostNL": 54,
             "VintedGo": 27,
-            "GLS": 31
+            "GLS": 31,
+            "ViaTim": 5,
+            "InPost": 9,
+            "Budbee": 8
           }
         }
       ]
@@ -28390,14 +28548,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 29,
           "providers": {
             "Amazon": 4,
             "DHL": 8,
             "DPD": 4,
             "PostNL": 8,
             "VintedGo": 1,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 1
           }
         }
       ]
@@ -28710,14 +28869,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 154,
+          "total": 175,
           "providers": {
             "Amazon": 18,
             "DeBuren": 1,
             "DHL": 46,
             "DPD": 28,
             "PostNL": 33,
-            "VintedGo": 28
+            "VintedGo": 28,
+            "ViaTim": 11,
+            "InPost": 10
           }
         }
       ]
@@ -29022,14 +29183,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 18,
+          "total": 21,
           "providers": {
             "Amazon": 3,
             "DHL": 4,
             "DPD": 3,
             "PostNL": 4,
             "VintedGo": 2,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -29351,7 +29514,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 201,
+          "total": 215,
           "providers": {
             "Amazon": 15,
             "DeBuren": 10,
@@ -29359,7 +29522,9 @@
             "DPD": 27,
             "PostNL": 46,
             "VintedGo": 26,
-            "GLS": 21
+            "GLS": 21,
+            "ViaTim": 2,
+            "InPost": 12
           }
         }
       ]
@@ -29656,13 +29821,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 40,
+          "total": 43,
           "providers": {
             "Amazon": 5,
             "DHL": 14,
             "DPD": 6,
             "PostNL": 11,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "InPost": 3
           }
         }
       ]
@@ -29975,14 +30141,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 27,
+          "total": 29,
           "providers": {
             "Amazon": 3,
             "DeBuren": 1,
             "DHL": 10,
             "DPD": 4,
             "PostNL": 7,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -30305,7 +30473,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 59,
+          "total": 61,
           "providers": {
             "Amazon": 3,
             "DeBuren": 8,
@@ -30313,7 +30481,8 @@
             "DPD": 11,
             "PostNL": 11,
             "VintedGo": 4,
-            "GLS": 5
+            "GLS": 5,
+            "InPost": 2
           }
         }
       ]
@@ -30618,14 +30787,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 26,
+          "total": 27,
           "providers": {
             "Amazon": 3,
             "DHL": 8,
             "DPD": 3,
             "PostNL": 6,
             "VintedGo": 4,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 1
           }
         }
       ]
@@ -30928,14 +31098,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 27,
+          "total": 30,
           "providers": {
             "Amazon": 3,
             "DHL": 7,
             "DPD": 2,
             "PostNL": 8,
             "VintedGo": 5,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -31220,13 +31392,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 24,
+          "total": 26,
           "providers": {
             "Amazon": 1,
             "DHL": 10,
             "DPD": 4,
             "PostNL": 5,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "InPost": 2
           }
         }
       ]
@@ -31521,13 +31694,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 14,
+          "total": 16,
           "providers": {
             "Amazon": 3,
             "DHL": 4,
             "DPD": 2,
             "PostNL": 3,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 2
           }
         }
       ]
@@ -31832,14 +32006,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 19,
+          "total": 20,
           "providers": {
             "Amazon": 3,
             "DHL": 5,
             "DPD": 2,
             "PostNL": 5,
             "VintedGo": 3,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 1
           }
         }
       ]
@@ -32134,13 +32309,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 63,
+          "total": 71,
           "providers": {
             "Amazon": 4,
             "DHL": 23,
             "DPD": 11,
             "PostNL": 15,
-            "VintedGo": 10
+            "VintedGo": 10,
+            "ViaTim": 4,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -32445,14 +32623,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 60,
+          "total": 67,
           "providers": {
             "Amazon": 7,
             "DHL": 12,
             "DPD": 8,
             "PostNL": 14,
             "VintedGo": 8,
-            "GLS": 11
+            "GLS": 11,
+            "ViaTim": 3,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -32746,13 +32927,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 22,
           "providers": {
             "DHL": 4,
             "DPD": 3,
             "PostNL": 6,
             "VintedGo": 3,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -33032,13 +33215,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 36,
           "providers": {
             "Amazon": 6,
             "DHL": 10,
             "DPD": 4,
             "PostNL": 11,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "Budbee": 3
           }
         }
       ]
@@ -33351,14 +33535,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 33,
           "providers": {
             "Amazon": 2,
             "DeBuren": 1,
             "DHL": 8,
             "DPD": 3,
             "PostNL": 10,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -33653,13 +33839,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 38,
+          "total": 45,
           "providers": {
             "Amazon": 2,
             "DHL": 12,
             "DPD": 4,
             "PostNL": 18,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 3,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -33982,7 +34171,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 216,
+          "total": 243,
           "providers": {
             "Amazon": 16,
             "DeBuren": 5,
@@ -33990,7 +34179,10 @@
             "DPD": 29,
             "PostNL": 57,
             "VintedGo": 29,
-            "GLS": 23
+            "GLS": 23,
+            "ViaTim": 1,
+            "InPost": 20,
+            "Budbee": 6
           }
         }
       ]
@@ -34586,14 +34778,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 40,
+          "total": 42,
           "providers": {
             "Amazon": 6,
             "DHL": 11,
             "DPD": 3,
             "PostNL": 12,
             "VintedGo": 3,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -34906,14 +35100,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 100,
+          "total": 105,
           "providers": {
             "Amazon": 6,
             "DeBuren": 3,
             "DHL": 32,
             "DPD": 14,
             "PostNL": 28,
-            "VintedGo": 17
+            "VintedGo": 17,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -35208,13 +35404,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 107,
+          "total": 116,
           "providers": {
             "Amazon": 6,
             "DHL": 38,
             "DPD": 17,
             "PostNL": 30,
-            "VintedGo": 16
+            "VintedGo": 16,
+            "ViaTim": 1,
+            "InPost": 8
           }
         }
       ]
@@ -35519,14 +35717,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 40,
+          "total": 42,
           "providers": {
             "Amazon": 4,
             "DHL": 8,
             "DPD": 7,
             "PostNL": 14,
             "VintedGo": 5,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 2
           }
         }
       ]
@@ -35839,14 +36038,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 86,
+          "total": 92,
           "providers": {
             "Amazon": 10,
             "DeBuren": 1,
             "DHL": 28,
             "DPD": 11,
             "PostNL": 24,
-            "VintedGo": 12
+            "VintedGo": 12,
+            "ViaTim": 1,
+            "InPost": 5
           }
         }
       ]
@@ -36169,7 +36370,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 52,
+          "total": 54,
           "providers": {
             "Amazon": 7,
             "DeBuren": 1,
@@ -36177,7 +36378,8 @@
             "DPD": 6,
             "PostNL": 18,
             "VintedGo": 5,
-            "GLS": 5
+            "GLS": 5,
+            "InPost": 2
           }
         }
       ]
@@ -36451,12 +36653,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 11,
+          "total": 13,
           "providers": {
             "Amazon": 2,
             "DHL": 4,
             "PostNL": 4,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -36751,13 +36955,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 32,
           "providers": {
             "Amazon": 3,
             "DHL": 6,
             "DPD": 5,
             "PostNL": 8,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -37044,13 +37250,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 9,
+          "total": 10,
           "providers": {
             "Amazon": 1,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 2,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 1
           }
         }
       ]
@@ -37363,14 +37570,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 25,
+          "total": 27,
           "providers": {
             "Amazon": 2,
             "DeBuren": 1,
             "DHL": 7,
             "DPD": 6,
             "PostNL": 8,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -37965,14 +38174,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 15,
+          "total": 18,
           "providers": {
             "Amazon": 1,
             "DHL": 5,
             "DPD": 2,
             "PostNL": 4,
             "VintedGo": 1,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -38277,14 +38488,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 58,
+          "total": 65,
           "providers": {
             "Amazon": 7,
             "DHL": 18,
             "DPD": 7,
             "PostNL": 18,
             "VintedGo": 7,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 3,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -38580,13 +38794,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 96,
+          "total": 109,
           "providers": {
             "Amazon": 11,
             "DHL": 27,
             "DPD": 16,
             "PostNL": 26,
-            "VintedGo": 16
+            "VintedGo": 16,
+            "ViaTim": 4,
+            "InPost": 6,
+            "Budbee": 3
           }
         }
       ]
@@ -38891,14 +39108,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 25,
           "providers": {
             "Amazon": 4,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 6,
             "VintedGo": 3,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -39210,14 +39429,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 12,
+          "total": 13,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
             "DHL": 1,
             "DPD": 2,
             "PostNL": 5,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -39512,13 +39732,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 51,
+          "total": 56,
           "providers": {
             "Amazon": 7,
             "DHL": 15,
             "DPD": 5,
             "PostNL": 13,
-            "VintedGo": 11
+            "VintedGo": 11,
+            "ViaTim": 2,
+            "InPost": 3
           }
         }
       ]
@@ -39831,14 +40053,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 77,
+          "total": 89,
           "providers": {
             "Amazon": 8,
             "DeBuren": 1,
             "DHL": 21,
             "DPD": 13,
             "PostNL": 19,
-            "VintedGo": 15
+            "VintedGo": 15,
+            "ViaTim": 3,
+            "InPost": 8,
+            "Budbee": 1
           }
         }
       ]
@@ -40151,14 +40376,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 38,
+          "total": 39,
           "providers": {
             "Amazon": 6,
             "DeBuren": 1,
             "DHL": 11,
             "DPD": 4,
             "PostNL": 13,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1
           }
         }
       ]
@@ -40480,7 +40706,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 105,
+          "total": 110,
           "providers": {
             "Amazon": 9,
             "DeBuren": 3,
@@ -40488,7 +40714,9 @@
             "DPD": 13,
             "PostNL": 25,
             "VintedGo": 13,
-            "GLS": 14
+            "GLS": 14,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -40785,14 +41013,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 79,
+          "total": 87,
           "providers": {
             "Amazon": 11,
             "DHL": 20,
             "DPD": 11,
             "PostNL": 25,
             "VintedGo": 7,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 3,
+            "InPost": 5
           }
         }
       ]
@@ -41380,13 +41610,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 31,
+          "total": 36,
           "providers": {
             "Amazon": 1,
             "DHL": 10,
             "DPD": 6,
             "PostNL": 10,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -41672,13 +41904,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 19,
+          "total": 21,
           "providers": {
             "Amazon": 1,
             "DHL": 6,
             "DPD": 4,
             "PostNL": 6,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -41983,14 +42217,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 14,
+          "total": 15,
           "providers": {
             "Amazon": 1,
             "DHL": 3,
             "DPD": 2,
             "PostNL": 4,
             "VintedGo": 2,
-            "GLS": 2
+            "GLS": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -42285,13 +42520,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 62,
+          "total": 66,
           "providers": {
             "Amazon": 5,
             "DHL": 20,
             "DPD": 8,
             "PostNL": 22,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -42586,13 +42823,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 75,
+          "total": 87,
           "providers": {
             "Amazon": 7,
             "DHL": 20,
             "DPD": 10,
             "PostNL": 26,
-            "VintedGo": 12
+            "VintedGo": 12,
+            "ViaTim": 3,
+            "InPost": 7,
+            "Budbee": 2
           }
         }
       ]
@@ -42888,14 +43128,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 39,
+          "total": 41,
           "providers": {
             "Amazon": 5,
             "DHL": 12,
             "DPD": 6,
             "PostNL": 10,
             "VintedGo": 5,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 2
           }
         }
       ]
@@ -43200,13 +43441,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 48,
+          "total": 54,
           "providers": {
             "Amazon": 6,
             "DHL": 15,
             "DPD": 9,
             "PostNL": 12,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "ViaTim": 3,
+            "InPost": 3
           }
         }
       ]
@@ -43519,14 +43762,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 86,
+          "total": 95,
           "providers": {
             "Amazon": 11,
             "DeBuren": 4,
             "DHL": 24,
             "DPD": 12,
             "PostNL": 21,
-            "VintedGo": 14
+            "VintedGo": 14,
+            "ViaTim": 5,
+            "InPost": 4
           }
         }
       ]
@@ -43831,14 +44076,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 66,
+          "total": 73,
           "providers": {
             "Amazon": 9,
             "DHL": 12,
             "DPD": 11,
             "PostNL": 16,
             "VintedGo": 10,
-            "GLS": 8
+            "GLS": 8,
+            "ViaTim": 2,
+            "InPost": 3,
+            "Budbee": 2
           }
         }
       ]
@@ -44135,14 +44383,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 31,
+          "total": 34,
           "providers": {
             "Amazon": 2,
             "DHL": 7,
             "DPD": 7,
             "PostNL": 8,
             "VintedGo": 2,
-            "GLS": 5
+            "GLS": 5,
+            "InPost": 1,
+            "Budbee": 2
           }
         }
       ]
@@ -44446,7 +44696,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 31,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
@@ -44454,7 +44704,9 @@
             "DPD": 7,
             "PostNL": 9,
             "VintedGo": 1,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 1,
+            "Budbee": 2
           }
         }
       ]
@@ -44749,13 +45001,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 21,
+          "total": 22,
           "providers": {
             "Amazon": 2,
             "DHL": 7,
             "DPD": 3,
             "PostNL": 7,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -45050,13 +45303,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 46,
+          "total": 52,
           "providers": {
             "Amazon": 4,
             "DHL": 16,
             "DPD": 8,
             "PostNL": 11,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 3,
+            "InPost": 3
           }
         }
       ]
@@ -45347,13 +45602,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 19,
+          "total": 20,
           "providers": {
             "Amazon": 2,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 10,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 1
           }
         }
       ]
@@ -45648,13 +45904,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 24,
           "providers": {
             "Amazon": 5,
             "DHL": 6,
             "DPD": 1,
             "PostNL": 9,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1
           }
         }
       ]
@@ -45977,7 +46234,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 53,
+          "total": 59,
           "providers": {
             "Amazon": 4,
             "DeBuren": 1,
@@ -45985,7 +46242,9 @@
             "DPD": 8,
             "PostNL": 13,
             "VintedGo": 7,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 3,
+            "InPost": 3
           }
         }
       ]
@@ -46290,14 +46549,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 16,
+          "total": 18,
           "providers": {
             "Amazon": 2,
             "DHL": 3,
             "DPD": 2,
             "PostNL": 3,
             "VintedGo": 4,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -46592,13 +46853,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 41,
+          "total": 45,
           "providers": {
             "Amazon": 1,
             "DHL": 14,
             "DPD": 6,
             "PostNL": 13,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -46911,14 +47174,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 35,
+          "total": 40,
           "providers": {
             "Amazon": 4,
             "DeBuren": 1,
             "DHL": 7,
             "DPD": 6,
             "PostNL": 10,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 1,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -47223,14 +47489,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 21,
+          "total": 24,
           "providers": {
             "Amazon": 3,
             "DHL": 5,
             "DPD": 6,
             "PostNL": 2,
             "VintedGo": 3,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -47845,13 +48113,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 47,
+          "total": 55,
           "providers": {
             "Amazon": 4,
             "DHL": 15,
             "DPD": 8,
             "PostNL": 13,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 3,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -48146,13 +48417,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 19,
+          "total": 20,
           "providers": {
             "Amazon": 1,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 7,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1
           }
         }
       ]
@@ -48447,13 +48719,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 87,
+          "total": 95,
           "providers": {
             "Amazon": 13,
             "DHL": 23,
             "DPD": 13,
             "PostNL": 26,
-            "VintedGo": 12
+            "VintedGo": 12,
+            "ViaTim": 1,
+            "InPost": 5,
+            "Budbee": 2
           }
         }
       ]
@@ -48748,13 +49023,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 37,
           "providers": {
             "Amazon": 2,
             "DHL": 10,
             "DPD": 5,
             "PostNL": 10,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -49329,13 +49606,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 36,
           "providers": {
             "Amazon": 2,
             "DHL": 12,
             "DPD": 4,
             "PostNL": 9,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "InPost": 1,
+            "Budbee": 2
           }
         }
       ]
@@ -49648,14 +49927,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 8,
+          "total": 9,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
             "DHL": 2,
             "DPD": 1,
             "PostNL": 2,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -49978,7 +50258,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 164,
+          "total": 175,
           "providers": {
             "Amazon": 13,
             "DeBuren": 1,
@@ -49986,7 +50266,9 @@
             "DPD": 16,
             "PostNL": 56,
             "VintedGo": 18,
-            "GLS": 24
+            "GLS": 24,
+            "ViaTim": 2,
+            "InPost": 9
           }
         }
       ]
@@ -50281,13 +50563,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 73,
+          "total": 80,
           "providers": {
             "Amazon": 3,
             "DHL": 19,
             "DPD": 8,
             "PostNL": 28,
-            "VintedGo": 15
+            "VintedGo": 15,
+            "ViaTim": 2,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -50582,13 +50867,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 18,
+          "total": 19,
           "providers": {
             "Amazon": 2,
             "DHL": 6,
             "DPD": 2,
             "PostNL": 6,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -50893,14 +51179,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 42,
+          "total": 46,
           "providers": {
             "Amazon": 5,
             "DHL": 11,
             "DPD": 3,
             "PostNL": 14,
             "VintedGo": 5,
-            "GLS": 4
+            "GLS": 4,
+            "InPost": 1,
+            "Budbee": 3
           }
         }
       ]
@@ -51223,7 +51511,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 94,
+          "total": 102,
           "providers": {
             "Amazon": 10,
             "DeBuren": 3,
@@ -51231,7 +51519,10 @@
             "DPD": 12,
             "PostNL": 24,
             "VintedGo": 11,
-            "GLS": 15
+            "GLS": 15,
+            "ViaTim": 4,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -51536,14 +51827,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 60,
+          "total": 67,
           "providers": {
             "Amazon": 6,
             "DHL": 11,
             "DPD": 10,
             "PostNL": 15,
             "VintedGo": 10,
-            "GLS": 8
+            "GLS": 8,
+            "ViaTim": 1,
+            "InPost": 4,
+            "Budbee": 2
           }
         }
       ]
@@ -51822,13 +52116,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 19,
+          "total": 20,
           "providers": {
             "Amazon": 3,
             "DHL": 5,
             "DPD": 1,
             "PostNL": 8,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 1
           }
         }
       ]
@@ -52133,14 +52428,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 47,
+          "total": 51,
           "providers": {
             "Amazon": 3,
             "DHL": 15,
             "DPD": 7,
             "PostNL": 10,
             "VintedGo": 4,
-            "GLS": 8
+            "GLS": 8,
+            "InPost": 4
           }
         }
       ]
@@ -52435,13 +52731,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 34,
           "providers": {
             "Amazon": 6,
             "DHL": 7,
             "DPD": 2,
             "PostNL": 10,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 2,
+            "InPost": 3
           }
         }
       ]
@@ -52754,14 +53052,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 34,
+          "total": 35,
           "providers": {
             "Amazon": 5,
             "DeBuren": 1,
             "DHL": 8,
             "DPD": 4,
             "PostNL": 11,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "InPost": 1
           }
         }
       ]
@@ -53066,14 +53365,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 24,
+          "total": 28,
           "providers": {
             "Amazon": 1,
             "DHL": 6,
             "DPD": 2,
             "PostNL": 5,
             "VintedGo": 7,
-            "GLS": 3
+            "GLS": 3,
+            "ViaTim": 1,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -53368,13 +53670,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 12,
+          "total": 15,
           "providers": {
             "Amazon": 1,
             "DHL": 4,
             "DPD": 2,
             "PostNL": 4,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "ViaTim": 2,
+            "InPost": 1
           }
         }
       ]
@@ -53678,14 +53982,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 25,
           "providers": {
             "Amazon": 3,
             "DHL": 6,
             "DPD": 3,
             "PostNL": 5,
             "VintedGo": 4,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -54291,14 +54597,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 31,
+          "total": 35,
           "providers": {
             "Amazon": 1,
             "DHL": 9,
             "DPD": 4,
             "PostNL": 7,
             "VintedGo": 4,
-            "GLS": 6
+            "GLS": 6,
+            "ViaTim": 2,
+            "InPost": 2
           }
         }
       ]
@@ -54593,13 +54901,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 64,
+          "total": 69,
           "providers": {
             "Amazon": 10,
             "DHL": 19,
             "DPD": 7,
             "PostNL": 17,
-            "VintedGo": 11
+            "VintedGo": 11,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -54894,13 +55204,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 23,
           "providers": {
             "Amazon": 3,
             "DHL": 7,
             "DPD": 1,
             "PostNL": 6,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1,
+            "Budbee": 2
           }
         }
       ]
@@ -55223,7 +55535,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 116,
+          "total": 125,
           "providers": {
             "Amazon": 11,
             "DeBuren": 3,
@@ -55231,7 +55543,10 @@
             "DPD": 13,
             "PostNL": 36,
             "VintedGo": 8,
-            "GLS": 17
+            "GLS": 17,
+            "ViaTim": 2,
+            "InPost": 5,
+            "Budbee": 2
           }
         }
       ]
@@ -55536,14 +55851,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 49,
+          "total": 53,
           "providers": {
             "Amazon": 6,
             "DHL": 11,
             "DPD": 10,
             "PostNL": 10,
             "VintedGo": 7,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 2,
+            "InPost": 2
           }
         }
       ]
@@ -56150,13 +56467,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 68,
+          "total": 77,
           "providers": {
             "Amazon": 4,
             "DHL": 24,
             "DPD": 11,
             "PostNL": 19,
-            "VintedGo": 10
+            "VintedGo": 10,
+            "ViaTim": 5,
+            "InPost": 4
           }
         }
       ]
@@ -56469,14 +56788,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 51,
+          "total": 53,
           "providers": {
             "Amazon": 7,
             "DeBuren": 2,
             "DHL": 16,
             "DPD": 7,
             "PostNL": 12,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "InPost": 2
           }
         }
       ]
@@ -56799,7 +57119,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 54,
+          "total": 59,
           "providers": {
             "Amazon": 4,
             "DeBuren": 2,
@@ -56807,7 +57127,9 @@
             "DPD": 5,
             "PostNL": 15,
             "VintedGo": 8,
-            "GLS": 9
+            "GLS": 9,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -57091,12 +57413,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 11,
+          "total": 14,
           "providers": {
             "DHL": 4,
             "DPD": 1,
             "PostNL": 5,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "ViaTim": 2,
+            "InPost": 1
           }
         }
       ]
@@ -57401,14 +57725,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 52,
+          "total": 56,
           "providers": {
             "Amazon": 5,
             "DHL": 13,
-            "DPD": 7,
+            "DPD": 6,
             "PostNL": 14,
             "VintedGo": 5,
-            "GLS": 8
+            "GLS": 8,
+            "InPost": 5
           }
         }
       ]
@@ -57713,14 +58038,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 88,
+          "total": 96,
           "providers": {
             "Amazon": 7,
             "DHL": 21,
             "DPD": 14,
             "PostNL": 26,
             "VintedGo": 11,
-            "GLS": 9
+            "GLS": 9,
+            "ViaTim": 4,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -58025,14 +58353,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 46,
+          "total": 49,
           "providers": {
             "Amazon": 7,
             "DHL": 10,
             "DPD": 5,
             "PostNL": 16,
             "VintedGo": 6,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -58327,13 +58657,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 50,
+          "total": 55,
           "providers": {
             "Amazon": 4,
             "DHL": 11,
             "DPD": 8,
             "PostNL": 16,
-            "VintedGo": 11
+            "VintedGo": 11,
+            "ViaTim": 2,
+            "InPost": 3
           }
         }
       ]
@@ -58638,14 +58970,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 31,
+          "total": 34,
           "providers": {
             "Amazon": 4,
             "DHL": 10,
             "DPD": 3,
             "PostNL": 9,
             "VintedGo": 2,
-            "GLS": 3
+            "GLS": 3,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -58940,13 +59274,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 11,
+          "total": 14,
           "providers": {
             "Amazon": 1,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 3,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -59241,13 +59577,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 11,
+          "total": 12,
           "providers": {
             "Amazon": 2,
             "DHL": 2,
             "DPD": 2,
             "PostNL": 4,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -59853,14 +60190,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 24,
           "providers": {
             "Amazon": 5,
             "DHL": 5,
             "DPD": 2,
             "PostNL": 6,
             "VintedGo": 2,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 1
           }
         }
       ]
@@ -60179,14 +60517,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 56,
+          "total": 64,
           "providers": {
             "Amazon": 5,
             "DHL": 18,
             "DPD": 10,
             "PostNL": 13,
             "VintedGo": 6,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 3,
+            "InPost": 2,
+            "Budbee": 3
           }
         }
       ]
@@ -60481,13 +60822,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 35,
+          "total": 39,
           "providers": {
             "Amazon": 4,
             "DHL": 11,
             "DPD": 8,
             "PostNL": 8,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -60792,14 +61135,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 47,
+          "total": 51,
           "providers": {
             "Amazon": 5,
             "DHL": 10,
             "DPD": 7,
             "PostNL": 12,
             "VintedGo": 8,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -61122,7 +61467,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 148,
+          "total": 161,
           "providers": {
             "Amazon": 11,
             "DeBuren": 6,
@@ -61130,7 +61475,10 @@
             "DPD": 22,
             "PostNL": 43,
             "VintedGo": 18,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 3,
+            "InPost": 8,
+            "Budbee": 2
           }
         }
       ]
@@ -61425,13 +61773,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 69,
+          "total": 78,
           "providers": {
             "Amazon": 8,
             "DHL": 18,
             "DPD": 7,
             "PostNL": 22,
-            "VintedGo": 14
+            "VintedGo": 14,
+            "ViaTim": 3,
+            "InPost": 4,
+            "Budbee": 2
           }
         }
       ]
@@ -61736,14 +62087,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 90,
+          "total": 106,
           "providers": {
             "Amazon": 11,
             "DHL": 22,
             "DPD": 16,
             "PostNL": 25,
             "VintedGo": 13,
-            "GLS": 3
+            "GLS": 3,
+            "ViaTim": 9,
+            "InPost": 7
           }
         }
       ]
@@ -62045,14 +62398,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 18,
+          "total": 20,
           "providers": {
             "Amazon": 3,
             "DHL": 2,
             "DPD": 3,
             "PostNL": 4,
             "VintedGo": 4,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -62357,14 +62712,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 43,
+          "total": 45,
           "providers": {
             "Amazon": 5,
             "DHL": 10,
             "DPD": 3,
             "PostNL": 15,
             "VintedGo": 4,
-            "GLS": 6
+            "GLS": 6,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -62659,13 +63016,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 64,
+          "total": 69,
           "providers": {
             "Amazon": 7,
             "DHL": 20,
             "DPD": 8,
             "PostNL": 22,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 3,
+            "InPost": 2
           }
         }
       ]
@@ -62960,13 +63319,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 41,
+          "total": 47,
           "providers": {
             "Amazon": 2,
             "DHL": 17,
             "DPD": 5,
             "PostNL": 8,
-            "VintedGo": 9
+            "VintedGo": 9,
+            "InPost": 5,
+            "Budbee": 1
           }
         }
       ]
@@ -63260,13 +63621,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 19,
+          "total": 20,
           "providers": {
             "DHL": 8,
             "DPD": 3,
             "PostNL": 4,
             "VintedGo": 3,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 1
           }
         }
       ]
@@ -63561,13 +63923,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 31,
           "providers": {
             "Amazon": 1,
             "DHL": 10,
             "DPD": 3,
             "PostNL": 10,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -63827,12 +64191,13 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 8,
+          "total": 9,
           "providers": {
             "Amazon": 1,
             "DHL": 1,
             "DPD": 1,
-            "PostNL": 5
+            "PostNL": 5,
+            "Budbee": 1
           }
         }
       ]
@@ -64127,13 +64492,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 12,
+          "total": 13,
           "providers": {
             "Amazon": 1,
             "DHL": 4,
             "DPD": 2,
             "PostNL": 3,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -64427,14 +64793,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 26,
+          "total": 27,
           "providers": {
             "Amazon": 1,
             "DHL": 5,
             "DPD": 4,
             "PostNL": 7,
             "VintedGo": 3,
-            "GLS": 6
+            "GLS": 6,
+            "InPost": 1
           }
         }
       ]
@@ -64729,13 +65096,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 67,
+          "total": 75,
           "providers": {
             "Amazon": 8,
             "DHL": 18,
             "DPD": 8,
             "PostNL": 19,
-            "VintedGo": 14
+            "VintedGo": 14,
+            "ViaTim": 6,
+            "InPost": 2
           }
         }
       ]
@@ -65040,14 +65409,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 25,
+          "total": 28,
           "providers": {
             "Amazon": 2,
             "DHL": 8,
             "DPD": 4,
             "PostNL": 3,
             "VintedGo": 4,
-            "GLS": 4
+            "GLS": 4,
+            "InPost": 3
           }
         }
       ]
@@ -65351,14 +65721,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 36,
+          "total": 38,
           "providers": {
             "Amazon": 7,
             "DHL": 10,
             "DPD": 3,
             "PostNL": 9,
             "VintedGo": 5,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 2
           }
         }
       ]
@@ -65663,14 +66034,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 17,
+          "total": 20,
           "providers": {
             "Amazon": 1,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 5,
             "VintedGo": 2,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -65965,13 +66338,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 24,
           "providers": {
             "Amazon": 3,
             "DHL": 6,
             "DPD": 3,
             "PostNL": 7,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "InPost": 1
           }
         }
       ]
@@ -66276,14 +66650,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 42,
+          "total": 43,
           "providers": {
             "Amazon": 2,
             "DHL": 14,
             "DPD": 7,
             "PostNL": 8,
             "VintedGo": 8,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 1
           }
         }
       ]
@@ -66588,14 +66963,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 45,
+          "total": 50,
           "providers": {
             "Amazon": 4,
             "DHL": 13,
             "DPD": 5,
             "PostNL": 11,
             "VintedGo": 7,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -66900,14 +67277,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 52,
+          "total": 58,
           "providers": {
             "Amazon": 2,
             "DHL": 12,
             "DPD": 10,
             "PostNL": 11,
             "VintedGo": 9,
-            "GLS": 8
+            "GLS": 8,
+            "ViaTim": 3,
+            "InPost": 3
           }
         }
       ]
@@ -67474,14 +67853,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 12,
+          "total": 13,
           "providers": {
             "Amazon": 1,
             "DHL": 3,
             "DPD": 1,
             "PostNL": 3,
             "VintedGo": 2,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 1
           }
         }
       ]
@@ -67784,13 +68164,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 51,
+          "total": 58,
           "providers": {
             "Amazon": 7,
             "DHL": 17,
             "DPD": 4,
             "PostNL": 15,
-            "VintedGo": 8
+            "VintedGo": 8,
+            "ViaTim": 4,
+            "InPost": 3
           }
         }
       ]
@@ -68085,13 +68467,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 79,
+          "total": 85,
           "providers": {
             "Amazon": 7,
             "DHL": 28,
             "DPD": 7,
             "PostNL": 24,
-            "VintedGo": 13
+            "VintedGo": 13,
+            "ViaTim": 3,
+            "InPost": 3
           }
         }
       ]
@@ -68396,14 +68780,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 50,
+          "total": 55,
           "providers": {
             "Amazon": 3,
             "DHL": 15,
             "DPD": 3,
             "PostNL": 13,
             "VintedGo": 8,
-            "GLS": 8
+            "GLS": 8,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -69010,13 +69396,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 10,
+          "total": 12,
           "providers": {
             "Amazon": 1,
             "DHL": 3,
             "DPD": 1,
             "PostNL": 3,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -69321,14 +69709,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 55,
+          "total": 58,
           "providers": {
             "Amazon": 7,
             "DHL": 19,
             "DPD": 9,
             "PostNL": 13,
             "VintedGo": 3,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -69623,13 +70013,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 25,
           "providers": {
             "Amazon": 4,
             "DHL": 5,
             "DPD": 1,
             "PostNL": 10,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -69934,14 +70326,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 62,
+          "total": 65,
           "providers": {
             "Amazon": 2,
             "DHL": 15,
             "DPD": 6,
             "PostNL": 18,
             "VintedGo": 8,
-            "GLS": 13
+            "GLS": 13,
+            "InPost": 3
           }
         }
       ]
@@ -70215,12 +70608,13 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 12,
+          "total": 13,
           "providers": {
             "DHL": 4,
             "DPD": 3,
             "PostNL": 4,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "ViaTim": 1
           }
         }
       ]
@@ -70515,13 +70909,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 31,
+          "total": 35,
           "providers": {
             "Amazon": 7,
             "DHL": 8,
             "DPD": 2,
             "PostNL": 12,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1,
+            "Budbee": 3
           }
         }
       ]
@@ -70826,14 +71222,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 70,
+          "total": 76,
           "providers": {
             "Amazon": 8,
             "DHL": 17,
             "DPD": 9,
             "PostNL": 22,
             "VintedGo": 7,
-            "GLS": 7
+            "GLS": 7,
+            "ViaTim": 1,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -71128,13 +71527,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 27,
+          "total": 31,
           "providers": {
             "Amazon": 1,
             "DHL": 11,
             "DPD": 5,
             "PostNL": 6,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 2,
+            "InPost": 2
           }
         }
       ]
@@ -71439,14 +71840,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 47,
+          "total": 49,
           "providers": {
             "Amazon": 5,
             "DHL": 13,
             "DPD": 6,
             "PostNL": 12,
             "VintedGo": 8,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 2
           }
         }
       ]
@@ -71741,13 +72143,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 26,
           "providers": {
             "Amazon": 5,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 5,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 2,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -72052,14 +72457,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 32,
+          "total": 34,
           "providers": {
             "Amazon": 3,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 10,
             "VintedGo": 6,
-            "GLS": 5
+            "GLS": 5,
+            "InPost": 2
           }
         }
       ]
@@ -72612,13 +73018,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 8,
+          "total": 9,
           "providers": {
             "Amazon": 1,
             "DHL": 1,
             "DPD": 2,
             "PostNL": 2,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -72923,14 +73330,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 30,
+          "total": 34,
           "providers": {
             "Amazon": 2,
             "DHL": 9,
             "DPD": 4,
             "PostNL": 7,
             "VintedGo": 3,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 1,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -73225,13 +73635,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 27,
           "providers": {
             "Amazon": 2,
             "DHL": 6,
             "DPD": 3,
             "PostNL": 7,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -73526,13 +73939,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 46,
+          "total": 54,
           "providers": {
             "Amazon": 9,
             "DHL": 10,
             "DPD": 4,
             "PostNL": 16,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 2,
+            "InPost": 4,
+            "Budbee": 2
           }
         }
       ]
@@ -73827,13 +74243,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 37,
+          "total": 41,
           "providers": {
             "Amazon": 2,
             "DHL": 13,
             "DPD": 6,
             "PostNL": 10,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -74156,7 +74574,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 64,
+          "total": 67,
           "providers": {
             "Amazon": 16,
             "DeBuren": 1,
@@ -74164,7 +74582,9 @@
             "DPD": 6,
             "PostNL": 20,
             "VintedGo": 5,
-            "GLS": 4
+            "GLS": 4,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -74469,14 +74889,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 31,
           "providers": {
             "Amazon": 2,
             "DHL": 7,
             "DPD": 4,
             "PostNL": 7,
             "VintedGo": 3,
-            "GLS": 6
+            "GLS": 6,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -74799,7 +75221,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 70,
+          "total": 76,
           "providers": {
             "Amazon": 7,
             "DeBuren": 2,
@@ -74807,7 +75229,9 @@
             "DPD": 8,
             "PostNL": 15,
             "VintedGo": 12,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 2,
+            "InPost": 4
           }
         }
       ]
@@ -75120,14 +75544,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 70,
+          "total": 77,
           "providers": {
             "Amazon": 9,
             "DeBuren": 3,
             "DHL": 20,
             "DPD": 8,
             "PostNL": 20,
-            "VintedGo": 10
+            "VintedGo": 10,
+            "InPost": 7
           }
         }
       ]
@@ -75440,14 +75865,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 533,
+          "total": 605,
           "providers": {
             "Amazon": 54,
             "DeBuren": 16,
-            "DHL": 151,
-            "DPD": 78,
+            "DHL": 149,
+            "DPD": 79,
             "PostNL": 151,
-            "VintedGo": 83
+            "VintedGo": 83,
+            "ViaTim": 11,
+            "InPost": 46,
+            "Budbee": 16
           }
         }
       ]
@@ -75946,14 +76374,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 23,
           "providers": {
             "Amazon": 2,
             "DHL": 4,
             "DPD": 4,
             "PostNL": 8,
             "VintedGo": 2,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 1
           }
         }
       ]
@@ -76272,7 +76701,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 52,
+          "total": 55,
           "providers": {
             "Amazon": 5,
             "DeBuren": 1,
@@ -76280,7 +76709,8 @@
             "DPD": 9,
             "PostNL": 15,
             "VintedGo": 6,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 3
           }
         }
       ]
@@ -76585,14 +77015,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 15,
+          "total": 16,
           "providers": {
             "Amazon": 1,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 3,
             "VintedGo": 3,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 1
           }
         }
       ]
@@ -76887,13 +77318,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 54,
+          "total": 61,
           "providers": {
             "Amazon": 5,
             "DHL": 17,
             "DPD": 7,
             "PostNL": 15,
-            "VintedGo": 10
+            "VintedGo": 10,
+            "ViaTim": 1,
+            "InPost": 4,
+            "Budbee": 2
           }
         }
       ]
@@ -77468,14 +77902,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 45,
+          "total": 52,
           "providers": {
             "Amazon": 4,
             "DHL": 12,
             "DPD": 9,
             "PostNL": 12,
             "VintedGo": 6,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 2,
+            "InPost": 3,
+            "Budbee": 2
           }
         }
       ]
@@ -77760,13 +78197,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 7,
+          "total": 8,
           "providers": {
             "Amazon": 1,
             "DHL": 1,
             "DPD": 2,
             "PostNL": 2,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -78061,13 +78499,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 25,
+          "total": 29,
           "providers": {
             "Amazon": 1,
             "DHL": 10,
             "DPD": 4,
             "PostNL": 6,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -78372,14 +78812,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 96,
+          "total": 103,
           "providers": {
             "Amazon": 9,
             "DHL": 26,
             "DPD": 13,
             "PostNL": 35,
             "VintedGo": 9,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 1,
+            "InPost": 4,
+            "Budbee": 2
           }
         }
       ]
@@ -78692,14 +79135,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 21,
+          "total": 22,
           "providers": {
             "Amazon": 2,
             "DeBuren": 1,
             "DHL": 7,
             "DPD": 2,
             "PostNL": 7,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -79004,14 +79448,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 44,
+          "total": 50,
           "providers": {
             "Amazon": 5,
             "DHL": 11,
             "DPD": 5,
             "PostNL": 12,
             "VintedGo": 5,
-            "GLS": 6
+            "GLS": 6,
+            "ViaTim": 1,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -79306,13 +79753,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 61,
+          "total": 65,
           "providers": {
             "Amazon": 8,
             "DHL": 17,
             "DPD": 9,
             "PostNL": 20,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 2,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -79635,7 +80085,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 42,
+          "total": 46,
           "providers": {
             "Amazon": 4,
             "DeBuren": 1,
@@ -79643,7 +80093,10 @@
             "DPD": 7,
             "PostNL": 11,
             "VintedGo": 5,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 2,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -79938,13 +80391,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 23,
           "providers": {
             "Amazon": 2,
             "DHL": 5,
             "DPD": 4,
             "PostNL": 6,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "ViaTim": 1,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -80249,14 +80705,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 22,
           "providers": {
             "Amazon": 3,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 4,
             "VintedGo": 3,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 2
           }
         }
       ]
@@ -80551,13 +81008,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 52,
+          "total": 54,
           "providers": {
             "Amazon": 4,
             "DHL": 18,
             "DPD": 7,
             "PostNL": 15,
-            "VintedGo": 8
+            "VintedGo": 8,
+            "InPost": 2
           }
         }
       ]
@@ -80862,14 +81320,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 25,
           "providers": {
             "Amazon": 2,
             "DHL": 5,
             "DPD": 2,
             "PostNL": 5,
             "VintedGo": 4,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -81149,13 +81609,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 16,
+          "total": 17,
           "providers": {
             "Amazon": 1,
             "DHL": 8,
             "PostNL": 4,
             "VintedGo": 1,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1
           }
         }
       ]
@@ -81450,13 +81911,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 26,
+          "total": 31,
           "providers": {
             "Amazon": 2,
             "DHL": 8,
             "DPD": 3,
             "PostNL": 8,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 2,
+            "InPost": 3
           }
         }
       ]
@@ -81752,13 +82215,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 64,
+          "total": 67,
           "providers": {
             "Amazon": 9,
             "DHL": 20,
             "DPD": 12,
             "PostNL": 18,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "InPost": 3
           }
         }
       ]
@@ -82052,13 +82516,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 21,
           "providers": {
             "DHL": 3,
             "DPD": 3,
             "PostNL": 7,
             "VintedGo": 1,
-            "GLS": 6
+            "GLS": 6,
+            "InPost": 1
           }
         }
       ]
@@ -82363,14 +82828,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 34,
+          "total": 37,
           "providers": {
             "Amazon": 1,
             "DHL": 7,
             "DPD": 7,
             "PostNL": 13,
             "VintedGo": 5,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 1,
+            "Budbee": 2
           }
         }
       ]
@@ -82675,14 +83142,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 130,
+          "total": 144,
           "providers": {
             "Amazon": 14,
             "DHL": 36,
             "DPD": 20,
             "PostNL": 42,
             "VintedGo": 16,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 6,
+            "InPost": 8
           }
         }
       ]
@@ -83005,7 +83474,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 59,
+          "total": 63,
           "providers": {
             "Amazon": 6,
             "DeBuren": 1,
@@ -83013,7 +83482,9 @@
             "DPD": 8,
             "PostNL": 18,
             "VintedGo": 6,
-            "GLS": 5
+            "GLS": 5,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -83843,13 +84314,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 25,
+          "total": 26,
           "providers": {
             "Amazon": 4,
             "DHL": 8,
             "DPD": 4,
             "PostNL": 7,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1
           }
         }
       ]
@@ -84144,13 +84616,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 35,
+          "total": 40,
           "providers": {
             "Amazon": 4,
             "DHL": 11,
             "DPD": 5,
             "PostNL": 12,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "ViaTim": 3,
+            "InPost": 2
           }
         }
       ]
@@ -84445,13 +84919,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 38,
+          "total": 45,
           "providers": {
             "Amazon": 3,
             "DHL": 14,
             "DPD": 5,
             "PostNL": 10,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "ViaTim": 3,
+            "InPost": 4
           }
         }
       ]
@@ -84774,7 +85250,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 199,
+          "total": 218,
           "providers": {
             "Amazon": 5,
             "DeBuren": 4,
@@ -84782,7 +85258,10 @@
             "DPD": 18,
             "PostNL": 55,
             "VintedGo": 36,
-            "GLS": 34
+            "GLS": 34,
+            "ViaTim": 3,
+            "InPost": 12,
+            "Budbee": 4
           }
         }
       ]
@@ -85080,14 +85559,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 31,
           "providers": {
             "Amazon": 5,
             "DHL": 6,
             "DPD": 5,
             "PostNL": 10,
             "VintedGo": 2,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 2
           }
         }
       ]
@@ -85382,13 +85862,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 48,
+          "total": 52,
           "providers": {
             "Amazon": 6,
             "DHL": 13,
             "DPD": 8,
             "PostNL": 12,
-            "VintedGo": 9
+            "VintedGo": 9,
+            "InPost": 4
           }
         }
       ]
@@ -85711,7 +86192,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 56,
+          "total": 63,
           "providers": {
             "Amazon": 7,
             "DeBuren": 1,
@@ -85719,7 +86200,10 @@
             "DPD": 11,
             "PostNL": 13,
             "VintedGo": 5,
-            "GLS": 7
+            "GLS": 7,
+            "ViaTim": 2,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -86024,14 +86508,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 41,
+          "total": 44,
           "providers": {
             "Amazon": 5,
             "DHL": 8,
             "DPD": 4,
             "PostNL": 12,
             "VintedGo": 8,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 2,
+            "InPost": 1
           }
         }
       ]
@@ -86289,12 +86775,13 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 4,
+          "total": 5,
           "providers": {
             "DHL": 1,
             "DPD": 1,
             "PostNL": 1,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "ViaTim": 1
           }
         }
       ]
@@ -86589,13 +87076,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 20,
+          "total": 22,
           "providers": {
             "Amazon": 5,
             "DHL": 6,
             "DPD": 1,
             "PostNL": 6,
-            "VintedGo": 2
+            "VintedGo": 3,
+            "InPost": 1
           }
         }
       ]
@@ -86907,14 +87395,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 24,
           "providers": {
             "DeBuren": 1,
             "DHL": 8,
             "DPD": 4,
             "PostNL": 3,
             "VintedGo": 4,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 2
           }
         }
       ]
@@ -87237,7 +87726,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 263,
+          "total": 283,
           "providers": {
             "Amazon": 12,
             "DeBuren": 6,
@@ -87245,7 +87734,10 @@
             "DPD": 44,
             "PostNL": 77,
             "VintedGo": 31,
-            "GLS": 33
+            "GLS": 33,
+            "ViaTim": 4,
+            "InPost": 14,
+            "Budbee": 2
           }
         }
       ]
@@ -87550,14 +88042,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 35,
+          "total": 38,
           "providers": {
             "Amazon": 3,
             "DHL": 11,
             "DPD": 5,
             "PostNL": 10,
             "VintedGo": 5,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -87852,13 +88346,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 14,
+          "total": 15,
           "providers": {
             "Amazon": 2,
             "DHL": 3,
             "DPD": 3,
             "PostNL": 3,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1
           }
         }
       ]
@@ -88163,14 +88658,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 17,
+          "total": 18,
           "providers": {
             "Amazon": 1,
             "DHL": 4,
             "DPD": 1,
             "PostNL": 6,
             "VintedGo": 2,
-            "GLS": 3
+            "GLS": 3,
+            "ViaTim": 1
           }
         }
       ]
@@ -88475,14 +88971,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 30,
+          "total": 33,
           "providers": {
             "Amazon": 2,
             "DHL": 9,
             "DPD": 5,
             "PostNL": 9,
             "VintedGo": 4,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 2,
+            "InPost": 1
           }
         }
       ]
@@ -88777,13 +89275,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 31,
+          "total": 35,
           "providers": {
             "Amazon": 1,
             "DHL": 11,
             "DPD": 3,
             "PostNL": 9,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -89096,14 +89596,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 55,
+          "total": 59,
           "providers": {
             "Amazon": 8,
             "DeBuren": 2,
             "DHL": 15,
-            "DPD": 7,
+            "DPD": 8,
             "PostNL": 15,
-            "VintedGo": 8
+            "VintedGo": 8,
+            "InPost": 3
           }
         }
       ]
@@ -89408,14 +89909,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 38,
+          "total": 39,
           "providers": {
             "Amazon": 6,
             "DHL": 6,
             "DPD": 4,
             "PostNL": 13,
             "VintedGo": 3,
-            "GLS": 6
+            "GLS": 6,
+            "InPost": 1
           }
         }
       ]
@@ -89730,7 +90232,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 32,
+          "total": 33,
           "providers": {
             "Amazon": 1,
             "DeBuren": 1,
@@ -89738,7 +90240,8 @@
             "DPD": 3,
             "PostNL": 10,
             "VintedGo": 2,
-            "GLS": 7
+            "GLS": 7,
+            "InPost": 1
           }
         }
       ]
@@ -90033,13 +90536,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 53,
+          "total": 56,
           "providers": {
             "Amazon": 3,
             "DHL": 21,
             "DPD": 7,
             "PostNL": 12,
-            "VintedGo": 10
+            "VintedGo": 10,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -90362,7 +90867,7 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 124,
+          "total": 130,
           "providers": {
             "Amazon": 7,
             "DeBuren": 3,
@@ -90370,7 +90875,9 @@
             "DPD": 15,
             "PostNL": 32,
             "VintedGo": 19,
-            "GLS": 16
+            "GLS": 16,
+            "ViaTim": 1,
+            "InPost": 5
           }
         }
       ]
@@ -90675,14 +91182,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 47,
+          "total": 49,
           "providers": {
             "Amazon": 4,
             "DHL": 13,
             "DPD": 4,
             "PostNL": 14,
             "VintedGo": 6,
-            "GLS": 6
+            "GLS": 6,
+            "InPost": 2
           }
         }
       ]
@@ -90979,13 +91487,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 50,
+          "total": 54,
           "providers": {
             "Amazon": 8,
             "DHL": 11,
             "DPD": 6,
             "PostNL": 16,
-            "VintedGo": 9
+            "VintedGo": 9,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -91298,14 +91808,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 55,
+          "total": 63,
           "providers": {
             "Amazon": 6,
             "DeBuren": 1,
             "DHL": 16,
             "DPD": 8,
             "PostNL": 17,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "ViaTim": 2,
+            "InPost": 3,
+            "Budbee": 3
           }
         }
       ]
@@ -91884,14 +92397,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 40,
+          "total": 44,
           "providers": {
             "Amazon": 4,
             "DHL": 13,
             "DPD": 5,
             "PostNL": 8,
             "VintedGo": 7,
-            "GLS": 3
+            "GLS": 3,
+            "InPost": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -92486,13 +93001,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 51,
+          "total": 62,
           "providers": {
             "Amazon": 3,
             "DHL": 18,
             "DPD": 6,
             "PostNL": 14,
-            "VintedGo": 10
+            "VintedGo": 11,
+            "ViaTim": 2,
+            "InPost": 5,
+            "Budbee": 3
           }
         }
       ]
@@ -92787,13 +93305,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 13,
+          "total": 15,
           "providers": {
             "Amazon": 2,
             "DHL": 3,
             "DPD": 1,
             "PostNL": 4,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "Budbee": 2
           }
         }
       ]
@@ -93088,13 +93607,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 25,
+          "total": 27,
           "providers": {
             "Amazon": 1,
             "DHL": 10,
             "DPD": 5,
             "PostNL": 6,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1,
+            "Budbee": 1
           }
         }
       ]
@@ -93389,13 +93910,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 27,
+          "total": 31,
           "providers": {
             "Amazon": 3,
             "DHL": 7,
             "DPD": 4,
             "PostNL": 7,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -93700,14 +94223,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 75,
+          "total": 82,
           "providers": {
             "Amazon": 5,
             "DHL": 17,
             "DPD": 12,
             "PostNL": 22,
             "VintedGo": 8,
-            "GLS": 11
+            "GLS": 11,
+            "ViaTim": 4,
+            "InPost": 3
           }
         }
       ]
@@ -94012,14 +94537,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 9,
+          "total": 10,
           "providers": {
             "Amazon": 1,
             "DHL": 1,
             "DPD": 1,
             "PostNL": 4,
             "VintedGo": 1,
-            "GLS": 1
+            "GLS": 1,
+            "InPost": 1
           }
         }
       ]
@@ -94332,13 +94858,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 39,
+          "total": 42,
           "providers": {
             "Amazon": 4,
             "DHL": 11,
             "DPD": 3,
             "PostNL": 16,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "InPost": 3
           }
         }
       ]
@@ -94633,13 +95160,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 27,
+          "total": 28,
           "providers": {
             "Amazon": 5,
             "DHL": 8,
             "DPD": 2,
             "PostNL": 9,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "Budbee": 1
           }
         }
       ]
@@ -94923,12 +95451,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 28,
           "providers": {
             "DHL": 8,
             "DPD": 5,
             "PostNL": 7,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "ViaTim": 1,
+            "InPost": 2,
+            "Budbee": 2
           }
         }
       ]
@@ -95215,13 +95746,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 12,
+          "total": 13,
           "providers": {
             "Amazon": 1,
             "DHL": 4,
             "DPD": 2,
             "PostNL": 3,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -95522,14 +96054,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 16,
+          "total": 17,
           "providers": {
             "Amazon": 3,
             "DHL": 2,
             "DPD": 1,
             "PostNL": 8,
             "VintedGo": 1,
-            "GLS": 1
+            "GLS": 1,
+            "ViaTim": 1
           }
         }
       ]
@@ -95834,14 +96367,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 45,
+          "total": 48,
           "providers": {
             "Amazon": 2,
             "DHL": 15,
             "DPD": 7,
             "PostNL": 13,
             "VintedGo": 6,
-            "GLS": 2
+            "GLS": 2,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -96136,13 +96671,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 69,
+          "total": 80,
           "providers": {
             "Amazon": 9,
-            "DHL": 18,
+            "DHL": 19,
             "DPD": 14,
             "PostNL": 17,
-            "VintedGo": 11
+            "VintedGo": 11,
+            "ViaTim": 3,
+            "InPost": 6,
+            "Budbee": 1
           }
         }
       ]
@@ -96437,13 +96975,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 18,
+          "total": 19,
           "providers": {
             "Amazon": 1,
             "DHL": 5,
             "DPD": 3,
             "PostNL": 6,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1
           }
         }
       ]
@@ -96748,14 +97287,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 101,
+          "total": 109,
           "providers": {
             "Amazon": 11,
             "DHL": 28,
             "DPD": 11,
             "PostNL": 30,
             "VintedGo": 14,
-            "GLS": 7
+            "GLS": 7,
+            "ViaTim": 3,
+            "InPost": 4,
+            "Budbee": 1
           }
         }
       ]
@@ -97060,14 +97602,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 27,
+          "total": 29,
           "providers": {
             "Amazon": 1,
             "DHL": 8,
             "DPD": 5,
             "PostNL": 7,
             "VintedGo": 4,
-            "GLS": 2
+            "GLS": 2,
+            "InPost": 2
           }
         }
       ]
@@ -97372,14 +97915,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 22,
+          "total": 24,
           "providers": {
             "Amazon": 2,
             "DHL": 4,
             "DPD": 4,
             "PostNL": 5,
             "VintedGo": 3,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 1,
+            "InPost": 1
           }
         }
       ]
@@ -97672,13 +98217,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 38,
           "providers": {
             "Amazon": 1,
             "DHL": 9,
             "DPD": 6,
             "PostNL": 11,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -97973,13 +98520,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 79,
+          "total": 90,
           "providers": {
             "Amazon": 12,
             "DHL": 24,
             "DPD": 4,
             "PostNL": 27,
-            "VintedGo": 12
+            "VintedGo": 12,
+            "ViaTim": 2,
+            "InPost": 7,
+            "Budbee": 2
           }
         }
       ]
@@ -98274,13 +98824,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 38,
           "providers": {
             "Amazon": 4,
             "DHL": 11,
             "DPD": 6,
             "PostNL": 7,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 3,
+            "InPost": 2
           }
         }
       ]
@@ -98575,13 +99127,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 26,
           "providers": {
             "Amazon": 2,
             "DHL": 5,
             "DPD": 4,
             "PostNL": 8,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -98894,14 +99448,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 23,
+          "total": 25,
           "providers": {
             "Amazon": 2,
             "DeBuren": 1,
             "DHL": 10,
             "DPD": 2,
             "PostNL": 7,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 2
           }
         }
       ]
@@ -99185,12 +99740,13 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 9,
+          "total": 11,
           "providers": {
             "DHL": 2,
             "DPD": 2,
             "PostNL": 4,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 2
           }
         }
       ]
@@ -99474,12 +100030,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 21,
+          "total": 24,
           "providers": {
             "DHL": 9,
             "DPD": 5,
             "PostNL": 5,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "InPost": 1,
+            "Budbee": 2
           }
         }
       ]
@@ -99774,13 +100332,14 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 31,
+          "total": 32,
           "providers": {
             "Amazon": 4,
             "DHL": 9,
             "DPD": 1,
             "PostNL": 10,
-            "VintedGo": 7
+            "VintedGo": 7,
+            "InPost": 1
           }
         }
       ]
@@ -100075,13 +100634,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 33,
+          "total": 38,
           "providers": {
             "Amazon": 3,
             "DHL": 9,
             "DPD": 7,
             "PostNL": 9,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 1,
+            "InPost": 4
           }
         }
       ]
@@ -100376,13 +100937,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 43,
+          "total": 46,
           "providers": {
             "Amazon": 4,
             "DHL": 14,
             "DPD": 5,
             "PostNL": 15,
-            "VintedGo": 5
+            "VintedGo": 5,
+            "ViaTim": 1,
+            "InPost": 2
           }
         }
       ]
@@ -101297,14 +101860,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 96,
+          "total": 106,
           "providers": {
             "Amazon": 4,
             "DHL": 28,
             "DPD": 18,
             "PostNL": 25,
             "VintedGo": 16,
-            "GLS": 5
+            "GLS": 5,
+            "ViaTim": 2,
+            "InPost": 6,
+            "Budbee": 2
           }
         }
       ]
@@ -101599,13 +102165,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 40,
+          "total": 45,
           "providers": {
             "Amazon": 8,
             "DHL": 9,
             "DPD": 6,
             "PostNL": 11,
-            "VintedGo": 6
+            "VintedGo": 6,
+            "ViaTim": 2,
+            "InPost": 3
           }
         }
       ]
@@ -101888,11 +102456,12 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 4,
+          "total": 5,
           "providers": {
             "DHL": 2,
             "PostNL": 1,
-            "VintedGo": 1
+            "VintedGo": 1,
+            "InPost": 1
           }
         }
       ]
@@ -102197,14 +102766,15 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 29,
           "providers": {
             "Amazon": 3,
             "DHL": 6,
             "DPD": 2,
             "PostNL": 9,
             "VintedGo": 4,
-            "GLS": 4
+            "GLS": 4,
+            "InPost": 1
           }
         }
       ]
@@ -102491,14 +103061,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 43,
+          "total": 46,
           "providers": {
             "Amazon": 2,
             "DHL": 14,
             "DPD": 5,
             "PostNL": 14,
             "VintedGo": 2,
-            "GLS": 6
+            "GLS": 6,
+            "InPost": 1,
+            "Budbee": 2
           }
         }
       ]
@@ -102803,14 +103375,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 39,
+          "total": 42,
           "providers": {
             "Amazon": 4,
-            "DHL": 12,
+            "DHL": 11,
             "DPD": 3,
             "PostNL": 10,
             "VintedGo": 3,
-            "GLS": 7
+            "GLS": 7,
+            "ViaTim": 2,
+            "InPost": 2
           }
         }
       ]
@@ -103123,14 +103697,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 62,
+          "total": 69,
           "providers": {
             "Amazon": 4,
             "DeBuren": 1,
             "DHL": 19,
             "DPD": 8,
             "PostNL": 20,
-            "VintedGo": 10
+            "VintedGo": 10,
+            "ViaTim": 2,
+            "InPost": 2,
+            "Budbee": 3
           }
         }
       ]
@@ -103410,9 +103987,10 @@
           "total": 9,
           "providers": {
             "Amazon": 1,
-            "DHL": 3,
+            "DHL": 2,
             "DPD": 2,
-            "VintedGo": 3
+            "VintedGo": 3,
+            "InPost": 1
           }
         }
       ]
@@ -103707,13 +104285,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 29,
+          "total": 33,
           "providers": {
             "Amazon": 8,
             "DHL": 6,
             "DPD": 2,
             "PostNL": 11,
-            "VintedGo": 2
+            "VintedGo": 2,
+            "ViaTim": 1,
+            "InPost": 2,
+            "Budbee": 1
           }
         }
       ]
@@ -104018,14 +104599,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 25,
+          "total": 30,
           "providers": {
             "Amazon": 3,
             "DHL": 5,
             "DPD": 4,
             "PostNL": 7,
             "VintedGo": 3,
-            "GLS": 3
+            "GLS": 3,
+            "ViaTim": 2,
+            "InPost": 3
           }
         }
       ]
@@ -104348,15 +104931,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 55,
+          "total": 62,
           "providers": {
             "Amazon": 8,
             "DeBuren": 1,
             "DHL": 12,
             "DPD": 8,
             "PostNL": 17,
-            "VintedGo": 5,
-            "GLS": 4
+            "VintedGo": 6,
+            "GLS": 4,
+            "InPost": 5,
+            "Budbee": 1
           }
         }
       ]
@@ -104661,14 +105246,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 24,
+          "total": 28,
           "providers": {
             "Amazon": 1,
             "DHL": 6,
             "DPD": 3,
             "PostNL": 5,
             "VintedGo": 5,
-            "GLS": 4
+            "GLS": 4,
+            "ViaTim": 1,
+            "InPost": 3
           }
         }
       ]
@@ -104963,13 +105550,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 28,
+          "total": 34,
           "providers": {
             "Amazon": 3,
             "DHL": 7,
             "DPD": 5,
             "PostNL": 9,
-            "VintedGo": 4
+            "VintedGo": 4,
+            "ViaTim": 1,
+            "InPost": 3,
+            "Budbee": 2
           }
         }
       ]
@@ -105281,14 +105871,17 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 107,
+          "total": 118,
           "providers": {
             "Amazon": 10,
             "DHL": 25,
             "DPD": 11,
             "PostNL": 33,
             "VintedGo": 11,
-            "GLS": 17
+            "GLS": 17,
+            "ViaTim": 3,
+            "InPost": 6,
+            "Budbee": 2
           }
         }
       ]
@@ -105583,13 +106176,16 @@
           "week_label": "2026-W13",
           "date_from": "2026-03-23",
           "date_to": "2026-03-29",
-          "total": 124,
+          "total": 136,
           "providers": {
             "Amazon": 10,
             "DHL": 39,
             "DPD": 19,
             "PostNL": 40,
-            "VintedGo": 16
+            "VintedGo": 16,
+            "ViaTim": 2,
+            "InPost": 9,
+            "Budbee": 1
           }
         }
       ]
@@ -105736,15 +106332,18 @@
       "weeks": 19
     },
     "change": {
-      "total": 38,
+      "total": 1655,
       "providers": {
-        "VintedGo": 16,
-        "Amazon": 7,
-        "DPD": -9,
-        "DeBuren": 0,
-        "DHL": 10,
         "GLS": -3,
-        "PostNL": 17
+        "PostNL": 17,
+        "Budbee": 281,
+        "DeBuren": 0,
+        "VintedGo": 21,
+        "Amazon": 7,
+        "DHL": 5,
+        "ViaTim": 393,
+        "InPost": 942,
+        "DPD": -8
       }
     }
   }

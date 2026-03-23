@@ -3,15 +3,17 @@
   "metadata": {
     "gemeente": "Westervoort",
     "slug": "westervoort",
-    "generated_at": "2026-03-23T04:52:12.690313Z",
-    "total_points": 22,
+    "generated_at": "2026-03-23T13:32:17.958496Z",
+    "total_points": 24,
     "providers": [
       "Amazon",
       "DHL",
       "DPD",
       "PostNL",
       "VintedGo",
-      "GLS"
+      "GLS",
+      "ViaTim",
+      "InPost"
     ],
     "bounds": [
       5.966443970390418,
@@ -530,6 +532,52 @@
     {
       "type": "Feature",
       "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9763658421605275,
+          51.94314951444715
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Viatim en Westervoort",
+        "straatNaam": "De Rosmolen",
+        "straatNr": "65",
+        "vervoerder": "ViaTim",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.94314951444715,
+        "longitude": 5.9763658421605275,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.97818,
+          51.9589
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "SPORTCENTRE WESTERVOORT",
+        "straatNaam": "HET AMBACHT 28",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.9589,
+        "longitude": 5.97818,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
           [
@@ -595,16 +643,24 @@
                 51.94553776473457
               ],
               [
-                5.974728805592843,
-                51.9456489647639
+                5.974340270648468,
+                51.94553776800253
               ],
               [
-                5.975133119746601,
-                51.94573609238973
+                5.974340301392025,
+                51.945537779182466
               ],
               [
-                5.975331470047396,
-                51.94576574403468
+                5.974728847755195,
+                51.94564897921167
+              ],
+              [
+                5.975133161909165,
+                51.94573610683733
+              ],
+              [
+                5.975331460380505,
+                51.94576575073421
               ],
               [
                 5.975097235328087,
@@ -1006,10 +1062,6 @@
           ],
           [
             [
-              [
-                5.976948029347912,
-                51.953878198604954
-              ],
               [
                 5.97676178459413,
                 51.95363991524792
@@ -1609,6 +1661,10 @@
               [
                 5.976948029347912,
                 51.953878198604954
+              ],
+              [
+                5.97676178459413,
+                51.95363991524792
               ]
             ]
           ],
@@ -2447,10 +2503,6 @@
           [
             [
               [
-                5.978287409745317,
-                51.953527499698744
-              ],
-              [
                 5.978039076329242,
                 51.95320979131264
               ],
@@ -3213,6 +3265,10 @@
               [
                 5.978287409745317,
                 51.953527499698744
+              ],
+              [
+                5.978039076329242,
+                51.95320979131264
               ]
             ]
           ]
