@@ -279,9 +279,10 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
               <section>
                 <h4 className="text-md font-semibold text-gray-900 mb-3">API Provider Policies</h4>
                 <div className="space-y-2 text-sm text-gray-700">
-                  <p><strong>DHL, PostNL, DPD, GLS:</strong> Publieke API's voor consumentengebruik. Respecteer rate limits en gebruiksvoorwaarden.</p>
+                  <p><strong>DHL, PostNL, DPD, GLS, ViaTim, InPost:</strong> Publieke API's voor consumentengebruik. Respecteer rate limits en gebruiksvoorwaarden.</p>
                   <p><strong>VintedGo, De Buren:</strong> Data verzameld via publiek toegankelijke websites. Niet geschikt voor high-frequency scraping.</p>
                   <p><strong>Amazon Hub:</strong> Data verzameld via browser automatisering. Gecached en wekelijks bijgewerkt.</p>
+                  <p><strong>Budbee:</strong> Data samengesteld uit DPD dataset en OpenStreetMap. Gecached en wekelijks bijgewerkt.</p>
                   <p><strong>Algemeen:</strong> Geen geautomatiseerde hoge-frequentie verzoeken. Gebruik cached data waar mogelijk.</p>
                 </div>
               </section>
@@ -300,6 +301,10 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
 - VintedGo / Mondial Relay (https://vintedgo.com)
 - De Buren (https://deburen.nl)
 - Amazon Hub Lockers & Counters (https://www.amazon.nl/ulp)
+- GLS ParcelShop (https://www.gls-info.nl)
+- ViaTim (https://viatim.nl)
+- InPost / Mondial Relay (https://inpost.nl)
+- Budbee / Instabee (https://budbee.com)
 - Gemeente grenzen © OpenStreetMap contributors
 
 Project: Pakketpunten Nederland
