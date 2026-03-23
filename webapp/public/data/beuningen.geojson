@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Beuningen",
     "slug": "beuningen",
-    "generated_at": "2026-03-16T04:44:41.975491Z",
+    "generated_at": "2026-03-23T04:30:02.224914Z",
     "total_points": 23,
     "providers": [
       "Amazon",
@@ -20,29 +20,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.813986168,
-          51.8558438
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Buurtpunt (Spar)",
-        "straatNaam": "Laan 1945 22",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.8558438,
-        "longitude": 5.813986168,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -108,6 +85,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.8697327125745,
         "longitude": 5.7404001476164,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.813986168,
+          51.8558438
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Buurtpunt (Spar)",
+        "straatNaam": "Laan 1945 22",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.8558438,
+        "longitude": 5.813986168,
         "canPickup": true,
         "canDropoff": false
       }

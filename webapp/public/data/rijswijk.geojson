@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Rijswijk",
     "slug": "rijswijk",
-    "generated_at": "2026-03-16T05:01:13.612028Z",
+    "generated_at": "2026-03-23T04:46:10.585020Z",
     "total_points": 64,
     "providers": [
       "Amazon",
@@ -165,6 +165,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.32227335,
+          52.03689981
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Fietsenwacht station Rijswijk (ZH)",
+        "straatNaam": "Generaal Eisenhowerplein 111",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.03689981,
+        "longitude": 4.32227335,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.335890362,
           52.05597943
         ]
@@ -257,8 +280,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3327911,
-          52.0488978
+          4.3326405,
+          52.0488936
         ]
       },
       "properties": {
@@ -269,8 +292,8 @@
         "vervoerder": "Amazon",
         "puntType": "locker",
         "bezettingsgraad": 50,
-        "latitude": 52.0488978,
-        "longitude": 4.3327911,
+        "latitude": 52.0488936,
+        "longitude": 4.3326405,
         "canPickup": true,
         "canDropoff": false
       }
@@ -317,29 +340,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.04865028,
         "longitude": 4.331499287,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.32227335,
-          52.03689981
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Fietsenwacht station Rijswijk (ZH)",
-        "straatNaam": "Generaal Eisenhowerplein 111",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.03689981,
-        "longitude": 4.32227335,
         "canPickup": true,
         "canDropoff": false
       }
@@ -401,7 +401,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Rijswijk | Henri Dunantlaan | BuurtSuper SV",
+        "locatieNaam": "Rijswijk | Henri Dunantlaan | BuurtSuper SV | Pakketautomaat",
         "straatNaam": "Henri Dunantlaan",
         "straatNr": "72",
         "vervoerder": "DeBuren",

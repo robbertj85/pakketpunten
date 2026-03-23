@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Goes",
     "slug": "goes",
-    "generated_at": "2026-03-16T04:50:09.509166Z",
-    "total_points": 59,
+    "generated_at": "2026-03-23T04:35:25.181428Z",
+    "total_points": 60,
     "providers": [
       "Amazon",
       "DHL",
@@ -1121,6 +1121,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.493371,
         "longitude": 3.8944409,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8906834,
+          51.5037302
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Babyspazenn&shopzeeland",
+        "straatNaam": "Langekerkstraat 5",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.5037302,
+        "longitude": 3.8906834,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3706,7 +3729,7 @@
                 51.49050014826479
               ],
               [
-                3.893659726867121,
+                3.8936597268671242,
                 51.490505671067424
               ],
               [
@@ -4584,7 +4607,7 @@
                 51.53269111227215
               ],
               [
-                3.8234569752559477,
+                3.823456975255945,
                 51.53268311303015
               ],
               [

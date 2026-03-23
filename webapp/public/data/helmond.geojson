@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Helmond",
     "slug": "helmond",
-    "generated_at": "2026-03-16T04:52:05.818976Z",
-    "total_points": 76,
+    "generated_at": "2026-03-23T04:37:16.657898Z",
+    "total_points": 77,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -86,6 +86,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.4836205185256,
         "longitude": 5.66345742972347,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.679881227391,
+          51.4809737504553
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "MvK",
+        "straatNaam": "Geysendorfferstraat 5",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.4809737504553,
+        "longitude": 5.679881227391,
         "canPickup": true,
         "canDropoff": false
       }
@@ -193,7 +216,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Helmond | Lagedijk | TinQ  ",
+        "locatieNaam": "Helmond | Lagedijk | TinQ | Pakket-automaat",
         "straatNaam": "Lagedijk ",
         "straatNr": "11",
         "vervoerder": "DeBuren",

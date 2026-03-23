@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Nederweert",
     "slug": "nederweert",
-    "generated_at": "2026-03-16T04:57:23.123179Z",
-    "total_points": 21,
+    "generated_at": "2026-03-23T04:42:28.796734Z",
+    "total_points": 23,
     "providers": [
       "Amazon",
       "DHL",
@@ -102,6 +102,29 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "Janssen diervoeders",
+        "straatNaam": "Kreijel 15",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.28911418,
+        "longitude": 5.770814503,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.770814503,
+          51.28911418
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Janssen diervoeders+",
         "straatNaam": "Kreijel 15",
         "straatNr": "",
         "vervoerder": "Amazon",
@@ -500,6 +523,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.2988625,
         "longitude": 5.78553579,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.749589,
+          51.2781255
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Home Garden Deco",
+        "straatNaam": "Pannenweg",
+        "straatNr": "422",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.2781255,
+        "longitude": 5.749589,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1376,6 +1422,10 @@
           [
             [
               [
+                5.774778892427943,
+                51.288069081076436
+              ],
+              [
                 5.774596429763076,
                 51.28783046005389
               ],
@@ -1630,10 +1680,6 @@
               [
                 5.774778892427943,
                 51.288069081076436
-              ],
-              [
-                5.774596429763076,
-                51.28783046005389
               ]
             ]
           ],
@@ -2944,6 +2990,10 @@
           [
             [
               [
+                5.776100314577704,
+                51.28772068364839
+              ],
+              [
                 5.7758570241272285,
                 51.287402524985794
               ],
@@ -3198,10 +3248,6 @@
               [
                 5.776100314577704,
                 51.28772068364839
-              ],
-              [
-                5.7758570241272285,
-                51.287402524985794
               ]
             ]
           ],

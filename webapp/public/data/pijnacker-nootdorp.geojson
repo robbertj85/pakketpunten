@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Pijnacker-Nootdorp",
     "slug": "pijnacker-nootdorp",
-    "generated_at": "2026-03-16T05:00:14.750576Z",
+    "generated_at": "2026-03-23T04:45:14.434331Z",
     "total_points": 31,
     "providers": [
       "Amazon",
@@ -324,29 +324,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.417785,
-          52.024384
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat HC Pijnacker",
-        "straatNaam": "Sportlaan",
-        "straatNr": "6-HC/75",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.024384,
-        "longitude": 4.417785,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.394906,
           52.0091219
         ]
@@ -361,6 +338,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.0091219,
         "longitude": 4.394906,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.417785,
+          52.024384
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat HC Pijnacker",
+        "straatNaam": "Sportlaan",
+        "straatNr": "6-HC/75",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.024384,
+        "longitude": 4.417785,
         "canPickup": true,
         "canDropoff": true
       }

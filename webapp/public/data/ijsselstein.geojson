@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "IJsselstein",
     "slug": "ijsselstein",
-    "generated_at": "2026-03-16T04:53:33.933576Z",
-    "total_points": 18,
+    "generated_at": "2026-03-23T04:38:43.123161Z",
+    "total_points": 19,
     "providers": [
       "Amazon",
       "DHL",
@@ -430,6 +430,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.0272567,
         "longitude": 5.04735449,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.05795841,
+          52.0158628
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Boerhaaveweg",
+        "straatNr": "31",
+        "vervoerder": "GLS",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 52.0158628,
+        "longitude": 5.05795841,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1798,6 +1821,10 @@
           [
             [
               [
+                5.056347243639484,
+                52.01096137803377
+              ],
+              [
                 5.055931757255575,
                 52.01089591293379
               ],
@@ -2320,10 +2347,6 @@
               [
                 5.056347243639484,
                 52.01096137803377
-              ],
-              [
-                5.055931757255575,
-                52.01089591293379
               ]
             ]
           ]
@@ -3622,6 +3645,10 @@
           [
             [
               [
+                5.056222419624184,
+                52.010015180918046
+              ],
+              [
                 5.055657252850445,
                 52.00996182088875
               ],
@@ -4076,10 +4103,6 @@
               [
                 5.056222419624184,
                 52.010015180918046
-              ],
-              [
-                5.055657252850445,
-                52.00996182088875
               ]
             ]
           ]

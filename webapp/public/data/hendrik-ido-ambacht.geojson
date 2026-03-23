@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Hendrik-Ido-Ambacht",
     "slug": "hendrik-ido-ambacht",
-    "generated_at": "2026-03-16T04:52:10.531682Z",
-    "total_points": 36,
+    "generated_at": "2026-03-23T04:37:21.337210Z",
+    "total_points": 38,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -63,6 +63,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.84584405,
         "longitude": 4.656512047,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.63041008174313,
+          51.8454719684388
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tabakshop Reeweg",
+        "straatNaam": "Reeweg 82",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.8454719684388,
+        "longitude": 4.63041008174313,
         "canPickup": true,
         "canDropoff": false
       }
@@ -147,7 +170,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Hendrik Ido Ambacht | Sophiapromenade | WC Hoogambacht",
+        "locatieNaam": "Hendrik Ido Ambacht | Sophiapromenade | WC Hoogambacht | Pakketautomaat",
         "straatNaam": "Sophiapromenade ",
         "straatNr": "74-A",
         "vervoerder": "DeBuren",
@@ -502,6 +525,29 @@
         "longitude": 4.6304056,
         "canPickup": true,
         "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.63041008174313,
+          51.8454719684388
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tabakshop Reeweg",
+        "straatNaam": "Reeweg",
+        "straatNr": "82",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.8454719684388,
+        "longitude": 4.63041008174313,
+        "canPickup": true,
+        "canDropoff": true
       }
     },
     {
@@ -2257,12 +2303,20 @@
                 51.847974796417496
               ],
               [
-                4.632418277701953,
-                51.847864147277804
+                4.6320323794837,
+                51.84797416529327
               ],
               [
-                4.632488933231353,
-                51.847838532165284
+                4.6320342476730225,
+                51.847973764800535
+              ],
+              [
+                4.632422359616377,
+                51.84786311564733
+              ],
+              [
+                4.632494721268665,
+                51.847836882000394
               ],
               [
                 4.632876439397775,
@@ -4961,12 +5015,20 @@
                 51.84880872219711
               ],
               [
-                4.633089084008507,
-                51.84866118736845
+                4.632573807756406,
+                51.84880809106285
               ],
               [
-                4.633159740411357,
-                51.8486355718564
+                4.632575675975593,
+                51.848807690561564
+              ],
+              [
+                4.633093165980027,
+                51.84866015571479
+              ],
+              [
+                4.633165528526856,
+                51.84863392165873
               ],
               [
                 4.633547251812412,

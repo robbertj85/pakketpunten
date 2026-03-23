@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Arnhem",
     "slug": "arnhem",
-    "generated_at": "2026-03-16T04:43:16.121424Z",
-    "total_points": 156,
+    "generated_at": "2026-03-23T04:28:38.063733Z",
+    "total_points": 158,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -125,6 +125,29 @@
       },
       "properties": {
         "type": "pakketpunt",
+        "locatieNaam": "Primera Rijkerswoerd+",
+        "straatNaam": "Achter de Coulissen 7",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.94184015,
+        "longitude": 5.894297334,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.894297334,
+          51.94184015
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
         "locatieNaam": "Primera Rijkerswoerd",
         "straatNaam": "Achter de Coulissen 7",
         "straatNr": "",
@@ -148,7 +171,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Arnhem | Groningensingel | Rijnpoort - LPL",
+        "locatieNaam": "Arnhem | Groningensingel | Rijnpoort | Pakketautomaat",
         "straatNaam": "Groningensingel",
         "straatNr": "1",
         "vervoerder": "DeBuren",
@@ -171,7 +194,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Arnhem | Beukenlaan | Sportbedrijf",
+        "locatieNaam": "Arnhem | Beukenlaan | Sportbedrijf | Pakketautomaat",
         "straatNaam": "Beukenlaan",
         "straatNr": "15",
         "vervoerder": "DeBuren",
@@ -194,7 +217,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Arnhem | Gildemeestersplein | SSHN",
+        "locatieNaam": "Arnhem | Gildemeestersplein | SSHN | Pakketautomaat",
         "straatNaam": "Gildemeestersplein",
         "straatNr": "1",
         "vervoerder": "DeBuren",
@@ -717,6 +740,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.9079532,
+          51.9669038
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Data S Telecom",
+        "straatNaam": "Middelgraaflaan",
+        "straatNr": "8",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9669038,
+        "longitude": 5.9079532,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.932086993571484,
           51.973897499473054
         ]
@@ -1223,29 +1269,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.913111344180259,
-          51.98444890579386
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat MediaMarkt Arnhem",
-        "straatNaam": "Velperplein",
-        "straatNr": "13-PS/69",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.98444890579386,
-        "longitude": 5.913111344180259,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.9307007,
           52.0051542
         ]
@@ -1421,6 +1444,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.9870884,
         "longitude": 5.9142262,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.913111344180259,
+          51.98444890579386
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat MediaMarkt Arnhem",
+        "straatNaam": "Velperplein",
+        "straatNr": "13-PS/69",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.98444890579386,
+        "longitude": 5.913111344180259,
         "canPickup": true,
         "canDropoff": true
       }
@@ -4310,10 +4356,6 @@
           [
             [
               [
-                5.836679855112602,
-                51.946437576048304
-              ],
-              [
                 5.836390337346448,
                 51.946242610889854
               ],
@@ -4568,6 +4610,10 @@
               [
                 5.836679855112602,
                 51.946437576048304
+              ],
+              [
+                5.836390337346448,
+                51.946242610889854
               ]
             ]
           ],
@@ -5022,10 +5068,6 @@
           [
             [
               [
-                5.851221232769904,
-                51.95194738252873
-              ],
-              [
                 5.850931616365115,
                 51.95175245344827
               ],
@@ -5462,10 +5504,6 @@
                 51.961944875264344
               ],
               [
-                5.86413965087279,
-                51.96193808128639
-              ],
-              [
                 5.864139650872792,
                 51.96193808128639
               ],
@@ -5740,6 +5778,10 @@
               [
                 5.851221232769904,
                 51.95194738252873
+              ],
+              [
+                5.850931616365115,
+                51.95175245344827
               ]
             ]
           ],
@@ -8802,10 +8844,6 @@
           [
             [
               [
-                5.908511057474783,
-                51.99999090797654
-              ],
-              [
                 5.90819134679413,
                 51.99981461559662
               ],
@@ -9094,7 +9132,7 @@
                 52.004680937735486
               ],
               [
-                5.915081485453785,
+                5.9150814854537845,
                 52.00454956156043
               ],
               [
@@ -9220,15 +9258,15 @@
               [
                 5.908511057474783,
                 51.99999090797654
+              ],
+              [
+                5.90819134679413,
+                51.99981461559662
               ]
             ]
           ],
           [
             [
-              [
-                5.9297451895532,
-                51.971288805661
-              ],
               [
                 5.9293428875043555,
                 51.97137980998595
@@ -9560,6 +9598,10 @@
               [
                 5.9297451895532,
                 51.971288805661
+              ],
+              [
+                5.9293428875043555,
+                51.97137980998595
               ]
             ]
           ],
@@ -10402,10 +10444,6 @@
           [
             [
               [
-                5.96984786459458,
-                51.97313518832065
-              ],
-              [
                 5.969557597168096,
                 51.9729405531711
               ],
@@ -11108,6 +11146,10 @@
               [
                 5.96984786459458,
                 51.97313518832065
+              ],
+              [
+                5.969557597168096,
+                51.9729405531711
               ]
             ]
           ],
@@ -13214,7 +13256,7 @@
                 51.94489529685965
               ],
               [
-                5.897533514687937,
+                5.897533514687939,
                 51.944826577928275
               ],
               [
@@ -13702,10 +13744,6 @@
           [
             [
               [
-                5.837798415496683,
-                51.94586307879812
-              ],
-              [
                 5.837412390851891,
                 51.94560312874691
               ],
@@ -13960,6 +13998,10 @@
               [
                 5.837798415496683,
                 51.94586307879812
+              ],
+              [
+                5.837412390851891,
+                51.94560312874691
               ]
             ]
           ],
@@ -14070,7 +14112,7 @@
                 51.94753165586173
               ],
               [
-                5.85839526297354,
+                5.8583952629735405,
                 51.94756565985581
               ],
               [
@@ -14365,10 +14407,6 @@
           ],
           [
             [
-              [
-                5.85233974368045,
-                51.951372747442925
-              ],
               [
                 5.851953587522459,
                 51.95111284549624
@@ -14948,6 +14986,10 @@
               [
                 5.85233974368045,
                 51.951372747442925
+              ],
+              [
+                5.851953587522459,
+                51.95111284549624
               ]
             ]
           ],
@@ -19432,14 +19474,6 @@
           [
             [
               [
-                5.908645474325954,
-                51.998907617961954
-              ],
-              [
-                5.908153101453148,
-                51.99872840948889
-              ],
-              [
                 5.90763464540223,
                 51.99857985083644
               ],
@@ -19802,15 +19836,19 @@
               [
                 5.908645474325954,
                 51.998907617961954
+              ],
+              [
+                5.908153101453148,
+                51.99872840948889
+              ],
+              [
+                5.90763464540223,
+                51.99857985083644
               ]
             ]
           ],
           [
             [
-              [
-                5.970965377972028,
-                51.972559428555535
-              ],
               [
                 5.970578353826954,
                 51.97229991851963
@@ -20346,6 +20384,10 @@
               [
                 5.970965377972028,
                 51.972559428555535
+              ],
+              [
+                5.970578353826954,
+                51.97229991851963
               ]
             ]
           ],
