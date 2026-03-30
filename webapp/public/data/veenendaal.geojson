@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Veenendaal",
     "slug": "veenendaal",
-    "generated_at": "2026-03-23T20:17:53.819084Z",
-    "total_points": 59,
+    "generated_at": "2026-03-30T05:09:38.822113Z",
+    "total_points": 60,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -303,6 +303,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.559243128807297,
+          52.0118120944836
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Praxis Veenendaal",
+        "straatNaam": "Groeneveldselaan",
+        "straatNr": "49-PS/77",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.0118120944836,
+        "longitude": 5.559243128807297,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.541140079498291,
           52.01832580566406
         ]
@@ -395,29 +418,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.556177,
-          52.0260781
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat HEMA Veenendaal",
-        "straatNaam": "Tuinstraat",
-        "straatNr": "85-PS/149",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.0260781,
-        "longitude": 5.556177,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.541298023676141,
           52.03827237230561
         ]
@@ -501,6 +501,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.0277357,
         "longitude": 5.5565752,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.556177,
+          52.0260781
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat HEMA Veenendaal",
+        "straatNaam": "Tuinstraat",
+        "straatNr": "85-PS/149",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.0260781,
+        "longitude": 5.556177,
         "canPickup": true,
         "canDropoff": true
       }
@@ -617,7 +640,7 @@
         "latitude": 52.0272017,
         "longitude": 5.5570812,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -640,7 +663,7 @@
         "latitude": 52.0454592,
         "longitude": 5.5648575,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -663,7 +686,7 @@
         "latitude": 52.010517,
         "longitude": 5.557957,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -677,7 +700,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - Gulf Gi",
+        "locatieNaam": "Pakketautomaat - De Buren - Tinq Gi",
         "straatNaam": "GILDETROM",
         "straatNr": "2",
         "vervoerder": "DPD",
@@ -686,7 +709,7 @@
         "latitude": 52.0380041,
         "longitude": 5.5414031,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -709,7 +732,7 @@
         "latitude": 52.0260684,
         "longitude": 5.5562135,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -732,7 +755,7 @@
         "latitude": 52.0391276,
         "longitude": 5.5453305,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -755,7 +778,7 @@
         "latitude": 52.0067558,
         "longitude": 5.5753548,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -778,7 +801,7 @@
         "latitude": 52.0354612,
         "longitude": 5.5524791,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -1322,7 +1345,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "WOUTERRECLAME",
-        "straatNaam": "Kazemat 10",
+        "straatNaam": "KAZEMAT 10",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -1659,24 +1682,28 @@
                 52.01316667204977
               ],
               [
-                5.555684489928925,
-                52.01332381002452
+                5.555574957523152,
+                52.01327392689933
               ],
               [
-                5.5560528307282295,
-                52.01345932173078
+                5.5556154694652475,
+                52.01331541469259
               ],
               [
-                5.556440925698213,
-                52.01357190191676
+                5.555871729428053,
+                52.01352758934174
               ],
               [
-                5.5566736350632215,
-                52.013622902306665
+                5.556160461545334,
+                52.013723242701595
               ],
               [
-                5.55663451709532,
-                52.013788284493344
+                5.5564788852377855,
+                52.01390049029676
+              ],
+              [
+                5.556621098607174,
+                52.01396525430829
               ],
               [
                 5.556614474860658,
@@ -4315,7 +4342,7 @@
                 52.03748360210615
               ],
               [
-                5.537108901177856,
+                5.537108901177855,
                 52.037501159433155
               ],
               [
@@ -5695,12 +5722,20 @@
                 52.013862779291706
               ],
               [
-                5.554878031266138,
-                52.014072299944445
+                5.554516025867306,
+                52.013907433983796
               ],
               [
-                5.5551681940066455,
-                52.014179051190624
+                5.5547478716394565,
+                52.01409939812197
+              ],
+              [
+                5.555132846733988,
+                52.01436027276399
+              ],
+              [
+                5.555185759949743,
+                52.014389726987844
               ],
               [
                 5.555187204816148,

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Krimpen aan den IJssel",
     "slug": "krimpen-aan-den-ijssel",
-    "generated_at": "2026-03-23T20:07:03.052977Z",
+    "generated_at": "2026-03-30T04:59:02.602941Z",
     "total_points": 27,
     "providers": [
       "Amazon",
@@ -141,6 +141,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.5837061,
+          51.9164527
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Dierentotaalzaak Ons Schuurtje",
+        "straatNaam": "Noorderstraat",
+        "straatNr": "23-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9164527,
+        "longitude": 4.5837061,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.6178717,
           51.9147458
         ]
@@ -256,29 +279,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.5837061,
-          51.9164527
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Dierentotaalzaak Ons Schuurtje",
-        "straatNaam": "Noorderstraat",
-        "straatNr": "23-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9164527,
-        "longitude": 4.5837061,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.5788567,
           51.9092118
         ]
@@ -294,7 +294,7 @@
         "latitude": 51.9092118,
         "longitude": 4.5788567,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -317,7 +317,7 @@
         "latitude": 51.92213208,
         "longitude": 4.6107385,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -340,7 +340,7 @@
         "latitude": 51.915646,
         "longitude": 4.5890819,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -363,7 +363,7 @@
         "latitude": 51.9155363,
         "longitude": 4.6015861,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {

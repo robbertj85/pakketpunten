@@ -3,10 +3,9 @@
   "metadata": {
     "gemeente": "Laarbeek",
     "slug": "laarbeek",
-    "generated_at": "2026-03-23T20:07:12.515120Z",
-    "total_points": 20,
+    "generated_at": "2026-03-30T04:59:11.973820Z",
+    "total_points": 19,
     "providers": [
-      "Amazon",
       "DHL",
       "DPD",
       "PostNL",
@@ -21,29 +20,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.64818567713509,
-          51.5067116520417
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Foamworld",
-        "straatNaam": "De Duivenakker 1 A",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.5067116520417,
-        "longitude": 5.64818567713509,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -179,7 +155,7 @@
         "latitude": 51.5276222229,
         "longitude": 5.6434192658,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -202,7 +178,7 @@
         "latitude": 51.5210609436,
         "longitude": 5.5938196182,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -225,7 +201,7 @@
         "latitude": 51.538153,
         "longitude": 5.6288332,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -470,7 +446,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "KRINGLOOP SAM SAM",
-        "straatNaam": "Willemstraat 7f",
+        "straatNaam": "WILLEMSTRAAT 7F",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -785,14 +761,6 @@
           [
             [
               [
-                5.6290135025928265,
-                51.5354090080274
-              ],
-              [
-                5.628593568814573,
-                51.53537104755813
-              ],
-              [
                 5.628169691376445,
                 51.535358938353525
               ],
@@ -1103,6 +1071,14 @@
               [
                 5.6290135025928265,
                 51.5354090080274
+              ],
+              [
+                5.628593568814573,
+                51.53537104755813
+              ],
+              [
+                5.628169691376445,
+                51.535358938353525
               ]
             ]
           ],
@@ -2789,14 +2765,6 @@
           [
             [
               [
-                5.629289981394999,
-                51.53452684141828
-              ],
-              [
-                5.62873008041164,
-                51.53447622843854
-              ],
-              [
                 5.628164921626082,
                 51.534460083142854
               ],
@@ -3095,6 +3063,14 @@
               [
                 5.629289981394999,
                 51.53452684141828
+              ],
+              [
+                5.62873008041164,
+                51.53447622843854
+              ],
+              [
+                5.628164921626082,
+                51.534460083142854
               ]
             ]
           ],

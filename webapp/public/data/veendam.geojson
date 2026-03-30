@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Veendam",
     "slug": "veendam",
-    "generated_at": "2026-03-23T20:17:49.219475Z",
-    "total_points": 35,
+    "generated_at": "2026-03-30T05:09:34.329789Z",
+    "total_points": 36,
     "providers": [
       "Amazon",
       "DHL",
@@ -41,6 +41,29 @@
         "bezettingsgraad": 50,
         "latitude": 53.09998128,
         "longitude": 6.884839714,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.876560373,
+          53.10673509
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera",
+        "straatNaam": "Winkler Prins Passage 7 -9",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.10673509,
+        "longitude": 6.876560373,
         "canPickup": true,
         "canDropoff": false
       }
@@ -318,7 +341,7 @@
         "latitude": 53.10522,
         "longitude": 6.87754,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -341,7 +364,7 @@
         "latitude": 53.0958146,
         "longitude": 6.8594937,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -364,7 +387,7 @@
         "latitude": 53.1058019,
         "longitude": 6.8764129,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -770,7 +793,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "EP:ROSIES",
-        "straatNaam": "Kerkstraat 25",
+        "straatNaam": "KERKSTRAAT 25",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -793,7 +816,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "DA DROGISTERIJ VEENDAM",
-        "straatNaam": "De Reede 11",
+        "straatNaam": "DE REEDE 11",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -2255,7 +2278,7 @@
                 53.102864498170085
               ],
               [
-                6.8797682171436465,
+                6.879768217143648,
                 53.1028635340196
               ],
               [
@@ -2530,10 +2553,6 @@
           ],
           [
             [
-              [
-                6.908745037657278,
-                53.08886678529029
-              ],
               [
                 6.908386665351809,
                 53.088713721716495
@@ -2813,6 +2832,10 @@
               [
                 6.908745037657278,
                 53.08886678529029
+              ],
+              [
+                6.908386665351809,
+                53.088713721716495
               ]
             ]
           ],
@@ -3971,7 +3994,7 @@
                 53.1020159361338
               ],
               [
-                6.874178322366879,
+                6.874178322366878,
                 53.102128652215804
               ],
               [
@@ -4639,7 +4662,7 @@
                 53.09638793331543
               ],
               [
-                6.884493472826734,
+                6.884493472826735,
                 53.09639729220243
               ],
               [
@@ -5007,10 +5030,6 @@
           [
             [
               [
-                6.909667289173381,
-                53.08816033126674
-              ],
-              [
                 6.909189463505871,
                 53.0879562498823
               ],
@@ -5289,6 +5308,10 @@
               [
                 6.909667289173381,
                 53.08816033126674
+              ],
+              [
+                6.909189463505871,
+                53.0879562498823
               ]
             ]
           ]

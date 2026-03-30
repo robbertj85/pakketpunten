@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "West Maas en Waal",
     "slug": "west-maas-en-waal",
-    "generated_at": "2026-03-23T20:19:48.066432Z",
-    "total_points": 19,
+    "generated_at": "2026-03-30T05:11:30.596309Z",
+    "total_points": 21,
     "providers": [
       "Amazon",
       "DHL",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.51446448445775,
+          51.8827878382382
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "HengelsportLauwe",
+        "straatNaam": "Dorpsplein 40",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.8827878382382,
+        "longitude": 5.51446448445775,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -179,7 +202,7 @@
         "latitude": 51.8203725,
         "longitude": 5.5326343,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -202,7 +225,7 @@
         "latitude": 51.8473192,
         "longitude": 5.4335846,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -225,7 +248,7 @@
         "latitude": 51.879905,
         "longitude": 5.522601,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -270,6 +293,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.88076594,
         "longitude": 5.522083533,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.51446448445775,
+          51.8827878382382
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "HengelsportLauwe",
+        "straatNaam": "Dorpsplein",
+        "straatNr": "40",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.8827878382382,
+        "longitude": 5.51446448445775,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1958,16 +2004,16 @@
                 51.88077087259082
               ],
               [
-                5.517748283112531,
-                51.881035150818
+                5.517746918470158,
+                51.881018568053584
               ],
               [
-                5.517766401074549,
-                51.88110981645681
+                5.517539957582468,
+                51.88087775782378
               ],
               [
-                5.517580470219503,
-                51.88098331483928
+                5.5175366726737884,
+                51.88087592187823
               ],
               [
                 5.517527201374913,

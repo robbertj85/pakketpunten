@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Rheden",
     "slug": "rheden",
-    "generated_at": "2026-03-23T20:13:37.660883Z",
+    "generated_at": "2026-03-30T05:05:33.207778Z",
     "total_points": 33,
     "providers": [
       "Amazon",
@@ -13,7 +13,8 @@
       "VintedGo",
       "GLS",
       "ViaTim",
-      "InPost"
+      "InPost",
+      "Budbee"
     ],
     "bounds": [
       5.9639045,
@@ -281,22 +282,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.1010128,
-          52.0506952
+          6.10029,
+          52.05099
         ]
       },
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "Natuurwinkel de Veluwe",
-        "straatNaam": "CALLUNAPLEIN",
-        "straatNr": "69",
+        "straatNaam": "DIDERNA",
+        "straatNr": "6",
         "vervoerder": "DPD",
         "puntType": "pickup_point",
         "bezettingsgraad": 50,
-        "latitude": 52.0506952,
-        "longitude": 6.1010128,
+        "latitude": 52.05099,
+        "longitude": 6.10029,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -319,7 +320,7 @@
         "latitude": 52.0485834,
         "longitude": 6.1028128,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -342,7 +343,7 @@
         "latitude": 52.0518063,
         "longitude": 6.1065025,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -365,7 +366,7 @@
         "latitude": 51.9971284,
         "longitude": 5.9793264,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -741,20 +742,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.10038,
-          52.05102
+          5.97904,
+          51.99728
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "G&W GEZONDHEIDSWINKEL DIEREN",
-        "straatNaam": "DIDERNA 6",
+        "locatieNaam": "HET AARDAPPELPAKHUIS",
+        "straatNaam": "NIEUW SCHOONOORD 1",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
         "bezettingsgraad": 50,
-        "latitude": 52.05102,
-        "longitude": 6.10038,
+        "latitude": 51.99728,
+        "longitude": 5.97904,
         "canPickup": true,
         "canDropoff": true
       }
@@ -764,20 +765,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.97904,
-          51.99728
+          6.1018568,
+          52.0504929
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "HET AARDAPPELPAKHUIS",
-        "straatNaam": "Nieuw Schoonoord 1",
+        "locatieNaam": "Budbee",
+        "straatNaam": "",
         "straatNr": "",
-        "vervoerder": "InPost",
-        "puntType": "servicepunt",
+        "vervoerder": "Budbee",
+        "puntType": "automaat",
         "bezettingsgraad": 50,
-        "latitude": 51.99728,
-        "longitude": 5.97904,
+        "latitude": 52.0504929,
+        "longitude": 6.1018568,
         "canPickup": true,
         "canDropoff": true
       }
@@ -2890,44 +2891,40 @@
                 52.049124503582235
               ],
               [
-                6.096835140348861,
-                52.04938661736369
+                6.096848079141864,
+                52.049328960053266
               ],
               [
-                6.096831114758322,
-                52.04944972086133
+                6.096629994206086,
+                52.04951401174261
               ],
               [
-                6.096719988794482,
-                52.04954401455643
+                6.096412958004826,
+                52.04974229436503
               ],
               [
-                6.096502952908226,
-                52.049772297343075
+                6.09623325675502,
+                52.049982593388506
               ],
               [
-                6.09632325202251,
-                52.0500125965021
+                6.096092621562463,
+                52.05023259477426
               ],
               [
-                6.096182617239627,
-                52.05026259799344
+                6.095992407406203,
+                52.05048989101223
               ],
               [
-                6.096082403534678,
-                52.05051989430594
+                6.095933580066859,
+                52.050752004301096
               ],
               [
-                6.096023576683938,
-                52.0507820076377
+                6.095916706800154,
+                52.051016410407186
               ],
               [
-                6.096012705943883,
-                52.050952359048466
-              ],
-              [
-                6.095951348299052,
-                52.0511098896714
+                6.095933317693307,
+                52.05119022640754
               ],
               [
                 6.095907910381533,
@@ -5262,12 +5259,16 @@
                 52.048957775236474
               ],
               [
-                6.095421898702708,
-                52.04913417902055
+                6.095455790144352,
+                52.048983173885674
               ],
               [
-                6.095229096754929,
-                52.04933696573651
+                6.09541004503158,
+                52.04902198889788
+              ],
+              [
+                6.095162305813501,
+                52.04928255812017
               ],
               [
                 6.094984660543708,

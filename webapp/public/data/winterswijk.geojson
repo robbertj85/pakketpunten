@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Winterswijk",
     "slug": "winterswijk",
-    "generated_at": "2026-03-23T20:20:40.888124Z",
-    "total_points": 32,
+    "generated_at": "2026-03-30T05:12:21.452342Z",
+    "total_points": 33,
     "providers": [
       "Amazon",
       "DHL",
@@ -340,7 +340,7 @@
         "latitude": 51.967495,
         "longitude": 6.722832,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -730,6 +730,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.9637336,
         "longitude": 6.7156867,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.71474,
+          51.97004
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "SUPERMARKT TAIM",
+        "straatNaam": "MISTERSTRAAT 87",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.97004,
+        "longitude": 6.71474,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1397,7 +1420,7 @@
                 51.97491316357635
               ],
               [
-                6.708412198963408,
+                6.708412198963406,
                 51.97485411303554
               ],
               [
@@ -2269,10 +2292,6 @@
           [
             [
               [
-                6.733490596813932,
-                51.973606177347435
-              ],
-              [
                 6.7332635633123346,
                 51.97338177918486
               ],
@@ -2527,6 +2546,10 @@
               [
                 6.733490596813932,
                 51.973606177347435
+              ],
+              [
+                6.7332635633123346,
+                51.97338177918486
               ]
             ]
           ]

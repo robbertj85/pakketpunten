@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Nederweert",
     "slug": "nederweert",
-    "generated_at": "2026-03-23T20:10:15.198465Z",
+    "generated_at": "2026-03-30T05:02:11.969912Z",
     "total_points": 24,
     "providers": [
       "Amazon",
@@ -22,6 +22,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.748637549,
+          51.28546382
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bruna",
+        "straatNaam": "Lambertushof 30",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.28546382,
+        "longitude": 5.748637549,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -64,29 +87,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.28489736,
         "longitude": 5.74869041,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.748637549,
-          51.28546382
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Bruna",
-        "straatNaam": "Lambertushof 30",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 51.28546382,
-        "longitude": 5.748637549,
         "canPickup": true,
         "canDropoff": false
       }
@@ -272,7 +272,7 @@
         "latitude": 51.283015,
         "longitude": 5.753729,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -295,7 +295,7 @@
         "latitude": 51.278119,
         "longitude": 5.749753,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -563,7 +563,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "PETS&CO NEDERWEERT",
-        "straatNaam": "Geenestraat 8",
+        "straatNaam": "GEENESTRAAT 8",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",

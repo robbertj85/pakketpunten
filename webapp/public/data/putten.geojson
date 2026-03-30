@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Putten",
     "slug": "putten",
-    "generated_at": "2026-03-23T20:13:10.034433Z",
-    "total_points": 31,
+    "generated_at": "2026-03-30T05:05:05.669075Z",
+    "total_points": 33,
     "providers": [
       "Amazon",
       "DHL",
@@ -22,6 +22,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.60755615734686,
+          52.2600141539199
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Dee Putten",
+        "straatNaam": "Kerkstraat 6",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.2600141539199,
+        "longitude": 5.60755615734686,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -318,7 +341,7 @@
         "latitude": 52.260334,
         "longitude": 5.604413,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -341,7 +364,7 @@
         "latitude": 52.2214585,
         "longitude": 5.6078105,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -364,7 +387,7 @@
         "latitude": 52.2547815,
         "longitude": 5.6168696,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -387,7 +410,7 @@
         "latitude": 52.2689344,
         "longitude": 5.5348256,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -410,7 +433,7 @@
         "latitude": 52.2634462,
         "longitude": 5.5819308,
         "canPickup": true,
-        "canDropoff": false
+        "canDropoff": true
       }
     },
     {
@@ -501,6 +524,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.26054891,
         "longitude": 5.605142015,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.60755615734686,
+          52.2600141539199
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Dee Putten",
+        "straatNaam": "Kerkstraat",
+        "straatNr": "6",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.2600141539199,
+        "longitude": 5.60755615734686,
         "canPickup": true,
         "canDropoff": true
       }
@@ -701,7 +747,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "CREATIEF PUTTEN",
-        "straatNaam": "Molenstraat 18",
+        "straatNaam": "MOLENSTRAAT 18",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -724,7 +770,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "DE PITSTOP",
-        "straatNaam": "Jan Nijenhuisstraat 10",
+        "straatNaam": "JAN NIJENHUISSTRAAT 10",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -2763,10 +2809,6 @@
           [
             [
               [
-                5.621526220178502,
-                52.27169457757854
-              ],
-              [
                 5.621303278352026,
                 52.27146806004468
               ],
@@ -3037,6 +3079,10 @@
               [
                 5.621526220178502,
                 52.27169457757854
+              ],
+              [
+                5.621303278352026,
+                52.27146806004468
               ]
             ]
           ]
@@ -4691,10 +4737,6 @@
           [
             [
               [
-                5.622816054776062,
-                52.27126833055134
-              ],
-              [
                 5.6225187936120085,
                 52.27096631030067
               ],
@@ -4965,6 +5007,10 @@
               [
                 5.622816054776062,
                 52.27126833055134
+              ],
+              [
+                5.6225187936120085,
+                52.27096631030067
               ]
             ]
           ]
