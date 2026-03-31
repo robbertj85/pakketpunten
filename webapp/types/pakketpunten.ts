@@ -54,6 +54,7 @@ export interface Filters {
   showBuffer300: boolean;
   showBuffer400: boolean;
   showBufferFill: boolean;
+  bufferMerged: boolean;
   showBoundary: boolean;
   useSimpleMarkers: boolean;
   minOccupancy: number;

@@ -28,6 +28,7 @@ function EmbedContent() {
     showBuffer300: false,
     showBuffer400: false,
     showBufferFill: false,
+    bufferMerged: false,
     showBoundary: false,
     useSimpleMarkers: gemeente === 'nederland',
     minOccupancy: 0,

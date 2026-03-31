@@ -323,6 +323,21 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
           <label className="flex items-center space-x-2 cursor-pointer py-1.5 md:py-0.5 -mx-1 px-1 rounded hover:bg-gray-50 active:bg-gray-100 transition">
             <input
               type="checkbox"
+              checked={filters.bufferMerged}
+              onChange={(e) => onChange({ ...filters, bufferMerged: e.target.checked })}
+              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <span className="text-sm text-gray-900">Samengevoegde buffers</span>
+            <span className="relative group/tip">
+              <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] font-medium text-gray-400 bg-gray-100 rounded-full cursor-help">i</span>
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover/tip:block w-48 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow-lg text-center pointer-events-none z-50">
+                Buffers worden realtime berekend. Bij veel punten kan dit even duren.
+              </span>
+            </span>
+          </label>
+          <label className="flex items-center space-x-2 cursor-pointer py-1.5 md:py-0.5 -mx-1 px-1 rounded hover:bg-gray-50 active:bg-gray-100 transition">
+            <input
+              type="checkbox"
               checked={filters.showBoundary}
               onChange={(e) => onChange({ ...filters, showBoundary: e.target.checked })}
               disabled={boundariesLoading}
@@ -360,6 +375,7 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
             showBuffer300: true,
             showBuffer400: true,
             showBufferFill: false,
+            bufferMerged: false,
             showBoundary: false,
             useSimpleMarkers: false,
             minOccupancy: 0,

@@ -22,10 +22,13 @@
 'use client';
 
 import { useEffect, useState, useMemo, useRef } from 'react';
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, CircleMarker, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap, CircleMarker, Circle, Polyline } from 'react-leaflet';
 import type { LatLngBoundsExpression } from 'leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import buffer from '@turf/buffer';
+import union from '@turf/union';
+import { featureCollection, point } from '@turf/helpers';
 import { PakketpuntData, PakketpuntFeature, Filters, PakketpuntProperties, getPointCategory } from '@/types/pakketpunten';
 
 interface MapProps {
@@ -583,6 +586,7 @@ function MapComponent(props?: MapProps) {
     showBuffer300: true,
     showBuffer400: true,
     showBufferFill: false,
+    bufferMerged: false,
     showBoundary: false,
     useSimpleMarkers: false,
     minOccupancy: 0,
@@ -639,12 +643,9 @@ function MapComponent(props?: MapProps) {
       return true;
     }
 
-    // Buffer filters
-    if (feature.properties.type === 'buffer_union_300m') {
-      return activeFilters.showBuffer300;
-    }
-    if (feature.properties.type === 'buffer_union_400m') {
-      return activeFilters.showBuffer400;
+    // Skip pre-computed buffer unions (buffers are now rendered dynamically per point)
+    if (feature.properties.type === 'buffer_union_300m' || feature.properties.type === 'buffer_union_400m') {
+      return false;
     }
 
     // Boundary filter
@@ -686,14 +687,57 @@ function MapComponent(props?: MapProps) {
 
     return sharedPoints;
   }, [filteredFeatures, activeFilters.showOnlySharedLocations]);
-  const buffers = useMemo(() =>
-    filteredFeatures.filter(f => f.properties.type === 'buffer_union_300m' || f.properties.type === 'buffer_union_400m'),
-    [filteredFeatures]
-  );
   const boundaries = useMemo(() =>
     filteredFeatures.filter(f => f.properties.type === 'boundary'),
     [filteredFeatures]
   );
+
+  // Pairwise merge: union polygons in pairs recursively (O(n log n) complexity growth vs O(n²) sequential)
+  const pairwiseUnion = (features: any[]): any => {
+    if (features.length === 0) return null;
+    if (features.length === 1) return features[0];
+    const next: any[] = [];
+    for (let i = 0; i < features.length; i += 2) {
+      if (i + 1 < features.length) {
+        const result = union(featureCollection([features[i], features[i + 1]]));
+        next.push(result ?? features[i]);
+      } else {
+        next.push(features[i]);
+      }
+    }
+    return pairwiseUnion(next);
+  };
+
+  // Compute merged buffer union polygons from filtered points using Turf.js
+  const mergedBuffer300 = useMemo(() => {
+    if (!activeFilters.bufferMerged || !activeFilters.showBuffer300 || points.length === 0 || points.length > 3000) return null;
+    try {
+      const pts = featureCollection(
+        points.map(f => {
+          const coords = f.geometry.coordinates as [number, number];
+          return point(coords);
+        })
+      );
+      const buffered = buffer(pts, 0.3, { units: 'kilometers', steps: 8 });
+      if (!buffered || buffered.features.length === 0) return null;
+      return pairwiseUnion(buffered.features);
+    } catch { return null; }
+  }, [points, activeFilters.bufferMerged, activeFilters.showBuffer300]);
+
+  const mergedBuffer400 = useMemo(() => {
+    if (!activeFilters.bufferMerged || !activeFilters.showBuffer400 || points.length === 0 || points.length > 3000) return null;
+    try {
+      const pts = featureCollection(
+        points.map(f => {
+          const coords = f.geometry.coordinates as [number, number];
+          return point(coords);
+        })
+      );
+      const buffered = buffer(pts, 0.4, { units: 'kilometers', steps: 8 });
+      if (!buffered || buffered.features.length === 0) return null;
+      return pairwiseUnion(buffered.features);
+    } catch { return null; }
+  }, [points, activeFilters.bufferMerged, activeFilters.showBuffer400]);
 
   // Group markers by exact coordinates and spread them at high zoom (manual spiderfy)
   const spreadPoints = useMemo(
@@ -1024,32 +1068,77 @@ function MapComponent(props?: MapProps) {
       <ZoomWatcher onZoomChange={setCurrentZoom} />
       <ScaleControl />
 
-      {/* Render buffer zones - sort so 400m renders first (bottom), 300m on top */}
-      {[...buffers]
-        .sort((a, b) => {
-          // Sort so 400m comes first (will be drawn first, on bottom)
-          if (a.properties.type === 'buffer_union_400m') return -1;
-          if (b.properties.type === 'buffer_union_400m') return 1;
-          return 0;
-        })
-        .map((feature, idx) => {
-          const is300m = feature.properties.type === 'buffer_union_300m';
-          const fillOpacity = activeFilters.showBufferFill ? (is300m ? 0.25 : 0.30) : 0;
-          return (
-            <GeoJSON
-              key={`buffer-${data?.metadata?.slug}-${feature.properties.type}`}
-              data={feature as any}
-              style={() => ({
-                color: is300m ? '#2563eb' : '#60a5fa',  // 300m: darker blue, 500m: lighter blue
-                fillColor: is300m ? '#3b82f6' : '#93c5fd',
-                weight: is300m ? 2 : 3,  // 500m has thicker line for more visibility
-                fillOpacity: fillOpacity,  // Fill only when enabled
-                opacity: 1,  // Full opacity for border lines
-                dashArray: undefined,  // Both solid lines
-              })}
-            />
-          );
-        })}
+      {/* Render buffer zones - merged union polygons or individual circles */}
+      {/* 400m buffers rendered first (underneath) */}
+      {activeFilters.showBuffer400 && markerCount <= 3000 && (
+        activeFilters.bufferMerged && mergedBuffer400 ? (
+          <GeoJSON
+            key={`buffer400-merged-${data?.metadata?.slug}-${points.length}`}
+            data={mergedBuffer400 as any}
+            style={() => ({
+              color: '#60a5fa',
+              fillColor: '#93c5fd',
+              weight: 3,
+              fillOpacity: activeFilters.showBufferFill ? 0.30 : 0,
+              opacity: 1,
+            })}
+          />
+        ) : !activeFilters.bufferMerged ? (
+          <>{points.map((feature, idx) => {
+            const coords = feature.geometry.coordinates as [number, number];
+            return (
+              <Circle
+                key={`buffer400-${idx}`}
+                center={[coords[1], coords[0]]}
+                radius={400}
+                pathOptions={{
+                  color: '#60a5fa',
+                  fillColor: '#93c5fd',
+                  weight: 3,
+                  fillOpacity: activeFilters.showBufferFill ? 0.10 : 0,
+                  opacity: 1,
+                }}
+                interactive={false}
+              />
+            );
+          })}</>
+        ) : null
+      )}
+      {/* 300m buffers rendered on top */}
+      {activeFilters.showBuffer300 && markerCount <= 3000 && (
+        activeFilters.bufferMerged && mergedBuffer300 ? (
+          <GeoJSON
+            key={`buffer300-merged-${data?.metadata?.slug}-${points.length}`}
+            data={mergedBuffer300 as any}
+            style={() => ({
+              color: '#2563eb',
+              fillColor: '#3b82f6',
+              weight: 2,
+              fillOpacity: activeFilters.showBufferFill ? 0.25 : 0,
+              opacity: 1,
+            })}
+          />
+        ) : !activeFilters.bufferMerged ? (
+          <>{points.map((feature, idx) => {
+            const coords = feature.geometry.coordinates as [number, number];
+            return (
+              <Circle
+                key={`buffer300-${idx}`}
+                center={[coords[1], coords[0]]}
+                radius={300}
+                pathOptions={{
+                  color: '#2563eb',
+                  fillColor: '#3b82f6',
+                  weight: 2,
+                  fillOpacity: activeFilters.showBufferFill ? 0.08 : 0,
+                  opacity: 1,
+                }}
+                interactive={false}
+              />
+            );
+          })}</>
+        ) : null
+      )}
 
       {/* Render municipal boundaries */}
       {boundaries.map((feature, idx) => (
