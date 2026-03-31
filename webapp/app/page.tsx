@@ -711,7 +711,7 @@ export default function Home() {
           />
 
           {/* Loading overlay on map */}
-          {loading && (
+          {loading && data && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/60 pointer-events-none">
               <div className="flex flex-col items-center gap-2">
                 <svg className="animate-spin h-10 w-10 text-blue-600" fill="none" viewBox="0 0 24 24">
