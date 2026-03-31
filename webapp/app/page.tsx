@@ -693,6 +693,7 @@ export default function Home() {
                 sharedLocationCount={sharedLocationCount}
                 boundariesLoading={boundariesLoading}
                 boundaryLoadProgress={boundaryLoadProgress}
+                totalPoints={data.metadata.total_points}
               />
             </>
           )}

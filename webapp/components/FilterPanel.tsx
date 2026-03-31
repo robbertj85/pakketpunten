@@ -13,6 +13,7 @@ interface FilterPanelProps {
   sharedLocationCount?: number;
   boundariesLoading?: boolean;
   boundaryLoadProgress?: BoundaryLoadProgress | null;
+  totalPoints?: number;
 }
 
 const PROVIDER_INFO = {
@@ -89,7 +90,8 @@ function DropoffIcon({ className }: { className?: string }) {
   );
 }
 
-export default function FilterPanel({ filters, onChange, availableProviders, providerCounts, categoryCounts, serviceCounts, sharedLocationCount, boundariesLoading, boundaryLoadProgress }: FilterPanelProps) {
+export default function FilterPanel({ filters, onChange, availableProviders, providerCounts, categoryCounts, serviceCounts, sharedLocationCount, boundariesLoading, boundaryLoadProgress, totalPoints }: FilterPanelProps) {
+  const buffersDisabled = (totalPoints ?? 0) > 3000;
   const toggleProvider = (provider: string) => {
     const newProviders = filters.providers.includes(provider)
       ? filters.providers.filter((p) => p !== provider)
@@ -293,39 +295,43 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
       <div>
         <label className="block text-sm font-medium text-gray-900 mb-2">Dekkingsgebieden</label>
         <div className="space-y-1 md:space-y-2">
-          <label className="flex items-center space-x-2 cursor-pointer py-1.5 md:py-0.5 -mx-1 px-1 rounded hover:bg-gray-50 active:bg-gray-100 transition">
+          <label className={`flex items-center space-x-2 py-1.5 md:py-0.5 -mx-1 px-1 rounded transition ${buffersDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50 active:bg-gray-100'}`}>
             <input
               type="checkbox"
               checked={filters.showBuffer300}
               onChange={(e) => onChange({ ...filters, showBuffer300: e.target.checked })}
-              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              disabled={buffersDisabled}
+              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
             />
             <span className="text-sm text-gray-900">300m buffer lijn</span>
           </label>
-          <label className="flex items-center space-x-2 cursor-pointer py-1.5 md:py-0.5 -mx-1 px-1 rounded hover:bg-gray-50 active:bg-gray-100 transition">
+          <label className={`flex items-center space-x-2 py-1.5 md:py-0.5 -mx-1 px-1 rounded transition ${buffersDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50 active:bg-gray-100'}`}>
             <input
               type="checkbox"
               checked={filters.showBuffer400}
               onChange={(e) => onChange({ ...filters, showBuffer400: e.target.checked })}
-              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              disabled={buffersDisabled}
+              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
             />
             <span className="text-sm text-gray-900">400m buffer lijn</span>
           </label>
-          <label className="flex items-center space-x-2 cursor-pointer py-1.5 md:py-0.5 -mx-1 px-1 rounded hover:bg-gray-50 active:bg-gray-100 transition">
+          <label className={`flex items-center space-x-2 py-1.5 md:py-0.5 -mx-1 px-1 rounded transition ${buffersDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50 active:bg-gray-100'}`}>
             <input
               type="checkbox"
               checked={filters.showBufferFill}
               onChange={(e) => onChange({ ...filters, showBufferFill: e.target.checked })}
-              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              disabled={buffersDisabled}
+              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
             />
             <span className="text-sm text-gray-900">Buffer opvulling</span>
           </label>
-          <label className="flex items-center space-x-2 cursor-pointer py-1.5 md:py-0.5 -mx-1 px-1 rounded hover:bg-gray-50 active:bg-gray-100 transition">
+          <label className={`flex items-center space-x-2 py-1.5 md:py-0.5 -mx-1 px-1 rounded transition ${buffersDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50 active:bg-gray-100'}`}>
             <input
               type="checkbox"
               checked={filters.bufferMerged}
               onChange={(e) => onChange({ ...filters, bufferMerged: e.target.checked })}
-              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              disabled={buffersDisabled}
+              className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
             />
             <span className="text-sm text-gray-900">Samengevoegde buffers</span>
             <span className="relative group/tip">
