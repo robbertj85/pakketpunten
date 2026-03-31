@@ -337,7 +337,7 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
             <span className="relative group/tip">
               <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] font-medium text-gray-400 bg-gray-100 rounded-full cursor-help">i</span>
               <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover/tip:block w-48 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow-lg text-center pointer-events-none z-50">
-                Buffers worden realtime berekend. Bij veel pakketpunten kan dit even duren.
+                Als het laden van pakketpunten traag is, schakel deze instelling uit.
               </span>
             </span>
           </label>
@@ -381,7 +381,7 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
             showBuffer300: true,
             showBuffer400: true,
             showBufferFill: false,
-            bufferMerged: false,
+            bufferMerged: true,
             showBoundary: false,
             useSimpleMarkers: false,
             minOccupancy: 0,

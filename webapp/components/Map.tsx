@@ -586,7 +586,7 @@ function MapComponent(props?: MapProps) {
     showBuffer300: true,
     showBuffer400: true,
     showBufferFill: false,
-    bufferMerged: false,
+    bufferMerged: true,
     showBoundary: false,
     useSimpleMarkers: false,
     minOccupancy: 0,
