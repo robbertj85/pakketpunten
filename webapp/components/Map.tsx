@@ -38,6 +38,7 @@ interface MapProps {
   onZoomedToTarget?: () => void;
   searchLocationMarker?: { latitude: number; longitude: number } | null;
   highlightedPoints?: Set<string> | null; // Set of "lat,lng" keys for highlighted points
+  onTilesLoading?: (loading: boolean) => void;
 }
 
 // Component to fit bounds when data changes (only once, not on every zoom/pan)
@@ -579,6 +580,7 @@ function MapComponent(props?: MapProps) {
   const data = props?.data ?? null;
   const targetCoordinates = props?.targetCoordinates ?? null;
   const onZoomedToTarget = props?.onZoomedToTarget;
+  const onTilesLoading = props?.onTilesLoading;
   const searchLocationMarker = props?.searchLocationMarker ?? null;
   const highlightedPoints = props?.highlightedPoints ?? null;
   const activeFilters: Filters = props?.filters ?? {
@@ -655,7 +657,7 @@ function MapComponent(props?: MapProps) {
 
     return true;
     });
-  }, [data, activeFilters]);
+  }, [data, activeFilters.providers, activeFilters.pointCategories, activeFilters.serviceFilters, activeFilters.showBoundary]);
 
   // Separate points, buffers, and boundaries
   const points = useMemo(() => {
@@ -708,15 +710,13 @@ function MapComponent(props?: MapProps) {
     return pairwiseUnion(next);
   };
 
+  // Compute merged buffer union polygons from filtered points using Turf.js (deferred for loading UX)
   // Compute merged buffer union polygons from filtered points using Turf.js
   const mergedBuffer300 = useMemo(() => {
     if (!activeFilters.bufferMerged || !activeFilters.showBuffer300 || points.length === 0 || points.length > 3000) return null;
     try {
       const pts = featureCollection(
-        points.map(f => {
-          const coords = f.geometry.coordinates as [number, number];
-          return point(coords);
-        })
+        points.map(f => point(f.geometry.coordinates as [number, number]))
       );
       const buffered = buffer(pts, 0.3, { units: 'kilometers', steps: 8 });
       if (!buffered || buffered.features.length === 0) return null;
@@ -728,10 +728,7 @@ function MapComponent(props?: MapProps) {
     if (!activeFilters.bufferMerged || !activeFilters.showBuffer400 || points.length === 0 || points.length > 3000) return null;
     try {
       const pts = featureCollection(
-        points.map(f => {
-          const coords = f.geometry.coordinates as [number, number];
-          return point(coords);
-        })
+        points.map(f => point(f.geometry.coordinates as [number, number]))
       );
       const buffered = buffer(pts, 0.4, { units: 'kilometers', steps: 8 });
       if (!buffered || buffered.features.length === 0) return null;
@@ -1036,7 +1033,7 @@ function MapComponent(props?: MapProps) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-gray-100">
         <div className="flex flex-col items-center gap-3">
-          <svg className="animate-spin h-10 w-10 text-blue-600" fill="none" viewBox="0 0 24 24">
+          <svg className="animate-spin h-10 w-10 text-gray-500" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
@@ -1062,6 +1059,10 @@ function MapComponent(props?: MapProps) {
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        eventHandlers={{
+          loading: () => onTilesLoading?.(true),
+          load: () => onTilesLoading?.(false),
+        }}
       />
 
       <FitBounds
@@ -1079,7 +1080,7 @@ function MapComponent(props?: MapProps) {
       {activeFilters.showBuffer400 && markerCount <= 3000 && (
         activeFilters.bufferMerged && mergedBuffer400 ? (
           <GeoJSON
-            key={`buffer400-merged-${data?.metadata?.slug}-${points.length}`}
+            key={`buffer400-merged-${data?.metadata?.slug}-${points.length}-fill${activeFilters.showBufferFill}`}
             data={mergedBuffer400 as any}
             style={() => ({
               color: '#60a5fa',
@@ -1114,7 +1115,7 @@ function MapComponent(props?: MapProps) {
       {activeFilters.showBuffer300 && markerCount <= 3000 && (
         activeFilters.bufferMerged && mergedBuffer300 ? (
           <GeoJSON
-            key={`buffer300-merged-${data?.metadata?.slug}-${points.length}`}
+            key={`buffer300-merged-${data?.metadata?.slug}-${points.length}-fill${activeFilters.showBufferFill}`}
             data={mergedBuffer300 as any}
             style={() => ({
               color: '#2563eb',

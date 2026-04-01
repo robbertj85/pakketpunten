@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useRef, useEffect } from 'react';
 import { Filters, PointCategory, ServiceFilter, getCategoryLabel } from '@/types/pakketpunten';
 import { BoundaryLoadProgress } from '@/utils/boundaryLoader';
 
@@ -90,8 +91,35 @@ function DropoffIcon({ className }: { className?: string }) {
   );
 }
 
+// Inline loading spinner component (grey, matching top bar)
+function InlineSpinner() {
+  return (
+    <svg className="animate-spin h-3.5 w-3.5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+  );
+}
+
 export default function FilterPanel({ filters, onChange, availableProviders, providerCounts, categoryCounts, serviceCounts, sharedLocationCount, boundariesLoading, boundaryLoadProgress, totalPoints }: FilterPanelProps) {
   const buffersDisabled = (totalPoints ?? 0) > 3000;
+
+  // Local spinner state for buffer toggles
+  const [mergeSpinner, setMergeSpinner] = useState(false);
+  const mergeTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  // Show spinner when bufferMerged toggles on, clear after render settles
+  const prevMerged = useRef(filters.bufferMerged);
+  useEffect(() => {
+    if (filters.bufferMerged && !prevMerged.current) {
+      setMergeSpinner(true);
+      mergeTimerRef.current = setTimeout(() => setMergeSpinner(false), 2000);
+    }
+    if (!filters.bufferMerged) setMergeSpinner(false);
+    prevMerged.current = filters.bufferMerged;
+    return () => clearTimeout(mergeTimerRef.current);
+  }, [filters.bufferMerged]);
+
   const toggleProvider = (provider: string) => {
     const newProviders = filters.providers.includes(provider)
       ? filters.providers.filter((p) => p !== provider)
@@ -334,6 +362,7 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
               className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
             />
             <span className="text-sm text-gray-900">Samengevoegde buffers</span>
+            {mergeSpinner && <InlineSpinner />}
             <span className="relative group/tip">
               <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] font-medium text-gray-400 bg-gray-100 rounded-full cursor-help">i</span>
               <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover/tip:block w-48 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow-lg text-center pointer-events-none z-50">
