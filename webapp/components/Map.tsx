@@ -718,7 +718,7 @@ function MapComponent(props?: MapProps) {
       const pts = featureCollection(
         points.map(f => point(f.geometry.coordinates as [number, number]))
       );
-      const buffered = buffer(pts, 0.3, { units: 'kilometers', steps: 8 });
+      const buffered = buffer(pts, 0.3, { units: 'kilometers', steps: 4 });
       if (!buffered || buffered.features.length === 0) return null;
       return pairwiseUnion(buffered.features);
     } catch { return null; }
@@ -730,7 +730,7 @@ function MapComponent(props?: MapProps) {
       const pts = featureCollection(
         points.map(f => point(f.geometry.coordinates as [number, number]))
       );
-      const buffered = buffer(pts, 0.4, { units: 'kilometers', steps: 8 });
+      const buffered = buffer(pts, 0.4, { units: 'kilometers', steps: 4 });
       if (!buffered || buffered.features.length === 0) return null;
       return pairwiseUnion(buffered.features);
     } catch { return null; }

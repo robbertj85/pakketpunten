@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Filters, PointCategory, ServiceFilter, getCategoryLabel } from '@/types/pakketpunten';
 import { BoundaryLoadProgress } from '@/utils/boundaryLoader';
 
@@ -104,21 +104,15 @@ function InlineSpinner() {
 export default function FilterPanel({ filters, onChange, availableProviders, providerCounts, categoryCounts, serviceCounts, sharedLocationCount, boundariesLoading, boundaryLoadProgress, totalPoints }: FilterPanelProps) {
   const buffersDisabled = (totalPoints ?? 0) > 3000;
 
-  // Local spinner state for buffer toggles
+  // Local spinner state for merged buffer toggle
   const [mergeSpinner, setMergeSpinner] = useState(false);
-  const mergeTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  // Show spinner when bufferMerged toggles on, clear after render settles
-  const prevMerged = useRef(filters.bufferMerged);
+  // Clear spinner once the filter change has been applied (computation done, re-render complete)
   useEffect(() => {
-    if (filters.bufferMerged && !prevMerged.current) {
-      setMergeSpinner(true);
-      mergeTimerRef.current = setTimeout(() => setMergeSpinner(false), 2000);
+    if (filters.bufferMerged && mergeSpinner) {
+      setMergeSpinner(false);
     }
-    if (!filters.bufferMerged) setMergeSpinner(false);
-    prevMerged.current = filters.bufferMerged;
-    return () => clearTimeout(mergeTimerRef.current);
-  }, [filters.bufferMerged]);
+  }, [filters.bufferMerged, mergeSpinner]);
 
   const toggleProvider = (provider: string) => {
     const newProviders = filters.providers.includes(provider)
@@ -356,8 +350,17 @@ export default function FilterPanel({ filters, onChange, availableProviders, pro
           <label className={`flex items-center space-x-2 py-1.5 md:py-0.5 -mx-1 px-1 rounded transition ${buffersDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-gray-50 active:bg-gray-100'}`}>
             <input
               type="checkbox"
-              checked={filters.bufferMerged}
-              onChange={(e) => onChange({ ...filters, bufferMerged: e.target.checked })}
+              checked={filters.bufferMerged || mergeSpinner}
+              onChange={(e) => {
+                const checked = e.target.checked;
+                if (checked) {
+                  // Show spinner first, defer filter change so browser paints spinner before useMemo blocks
+                  setMergeSpinner(true);
+                  setTimeout(() => onChange({ ...filters, bufferMerged: true }), 20);
+                } else {
+                  onChange({ ...filters, bufferMerged: false });
+                }
+              }}
               disabled={buffersDisabled}
               className="w-5 h-5 md:w-4 md:h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
             />
