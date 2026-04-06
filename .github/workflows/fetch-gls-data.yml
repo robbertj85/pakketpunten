@@ -28,51 +28,25 @@ jobs:
 
       - name: Fetch GLS data
         id: fetch
-        run: |
-          python scripts/gls_fetch_all.py
-          echo "status=ok" >> "$GITHUB_OUTPUT"
+        run: python scripts/gls_fetch_all.py
         timeout-minutes: 15
         continue-on-error: true
 
-      - name: Check for data anomaly
-        id: check
+      - name: Report anomaly
+        if: steps.fetch.outcome == 'failure'
         run: |
-          if [ "${{ steps.fetch.outcome }}" = "failure" ]; then
-            echo "anomaly=true" >> "$GITHUB_OUTPUT"
-            echo "carrier=GLS" >> "$GITHUB_OUTPUT"
-            echo "::warning::GLS data anomaly detected - existing cache preserved"
-          else
-            echo "anomaly=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Send alert email on anomaly
-        if: steps.check.outputs.anomaly == 'true'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.ALERT_EMAIL_USERNAME }}
-          password: ${{ secrets.ALERT_EMAIL_PASSWORD }}
-          subject: "⚠️ Pakketpunten: GLS data anomaly detected"
-          to: ${{ secrets.ALERT_EMAIL_TO }}
-          from: Pakketpunten Bot <${{ secrets.ALERT_EMAIL_USERNAME }}>
-          body: |
-            The GLS data fetch detected an anomaly (>20% drop in location count or 0 results).
-            The existing cache has been preserved to prevent data loss.
-
-            Please investigate the GLS API and re-run the workflow manually when resolved.
-
-            Workflow run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          echo "::warning::GLS data anomaly detected — existing cache preserved, will retry next week"
+          echo "## ⚠️ GLS data anomaly" >> "$GITHUB_STEP_SUMMARY"
+          echo "Location count dropped >20% or returned 0 results." >> "$GITHUB_STEP_SUMMARY"
+          echo "Existing cache preserved. Will retry automatically next Monday." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Configure Git
-        if: steps.check.outputs.anomaly == 'false'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
 
       - name: Commit and push GLS data
-        if: steps.check.outputs.anomaly == 'false'
+        if: steps.fetch.outcome == 'success'
         run: |
           git pull --rebase origin main || true
           git add data/gls_all_locations.json 2>/dev/null || true
