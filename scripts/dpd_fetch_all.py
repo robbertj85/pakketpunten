@@ -158,45 +158,27 @@ def save_results(locations: List[Dict], output_file: str = None):
     print("="*80)
     print()
 
+    from cache_guard import safe_save
+
     # Default output path - works both locally and in GitHub Actions
     if output_file is None:
-        # Get project root (parent of scripts directory)
         script_dir = Path(__file__).parent
         project_root = script_dir.parent
         output_path = project_root / "data" / "dpd_all_locations.json"
     else:
         output_path = Path(output_file)
 
-    # Ensure output directory exists
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    # Create output structure matching DHL format
-    output = {
-        "metadata": {
-            "total_locations": len(locations),
+    safe_save(
+        carrier="DPD",
+        new_locations=locations,
+        output_path=output_path,
+        metadata={
             "method": "api-getAll",
             "source": "https://pickup.dpd.cz/api/getAll",
             "country": "Netherlands",
             "country_code_iso": 528,
-            "fetched_at": datetime.utcnow().isoformat() + "Z",
         },
-        "locations": locations
-    }
-
-    # Save to file
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
-
-    file_size_kb = output_path.stat().st_size / 1024
-    print(f"💾 Saved to: {output_path}")
-    print(f"   File size: {file_size_kb:.1f} KB")
-    print(f"   Locations: {len(locations)}")
-
-    # Log to update file (in project root)
-    log_file = output_path.parent.parent / "dpd_update_log.txt"
-    with open(log_file, 'a', encoding='utf-8') as f:
-        f.write(f"{datetime.now().isoformat()} - Fetched {len(locations)} DPD locations\n")
-    print(f"   Log updated: {log_file}")
+    )
 
 
 def main():

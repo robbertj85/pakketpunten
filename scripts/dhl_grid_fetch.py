@@ -216,6 +216,8 @@ def fetch_all_dhl_locations_grid() -> Dict[Tuple, Dict]:
 
 def save_results(locations: Dict[Tuple, Dict], output_file: str = None):
     """Save locations to JSON file."""
+    from cache_guard import safe_save
+
     # Default output path - works both locally and in GitHub Actions
     if output_file is None:
         # Get project root (parent of scripts directory)
@@ -223,31 +225,20 @@ def save_results(locations: Dict[Tuple, Dict], output_file: str = None):
         project_root = script_dir.parent
         output_file = project_root / "data" / "dhl_all_locations.json"
 
-    # Ensure output directory exists
     output_path = Path(output_file)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    # Convert to list of location dicts
     location_list = list(locations.values())
 
-    # Create output structure
-    output = {
-        "metadata": {
-            "total_locations": len(location_list),
+    safe_save(
+        carrier="DHL",
+        new_locations=location_list,
+        output_path=output_path,
+        metadata={
             "method": "grid-based-fetch",
             "grid_spacing_km": GRID_SPACING_KM,
             "search_radius_m": SEARCH_RADIUS,
             "coverage_area": NL_BOUNDS,
         },
-        "locations": location_list
-    }
-
-    # Save to file
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
-
-    file_size_kb = output_path.stat().st_size / 1024
-    print(f"💾 Saved to: {output_path} ({file_size_kb:.1f} KB)")
+    )
 
 
 def analyze_results(locations: Dict[Tuple, Dict]):

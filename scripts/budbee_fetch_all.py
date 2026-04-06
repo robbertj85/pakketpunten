@@ -283,37 +283,24 @@ def save_results(locations: List[Dict]):
     print("=" * 80)
     print()
 
-    output_path = Path(__file__).parent.parent / "data" / "budbee_all_locations.json"
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+    from cache_guard import safe_save
 
-    output = {
-        "metadata": {
-            "total_locations": len(locations),
+    output_path = Path(__file__).parent.parent / "data" / "budbee_all_locations.json"
+
+    safe_save(
+        carrier="Budbee",
+        new_locations=locations,
+        output_path=output_path,
+        metadata={
             "method": "dpd-cache-plus-osm",
             "sources": [
                 "data/dpd_all_locations.json (Budbee entries)",
                 "OpenStreetMap Overpass API (brand=Budbee)",
             ],
             "country": "Netherlands",
-            "fetched_at": datetime.utcnow().isoformat() + "Z",
             "note": "For complete coverage (~1000+ locations), request API access at onboarding@budbee.com",
         },
-        "locations": locations,
-    }
-
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
-
-    file_size_kb = output_path.stat().st_size / 1024
-    print(f"💾 Saved to: {output_path}")
-    print(f"   File size: {file_size_kb:.1f} KB")
-    print(f"   Locations: {len(locations)}")
-
-    # Log
-    log_file = output_path.parent.parent / "scripts" / "budbee_update_log.txt"
-    with open(log_file, 'a', encoding='utf-8') as f:
-        f.write(f"{datetime.now().isoformat()} - Fetched {len(locations)} Budbee locations (DPD cache + OSM)\n")
-    print(f"   Log updated: {log_file}")
+    )
 
 
 def main():

@@ -262,37 +262,21 @@ def main():
     print(f"  Lockers: {lockers}")
     print(f"  Parcel shops: {shops}")
 
-    # Protect existing cache: don't overwrite with empty results
-    cache_path = Path(__file__).parent.parent / "data" / "gls_all_locations.json"
-    if len(all_locations) == 0:
-        if cache_path.exists():
-            print()
-            print("WARNING: Fetched 0 locations. Keeping existing cache to prevent data loss.")
-            print("The GLS API may be temporarily unavailable (504 errors).")
-            print("Re-run this script when the API is back online.")
-        else:
-            print()
-            print("WARNING: Fetched 0 locations and no existing cache found.")
-        print()
-        print("=" * 80)
-        print("SKIPPED (no data to save)")
-        print("=" * 80)
-        return
+    from cache_guard import safe_save
 
+    cache_path = Path(__file__).parent.parent / "data" / "gls_all_locations.json"
     locations_list = list(all_locations.values())
 
-    with open(cache_path, 'w', encoding='utf-8') as f:
-        json.dump({
-            'metadata': {
-                'fetched_at': datetime.now(timezone.utc).isoformat(),
-                'method': 'direct-api',
-                'grid_points': len(GRID_POSTCODES),
-                'total_locations': len(locations_list),
-            },
-            'locations': locations_list
-        }, f, indent=2, ensure_ascii=False)
+    safe_save(
+        carrier="GLS",
+        new_locations=locations_list,
+        output_path=cache_path,
+        metadata={
+            "method": "direct-api",
+            "grid_points": len(GRID_POSTCODES),
+        },
+    )
 
-    print(f"\nSaved to: {cache_path}")
     print()
     print("=" * 80)
     print("COMPLETE!")

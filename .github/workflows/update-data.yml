@@ -2,7 +2,7 @@ name: Update Pakketpunten Data
 
 on:
   schedule:
-    # Run weekly on Monday at 02:00 UTC (after GLS/FedEx workflows complete)
+    # Run weekly on Monday at 02:00 UTC (after GLS/Amazon workflows complete)
     - cron: '0 2 * * 1'
   # Allow manual trigger
   workflow_dispatch:
@@ -29,33 +29,85 @@ jobs:
           pip install -r requirements.txt
 
       - name: Fetch DHL grid data (nationwide cache)
+        id: fetch_dhl
         run: python scripts/dhl_grid_fetch.py
         working-directory: ${{ github.workspace }}
         timeout-minutes: 30
+        continue-on-error: true
 
       - name: Fetch DPD data (nationwide cache)
+        id: fetch_dpd
         run: python scripts/dpd_fetch_all.py
         working-directory: ${{ github.workspace }}
         timeout-minutes: 15
+        continue-on-error: true
 
       - name: Fetch ViaTim data (nationwide cache)
+        id: fetch_viatim
         run: python scripts/viatim_fetch_all.py
         working-directory: ${{ github.workspace }}
         timeout-minutes: 5
+        continue-on-error: true
 
       - name: Fetch InPost data (nationwide cache)
+        id: fetch_inpost
         run: python scripts/inpost_fetch_all.py
         working-directory: ${{ github.workspace }}
         timeout-minutes: 10
+        continue-on-error: true
 
       - name: Fetch Budbee data (DPD cache + OSM)
+        id: fetch_budbee
         run: python scripts/budbee_fetch_all.py
         working-directory: ${{ github.workspace }}
         timeout-minutes: 10
+        continue-on-error: true
 
       # GLS data is fetched by separate workflow (fetch-gls-data.yml)
       # That workflow runs earlier and commits the cache file to the repo
       # This workflow uses the already-committed cache file
+
+      - name: Check for data anomalies
+        id: anomaly_check
+        run: |
+          anomalies=""
+          if [ "${{ steps.fetch_dhl.outcome }}" = "failure" ]; then anomalies="${anomalies}DHL "; fi
+          if [ "${{ steps.fetch_dpd.outcome }}" = "failure" ]; then anomalies="${anomalies}DPD "; fi
+          if [ "${{ steps.fetch_viatim.outcome }}" = "failure" ]; then anomalies="${anomalies}ViaTim "; fi
+          if [ "${{ steps.fetch_inpost.outcome }}" = "failure" ]; then anomalies="${anomalies}InPost "; fi
+          if [ "${{ steps.fetch_budbee.outcome }}" = "failure" ]; then anomalies="${anomalies}Budbee "; fi
+
+          if [ -n "$anomalies" ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "carriers=${anomalies}" >> "$GITHUB_OUTPUT"
+            echo "::warning::Data anomalies detected for: ${anomalies}"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Send alert email on anomalies
+        if: steps.anomaly_check.outputs.found == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.ALERT_EMAIL_USERNAME }}
+          password: ${{ secrets.ALERT_EMAIL_PASSWORD }}
+          subject: "⚠️ Pakketpunten: data anomaly for ${{ steps.anomaly_check.outputs.carriers }}"
+          to: ${{ secrets.ALERT_EMAIL_TO }}
+          from: Pakketpunten Bot <${{ secrets.ALERT_EMAIL_USERNAME }}>
+          body: |
+            Data anomalies detected during the weekly update for: ${{ steps.anomaly_check.outputs.carriers }}
+
+            For each affected carrier, the location count dropped by more than 20% or returned 0 results.
+            Existing caches have been preserved to prevent data loss.
+            The batch generation will proceed using the preserved caches.
+
+            Please investigate the affected APIs and re-run the fetch scripts manually when resolved.
+
+            Workflow run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        continue-on-error: true
 
       - name: Check GLS cache status
         run: |

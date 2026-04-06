@@ -286,33 +286,20 @@ def save_results(locations: List[Dict]):
     print("=" * 80)
     print()
 
-    output = {
-        "metadata": {
-            "total_locations": len(locations),
+    from cache_guard import safe_save
+
+    output_path = Path(__file__).parent.parent / "data" / "amazon_all_locations.json"
+
+    safe_save(
+        carrier="Amazon",
+        new_locations=locations,
+        output_path=output_path,
+        metadata={
             "method": "playwright-scraping-municipality-autocomplete",
             "source": "https://www.amazon.nl/ulp",
             "country": "Netherlands",
-            "fetched_at": datetime.utcnow().isoformat() + "Z",
         },
-        "locations": locations
-    }
-
-    # Save to data directory (same format as other carriers)
-    output_path = Path(__file__).parent.parent / "data" / "amazon_all_locations.json"
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
-
-    file_size_kb = output_path.stat().st_size / 1024
-    print(f"Saved to: {output_path}")
-    print(f"   File size: {file_size_kb:.1f} KB")
-    print(f"   Locations: {len(locations)}")
-
-    # Update log
-    log_path = Path(__file__).parent / "amazon_update_log.txt"
-    with open(log_path, 'a', encoding='utf-8') as f:
-        f.write(f"{datetime.now().isoformat()} - Fetched {len(locations)} Amazon locations via Playwright (municipality autocomplete)\n")
+    )
 
 
 def main():

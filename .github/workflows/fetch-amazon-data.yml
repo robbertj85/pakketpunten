@@ -30,17 +30,53 @@ jobs:
           playwright install-deps chromium
 
       - name: Fetch Amazon data
-        run: python scripts/amazon_fetch_all.py
+        id: fetch
+        run: |
+          python scripts/amazon_fetch_all.py
+          echo "status=ok" >> "$GITHUB_OUTPUT"
         timeout-minutes: 90
+        continue-on-error: true
+
+      - name: Check for data anomaly
+        id: check
+        run: |
+          if [ "${{ steps.fetch.outcome }}" = "failure" ]; then
+            echo "anomaly=true" >> "$GITHUB_OUTPUT"
+            echo "carrier=Amazon" >> "$GITHUB_OUTPUT"
+            echo "::warning::Amazon data anomaly detected - existing cache preserved"
+          else
+            echo "anomaly=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Send alert email on anomaly
+        if: steps.check.outputs.anomaly == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.ALERT_EMAIL_USERNAME }}
+          password: ${{ secrets.ALERT_EMAIL_PASSWORD }}
+          subject: "⚠️ Pakketpunten: Amazon data anomaly detected"
+          to: ${{ secrets.ALERT_EMAIL_TO }}
+          from: Pakketpunten Bot <${{ secrets.ALERT_EMAIL_USERNAME }}>
+          body: |
+            The Amazon data fetch detected an anomaly (>20% drop in location count or 0 results).
+            The existing cache has been preserved to prevent data loss.
+
+            Please investigate the Amazon API and re-run the workflow manually when resolved.
+
+            Workflow run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
       - name: Configure Git
+        if: steps.check.outputs.anomaly == 'false'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
 
       - name: Commit and push Amazon data
+        if: steps.check.outputs.anomaly == 'false'
         run: |
-          # Pull latest changes first (in case repo was updated during workflow)
           git pull --rebase origin main || true
           git add data/amazon_all_locations.json 2>/dev/null || true
           git add scripts/amazon_update_log.txt 2>/dev/null || true
