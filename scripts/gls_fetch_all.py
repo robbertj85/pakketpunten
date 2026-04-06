@@ -1,59 +1,66 @@
 """
-GLS Parcel Shop Fetch - Nationwide grid-based approach.
+GLS Parcel Shop Fetch - Nationwide grid-based approach using direct API calls.
 
-Uses Playwright to capture GLS API responses, but searches using a grid of
-coordinates covering the Netherlands instead of searching by municipality name.
-This is much faster than searching 342 municipalities individually.
+Calls the GLS API (apm.gls.nl/glspoints/nearby) directly with POST requests,
+searching from a grid of coordinates covering the Netherlands.
 
-The GLS website loads data from apm.gls.nl/glspoints/nearby API.
-By searching from strategic points, we can capture all locations efficiently.
+The geocode endpoint (GET /glspoints/geocode) is used to resolve postcodes
+to coordinates, then the nearby endpoint returns parcel shops within a radius.
 """
 
 import json
 import time
+import requests
 from pathlib import Path
 from datetime import datetime, timezone
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
-try:
-    from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-except ImportError:
-    print("Playwright not installed. Run:")
-    print("   pip install playwright")
-    print("   playwright install chromium")
-    exit(1)
+# API configuration
+GLS_API_BASE = "https://apm.gls.nl"
+NEARBY_ENDPOINT = f"{GLS_API_BASE}/glspoints/nearby"
+GEOCODE_ENDPOINT = f"{GLS_API_BASE}/glspoints/geocode"
 
+HEADERS = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Origin": "https://www.gls-info.nl",
+    "Referer": "https://www.gls-info.nl/",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+}
 
-# Grid of coordinates covering the Netherlands
+# Grid of coordinates covering the Netherlands with representative postcodes
 # Using ~50km spacing to ensure good coverage with overlap
-NETHERLANDS_GRID = [
+GRID_POSTCODES = [
     # North
-    (53.2, 5.8),   # Friesland
-    (53.2, 6.6),   # Groningen
-    (52.8, 5.0),   # Noord-Holland North
-    (52.8, 5.8),   # Flevoland
-    (52.8, 6.6),   # Drenthe
+    ("8911", "Leeuwarden"),
+    ("9711", "Groningen"),
+    ("1621", "Hoorn"),
+    ("8232", "Lelystad"),
+    ("9401", "Assen"),
     # Central
-    (52.4, 4.6),   # Amsterdam area
-    (52.4, 5.4),   # Utrecht
-    (52.4, 6.2),   # Overijssel
-    (52.4, 7.0),   # East
-    (52.0, 4.4),   # Den Haag/Rotterdam
-    (52.0, 5.2),   # Central
-    (52.0, 6.0),   # Gelderland
-    (52.0, 6.8),   # East
+    ("1012", "Amsterdam"),
+    ("3811", "Amersfoort"),
+    ("8011", "Zwolle"),
+    ("7511", "Enschede"),
+    ("2511", "Den Haag"),
+    ("3511", "Utrecht"),
+    ("6811", "Arnhem"),
+    ("7001", "Doetinchem"),
     # South
-    (51.6, 4.4),   # Zeeland/Brabant
-    (51.6, 5.2),   # Brabant
-    (51.6, 6.0),   # Brabant/Limburg
-    (51.6, 6.8),   # Limburg
-    (51.2, 5.0),   # South Brabant
-    (51.2, 5.8),   # Limburg
-    (50.9, 5.8),   # South Limburg
+    ("4331", "Middelburg"),
+    ("5038", "Tilburg"),
+    ("5611", "Eindhoven"),
+    ("5911", "Venlo"),
+    ("4811", "Breda"),
+    ("6041", "Roermond"),
+    ("6211", "Maastricht"),
 ]
 
+REQUEST_TIMEOUT = 30  # seconds per API call
+MAX_RETRIES = 2
 
-def extract_location_from_api(item: Dict) -> Optional[Dict]:
+
+def extract_location(item: Dict) -> Optional[Dict]:
     """Extract standardized location data from a GLS API response item."""
     location_data = item.get('location', {})
     if not isinstance(location_data, dict):
@@ -112,126 +119,125 @@ def extract_location_from_api(item: Dict) -> Optional[Dict]:
     }
 
 
-def fetch_gls_grid(headless: bool = True) -> Dict[str, Dict]:
-    """Fetch GLS locations using grid-based search."""
+def geocode_postcode(session: requests.Session, postcode: str) -> Optional[Dict]:
+    """Resolve a postcode to coordinates using the GLS geocode API."""
+    try:
+        resp = session.get(
+            GEOCODE_ENDPOINT,
+            params={"location": postcode},
+            headers=HEADERS,
+            timeout=REQUEST_TIMEOUT,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            if isinstance(data, dict) and 'latitude' in data and 'longitude' in data:
+                return data
+    except Exception as e:
+        print(f"   Geocode error for {postcode}: {e}")
+    return None
+
+
+def search_nearby(session: requests.Session, lat: float, lng: float) -> list:
+    """Search for GLS points near a coordinate. Returns list of raw items."""
+    body = {
+        "latitude": lat,
+        "longitude": lng,
+        "zipCode": "",
+        "radius": 200,
+        "pointTypes": 7,  # Depot(1) + ParcelShop(2) + ParcelLocker(4)
+        "limit": 50,
+        "minLockers": 0,
+        "minParcelShops": 0,
+        "minDepots": 0,
+        "minBusinessPoints": 0,
+        "pickupOnly": False,
+        "centerPointLatitude": lat,
+        "centerPointLongitude": lng,
+        "domesticOnly": True,
+    }
+
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            resp = session.post(
+                NEARBY_ENDPOINT,
+                json=body,
+                headers=HEADERS,
+                timeout=REQUEST_TIMEOUT,
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                if isinstance(data, list):
+                    return data
+                return []
+            elif resp.status_code == 504:
+                print(f"   504 Gateway Timeout (attempt {attempt + 1}/{MAX_RETRIES + 1})")
+                if attempt < MAX_RETRIES:
+                    time.sleep(5)
+                continue
+            else:
+                print(f"   HTTP {resp.status_code} (attempt {attempt + 1}/{MAX_RETRIES + 1})")
+                if attempt < MAX_RETRIES:
+                    time.sleep(3)
+                continue
+        except requests.Timeout:
+            print(f"   Request timeout (attempt {attempt + 1}/{MAX_RETRIES + 1})")
+            if attempt < MAX_RETRIES:
+                time.sleep(5)
+        except Exception as e:
+            print(f"   Error: {e} (attempt {attempt + 1}/{MAX_RETRIES + 1})")
+            if attempt < MAX_RETRIES:
+                time.sleep(3)
+
+    return []
+
+
+def fetch_gls_grid() -> Dict[str, Dict]:
+    """Fetch GLS locations using grid-based search with direct API calls."""
     print("=" * 80)
-    print("GLS PARCEL SHOP LOCATION FETCH (Grid-based)")
+    print("GLS PARCEL SHOP LOCATION FETCH (Direct API)")
     print("=" * 80)
     print()
-    print(f"Searching {len(NETHERLANDS_GRID)} grid points covering the Netherlands")
+    print(f"Searching {len(GRID_POSTCODES)} grid points covering the Netherlands")
     print()
 
     all_locations: Dict[str, Dict] = {}
+    errors = 0
 
-    with sync_playwright() as p:
-        print("Launching browser...")
-        browser = p.chromium.launch(headless=headless)
-        context = browser.new_context(
-            locale="nl-NL",
-            viewport={"width": 1280, "height": 900},
-            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-        )
-        page = context.new_page()
+    session = requests.Session()
 
-        # Capture API responses
-        captured_responses: List[Dict] = []
+    for idx, (postcode, city_name) in enumerate(GRID_POSTCODES, 1):
+        print(f"[{idx}/{len(GRID_POSTCODES)}] {city_name} ({postcode})...")
 
-        def handle_response(response):
-            url = response.url
-            if 'gls' in url.lower() and 'points' in url.lower():
-                try:
-                    content_type = response.headers.get('content-type', '')
-                    if 'json' in content_type:
-                        body = response.text()
-                        captured_responses.append({'url': url, 'data': body})
-                except:
-                    pass
+        # Geocode the postcode to get coordinates
+        coords = geocode_postcode(session, postcode)
+        if not coords:
+            print(f"   Failed to geocode {postcode}, skipping")
+            errors += 1
+            continue
 
-        page.on("response", handle_response)
+        lat = coords['latitude']
+        lng = coords['longitude']
+        print(f"   Coordinates: {lat}, {lng}")
 
-        # Handle cookie consent once
-        try:
-            page.goto("https://www.gls-info.nl/parcel-shop", wait_until="networkidle", timeout=30000)
-            time.sleep(2)
+        # Search for nearby points
+        items = search_nearby(session, lat, lng)
 
-            cookie_selectors = [
-                '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll',
-                'button:has-text("Accepteren")',
-            ]
-            for selector in cookie_selectors:
-                try:
-                    btn = page.query_selector(selector)
-                    if btn and btn.is_visible():
-                        btn.click()
-                        time.sleep(1)
-                        break
-                except:
-                    continue
-        except:
-            pass
+        if not items:
+            print(f"   No results (API may be down)")
+            errors += 1
+        else:
+            new_count = 0
+            for item in items:
+                loc = extract_location(item)
+                if loc and loc['id'] not in all_locations:
+                    all_locations[loc['id']] = loc
+                    new_count += 1
+            print(f"   Found {len(items)} points, {new_count} new (total: {len(all_locations)})")
 
-        for idx, (lat, lng) in enumerate(NETHERLANDS_GRID, 1):
-            print(f"[{idx}/{len(NETHERLANDS_GRID)}] Searching around ({lat}, {lng})...")
-            captured_responses.clear()
+        time.sleep(1)  # Be respectful between requests
 
-            try:
-                # Search using coordinates - GLS website accepts lat/lng in URL
-                # Format: ?zipcode=lat,lng or just navigate and let it use geolocation
-                # Actually, GLS uses zipcode parameter - let's use a central postcode approach
-                # Instead, we'll search for cities near these coordinates
-
-                # Use a representative city/postcode for each grid point
-                postcodes = {
-                    (53.2, 5.8): "8911",   # Leeuwarden
-                    (53.2, 6.6): "9711",   # Groningen
-                    (52.8, 5.0): "1621",   # Hoorn
-                    (52.8, 5.8): "8232",   # Lelystad
-                    (52.8, 6.6): "9401",   # Assen
-                    (52.4, 4.6): "1012",   # Amsterdam
-                    (52.4, 5.4): "3811",   # Amersfoort
-                    (52.4, 6.2): "8011",   # Zwolle
-                    (52.4, 7.0): "7511",   # Enschede
-                    (52.0, 4.4): "2511",   # Den Haag
-                    (52.0, 5.2): "3511",   # Utrecht
-                    (52.0, 6.0): "6811",   # Arnhem
-                    (52.0, 6.8): "7001",   # Doetinchem
-                    (51.6, 4.4): "4331",   # Middelburg
-                    (51.6, 5.2): "5038",   # Tilburg
-                    (51.6, 6.0): "5611",   # Eindhoven
-                    (51.6, 6.8): "5911",   # Venlo
-                    (51.2, 5.0): "4811",   # Breda
-                    (51.2, 5.8): "6041",   # Roermond
-                    (50.9, 5.8): "6211",   # Maastricht
-                }
-
-                postcode = postcodes.get((lat, lng), "1012")
-                url = f"https://www.gls-info.nl/parcel-shop?zipcode={postcode}"
-
-                page.goto(url, wait_until="networkidle", timeout=30000)
-                time.sleep(3)
-
-                # Extract locations from API responses
-                for resp in captured_responses:
-                    try:
-                        data = json.loads(resp['data'])
-                        if isinstance(data, list):
-                            for item in data:
-                                loc = extract_location_from_api(item)
-                                if loc and loc['id'] not in all_locations:
-                                    all_locations[loc['id']] = loc
-                    except:
-                        pass
-
-                print(f"   Total unique locations so far: {len(all_locations)}")
-
-            except PlaywrightTimeout:
-                print(f"   Timeout, continuing...")
-            except Exception as e:
-                print(f"   Error: {e}")
-
-            time.sleep(1)
-
-        browser.close()
+    print()
+    print(f"API errors/timeouts: {errors}/{len(GRID_POSTCODES)} grid points")
 
     return all_locations
 
@@ -242,7 +248,7 @@ def main():
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
 
-    all_locations = fetch_gls_grid(headless=True)
+    all_locations = fetch_gls_grid()
 
     print()
     print("=" * 80)
@@ -256,16 +262,31 @@ def main():
     print(f"  Lockers: {lockers}")
     print(f"  Parcel shops: {shops}")
 
-    # Save to cache file
+    # Protect existing cache: don't overwrite with empty results
     cache_path = Path(__file__).parent.parent / "data" / "gls_all_locations.json"
+    if len(all_locations) == 0:
+        if cache_path.exists():
+            print()
+            print("WARNING: Fetched 0 locations. Keeping existing cache to prevent data loss.")
+            print("The GLS API may be temporarily unavailable (504 errors).")
+            print("Re-run this script when the API is back online.")
+        else:
+            print()
+            print("WARNING: Fetched 0 locations and no existing cache found.")
+        print()
+        print("=" * 80)
+        print("SKIPPED (no data to save)")
+        print("=" * 80)
+        return
+
     locations_list = list(all_locations.values())
 
     with open(cache_path, 'w', encoding='utf-8') as f:
         json.dump({
             'metadata': {
                 'fetched_at': datetime.now(timezone.utc).isoformat(),
-                'method': 'grid-based-playwright',
-                'grid_points': len(NETHERLANDS_GRID),
+                'method': 'direct-api',
+                'grid_points': len(GRID_POSTCODES),
                 'total_locations': len(locations_list),
             },
             'locations': locations_list

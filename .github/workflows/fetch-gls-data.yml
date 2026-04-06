@@ -24,14 +24,11 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: |
-          pip install requests playwright
-          playwright install chromium
-          playwright install-deps chromium
+        run: pip install requests
 
       - name: Fetch GLS data
         run: python scripts/gls_fetch_all.py
-        timeout-minutes: 45
+        timeout-minutes: 15
 
       - name: Configure Git
         run: |

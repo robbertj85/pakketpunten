@@ -451,27 +451,15 @@ def get_data_gls(gemeente=None):
     import json
     from shapely.geometry import Point
 
-    # Load from cache file (try all_locations first, fall back to POC)
+    # Load from cache file
     cache_file = Path(__file__).parent / "data" / "gls_all_locations.json"
-    poc_file = Path(__file__).parent / "data" / "gls_poc_locations.json"
 
-    # Determine which file to use
     locations = []
     if cache_file.exists():
         try:
             with open(cache_file, 'r', encoding='utf-8') as f:
                 cache_data = json.load(f)
             locations = cache_data.get('locations', [])
-        except:
-            pass
-
-    # Fall back to POC file if all_locations is empty
-    if not locations and poc_file.exists():
-        try:
-            with open(poc_file, 'r', encoding='utf-8') as f:
-                cache_data = json.load(f)
-            locations = cache_data.get('locations', [])
-            print(f"  ℹ️  GLS: Using POC cache (run fetch-gls-data workflow for full data)")
         except:
             pass
 
