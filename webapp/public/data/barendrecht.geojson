@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Barendrecht",
     "slug": "barendrecht",
-    "generated_at": "2026-03-30T04:49:05.837087Z",
-    "total_points": 35,
+    "generated_at": "2026-04-06T04:49:05.169890Z",
+    "total_points": 36,
     "providers": [
       "Amazon",
       "DHL",
@@ -41,6 +41,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.84757468,
         "longitude": 4.499406694,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.531785761,
+          51.85523078
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Zwembad-dhz",
+        "straatNaam": "Paddeweg 39",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.85523078,
+        "longitude": 4.531785761,
         "canPickup": true,
         "canDropoff": false
       }
@@ -1695,10 +1718,6 @@
           [
             [
               [
-                4.515967135253822,
-                51.85448285784103
-              ],
-              [
                 4.5157518582589855,
                 51.85425427537333
               ],
@@ -2385,6 +2404,10 @@
               [
                 4.515967135253822,
                 51.85448285784103
+              ],
+              [
+                4.5157518582589855,
+                51.85425427537333
               ]
             ]
           ],
@@ -5579,7 +5602,7 @@
                 51.8521303129631
               ],
               [
-                4.512117056630987,
+                4.512117056630986,
                 51.85213158268477
               ],
               [

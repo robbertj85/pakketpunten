@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Beverwijk",
     "slug": "beverwijk",
-    "generated_at": "2026-03-30T04:50:10.226110Z",
-    "total_points": 49,
+    "generated_at": "2026-04-06T04:50:11.458115Z",
+    "total_points": 50,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -547,6 +547,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.482256,
         "longitude": 4.652152,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.65643,
+          52.48267
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Vloerpro",
+        "straatNaam": "KLOOSTERSTRAAT",
+        "straatNr": "2",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 52.48267,
+        "longitude": 4.65643,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3373,6 +3396,10 @@
           [
             [
               [
+                4.677455079552678,
+                52.47194846722043
+              ],
+              [
                 4.677235985353347,
                 52.47172019837881
               ],
@@ -3437,7 +3464,7 @@
                 52.47080576443592
               ],
               [
-                4.671461344840311,
+                4.671461344840309,
                 52.47081897949303
               ],
               [
@@ -3863,10 +3890,6 @@
               [
                 4.677455079552678,
                 52.47194846722043
-              ],
-              [
-                4.677235985353347,
-                52.47172019837881
               ]
             ]
           ]
@@ -3989,7 +4012,7 @@
                 52.47896081710712
               ],
               [
-                4.649071813492868,
+                4.649071813492869,
                 52.4791589428959
               ],
               [
@@ -5395,7 +5418,7 @@
                 52.49473537064993
               ],
               [
-                4.670481403813762,
+                4.670481403813761,
                 52.49466878187959
               ],
               [

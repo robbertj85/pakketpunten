@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "total_locations": 282,
+    "total_locations": 284,
     "method": "dpd-cache-plus-osm",
     "sources": [
       "data/dpd_all_locations.json (Budbee entries)",
       "OpenStreetMap Overpass API (brand=Budbee)"
     ],
     "country": "Netherlands",
-    "fetched_at": "2026-03-30T04:47:16.705877Z",
+    "fetched_at": "2026-04-06T04:47:06.105901Z",
     "note": "For complete coverage (~1000+ locations), request API access at onboarding@budbee.com"
   },
   "locations": [
@@ -2179,6 +2179,17 @@
       "source": "dpd_cache"
     },
     {
+      "locatieNaam": "UR562 Pakketautomaat Budbee",
+      "straatNaam": "OVERTOOM",
+      "straatNr": "116",
+      "postcode": "1054HM",
+      "city": "AMSTERDAM",
+      "latitude": 52.36264,
+      "longitude": 4.87459,
+      "puntType": "automaat",
+      "source": "dpd_cache"
+    },
+    {
       "locatieNaam": "Budbee",
       "straatNaam": "",
       "straatNr": "",
@@ -3197,6 +3208,18 @@
       "puntType": "automaat",
       "source": "osm",
       "osm_id": 13499127754
+    },
+    {
+      "locatieNaam": "Budbee",
+      "straatNaam": "",
+      "straatNr": "",
+      "postcode": "",
+      "city": "",
+      "latitude": 51.7936409,
+      "longitude": 4.2811234,
+      "puntType": "automaat",
+      "source": "osm",
+      "osm_id": 13694829287
     }
   ]
 }

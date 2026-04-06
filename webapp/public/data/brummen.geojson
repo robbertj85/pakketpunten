@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Brummen",
     "slug": "brummen",
-    "generated_at": "2026-03-30T04:51:04.452156Z",
+    "generated_at": "2026-04-06T04:51:08.703655Z",
     "total_points": 26,
     "providers": [
       "Amazon",
@@ -12,7 +12,6 @@
       "DPD",
       "PostNL",
       "VintedGo",
-      "GLS",
       "ViaTim",
       "InPost"
     ],
@@ -167,6 +166,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.1563551,
+          52.0885222
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DHL Buurtpunt ViaTim & Anja",
+        "straatNaam": "Zutphensestraat",
+        "straatNr": "9",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.0885222,
+        "longitude": 6.1563551,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.1531684,
           52.0968031
         ]
@@ -250,6 +272,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.1029656,
         "longitude": 6.1561188,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1563551,
+          52.0885222
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "ViaTim & Anja",
+        "straatNaam": "ZUTPHENSESTRAAT",
+        "straatNr": "9",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 52.0885222,
+        "longitude": 6.1563551,
         "canPickup": true,
         "canDropoff": true
       }
@@ -526,52 +571,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.08492,
         "longitude": 6.15433,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.1563429,
-          52.0879655
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Dutchpc Electronics Trading",
-        "straatNaam": "Zutphensestraat",
-        "straatNr": "3c",
-        "vervoerder": "GLS",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 52.0879655,
-        "longitude": 6.1563429,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.15437903,
-          52.0881648
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat",
-        "straatNaam": "Ambachtstraat",
-        "straatNr": "38",
-        "vervoerder": "GLS",
-        "puntType": "locker",
-        "bezettingsgraad": 50,
-        "latitude": 52.0881648,
-        "longitude": 6.15437903,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3718,7 +3717,7 @@
                 52.09169814790233
               ],
               [
-                6.153748139086907,
+                6.153748139086906,
                 52.091736039924996
               ],
               [

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Nieuwkoop",
     "slug": "nieuwkoop",
-    "generated_at": "2026-03-30T05:02:21.859979Z",
+    "generated_at": "2026-04-06T05:02:50.206000Z",
     "total_points": 40,
     "providers": [
       "Amazon",
@@ -22,29 +22,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.780154001,
-          52.18285616
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Kedi Dorpsmarkt",
-        "straatNaam": "Albrechtshof 3",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.18285616,
-        "longitude": 4.780154001,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -87,6 +64,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.16477556,
         "longitude": 4.716074415,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.780154001,
+          52.18285616
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Kedi Dorpsmarkt",
+        "straatNaam": "Albrechtshof 3",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.18285616,
+        "longitude": 4.780154001,
         "canPickup": true,
         "canDropoff": false
       }
