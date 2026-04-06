@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Dronten",
     "slug": "dronten",
-    "generated_at": "2026-04-06T04:53:33.223658Z",
+    "generated_at": "2026-04-06T10:36:43.318317Z",
     "total_points": 57,
     "providers": [
       "Amazon",
@@ -1109,20 +1109,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.6980137,
-          52.4505399
+          5.64489926,
+          52.5718503
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "van Kooij Meubelmakerij",
-        "straatNaam": "Kampeerveld",
-        "straatNr": "12",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "De Poort",
+        "straatNr": "10",
         "vervoerder": "GLS",
-        "puntType": "parcel_shop",
+        "puntType": "locker",
         "bezettingsgraad": 50,
-        "latitude": 52.4505399,
-        "longitude": 5.6980137,
+        "latitude": 52.5718503,
+        "longitude": 5.64489926,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1162,13 +1162,36 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "Ashuri Transport",
-        "straatNaam": "het zwarte water",
+        "straatNaam": "Het zwarte water",
         "straatNr": "12",
         "vervoerder": "GLS",
         "puntType": "parcel_shop",
         "bezettingsgraad": 50,
         "latitude": 52.5374935,
         "longitude": 5.7049347,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.6980137,
+          52.4505399
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "van Kooij Meubelmakerij",
+        "straatNaam": "Kampeerveld",
+        "straatNr": "12",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.4505399,
+        "longitude": 5.6980137,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1215,29 +1238,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.542553,
         "longitude": 5.71051617,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.64489926,
-          52.5718503
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat",
-        "straatNaam": "De Poort",
-        "straatNr": "10",
-        "vervoerder": "GLS",
-        "puntType": "locker",
-        "bezettingsgraad": 50,
-        "latitude": 52.5718503,
-        "longitude": 5.64489926,
         "canPickup": true,
         "canDropoff": true
       }
