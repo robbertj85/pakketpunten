@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Leidschendam-Voorburg",
     "slug": "leidschendam-voorburg",
-    "generated_at": "2026-04-06T10:43:20.932330Z",
-    "total_points": 44,
+    "generated_at": "2026-04-13T05:14:49.068447Z",
+    "total_points": 45,
     "providers": [
       "Amazon",
       "DHL",
@@ -12,6 +12,7 @@
       "PostNL",
       "VintedGo",
       "GLS",
+      "InPost",
       "Budbee"
     ],
     "bounds": [
@@ -22,29 +23,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.35232698021617,
-          52.0772663939194
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "MYdesign Fashion",
-        "straatNaam": "Koningin Julianalaan 136",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.0772663939194,
-        "longitude": 4.35232698021617,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -96,6 +74,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.373903829,
+          52.07400229
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Lizette wol, handwerken en hobby",
+        "straatNaam": "Loolaan 28",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.07400229,
+        "longitude": 4.373903829,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.36530770681018,
           52.0684449537707
         ]
@@ -110,6 +111,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.0684449537707,
         "longitude": 4.36530770681018,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.35232698021617,
+          52.0772663939194
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "MYdesign Fashion",
+        "straatNaam": "Koningin Julianalaan 136",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.0772663939194,
+        "longitude": 4.35232698021617,
         "canPickup": true,
         "canDropoff": false
       }
@@ -947,20 +971,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.40261054,
-          52.0978857
+          4.38325,
+          52.08776
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat",
-        "straatNaam": "Prins Frederiklaan",
-        "straatNr": "185",
-        "vervoerder": "GLS",
-        "puntType": "locker",
+        "locatieNaam": "PLUMULE EXPAT STORE",
+        "straatNaam": "LIGUSTER 126",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
         "bezettingsgraad": 50,
-        "latitude": 52.0978857,
-        "longitude": 4.40261054,
+        "latitude": 52.08776,
+        "longitude": 4.38325,
         "canPickup": true,
         "canDropoff": true
       }
@@ -2902,6 +2926,10 @@
           [
             [
               [
+                4.372758255386456,
+                52.08294213731964
+              ],
+              [
                 4.372329024586045,
                 52.08295142615855
               ],
@@ -3018,7 +3046,7 @@
                 52.08820723310658
               ],
               [
-                4.371529071248035,
+                4.37152907124804,
                 52.08823355161934
               ],
               [
@@ -3180,10 +3208,6 @@
               [
                 4.372758255386456,
                 52.08294213731964
-              ],
-              [
-                4.372329024586045,
-                52.08295142615855
               ]
             ]
           ],
@@ -4246,6 +4270,10 @@
           [
             [
               [
+                4.407242531781828,
+                52.096023961697945
+              ],
+              [
                 4.407026657312213,
                 52.09579518639004
               ],
@@ -4540,10 +4568,6 @@
               [
                 4.407242531781828,
                 52.096023961697945
-              ],
-              [
-                4.407026657312213,
-                52.09579518639004
               ]
             ]
           ]
@@ -5410,7 +5434,7 @@
                 52.08414475145138
               ],
               [
-                4.363072589482741,
+                4.363072589482742,
                 52.084134146569646
               ],
               [
@@ -6026,6 +6050,10 @@
           [
             [
               [
+                4.372778638396565,
+                52.0820434481693
+              ],
+              [
                 4.372206342132726,
                 52.082055833071095
               ],
@@ -6142,7 +6170,7 @@
                 52.08906357249924
               ],
               [
-                4.371086038645626,
+                4.371086038645625,
                 52.089089891621036
               ],
               [
@@ -6206,7 +6234,7 @@
                 52.08868589050677
               ],
               [
-                4.377700861062081,
+                4.377700861062082,
                 52.08895502715507
               ],
               [
@@ -6568,10 +6596,6 @@
               [
                 4.372778638396565,
                 52.0820434481693
-              ],
-              [
-                4.372206342132726,
-                52.082055833071095
               ]
             ]
           ],
@@ -7226,6 +7250,10 @@
           [
             [
               [
+                4.408538661714513,
+                52.095611012251574
+              ],
+              [
                 4.408250823353366,
                 52.09530598154914
               ],
@@ -7516,10 +7544,6 @@
               [
                 4.408538661714513,
                 52.095611012251574
-              ],
-              [
-                4.408250823353366,
-                52.09530598154914
               ]
             ]
           ]

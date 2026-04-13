@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Tynaarlo",
     "slug": "tynaarlo",
-    "generated_at": "2026-04-06T10:52:18.755824Z",
+    "generated_at": "2026-04-13T05:23:53.027159Z",
     "total_points": 64,
     "providers": [
       "Amazon",
@@ -122,6 +122,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.565975052,
+          53.15156016
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Sportrade fit- & wellness",
+        "straatNaam": "Hoofdweg 266",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 53.15156016,
+        "longitude": 6.565975052,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.563775772,
           53.13498352
         ]
@@ -159,29 +182,6 @@
         "bezettingsgraad": 50,
         "latitude": 53.13372029,
         "longitude": 6.564294358,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.565975052,
-          53.15156016
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Sportrade fit- & wellness",
-        "straatNaam": "Hoofdweg 266",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 53.15156016,
-        "longitude": 6.565975052,
         "canPickup": true,
         "canDropoff": false
       }

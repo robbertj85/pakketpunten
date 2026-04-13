@@ -3,12 +3,11 @@
   "metadata": {
     "gemeente": "Borne",
     "slug": "borne",
-    "generated_at": "2026-04-06T10:33:57.423161Z",
-    "total_points": 17,
+    "generated_at": "2026-04-13T05:05:25.038748Z",
+    "total_points": 15,
     "providers": [
       "Amazon",
       "DHL",
-      "DPD",
       "PostNL",
       "VintedGo",
       "GLS",
@@ -50,29 +49,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.752057544,
-          52.30159303
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Discus Hospers",
-        "straatNaam": "Grotestraat 238",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.30159303,
-        "longitude": 6.752057544,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.755899682,
           52.30113512
         ]
@@ -87,6 +63,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.30113512,
         "longitude": 6.755899682,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.752057544,
+          52.30159303
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Discus Hospers",
+        "straatNaam": "Grotestraat 238",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.30159303,
+        "longitude": 6.752057544,
         "canPickup": true,
         "canDropoff": false
       }
@@ -142,29 +141,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7565484,
-          52.3015707
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Marskramer Top1Toys Borne",
-        "straatNaam": "Grotestraat",
-        "straatNr": "162-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.3015707,
-        "longitude": 6.7565484,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.720370767204863,
           52.324981223435145
         ]
@@ -179,29 +155,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.324981223435145,
         "longitude": 6.720370767204863,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.75655,
-          52.30157
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Marskramer & Top1Toys Borne",
-        "straatNaam": "GROTESTRAAT",
-        "straatNr": "162A",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.30157,
-        "longitude": 6.75655,
         "canPickup": true,
         "canDropoff": true
       }
@@ -420,6 +373,10 @@
         "coordinates": [
           [
             [
+              [
+                6.758703628421655,
+                52.294557942050986
+              ],
               [
                 6.75855058960307,
                 52.29431055092627
@@ -809,16 +766,8 @@
                 52.30397306200495
               ],
               [
-                6.758806529955434,
-                52.30388114451904
-              ],
-              [
-                6.759060564285446,
-                52.30378375251668
-              ],
-              [
-                6.759061531888534,
-                52.30378329494833
+                6.758807497563268,
+                52.303880686952766
               ],
               [
                 6.759062164324924,
@@ -1023,10 +972,6 @@
               [
                 6.758703628421655,
                 52.294557942050986
-              ],
-              [
-                6.75855058960307,
-                52.29431055092627
               ]
             ]
           ],
@@ -1573,6 +1518,10 @@
           [
             [
               [
+                6.760097961819403,
+                52.29428082191715
+              ],
+              [
                 6.759893901407516,
                 52.2939509694574
               ],
@@ -1901,16 +1850,8 @@
                 52.30471073572404
               ],
               [
-                6.759643970403004,
-                52.304618816869116
-              ],
-              [
-                6.759898007083319,
-                52.3045214230729
-              ],
-              [
-                6.759898974693712,
-                52.30452096549773
+                6.759644938018145,
+                52.30461835929602
               ],
               [
                 6.759899607135953,
@@ -2079,10 +2020,6 @@
               [
                 6.760097961819403,
                 52.29428082191715
-              ],
-              [
-                6.759893901407516,
-                52.2939509694574
               ]
             ]
           ],

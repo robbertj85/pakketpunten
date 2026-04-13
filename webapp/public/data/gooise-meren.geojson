@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Gooise Meren",
     "slug": "gooise-meren",
-    "generated_at": "2026-04-06T10:38:46.106563Z",
+    "generated_at": "2026-04-13T05:10:14.694727Z",
     "total_points": 37,
     "providers": [
       "Amazon",
@@ -21,6 +21,29 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.116662349,
+          52.32728272
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar Christaanse Muiderberg",
+        "straatNaam": "Dorpsstraat 25",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.32728272,
+        "longitude": 5.116662349,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -109,29 +132,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.28455328,
         "longitude": 5.149280829,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.116662349,
-          52.32728272
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Spar Christaanse Muiderberg",
-        "straatNaam": "Dorpsstraat 25",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.32728272,
-        "longitude": 5.116662349,
         "canPickup": true,
         "canDropoff": false
       }

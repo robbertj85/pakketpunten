@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Nijkerk",
     "slug": "nijkerk",
-    "generated_at": "2026-04-06T10:45:52.101944Z",
-    "total_points": 50,
+    "generated_at": "2026-04-13T05:17:22.841835Z",
+    "total_points": 51,
     "providers": [
       "Amazon",
       "DHL",
@@ -235,20 +235,43 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.485001564025879,
-          52.22222900390625
+          5.4785489,
+          52.2274533
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Nijkerk",
-        "straatNaam": "Brede Beek",
-        "straatNr": "10-PS/73",
+        "locatieNaam": "Pakketautomaat Lidl Amperestraat",
+        "straatNaam": "Amperestraat",
+        "straatNr": "5-PS/59",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
-        "latitude": 52.22222900390625,
-        "longitude": 5.485001564025879,
+        "latitude": 52.2274533,
+        "longitude": 5.4785489,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4817947,
+          52.2258329
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Hakog",
+        "straatNaam": "Vleenenck",
+        "straatNr": "4",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.2258329,
+        "longitude": 5.4817947,
         "canPickup": true,
         "canDropoff": true
       }
@@ -281,6 +304,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.485262291812684,
+          52.22408147055044
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat HEMA Nijkerk",
+        "straatNaam": "Plein",
+        "straatNr": "14-PS/85",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.22408147055044,
+        "longitude": 5.485262291812684,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.4848466,
           52.2226487
         ]
@@ -304,43 +350,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.4785489,
-          52.2274533
+          5.485001564025879,
+          52.22222900390625
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Lidl Amperestraat",
-        "straatNaam": "Amperestraat",
-        "straatNr": "5-PS/59",
+        "locatieNaam": "Pakketautomaat terStal Nijkerk",
+        "straatNaam": "Brede Beek",
+        "straatNr": "10-PS/73",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
-        "latitude": 52.2274533,
-        "longitude": 5.4785489,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.485262291812684,
-          52.22408147055044
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat HEMA Nijkerk",
-        "straatNaam": "Plein",
-        "straatNr": "14-PS/85",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.22408147055044,
-        "longitude": 5.485262291812684,
+        "latitude": 52.22222900390625,
+        "longitude": 5.485001564025879,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3741,56 +3764,56 @@
                 52.228481935861275
               ],
               [
-                5.482610214642248,
-                52.22847771056079
+                5.482608172267893,
+                52.228481230281766
               ],
               [
-                5.482652266997212,
-                52.228473845316415
+                5.482656967332495,
+                52.22847674528064
               ],
               [
-                5.483070125164282,
-                52.22840921207105
+                5.4830748255199415,
+                52.22841211201866
               ],
               [
-                5.48347565290711,
-                52.228319738279005
+                5.483480353279721,
+                52.228322638210514
               ],
               [
-                5.483864944193154,
-                52.22820628576747
+                5.483869644579123,
+                52.228209185683525
               ],
               [
-                5.48423424946018,
-                52.228069947323306
+                5.4842389498557935,
+                52.228072847224766
               ],
               [
-                5.484580011744859,
-                52.227912036162266
+                5.484584712146304,
+                52.22791493605005
               ],
               [
-                5.484898900951747,
-                52.22773407327409
+                5.484903601355157,
+                52.227736973149284
               ],
               [
-                5.485187845932241,
-                52.22753777276626
+                5.48519254633373,
+                52.227540672630035
               ],
               [
-                5.485444064064129,
-                52.22732502534732
+                5.485448764459834,
+                52.227327925201045
               ],
               [
-                5.485665088046861,
-                52.2270978801098
+                5.485669788432965,
+                52.2271007799548
               ],
               [
-                5.485848789654515,
-                52.226858524787616
+                5.485853490027304,
+                52.22686142462542
               ],
               [
-                5.485914892798911,
-                52.22674458550756
+                5.485921635197144,
+                52.22674396556359
               ],
               [
                 5.4861247310122385,
@@ -7393,40 +7416,44 @@
                 52.22944677367154
               ],
               [
-                5.4836207212855514,
-                52.22924161804773
+                5.4836158424114965,
+                52.229246631507586
               ],
               [
-                5.484037578508456,
-                52.22914964408226
+                5.48404227900528,
+                52.22915254399097
               ],
               [
-                5.484556640876676,
-                52.22899837133236
+                5.484561341391313,
+                52.22900127122048
               ],
               [
-                5.485049053327615,
-                52.22881658362348
+                5.485053753855109,
+                52.22881948349211
               ],
               [
-                5.485510073034884,
-                52.228606032029695
+                5.485514773570154,
+                52.22860893188003
               ],
               [
-                5.485935259743387,
-                52.22836874466722
+                5.485939960281277,
+                52.228371644500776
               ],
               [
-                5.4863205185461235,
-                52.22810700714769
+                5.486325219081451,
+                52.228109906966026
               ],
               [
-                5.486662139325232,
-                52.22782334055067
+                5.4866668398528375,
+                52.22782624035557
               ],
               [
-                5.486954739708341,
-                52.22752262793644
+                5.48696153299206,
+                52.22752337692241
+              ],
+              [
+                5.486963100577429,
+                52.22752133436293
               ],
               [
                 5.486969358733133,

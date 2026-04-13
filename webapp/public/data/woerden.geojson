@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Woerden",
     "slug": "woerden",
-    "generated_at": "2026-04-06T10:56:04.993018Z",
+    "generated_at": "2026-04-13T05:27:38.662962Z",
     "total_points": 48,
     "providers": [
       "Amazon",
@@ -73,13 +73,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.836374055,
+          52.11546935
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Gewoon Coop Compact Zegveld",
+        "straatNaam": "Middenweg 1",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.11546935,
+        "longitude": 4.836374055,
+        "canPickup": true,
+        "canDropoff": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.88772439193862,
           52.0812643915534
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "MvM Services",
+        "locatieNaam": "MvM Services PpP",
         "straatNaam": "Houttuinlaan 18",
         "straatNr": "",
         "vervoerder": "Amazon",
@@ -110,29 +133,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.09111551,
         "longitude": 4.963491989,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.836374055,
-          52.11546935
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Gewoon Coop Compact Zegveld",
-        "straatNaam": "Middenweg 1",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.11546935,
-        "longitude": 4.836374055,
         "canPickup": true,
         "canDropoff": false
       }
@@ -700,7 +700,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "MvM Services",
+        "locatieNaam": "MvM Services PpP",
         "straatNaam": "Houttuinlaan",
         "straatNr": "18",
         "vervoerder": "PostNL",
