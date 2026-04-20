@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Dongen",
     "slug": "dongen",
-    "generated_at": "2026-04-13T05:07:52.760929Z",
+    "generated_at": "2026-04-20T05:08:11.101174Z",
     "total_points": 29,
     "providers": [
       "Amazon",
@@ -580,6 +580,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.9449326,
+          51.6251346
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bloembinderij John Flora",
+        "straatNaam": "Hoge Ham",
+        "straatNr": "170",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.6251346,
+        "longitude": 4.9449326,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.93094093,
           51.6151101
         ]
@@ -617,29 +640,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.6242988,
         "longitude": 4.94084184,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.9449326,
-          51.6251346
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Bloembinderij John Flora",
-        "straatNaam": "Hoge Ham",
-        "straatNr": "170",
-        "vervoerder": "GLS",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 51.6251346,
-        "longitude": 4.9449326,
         "canPickup": true,
         "canDropoff": true
       }
