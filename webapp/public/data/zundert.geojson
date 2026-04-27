@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Zundert",
     "slug": "zundert",
-    "generated_at": "2026-04-20T05:27:52.261695Z",
+    "generated_at": "2026-04-27T05:36:13.596842Z",
     "total_points": 33,
     "providers": [
       "Amazon",
@@ -34,7 +34,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Coop Van Bedaf",
+        "locatieNaam": "Gewoon Coop",
         "straatNaam": "Pastoor de Bakkerstraat 15",
         "straatNr": "",
         "vervoerder": "Amazon",
@@ -57,7 +57,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Gewoon Coop",
+        "locatieNaam": "Coop Van Bedaf",
         "straatNaam": "Pastoor de Bakkerstraat 15",
         "straatNr": "",
         "vervoerder": "Amazon",
@@ -295,29 +295,6 @@
         "bezettingsgraad": 50,
         "latitude": 51.4400721,
         "longitude": 4.5684835,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.6620738,
-          51.4708942
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Albert Heijn Z",
-        "straatNaam": "MOLENSTRAAT",
-        "straatNr": "58",
-        "vervoerder": "DPD",
-        "puntType": "dpd_box",
-        "bezettingsgraad": 50,
-        "latitude": 51.4708942,
-        "longitude": 4.6620738,
         "canPickup": true,
         "canDropoff": true
       }
@@ -617,6 +594,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.5185844,
         "longitude": 4.70334391,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7031667,
+          51.517217
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GP World",
+        "straatNaam": "Sint Bavostraat",
+        "straatNr": "78",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.517217,
+        "longitude": 4.7031667,
         "canPickup": true,
         "canDropoff": true
       }
@@ -2670,7 +2670,7 @@
                 51.46955645535208
               ],
               [
-                4.665791207357527,
+                4.665791207357526,
                 51.46952414570192
               ],
               [
@@ -2741,6 +2741,10 @@
           ],
           [
             [
+              [
+                4.702812676335791,
+                51.51322182425722
+              ],
               [
                 4.702393759675154,
                 51.513180538594554
@@ -3164,10 +3168,6 @@
               [
                 4.702812676335791,
                 51.51322182425722
-              ],
-              [
-                4.702393759675154,
-                51.513180538594554
               ]
             ]
           ],
@@ -5126,7 +5126,7 @@
                 51.4690270351932
               ],
               [
-                4.6668631940100544,
+                4.666863194010054,
                 51.468897392148946
               ],
               [
@@ -5285,6 +5285,10 @@
           ],
           [
             [
+              [
+                4.703106963848927,
+                51.5123419295035
+              ],
               [
                 4.702548418912888,
                 51.512286883042556
@@ -5668,10 +5672,6 @@
               [
                 4.703106963848927,
                 51.5123419295035
-              ],
-              [
-                4.702548418912888,
-                51.512286883042556
               ]
             ]
           ],

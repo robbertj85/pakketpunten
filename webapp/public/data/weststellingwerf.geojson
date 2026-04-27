@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Weststellingwerf",
     "slug": "weststellingwerf",
-    "generated_at": "2026-04-20T05:26:26.206779Z",
-    "total_points": 38,
+    "generated_at": "2026-04-27T05:34:45.641475Z",
+    "total_points": 39,
     "providers": [
       "Amazon",
       "DHL",
@@ -524,6 +524,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.87668611,
         "longitude": 6.006464199,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.004035222,
+          52.87718398
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Kruijer Wolvega",
+        "straatNaam": "Hoofdstraat Oost",
+        "straatNr": "39",
+        "vervoerder": "PostNL",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.87718398,
+        "longitude": 6.004035222,
         "canPickup": true,
         "canDropoff": true
       }
@@ -1436,8 +1459,16 @@
                 52.87925939895706
               ],
               [
-                6.001353701141483,
-                52.87929602331073
+                6.001204699728389,
+                52.87926463225164
+              ],
+              [
+                6.001237770961742,
+                52.87928245822799
+              ],
+              [
+                6.001384828473506,
+                52.87934727431752
               ],
               [
                 6.001471486645878,
@@ -2460,7 +2491,7 @@
                 52.882655388110436
               ],
               [
-                5.982502441367817,
+                5.982502441367815,
                 52.882657442442536
               ],
               [

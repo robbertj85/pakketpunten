@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Heiloo",
     "slug": "heiloo",
-    "generated_at": "2026-04-20T05:11:55.856099Z",
-    "total_points": 14,
+    "generated_at": "2026-04-27T05:19:53.929408Z",
+    "total_points": 15,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -110,6 +110,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.5998657,
         "longitude": 4.701448,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6998235,
+          52.600025
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat - De Buren - Winkelc",
+        "straatNaam": "STATIONSPLEIN",
+        "straatNr": "34",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 50,
+        "latitude": 52.600025,
+        "longitude": 4.6998235,
         "canPickup": true,
         "canDropoff": true
       }
