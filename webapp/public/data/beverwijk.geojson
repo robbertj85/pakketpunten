@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Beverwijk",
     "slug": "beverwijk",
-    "generated_at": "2026-04-27T05:13:16.627767Z",
-    "total_points": 52,
+    "generated_at": "2026-05-04T05:39:09.451995Z",
+    "total_points": 54,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -481,6 +481,29 @@
         "longitude": 4.652152,
         "canPickup": true,
         "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6604,
+          52.48231
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "UR426 Pakketautomaat Budbee",
+        "straatNaam": "BEVERHOF",
+        "straatNr": "37",
+        "vervoerder": "DPD",
+        "puntType": "dpd_box",
+        "bezettingsgraad": 50,
+        "latitude": 52.48231,
+        "longitude": 4.6604,
+        "canPickup": true,
+        "canDropoff": false
       }
     },
     {
@@ -1169,6 +1192,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.48223,
         "longitude": 4.65212,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6604,
+          52.48231
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "UR426 Pakketautomaat Budbee",
+        "straatNaam": "BEVERHOF",
+        "straatNr": "37",
+        "vervoerder": "Budbee",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.48231,
+        "longitude": 4.6604,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3039,10 +3085,6 @@
           [
             [
               [
-                4.661532731958878,
-                52.49260805934503
-              ],
-              [
                 4.661313618243743,
                 52.49237976207879
               ],
@@ -3403,8 +3445,8 @@
                 52.496136812230674
               ],
               [
-                4.669482842636362,
-                52.49612997875509
+                4.669482842636363,
+                52.49612997875511
               ],
               [
                 4.66948527827289,
@@ -3537,6 +3579,10 @@
               [
                 4.661532731958878,
                 52.49260805934503
+              ],
+              [
+                4.661313618243743,
+                52.49237976207879
               ]
             ]
           ],
@@ -5445,6 +5491,10 @@
                 52.50036104751618
               ],
               [
+                4.663945155806998,
+                52.50036104751618
+              ],
+              [
                 4.664369781886708,
                 52.50035090978027
               ],
@@ -5553,7 +5603,7 @@
                 52.49473537064993
               ],
               [
-                4.670481403813761,
+                4.670481403813762,
                 52.49466878187959
               ],
               [

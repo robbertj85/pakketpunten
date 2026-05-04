@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Brummen",
     "slug": "brummen",
-    "generated_at": "2026-04-27T05:14:09.874799Z",
+    "generated_at": "2026-05-04T05:40:06.797696Z",
     "total_points": 30,
     "providers": [
       "Amazon",
@@ -167,6 +167,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.058752,
+          52.103828
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat HEMA Eerbeek",
+        "straatNaam": "Stuijvenburchstraat",
+        "straatNr": "62-PS/87",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.103828,
+        "longitude": 6.058752,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.15434741973876,
           52.0879249572753
         ]
@@ -273,29 +296,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.10531200657256,
         "longitude": 6.066304139047964,
-        "canPickup": true,
-        "canDropoff": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.058752,
-          52.103828
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat HEMA Eerbeek",
-        "straatNaam": "Stuijvenburchstraat",
-        "straatNr": "62-PS/87",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.103828,
-        "longitude": 6.058752,
         "canPickup": true,
         "canDropoff": true
       }

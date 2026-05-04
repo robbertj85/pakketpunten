@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Barneveld",
     "slug": "barneveld",
-    "generated_at": "2026-04-27T05:12:18.536543Z",
+    "generated_at": "2026-05-04T05:38:06.563579Z",
     "total_points": 70,
     "providers": [
       "Amazon",
@@ -42,29 +42,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.177364349365234,
         "longitude": 5.50795841217041,
-        "canPickup": true,
-        "canDropoff": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.508097187,
-          52.17718221
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Boons Zwartebroek",
-        "straatNaam": "Albert van Meerveldstraat 90",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.17718221,
-        "longitude": 5.508097187,
         "canPickup": true,
         "canDropoff": false
       }
@@ -258,22 +235,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.578417189316413,
-          52.12146135935641
+          5.508097187,
+          52.17718221
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat GAMMA Barneveld",
-        "straatNaam": "Burgemeester Aschofflaan",
-        "straatNr": "4-PS/107",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
+        "locatieNaam": "Boons Zwartebroek",
+        "straatNaam": "Albert van Meerveldstraat 90",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
         "bezettingsgraad": 50,
-        "latitude": 52.12146135935641,
-        "longitude": 5.578417189316413,
+        "latitude": 52.17718221,
+        "longitude": 5.508097187,
         "canPickup": true,
-        "canDropoff": true
+        "canDropoff": false
       }
     },
     {
@@ -617,6 +594,29 @@
         "bezettingsgraad": 50,
         "latitude": 52.187034606933594,
         "longitude": 5.606421947479248,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.578417189316413,
+          52.12146135935641
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat GAMMA Barneveld",
+        "straatNaam": "Burgemeester Aschofflaan",
+        "straatNr": "4-PS/107",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.12146135935641,
+        "longitude": 5.578417189316413,
         "canPickup": true,
         "canDropoff": true
       }

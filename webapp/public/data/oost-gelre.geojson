@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Oost Gelre",
     "slug": "oost-gelre",
-    "generated_at": "2026-04-27T05:26:39.169897Z",
-    "total_points": 46,
+    "generated_at": "2026-05-04T05:53:24.388014Z",
+    "total_points": 47,
     "providers": [
       "Amazon",
       "DHL",
@@ -317,6 +317,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.993214,
         "longitude": 6.565961,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.584486,
+          51.985065
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Clubfit8",
+        "straatNaam": "Mercatorstraat",
+        "straatNr": "8-PS/94",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.985065,
+        "longitude": 6.584486,
         "canPickup": true,
         "canDropoff": true
       }
@@ -4412,7 +4435,7 @@
                 51.987366541282555
               ],
               [
-                6.574002184134394,
+                6.574002184134396,
                 51.98718192082114
               ],
               [

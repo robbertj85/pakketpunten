@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Tiel",
     "slug": "tiel",
-    "generated_at": "2026-04-27T05:31:17.925413Z",
-    "total_points": 48,
+    "generated_at": "2026-05-04T05:58:13.974658Z",
+    "total_points": 49,
     "providers": [
       "Amazon",
       "DHL",
@@ -1122,6 +1122,29 @@
         "bezettingsgraad": 50,
         "latitude": 51.90027,
         "longitude": 5.44868,
+        "canPickup": true,
+        "canDropoff": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.44409,
+          51.89888
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "",
+        "straatNaam": "Grotebrugse Grintweg",
+        "straatNr": "226",
+        "vervoerder": "InPost",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 51.89888,
+        "longitude": 5.44409,
         "canPickup": true,
         "canDropoff": true
       }
@@ -3394,10 +3417,6 @@
           [
             [
               [
-                5.441160469945463,
-                51.884871202754866
-              ],
-              [
                 5.44090548517489,
                 51.884658774549834
               ],
@@ -3888,6 +3907,10 @@
               [
                 5.441160469945463,
                 51.884871202754866
+              ],
+              [
+                5.44090548517489,
+                51.884658774549834
               ]
             ]
           ],
