@@ -11,6 +11,25 @@ import {
   getPointCategory,
 } from '@/types/pakketpunten';
 import { findNearestPoints, formatDistance, NearestPoint } from '@/utils/distanceUtils';
+import {
+  DAY_KEYS,
+  DAY_LABELS,
+  DayKey,
+  dayKeyForDate,
+  isOpenAt,
+  minutesForDate,
+  parseHHMM,
+} from '@/utils/openingHoursUtils';
+
+type TimeMode = 'all' | 'now' | 'custom';
+
+function pad2(n: number): string {
+  return n.toString().padStart(2, '0');
+}
+
+function currentHHMM(d: Date): string {
+  return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+}
 
 // Mapping table for PDOK municipality names to our database names (same as AddressSearchInput)
 const MUNICIPALITY_NAME_MAPPING: Record<string, string> = {
@@ -94,6 +113,14 @@ export default function NearestPointsFinder({
   } | null>(null);
   const [nearestPoints, setNearestPoints] = useState<NearestPoint[]>([]);
   const [pendingMunicipalitySlug, setPendingMunicipalitySlug] = useState<string | null>(null);
+  const [timeMode, setTimeMode] = useState<TimeMode>('all');
+  const [customDay, setCustomDay] = useState<DayKey>(() => dayKeyForDate(new Date()));
+  const [customTime, setCustomTime] = useState<string>(() => currentHHMM(new Date()));
+  // "Onbekend" = include points whose hours can't be parsed or aren't published.
+  const [includeUnknownHours, setIncludeUnknownHours] = useState<boolean>(true);
+  // Counts of points filtered out at last evaluation, for footer messaging.
+  const [excludedClosed, setExcludedClosed] = useState<number>(0);
+  const [excludedUnknown, setExcludedUnknown] = useState<number>(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -157,6 +184,20 @@ export default function NearestPointsFinder({
     }) as PakketpuntFeature[];
   }, [currentMunicipalityData, matchesFilters]);
 
+  // Resolve the (day, minute) used by the time filter.
+  // For 'now', re-resolve at calc time so reopening the panel an hour later
+  // works as expected.
+  const resolveFilterTarget = useCallback((): { day: DayKey; minute: number } | null => {
+    if (timeMode === 'all') return null;
+    if (timeMode === 'now') {
+      const now = new Date();
+      return { day: dayKeyForDate(now), minute: minutesForDate(now) };
+    }
+    const minute = parseHHMM(customTime);
+    if (minute == null) return null;
+    return { day: customDay, minute };
+  }, [timeMode, customDay, customTime]);
+
   // Calculate nearest points when search location or filtered points change
   // Limited to 500m max distance
   // Also re-runs when panel opens to re-apply highlighting
@@ -165,7 +206,32 @@ export default function NearestPointsFinder({
     if (!isOpen) return;
 
     if (searchLocation && filteredPoints.length > 0) {
-      const nearest = findNearestPoints(searchLocation, filteredPoints, 10, 500);
+      const target = resolveFilterTarget();
+
+      let candidates = filteredPoints;
+      let droppedClosed = 0;
+      let droppedUnknown = 0;
+      if (target) {
+        const kept: PakketpuntFeature[] = [];
+        for (const f of filteredPoints) {
+          const props = f.properties as PakketpuntProperties;
+          const open = isOpenAt(props.openingstijden ?? null, target.day, target.minute);
+          if (open === true) {
+            kept.push(f);
+          } else if (open === false) {
+            droppedClosed += 1;
+          } else if (includeUnknownHours) {
+            kept.push(f);
+          } else {
+            droppedUnknown += 1;
+          }
+        }
+        candidates = kept;
+      }
+      setExcludedClosed(droppedClosed);
+      setExcludedUnknown(droppedUnknown);
+
+      const nearest = findNearestPoints(searchLocation, candidates, 10, 500);
       setNearestPoints(nearest);
 
       // Create set of highlighted point keys
@@ -177,9 +243,18 @@ export default function NearestPointsFinder({
       onHighlightedPointsChange(highlightedSet);
     } else {
       setNearestPoints([]);
+      setExcludedClosed(0);
+      setExcludedUnknown(0);
       onHighlightedPointsChange(null);
     }
-  }, [isOpen, searchLocation, filteredPoints, onHighlightedPointsChange]);
+  }, [
+    isOpen,
+    searchLocation,
+    filteredPoints,
+    onHighlightedPointsChange,
+    resolveFilterTarget,
+    includeUnknownHours,
+  ]);
 
   // When municipality data loads after a pending switch, recalculate
   useEffect(() => {
@@ -506,13 +581,80 @@ export default function NearestPointsFinder({
           )}
         </div>
 
+        {/* Time filter */}
+        <div className="mt-3 pt-3 border-t border-gray-100">
+          <div className="text-xs font-medium text-gray-700 mb-1.5">Openingstijden</div>
+          <div className="flex gap-1">
+            {([
+              { mode: 'all', label: 'Alle' },
+              { mode: 'now', label: 'Nu open' },
+              { mode: 'custom', label: 'Op tijdstip' },
+            ] as { mode: TimeMode; label: string }[]).map(({ mode, label }) => (
+              <button
+                key={mode}
+                onClick={() => setTimeMode(mode)}
+                className={`flex-1 px-2 py-1 text-xs rounded-md border transition ${
+                  timeMode === mode
+                    ? 'bg-blue-600 text-white border-blue-600'
+                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {timeMode === 'custom' && (
+            <div className="mt-2 flex gap-2">
+              <select
+                value={customDay}
+                onChange={(e) => setCustomDay(e.target.value as DayKey)}
+                className="flex-1 px-2 py-1.5 text-xs border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                {DAY_KEYS.map((d) => (
+                  <option key={d} value={d}>
+                    {DAY_LABELS[d]}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="time"
+                value={customTime}
+                onChange={(e) => setCustomTime(e.target.value)}
+                className="w-24 px-2 py-1.5 text-xs border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+          )}
+
+          {timeMode !== 'all' && (
+            <label className="mt-2 flex items-center gap-2 text-xs text-gray-600 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={includeUnknownHours}
+                onChange={(e) => setIncludeUnknownHours(e.target.checked)}
+                className="rounded text-blue-600 focus:ring-blue-500"
+              />
+              Toon ook punten zonder bekende openingstijden
+            </label>
+          )}
+        </div>
+
         {/* No results within 500m */}
         {searchLocation && !pendingMunicipalitySlug && nearestPoints.length === 0 && (
           <div className="mt-4 text-sm text-gray-500 text-center py-4">
             <svg className="w-8 h-8 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            Geen pakketpunten binnen 500m gevonden
+            {timeMode === 'all'
+              ? 'Geen pakketpunten binnen 500m gevonden'
+              : 'Geen pakketpunten binnen 500m op dit tijdstip open'}
+            {(excludedClosed > 0 || excludedUnknown > 0) && (
+              <div className="mt-1 text-xs text-gray-400">
+                {excludedClosed > 0 && <>{excludedClosed} gesloten</>}
+                {excludedClosed > 0 && excludedUnknown > 0 && ' · '}
+                {excludedUnknown > 0 && <>{excludedUnknown} zonder openingstijden</>}
+              </div>
+            )}
           </div>
         )}
 
@@ -524,7 +666,16 @@ export default function NearestPointsFinder({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
               {nearestPoints.length} pakketpunt{nearestPoints.length !== 1 ? 'en' : ''} binnen 500m
+              {timeMode === 'now' && ' · nu open'}
+              {timeMode === 'custom' && ` · open op ${DAY_LABELS[customDay].toLowerCase()} ${customTime}`}
             </div>
+            {timeMode !== 'all' && (excludedClosed > 0 || excludedUnknown > 0) && (
+              <div className="text-[11px] text-gray-400 mb-2 -mt-1">
+                {excludedClosed > 0 && <>{excludedClosed} gesloten</>}
+                {excludedClosed > 0 && excludedUnknown > 0 && ' · '}
+                {excludedUnknown > 0 && <>{excludedUnknown} zonder openingstijden uitgesloten</>}
+              </div>
+            )}
             {nearestPoints.map((point, index) => {
               const props = point.feature.properties as PakketpuntProperties;
               const providerInfo = PROVIDER_INFO[props.vervoerder] || { color: '#666', logoUrl: '' };
