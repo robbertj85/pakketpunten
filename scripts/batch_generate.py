@@ -16,6 +16,28 @@ from api_client import get_data_pakketpunten
 from geo_analysis import get_bufferzones
 from utils import get_gemeente_polygon, check_polygon_cache_expiry, get_polygon_cache_stats
 import geopandas as gpd
+import pandas as pd
+
+
+def _clean_openingstijden(value):
+    """Return a clean openingstijden value (dict, non-empty string, or None).
+
+    The upstream pipeline fills missing rows with NaN/empty when concatenating
+    providers that don't carry hours — strip those down to a real None so the
+    frontend can skip the section entirely instead of rendering blanks.
+    """
+    if value is None:
+        return None
+    try:
+        if pd.isna(value):
+            return None
+    except (TypeError, ValueError):
+        pass
+    if isinstance(value, str):
+        return value.strip() or None
+    if isinstance(value, dict):
+        return value if value else None
+    return None
 
 def load_municipalities():
     """Load the list of municipalities to process."""
@@ -120,7 +142,8 @@ def process_municipality(gemeente_data):
                     "latitude": row["latitude"],
                     "longitude": row["longitude"],
                     "canPickup": bool(row.get("canPickup", True)),
-                    "canDropoff": bool(row.get("canDropoff", True))
+                    "canDropoff": bool(row.get("canDropoff", True)),
+                    "openingstijden": _clean_openingstijden(row.get("openingstijden"))
                 }
             })
 

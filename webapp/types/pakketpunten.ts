@@ -17,7 +17,19 @@ export interface PakketpuntProperties {
   longitude: number;
   canPickup: boolean;
   canDropoff: boolean;
+  openingstijden?: OpeningHours | null;
 }
+
+// Per-day map (Dutch keys) OR a single free-text string OR null when unknown.
+export type OpeningHours = string | {
+  ma?: string;
+  di?: string;
+  wo?: string;
+  do?: string;
+  vr?: string;
+  za?: string;
+  zo?: string;
+};
 
 export interface BufferProperties {
   type: 'buffer_union_300m' | 'buffer_union_400m' | 'boundary';

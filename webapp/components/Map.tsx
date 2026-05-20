@@ -29,7 +29,48 @@ import 'leaflet/dist/leaflet.css';
 import buffer from '@turf/buffer';
 import union from '@turf/union';
 import { featureCollection, point } from '@turf/helpers';
-import { PakketpuntData, PakketpuntFeature, Filters, PakketpuntProperties, getPointCategory } from '@/types/pakketpunten';
+import { PakketpuntData, PakketpuntFeature, Filters, PakketpuntProperties, getPointCategory, OpeningHours } from '@/types/pakketpunten';
+
+const WEEK_DAYS: { key: keyof Exclude<OpeningHours, string>; label: string }[] = [
+  { key: 'ma', label: 'Ma' },
+  { key: 'di', label: 'Di' },
+  { key: 'wo', label: 'Wo' },
+  { key: 'do', label: 'Do' },
+  { key: 'vr', label: 'Vr' },
+  { key: 'za', label: 'Za' },
+  { key: 'zo', label: 'Zo' },
+];
+
+function OpeningTimes({ value }: { value?: OpeningHours | null }) {
+  if (!value) return null;
+  if (typeof value === 'string') {
+    return (
+      <div className="mt-2">
+        <p className="font-semibold text-gray-900">Openingstijden:</p>
+        <p className="text-gray-700">{value}</p>
+      </div>
+    );
+  }
+  return (
+    <div className="mt-2">
+      <p className="font-semibold text-gray-900">Openingstijden:</p>
+      <table className="text-xs text-gray-700 mt-0.5">
+        <tbody>
+          {WEEK_DAYS.map(({ key, label }) => {
+            const v = value[key];
+            const closed = !v || v === 'gesloten';
+            return (
+              <tr key={key}>
+                <td className="pr-2 font-medium text-gray-600 align-top">{label}</td>
+                <td className={closed ? 'text-gray-400' : ''}>{v || 'gesloten'}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 interface MapProps {
   data?: PakketpuntData | null;
@@ -886,6 +927,8 @@ function MapComponent(props?: MapProps) {
                   {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
                 </p>
 
+                <OpeningTimes value={props.openingstijden} />
+
                 <div className="mt-3 border-t pt-2">
                   <details>
                     <summary className="flex justify-between items-baseline gap-3 cursor-pointer select-none">
@@ -960,6 +1003,8 @@ function MapComponent(props?: MapProps) {
                 <p className="text-xs text-gray-500 mt-1">
                   {props.latitude.toFixed(6)}, {props.longitude.toFixed(6)}
                 </p>
+
+                <OpeningTimes value={props.openingstijden} />
 
                 <div className="mt-3 border-t pt-2">
                   <details>
