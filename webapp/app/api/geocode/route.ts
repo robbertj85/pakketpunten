@@ -87,12 +87,14 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const query = searchParams.get('q');
     const id = searchParams.get('id'); // For lookup after selection
+    const lat = searchParams.get('lat'); // For reverse geocoding
+    const lon = searchParams.get('lon');
 
-    if (!query && !id) {
+    if (!query && !id && !(lat && lon)) {
       return new NextResponse(
         JSON.stringify({
           error: 'Missing parameter',
-          message: 'Provide either "q" (query) or "id" (lookup)',
+          message: 'Provide "q" (query), "id" (lookup), or "lat"+"lon" (reverse)',
         }),
         {
           status: 400,
@@ -101,6 +103,54 @@ export async function GET(request: NextRequest) {
           },
         }
       );
+    }
+
+    // Reverse geocoding: nearest address for a coordinate
+    if (lat && lon) {
+      const latNum = parseFloat(lat);
+      const lonNum = parseFloat(lon);
+      if (!Number.isFinite(latNum) || !Number.isFinite(lonNum)) {
+        return new NextResponse(
+          JSON.stringify({ error: 'Invalid coordinates' }),
+          { status: 400, headers: { 'Content-Type': 'application/json' } }
+        );
+      }
+
+      const reverseUrl = `https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse?lat=${latNum}&lon=${lonNum}&rows=1&type=adres&fl=*`;
+      const response = await fetch(reverseUrl, { headers: { Accept: 'application/json' } });
+
+      if (!response.ok) {
+        throw new Error(`PDOK reverse API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const doc = data.response?.docs?.[0];
+
+      if (!doc) {
+        return new NextResponse(
+          JSON.stringify({ error: 'Not found', message: 'No address near this location' }),
+          { status: 404, headers: { 'Content-Type': 'application/json' } }
+        );
+      }
+
+      const centroidMatch = doc.centroide_ll?.match(/POINT\(([\d.]+) ([\d.]+)\)/);
+      const coordinates = centroidMatch
+        ? {
+            longitude: parseFloat(centroidMatch[1]),
+            latitude: parseFloat(centroidMatch[2]),
+          }
+        : { longitude: lonNum, latitude: latNum };
+
+      return NextResponse.json({
+        id: doc.id,
+        displayName: doc.weergavenaam,
+        municipality: doc.gemeentenaam,
+        street: doc.straatnaam,
+        houseNumber: doc.huisnummer,
+        postalCode: doc.postcode,
+        city: doc.woonplaatsnaam,
+        coordinates,
+      });
     }
 
     // If ID provided, do a lookup (get full details for selected suggestion)

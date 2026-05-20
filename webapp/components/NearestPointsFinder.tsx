@@ -121,6 +121,7 @@ export default function NearestPointsFinder({
   // Counts of points filtered out at last evaluation, for footer messaging.
   const [excludedClosed, setExcludedClosed] = useState<number>(0);
   const [excludedUnknown, setExcludedUnknown] = useState<number>(0);
+  const [isLocating, setIsLocating] = useState<boolean>(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -384,6 +385,74 @@ export default function NearestPointsFinder({
     }
   };
 
+  // Use the device's current location (geolocation API + reverse geocode).
+  const handleUseMyLocation = () => {
+    if (typeof window === 'undefined' || !('geolocation' in navigator)) {
+      setError('Locatie wordt niet ondersteund door deze browser');
+      return;
+    }
+
+    setError(null);
+    setIsLocating(true);
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          const response = await fetch(
+            `/api/geocode?lat=${latitude}&lon=${longitude}`
+          );
+          if (!response.ok) {
+            throw new Error(`Reverse geocode failed: ${response.status}`);
+          }
+          const details = await response.json();
+
+          if (!details.municipality) {
+            setError('Geen Nederlandse gemeente bij deze locatie gevonden');
+            setIsLocating(false);
+            return;
+          }
+
+          const municipality = findMunicipality(details.municipality);
+          if (!municipality) {
+            setError(`Gemeente "${details.municipality}" niet in database`);
+            setIsLocating(false);
+            return;
+          }
+
+          const coords = details.coordinates || { latitude, longitude };
+          setQuery(details.displayName || 'Mijn locatie');
+          setShowDropdown(false);
+          setSearchLocation(coords);
+          onSearchLocationChange(coords);
+
+          if (currentMunicipalityData?.metadata.slug !== municipality.slug) {
+            setPendingMunicipalitySlug(municipality.slug);
+            onMunicipalityChange(municipality.slug);
+          }
+        } catch (err) {
+          console.error('Reverse geocode error:', err);
+          setError('Locatie kon niet worden omgezet naar een adres');
+        } finally {
+          setIsLocating(false);
+        }
+      },
+      (err) => {
+        setIsLocating(false);
+        if (err.code === err.PERMISSION_DENIED) {
+          setError('Locatie geweigerd. Schakel locatietoegang in voor deze site.');
+        } else if (err.code === err.POSITION_UNAVAILABLE) {
+          setError('Locatie is op dit moment niet beschikbaar');
+        } else if (err.code === err.TIMEOUT) {
+          setError('Locatie ophalen duurde te lang');
+        } else {
+          setError('Locatie ophalen mislukt');
+        }
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  };
+
   // Handle direct search (Enter without dropdown selection)
   const handleDirectSearch = async () => {
     if (query.length < 2) return;
@@ -553,6 +622,27 @@ export default function NearestPointsFinder({
               </button>
             )}
           </div>
+
+          {/* Use my location */}
+          <button
+            type="button"
+            onClick={handleUseMyLocation}
+            disabled={isLocating}
+            className="mt-2 w-full flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-md hover:bg-blue-100 disabled:opacity-60 disabled:cursor-not-allowed transition"
+          >
+            {isLocating ? (
+              <svg className="animate-spin h-3.5 w-3.5" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+              </svg>
+            ) : (
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11a3 3 0 100-6 3 3 0 000 6z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 22s8-6.5 8-13a8 8 0 10-16 0c0 6.5 8 13 8 13z" />
+              </svg>
+            )}
+            {isLocating ? 'Locatie ophalen…' : 'Gebruik mijn locatie'}
+          </button>
 
           {/* Error message */}
           {error && <div className="mt-2 text-xs text-red-600">{error}</div>}
