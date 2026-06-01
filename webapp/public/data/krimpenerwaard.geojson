@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Krimpenerwaard",
     "slug": "krimpenerwaard",
-    "generated_at": "2026-05-25T06:41:06.691116Z",
+    "generated_at": "2026-06-01T07:12:02.084475Z",
     "total_points": 53,
     "providers": [
       "Amazon",
@@ -12,8 +12,7 @@
       "PostNL",
       "VintedGo",
       "ViaTim",
-      "InPost",
-      "Budbee"
+      "InPost"
     ],
     "bounds": [
       4.6274737,
@@ -42,6 +41,30 @@
         "bezettingsgraad": 50,
         "latitude": 51.8929290280853,
         "longitude": 4.62855119096964,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.770636918,
+          51.97313758
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "PLUS de Jong Stolwijk",
+        "straatNaam": "Goudseweg 22",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.97313758,
+        "longitude": 4.770636918,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -324,7 +347,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Boons Gouderak",
         "straatNaam": "Kranepoort",
-        "straatNr": "14-PS/94",
+        "straatNr": "14",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -420,7 +443,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Hubo Haastrecht",
         "straatNaam": "Kuiperstraat",
-        "straatNr": "6-DB/86",
+        "straatNr": "6",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -452,7 +475,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Lidl Schoonhoven",
         "straatNaam": "Albert Plesmanstraat",
-        "straatNr": "21-PS/89",
+        "straatNr": "21",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -484,7 +507,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat KlusWijs Schoonhove",
         "straatNaam": "De Diamant",
-        "straatNr": "2-PS/165",
+        "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1466,30 +1489,6 @@
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.6299507,
-          51.8940297
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Budbee",
-        "straatNaam": "",
-        "straatNr": "",
-        "vervoerder": "Budbee",
-        "puntType": "automaat",
-        "bezettingsgraad": 50,
-        "latitude": 51.8940297,
-        "longitude": 4.6299507,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
           [
@@ -1987,7 +1986,7 @@
                 51.89929195408956
               ],
               [
-                4.6819458222794825,
+                4.681945822279485,
                 51.8993395310063
               ],
               [
@@ -2123,7 +2122,7 @@
                 51.89439900236712
               ],
               [
-                4.685225757083026,
+                4.685225757083025,
                 51.8943520375263
               ],
               [
@@ -3255,10 +3254,6 @@
           [
             [
               [
-                4.784667033188281,
-                51.93386647217661
-              ],
-              [
                 4.7842651895337305,
                 51.93377526266216
               ],
@@ -3627,6 +3622,10 @@
                 51.93446298656734
               ],
               [
+                4.786081223177992,
+                51.93446298656734
+              ],
+              [
                 4.786074335820655,
                 51.93445821049461
               ],
@@ -3645,11 +3644,19 @@
               [
                 4.784667033188281,
                 51.93386647217661
+              ],
+              [
+                4.7842651895337305,
+                51.93377526266216
               ]
             ]
           ],
           [
             [
+              [
+                4.773946062667347,
+                51.96966075523263
+              ],
               [
                 4.773580468601338,
                 51.96952280485482
@@ -3793,6 +3800,10 @@
               [
                 4.767509097262389,
                 51.97501889096187
+              ],
+              [
+                4.767516665877452,
+                51.97502320061148
               ],
               [
                 4.767516665877452,
@@ -3973,10 +3984,6 @@
               [
                 4.773946062667347,
                 51.96966075523263
-              ],
-              [
-                4.773580468601338,
-                51.96952280485482
               ]
             ]
           ],
@@ -5899,7 +5906,7 @@
                 51.89696832532294
               ],
               [
-                4.626550984352929,
+                4.6265509843529316,
                 51.89702974231517
               ],
               [
@@ -6227,7 +6234,7 @@
                 51.90014949242499
               ],
               [
-                4.681441268495167,
+                4.681441268495168,
                 51.9001858856957
               ],
               [
@@ -6363,7 +6370,7 @@
                 51.893571962774146
               ],
               [
-                4.685861829105443,
+                4.685861829105444,
                 51.89354033044322
               ],
               [
@@ -7399,10 +7406,6 @@
           [
             [
               [
-                4.785234575769957,
-                51.93303895487463
-              ],
-              [
                 4.784698792908744,
                 51.93291734446982
               ],
@@ -7443,7 +7446,7 @@
                 51.93334311698328
               ],
               [
-                4.779513065082044,
+                4.779513065082043,
                 51.9334603747266
               ],
               [
@@ -7731,7 +7734,7 @@
                 51.9338369930367
               ],
               [
-                4.787117850395046,
+                4.787117850395044,
                 51.9338327025608
               ],
               [
@@ -7753,11 +7756,19 @@
               [
                 4.785234575769957,
                 51.93303895487463
+              ],
+              [
+                4.784698792908744,
+                51.93291734446982
               ]
             ]
           ],
           [
             [
+              [
+                4.7747646955729,
+                51.968917660704314
+              ],
               [
                 4.7742772420085595,
                 51.96873372999574
@@ -8069,10 +8080,6 @@
               [
                 4.7747646955729,
                 51.968917660704314
-              ],
-              [
-                4.7742772420085595,
-                51.96873372999574
               ]
             ]
           ],

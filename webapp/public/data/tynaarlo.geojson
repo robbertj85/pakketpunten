@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Tynaarlo",
     "slug": "tynaarlo",
-    "generated_at": "2026-05-25T06:51:08.985565Z",
+    "generated_at": "2026-06-01T07:23:11.282605Z",
     "total_points": 70,
     "providers": [
       "Amazon",
@@ -133,7 +133,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "DHL - Pakketautomaat AH Eelderwolde",
-        "straatNaam": "Borchsingel 25-PS/87",
+        "straatNaam": "Borchsingel 25",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
@@ -382,7 +382,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Zuidlaren",
         "straatNaam": "Stationsweg",
-        "straatNr": "42-PS/73",
+        "straatNr": "42",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -478,7 +478,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Zuidlaren",
         "straatNaam": "Verlengde Stationsweg",
-        "straatNr": "57-DB/58",
+        "straatNr": "57",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -510,7 +510,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Jumbo Eelde",
         "straatNaam": "Stoffer Holtjerweg",
-        "straatNr": "1-PS/87",
+        "straatNr": "1",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -542,7 +542,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Lidl Eelde",
         "straatNaam": "Hoofdweg",
-        "straatNr": "93-PS/89",
+        "straatNr": "93",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -638,7 +638,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat AH Eelderwolde",
         "straatNaam": "Borchsingel",
-        "straatNr": "25-PS/87",
+        "straatNr": "25",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1622,70 +1622,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.727512,
-          53.1155849
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Autobedrijf Mark5",
-        "straatNaam": "Molenkamp",
-        "straatNr": "21",
-        "vervoerder": "GLS",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 53.1155849,
-        "longitude": 6.727512,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 00:00",
-          "di": "08:00 - 17:00",
-          "wo": "08:00 - 17:00",
-          "do": "08:00 - 17:00",
-          "vr": "08:00 - 17:00",
-          "za": "09:00 - 16:00",
-          "zo": "00:00 - 00:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6817035,
-          53.094441
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Tissingh Zuidlaren",
-        "straatNaam": "Koningstraat",
-        "straatNr": "12",
-        "vervoerder": "GLS",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 53.094441,
-        "longitude": 6.6817035,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 18:00",
-          "di": "08:30 - 18:00",
-          "wo": "08:30 - 18:00",
-          "do": "08:30 - 18:00",
-          "vr": "08:30 - 18:00",
-          "za": "08:30 - 17:00",
-          "zo": "00:00 - 00:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.57531359,
           53.0761683
         ]
@@ -1782,6 +1718,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.6817035,
+          53.094441
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tissingh Zuidlaren",
+        "straatNaam": "Koningstraat",
+        "straatNr": "12",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 53.094441,
+        "longitude": 6.6817035,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 18:00",
+          "di": "08:30 - 18:00",
+          "wo": "08:30 - 18:00",
+          "do": "08:30 - 18:00",
+          "vr": "08:30 - 18:00",
+          "za": "08:30 - 17:00",
+          "zo": "00:00 - 00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.68623291,
           53.0939875
         ]
@@ -1806,6 +1774,38 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.727512,
+          53.1155849
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Autobedrijf Mark5",
+        "straatNaam": "Molenkamp",
+        "straatNr": "21",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 53.1155849,
+        "longitude": 6.727512,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 00:00",
+          "di": "08:00 - 17:00",
+          "wo": "08:00 - 17:00",
+          "do": "08:00 - 17:00",
+          "vr": "08:00 - 17:00",
+          "za": "09:00 - 16:00",
+          "zo": "00:00 - 00:00"
         }
       }
     },

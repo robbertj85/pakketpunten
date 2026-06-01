@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "De Bilt",
     "slug": "de-bilt",
-    "generated_at": "2026-05-25T06:33:36.444052Z",
+    "generated_at": "2026-06-01T07:03:45.658359Z",
     "total_points": 40,
     "providers": [
       "Amazon",
@@ -29,30 +29,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.208554517,
-          52.12907772
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Dapper Bilthoven",
-        "straatNaam": "Julianalaan 36",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.12907772,
-        "longitude": 5.208554517,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.176153779,
           52.15570053
         ]
@@ -67,6 +43,30 @@
         "bezettingsgraad": 50,
         "latitude": 52.15570053,
         "longitude": 5.176153779,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.208554517,
+          52.12907772
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Dapper Bilthoven",
+        "straatNaam": "Julianalaan 36",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.12907772,
+        "longitude": 5.208554517,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -109,7 +109,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat De Bilt",
         "straatNaam": "Looydijk",
-        "straatNr": "96-DB/94",
+        "straatNr": "96",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -269,7 +269,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Locker Lidl SHIP WITH QR-CODE",
         "straatNaam": "De Kwinkelier",
-        "straatNr": "38-PS/112",
+        "straatNr": "38",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1044,7 +1044,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "CIGO DE BILT",
-        "straatNaam": "HESSENWEG 162",
+        "straatNaam": "Hessenweg 162",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -1053,7 +1053,7 @@
         "longitude": 5.1818,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L 13-17,Ma/Me/J/V/S 10-17"
+        "openingstijden": null
       }
     },
     {

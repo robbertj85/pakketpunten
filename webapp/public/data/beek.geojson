@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Beek",
     "slug": "beek",
-    "generated_at": "2026-05-25T06:30:39.842145Z",
+    "generated_at": "2026-06-01T07:00:32.269215Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -27,30 +27,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.796788428,
-          50.94749323
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Hutapa",
-        "straatNaam": "DSM-straat 4",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 50.94749323,
-        "longitude": 5.796788428,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.841470827,
           50.9376095
         ]
@@ -65,6 +41,30 @@
         "bezettingsgraad": 50,
         "latitude": 50.9376095,
         "longitude": 5.841470827,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.796788428,
+          50.94749323
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Hutapa",
+        "straatNaam": "DSM-straat 4",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.94749323,
+        "longitude": 5.796788428,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -115,7 +115,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Buurt Spaubeek",
         "straatNaam": "Bongerd",
-        "straatNr": "8-PS/67",
+        "straatNr": "8",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -179,7 +179,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Maxi Zoo Beek",
         "straatNaam": "Polychemstraat",
-        "straatNr": "2-PS/89",
+        "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -243,7 +243,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Beek",
         "straatNaam": "Wethouder Sangersstraat",
-        "straatNr": "123-PS/73",
+        "straatNr": "123",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -682,7 +682,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "SOUSMARKT",
-        "straatNaam": "BOURGOGNESTRAAT 1",
+        "straatNaam": "Bourgognestraat 1",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -691,7 +691,7 @@
         "longitude": 5.80133,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L/Ma/Me/J/V 9-18,S 9-17"
+        "openingstijden": null
       }
     },
     {
@@ -706,7 +706,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "ROEL PETERS BLOEMENSPECIAALZAAK",
-        "straatNaam": "MARKT 7",
+        "straatNaam": "Markt 7",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -715,7 +715,7 @@
         "longitude": 5.79542,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "Ma/Me/J/V 9:30-17:30,S 9:30-17"
+        "openingstijden": null
       }
     },
     {

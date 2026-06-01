@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Ommen",
     "slug": "ommen",
-    "generated_at": "2026-05-25T06:45:54.439292Z",
+    "generated_at": "2026-06-01T07:17:22.486304Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -138,7 +138,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Ommen",
         "straatNaam": "11 April Plein",
-        "straatNr": "12-PS/73",
+        "straatNr": "12",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -202,7 +202,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Karwei Ommen",
         "straatNaam": "Balkerweg",
-        "straatNr": "1-PS/87",
+        "straatNr": "1",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -243,12 +243,12 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "gesloten",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 18:00",
-          "za": "09:00 - 17:00",
+          "ma": "09:00 - 17:00",
+          "di": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "za": "09:00 - 13:00",
           "zo": "gesloten"
         }
       }
@@ -673,7 +673,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "NOORDEGRAAF TUIN- EN PARK MACHINES",
-        "straatNaam": "STRANGEWEG 19A",
+        "straatNaam": "Strangeweg 19a",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -682,7 +682,7 @@
         "longitude": 6.43195,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "Ma/Me/J/V 9-18,S 9-17"
+        "openingstijden": null
       }
     },
     {

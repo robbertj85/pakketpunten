@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Teylingen",
     "slug": "teylingen",
-    "generated_at": "2026-05-25T06:50:39.055372Z",
+    "generated_at": "2026-06-01T07:22:39.156006Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -138,7 +138,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Sassenheim Oosteind",
         "straatNaam": "Oosteinde",
-        "straatNr": "32-DB/83",
+        "straatNr": "32",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -202,7 +202,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Kringloop Hoofdstr",
         "straatNaam": "Hoofdstraat",
-        "straatNr": "204-PS/121",
+        "straatNr": "204",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -258,38 +258,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.5219159,
-          52.2263002
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Sassenheim",
-        "straatNaam": "Hoofdstraat",
-        "straatNr": "197-PS/73",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.2263002,
-        "longitude": 4.5219159,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 17:30",
-          "di": "09:30 - 17:00",
-          "wo": "09:30 - 17:00",
-          "do": "09:30 - 17:00",
-          "vr": "09:30 - 17:00",
-          "za": "10:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.4816367,
           52.2210454
         ]
@@ -298,7 +266,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat PLUS Voorhout",
         "straatNaam": "Herenstraat",
-        "straatNr": "45-PS/117",
+        "straatNr": "45",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -345,6 +313,38 @@
           "do": "09:30 - 18:00",
           "vr": "09:30 - 18:00",
           "za": "09:30 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5219159,
+          52.2263002
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Sassenheim",
+        "straatNaam": "Hoofdstraat",
+        "straatNr": "197",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.2263002,
+        "longitude": 4.5219159,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 17:30",
+          "di": "09:30 - 17:00",
+          "wo": "09:30 - 17:00",
+          "do": "09:30 - 17:00",
+          "vr": "09:30 - 17:00",
+          "za": "10:00 - 17:00",
           "zo": "gesloten"
         }
       }

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Haarlemmermeer",
     "slug": "haarlemmermeer",
-    "generated_at": "2026-05-25T06:37:48.261761Z",
-    "total_points": 135,
+    "generated_at": "2026-06-01T07:08:21.270654Z",
+    "total_points": 134,
     "providers": [
       "Amazon",
       "DHL",
@@ -179,7 +179,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "DHL - Pakketautomaat Basic-Fit Sloterweg",
-        "straatNaam": "Sloterweg 301-PS/107",
+        "straatNaam": "Sloterweg 301",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
@@ -228,7 +228,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Nieuw-Venn",
         "straatNaam": "Händelplein",
-        "straatNr": "17-PS/73",
+        "straatNr": "17",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -292,7 +292,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat DHL Express NVP",
         "straatNaam": "Eurolaan",
-        "straatNr": "10-PS/67",
+        "straatNr": "10",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -324,7 +324,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Basic-Fit Lucas B",
         "straatNaam": "Lucas Bolsstraat",
-        "straatNr": "42-PS/73",
+        "straatNr": "42",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -356,7 +356,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Supermarkt Joud",
         "straatNaam": "Venneperstraat",
-        "straatNr": "12-PS/89",
+        "straatNr": "12",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -461,13 +461,13 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "09:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 21:00",
-          "za": "09:00 - 17:30",
-          "zo": "gesloten"
+          "ma": "10:00 - 17:30",
+          "di": "09:00 - 17:30",
+          "wo": "09:00 - 17:30",
+          "do": "09:00 - 17:30",
+          "vr": "09:00 - 20:00",
+          "za": "09:00 - 17:00",
+          "zo": "12:00 - 17:00"
         }
       }
     },
@@ -484,7 +484,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat DHL Nieuw Vennep",
         "straatNaam": "Oosterdreef",
-        "straatNr": "15-PS/87",
+        "straatNr": "15",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -580,7 +580,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Basic-Fit Toolenbrg",
         "straatNaam": "Hoofdweg",
-        "straatNr": "871-PS/113",
+        "straatNr": "871",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -612,7 +612,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat PLUS Bremmer",
         "straatNaam": "Werf",
-        "straatNr": "15-PS/117",
+        "straatNr": "15",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -860,38 +860,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.693135738372803,
-          52.303707122802734
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Repair to go Hoofddorp",
-        "straatNaam": "Marktlaan",
-        "straatNr": "34",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.303707122802734,
-        "longitude": 4.693135738372803,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "gesloten",
-          "di": "10:00 - 17:00",
-          "wo": "10:00 - 17:00",
-          "do": "10:00 - 17:00",
-          "vr": "10:00 - 18:00",
-          "za": "10:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.7493021,
           52.3047492
         ]
@@ -932,7 +900,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Lidl Hoofddorp",
         "straatNaam": "Marktplein",
-        "straatNr": "15-PS/59",
+        "straatNr": "15",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -964,7 +932,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Hoorne Hoofddorp",
         "straatNaam": "Bernadottestraat",
-        "straatNr": "155-PS/102",
+        "straatNr": "155",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1220,7 +1188,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat MediaMarkt Cruquius",
         "straatNaam": "Cruquiusplein",
-        "straatNr": "10-PS/93",
+        "straatNr": "10",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1252,7 +1220,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Laan v Wickevoort",
         "straatNaam": "Laan van Wickevoort",
-        "straatNr": "1-DB/58",
+        "straatNr": "1",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1316,7 +1284,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Lidl Zwanenburg",
         "straatNaam": "Olmenlaan",
-        "straatNr": "139-PS/117",
+        "straatNr": "139",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1348,7 +1316,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Style Outlets-Paris",
         "straatNaam": "SugarCity Ring",
-        "straatNr": "1-PS/73",
+        "straatNr": "1",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1412,7 +1380,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Basic-Fit Sloterweg",
         "straatNaam": "Sloterweg",
-        "straatNr": "301-PS/107",
+        "straatNr": "301",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1444,7 +1412,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat AH Spaarndam",
         "straatNaam": "Lageweg",
-        "straatNr": "1-PS/75",
+        "straatNr": "1",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -3475,7 +3443,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "SKAGER MULTISHOP",
-        "straatNaam": "SKAGERRAK 210",
+        "straatNaam": "Skagerrak 210",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -3484,7 +3452,7 @@
         "longitude": 4.67095,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L 11-18,Ma/Me/J/V 9-18,S 9-17"
+        "openingstijden": null
       }
     },
     {
@@ -3547,7 +3515,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "PENP SHOP",
-        "straatNaam": "NIEUWEMEERDIJK 140",
+        "straatNaam": "Nieuwemeerdijk 140",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -3556,7 +3524,7 @@
         "longitude": 4.79708,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L/Ma/Me/J/V/S/D 10-23"
+        "openingstijden": null
       }
     },
     {
@@ -10363,14 +10331,6 @@
           [
             [
               [
-                4.718500400737595,
-                52.25684059496687
-              ],
-              [
-                4.7182137970949425,
-                52.25664290748599
-              ],
-              [
                 4.717897000873465,
                 52.25646341037388
               ],
@@ -10645,6 +10605,14 @@
               [
                 4.718500400737595,
                 52.25684059496687
+              ],
+              [
+                4.7182137970949425,
+                52.25664290748599
+              ],
+              [
+                4.717897000873465,
+                52.25646341037388
               ]
             ]
           ],
@@ -20583,14 +20551,6 @@
           [
             [
               [
-                4.719641038393926,
-                52.25627684914316
-              ],
-              [
-                4.719258898822299,
-                52.25601326933872
-              ],
-              [
                 4.718836504752023,
                 52.255773943375836
               ],
@@ -20865,6 +20825,14 @@
               [
                 4.719641038393926,
                 52.25627684914316
+              ],
+              [
+                4.719258898822299,
+                52.25601326933872
+              ],
+              [
+                4.718836504752023,
+                52.255773943375836
               ]
             ]
           ],

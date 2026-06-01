@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Barneveld",
     "slug": "barneveld",
-    "generated_at": "2026-05-25T06:30:35.203914Z",
+    "generated_at": "2026-06-01T07:00:26.556398Z",
     "total_points": 71,
     "providers": [
       "Amazon",
@@ -35,7 +35,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "DHL - Pakketautomaat COOP Zwartebroek",
-        "straatNaam": "Albert van Meerveldstraat 90-DB/68",
+        "straatNaam": "Albert van Meerveldstraat 90",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
@@ -268,38 +268,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.578417189316413,
-          52.12146135935641
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat GAMMA Barneveld",
-        "straatNaam": "Burgemeester Aschofflaan",
-        "straatNr": "4-PS/107",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.12146135935641,
-        "longitude": 5.578417189316413,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 21:00",
-          "di": "09:00 - 21:00",
-          "wo": "09:00 - 21:00",
-          "do": "09:00 - 21:00",
-          "vr": "09:00 - 21:00",
-          "za": "09:00 - 18:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.50795841217041,
           52.177364349365234
         ]
@@ -308,7 +276,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat COOP Zwartebroek",
         "straatNaam": "Albert van Meerveldstraat",
-        "straatNr": "90-DB/68",
+        "straatNr": "90",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -436,7 +404,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Karwei Barneveld",
         "straatNaam": "V.Van Zuijlen van Nieveltlaan 45",
-        "straatNr": "45-PS/108",
+        "straatNr": "45",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -532,7 +500,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Barneveld",
         "straatNaam": "Langstraat",
-        "straatNr": "24-PS/73",
+        "straatNr": "24",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -660,7 +628,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Lidl Barneveld",
         "straatNaam": "Oldenbarnevelderweg",
-        "straatNr": "155-PS/133",
+        "straatNr": "155",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -771,6 +739,38 @@
           "do": "09:30 - 17:30",
           "vr": "09:30 - 17:30",
           "za": "09:30 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.578417189316413,
+          52.12146135935641
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat GAMMA Barneveld",
+        "straatNaam": "Burgemeester Aschofflaan",
+        "straatNr": "4-PS/107",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.12146135935641,
+        "longitude": 5.578417189316413,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 21:00",
+          "di": "09:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "vr": "09:00 - 21:00",
+          "za": "09:00 - 18:00",
           "zo": "gesloten"
         }
       }
@@ -1877,11 +1877,11 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "gesloten",
+          "ma": "13:00 - 21:00",
           "di": "13:00 - 21:00",
           "wo": "09:00 - 21:00",
           "do": "13:00 - 21:00",
-          "vr": "13:00 - 21:00",
+          "vr": "gesloten",
           "za": "09:00 - 12:00",
           "zo": "gesloten"
         }
@@ -1947,7 +1947,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "LABELS86",
-        "straatNaam": "LANGSTRAAT 86A",
+        "straatNaam": "Langstraat 86a",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -1956,7 +1956,7 @@
         "longitude": 5.58776,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "Ma/Me/J/V/S 9:30-17"
+        "openingstijden": null
       }
     },
     {
