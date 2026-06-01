@@ -2,8 +2,8 @@
   "metadata": {
     "method": "direct-api",
     "grid_points": 20,
-    "total_locations": 963,
-    "fetched_at": "2026-05-25T02:58:47.006599+00:00"
+    "total_locations": 967,
+    "fetched_at": "2026-06-01T03:36:23.244702+00:00"
   },
   "locations": [
     {
@@ -2732,7 +2732,7 @@
       "vacations": []
     },
     {
-      "id": "M3BFCeI4qjaNYi",
+      "id": "M3zUzWL6N8EtEz",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Vechtstraat",
       "straatNr": "131",
@@ -4501,14 +4501,60 @@
       ],
       "vacations": [
         {
-          "toDate": "2026-05-30T00:00:00",
-          "fromDate": "2026-05-29T00:00:00"
-        },
-        {
           "toDate": "2026-06-28T00:00:00",
           "fromDate": "2026-06-13T00:00:00"
         }
       ]
+    },
+    {
+      "id": "M39EonnoGwrZAe",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "De Schans",
+      "straatNr": "4",
+      "postcode": "9351AZ",
+      "city": "LEEK",
+      "latitude": 53.1613618,
+      "longitude": 6.39158666,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "08:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
     },
     {
       "id": "M3fsuZxEt43NTe",
@@ -4656,6 +4702,56 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "M36i3F6lsoWIF8",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "Gorecht-Oost",
+      "straatNr": "158",
+      "postcode": "9603AC",
+      "city": "HOOGEZAND",
+      "latitude": 53.1547376,
+      "longitude": 6.75812717,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "09:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "09:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "12:00",
+          "closeTime": "17:00"
         }
       ],
       "vacations": []
@@ -4951,106 +5047,6 @@
           "dayOfWeek": 6,
           "openTime": "10:00",
           "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "94730003",
-      "locatieNaam": "Autobedrijf Mark5",
-      "straatNaam": "Molenkamp",
-      "straatNr": "21",
-      "postcode": "9473TP",
-      "city": "DE GROEVE",
-      "latitude": 53.1155849,
-      "longitude": 6.727512,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "08:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "08:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "08:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "08:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "09:00",
-          "closeTime": "16:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "94710013",
-      "locatieNaam": "Tissingh Zuidlaren",
-      "straatNaam": "Koningstraat",
-      "straatNr": "12",
-      "postcode": "9471GG",
-      "city": "Zuidlaren",
-      "latitude": 53.094441,
-      "longitude": 6.6817035,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "13:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "08:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "08:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "08:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "08:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "08:30",
-          "closeTime": "17:00"
         },
         {
           "dayOfWeek": 0,
@@ -6019,6 +6015,56 @@
       "city": "Grootebroek",
       "latitude": 52.693993,
       "longitude": 5.224656,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "M3tFasD6uQgUxM",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "Inlaat",
+      "straatNr": "61",
+      "postcode": "1613AB",
+      "city": "GROOTEBROEK",
+      "latitude": 52.6905449,
+      "longitude": 5.22781235,
       "vervoerder": "GLS",
       "puntType": "locker",
       "openingHours": [
@@ -7571,56 +7617,6 @@
       "vacations": []
     },
     {
-      "id": "17310048",
-      "locatieNaam": "Otjes Levensmiddelen V.O.F.",
-      "straatNaam": "Dorpstraat",
-      "straatNr": "48",
-      "postcode": "1731RH",
-      "city": "Winkel",
-      "latitude": 52.7534615,
-      "longitude": 4.8998732,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "08:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "08:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "08:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "08:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "08:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "08:00",
-          "closeTime": "13:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
       "id": "M3k9vRgvGNWG6s",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Botter 44",
@@ -8021,6 +8017,91 @@
       "vacations": []
     },
     {
+      "id": "82240020",
+      "locatieNaam": "Bespanracket.nl",
+      "straatNaam": "Snijdersstraat",
+      "straatNr": "6",
+      "postcode": "8224AA",
+      "city": "LELYSTAD",
+      "latitude": 52.5192763,
+      "longitude": 5.4833425,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M3130H4BPibxEb",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Grutterswal",
@@ -8116,6 +8197,56 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "23:59"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "82230026",
+      "locatieNaam": "Evan's kringloopwinkel",
+      "straatNaam": "Koopmansstraat",
+      "straatNr": "111",
+      "postcode": "8223AH",
+      "city": "LELYSTAD",
+      "latitude": 52.5199944,
+      "longitude": 5.4849737,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -10111,106 +10242,6 @@
       "vacations": []
     },
     {
-      "id": "M3moTJKKFXiAQD",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "Palmpolstraat",
-      "straatNr": "27",
-      "postcode": "1327CB",
-      "city": "ALMERE",
-      "latitude": 52.3615682,
-      "longitude": 5.25960358,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "38480088",
-      "locatieNaam": "Yenna's Pakketpunt",
-      "straatNaam": "Graaf Ottolaan",
-      "straatNr": "5C",
-      "postcode": "3843AK",
-      "city": "HARDERWIJK",
-      "latitude": 52.3378412,
-      "longitude": 5.6278562,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "10:00",
-          "closeTime": "19:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "10:00",
-          "closeTime": "19:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "10:00",
-          "closeTime": "19:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "10:00",
-          "closeTime": "19:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "10:00",
-          "closeTime": "19:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "10:00",
-          "closeTime": "15:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
       "id": "94010057",
       "locatieNaam": "Mobieltjes en Zo",
       "straatNaam": "Forum",
@@ -11431,6 +11462,56 @@
       "vacations": []
     },
     {
+      "id": "94710013",
+      "locatieNaam": "Tissingh Zuidlaren",
+      "straatNaam": "Koningstraat",
+      "straatNr": "12",
+      "postcode": "9471GG",
+      "city": "Zuidlaren",
+      "latitude": 53.094441,
+      "longitude": 6.6817035,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "13:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "08:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "08:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "08:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "08:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "08:30",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M3AS7deZ45W7Ca",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Brinkstraat",
@@ -11921,6 +12002,56 @@
           "dayOfWeek": 6,
           "openTime": "00:00",
           "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "94730003",
+      "locatieNaam": "Autobedrijf Mark5",
+      "straatNaam": "Molenkamp",
+      "straatNr": "21",
+      "postcode": "9473TP",
+      "city": "DE GROEVE",
+      "latitude": 53.1155849,
+      "longitude": 6.727512,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "08:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "08:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "08:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "08:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "09:00",
+          "closeTime": "16:00"
         },
         {
           "dayOfWeek": 0,
@@ -13281,6 +13412,56 @@
       "vacations": []
     },
     {
+      "id": "10790168",
+      "locatieNaam": "Lailani Beauty",
+      "straatNaam": "Rijnstraat",
+      "straatNr": "208",
+      "postcode": "1079HT",
+      "city": "AMSTERDAM",
+      "latitude": 52.3418738,
+      "longitude": 4.9065952,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "10:00",
+          "closeTime": "19:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "10:00",
+          "closeTime": "19:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "10:00",
+          "closeTime": "19:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "10:00",
+          "closeTime": "19:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "10:00",
+          "closeTime": "19:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "10:00",
+          "closeTime": "19:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "10:00",
+          "closeTime": "19:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M3vTGa5yAIahTw",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Generatorstraat",
@@ -13476,6 +13657,56 @@
           "dayOfWeek": 0,
           "openTime": "09:00",
           "closeTime": "22:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "10760086",
+      "locatieNaam": "Solid Abouetman",
+      "straatNaam": "Stadionweg",
+      "straatNr": "291H",
+      "postcode": "1076PA",
+      "city": "AMSTERDAM",
+      "latitude": 52.3447768,
+      "longitude": 4.8584977,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -14599,106 +14830,6 @@
       "city": "Diemen",
       "latitude": 52.3315888,
       "longitude": 4.97909807,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "10460045",
-      "locatieNaam": "Flickmyhouse",
-      "straatNaam": "Bolstoen",
-      "straatNr": "12K",
-      "postcode": "1046AT",
-      "city": "AMSTERDAM",
-      "latitude": 52.3903835,
-      "longitude": 4.7874566,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "12:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "08:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "11:00",
-          "closeTime": "19:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "13:30",
-          "closeTime": "16:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "M3AgNm0LzZTPHM",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "Burgemeester Stramanweg",
-      "straatNr": "98",
-      "postcode": "1191EA",
-      "city": "OUDERKERK AAN DE AMSTEL",
-      "latitude": 52.3049579,
-      "longitude": 4.92299652,
       "vervoerder": "GLS",
       "puntType": "locker",
       "openingHours": [
@@ -17796,61 +17927,6 @@
       "vacations": []
     },
     {
-      "id": "80430018",
-      "locatieNaam": "Trotz",
-      "straatNaam": "Belvederelaan",
-      "straatNr": "107",
-      "postcode": "8043LW",
-      "city": "ZWOLLE",
-      "latitude": 52.5348212,
-      "longitude": 6.0557182,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "13:00",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "10:00",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "10:00",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "10:00",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": [
-        {
-          "toDate": "2026-06-02T00:00:00",
-          "fromDate": "2026-06-01T00:00:00"
-        }
-      ]
-    },
-    {
       "id": "80130238",
       "locatieNaam": "Space Winner Zwolle",
       "straatNaam": "Paxtonstraat",
@@ -17899,61 +17975,6 @@
         }
       ],
       "vacations": []
-    },
-    {
-      "id": "80430021",
-      "locatieNaam": "ViaTim en Kimberley",
-      "straatNaam": "Waterbies",
-      "straatNr": "9",
-      "postcode": "8043LN",
-      "city": "ZWOLLE",
-      "latitude": 52.5425368,
-      "longitude": 6.0583194,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "14:00",
-          "closeTime": "21:30"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "14:00",
-          "closeTime": "21:30"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "14:00",
-          "closeTime": "21:30"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "14:00",
-          "closeTime": "21:30"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "14:00",
-          "closeTime": "21:30"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "17:00",
-          "closeTime": "21:30"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "17:00",
-          "closeTime": "21:30"
-        }
-      ],
-      "vacations": [
-        {
-          "toDate": "2026-06-07T00:00:00",
-          "fromDate": "2026-05-29T00:00:00"
-        }
-      ]
     },
     {
       "id": "M3srkJqGKmt20i",
@@ -19806,6 +19827,106 @@
       "vacations": []
     },
     {
+      "id": "81020056",
+      "locatieNaam": "Colour of life",
+      "straatNaam": "Marktstraat",
+      "straatNr": "5",
+      "postcode": "8102CH",
+      "city": "RAALTE",
+      "latitude": 52.3867111,
+      "longitude": 6.2760424,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "10:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "M3QHcQQHJBDWXf",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "Tjalkstraat",
+      "straatNr": "1",
+      "postcode": "8102HG",
+      "city": "Raalte",
+      "latitude": 52.3818895,
+      "longitude": 6.28815404,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "09:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "09:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "09:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "09:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "09:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "75110113",
       "locatieNaam": "MyPhone B.V.",
       "straatNaam": "De Klomp",
@@ -21473,7 +21594,12 @@
           "closeTime": "00:00"
         }
       ],
-      "vacations": []
+      "vacations": [
+        {
+          "toDate": "2026-06-19T00:00:00",
+          "fromDate": "2026-06-12T00:00:00"
+        }
+      ]
     },
     {
       "id": "75530026",
@@ -22521,6 +22647,56 @@
           "dayOfWeek": 0,
           "openTime": "12:00",
           "closeTime": "18:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "M3p83PPF67KJNx",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "Theresiastraat",
+      "straatNr": "55",
+      "postcode": "2593AA",
+      "city": "'S-GRAVENHAGE",
+      "latitude": 52.0836072,
+      "longitude": 4.3314767,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "08:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -24676,6 +24852,56 @@
       "vacations": []
     },
     {
+      "id": "22840004",
+      "locatieNaam": "Merx Schoen- En Sleutelservice",
+      "straatNaam": "Prins Willem Alexander Promenade",
+      "straatNr": "3",
+      "postcode": "2284DH",
+      "city": "Rijswijk",
+      "latitude": 52.0370633,
+      "longitude": 4.3164431,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "12:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M3Q1kOjkOb1Kjy",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "J.C. van Markenlaan",
@@ -24721,106 +24947,6 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "M3HLvwhr86B97E",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "De Savornin Lohmanplein",
-      "straatNr": "22",
-      "postcode": "2566AC",
-      "city": "'S-GRAVENHAGE",
-      "latitude": 52.0666261,
-      "longitude": 4.24554983,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "08:00",
-          "closeTime": "22:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "08:00",
-          "closeTime": "22:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "08:00",
-          "closeTime": "22:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "08:00",
-          "closeTime": "22:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "08:00",
-          "closeTime": "22:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "08:00",
-          "closeTime": "22:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "09:00",
-          "closeTime": "21:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "M3b39Ej8Cxym04",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "Laan van Waalhaven",
-      "straatNr": "213",
-      "postcode": "2497GL",
-      "city": "'S-GRAVENHAGE",
-      "latitude": 52.0390265,
-      "longitude": 4.35723365,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "09:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "12:00",
-          "closeTime": "17:00"
         }
       ],
       "vacations": []
@@ -25571,6 +25697,56 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "M3vgcNpRpEKiix",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "Cartesiusweg",
+      "straatNr": "127",
+      "postcode": "3534BC",
+      "city": "UTRECHT",
+      "latitude": 52.1000846,
+      "longitude": 5.08595868,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "23:59"
         }
       ],
       "vacations": []
@@ -27176,56 +27352,6 @@
       "vacations": []
     },
     {
-      "id": "M3xdQqxh4x8roZ",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "Cardo",
-      "straatNr": "10",
-      "postcode": "3995XM",
-      "city": "HOUTEN",
-      "latitude": 52.0174313,
-      "longitude": 5.17786829,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "08:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "10:00",
-          "closeTime": "18:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
       "id": "M3LKZiHDhNFFM0",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Hommelseweg",
@@ -27289,33 +27415,63 @@
       "openingHours": [
         {
           "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "00:00"
+          "openTime": "10:00",
+          "closeTime": "14:30"
+        },
+        {
+          "dayOfWeek": 1,
+          "openTime": "15:00",
+          "closeTime": "18:00"
         },
         {
           "dayOfWeek": 2,
-          "openTime": "11:00",
+          "openTime": "10:00",
+          "closeTime": "14:30"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "15:00",
           "closeTime": "19:00"
         },
         {
           "dayOfWeek": 3,
-          "openTime": "11:00",
+          "openTime": "10:00",
+          "closeTime": "14:30"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "15:00",
           "closeTime": "19:00"
         },
         {
           "dayOfWeek": 4,
-          "openTime": "11:00",
+          "openTime": "10:00",
+          "closeTime": "14:30"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "15:00",
           "closeTime": "19:00"
         },
         {
           "dayOfWeek": 5,
-          "openTime": "11:00",
-          "closeTime": "19:00"
+          "openTime": "10:00",
+          "closeTime": "14:30"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "15:00",
+          "closeTime": "18:00"
         },
         {
           "dayOfWeek": 6,
-          "openTime": "12:00",
-          "closeTime": "18:00"
+          "openTime": "10:00",
+          "closeTime": "14:30"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "15:00",
+          "closeTime": "17:00"
         },
         {
           "dayOfWeek": 0,
@@ -27466,6 +27622,56 @@
           "dayOfWeek": 6,
           "openTime": "08:00",
           "closeTime": "16:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "68280134",
+      "locatieNaam": "ViaTim en Sjoerd",
+      "straatNaam": "Stadhoudersstraat",
+      "straatNr": "126",
+      "postcode": "6828SM",
+      "city": "ARNHEM",
+      "latitude": 51.9782086,
+      "longitude": 5.9282739,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "15:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "15:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "15:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "15:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "15:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
         },
         {
           "dayOfWeek": 0,
@@ -27771,6 +27977,56 @@
           "dayOfWeek": 0,
           "openTime": "10:00",
           "closeTime": "19:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "68350006",
+      "locatieNaam": "ViaTim & Betsy",
+      "straatNaam": "Meerlandpad",
+      "straatNr": "8",
+      "postcode": "6835BV",
+      "city": "Arnhem",
+      "latitude": 51.9526685,
+      "longitude": 5.9047801,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "14:00",
+          "closeTime": "22:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "14:00",
+          "closeTime": "22:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "14:00",
+          "closeTime": "22:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "14:00",
+          "closeTime": "22:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "14:00",
+          "closeTime": "22:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -28716,56 +28972,6 @@
       "vacations": []
     },
     {
-      "id": "69320062",
-      "locatieNaam": "Viatim en Westervoort",
-      "straatNaam": "De Rosmolen",
-      "straatNr": "65",
-      "postcode": "6932NB",
-      "city": "Westervoort",
-      "latitude": 51.9431493,
-      "longitude": 5.9763659,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "16:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "16:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "16:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "16:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "16:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "09:00",
-          "closeTime": "15:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
       "id": "M366CVTfL8AFUj",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Mozartlaan",
@@ -29616,6 +29822,56 @@
       "vacations": []
     },
     {
+      "id": "69040011",
+      "locatieNaam": "ViaTim en Natascha",
+      "straatNaam": "Straussstraat",
+      "straatNr": "27",
+      "postcode": "6904KX",
+      "city": "ZEVENAAR",
+      "latitude": 51.9363457,
+      "longitude": 6.0630225,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "13:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M3UZMv5oWgb8ww",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Julianastraat",
@@ -29661,106 +29917,6 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "66910055",
-      "locatieNaam": "Gendt kleding reparatie",
-      "straatNaam": "Dorpstraat",
-      "straatNr": "18a",
-      "postcode": "6691AX",
-      "city": "GENDT",
-      "latitude": 51.8767479,
-      "longitude": 5.9716038,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "10:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "10:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "10:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "10:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "10:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "M3F7dyeOYbb883",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "Masiusplein",
-      "straatNr": "24",
-      "postcode": "6901CH",
-      "city": "Zevenaar",
-      "latitude": 51.9273653,
-      "longitude": 6.07527244,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "08:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "08:00",
-          "closeTime": "20:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "10:00",
-          "closeTime": "18:00"
         }
       ],
       "vacations": []
@@ -31366,6 +31522,56 @@
       "vacations": []
     },
     {
+      "id": "M3F7dyeOYbb883",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "Masiusplein",
+      "straatNr": "24",
+      "postcode": "6901CH",
+      "city": "Zevenaar",
+      "latitude": 51.9273653,
+      "longitude": 6.07527244,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "08:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "08:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "08:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "08:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "08:00",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "08:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "10:00",
+          "closeTime": "18:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "72510012",
       "locatieNaam": "Bike Totaal Bleumink",
       "straatNaam": "Dorpstraat",
@@ -31511,6 +31717,56 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "23:59"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "69510025",
+      "locatieNaam": "TSQUARE",
+      "straatNaam": "Industrielaan",
+      "straatNr": "2A",
+      "postcode": "6951KG",
+      "city": "DIEREN",
+      "latitude": 52.0561884,
+      "longitude": 6.1036286,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -32031,56 +32287,6 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "72070028",
-      "locatieNaam": "Hubo XL Zutphen",
-      "straatNaam": "Leestenseweg",
-      "straatNr": "10",
-      "postcode": "7207EA",
-      "city": "Zutphen",
-      "latitude": 52.1266685,
-      "longitude": 6.2348368,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "09:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -33786,6 +33992,56 @@
       "vacations": []
     },
     {
+      "id": "44340003",
+      "locatieNaam": "Fruitsalon",
+      "straatNaam": "Bonifaciusstraat",
+      "straatNr": "3",
+      "postcode": "4434AD",
+      "city": "KWADENDAMME",
+      "latitude": 51.4326031,
+      "longitude": 3.8741038,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "13:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "13:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "08:30",
+          "closeTime": "13:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M3HYfiDNI01PB1",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "A de Koningstraat",
@@ -34686,56 +34942,6 @@
       "vacations": []
     },
     {
-      "id": "M36TBeZpOVy6A3",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "Dorpsplein",
-      "straatNr": "23",
-      "postcode": "4424CA",
-      "city": "WEMELDINGE",
-      "latitude": 51.5172643,
-      "longitude": 3.9945549,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
       "id": "M3iDOQjwtvA9aS",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Louis Bouwmeesterplein",
@@ -35587,6 +35793,10 @@
         {
           "toDate": "2026-06-14T00:00:00",
           "fromDate": "2026-06-08T00:00:00"
+        },
+        {
+          "toDate": "2026-06-30T00:00:00",
+          "fromDate": "2026-06-10T00:00:00"
         }
       ]
     },
@@ -37791,81 +38001,6 @@
       "vacations": []
     },
     {
-      "id": "56430004",
-      "locatieNaam": "Rali Repair Shop",
-      "straatNaam": "Heezerweg",
-      "straatNr": "212",
-      "postcode": "5643KH",
-      "city": "EINDHOVEN",
-      "latitude": 51.4251829,
-      "longitude": 5.4953135,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "13:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "10:00",
-          "closeTime": "13:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "14:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "10:00",
-          "closeTime": "13:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "14:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "10:00",
-          "closeTime": "13:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "14:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "10:00",
-          "closeTime": "13:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "14:30",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "10:00",
-          "closeTime": "13:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "14:30",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
       "id": "M3RomQB2ofeoEj",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Torenallee",
@@ -39816,6 +39951,56 @@
       "vacations": []
     },
     {
+      "id": "55550340",
+      "locatieNaam": "ViaTim en Remco Broekhof",
+      "straatNaam": "Leenderweg",
+      "straatNr": "173",
+      "postcode": "5555CD",
+      "city": "Valkenswaard",
+      "latitude": 51.3525927,
+      "longitude": 5.4737608,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "14:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "14:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "14:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "14:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "14:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M33R4VmQm56i1P",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Krefeldseweg",
@@ -40513,7 +40698,32 @@
           "closeTime": "00:00"
         }
       ],
-      "vacations": []
+      "vacations": [
+        {
+          "toDate": "2026-07-13T00:00:00",
+          "fromDate": "2026-07-13T00:00:00"
+        },
+        {
+          "toDate": "2026-07-20T00:00:00",
+          "fromDate": "2026-07-20T00:00:00"
+        },
+        {
+          "toDate": "2026-07-27T00:00:00",
+          "fromDate": "2026-07-27T00:00:00"
+        },
+        {
+          "toDate": "2026-08-03T00:00:00",
+          "fromDate": "2026-08-03T00:00:00"
+        },
+        {
+          "toDate": "2026-08-10T00:00:00",
+          "fromDate": "2026-08-10T00:00:00"
+        },
+        {
+          "toDate": "2026-08-17T00:00:00",
+          "fromDate": "2026-08-17T00:00:00"
+        }
+      ]
     },
     {
       "id": "M3hVaUS8Uop7N4",
@@ -41260,96 +41470,26 @@
         {
           "dayOfWeek": 2,
           "openTime": "11:00",
-          "closeTime": "13:45"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "14:15",
           "closeTime": "18:00"
         },
         {
           "dayOfWeek": 3,
           "openTime": "11:00",
-          "closeTime": "13:15"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "14:15",
           "closeTime": "18:00"
         },
         {
           "dayOfWeek": 4,
           "openTime": "11:00",
-          "closeTime": "13:15"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "14:15",
           "closeTime": "18:00"
         },
         {
           "dayOfWeek": 5,
           "openTime": "11:00",
-          "closeTime": "13:15"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "14:15",
           "closeTime": "18:00"
         },
         {
           "dayOfWeek": 6,
           "openTime": "09:00",
-          "closeTime": "16:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "59810058",
-      "locatieNaam": "Snuffelshop Gediam",
-      "straatNaam": "Markt",
-      "straatNr": "83D",
-      "postcode": "5981AP",
-      "city": "PANNINGEN",
-      "latitude": 51.3293374,
-      "longitude": 5.9817848,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "13:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "09:15",
           "closeTime": "16:00"
         },
         {
@@ -41759,90 +41899,6 @@
         }
       ],
       "vacations": []
-    },
-    {
-      "id": "60710017",
-      "locatieNaam": "Ricks Wuts doe het zelf",
-      "straatNaam": "Boutestraat",
-      "straatNr": "8",
-      "postcode": "6071JS",
-      "city": "Swalmen",
-      "latitude": 51.2325532,
-      "longitude": 6.0336026,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "10:00",
-          "closeTime": "12:30"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "13:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "10:00",
-          "closeTime": "12:30"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "13:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "10:00",
-          "closeTime": "12:30"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "13:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "10:00",
-          "closeTime": "12:30"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "13:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "10:00",
-          "closeTime": "12:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "13:00",
-          "closeTime": "15:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": [
-        {
-          "toDate": "2026-06-08T00:00:00",
-          "fromDate": "2026-06-01T00:00:00"
-        },
-        {
-          "toDate": "2026-06-08T00:00:00",
-          "fromDate": "2026-06-01T00:00:00"
-        }
-      ]
     },
     {
       "id": "M3rD0dcq6jEY6B",
@@ -42420,6 +42476,106 @@
       "vacations": []
     },
     {
+      "id": "58010011",
+      "locatieNaam": "1DR8",
+      "straatNaam": "De Bleek",
+      "straatNr": "2",
+      "postcode": "5801MD",
+      "city": "Venray",
+      "latitude": 51.5268077,
+      "longitude": 5.9741306,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "10:00",
+          "closeTime": "17:30"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "10:00",
+          "closeTime": "17:30"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "10:00",
+          "closeTime": "17:30"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "10:00",
+          "closeTime": "17:30"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "60420071",
+      "locatieNaam": "TRL Mobile B.V.",
+      "straatNaam": "Hoekstraat",
+      "straatNr": "5",
+      "postcode": "6042KH",
+      "city": "ROERMOND",
+      "latitude": 51.2000864,
+      "longitude": 6.0128094,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "13:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "09:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "09:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
       "id": "M3AWfTZLJgIc2i",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Korte Boschstraat",
@@ -42768,6 +42924,61 @@
         }
       ],
       "vacations": []
+    },
+    {
+      "id": "48160015",
+      "locatieNaam": "Imex Cars",
+      "straatNaam": "Zustersveld",
+      "straatNr": "26B",
+      "postcode": "4816JA",
+      "city": "BREDA",
+      "latitude": 51.596492,
+      "longitude": 4.7930865,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "10:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "12:00",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": [
+        {
+          "toDate": "2026-08-25T00:00:00",
+          "fromDate": "2026-07-09T00:00:00"
+        }
+      ]
     },
     {
       "id": "M3BMy00JrX0Qcb",
@@ -43171,7 +43382,7 @@
     },
     {
       "id": "48130012",
-      "locatieNaam": "Leeuwenkasteel",
+      "locatieNaam": "Boekenhuis van Leeuwen",
       "straatNaam": "Haagweg",
       "straatNr": "435",
       "postcode": "4813XD",
@@ -43183,8 +43394,8 @@
       "openingHours": [
         {
           "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "00:00"
+          "openTime": "13:00",
+          "closeTime": "18:00"
         },
         {
           "dayOfWeek": 2,
@@ -43567,7 +43778,12 @@
           "closeTime": "00:00"
         }
       ],
-      "vacations": []
+      "vacations": [
+        {
+          "toDate": "2026-06-30T00:00:00",
+          "fromDate": "2026-06-26T00:00:00"
+        }
+      ]
     },
     {
       "id": "M3K1k8EO4CcZ4u",
@@ -43843,7 +44059,7 @@
         },
         {
           "dayOfWeek": 3,
-          "openTime": "11:00",
+          "openTime": "14:00",
           "closeTime": "17:00"
         },
         {
@@ -44265,6 +44481,56 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "23:59"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "49210038",
+      "locatieNaam": "Allesz Made",
+      "straatNaam": "Marktstraat",
+      "straatNr": "39",
+      "postcode": "4921BE",
+      "city": "MADE",
+      "latitude": 51.6798004,
+      "longitude": 4.7925567,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "07:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "07:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "07:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "07:30",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "07:30",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "07:30",
+          "closeTime": "17:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -44795,106 +45061,6 @@
       "vacations": []
     },
     {
-      "id": "M3RGPXOWjQkGCG",
-      "locatieNaam": "Pakketautomaat",
-      "straatNaam": "St. Janstraat",
-      "straatNr": "91",
-      "postcode": "4741AN",
-      "city": "Hoeven",
-      "latitude": 51.5820542,
-      "longitude": 4.58315329,
-      "vervoerder": "GLS",
-      "puntType": "locker",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "47110082",
-      "locatieNaam": "Rommers Speelgoed",
-      "straatNaam": "Dorpsstraat",
-      "straatNr": "82",
-      "postcode": "4711NJ",
-      "city": "Sint Willebrord",
-      "latitude": 51.5496577,
-      "longitude": 4.5918551,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "09:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "09:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "09:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "09:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "09:30",
-          "closeTime": "17:30"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "09:30",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": []
-    },
-    {
       "id": "M34vx1Q7na4dlc",
       "locatieNaam": "Pakketautomaat",
       "straatNaam": "Godsweerdersingel",
@@ -45040,56 +45206,6 @@
           "dayOfWeek": 0,
           "openTime": "00:00",
           "closeTime": "23:59"
-        }
-      ],
-      "vacations": []
-    },
-    {
-      "id": "60420071",
-      "locatieNaam": "TRL Mobile B.V.",
-      "straatNaam": "Hoekstraat",
-      "straatNr": "5",
-      "postcode": "6042KH",
-      "city": "ROERMOND",
-      "latitude": 51.2000864,
-      "longitude": 6.0128094,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "13:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "09:00",
-          "closeTime": "18:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "09:00",
-          "closeTime": "17:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
         }
       ],
       "vacations": []
@@ -45480,6 +45596,106 @@
           "dayOfWeek": 5,
           "openTime": "08:00",
           "closeTime": "19:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "60510100",
+      "locatieNaam": "John Wolters Interieur",
+      "straatNaam": "Hoofdstraat",
+      "straatNr": "54B",
+      "postcode": "6051AM",
+      "city": "MAASBRACHT",
+      "latitude": 51.1489866,
+      "longitude": 5.8910287,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "16:00",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "16:00",
+          "closeTime": "18:00"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "00:00"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "60650015",
+      "locatieNaam": "ViaTim en Mooren",
+      "straatNaam": "Sportlaan",
+      "straatNr": "26",
+      "postcode": "6065AJ",
+      "city": "Montfort",
+      "latitude": 51.1229922,
+      "longitude": 5.9463744,
+      "vervoerder": "GLS",
+      "puntType": "parcel_shop",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "13:30",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "13:30",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "13:30",
+          "closeTime": "20:00"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "13:30",
+          "closeTime": "21:00"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "13:30",
+          "closeTime": "20:00"
         },
         {
           "dayOfWeek": 6,
@@ -47143,61 +47359,6 @@
         }
       ],
       "vacations": []
-    },
-    {
-      "id": "62270036",
-      "locatieNaam": "ViaTim en Harold",
-      "straatNaam": "Max Planckstraat",
-      "straatNr": "5",
-      "postcode": "6227TN",
-      "city": "MAASTRICHT",
-      "latitude": 50.8373619,
-      "longitude": 5.730963,
-      "vervoerder": "GLS",
-      "puntType": "parcel_shop",
-      "openingHours": [
-        {
-          "dayOfWeek": 1,
-          "openTime": "09:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 2,
-          "openTime": "09:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 3,
-          "openTime": "09:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 4,
-          "openTime": "09:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 5,
-          "openTime": "09:00",
-          "closeTime": "21:00"
-        },
-        {
-          "dayOfWeek": 6,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        },
-        {
-          "dayOfWeek": 0,
-          "openTime": "00:00",
-          "closeTime": "00:00"
-        }
-      ],
-      "vacations": [
-        {
-          "toDate": "2026-06-13T00:00:00",
-          "fromDate": "2026-06-01T00:00:00"
-        }
-      ]
     },
     {
       "id": "M3ZTmKYvqbheJ1",
@@ -48878,6 +49039,56 @@
       "city": "Schinnen",
       "latitude": 50.9385167,
       "longitude": 5.87475567,
+      "vervoerder": "GLS",
+      "puntType": "locker",
+      "openingHours": [
+        {
+          "dayOfWeek": 1,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 2,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 3,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 4,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 5,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 6,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        },
+        {
+          "dayOfWeek": 0,
+          "openTime": "00:00",
+          "closeTime": "23:59"
+        }
+      ],
+      "vacations": []
+    },
+    {
+      "id": "M3vscM3XbVDsW0",
+      "locatieNaam": "Pakketautomaat",
+      "straatNaam": "Paalweg",
+      "straatNr": "14",
+      "postcode": "6129EZ",
+      "city": "Urmond",
+      "latitude": 50.9892801,
+      "longitude": 5.76853261,
       "vervoerder": "GLS",
       "puntType": "locker",
       "openingHours": [
