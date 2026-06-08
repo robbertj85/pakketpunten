@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Coevorden",
     "slug": "coevorden",
-    "generated_at": "2026-06-01T07:03:17.785746Z",
+    "generated_at": "2026-06-08T06:44:36.102820Z",
     "total_points": 48,
     "providers": [
       "Amazon",
@@ -172,30 +172,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.80156720591431,
-          52.7731466223338
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "DA Drogist Klaver 4",
-        "straatNaam": "Bannerschultestraat 10",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.7731466223338,
-        "longitude": 6.80156720591431,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.7369154,
           52.66307624
         ]
@@ -292,7 +268,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Karwei Coevorden",
         "straatNaam": "Monierweg",
-        "straatNr": "2-PS/108",
+        "straatNr": "2",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -420,7 +396,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Coevorden",
         "straatNaam": "Friesestraat",
-        "straatNr": "36",
+        "straatNr": "36-Kast",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -612,7 +588,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat PLUS Schoonoord",
         "straatNaam": "Tramstraat",
-        "straatNr": "17-PS/88",
+        "straatNr": "17",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1228,6 +1204,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.739801,
+          52.6616242
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Schuurman Schoenen - Coevorden",
+        "straatNaam": "Friesestraat 16B",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.6616242,
+        "longitude": 6.739801,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.7556609,
           52.8473466
         ]
@@ -1267,7 +1267,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "JUT & JUUL",
-        "straatNaam": "TRAMSTRAAT 8",
+        "straatNaam": "Tramstraat 8",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -1276,7 +1276,7 @@
         "longitude": 6.75675,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "Ma/Me/J/V 9-17,S 8-16"
+        "openingstijden": null
       }
     },
     {
@@ -2007,16 +2007,24 @@
                 52.66330496136931
               ],
               [
-                6.7435212636453725,
-                52.66308953933339
+                6.743277879430951,
+                52.66329709151463
               ],
               [
-                6.743737929172097,
-                52.662860099799865
+                6.743280650533141,
+                52.6632951610233
               ],
               [
-                6.743745879295582,
-                52.66284936301434
+                6.743533263204251,
+                52.66307973896174
+              ],
+              [
+                6.743749928620311,
+                52.662850299406166
+              ],
+              [
+                6.743753144140079,
+                52.662845956786384
               ],
               [
                 6.743771432096553,
@@ -3289,10 +3297,6 @@
               [
                 6.758815467465381,
                 52.84929842472833
-              ],
-              [
-                6.758942002821132,
-                52.84921060864605
               ],
               [
                 6.758942002821135,
@@ -5407,20 +5411,24 @@
                 52.66392306137728
               ],
               [
-                6.744340834850325,
-                52.66392306137728
-              ],
-              [
                 6.744428592160819,
                 52.66386192409316
               ],
               [
-                6.744765405284638,
-                52.66357469135723
+                6.744437820639943,
+                52.66385405414985
               ],
               [
-                6.744916430956787,
-                52.66341475730681
+                6.744440591725835,
+                52.66385212363179
+              ],
+              [
+                6.744777404696429,
+                52.663564890861664
+              ],
+              [
+                6.744922402289275,
+                52.66341134039476
               ],
               [
                 6.745152870259836,
@@ -6603,8 +6611,8 @@
                 52.849921646197586
               ],
               [
-                6.759914654558657,
-                52.84990093003307
+                6.759914654558661,
+                52.84990093003305
               ],
               [
                 6.760136079176321,

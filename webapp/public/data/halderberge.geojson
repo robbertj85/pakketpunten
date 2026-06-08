@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Halderberge",
     "slug": "halderberge",
-    "generated_at": "2026-06-01T07:08:26.385384Z",
-    "total_points": 41,
+    "generated_at": "2026-06-08T06:49:35.722062Z",
+    "total_points": 42,
     "providers": [
       "Amazon",
       "DHL",
@@ -238,7 +238,7 @@
         "openingstijden": {
           "ma": "08:30 - 17:00",
           "di": "08:30 - 17:00",
-          "wo": "08:30 - 16:00",
+          "wo": "08:30 - 17:00",
           "do": "08:30 - 17:00",
           "vr": "08:30 - 17:00",
           "za": "08:30 - 17:00",
@@ -1059,6 +1059,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.52195,
+          51.5894132
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Kluswijs Oudenbosch",
+        "straatNaam": "Zandeweg 29",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 51.5894132,
+        "longitude": 4.52195,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.583858,
           51.5804762
         ]
@@ -1098,7 +1122,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "STYVO-BEKERPALEIS",
-        "straatNaam": "AKKERLINGEN 22",
+        "straatNaam": "Akkerlingen 22",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -1107,7 +1131,7 @@
         "longitude": 4.58405,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L/Ma/Me/J/V 10-12:30 13-17:30, S 9-13"
+        "openingstijden": null
       }
     },
     {
@@ -1122,7 +1146,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "ERTONGA MARKET",
-        "straatNaam": "FENKELSTRAAT 20",
+        "straatNaam": "Fenkelstraat 20",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -1131,7 +1155,7 @@
         "longitude": 4.52612,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L 13-18,Ma/Me/J/V 9-18,S 9-17"
+        "openingstijden": null
       }
     },
     {
@@ -2502,6 +2526,10 @@
           [
             [
               [
+                4.547424422687178,
+                51.558929061665154
+              ],
+              [
                 4.547210380812146,
                 51.558700532730256
               ],
@@ -2756,10 +2784,6 @@
               [
                 4.547424422687178,
                 51.558929061665154
-              ],
-              [
-                4.547210380812146,
-                51.558700532730256
               ]
             ]
           ],
@@ -5042,6 +5066,10 @@
           [
             [
               [
+                4.548703892975617,
+                51.558514507856046
+              ],
+              [
                 4.548418498272883,
                 51.558209805623605
               ],
@@ -5296,10 +5324,6 @@
               [
                 4.548703892975617,
                 51.558514507856046
-              ],
-              [
-                4.548418498272883,
-                51.558209805623605
               ]
             ]
           ],

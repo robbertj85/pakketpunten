@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Ooststellingwerf",
     "slug": "ooststellingwerf",
-    "generated_at": "2026-06-01T07:17:38.269000Z",
-    "total_points": 58,
+    "generated_at": "2026-06-08T06:58:30.458255Z",
+    "total_points": 59,
     "providers": [
       "Amazon",
       "DHL",
@@ -84,7 +84,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Super Oldeberkoop",
         "straatNaam": "Oosterwoldseweg",
-        "straatNr": "4-PS/57",
+        "straatNr": "4",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -132,6 +132,166 @@
           "vr": "09:00 - 17:00",
           "za": "09:00 - 16:00",
           "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.3382342,
+          52.9649212
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Kramer Online",
+        "straatNaam": "Verlaat",
+        "straatNr": "3",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.9649212,
+        "longitude": 6.3382342,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "gesloten",
+          "di": "13:00 - 17:30",
+          "wo": "13:00 - 17:30",
+          "do": "13:00 - 17:30",
+          "vr": "10:00 - 17:30",
+          "za": "09:00 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.29507,
+          52.97997
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat GAMMA Oosterwolde",
+        "straatNaam": "Veengang",
+        "straatNr": "8",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.97997,
+        "longitude": 6.29507,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 23:59",
+          "di": "00:00 - 23:59",
+          "wo": "00:00 - 23:59",
+          "do": "00:00 - 23:59",
+          "vr": "00:00 - 23:59",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2880595,
+          52.9856882
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "DHL Buurtpunt ViaTim & Fam Bijlsma",
+        "straatNaam": "Dorprichterstraat",
+        "straatNr": "73",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.9856882,
+        "longitude": 6.2880595,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "15:00 - 21:00",
+          "di": "15:00 - 21:00",
+          "wo": "15:00 - 21:00",
+          "do": "15:00 - 21:00",
+          "vr": "15:00 - 21:00",
+          "za": "gesloten",
+          "zo": "15:00 - 21:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.29097318649292,
+          52.98958206176758
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Oosterwolde",
+        "straatNaam": "Stationstraat",
+        "straatNr": "21-Kast",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.98958206176758,
+        "longitude": 6.29097318649292,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 17:30",
+          "di": "09:30 - 17:30",
+          "wo": "09:30 - 17:30",
+          "do": "09:30 - 17:30",
+          "vr": "09:30 - 17:30",
+          "za": "10:00 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2902142,
+          52.9902727
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Budget Food Oosterwolde",
+        "straatNaam": "Stipeplein",
+        "straatNr": "6",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.9902727,
+        "longitude": 6.2902142,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 18:00",
+          "di": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "do": "09:00 - 20:00",
+          "vr": "09:00 - 18:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
         }
       }
     },
@@ -204,94 +364,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2902142,
-          52.9902727
+          6.2964759,
+          52.9952306
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Budget Food Oosterwolde",
-        "straatNaam": "Stipeplein",
-        "straatNr": "6",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.9902727,
-        "longitude": 6.2902142,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 20:00",
-          "vr": "09:00 - 18:00",
-          "za": "09:00 - 18:00",
-          "zo": "12:00 - 17:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.29097318649292,
-          52.98958206176758
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Oosterwolde",
-        "straatNaam": "Stationstraat",
-        "straatNr": "21",
+        "locatieNaam": "Pakketautomaat Poiesz Oosterwolde",
+        "straatNaam": "Oostenburg",
+        "straatNr": "1",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
-        "latitude": 52.98958206176758,
-        "longitude": 6.29097318649292,
+        "latitude": 52.9952306,
+        "longitude": 6.2964759,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "13:00 - 17:30",
-          "di": "09:30 - 17:30",
-          "wo": "09:30 - 17:30",
-          "do": "09:30 - 17:30",
-          "vr": "09:30 - 17:30",
-          "za": "10:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.2880595,
-          52.9856882
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "DHL Buurtpunt ViaTim & Fam Bijlsma",
-        "straatNaam": "Dorprichterstraat",
-        "straatNr": "73",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.9856882,
-        "longitude": 6.2880595,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "15:00 - 21:00",
-          "di": "15:00 - 21:00",
-          "wo": "15:00 - 21:00",
-          "do": "15:00 - 21:00",
-          "vr": "15:00 - 21:00",
-          "za": "gesloten",
-          "zo": "15:00 - 21:00"
+          "ma": "08:00 - 21:00",
+          "di": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "vr": "08:00 - 20:00",
+          "za": "08:00 - 21:00",
+          "zo": "09:00 - 18:00"
         }
       }
     },
@@ -324,38 +420,6 @@
           "vr": "08:00 - 18:00",
           "za": "08:00 - 18:00",
           "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.29507,
-          52.97997
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat GAMMA Oosterwolde",
-        "straatNaam": "Veengang",
-        "straatNr": "8-PS/88",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.97997,
-        "longitude": 6.29507,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 23:59",
-          "di": "00:00 - 23:59",
-          "wo": "00:00 - 23:59",
-          "do": "00:00 - 23:59",
-          "vr": "00:00 - 23:59",
-          "za": "00:00 - 23:59",
-          "zo": "00:00 - 23:59"
         }
       }
     },
@@ -404,7 +468,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Poiesz Haulerwijk",
         "straatNaam": "Leeksterweg",
-        "straatNr": "43-PS/87",
+        "straatNr": "43",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -420,38 +484,6 @@
           "vr": "00:00 - 23:00",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.3382342,
-          52.9649212
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Kramer Online",
-        "straatNaam": "Verlaat",
-        "straatNr": "3",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.9649212,
-        "longitude": 6.3382342,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "gesloten",
-          "di": "13:00 - 17:30",
-          "wo": "13:00 - 17:30",
-          "do": "13:00 - 17:30",
-          "vr": "10:00 - 17:30",
-          "za": "09:00 - 17:00",
-          "zo": "gesloten"
         }
       }
     },
@@ -1535,9 +1567,9 @@
         "openingstijden": {
           "ma": "16:00 - 21:00",
           "di": "16:00 - 21:00",
-          "wo": "16:00 - 21:00",
-          "do": "16:00 - 21:00",
-          "vr": "16:00 - 21:00",
+          "wo": "gesloten",
+          "do": "gesloten",
+          "vr": "gesloten",
           "za": "gesloten",
           "zo": "gesloten"
         }
@@ -2627,64 +2659,64 @@
                 52.99601293014501
               ],
               [
-                6.292353819954881,
-                52.996260879573136
+                6.292206743429075,
+                52.99602235530031
               ],
               [
-                6.292546255292893,
-                52.996498593336995
+                6.292216878932878,
+                52.99604553071167
               ],
               [
-                6.292776385051504,
-                52.99672378193862
+                6.292369767277185,
+                52.99629348011654
               ],
               [
-                6.2930419933036275,
-                52.99693427648006
+                6.292562202847355,
+                52.99653119385196
               ],
               [
-                6.293340522301784,
-                52.997128049559066
+                6.292792332861682,
+                52.99675638242013
               ],
               [
-                6.293348399274448,
-                52.99713224932825
+                6.293057941390621,
+                52.996966876923494
               ],
               [
-                6.293355610339228,
-                52.99713692994756
+                6.29335647068402,
+                52.99716064996015
               ],
               [
-                6.29368418526788,
-                52.99731211514914
+                6.293685045795776,
+                52.997335835157756
               ],
               [
-                6.2940396415438435,
-                52.997467025151856
+                6.294040502269015,
+                52.99749074515639
               ],
               [
-                6.294418555680644,
-                52.99760016786735
+                6.294419416615377,
+                52.99762388786775
               ],
               [
-                6.294817278140032,
-                52.99771026085704
+                6.294818139294593,
+                52.9977339808533
               ],
               [
-                6.295231968493935,
-                52.99779624369033
+                6.295232829876469,
+                52.997819963682495
               ],
               [
-                6.2956586324295865,
-                52.997857288163885
+                6.295659494046035,
+                52.99788100815203
               ],
               [
-                6.296093160240685,
-                52.99789280628315
+                6.296094022094751,
+                52.99791652626735
               ],
               [
-                6.296358832373423,
-                52.99789865678518
+                6.2964867325661205,
+                52.997925174128405
               ],
               [
                 6.29650700267352,
@@ -4979,7 +5011,7 @@
                 52.96235081076577
               ],
               [
-                6.336883593318942,
+                6.336883593318938,
                 52.96235175321739
               ],
               [
@@ -6867,72 +6899,60 @@
                 52.99628746199404
               ],
               [
-                6.2909246422810305,
-                52.99651714476286
+                6.290917715027005,
+                52.99651264799271
               ],
               [
-                6.290985064340035,
-                52.9966151399659
+                6.291001010769668,
+                52.99664774069041
               ],
               [
-                6.291241637413826,
-                52.996932094498774
+                6.291257584152997,
+                52.99696469518534
               ],
               [
-                6.2915484717170695,
-                52.99723234918713
+                6.29156441879719,
+                52.997264949829116
               ],
               [
-                6.291902612886968,
-                52.9975130120432
+                6.291918560336177,
+                52.99754561263446
               ],
               [
-                6.292300650715317,
-                52.997771379730864
+                6.292316598558192,
+                52.99780398026566
               ],
               [
-                6.292308527704871,
-                52.99777557956773
+                6.292754700233944,
+                52.998037564088506
               ],
               [
-                6.292315738765207,
-                52.99778026024885
+                6.293228646029004,
+                52.998244114153024
               ],
               [
-                6.292753840196828,
-                52.99801384407706
+                6.293733871145023,
+                52.99842164087753
               ],
               [
-                6.293227785728841,
-                52.998220394147
+                6.294265509298218,
+                52.99856843422433
               ],
               [
-                6.29373301056544,
-                52.998397920877004
+                6.294818439610831,
+                52.99868308018235
               ],
               [
-                6.294264648425521,
-                52.99854471422935
+                6.295387335963028,
+                52.998764474396474
               ],
               [
-                6.294817578434163,
-                52.99865936019281
+                6.295966718328573,
+                52.99881183281293
               ],
               [
-                6.295386474474452,
-                52.99874075441227
-              ],
-              [
-                6.295965856523164,
-                52.99878811283398
-              ],
-              [
-                6.296084041952646,
-                52.99879071559521
-              ],
-              [
-                6.296092636675071,
-                52.99879249751532
+                6.296275285842051,
+                52.99881862804742
               ],
               [
                 6.296661536804439,
@@ -8755,7 +8775,7 @@
                 52.96149440896306
               ],
               [
-                6.336432888444738,
+                6.336432888444734,
                 52.96149535139896
               ],
               [

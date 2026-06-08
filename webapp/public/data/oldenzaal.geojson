@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Oldenzaal",
     "slug": "oldenzaal",
-    "generated_at": "2026-06-01T07:17:11.749541Z",
+    "generated_at": "2026-06-08T06:58:04.164878Z",
     "total_points": 40,
     "providers": [
       "Amazon",
@@ -219,38 +219,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9391945,
-          52.298503
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat FC Berghuizen",
-        "straatNaam": "Schapendijk",
-        "straatNr": "37-VC/87",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.298503,
-        "longitude": 6.9391945,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 23:59",
-          "di": "00:00 - 23:59",
-          "wo": "00:00 - 23:59",
-          "do": "00:00 - 23:59",
-          "vr": "00:00 - 23:59",
-          "za": "00:00 - 23:59",
-          "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.923509120941162,
           52.28558349609375
         ]
@@ -275,6 +243,38 @@
           "vr": "09:00 - 21:00",
           "za": "09:00 - 17:00",
           "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9391945,
+          52.298503
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat FC Berghuizen",
+        "straatNaam": "Schapendijk",
+        "straatNr": "37-VC/87",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.298503,
+        "longitude": 6.9391945,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 23:59",
+          "di": "00:00 - 23:59",
+          "wo": "00:00 - 23:59",
+          "do": "00:00 - 23:59",
+          "vr": "00:00 - 23:59",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
         }
       }
     },
@@ -419,7 +419,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Oldenzaal",
         "straatNaam": "Bisschopstraat",
-        "straatNr": "37",
+        "straatNr": "37-Kast",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,

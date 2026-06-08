@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Het Hogeland",
     "slug": "het-hogeland",
-    "generated_at": "2026-06-01T07:09:56.813431Z",
-    "total_points": 89,
+    "generated_at": "2026-06-08T06:51:04.312310Z",
+    "total_points": 90,
     "providers": [
       "Amazon",
       "DHL",
@@ -460,7 +460,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Winsum",
         "straatNaam": "Obergon",
-        "straatNr": "5",
+        "straatNr": "5-Kast",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -524,7 +524,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Bedum",
         "straatNaam": "Noordwolderweg",
-        "straatNr": "7",
+        "straatNr": "7-Kast",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -812,7 +812,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Lidl Uithuizen",
         "straatNaam": "Molenerf",
-        "straatNr": "13-PS/101",
+        "straatNr": "13",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -1516,7 +1516,7 @@
         "longitude": 6.676978233,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "13:00 - 18:00 (Na 18:00 open; Zaterdag open)"
+        "openingstijden": "09:00 - 18:00 (Na 18:00 open; Zaterdag open)"
       }
     },
     {
@@ -2204,6 +2204,38 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.51565153,
+          53.3348336
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Obergon",
+        "straatNr": "2",
+        "vervoerder": "GLS",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 53.3348336,
+        "longitude": 6.51565153,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "08:00 - 21:00",
+          "di": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "vr": "08:00 - 21:00",
+          "za": "08:00 - 21:00",
+          "zo": "09:00 - 18:00"
         }
       }
     },
@@ -6559,7 +6591,7 @@
                 53.28783637216382
               ],
               [
-                6.603687658356391,
+                6.603687658356388,
                 53.287792890065425
               ],
               [
@@ -6586,6 +6618,10 @@
           ],
           [
             [
+              [
+                6.537032347572321,
+                53.293214920531604
+              ],
               [
                 6.536763723071157,
                 53.29300499705383
@@ -6841,19 +6877,11 @@
               [
                 6.537032347572321,
                 53.293214920531604
-              ],
-              [
-                6.536763723071157,
-                53.29300499705383
               ]
             ]
           ],
           [
             [
-              [
-                6.563037578175204,
-                53.39193805126838
-              ],
               [
                 6.562768207112113,
                 53.391728195246614
@@ -7189,6 +7217,10 @@
               [
                 6.563037578175204,
                 53.39193805126838
+              ],
+              [
+                6.562768207112113,
+                53.391728195246614
               ]
             ]
           ],
@@ -12239,6 +12271,10 @@
                 53.303437431744
               ],
               [
+                6.5939152113233,
+                53.30345011103153
+              ],
+              [
                 6.593915211323305,
                 53.30345011103153
               ],
@@ -12655,6 +12691,10 @@
           [
             [
               [
+                6.538265737252635,
+                53.29270386717014
+              ],
+              [
                 6.537907568127393,
                 53.29242397269948
               ],
@@ -12909,19 +12949,11 @@
               [
                 6.538265737252635,
                 53.29270386717014
-              ],
-              [
-                6.537907568127393,
-                53.29242397269948
               ]
             ]
           ],
           [
             [
-              [
-                6.564273477721377,
-                53.39142674140499
-              ],
               [
                 6.563914313173742,
                 53.39114693688461
@@ -13237,6 +13269,10 @@
               [
                 6.564273477721377,
                 53.39142674140499
+              ],
+              [
+                6.563914313173742,
+                53.39114693688461
               ]
             ]
           ],

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Tubbergen",
     "slug": "tubbergen",
-    "generated_at": "2026-06-01T07:23:00.462200Z",
+    "generated_at": "2026-06-08T07:03:43.932580Z",
     "total_points": 32,
     "providers": [
       "Amazon",
@@ -50,30 +50,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.781345244,
-          52.40782196
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Phone Connect",
-        "straatNaam": "Raadhuisplein 8",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.40782196,
-        "longitude": 6.781345244,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.78090895,
           52.40610127
         ]
@@ -88,6 +64,30 @@
         "bezettingsgraad": 50,
         "latitude": 52.40610127,
         "longitude": 6.78090895,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.781345244,
+          52.40782196
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Phone Connect",
+        "straatNaam": "Raadhuisplein 8",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.40782196,
+        "longitude": 6.781345244,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -274,7 +274,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Tubbergen",
         "straatNaam": "Grotestraat",
-        "straatNr": "55",
+        "straatNr": "55-Kast",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -306,7 +306,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat Praxis Tubbergen",
         "straatNaam": "Galvanistraat",
-        "straatNr": "3-PS/67",
+        "straatNr": "3",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,

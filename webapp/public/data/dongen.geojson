@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Dongen",
     "slug": "dongen",
-    "generated_at": "2026-06-01T07:05:02.506409Z",
+    "generated_at": "2026-06-08T06:46:18.164328Z",
     "total_points": 29,
     "providers": [
       "Amazon",
@@ -204,7 +204,7 @@
         "type": "pakketpunt",
         "locatieNaam": "Pakketautomaat terStal Dongen",
         "straatNaam": "Looiersplein",
-        "straatNr": "49",
+        "straatNr": "49-Kast",
         "vervoerder": "DHL",
         "puntType": "packStation",
         "bezettingsgraad": 50,
@@ -684,6 +684,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.9449326,
+          51.6251346
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bloembinderij John Flora",
+        "straatNaam": "Hoge Ham",
+        "straatNr": "170",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.6251346,
+        "longitude": 4.9449326,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "12:00 - 18:00",
+          "di": "08:30 - 18:00",
+          "wo": "08:30 - 18:00",
+          "do": "08:30 - 18:00",
+          "vr": "08:30 - 18:00",
+          "za": "08:30 - 17:00",
+          "zo": "00:00 - 00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.93094093,
           51.6151101
         ]
@@ -748,38 +780,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.9449326,
-          51.6251346
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Bloembinderij John Flora",
-        "straatNaam": "Hoge Ham",
-        "straatNr": "170",
-        "vervoerder": "GLS",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 51.6251346,
-        "longitude": 4.9449326,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "12:00 - 18:00",
-          "di": "08:30 - 18:00",
-          "wo": "08:30 - 18:00",
-          "do": "08:30 - 18:00",
-          "vr": "08:30 - 18:00",
-          "za": "08:30 - 17:00",
-          "zo": "00:00 - 00:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.94359,
           51.62491
         ]
@@ -787,7 +787,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "TOKO TINEKE (SUPERETTE)",
-        "straatNaam": "SINT JOSEPHSTRAAT 161A",
+        "straatNaam": "Sint Josephstraat 161A",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -796,7 +796,7 @@
         "longitude": 4.94359,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "Ma/Me/J/V 10-18,S 10-17"
+        "openingstijden": null
       }
     },
     {
@@ -811,7 +811,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "BENTHLEY'S FRIETPALEIS 2.0",
-        "straatNaam": "MEESTER JANSSENWEG 44",
+        "straatNaam": "Meester Janssenweg 44",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -820,7 +820,7 @@
         "longitude": 4.96585,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L 13-23,Ma/Me 12-21,J 12-23,V/ S 11-23:59,D 11-23"
+        "openingstijden": null
       }
     },
     {
