@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Sittard-Geleen",
     "slug": "sittard-geleen",
-    "generated_at": "2026-06-08T07:01:49.486660Z",
+    "generated_at": "2026-06-15T07:40:54.566175Z",
     "total_points": 111,
     "providers": [
       "Amazon",
@@ -53,30 +53,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.8236747037475,
-          50.9678267455156
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Smith post",
-        "straatNaam": "Molenstraat 54",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 50.9678267455156,
-        "longitude": 5.8236747037475,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.82959292788932,
           50.9689189099355
         ]
@@ -101,44 +77,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.822243757,
-          50.99121226
+          5.8236747037475,
+          50.9678267455156
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Intratuin Geleen",
-        "straatNaam": "Egelantier 19",
+        "locatieNaam": "Smith post",
+        "straatNaam": "Molenstraat 54",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
         "bezettingsgraad": 50,
-        "latitude": 50.99121226,
-        "longitude": 5.822243757,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.816237946,
-          50.99171107
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "GAMMA Geleen",
-        "straatNaam": "Egelantier 2",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 50.99171107,
-        "longitude": 5.816237946,
+        "latitude": 50.9678267455156,
+        "longitude": 5.8236747037475,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -235,6 +187,54 @@
         "bezettingsgraad": 50,
         "latitude": 51.0393791976401,
         "longitude": 5.80392116231727,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.822243757,
+          50.99121226
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Intratuin Geleen",
+        "straatNaam": "Egelantier 19",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.99121226,
+        "longitude": 5.822243757,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.816237946,
+          50.99171107
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Geleen",
+        "straatNaam": "Egelantier 2",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.99171107,
+        "longitude": 5.816237946,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -1259,7 +1259,7 @@
           "wo": "10:00 - 17:00",
           "do": "10:00 - 17:00",
           "vr": "10:00 - 17:00",
-          "za": "10:00 - 17:00",
+          "za": "10:00 - 15:00",
           "zo": "gesloten"
         }
       }

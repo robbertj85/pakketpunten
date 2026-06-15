@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Capelle aan den IJssel",
     "slug": "capelle-aan-den-ijssel",
-    "generated_at": "2026-06-08T06:44:25.871711Z",
+    "generated_at": "2026-06-15T07:24:22.897258Z",
     "total_points": 50,
     "providers": [
       "Amazon",
@@ -274,38 +274,6 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Picassopassage",
-        "straatNaam": "Picassopassage",
-        "straatNr": "38",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.9527785,
-        "longitude": 4.5845195,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "07:00 - 22:00",
-          "di": "07:00 - 22:00",
-          "wo": "07:00 - 22:00",
-          "do": "07:00 - 22:00",
-          "vr": "07:00 - 22:00",
-          "za": "07:00 - 22:00",
-          "zo": "07:00 - 22:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.5845195,
-          51.9527785
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
         "locatieNaam": "Phone Style",
         "straatNaam": "Picassopassage",
         "straatNr": "1",
@@ -324,6 +292,38 @@
           "vr": "10:00 - 18:00",
           "za": "10:00 - 18:00",
           "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5845195,
+          51.9527785
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Picassopassage",
+        "straatNaam": "Picassopassage",
+        "straatNr": "38",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.9527785,
+        "longitude": 4.5845195,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "07:00 - 22:00",
+          "di": "07:00 - 22:00",
+          "wo": "07:00 - 22:00",
+          "do": "07:00 - 22:00",
+          "vr": "07:00 - 22:00",
+          "za": "07:00 - 22:00",
+          "zo": "07:00 - 22:00"
         }
       }
     },
