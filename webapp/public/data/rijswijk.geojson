@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Rijswijk",
     "slug": "rijswijk",
-    "generated_at": "2026-06-15T07:39:43.815114Z",
+    "generated_at": "2026-06-22T07:43:43.372394Z",
     "total_points": 66,
     "providers": [
       "Amazon",
@@ -197,6 +197,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.314735804,
+          52.02847182
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tabakshop Henri Dunant",
+        "straatNaam": "Henri Dunantlaan 86 -88",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.02847182,
+        "longitude": 4.314735804,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.335890362,
           52.05597943
         ]
@@ -331,30 +355,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.0496338,
         "longitude": 4.333925398,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.314735804,
-          52.02847182
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Tabakshop Henri Dunant",
-        "straatNaam": "Henri Dunantlaan 86 -88",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 52.02847182,
-        "longitude": 4.314735804,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null

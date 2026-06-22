@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Heerlen",
     "slug": "heerlen",
-    "generated_at": "2026-06-15T07:30:06.071885Z",
+    "generated_at": "2026-06-22T07:33:35.247174Z",
     "total_points": 120,
     "providers": [
       "Amazon",
@@ -28,30 +28,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.925435583,
-          50.92182446
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Stichting Kledingbank Zuid",
-        "straatNaam": "St. Jansstraat 47",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 50.92182446,
-        "longitude": 5.925435583,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.92596266248976,
           50.9255614078812
         ]
@@ -66,6 +42,30 @@
         "bezettingsgraad": 50,
         "latitude": 50.9255614078812,
         "longitude": 5.92596266248976,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.925435583,
+          50.92182446
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Stichting Kledingbank Zuid",
+        "straatNaam": "St. Jansstraat 47",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.92182446,
+        "longitude": 5.925435583,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -3203,7 +3203,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "TALENTO ECOM PACKS",
-        "straatNaam": "MONSEIGNEUR HANSSENSTRAAT 13",
+        "straatNaam": "Monseigneur Hanssenstraat 13",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -3212,7 +3212,7 @@
         "longitude": 5.97296,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L/Ma/Me/J/V 10-17,S 10-15"
+        "openingstijden": null
       }
     },
     {

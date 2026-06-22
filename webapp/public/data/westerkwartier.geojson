@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Westerkwartier",
     "slug": "westerkwartier",
-    "generated_at": "2026-06-15T07:45:54.439549Z",
+    "generated_at": "2026-06-22T07:50:13.984022Z",
     "total_points": 106,
     "providers": [
       "Amazon",
@@ -2804,7 +2804,15 @@
         "longitude": 6.39158682,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "13:00 - 17:30",
+          "di": "13:00 - 17:30",
+          "wo": "09:30 - 17:30",
+          "do": "09:30 - 17:30",
+          "vr": "09:30 - 17:30",
+          "za": "09:30 - 17:00",
+          "zo": "gesloten"
+        }
       }
     },
     {

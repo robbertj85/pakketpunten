@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Borne",
     "slug": "borne",
-    "generated_at": "2026-06-15T07:23:33.087439Z",
-    "total_points": 22,
+    "generated_at": "2026-06-22T07:26:40.187315Z",
+    "total_points": 23,
     "providers": [
       "Amazon",
       "DHL",
@@ -331,6 +331,30 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "13:00 - 18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.73590866244878,
+          52.3091401925057
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Ambachtstraat",
+        "straatNr": "2PBA",
+        "vervoerder": "PostNL",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.3091401925057,
+        "longitude": 6.73590866244878,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": "00:00 - 23:59"
       }
     },
     {
