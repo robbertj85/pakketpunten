@@ -10,7 +10,7 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
 
     steps:
       - name: Checkout repository
@@ -98,7 +98,10 @@ jobs:
           python scripts/batch_generate.py
           python scripts/create_national_overview.py
         working-directory: ${{ github.workspace }}
-        timeout-minutes: 60
+        # Headroom for the semi-annual polygon cache refresh (last week of
+        # June/December), when all ~342 municipality boundaries are re-fetched
+        # from the rate-limited Overpass API. Normal runs finish in ~30 min.
+        timeout-minutes: 120
 
       - name: Update totals history
         run: python scripts/update_totals_history.py
@@ -113,6 +116,9 @@ jobs:
         run: |
           # Add cache files (DHL, DPD, ViaTim, InPost, Budbee - GLS committed by separate workflow)
           git add data/dhl_all_locations.json data/dpd_all_locations.json data/viatim_all_locations.json data/inpost_all_locations.json data/budbee_all_locations.json 2>/dev/null || true
+          # Add the municipality boundary cache so the semi-annual Overpass refresh persists
+          # (otherwise every refresh-week run re-fetches all ~342 boundaries from scratch)
+          git add data/municipality_polygon_cache.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
           git add webapp/public/data/summary.json webapp/public/data/totals_history.json webapp/public/municipalities.json 2>/dev/null || true
