@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Assen",
     "slug": "assen",
-    "generated_at": "2026-07-06T06:30:28.043501Z",
-    "total_points": 85,
+    "generated_at": "2026-07-13T05:36:56.496032Z",
+    "total_points": 86,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -333,6 +333,38 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.5804379,
+          52.9890363
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Kapsalon Cosi",
+        "straatNaam": "Brunelstraat",
+        "straatNr": "7",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.9890363,
+        "longitude": 6.5804379,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 18:00",
+          "di": "09:00 - 17:30",
+          "wo": "09:00 - 17:30",
+          "do": "09:00 - 17:30",
+          "vr": "09:00 - 18:00",
+          "za": "09:00 - 16:00",
+          "zo": "gesloten"
+        }
       }
     },
     {
@@ -965,7 +997,7 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "13:00 - 18:00",
+          "ma": "gesloten",
           "di": "09:00 - 12:30, 13:00 - 17:30",
           "wo": "09:00 - 12:30, 13:00 - 17:30",
           "do": "09:00 - 12:30, 13:00 - 17:30",
@@ -2203,7 +2235,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "TOKO MIRAMI",
-        "straatNaam": "SINGELPASSAGE 12",
+        "straatNaam": "Singelpassage 12",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -2212,7 +2244,7 @@
         "longitude": 6.56266,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L 13-17,Ma/Me/J/V/S 10-17"
+        "openingstijden": null
       }
     },
     {
@@ -2275,7 +2307,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "BUSINESSPOST ASSEN",
-        "straatNaam": "W.A. SCHOLTENSTRAAT 20",
+        "straatNaam": "W.A. Scholtenstraat 20",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -2284,7 +2316,7 @@
         "longitude": 6.57488,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L/Ma/Me/J/V, 8-18"
+        "openingstijden": null
       }
     },
     {
@@ -2299,7 +2331,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "COMPUTERSERVICE ASSEN",
-        "straatNaam": "NIJVERHEIDSWEG 5",
+        "straatNaam": "Nijverheidsweg 5",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -2308,7 +2340,7 @@
         "longitude": 6.59198,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L 12-17,Ma/Me/J/V 8:30-17,S 10 -16"
+        "openingstijden": null
       }
     },
     {
@@ -2316,23 +2348,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.56099,
-          52.9952
+          6.56157,
+          52.99573
         ]
       },
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "MOBIELTJES EN ZO",
-        "straatNaam": "FORUM 5",
+        "straatNaam": "Oudestraat 44",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
         "bezettingsgraad": 50,
-        "latitude": 52.9952,
-        "longitude": 6.56099,
+        "latitude": 52.99573,
+        "longitude": 6.56157,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L 12-18,Ma/Me/J 10-18,V 10-20, S 10-17"
+        "openingstijden": null
       }
     },
     {
@@ -4987,7 +5019,7 @@
                 53.00603811379359
               ],
               [
-                6.577547293436166,
+                6.577547293436164,
                 53.00605922757834
               ],
               [
@@ -5539,7 +5571,7 @@
                 52.992702997008685
               ],
               [
-                6.56590138426859,
+                6.565901384268591,
                 52.992648733345135
               ],
               [
@@ -6709,10 +6741,6 @@
           [
             [
               [
-                6.564471575694542,
-                53.01508680924313
-              ],
-              [
                 6.564204548828719,
                 53.0148769239198
               ],
@@ -6967,6 +6995,10 @@
               [
                 6.564471575694542,
                 53.01508680924313
+              ],
+              [
+                6.564204548828719,
+                53.0148769239198
               ]
             ]
           ],
@@ -7237,14 +7269,6 @@
           [
             [
               [
-                6.5794732015195905,
-                52.98601899189472
-              ],
-              [
-                6.579040697063391,
-                52.98606212793718
-              ],
-              [
                 6.578617280157012,
                 52.98613063799083
               ],
@@ -7461,16 +7485,24 @@
                 52.98821483285955
               ],
               [
-                6.584538319266621,
-                52.98796726287959
+                6.58469125646192,
+                52.98821229596829
               ],
               [
-                6.5843443325578175,
-                52.98773002438239
+                6.584690739549757,
+                52.98821113293425
               ],
               [
-                6.584326926555186,
-                52.987713141720874
+                6.584536218971378,
+                52.98796356295125
+              ],
+              [
+                6.584342232290638,
+                52.98772632445033
+              ],
+              [
+                6.584324296689289,
+                52.987708928110486
               ],
               [
                 6.584298297065545,
@@ -7535,6 +7567,14 @@
               [
                 6.5794732015195905,
                 52.98601899189472
+              ],
+              [
+                6.579040697063391,
+                52.98606212793718
+              ],
+              [
+                6.578617280157012,
+                52.98613063799083
               ]
             ]
           ]
@@ -10389,12 +10429,20 @@
                 52.9879397421063
               ],
               [
-                6.585904379627774,
-                52.98760965119419
+                6.586108832635563,
+                52.987937205233834
               ],
               [
-                6.585681366654288,
-                52.987336925124694
+                6.586108315688906,
+                52.98793604220595
+              ],
+              [
+                6.585902279234128,
+                52.98760595128978
+              ],
+              [
+                6.5856783833071795,
+                52.98733214539099
               ],
               [
                 6.585664350027448,
@@ -10437,7 +10485,7 @@
                 52.98528364947189
               ],
               [
-                6.5818166274163525,
+                6.581816627416359,
                 52.985281147737346
               ],
               [
@@ -11073,10 +11121,6 @@
           [
             [
               [
-                6.565696772578338,
-                53.014575452411336
-              ],
-              [
                 6.565340733689109,
                 53.01429560879148
               ],
@@ -11331,6 +11375,10 @@
               [
                 6.565696772578338,
                 53.014575452411336
+              ],
+              [
+                6.565340733689109,
+                53.01429560879148
               ]
             ]
           ],

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Steenbergen",
     "slug": "steenbergen",
-    "generated_at": "2026-07-06T06:50:38.779760Z",
-    "total_points": 28,
+    "generated_at": "2026-07-13T05:56:27.273668Z",
+    "total_points": 26,
     "providers": [
       "Amazon",
       "DHL",
@@ -131,38 +131,6 @@
           "vr": "08:00 - 21:00",
           "za": "08:00 - 21:00",
           "zo": "08:00 - 20:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.3198648,
-          51.587977
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Studio Sunshine Sun & Beauty",
-        "straatNaam": "Oostdam",
-        "straatNr": "28-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.587977,
-        "longitude": 4.3198648,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "gesloten",
-          "di": "10:00 - 19:30",
-          "wo": "10:00 - 19:30",
-          "do": "10:00 - 19:30",
-          "vr": "10:00 - 19:30",
-          "za": "10:00 - 15:30",
-          "zo": "gesloten"
         }
       }
     },
@@ -637,11 +605,11 @@
         "canDropoff": true,
         "openingstijden": {
           "ma": "gesloten",
-          "di": "10:00 - 17:00",
-          "wo": "10:00 - 17:00",
+          "di": "gesloten",
+          "wo": "gesloten",
           "do": "10:00 - 17:00",
-          "vr": "gesloten",
-          "za": "gesloten",
+          "vr": "10:00 - 17:00",
+          "za": "10:00 - 17:00",
           "zo": "gesloten"
         }
       }
@@ -756,30 +724,6 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "Ma/Me/J/V 10-19:30,S 10-15:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.32089,
-          51.58494
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "WEVO STEENBERGEN",
-        "straatNaam": "Wouwsestraat 77",
-        "straatNr": "",
-        "vervoerder": "InPost",
-        "puntType": "servicepunt",
-        "bezettingsgraad": 50,
-        "latitude": 51.58494,
-        "longitude": 4.32089,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": null
       }
     },
     {
@@ -1028,10 +972,6 @@
               [
                 4.302048844338241,
                 51.58411737615518
-              ],
-              [
-                4.301842835215843,
-                51.58423026012395
               ],
               [
                 4.301842835215843,

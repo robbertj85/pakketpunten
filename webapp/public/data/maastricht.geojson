@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Maastricht",
     "slug": "maastricht",
-    "generated_at": "2026-07-06T06:43:30.346678Z",
+    "generated_at": "2026-07-13T05:49:33.606760Z",
     "total_points": 132,
     "providers": [
       "Amazon",
@@ -25,54 +25,6 @@
     ]
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.724435547,
-          50.85430554
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "ALLSAFE Mini Opslag Maastricht",
-        "straatNaam": "Pastoor Jacobsweg 100",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 50.85430554,
-        "longitude": 5.724435547,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.724970176,
-          50.85362083
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "GAMMA Maastricht-Oost",
-        "straatNaam": "Oostermaasweg 3",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 50.85362083,
-        "longitude": 5.724970176,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -212,6 +164,54 @@
         "bezettingsgraad": 50,
         "latitude": 50.8398697442678,
         "longitude": 5.69197740032957,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.724435547,
+          50.85430554
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "ALLSAFE Mini Opslag Maastricht",
+        "straatNaam": "Pastoor Jacobsweg 100",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.85430554,
+        "longitude": 5.724435547,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.724970176,
+          50.85362083
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Maastricht-Oost",
+        "straatNaam": "Oostermaasweg 3",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.85362083,
+        "longitude": 5.724970176,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -756,7 +756,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat DHL Maastricht",
+        "locatieNaam": "Pakketautomaat DHL Express Maastr",
         "straatNaam": "Pierre de Coubertinweg",
         "straatNr": "5",
         "vervoerder": "DHL",

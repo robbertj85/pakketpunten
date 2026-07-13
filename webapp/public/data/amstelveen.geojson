@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Amstelveen",
     "slug": "amstelveen",
-    "generated_at": "2026-07-06T06:30:06.017043Z",
+    "generated_at": "2026-07-13T05:36:35.805408Z",
     "total_points": 58,
     "providers": [
       "Amazon",
@@ -165,6 +165,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.838087986830078,
+          52.28826843355686
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat GAMMA Amstelveen",
+        "straatNaam": "Zetterij",
+        "straatNr": "12",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.28826843355686,
+        "longitude": 4.838087986830078,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 17:00",
+          "di": "09:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "vr": "09:00 - 21:00",
+          "za": "09:00 - 18:00",
+          "zo": "10:00 - 17:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.839989185333252,
           52.28836441040039
         ]
@@ -221,38 +253,6 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.838087986830078,
-          52.28826843355686
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat GAMMA Amstelveen",
-        "straatNaam": "Zetterij",
-        "straatNr": "12",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.28826843355686,
-        "longitude": 4.838087986830078,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 17:00",
-          "di": "09:00 - 21:00",
-          "wo": "09:00 - 21:00",
-          "do": "09:00 - 21:00",
-          "vr": "09:00 - 21:00",
-          "za": "09:00 - 18:00",
-          "zo": "10:00 - 17:00"
         }
       }
     },

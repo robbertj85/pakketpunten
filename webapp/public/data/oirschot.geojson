@@ -3,9 +3,10 @@
   "metadata": {
     "gemeente": "Oirschot",
     "slug": "oirschot",
-    "generated_at": "2026-07-06T06:45:56.151748Z",
-    "total_points": 8,
+    "generated_at": "2026-07-13T05:51:55.509434Z",
+    "total_points": 9,
     "providers": [
+      "Amazon",
       "DHL",
       "DPD",
       "PostNL",
@@ -19,6 +20,30 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.32242135723543,
+          51.5026083011453
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Furndaily",
+        "straatNaam": "Industrieweg 5",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.5026083011453,
+        "longitude": 5.32242135723543,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
