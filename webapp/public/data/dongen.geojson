@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Dongen",
     "slug": "dongen",
-    "generated_at": "2026-07-13T05:41:27.447038Z",
+    "generated_at": "2026-07-20T05:46:29.095489Z",
     "total_points": 31,
     "providers": [
       "Amazon",
@@ -748,6 +748,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.9449326,
+          51.6251346
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bloembinderij John Flora",
+        "straatNaam": "Hoge Ham",
+        "straatNr": "170",
+        "vervoerder": "GLS",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.6251346,
+        "longitude": 4.9449326,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "12:00 - 18:00",
+          "di": "08:30 - 18:00",
+          "wo": "08:30 - 18:00",
+          "do": "08:30 - 18:00",
+          "vr": "08:30 - 18:00",
+          "za": "08:30 - 17:00",
+          "zo": "00:00 - 00:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.93094093,
           51.6151101
         ]
@@ -804,38 +836,6 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.9449326,
-          51.6251346
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Bloembinderij John Flora",
-        "straatNaam": "Hoge Ham",
-        "straatNr": "170",
-        "vervoerder": "GLS",
-        "puntType": "parcel_shop",
-        "bezettingsgraad": 50,
-        "latitude": 51.6251346,
-        "longitude": 4.9449326,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "12:00 - 18:00",
-          "di": "08:30 - 18:00",
-          "wo": "08:30 - 18:00",
-          "do": "08:30 - 18:00",
-          "vr": "08:30 - 18:00",
-          "za": "08:30 - 17:00",
-          "zo": "00:00 - 00:00"
         }
       }
     },

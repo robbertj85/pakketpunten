@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Krimpen aan den IJssel",
     "slug": "krimpen-aan-den-ijssel",
-    "generated_at": "2026-07-13T05:47:34.539890Z",
+    "generated_at": "2026-07-20T05:53:07.442914Z",
     "total_points": 28,
     "providers": [
       "Amazon",
@@ -146,6 +146,38 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5837061,
+          51.9164527
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Dierentotaalzaak Ons Schuurtje",
+        "straatNaam": "Noorderstraat",
+        "straatNr": "23-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9164527,
+        "longitude": 4.5837061,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 18:00",
+          "di": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "za": "09:00 - 17:00",
+          "zo": "gesloten"
         }
       }
     },
@@ -305,38 +337,6 @@
           "do": "09:00 - 18:00",
           "vr": "09:00 - 21:00",
           "za": "09:00 - 18:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.5837061,
-          51.9164527
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Dierentotaalzaak Ons Schuurtje",
-        "straatNaam": "Noorderstraat",
-        "straatNr": "23-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9164527,
-        "longitude": 4.5837061,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 18:00",
-          "za": "09:00 - 17:00",
           "zo": "gesloten"
         }
       }

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Zaltbommel",
     "slug": "zaltbommel",
-    "generated_at": "2026-07-13T06:01:42.946742Z",
+    "generated_at": "2026-07-20T06:08:32.754415Z",
     "total_points": 47,
     "providers": [
       "Amazon",
@@ -201,6 +201,30 @@
       },
       "properties": {
         "type": "pakketpunt",
+        "locatieNaam": "Blom Autobedrijf",
+        "straatNaam": "Nieuwstraat 1",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.7999886025576,
+        "longitude": 5.19472333950986,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.19472333950986,
+          51.7999886025576
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
         "locatieNaam": "Blom Autobedrijf+",
         "straatNaam": "Nieuwstraat 1",
         "straatNr": "",
@@ -315,6 +339,70 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.2561492919921875,
+          51.79663848876953
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat van der Valk P2",
+        "straatNaam": "Hogeweg",
+        "straatNr": "65",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.79663848876953,
+        "longitude": 5.2561492919921875,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 23:59",
+          "di": "00:00 - 23:59",
+          "wo": "00:00 - 23:59",
+          "do": "00:00 - 23:59",
+          "vr": "00:00 - 23:59",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.269489,
+          51.798225
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat DHL Zaltbommel",
+        "straatNaam": "Heksekamp",
+        "straatNr": "29",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.798225,
+        "longitude": 5.269489,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "07:00 - 18:30",
+          "di": "07:00 - 18:30",
+          "wo": "07:00 - 18:30",
+          "do": "07:00 - 18:30",
+          "vr": "07:00 - 18:30",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.091641,
           51.815947
         ]
@@ -338,38 +426,6 @@
           "do": "08:30 - 20:00",
           "vr": "08:30 - 20:00",
           "za": "09:00 - 16:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.1742365,
-          51.8091057
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "DHL Buurtpunt ViaTim & Kerkstraat",
-        "straatNaam": "Kerkstraat",
-        "straatNr": "37",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.8091057,
-        "longitude": 5.1742365,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "15:30 - 21:00",
-          "di": "15:30 - 21:00",
-          "wo": "15:30 - 21:00",
-          "do": "15:30 - 21:00",
-          "vr": "15:30 - 21:00",
-          "za": "gesloten",
           "zo": "gesloten"
         }
       }
@@ -499,70 +555,6 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.2561492919921875,
-          51.79663848876953
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat van der Valk P2",
-        "straatNaam": "Hogeweg",
-        "straatNr": "65",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.79663848876953,
-        "longitude": 5.2561492919921875,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 23:59",
-          "di": "00:00 - 23:59",
-          "wo": "00:00 - 23:59",
-          "do": "00:00 - 23:59",
-          "vr": "00:00 - 23:59",
-          "za": "00:00 - 23:59",
-          "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.269489,
-          51.798225
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat DHL Zaltbommel",
-        "straatNaam": "Heksekamp",
-        "straatNr": "29",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.798225,
-        "longitude": 5.269489,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "07:00 - 18:30",
-          "di": "07:00 - 18:30",
-          "wo": "07:00 - 18:30",
-          "do": "07:00 - 18:30",
-          "vr": "07:00 - 18:30",
-          "za": "gesloten",
-          "zo": "gesloten"
         }
       }
     },
@@ -843,7 +835,7 @@
         "longitude": 5.19472333950986,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "08:00 - 12:00, 13:00 - 17:00"
+        "openingstijden": "08:00 - 12:00"
       }
     },
     {
@@ -1240,7 +1232,7 @@
           "di": "15:30 - 21:00",
           "wo": "15:30 - 21:00",
           "do": "15:30 - 21:00",
-          "vr": "15:30 - 21:00",
+          "vr": "gesloten",
           "za": "gesloten",
           "zo": "gesloten"
         }
@@ -3670,10 +3662,6 @@
           [
             [
               [
-                5.17467552276262,
-                51.806422962543174
-              ],
-              [
                 5.174249229253248,
                 51.806409205626586
               ],
@@ -3952,6 +3940,10 @@
               [
                 5.17467552276262,
                 51.806422962543174
+              ],
+              [
+                5.174249229253248,
+                51.806409205626586
               ]
             ]
           ],
@@ -7870,10 +7862,6 @@
           [
             [
               [
-                5.174821851526554,
-                51.80552871489985
-              ],
-              [
                 5.174253471451677,
                 51.80551037271346
               ],
@@ -8152,6 +8140,10 @@
               [
                 5.174821851526554,
                 51.80552871489985
+              ],
+              [
+                5.174253471451677,
+                51.80551037271346
               ]
             ]
           ],

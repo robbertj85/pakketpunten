@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Teylingen",
     "slug": "teylingen",
-    "generated_at": "2026-07-13T05:57:05.677453Z",
+    "generated_at": "2026-07-20T06:03:27.362775Z",
     "total_points": 25,
     "providers": [
       "Amazon",
@@ -193,6 +193,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.520788515223109,
+          52.22535944708358
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Kringloop Hoofdstr",
+        "straatNaam": "Hoofdstraat",
+        "straatNr": "204",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.22535944708358,
+        "longitude": 4.520788515223109,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 17:00",
+          "di": "10:00 - 17:00",
+          "wo": "10:00 - 17:00",
+          "do": "10:00 - 17:00",
+          "vr": "10:00 - 17:00",
+          "za": "10:00 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.4816367,
           52.2210454
         ]
@@ -312,38 +344,6 @@
           "do": "09:00 - 18:00",
           "vr": "09:00 - 18:00",
           "za": "09:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.520788515223109,
-          52.22535944708358
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Kringloop Hoofdstr",
-        "straatNaam": "Hoofdstraat",
-        "straatNr": "204",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.22535944708358,
-        "longitude": 4.520788515223109,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 17:00",
-          "di": "10:00 - 17:00",
-          "wo": "10:00 - 17:00",
-          "do": "10:00 - 17:00",
-          "vr": "10:00 - 17:00",
-          "za": "10:00 - 17:00",
           "zo": "gesloten"
         }
       }
@@ -593,7 +593,7 @@
         "longitude": 4.485316796,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "10:00 - 18:00 (Na 18:00 open; Zaterdag open)"
+        "openingstijden": "10:00 - 18:00, 10:00 - 18:00 (Na 18:00 open; Zaterdag open)"
       }
     },
     {

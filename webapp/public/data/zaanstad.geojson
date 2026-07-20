@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Zaanstad",
     "slug": "zaanstad",
-    "generated_at": "2026-07-13T06:01:37.739970Z",
-    "total_points": 117,
+    "generated_at": "2026-07-20T06:08:27.719743Z",
+    "total_points": 114,
     "providers": [
       "Amazon",
       "DHL",
@@ -172,38 +172,6 @@
           "do": "09:00 - 18:00",
           "vr": "09:00 - 18:00",
           "za": "09:00 - 17:30",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.7625591,
-          52.4871266
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Saen Fiets",
-        "straatNaam": "Rode Ring",
-        "straatNr": "33-F",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.4871266,
-        "longitude": 4.7625591,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "11:00 - 17:00",
-          "di": "09:00 - 17:00",
-          "wo": "09:00 - 17:00",
-          "do": "09:00 - 17:00",
-          "vr": "09:00 - 17:00",
-          "za": "09:00 - 17:00",
           "zo": "gesloten"
         }
       }
@@ -789,6 +757,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.822666,
+          52.440724
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Familiemarkt",
+        "straatNaam": "Westzijde",
+        "straatNr": "13-Kast",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.440724,
+        "longitude": 4.822666,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "11:00 - 19:00",
+          "di": "11:00 - 19:00",
+          "wo": "11:00 - 19:00",
+          "do": "11:00 - 19:00",
+          "vr": "11:00 - 19:00",
+          "za": "11:00 - 19:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.838100423641947,
           52.44440385973955
         ]
@@ -876,70 +876,6 @@
           "do": "10:00 - 18:00",
           "vr": "10:00 - 18:00",
           "za": "10:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.8368331,
-          52.4325351
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "DHL Buurtpunt ViaTim & Sabina",
-        "straatNaam": "Morgensterstraat",
-        "straatNr": "4",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.4325351,
-        "longitude": 4.8368331,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "16:00 - 21:00",
-          "di": "16:00 - 21:00",
-          "wo": "16:00 - 21:00",
-          "do": "16:00 - 21:00",
-          "vr": "16:00 - 21:00",
-          "za": "gesloten",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.822666,
-          52.440724
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Familiemarkt",
-        "straatNaam": "Westzijde",
-        "straatNr": "13-Kast",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.440724,
-        "longitude": 4.822666,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "11:00 - 19:00",
-          "di": "11:00 - 19:00",
-          "wo": "11:00 - 19:00",
-          "do": "11:00 - 19:00",
-          "vr": "11:00 - 19:00",
-          "za": "11:00 - 19:00",
           "zo": "gesloten"
         }
       }
@@ -1173,38 +1109,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7289327,
-          52.4539111
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Jami's",
-        "straatNaam": "DORPSSTRAAT",
-        "straatNr": "171",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.4539111,
-        "longitude": 4.7289327,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 17:00",
-          "di": "09:00 - 17:00",
-          "wo": "09:00 - 17:00",
-          "do": "09:00 - 17:00",
-          "vr": "09:00 - 17:00",
-          "za": "gesloten",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.7780614,
           52.516842
         ]
@@ -1228,38 +1132,6 @@
           "do": "10:00 - 18:45",
           "vr": "10:00 - 18:45",
           "za": "10:00 - 15:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.8226663,
-          52.4407244
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "AGF Amstel Boer",
-        "straatNaam": "WESTZIJDE",
-        "straatNr": "13",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.4407244,
-        "longitude": 4.8226663,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "11:00 - 18:00",
-          "di": "11:00 - 18:00",
-          "wo": "11:00 - 18:00",
-          "do": "11:00 - 18:00",
-          "vr": "11:00 - 18:00",
-          "za": "11:00 - 18:00",
           "zo": "gesloten"
         }
       }
@@ -1516,38 +1388,6 @@
           "do": "09:00 - 17:00",
           "vr": "09:00 - 17:00",
           "za": "09:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.7871666,
-          52.4947231
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Telefoonwinkel Wormerveer",
-        "straatNaam": "KROMMENIEËRWEG",
-        "straatNr": "18",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.4947231,
-        "longitude": 4.7871666,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "10:00 - 18:00",
-          "di": "10:00 - 18:00",
-          "wo": "10:00 - 18:00",
-          "do": "10:00 - 18:00",
-          "vr": "10:00 - 18:00",
-          "za": "10:00 - 18:00",
           "zo": "gesloten"
         }
       }
@@ -2949,6 +2789,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.81609175,
+          52.43776902
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "ViaTim en MoJa",
+        "straatNaam": "Aan de Vaart",
+        "straatNr": "36",
+        "vervoerder": "ViaTim",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.43776902,
+        "longitude": 4.81609175,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "18:00 - 21:00",
+          "di": "gesloten",
+          "wo": "gesloten",
+          "do": "11:00 - 14:00",
+          "vr": "gesloten",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.79028584,
           52.50035117
         ]
@@ -2998,10 +2870,10 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "16:00 - 21:00",
+          "ma": "gesloten",
           "di": "16:00 - 21:00",
           "wo": "16:00 - 21:00",
-          "do": "gesloten",
+          "do": "16:00 - 21:00",
           "vr": "16:00 - 21:00",
           "za": "gesloten",
           "zo": "gesloten"
@@ -3134,6 +3006,30 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "L/Ma/Me/J/V 10-18:45,S 10-15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.76809,
+          52.4983
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "TELEFOONWERELD",
+        "straatNaam": "Zuiderhoofdstraat 50",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.4983,
+        "longitude": 4.76809,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
       }
     },
     {
@@ -4384,6 +4280,10 @@
           [
             [
               [
+                4.756342718884262,
+                52.48683523619717
+              ],
+              [
                 4.756087572976662,
                 52.48662135023079
               ],
@@ -4654,10 +4554,6 @@
               [
                 4.756342718884262,
                 52.48683523619717
-              ],
-              [
-                4.756087572976662,
-                52.48662135023079
               ]
             ]
           ],
@@ -4948,20 +4844,16 @@
                 52.49556544083954
               ],
               [
-                4.79137087141009,
-                52.49554732874857
+                4.79147196844559,
+                52.49530931822793
               ],
               [
-                4.791383074798686,
-                52.49552704013393
+                4.791539102553791,
+                52.49504792054178
               ],
               [
-                4.7914918649379175,
-                52.4952709175016
-              ],
-              [
-                4.7915542331165755,
-                52.49502807619735
+                4.791540087201151,
+                52.495037446245526
               ],
               [
                 4.791595303663311,
@@ -5395,18 +5287,6 @@
           ],
           [
             [
-              [
-                4.7689453553438,
-                52.49511798257524
-              ],
-              [
-                4.768538454368717,
-                52.49502672046854
-              ],
-              [
-                4.7681188581875835,
-                52.49496023913044
-              ],
               [
                 4.767690607077113,
                 52.49491917869966
@@ -6324,28 +6204,28 @@
                 52.4979749511817
               ],
               [
-                4.772437727557449,
-                52.497848559104305
+                4.772443214820457,
+                52.49785425560627
               ],
               [
-                4.772426811327549,
-                52.49780085850576
+                4.772430010868937,
+                52.497796558387485
               ],
               [
-                4.772325046886742,
-                52.49754366186761
+                4.772328246419292,
+                52.49753936175183
               ],
               [
-                4.772182467915612,
-                52.497293791220635
+                4.772185667443829,
+                52.49728949110846
               ],
               [
-                4.772000448125166,
-                52.4970536528138
+                4.77200364765359,
+                52.49704935270633
               ],
               [
-                4.771827182542969,
-                52.49687377368709
+                4.771816513571475,
+                52.49685507564557
               ],
               [
                 4.771777730091856,
@@ -6390,6 +6270,18 @@
               [
                 4.7689453553438,
                 52.49511798257524
+              ],
+              [
+                4.768538454368717,
+                52.49502672046854
+              ],
+              [
+                4.7681188581875835,
+                52.49496023913044
+              ],
+              [
+                4.767690607077113,
+                52.49491917869966
               ]
             ]
           ],
@@ -10146,6 +10038,10 @@
           [
             [
               [
+                4.79397921197504,
+                52.49887173762155
+              ],
+              [
                 4.793723814281948,
                 52.49865793284566
               ],
@@ -10400,10 +10296,6 @@
               [
                 4.79397921197504,
                 52.49887173762155
-              ],
-              [
-                4.793723814281948,
-                52.49865793284566
               ]
             ]
           ],
@@ -10596,10 +10488,6 @@
               [
                 4.8202194291315,
                 52.42543445383546
-              ],
-              [
-                4.820125674688271,
-                52.42547626949074
               ],
               [
                 4.820125674688271,
@@ -11168,10 +11056,6 @@
               [
                 4.832770743147077,
                 52.431484343550274
-              ],
-              [
-                4.832768319810109,
-                52.43148838552316
               ],
               [
                 4.832768319810109,
@@ -14250,24 +14134,24 @@
                 52.49755803250094
               ],
               [
-                4.773829703841063,
-                52.497522430583984
+                4.773838021486982,
+                52.4975310650796
               ],
               [
-                4.773737763172902,
-                52.49729008068466
+                4.7737409625496365,
+                52.49728578053026
               ],
               [
-                4.773547648655712,
-                52.49695692201231
+                4.77355084802667,
+                52.496952621862725
               ],
               [
-                4.7733049479754515,
-                52.49663674016288
+                4.773308147346688,
+                52.496632440019525
               ],
               [
-                4.773168474447296,
-                52.49649506208797
+                4.77315780499842,
+                52.49647636416478
               ],
               [
                 4.77314289822583,
@@ -14990,20 +14874,12 @@
                 52.49583338642184
               ],
               [
-                4.7927763974225,
-                52.49581527423999
+                4.792913748186183,
+                52.49549188786687
               ],
               [
-                4.792788600240741,
-                52.495794985481076
-              ],
-              [
-                4.792933643509201,
-                52.49545348689849
-              ],
-              [
-                4.792948197099791,
-                52.495396813080205
+                4.792935531868625,
+                52.49540705918213
               ],
               [
                 4.793073949643746,
@@ -17418,10 +17294,6 @@
                 52.43113810100938
               ],
               [
-                4.831414243317524,
-                52.43113810100938
-              ],
-              [
                 4.831413566258391,
                 52.43113895892308
               ],
@@ -17502,7 +17374,7 @@
                 52.43134288855561
               ],
               [
-                4.82361911436921,
+                4.823619114369209,
                 52.43125770800485
               ],
               [
