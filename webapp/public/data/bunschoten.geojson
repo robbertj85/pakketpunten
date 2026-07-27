@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Bunschoten",
     "slug": "bunschoten",
-    "generated_at": "2026-07-20T05:44:28.511598Z",
+    "generated_at": "2026-07-27T05:54:08.513293Z",
     "total_points": 26,
     "providers": [
       "Amazon",
@@ -235,38 +235,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.379088296942886,
-          52.25198384587196
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Jumbo Bunschoten",
-        "straatNaam": "De Ziel",
-        "straatNr": "45",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.25198384587196,
-        "longitude": 5.379088296942886,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "08:00 - 21:00",
-          "di": "08:00 - 21:00",
-          "wo": "08:00 - 21:00",
-          "do": "08:00 - 21:00",
-          "vr": "08:00 - 21:00",
-          "za": "08:00 - 21:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.3848366,
           52.2492236
         ]
@@ -290,6 +258,38 @@
           "do": "10:30 - 17:00",
           "vr": "gesloten",
           "za": "09:00 - 15:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.379088296942886,
+          52.25198384587196
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Jumbo Bunschoten",
+        "straatNaam": "De Ziel",
+        "straatNr": "45",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.25198384587196,
+        "longitude": 5.379088296942886,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "08:00 - 21:00",
+          "di": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "vr": "08:00 - 21:00",
+          "za": "08:00 - 21:00",
           "zo": "gesloten"
         }
       }
@@ -369,7 +369,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Hubo Bunschote",
+        "locatieNaam": "Pakketautomaat Hubo Bunschoten-Spak",
         "straatNaam": "DE KRONKELS",
         "straatNr": "25",
         "vervoerder": "DPD",

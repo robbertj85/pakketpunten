@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Beesel",
     "slug": "beesel",
-    "generated_at": "2026-07-20T05:42:21.822906Z",
+    "generated_at": "2026-07-27T05:51:58.596259Z",
     "total_points": 19,
     "providers": [
       "DHL",
@@ -499,7 +499,15 @@
         "longitude": 6.06914390328857,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "gesloten",
+          "di": "15:30 - 21:00",
+          "wo": "15:30 - 21:00",
+          "do": "15:30 - 21:00",
+          "vr": "15:30 - 21:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

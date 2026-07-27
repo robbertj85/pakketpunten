@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Winterswijk",
     "slug": "winterswijk",
-    "generated_at": "2026-07-20T06:08:01.294154Z",
-    "total_points": 32,
+    "generated_at": "2026-07-27T06:17:57.922490Z",
+    "total_points": 35,
     "providers": [
       "Amazon",
       "DHL",
@@ -50,6 +50,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.706005226,
+          51.9713661
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Jumbo",
+        "straatNaam": "Europalaan 105",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.9713661,
+        "longitude": 6.706005226,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.70363818160456,
           51.9680756044122
         ]
@@ -64,6 +88,30 @@
         "bezettingsgraad": 50,
         "latitude": 51.9680756044122,
         "longitude": 6.70363818160456,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.718565943,
+          51.96794349
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Winterswijk",
+        "straatNaam": "Dingstraat 3",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.96794349,
+        "longitude": 6.718565943,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -112,6 +160,30 @@
         "bezettingsgraad": 50,
         "latitude": 51.97199841,
         "longitude": 6.721669985,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.729679,
+          51.974921
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "De Vrolijke Foto",
+        "straatNaam": "Vredenseweg 41",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.974921,
+        "longitude": 6.729679,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -399,7 +471,7 @@
           "di": "09:30 - 17:30",
           "wo": "09:30 - 17:30",
           "do": "09:30 - 17:30",
-          "vr": "09:30 - 20:00",
+          "vr": "09:30 - 17:30",
           "za": "09:30 - 17:00",
           "zo": "gesloten"
         }
@@ -2401,10 +2473,6 @@
           [
             [
               [
-                6.733490596813932,
-                51.973606177347435
-              ],
-              [
                 6.7332635633123346,
                 51.97338177918486
               ],
@@ -2659,6 +2727,10 @@
               [
                 6.733490596813932,
                 51.973606177347435
+              ],
+              [
+                6.7332635633123346,
+                51.97338177918486
               ]
             ]
           ]

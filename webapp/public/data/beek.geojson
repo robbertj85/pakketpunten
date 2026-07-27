@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Beek",
     "slug": "beek",
-    "generated_at": "2026-07-20T05:42:11.371210Z",
-    "total_points": 26,
+    "generated_at": "2026-07-27T05:51:48.296393Z",
+    "total_points": 27,
     "providers": [
       "Amazon",
       "DHL",
@@ -27,30 +27,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.841470827,
-          50.9376095
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Buurt.Spaubeek",
-        "straatNaam": "Bongerd 8",
-        "straatNr": "",
-        "vervoerder": "Amazon",
-        "puntType": "3p",
-        "bezettingsgraad": 50,
-        "latitude": 50.9376095,
-        "longitude": 5.841470827,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.796788428,
           50.94749323
         ]
@@ -65,6 +41,30 @@
         "bezettingsgraad": 50,
         "latitude": 50.94749323,
         "longitude": 5.796788428,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.841470827,
+          50.9376095
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Buurt.Spaubeek",
+        "straatNaam": "Bongerd 8",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 50.9376095,
+        "longitude": 5.841470827,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -337,7 +337,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Buurt. Spaubee",
+        "locatieNaam": "Pakketautomaat Buurt. Spaubeek",
         "straatNaam": "BONGERD",
         "straatNr": "8",
         "vervoerder": "DPD",
@@ -724,6 +724,30 @@
           "za": "09:00 - 19:00",
           "zo": "10:00 - 17:00"
         }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.80133,
+          50.94096
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "SOUSMARKT",
+        "straatNaam": "Bourgognestraat 1",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 50.94096,
+        "longitude": 5.80133,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
       }
     },
     {
@@ -1454,14 +1478,6 @@
           [
             [
               [
-                5.800072849331191,
-                50.94577081806234
-              ],
-              [
-                5.7997897890670504,
-                50.94557574333897
-              ],
-              [
                 5.799477827661363,
                 50.945399134695705
               ],
@@ -1872,15 +1888,19 @@
               [
                 5.800072849331191,
                 50.94577081806234
+              ],
+              [
+                5.7997897890670504,
+                50.94557574333897
+              ],
+              [
+                5.799477827661363,
+                50.945399134695705
               ]
             ]
           ],
           [
             [
-              [
-                5.845402021605304,
-                50.9365438295063
-              ],
               [
                 5.845220588760693,
                 50.93630531690181
@@ -2168,6 +2188,10 @@
               [
                 5.845402021605304,
                 50.9365438295063
+              ],
+              [
+                5.845220588760693,
+                50.93630531690181
               ]
             ]
           ],
@@ -3598,10 +3622,6 @@
           [
             [
               [
-                5.846712855081603,
-                50.93619464198113
-              ],
-              [
                 5.846470937864588,
                 50.93587662786095
               ],
@@ -3888,6 +3908,10 @@
               [
                 5.846712855081603,
                 50.93619464198113
+              ],
+              [
+                5.846470937864588,
+                50.93587662786095
               ]
             ]
           ]

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Rijssen-Holten",
     "slug": "rijssen-holten",
-    "generated_at": "2026-07-20T06:00:35.873126Z",
-    "total_points": 44,
+    "generated_at": "2026-07-27T06:10:31.036592Z",
+    "total_points": 46,
     "providers": [
       "Amazon",
       "DHL",
@@ -22,6 +22,30 @@
     ]
   },
   "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.493457514,
+          52.30854753
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "de Kubiek",
+        "straatNaam": "Veeneslagen 80",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.30854753,
+        "longitude": 6.493457514,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
@@ -65,6 +89,30 @@
         "bezettingsgraad": 50,
         "latitude": 52.30771508,
         "longitude": 6.519670589,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.541588841,
+          52.29908087
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Rijssen",
+        "straatNaam": "Enterstraat 196 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.29908087,
+        "longitude": 6.541588841,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -2158,10 +2206,6 @@
           [
             [
               [
-                6.497256303540347,
-                52.303412310109735
-              ],
-              [
                 6.49702876196923,
                 52.30318747053008
               ],
@@ -2728,6 +2772,10 @@
               [
                 6.497256303540347,
                 52.303412310109735
+              ],
+              [
+                6.49702876196923,
+                52.30318747053008
               ]
             ]
           ],
@@ -4206,6 +4254,10 @@
           [
             [
               [
+                6.508494458651449,
+                52.32179984556966
+              ],
+              [
                 6.508266765437606,
                 52.32157502884895
               ],
@@ -4460,10 +4512,6 @@
               [
                 6.508494458651449,
                 52.32179984556966
-              ],
-              [
-                6.508266765437606,
-                52.32157502884895
               ]
             ]
           ],
@@ -5554,10 +5602,6 @@
           [
             [
               [
-                6.498538520000764,
-                52.30297655104801
-              ],
-              [
                 6.498235126123362,
                 52.3026767681221
               ],
@@ -6220,6 +6264,10 @@
               [
                 6.498538520000764,
                 52.30297655104801
+              ],
+              [
+                6.498235126123362,
+                52.3026767681221
               ]
             ]
           ],
@@ -7146,6 +7194,10 @@
           [
             [
               [
+                6.509777093419177,
+                52.321363964981416
+              ],
+              [
                 6.509473497350344,
                 52.32106421253608
               ],
@@ -7400,10 +7452,6 @@
               [
                 6.509777093419177,
                 52.321363964981416
-              ],
-              [
-                6.509473497350344,
-                52.32106421253608
               ]
             ]
           ],

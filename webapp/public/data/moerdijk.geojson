@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Moerdijk",
     "slug": "moerdijk",
-    "generated_at": "2026-07-20T05:56:04.722912Z",
+    "generated_at": "2026-07-27T06:05:56.305942Z",
     "total_points": 53,
     "providers": [
       "Amazon",
@@ -126,6 +126,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.626666473,
+          51.70097156
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "het Winkelmandje",
+        "straatNaam": "Grintweg 44",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.70097156,
+        "longitude": 4.626666473,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.533710508,
           51.66319792
         ]
@@ -150,20 +174,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.626666473,
-          51.70097156
+          4.533136149,
+          51.66299598
         ]
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "het Winkelmandje",
-        "straatNaam": "Grintweg 44",
+        "locatieNaam": "Albert Heijn",
+        "straatNaam": "Doorsteek 9",
         "straatNr": "",
         "vervoerder": "Amazon",
         "puntType": "3p",
         "bezettingsgraad": 50,
-        "latitude": 51.70097156,
-        "longitude": 4.626666473,
+        "latitude": 51.66299598,
+        "longitude": 4.533136149,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -540,38 +564,6 @@
           "wo": "09:00 - 18:00",
           "do": "09:00 - 18:00",
           "vr": "09:00 - 18:00",
-          "za": "09:00 - 16:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.5331578,
-          51.6626043
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Groenendijk Tweewielers",
-        "straatNaam": "WESTERSTRAAT",
-        "straatNr": "39",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 51.6626043,
-        "longitude": 4.5331578,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "gesloten",
-          "di": "09:00 - 12:30, 13:00 - 18:00",
-          "wo": "09:00 - 12:30, 13:00 - 18:00",
-          "do": "09:00 - 12:30, 13:00 - 18:00",
-          "vr": "09:00 - 12:30, 13:00 - 18:00",
           "za": "09:00 - 16:00",
           "zo": "gesloten"
         }
@@ -1350,7 +1342,15 @@
         "longitude": 4.47564546,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "16:00 - 20:00",
+          "di": "09:00 - 14:30",
+          "wo": "16:00 - 20:00",
+          "do": "16:00 - 20:00",
+          "vr": "16:00 - 20:00",
+          "za": "11:00 - 17:00",
+          "zo": "gesloten"
+        }
       }
     },
     {
@@ -3161,6 +3161,10 @@
                 51.66349453219901
               ],
               [
+                4.528875231134497,
+                51.66349453219901
+              ],
+              [
                 4.528972363872017,
                 51.663748340910324
               ],
@@ -3198,6 +3202,10 @@
               ],
               [
                 4.531272003519033,
+                51.66542707755992
+              ],
+              [
+                4.531272003519035,
                 51.66542707755992
               ],
               [

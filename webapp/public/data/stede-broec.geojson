@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Stede Broec",
     "slug": "stede-broec",
-    "generated_at": "2026-07-20T06:02:40.120459Z",
-    "total_points": 26,
+    "generated_at": "2026-07-27T06:12:37.810096Z",
+    "total_points": 27,
     "providers": [
       "Amazon",
       "DHL",
@@ -43,6 +43,30 @@
         "bezettingsgraad": 50,
         "latitude": 52.69333552,
         "longitude": 5.231337366,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.235842198,
+          52.69522858
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Primera Bovenkarspel",
+        "straatNaam": "Stationslaan 49",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.69522858,
+        "longitude": 5.235842198,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -166,7 +190,7 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "13:00 - 17:30",
+          "ma": "gesloten",
           "di": "09:30 - 17:30",
           "wo": "09:30 - 17:30",
           "do": "09:30 - 17:30",
@@ -201,7 +225,7 @@
           "ma": "11:00 - 18:00",
           "di": "09:30 - 18:00",
           "wo": "09:30 - 18:00",
-          "do": "09:30 - 20:00",
+          "do": "09:30 - 18:00",
           "vr": "09:30 - 18:00",
           "za": "07:30 - 17:00",
           "zo": "gesloten"
@@ -1644,10 +1668,6 @@
           [
             [
               [
-                5.2432506649663235,
-                52.688959888660825
-              ],
-              [
                 5.243065282889066,
                 52.68872048636763
               ],
@@ -1902,6 +1922,10 @@
               [
                 5.2432506649663235,
                 52.688959888660825
+              ],
+              [
+                5.243065282889066,
+                52.68872048636763
               ]
             ]
           ],
@@ -2192,7 +2216,7 @@
                 52.694178988265506
               ],
               [
-                5.256228569190749,
+                5.256228569190748,
                 52.693953946476505
               ],
               [

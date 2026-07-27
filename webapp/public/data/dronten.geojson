@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Dronten",
     "slug": "dronten",
-    "generated_at": "2026-07-20T05:46:49.858062Z",
-    "total_points": 59,
+    "generated_at": "2026-07-27T05:56:32.370685Z",
+    "total_points": 60,
     "providers": [
       "Amazon",
       "DHL",
@@ -162,6 +162,30 @@
         "bezettingsgraad": 50,
         "latitude": 52.5446823610571,
         "longitude": 5.7040897402675,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.706158649,
+          52.54538681
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "GAMMA Dronten",
+        "straatNaam": "Het Weerijs 44",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.54538681,
+        "longitude": 5.706158649,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -738,7 +762,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Supertank De N",
+        "locatieNaam": "Pakketautomaat Supertank De Noord",
         "straatNaam": "DE NOORD",
         "straatNr": "99 A",
         "vervoerder": "DPD",
@@ -770,7 +794,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Supertank Dron",
+        "locatieNaam": "Pakketautomaat Supertank Dronten We",
         "straatNaam": "HET GEIN",
         "straatNr": "2",
         "vervoerder": "DPD",
@@ -1604,7 +1628,15 @@
         "longitude": 5.71837373,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "gesloten",
+          "di": "gesloten",
+          "wo": "16:00 - 21:00",
+          "do": "16:00 - 21:00",
+          "vr": "16:00 - 21:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {
@@ -3239,6 +3271,18 @@
           [
             [
               [
+                5.646705325473207,
+                52.56920120318717
+              ],
+              [
+                5.646412558309741,
+                52.569005795415876
+              ],
+              [
+                5.646089769453452,
+                52.5688288128345
+              ],
+              [
                 5.64574006745633,
                 52.56867195965311
               ],
@@ -3543,7 +3587,7 @@
                 52.56960319025564
               ],
               [
-                5.647046760391178,
+                5.647046760391176,
                 52.5694953435028
               ],
               [
@@ -3553,18 +3597,6 @@
               [
                 5.646705325473207,
                 52.56920120318717
-              ],
-              [
-                5.646412558309741,
-                52.569005795415876
-              ],
-              [
-                5.646089769453452,
-                52.5688288128345
-              ],
-              [
-                5.64574006745633,
-                52.56867195965311
               ]
             ]
           ],
@@ -4599,6 +4631,10 @@
           [
             [
               [
+                5.723168091819096,
+                52.51055302694287
+              ],
+              [
                 5.722775212510007,
                 52.510441011188455
               ],
@@ -4889,10 +4925,6 @@
               [
                 5.723168091819096,
                 52.51055302694287
-              ],
-              [
-                5.722775212510007,
-                52.510441011188455
               ]
             ]
           ],
@@ -6779,6 +6811,14 @@
           [
             [
               [
+                5.6474517465326,
+                52.56836802850965
+              ],
+              [
+                5.647021362643073,
+                52.568132055268705
+              ],
+              [
                 5.64655509682834,
                 52.56792292108536
               ],
@@ -6951,7 +6991,7 @@
                 52.575332112609246
               ],
               [
-                5.643410085084945,
+                5.643410085084944,
                 52.575324693992606
               ],
               [
@@ -7089,14 +7129,6 @@
               [
                 5.6474517465326,
                 52.56836802850965
-              ],
-              [
-                5.647021362643073,
-                52.568132055268705
-              ],
-              [
-                5.64655509682834,
-                52.56792292108536
               ]
             ]
           ],

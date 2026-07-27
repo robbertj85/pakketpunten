@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "De Fryske Marren",
     "slug": "de-fryske-marren",
-    "generated_at": "2026-07-20T05:45:20.132927Z",
-    "total_points": 78,
+    "generated_at": "2026-07-27T05:55:00.453183Z",
+    "total_points": 80,
     "providers": [
       "Amazon",
       "DHL",
@@ -41,6 +41,54 @@
         "bezettingsgraad": 50,
         "latitude": 52.96405307,
         "longitude": 5.823553776,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.740756,
+          52.922912
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Jumbo",
+        "straatNaam": "Molewei 1",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.922912,
+        "longitude": 5.740756,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.853115449,
+          52.92958633
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Spar van Zwol Rotsterhaule",
+        "straatNaam": "Streek 131",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 52.92958633,
+        "longitude": 5.853115449,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -873,7 +921,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Sportclub Jour",
+        "locatieNaam": "Pakketautomaat Sportclub Joure",
         "straatNaam": "HOGE ZOMERDIJK",
         "straatNr": "5",
         "vervoerder": "DPD",
@@ -905,7 +953,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Depot Joure",
+        "locatieNaam": "Pakketautomaat Depot Joure",
         "straatNaam": "HANDELSWEI",
         "straatNr": "15",
         "vervoerder": "DPD",
@@ -937,7 +985,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Dagwinkel Slot",
+        "locatieNaam": "Pakketautomaat Dagwinkel Sloten",
         "straatNaam": "KOESTRAAT",
         "straatNr": "20",
         "vervoerder": "DPD",
@@ -969,7 +1017,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - Supermarkt Lan",
+        "locatieNaam": "Pakketautomaat Supermarkt Langweer",
         "straatNaam": "BUORREN",
         "straatNr": "24",
         "vervoerder": "DPD",
@@ -1001,7 +1049,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "DPD Pakketautomaat - SPAR Bakhuizen",
+        "locatieNaam": "Pakketautomaat SPAR Bakhuizen",
         "straatNaam": "SINT ODULPHUSSTRAAT",
         "straatNr": "18",
         "vervoerder": "DPD",
@@ -4958,10 +5006,6 @@
           [
             [
               [
-                5.7504399839582465,
-                52.91628803329694
-              ],
-              [
                 5.750177489338492,
                 52.91607632994891
               ],
@@ -5216,15 +5260,15 @@
               [
                 5.7504399839582465,
                 52.91628803329694
+              ],
+              [
+                5.750177489338492,
+                52.91607632994891
               ]
             ]
           ],
           [
             [
-              [
-                5.742109353267309,
-                52.91984912992802
-              ],
               [
                 5.7417127425037995,
                 52.91973719184966
@@ -5520,15 +5564,15 @@
               [
                 5.742109353267309,
                 52.91984912992802
+              ],
+              [
+                5.7417127425037995,
+                52.91973719184966
               ]
             ]
           ],
           [
             [
-              [
-                5.726400816483528,
-                52.95676018180581
-              ],
               [
                 5.726047714955457,
                 52.956603583960025
@@ -5800,11 +5844,19 @@
               [
                 5.726400816483528,
                 52.95676018180581
+              ],
+              [
+                5.726047714955457,
+                52.956603583960025
               ]
             ]
           ],
           [
             [
+              [
+                5.78549256160639,
+                52.957568112502074
+              ],
               [
                 5.78511555366758,
                 52.95743335597441
@@ -6208,19 +6260,11 @@
               [
                 5.78549256160639,
                 52.957568112502074
-              ],
-              [
-                5.78511555366758,
-                52.95743335597441
               ]
             ]
           ],
           [
             [
-              [
-                5.79457849401687,
-                52.964317146244476
-              ],
               [
                 5.794140981930579,
                 52.96433161890712
@@ -6980,6 +7024,10 @@
               [
                 5.79457849401687,
                 52.964317146244476
+              ],
+              [
+                5.794140981930579,
+                52.96433161890712
               ]
             ]
           ],
@@ -7838,10 +7886,6 @@
           [
             [
               [
-                5.874163609973489,
-                52.95557955055778
-              ],
-              [
                 5.873750152906831,
                 52.95549210592165
               ],
@@ -8192,11 +8236,19 @@
               [
                 5.874163609973489,
                 52.95557955055778
+              ],
+              [
+                5.873750152906831,
+                52.95549210592165
               ]
             ]
           ],
           [
             [
+              [
+                5.822900982453568,
+                52.96019976091213
+              ],
               [
                 5.822604800627084,
                 52.960004811617004
@@ -8454,7 +8506,7 @@
                 52.96590494106314
               ],
               [
-                5.826862979255874,
+                5.8268629792558775,
                 52.965858132501396
               ],
               [
@@ -8580,10 +8632,6 @@
               [
                 5.822900982453568,
                 52.96019976091213
-              ],
-              [
-                5.822604800627084,
-                52.960004811617004
               ]
             ]
           ],
@@ -11196,10 +11244,6 @@
           [
             [
               [
-                5.751671921065804,
-                52.91578501740405
-              ],
-              [
                 5.751321924887739,
                 52.91550274971553
               ],
@@ -11646,15 +11690,15 @@
               [
                 5.751671921065804,
                 52.91578501740405
+              ],
+              [
+                5.751321924887739,
+                52.91550274971553
               ]
             ]
           ],
           [
             [
-              [
-                5.727339394558651,
-                52.95606285927655
-              ],
               [
                 5.726868596137511,
                 52.95585406556801
@@ -11926,11 +11970,19 @@
               [
                 5.727339394558651,
                 52.95606285927655
+              ],
+              [
+                5.726868596137511,
+                52.95585406556801
               ]
             ]
           ],
           [
             [
+              [
+                5.785280356114359,
+                52.95648945951999
+              ],
               [
                 5.784729305876157,
                 52.95637245616822
@@ -13078,10 +13130,6 @@
               [
                 5.785280356114359,
                 52.95648945951999
-              ],
-              [
-                5.784729305876157,
-                52.95637245616822
               ]
             ],
             [
@@ -14014,10 +14062,6 @@
           [
             [
               [
-                5.87472374361037,
-                52.95474702923273
-              ],
-              [
                 5.874172476937504,
                 52.95463043861086
               ],
@@ -14352,6 +14396,10 @@
               [
                 5.87472374361037,
                 52.95474702923273
+              ],
+              [
+                5.874172476937504,
+                52.95463043861086
               ]
             ]
           ],

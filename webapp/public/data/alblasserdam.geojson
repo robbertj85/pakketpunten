@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Alblasserdam",
     "slug": "alblasserdam",
-    "generated_at": "2026-07-20T05:40:20.771377Z",
-    "total_points": 33,
+    "generated_at": "2026-07-27T05:50:02.886124Z",
+    "total_points": 34,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -41,6 +41,30 @@
         "bezettingsgraad": 50,
         "latitude": 51.86353312,
         "longitude": 4.657865521,
+        "canPickup": true,
+        "canDropoff": false,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.660764804,
+          51.86200505
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Boekhandel de Schuilplaats",
+        "straatNaam": "Plantageweg 13 A",
+        "straatNr": "",
+        "vervoerder": "Amazon",
+        "puntType": "3p",
+        "bezettingsgraad": 50,
+        "latitude": 51.86200505,
+        "longitude": 4.660764804,
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
@@ -368,7 +392,7 @@
           "di": "09:30 - 17:30",
           "wo": "09:30 - 17:30",
           "do": "09:30 - 17:30",
-          "vr": "09:30 - 20:00",
+          "vr": "09:30 - 17:30",
           "za": "09:30 - 17:00",
           "zo": "gesloten"
         }
@@ -2230,7 +2254,7 @@
                 51.84879376877336
               ],
               [
-                4.672836698648325,
+                4.672836698648326,
                 51.848777269948044
               ],
               [
@@ -3386,7 +3410,7 @@
                 51.8624319961161
               ],
               [
-                4.673524226108675,
+                4.6735242261086745,
                 51.86229216100092
               ],
               [
