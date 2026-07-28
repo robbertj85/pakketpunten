@@ -60,6 +60,76 @@ tags:
     description: Retrieve parcel point data for Dutch municipalities
 
 paths:
+  /municipalities:
+    get:
+      summary: List all municipalities
+      description: |
+        Returns the index of every municipality in the dataset: slug, CBS code,
+        province, population and the current number of parcel points, split per
+        carrier.
+
+        Call this first — it gives you the valid identifiers for
+        `/municipality/{identifier}` without having to guess slugs, and the
+        counts let you pick the gemeenten you care about before downloading any
+        GeoJSON.
+      operationId: listMunicipalities
+      tags:
+        - Municipality Data
+      responses:
+        '200':
+          description: The municipality index
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: Number of municipalities returned
+                    example: 343
+                  municipalities:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: Zwolle
+                        slug:
+                          type: string
+                          example: zwolle
+                        province:
+                          type: string
+                          example: Overijssel
+                        population:
+                          type: integer
+                          example: 130592
+                        code:
+                          type: string
+                          nullable: true
+                          description: CBS municipality code
+                          example: GM0193
+                        total_points:
+                          type: integer
+                          nullable: true
+                          description: Null when the batch summary is unavailable
+                          example: 214
+                        carriers:
+                          type: object
+                          nullable: true
+                          additionalProperties:
+                            type: integer
+                          description: Point count per carrier
+                          example:
+                            DHL: 62
+                            PostNL: 58
+                        url:
+                          type: string
+                          description: Path to the full data for this municipality
+                          example: /api/v1/municipality/zwolle
+        '429':
+          description: Rate limit exceeded (60 requests per hour)
+
   /municipality/{identifier}:
     get:
       summary: Get municipality parcel point data

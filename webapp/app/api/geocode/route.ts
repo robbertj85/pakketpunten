@@ -14,9 +14,9 @@ import { NextRequest, NextResponse } from 'next/server';
  * - Can add caching if needed
  */
 
-// Simple in-memory rate limiting
-const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT = 30; // requests per minute
+import { checkRateLimit, clientIp, rateLimitHeaders } from '@/lib/rateLimit';
+
+const RATE_LIMIT = 60; // requests per minute
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 
 interface PDOKSuggestion {
@@ -38,36 +38,15 @@ interface PDOKLookupResult {
   woonplaatsnaam?: string;
 }
 
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const record = rateLimitStore.get(ip);
-
-  if (!record || now > record.resetTime) {
-    rateLimitStore.set(ip, {
-      count: 1,
-      resetTime: now + RATE_LIMIT_WINDOW,
-    });
-    return true;
-  }
-
-  if (record.count >= RATE_LIMIT) {
-    return false;
-  }
-
-  record.count++;
-  return true;
-}
-
 export async function GET(request: NextRequest) {
   try {
-    // Get client IP for rate limiting
-    const ip =
-      request.headers.get('x-forwarded-for') ||
-      request.headers.get('x-real-ip') ||
-      'unknown';
+    const limit = checkRateLimit(
+      `geocode:${clientIp(request)}`,
+      RATE_LIMIT,
+      RATE_LIMIT_WINDOW
+    );
 
-    // Check rate limit
-    if (!checkRateLimit(ip)) {
+    if (!limit.allowed) {
       return new NextResponse(
         JSON.stringify({
           error: 'Rate limit exceeded',
@@ -77,7 +56,8 @@ export async function GET(request: NextRequest) {
           status: 429,
           headers: {
             'Content-Type': 'application/json',
-            'Retry-After': String(RATE_LIMIT_WINDOW / 1000),
+            'Retry-After': String(limit.retryAfterSeconds),
+            ...rateLimitHeaders(limit),
           },
         }
       );
