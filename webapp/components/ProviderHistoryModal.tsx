@@ -1,6 +1,7 @@
 'use client';
 
 import { HistorySnapshot } from '@/types/history';
+import { CARRIER_SERIES_COLORS } from '@/lib/carriers';
 import {
   LineChart,
   Line,
@@ -13,6 +14,7 @@ import {
   BarChart,
   Bar
 } from 'recharts';
+import { Card } from '@/components/ui/card';
 
 interface ProviderHistoryModalProps {
   isOpen: boolean;
@@ -22,18 +24,11 @@ interface ProviderHistoryModalProps {
 }
 
 // Provider colors matching the main app
-const PROVIDER_COLORS: { [key: string]: string } = {
-  DHL: '#FFCC00',
-  PostNL: '#FF6600',
-  DPD: '#DC0032',
-  VintedGo: '#09B1BA',
-  DeBuren: '#4CAF50',
-  Amazon: '#FF9900',
-  GLS: '#003C7E',
-  ViaTim: '#E3007A',
-  InPost: '#FFCD00',
-  Budbee: '#00C389',
-};
+// Validated categorical palette from the shared source. These charts put all
+// ten carriers on screen at once, so every one of them needs a legend and
+// direct labels: at ten series the palette sits in the 6-8 CVD band, where
+// colour alone is not sufficient to tell series apart.
+const PROVIDER_COLORS: { [key: string]: string } = CARRIER_SERIES_COLORS;
 
 // Provider logos
 const PROVIDER_LOGOS: { [key: string]: string } = {
@@ -92,9 +87,9 @@ export default function ProviderHistoryModal({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
-      <div className="bg-white rounded-t-xl sm:rounded-lg shadow-xl w-full sm:max-w-6xl max-h-[85vh] sm:max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-card rounded-t-xl sm:rounded-lg shadow-xl w-full sm:max-w-6xl max-h-[85vh] sm:max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200 flex justify-between items-center">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-border flex justify-between items-center">
           <div className="flex items-center gap-3">
             {PROVIDER_LOGOS[providerName] ? (
               <img
@@ -113,13 +108,13 @@ export default function ProviderHistoryModal({
               </div>
             )}
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-gray-900">{providerName}</h2>
-              <p className="text-xs sm:text-sm text-gray-600">Historische ontwikkeling pakketpunten</p>
+              <h2 className="text-lg sm:text-xl font-bold text-foreground">{providerName}</h2>
+              <p className="text-xs sm:text-sm text-muted-foreground">Historische ontwikkeling pakketpunten</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 -mr-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition"
+            className="p-2 -mr-2 text-subtle-foreground hover:text-muted-foreground hover:bg-secondary rounded-full transition"
             aria-label="Sluiten"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,39 +127,39 @@ export default function ProviderHistoryModal({
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Summary stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-            <div className="bg-blue-50 rounded-lg p-3 sm:p-4">
-              <div className="text-xl sm:text-2xl font-bold text-blue-900">
+            <div className="bg-accent rounded-lg p-3 sm:p-4">
+              <div className="text-xl sm:text-2xl font-bold text-accent-foreground">
                 {lastEntry?.count.toLocaleString('nl-NL') || 0}
               </div>
-              <div className="text-xs sm:text-sm text-blue-700">Huidige stand</div>
+              <div className="text-xs sm:text-sm text-primary">Huidige stand</div>
             </div>
-            <div className={`rounded-lg p-3 sm:p-4 ${totalChange >= 0 ? 'bg-green-50' : 'bg-red-50'}`}>
-              <div className={`text-xl sm:text-2xl font-bold ${totalChange >= 0 ? 'text-green-900' : 'text-red-900'}`}>
+            <div className={`rounded-lg p-3 sm:p-4 ${totalChange >= 0 ? 'bg-success-muted' : 'bg-destructive-muted'}`}>
+              <div className={`text-xl sm:text-2xl font-bold ${totalChange >= 0 ? 'text-success' : 'text-destructive'}`}>
                 {totalChange >= 0 ? '+' : ''}{totalChange.toLocaleString('nl-NL')}
               </div>
-              <div className={`text-xs sm:text-sm ${totalChange >= 0 ? 'text-green-700' : 'text-red-700'}`}>
+              <div className={`text-xs sm:text-sm ${totalChange >= 0 ? 'text-success' : 'text-destructive'}`}>
                 Sinds {firstEntry?.week}
               </div>
             </div>
-            <div className={`rounded-lg p-3 sm:p-4 ${Number(percentageChange) >= 0 ? 'bg-green-50' : 'bg-red-50'}`}>
-              <div className={`text-xl sm:text-2xl font-bold ${Number(percentageChange) >= 0 ? 'text-green-900' : 'text-red-900'}`}>
+            <div className={`rounded-lg p-3 sm:p-4 ${Number(percentageChange) >= 0 ? 'bg-success-muted' : 'bg-destructive-muted'}`}>
+              <div className={`text-xl sm:text-2xl font-bold ${Number(percentageChange) >= 0 ? 'text-success' : 'text-destructive'}`}>
                 {Number(percentageChange) >= 0 ? '+' : ''}{percentageChange}%
               </div>
-              <div className={`text-xs sm:text-sm ${Number(percentageChange) >= 0 ? 'text-green-700' : 'text-red-700'}`}>
+              <div className={`text-xs sm:text-sm ${Number(percentageChange) >= 0 ? 'text-success' : 'text-destructive'}`}>
                 Groei percentage
               </div>
             </div>
-            <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
-              <div className="text-xl sm:text-2xl font-bold text-gray-900">
+            <div className="bg-muted rounded-lg p-3 sm:p-4">
+              <div className="text-xl sm:text-2xl font-bold text-foreground">
                 {marketShareData[marketShareData.length - 1]?.share || 0}%
               </div>
-              <div className="text-xs sm:text-sm text-gray-700">Marktaandeel</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Marktaandeel</div>
             </div>
           </div>
 
           {/* Main Line Chart */}
-          <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4">
-            <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">
+          <Card>
+            <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">
               Aantal pakketpunten over tijd
             </h3>
             <div className="h-48 sm:h-64">
@@ -199,12 +194,12 @@ export default function ProviderHistoryModal({
                 </LineChart>
               </ResponsiveContainer>
             </div>
-          </div>
+          </Card>
 
           {/* Weekly Changes Bar Chart */}
           {weeklyChanges.length > 0 && (
-            <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4">
-              <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">
+            <Card>
+              <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">
                 Wekelijkse verandering
               </h3>
               <div className="h-40 sm:h-48">
@@ -238,28 +233,28 @@ export default function ProviderHistoryModal({
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-            </div>
+            </Card>
           )}
 
           {/* History table */}
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="px-4 py-3 border-b border-gray-200 bg-gray-50">
-              <h3 className="font-semibold text-gray-900">Wekelijkse data</h3>
+          <div className="bg-card border border-border rounded-lg overflow-hidden">
+            <div className="px-4 py-3 border-b border-border bg-muted">
+              <h3 className="font-semibold text-foreground">Wekelijkse data</h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-gray-50 border-b border-gray-200">
+                <thead className="bg-muted border-b border-border">
                   <tr>
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Week</th>
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Periode</th>
-                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-900 uppercase bg-gray-100">
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Week</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Periode</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-foreground uppercase bg-secondary">
                       Pakketpunten
                     </th>
-                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase">Verschil</th>
-                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase">Marktaandeel</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-muted-foreground uppercase">Verschil</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-muted-foreground uppercase">Marktaandeel</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-border">
                   {[...snapshots].reverse().map((snapshot, idx, arr) => {
                     const count = snapshot.totals.providers[providerName] || 0;
                     const prevSnapshot = arr[idx + 1];
@@ -270,30 +265,30 @@ export default function ProviderHistoryModal({
                       : '0';
 
                     return (
-                      <tr key={snapshot.date} className="hover:bg-gray-50">
-                        <td className="px-4 py-3 whitespace-nowrap font-medium text-gray-900">
+                      <tr key={snapshot.date} className="hover:bg-muted">
+                        <td className="px-4 py-3 whitespace-nowrap font-medium text-foreground">
                           {snapshot.week_label}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-gray-600 text-xs">
+                        <td className="px-4 py-3 whitespace-nowrap text-muted-foreground text-xs">
                           {formatDateRange(snapshot.date_from, snapshot.date_to)}
                         </td>
-                        <td className="px-4 py-3 text-center font-semibold text-gray-900 bg-gray-50">
+                        <td className="px-4 py-3 text-center font-semibold text-foreground bg-muted">
                           {count.toLocaleString('nl-NL')}
                         </td>
                         <td className="px-4 py-3 text-center">
                           {idx < arr.length - 1 ? (
                             <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                              diff > 0 ? 'bg-green-50 text-green-700' :
-                              diff < 0 ? 'bg-red-50 text-red-700' :
-                              'bg-gray-50 text-gray-500'
+                              diff > 0 ? 'bg-success-muted text-success' :
+                              diff < 0 ? 'bg-destructive-muted text-destructive' :
+                              'bg-muted text-subtle-foreground'
                             }`}>
                               {diff > 0 ? '+' : ''}{diff}
                             </span>
                           ) : (
-                            <span className="text-gray-400">-</span>
+                            <span className="text-subtle-foreground">-</span>
                           )}
                         </td>
-                        <td className="px-4 py-3 text-center text-gray-600">
+                        <td className="px-4 py-3 text-center text-muted-foreground">
                           {share}%
                         </td>
                       </tr>
@@ -306,10 +301,10 @@ export default function ProviderHistoryModal({
         </div>
 
         {/* Footer */}
-        <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200 bg-gray-50">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-border bg-muted">
           <button
             onClick={onClose}
-            className="w-full px-4 py-3 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:bg-blue-800 transition font-medium text-base sm:text-sm"
+            className="w-full px-4 py-3 sm:py-2 bg-primary text-white rounded-lg hover:bg-primary/90 active:bg-primary/80 transition font-medium text-base sm:text-sm"
           >
             Sluiten
           </button>
