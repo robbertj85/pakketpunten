@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Oldambt",
     "slug": "oldambt",
-    "generated_at": "2026-07-27T06:07:53.677445Z",
+    "generated_at": "2026-08-03T06:00:57.963998Z",
     "total_points": 83,
     "providers": [
       "Amazon",
@@ -1233,7 +1233,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat  - De Buren - Tango",
+        "locatieNaam": "Pakketautomaat - De Buren - Tango P",
         "straatNaam": "PAPIERBAAN",
         "straatNr": "5-7",
         "vervoerder": "DPD",
@@ -2195,7 +2195,15 @@
         "longitude": 7.01641796728241,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "15:30 - 21:00",
+          "di": "15:30 - 21:00",
+          "wo": "15:30 - 21:00",
+          "do": "15:30 - 21:00",
+          "vr": "15:30 - 21:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

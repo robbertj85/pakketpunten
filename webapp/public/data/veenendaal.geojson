@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Veenendaal",
     "slug": "veenendaal",
-    "generated_at": "2026-07-27T06:14:52.937328Z",
-    "total_points": 73,
+    "generated_at": "2026-08-03T06:08:36.704739Z",
+    "total_points": 74,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -1859,7 +1859,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "WOUTERRECLAME",
-        "straatNaam": "KAZEMAT 10",
+        "straatNaam": "Kazemat 10",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -1868,7 +1868,7 @@
         "longitude": 5.56486,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L/Ma/Me/J/V, 7-20:45"
+        "openingstijden": null
       }
     },
     {
@@ -1890,6 +1890,30 @@
         "bezettingsgraad": 50,
         "latitude": 52.0261,
         "longitude": 5.55629,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.55957,
+          52.01006
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "COMFORTWHEELS",
+        "straatNaam": "De Smalle Zijde 3",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.01006,
+        "longitude": 5.55957,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": null
@@ -5507,6 +5531,10 @@
           [
             [
               [
+                5.581296582071488,
+                52.0226887883497
+              ],
+              [
                 5.580872128143565,
                 52.022650660765315
               ],
@@ -5801,10 +5829,6 @@
               [
                 5.581296582071488,
                 52.0226887883497
-              ],
-              [
-                5.580872128143565,
-                52.022650660765315
               ]
             ]
           ],
@@ -8739,6 +8763,10 @@
           [
             [
               [
+                5.58157698675488,
+                52.02180678159932
+              ],
+              [
                 5.581011059170826,
                 52.021755945815826
               ],
@@ -9021,10 +9049,6 @@
               [
                 5.58157698675488,
                 52.02180678159932
-              ],
-              [
-                5.581011059170826,
-                52.021755945815826
               ]
             ]
           ],

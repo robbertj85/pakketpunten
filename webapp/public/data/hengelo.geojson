@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Hengelo",
     "slug": "hengelo",
-    "generated_at": "2026-07-27T06:00:58.083591Z",
+    "generated_at": "2026-08-03T05:53:26.557354Z",
     "total_points": 122,
     "providers": [
       "Amazon",
@@ -701,6 +701,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.7944837,
+          52.2661874
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketwinkel Makkabikes",
+        "straatNaam": "Wemenstraat",
+        "straatNr": "6-8",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.2661874,
+        "longitude": 6.7944837,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "gesloten",
+          "di": "10:00 - 17:15",
+          "wo": "10:00 - 17:15",
+          "do": "10:00 - 17:15",
+          "vr": "10:00 - 17:15",
+          "za": "10:00 - 16:15",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.7946504,
           52.264698
         ]
@@ -750,12 +782,12 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "13:00 - 19:00",
-          "di": "11:00 - 19:00",
-          "wo": "11:00 - 19:00",
-          "do": "11:00 - 19:00",
-          "vr": "11:00 - 19:00",
-          "za": "11:00 - 19:00",
+          "ma": "13:00 - 18:00",
+          "di": "11:00 - 18:00",
+          "wo": "11:00 - 18:00",
+          "do": "11:00 - 18:00",
+          "vr": "11:00 - 18:00",
+          "za": "11:00 - 18:00",
           "zo": "gesloten"
         }
       }
@@ -974,13 +1006,13 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "08:30 - 19:00",
-          "di": "08:30 - 19:00",
-          "wo": "08:30 - 19:00",
-          "do": "08:30 - 19:00",
-          "vr": "08:30 - 19:00",
-          "za": "08:30 - 19:00",
-          "zo": "10:00 - 19:00"
+          "ma": "08:30 - 17:00",
+          "di": "08:30 - 17:00",
+          "wo": "08:30 - 17:00",
+          "do": "08:30 - 17:30",
+          "vr": "08:30 - 17:00",
+          "za": "08:30 - 17:00",
+          "zo": "08:30 - 17:30"
         }
       }
     },
@@ -3168,9 +3200,9 @@
         "openingstijden": {
           "ma": "07:00 - 12:00",
           "di": "18:00 - 22:00",
-          "wo": "18:00 - 22:00",
+          "wo": "gesloten",
           "do": "18:00 - 22:00",
-          "vr": "18:00 - 22:00",
+          "vr": "gesloten",
           "za": "gesloten",
           "zo": "gesloten"
         }
@@ -3197,7 +3229,15 @@
         "longitude": 6.78807751,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "08:30 - 17:00",
+          "di": "08:30 - 17:00",
+          "wo": "08:30 - 17:00",
+          "do": "08:30 - 17:00",
+          "vr": "08:30 - 17:00",
+          "za": "08:30 - 17:00",
+          "zo": "gesloten"
+        }
       }
     },
     {
@@ -3278,30 +3318,6 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "L/Ma/Me/J/V 6-18,S 9-18"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.79673,
-          52.26495
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "MIA'S SECONDHANDSTORE",
-        "straatNaam": "Molenstraat 7",
-        "straatNr": "",
-        "vervoerder": "InPost",
-        "puntType": "servicepunt",
-        "bezettingsgraad": 50,
-        "latitude": 52.26495,
-        "longitude": 6.79673,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": null
       }
     },
     {
@@ -6270,6 +6286,32 @@
               [
                 6.783563867238593,
                 52.25307377708282
+              ]
+            ],
+            [
+              [
+                6.799481016849207,
+                52.26386964067487
+              ],
+              [
+                6.799614517107807,
+                52.26395655186571
+              ],
+              [
+                6.799412856954724,
+                52.26401805061168
+              ],
+              [
+                6.799444814044418,
+                52.26386543740637
+              ],
+              [
+                6.799445955639045,
+                52.26384178531263
+              ],
+              [
+                6.799481016849207,
+                52.26386964067487
               ]
             ]
           ],

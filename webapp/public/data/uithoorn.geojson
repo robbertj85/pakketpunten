@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Uithoorn",
     "slug": "uithoorn",
-    "generated_at": "2026-07-27T06:14:12.649324Z",
-    "total_points": 30,
+    "generated_at": "2026-08-03T06:07:50.061569Z",
+    "total_points": 31,
     "providers": [
       "Amazon",
       "DHL",
@@ -348,11 +348,11 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "10:00 - 19:00",
-          "di": "10:00 - 19:00",
-          "wo": "10:00 - 19:00",
-          "do": "10:00 - 19:00",
-          "vr": "10:00 - 19:00",
+          "ma": "10:00 - 18:00",
+          "di": "10:00 - 18:00",
+          "wo": "10:00 - 18:00",
+          "do": "10:00 - 18:00",
+          "vr": "10:00 - 18:00",
           "za": "10:00 - 18:00",
           "zo": "gesloten"
         }
@@ -611,7 +611,7 @@
         "longitude": 4.8275228,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": "12:00 - 18:00"
       }
     },
     {
@@ -683,7 +683,7 @@
         "longitude": 4.844287824,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "09:00 - 18:30 (Na 18:00 open; Zaterdag open)"
+        "openingstijden": "09:00 - 18:00 (Na 18:00 open; Zaterdag open)"
       }
     },
     {
@@ -804,6 +804,30 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.83085,
+          52.23294
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "JOUW MARKTKRAAM UITHOORN",
+        "straatNaam": "Dorpsstraat 31",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.23294,
+        "longitude": 4.83085,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
       }
     },
     {
@@ -2602,6 +2626,10 @@
           [
             [
               [
+                4.847099437568857,
+                52.239483232313034
+              ],
+              [
                 4.84675516640297,
                 52.23932402933658
               ],
@@ -2928,10 +2956,6 @@
               [
                 4.847099437568857,
                 52.239483232313034
-              ],
-              [
-                4.84675516640297,
-                52.23932402933658
               ]
             ]
           ]
@@ -3514,8 +3538,8 @@
                 52.23645987290491
               ],
               [
-                4.828345713300027,
-                52.23619946215781
+                4.828345713300025,
+                52.23619946215779
               ],
               [
                 4.828687731342037,
@@ -4394,6 +4418,10 @@
           [
             [
               [
+                4.847577558481697,
+                52.23858046603006
+              ],
+              [
                 4.847086857838973,
                 52.23839684067523
               ],
@@ -4704,10 +4732,6 @@
               [
                 4.847577558481697,
                 52.23858046603006
-              ],
-              [
-                4.847086857838973,
-                52.23839684067523
               ]
             ]
           ]

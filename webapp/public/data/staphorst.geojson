@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Staphorst",
     "slug": "staphorst",
-    "generated_at": "2026-07-27T06:12:33.031332Z",
+    "generated_at": "2026-08-03T06:05:58.712149Z",
     "total_points": 26,
     "providers": [
       "Amazon",
@@ -668,7 +668,15 @@
         "longitude": 6.29221823676094,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "16:00 - 21:00",
+          "di": "16:00 - 21:00",
+          "wo": "16:00 - 21:00",
+          "do": "16:00 - 21:00",
+          "vr": "16:00 - 21:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

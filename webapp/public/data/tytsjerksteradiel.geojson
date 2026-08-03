@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Tytsjerksteradiel",
     "slug": "tytsjerksteradiel",
-    "generated_at": "2026-07-27T06:14:02.245005Z",
+    "generated_at": "2026-08-03T06:07:38.493134Z",
     "total_points": 50,
     "providers": [
       "Amazon",
@@ -1311,10 +1311,10 @@
         "openingstijden": {
           "ma": "15:00 - 21:00",
           "di": "15:00 - 21:00",
-          "wo": "gesloten",
+          "wo": "15:00 - 21:00",
           "do": "15:00 - 21:00",
           "vr": "15:00 - 21:00",
-          "za": "13:00 - 20:00",
+          "za": "gesloten",
           "zo": "gesloten"
         }
       }
@@ -1372,7 +1372,15 @@
         "longitude": 5.883661020501562,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "15:00 - 21:00",
+          "di": "15:00 - 21:00",
+          "wo": "15:00 - 21:00",
+          "do": "15:00 - 21:00",
+          "vr": "15:00 - 21:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

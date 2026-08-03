@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Duiven",
     "slug": "duiven",
-    "generated_at": "2026-07-27T05:56:42.259962Z",
+    "generated_at": "2026-08-03T05:48:54.989600Z",
     "total_points": 21,
     "providers": [
       "Amazon",
@@ -161,38 +161,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.0215771,
-          51.9486235
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Duiven",
-        "straatNaam": "Elshofpassage",
-        "straatNr": "56-Kast",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.9486235,
-        "longitude": 6.0215771,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 18:00",
-          "di": "09:30 - 18:00",
-          "wo": "09:30 - 18:00",
-          "do": "09:30 - 18:00",
-          "vr": "09:30 - 18:00",
-          "za": "09:30 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.023711697109768,
           51.94900301130695
         ]
@@ -280,6 +248,38 @@
           "do": "09:00 - 18:00",
           "vr": "09:00 - 18:00",
           "za": "09:00 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0215771,
+          51.9486235
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Duiven",
+        "straatNaam": "Elshofpassage",
+        "straatNr": "56-Kast",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.9486235,
+        "longitude": 6.0215771,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "11:00 - 18:00",
+          "di": "09:30 - 18:00",
+          "wo": "09:30 - 18:00",
+          "do": "09:30 - 18:00",
+          "vr": "09:30 - 18:00",
+          "za": "09:30 - 17:00",
           "zo": "gesloten"
         }
       }

@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Kampen",
     "slug": "kampen",
-    "generated_at": "2026-07-27T06:02:32.853961Z",
+    "generated_at": "2026-08-03T05:55:08.591898Z",
     "total_points": 60,
     "providers": [
       "Amazon",
@@ -1557,7 +1557,15 @@
         "longitude": 5.9403548043782335,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "09:00 - 20:00",
+          "di": "16:00 - 20:00",
+          "wo": "16:00 - 20:00",
+          "do": "09:00 - 20:00",
+          "vr": "gesloten",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

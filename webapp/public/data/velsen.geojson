@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Velsen",
     "slug": "velsen",
-    "generated_at": "2026-07-27T06:15:08.529006Z",
-    "total_points": 64,
+    "generated_at": "2026-08-03T06:08:53.688402Z",
+    "total_points": 65,
     "providers": [
       "Amazon",
       "DHL",
@@ -323,6 +323,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.5950963,
+          52.4516813
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Lidl IJmuiden",
+        "straatNaam": "Canopusplein",
+        "straatNr": "3",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.4516813,
+        "longitude": 4.5950963,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "08:00 - 21:00",
+          "di": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "vr": "08:00 - 21:00",
+          "za": "08:00 - 20:00",
+          "zo": "10:00 - 18:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.5925781,
           52.4578885
         ]
@@ -411,38 +443,6 @@
           "vr": "09:30 - 17:00",
           "za": "09:30 - 17:00",
           "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.5950963,
-          52.4516813
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Lidl IJmuiden",
-        "straatNaam": "Canopusplein",
-        "straatNr": "3",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.4516813,
-        "longitude": 4.5950963,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "08:00 - 21:00",
-          "di": "08:00 - 21:00",
-          "wo": "08:00 - 21:00",
-          "do": "08:00 - 21:00",
-          "vr": "08:00 - 21:00",
-          "za": "08:00 - 20:00",
-          "zo": "10:00 - 18:00"
         }
       }
     },
@@ -1756,7 +1756,7 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "gesloten",
+          "ma": "16:00 - 17:30",
           "di": "16:00 - 17:30",
           "wo": "16:00 - 17:30",
           "do": "16:00 - 17:30",
@@ -1764,6 +1764,30 @@
           "za": "gesloten",
           "zo": "gesloten"
         }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.64553,
+          52.47257
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "MOBILE HUB VELSEN",
+        "straatNaam": "Wijkerstraatweg 173A",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.47257,
+        "longitude": 4.64553,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
       }
     },
     {
@@ -5014,32 +5038,40 @@
                 52.473385142267176
               ],
               [
-                4.641478985205782,
-                52.47362548071791
+                4.641409414371909,
+                52.47353321027288
               ],
               [
-                4.641697903822616,
-                52.47385381519587
+                4.641433758855709,
+                52.47357614689673
               ],
               [
-                4.64190233278,
-                52.474025806034135
+                4.6416149720763915,
+                52.47381648513245
               ],
               [
-                4.641980969943427,
-                52.47410782391732
+                4.641833892337698,
+                52.47404481935294
               ],
               [
-                4.642235490372843,
-                52.474321954622866
+                4.642088411691945,
+                52.47425895037517
               ],
               [
-                4.6425231589659735,
-                52.47451981967229
+                4.642376079216445,
+                52.474456815782155
               ],
               [
-                4.642841205409414,
-                52.47469951328897
+                4.642694124608084,
+                52.474636509793875
+              ],
+              [
+                4.643039484859304,
+                52.474796301629446
+              ],
+              [
+                4.643096789767762,
+                52.47481776701014
               ],
               [
                 4.64318656668546,
@@ -9464,20 +9496,24 @@
                 52.47372049004484
               ],
               [
-                4.640173930992545,
-                52.47404094399296
+                4.6400439601736085,
+                52.47386855931845
               ],
               [
-                4.6404658167084305,
-                52.47434539304594
+                4.640068303512865,
+                52.47391149621739
               ],
               [
-                4.640670243125205,
-                52.47451738598549
+                4.640309913486008,
+                52.4742319498789
               ],
               [
-                4.640711012523137,
-                52.47455990934611
+                4.640601801394509,
+                52.47453639858856
+              ],
+              [
+                4.640619152508778,
+                52.47455099678927
               ],
               [
                 4.640180119220701,
