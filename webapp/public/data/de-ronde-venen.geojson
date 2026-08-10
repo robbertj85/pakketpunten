@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "De Ronde Venen",
     "slug": "de-ronde-venen",
-    "generated_at": "2026-08-03T05:47:07.460083Z",
+    "generated_at": "2026-08-10T03:59:37.742260Z",
     "total_points": 39,
     "providers": [
       "Amazon",
@@ -1067,7 +1067,15 @@
         "longitude": 4.99350181582869,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "15:30 - 21:00",
+          "di": "09:00 - 21:00",
+          "wo": "10:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "vr": "15:30 - 21:00",
+          "za": "09:00 - 19:00",
+          "zo": "gesloten"
+        }
       }
     },
     {

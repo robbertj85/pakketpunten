@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Bunschoten",
     "slug": "bunschoten",
-    "generated_at": "2026-08-03T05:46:04.749028Z",
+    "generated_at": "2026-08-10T03:58:38.276591Z",
     "total_points": 26,
     "providers": [
       "Amazon",
@@ -139,102 +139,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.3770846,
-          52.2520609
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Blokker Spakenburg",
-        "straatNaam": "Spuistraat",
-        "straatNr": "19",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.2520609,
-        "longitude": 5.3770846,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "10:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 18:00",
-          "za": "09:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.377521514892578,
-          52.25147247314453
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Bunschoten",
-        "straatNaam": "Kerkstraat",
-        "straatNr": "23-Kast",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.25147247314453,
-        "longitude": 5.377521514892578,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:30 - 18:00",
-          "di": "09:30 - 18:00",
-          "wo": "09:30 - 18:00",
-          "do": "09:30 - 18:00",
-          "vr": "09:30 - 18:00",
-          "za": "09:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3783401,
-          52.2518354
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Intertoys Bunschoten Spakenburg",
-        "straatNaam": "De Ziel",
-        "straatNr": "10-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.2518354,
-        "longitude": 5.3783401,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 18:00",
-          "za": "09:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.3848366,
           52.2492236
         ]
@@ -290,6 +194,102 @@
           "do": "08:00 - 21:00",
           "vr": "08:00 - 21:00",
           "za": "08:00 - 21:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3783401,
+          52.2518354
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Intertoys Bunschoten Spakenburg",
+        "straatNaam": "De Ziel",
+        "straatNr": "10-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.2518354,
+        "longitude": 5.3783401,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 18:00",
+          "di": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "za": "09:00 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.377521514892578,
+          52.25147247314453
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Bunschoten",
+        "straatNaam": "Kerkstraat",
+        "straatNr": "23-Kast",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.25147247314453,
+        "longitude": 5.377521514892578,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:30 - 18:00",
+          "di": "09:30 - 18:00",
+          "wo": "09:30 - 18:00",
+          "do": "09:30 - 18:00",
+          "vr": "09:30 - 18:00",
+          "za": "09:00 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3770846,
+          52.2520609
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Blokker Spakenburg",
+        "straatNaam": "Spuistraat",
+        "straatNr": "19",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.2520609,
+        "longitude": 5.3770846,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "10:00 - 18:00",
+          "di": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "za": "09:00 - 17:00",
           "zo": "gesloten"
         }
       }
@@ -491,7 +491,7 @@
         "longitude": 5.38297441973404,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "08:30 - 19:00 (Na 18:00 open; Zaterdag open)"
+        "openingstijden": "08:30 - 18:00 (Na 18:00 open; Zaterdag open)"
       }
     },
     {

@@ -3,12 +3,14 @@
   "metadata": {
     "gemeente": "Landsmeer",
     "slug": "landsmeer",
-    "generated_at": "2026-08-03T05:56:04.836170Z",
-    "total_points": 5,
+    "generated_at": "2026-08-10T04:07:58.595378Z",
+    "total_points": 7,
     "providers": [
       "DHL",
+      "DPD",
       "PostNL",
-      "VintedGo"
+      "VintedGo",
+      "InPost"
     ],
     "bounds": [
       4.910526792,
@@ -46,6 +48,38 @@
           "do": "11:00 - 18:00",
           "vr": "11:00 - 18:00",
           "za": "11:00 - 16:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.91419,
+          52.42849
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Bekhuis Muziek",
+        "straatNaam": "NIEUWE GOUW",
+        "straatNr": "26",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 52.42849,
+        "longitude": 4.91419,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "gesloten",
+          "di": "12:00 - 18:00",
+          "wo": "12:00 - 18:00",
+          "do": "10:30 - 18:00",
+          "vr": "10:30 - 18:00",
+          "za": "10:30 - 16:30",
           "zo": "gesloten"
         }
       }
@@ -141,6 +175,30 @@
         "bezettingsgraad": 50,
         "latitude": 52.428597,
         "longitude": 4.914827,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.91423,
+          52.42859
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "BEKHUIS MUZIEK",
+        "straatNaam": "Nieuwe Gouw 26",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 52.42859,
+        "longitude": 4.91423,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": null
@@ -553,16 +611,24 @@
               52.42593003842287
             ],
             [
-              4.91515767203081,
-              52.425864076924285
+              4.915536827738737,
+              52.425923742692845
             ],
             [
-              4.914729951734115,
-              52.42582354752554
+              4.915497839621718,
+              52.42591503929175
             ],
             [
-              4.914562630093167,
-              52.4258178534916
+              4.9150786764373935,
+              52.42584907751377
+            ],
+            [
+              4.914650956358793,
+              52.42580854782994
+            ],
+            [
+              4.914572063951419,
+              52.425805863060276
             ],
             [
               4.914739778905852,

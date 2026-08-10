@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Oldebroek",
     "slug": "oldebroek",
-    "generated_at": "2026-08-03T06:01:03.939131Z",
+    "generated_at": "2026-08-10T04:12:31.494249Z",
     "total_points": 28,
     "providers": [
       "Amazon",
@@ -756,7 +756,15 @@
         "longitude": 5.90542305,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "17:00 - 20:00",
+          "di": "17:00 - 20:00",
+          "wo": "gesloten",
+          "do": "gesloten",
+          "vr": "gesloten",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

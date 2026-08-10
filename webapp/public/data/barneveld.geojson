@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Barneveld",
     "slug": "barneveld",
-    "generated_at": "2026-08-03T05:43:30.316142Z",
+    "generated_at": "2026-08-10T03:56:12.564877Z",
     "total_points": 75,
     "providers": [
       "Amazon",
@@ -1940,7 +1940,15 @@
         "longitude": 5.57834289,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "13:00 - 21:00",
+          "di": "13:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "do": "13:00 - 21:00",
+          "vr": "13:00 - 21:00",
+          "za": "09:00 - 12:00",
+          "zo": "gesloten"
+        }
       }
     },
     {

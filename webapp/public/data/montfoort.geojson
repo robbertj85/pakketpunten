@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Montfoort",
     "slug": "montfoort",
-    "generated_at": "2026-08-03T05:59:09.276416Z",
+    "generated_at": "2026-08-10T04:10:45.615468Z",
     "total_points": 13,
     "providers": [
       "Amazon",
@@ -315,7 +315,15 @@
         "longitude": 4.95240410380369,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "15:00 - 21:00",
+          "di": "15:00 - 21:00",
+          "wo": "15:00 - 21:00",
+          "do": "15:00 - 21:00",
+          "vr": "15:00 - 21:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {
