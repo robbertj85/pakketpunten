@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Barendrecht",
     "slug": "barendrecht",
-    "generated_at": "2026-08-10T03:56:06.633525Z",
+    "generated_at": "2026-08-17T03:05:05.375160Z",
     "total_points": 37,
     "providers": [
       "Amazon",
@@ -940,7 +940,15 @@
         "longitude": 4.5243127203747,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "16:00 - 21:00",
+          "di": "16:00 - 21:00",
+          "wo": "16:00 - 21:00",
+          "do": "16:00 - 21:00",
+          "vr": "16:00 - 21:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

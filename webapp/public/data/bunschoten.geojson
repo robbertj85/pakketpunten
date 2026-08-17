@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Bunschoten",
     "slug": "bunschoten",
-    "generated_at": "2026-08-10T03:58:38.276591Z",
+    "generated_at": "2026-08-17T03:07:27.961657Z",
     "total_points": 26,
     "providers": [
       "Amazon",
@@ -98,38 +98,6 @@
           "do": "08:00 - 21:00",
           "vr": "08:00 - 21:00",
           "za": "08:00 - 20:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3747848,
-          52.2452645
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Stichting De Genadebron",
-        "straatNaam": "Molenstraat",
-        "straatNr": "23",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.2452645,
-        "longitude": 5.3747848,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 17:00",
-          "di": "09:00 - 17:00",
-          "wo": "09:00 - 17:00",
-          "do": "09:00 - 17:00",
-          "vr": "09:00 - 17:00",
-          "za": "09:30 - 16:00",
           "zo": "gesloten"
         }
       }
@@ -299,6 +267,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.3747848,
+          52.2452645
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Stichting De Genadebron",
+        "straatNaam": "Molenstraat",
+        "straatNr": "23",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.2452645,
+        "longitude": 5.3747848,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 17:00",
+          "di": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "za": "09:30 - 16:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.3753619194,
           52.2454605103
         ]
@@ -401,7 +401,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - EG Rijk",
+        "locatieNaam": "Pakketautomaat EG Rijksweg A1",
         "straatNaam": "RIJKSWEG A1",
         "straatNr": "3",
         "vervoerder": "DPD",

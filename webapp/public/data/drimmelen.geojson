@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Drimmelen",
     "slug": "drimmelen",
-    "generated_at": "2026-08-10T04:00:59.434201Z",
-    "total_points": 27,
+    "generated_at": "2026-08-17T03:09:38.083773Z",
+    "total_points": 28,
     "providers": [
       "Amazon",
       "DHL",
@@ -396,6 +396,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.7061843,
+          51.7047979
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "P. Verhoef",
+        "straatNaam": "PLANTSOEN",
+        "straatNr": "32",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 51.7047979,
+        "longitude": 4.7061843,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "08:00 - 18:00",
+          "di": "08:00 - 18:00",
+          "wo": "08:00 - 18:00",
+          "do": "10:00 - 18:00",
+          "vr": "10:00 - 18:00",
+          "za": "08:00 - 17:00",
+          "zo": "10:00 - 16:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.783613,
           51.674458
         ]
@@ -723,7 +755,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "CREATIEF MET JES",
-        "straatNaam": "POLDERSTRAAT 2",
+        "straatNaam": "Polderstraat 2",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -732,7 +764,7 @@
         "longitude": 4.75463,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "Ma/Me/J/V/S 9-17"
+        "openingstijden": null
       }
     },
     {
@@ -1135,14 +1167,6 @@
           [
             [
               [
-                4.699325699373858,
-                51.65597908614388
-              ],
-              [
-                4.698900981602823,
-                51.655963604771316
-              ],
-              [
                 4.698475869247291,
                 51.65597408965528
               ],
@@ -1433,6 +1457,14 @@
               [
                 4.699325699373858,
                 51.65597908614388
+              ],
+              [
+                4.698900981602823,
+                51.655963604771316
+              ],
+              [
+                4.698475869247291,
+                51.65597408965528
               ]
             ]
           ],
@@ -3567,14 +3599,6 @@
           [
             [
               [
-                4.6994809197475895,
-                51.655085446373725
-              ],
-              [
-                4.6989146405517985,
-                51.65506480497065
-              ],
-              [
                 4.698347835291433,
                 51.655078784560494
               ],
@@ -3865,6 +3889,14 @@
               [
                 4.6994809197475895,
                 51.655085446373725
+              ],
+              [
+                4.6989146405517985,
+                51.65506480497065
+              ],
+              [
+                4.698347835291433,
+                51.655078784560494
               ]
             ]
           ],

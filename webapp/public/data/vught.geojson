@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Vught",
     "slug": "vught",
-    "generated_at": "2026-08-10T04:20:42.743849Z",
-    "total_points": 33,
+    "generated_at": "2026-08-17T03:28:10.069623Z",
+    "total_points": 34,
     "providers": [
       "Amazon",
       "DHL",
@@ -836,6 +836,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.28343,
+          51.64624
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "KOOPJESPLEIN VUGHT",
+        "straatNaam": "Moleneindplein 19",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.64624,
+        "longitude": 5.28343,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.28667,
           51.64527
         ]
@@ -1583,11 +1607,15 @@
                 51.6485358208947
               ],
               [
+                5.280992678324436,
+                51.6485358208947
+              ],
+              [
                 5.281100155669041,
                 51.64857602822361
               ],
               [
-                5.281244971200302,
+                5.281244971200301,
                 51.64861879741543
               ],
               [
