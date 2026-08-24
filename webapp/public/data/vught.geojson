@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Vught",
     "slug": "vught",
-    "generated_at": "2026-08-17T03:28:10.069623Z",
-    "total_points": 34,
+    "generated_at": "2026-08-24T03:31:44.478527Z",
+    "total_points": 35,
     "providers": [
       "Amazon",
       "DHL",
@@ -180,6 +180,38 @@
           "vr": "09:00 - 20:00",
           "za": "09:00 - 17:00",
           "zo": "12:00 - 17:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2833836,
+          51.6461821
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Koopjesplein Vught",
+        "straatNaam": "Moleneindplein",
+        "straatNr": "19",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.6461821,
+        "longitude": 5.2833836,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "gesloten",
+          "di": "10:00 - 17:00",
+          "wo": "10:00 - 17:00",
+          "do": "10:00 - 17:00",
+          "vr": "10:00 - 17:00",
+          "za": "10:00 - 17:00",
+          "zo": "gesloten"
         }
       }
     },

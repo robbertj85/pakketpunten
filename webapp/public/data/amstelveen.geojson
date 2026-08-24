@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Amstelveen",
     "slug": "amstelveen",
-    "generated_at": "2026-08-17T03:04:23.823624Z",
-    "total_points": 60,
+    "generated_at": "2026-08-24T03:07:49.287477Z",
+    "total_points": 56,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -661,38 +661,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.8513969,
-          52.2813624
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "UR359 Pakketautomaat Budbee",
-        "straatNaam": "BRINK",
-        "straatNr": "20",
-        "vervoerder": "DPD",
-        "puntType": "dpd_box",
-        "bezettingsgraad": 50,
-        "latitude": 52.2813624,
-        "longitude": 4.8513969,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": {
-          "ma": "08:00 - 21:00",
-          "di": "08:00 - 21:00",
-          "wo": "08:00 - 21:00",
-          "do": "08:00 - 21:00",
-          "vr": "08:00 - 21:00",
-          "za": "08:00 - 21:00",
-          "zo": "09:00 - 21:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.86604,
           52.31799
         ]
@@ -749,102 +717,6 @@
           "vr": "08:00 - 22:00",
           "za": "08:00 - 22:00",
           "zo": "10:00 - 22:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.859735,
-          52.303535
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "UR490 Pakketautomaat Budbee",
-        "straatNaam": "REMBRANDTHOF",
-        "straatNr": "49",
-        "vervoerder": "DPD",
-        "puntType": "dpd_box",
-        "bezettingsgraad": 50,
-        "latitude": 52.303535,
-        "longitude": 4.859735,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": {
-          "ma": "08:00 - 22:00",
-          "di": "08:00 - 22:00",
-          "wo": "08:00 - 22:00",
-          "do": "08:00 - 22:00",
-          "vr": "08:00 - 22:00",
-          "za": "08:00 - 22:00",
-          "zo": "09:00 - 22:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.826127,
-          52.28181
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "UR550 Pakketautomaat Budbee",
-        "straatNaam": "WESTWIJKPLEIN",
-        "straatNr": "7",
-        "vervoerder": "DPD",
-        "puntType": "dpd_box",
-        "bezettingsgraad": 50,
-        "latitude": 52.28181,
-        "longitude": 4.826127,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": {
-          "ma": "08:00 - 22:00",
-          "di": "08:00 - 22:00",
-          "wo": "08:00 - 22:00",
-          "do": "08:00 - 22:00",
-          "vr": "08:00 - 22:00",
-          "za": "08:00 - 22:00",
-          "zo": "08:00 - 22:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.839562,
-          52.288918
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "UR672 Pakketautomaat Budbee",
-        "straatNaam": "MAALDERIJ",
-        "straatNr": "31",
-        "vervoerder": "DPD",
-        "puntType": "dpd_box",
-        "bezettingsgraad": 50,
-        "latitude": 52.288918,
-        "longitude": 4.839562,
-        "canPickup": true,
-        "canDropoff": false,
-        "openingstijden": {
-          "ma": "08:00 - 22:00",
-          "di": "08:00 - 22:00",
-          "wo": "08:00 - 22:00",
-          "do": "08:00 - 22:00",
-          "vr": "08:00 - 22:00",
-          "za": "08:00 - 22:00",
-          "zo": "08:00 - 22:00"
         }
       }
     },
@@ -1141,7 +1013,7 @@
         "longitude": 4.846670504,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "13:00 - 17:30 (Zaterdag open)"
+        "openingstijden": "13:00 - 17:00 (Zaterdag open)"
       }
     },
     {
@@ -2208,7 +2080,7 @@
                 52.28438405392871
               ],
               [
-                4.824978676614319,
+                4.824978676614316,
                 52.284409509671875
               ],
               [
@@ -3884,6 +3756,10 @@
           [
             [
               [
+                4.849971083845505,
+                52.30854504258129
+              ],
+              [
                 4.84968356190044,
                 52.308347674918906
               ],
@@ -4210,10 +4086,6 @@
               [
                 4.849971083845505,
                 52.30854504258129
-              ],
-              [
-                4.84968356190044,
-                52.308347674918906
               ]
             ]
           ],
@@ -4772,6 +4644,10 @@
           [
             [
               [
+                4.867752813598335,
+                52.31550643742843
+              ],
+              [
                 4.867347353567799,
                 52.31541551288754
               ],
@@ -5294,10 +5170,6 @@
               [
                 4.867752813598335,
                 52.31550643742843
-              ],
-              [
-                4.867347353567799,
-                52.31541551288754
               ]
             ]
           ]
@@ -5812,8 +5684,8 @@
                 52.28524206699479
               ],
               [
-                4.824542398232985,
-                52.28526752333
+                4.82454239823298,
+                52.28526752332996
               ],
               [
                 4.8247874877362795,
@@ -5828,7 +5700,7 @@
                 52.285465465225286
               ],
               [
-                4.826256455928028,
+                4.826256455928031,
                 52.285477454126216
               ],
               [
@@ -7396,6 +7268,10 @@
           [
             [
               [
+                4.850728022820796,
+                52.30771687983619
+              ],
+              [
                 4.850304429091162,
                 52.307478024862185
               ],
@@ -7702,10 +7578,6 @@
               [
                 4.850728022820796,
                 52.30771687983619
-              ],
-              [
-                4.850304429091162,
-                52.307478024862185
               ]
             ]
           ],

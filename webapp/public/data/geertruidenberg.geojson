@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Geertruidenberg",
     "slug": "geertruidenberg",
-    "generated_at": "2026-08-17T03:11:10.988080Z",
+    "generated_at": "2026-08-24T03:14:34.816836Z",
     "total_points": 21,
     "providers": [
       "Amazon",
@@ -170,6 +170,38 @@
           "do": "11:00 - 17:00",
           "vr": "11:00 - 17:30",
           "za": "gesloten",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.874177,
+          51.697115
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Schoenhersteller van Iersel",
+        "straatNaam": "Keizersdijk",
+        "straatNr": "18",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.697115,
+        "longitude": 4.874177,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 18:00",
+          "di": "09:30 - 18:00",
+          "wo": "09:30 - 18:00",
+          "do": "09:30 - 18:00",
+          "vr": "09:30 - 18:00",
+          "za": "09:00 - 16:00",
           "zo": "gesloten"
         }
       }
@@ -356,30 +388,6 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "09:00 - 18:00 (Na 18:00 open; Zaterdag open)"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.87406397685488,
-          51.6971119591661
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Schoenhersteller van Iersel PpP",
-        "straatNaam": "Keizersdijk",
-        "straatNr": "18",
-        "vervoerder": "PostNL",
-        "puntType": "servicepunt",
-        "bezettingsgraad": 50,
-        "latitude": 51.6971119591661,
-        "longitude": 4.87406397685488,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": "13:00 - 18:00"
       }
     },
     {
@@ -1070,12 +1078,12 @@
                 51.699577851630856
               ],
               [
-                4.876617326035039,
-                51.6993394335024
+                4.876613517243439,
+                51.69934434811028
               ],
               [
-                4.876622899357838,
-                51.69932996433673
+                4.876637755512552,
+                51.69933334063671
               ],
               [
                 4.8767853051127155,

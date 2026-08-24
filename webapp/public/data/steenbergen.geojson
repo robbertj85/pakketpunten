@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Steenbergen",
     "slug": "steenbergen",
-    "generated_at": "2026-08-17T03:24:54.667569Z",
-    "total_points": 35,
+    "generated_at": "2026-08-24T03:28:29.616902Z",
+    "total_points": 37,
     "providers": [
       "Amazon",
       "DHL",
@@ -402,6 +402,38 @@
           "do": "16:00 - 21:00",
           "vr": "16:00 - 21:00",
           "za": "gesloten",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.320891,
+          51.58494
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Wevo Steenbergen",
+        "straatNaam": "WOUWSESTRAAT",
+        "straatNr": "77",
+        "vervoerder": "DPD",
+        "puntType": "pickup_point",
+        "bezettingsgraad": 50,
+        "latitude": 51.58494,
+        "longitude": 4.320891,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 17:30",
+          "di": "09:00 - 17:30",
+          "wo": "09:00 - 17:30",
+          "do": "09:00 - 17:30",
+          "vr": "09:00 - 17:30",
+          "za": "09:00 - 17:00",
           "zo": "gesloten"
         }
       }
@@ -953,6 +985,30 @@
         "bezettingsgraad": 50,
         "latitude": 51.58798,
         "longitude": 4.31987,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.32089,
+          51.58494
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "WEVO STEENBERGEN",
+        "straatNaam": "Wouwsestraat 77",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.58494,
+        "longitude": 4.32089,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": null
@@ -2530,10 +2586,6 @@
           [
             [
               [
-                4.3673733438809395,
-                51.6270679307828
-              ],
-              [
                 4.367062345436361,
                 51.626887494116104
               ],
@@ -2840,6 +2892,10 @@
               [
                 4.3673733438809395,
                 51.6270679307828
+              ],
+              [
+                4.367062345436361,
+                51.626887494116104
               ]
             ]
           ],
@@ -4426,10 +4482,6 @@
           [
             [
               [
-                4.368408701030033,
-                51.626441321266704
-              ],
-              [
                 4.367994037176318,
                 51.626200742518364
               ],
@@ -4728,6 +4780,10 @@
               [
                 4.368408701030033,
                 51.626441321266704
+              ],
+              [
+                4.367994037176318,
+                51.626200742518364
               ]
             ]
           ],

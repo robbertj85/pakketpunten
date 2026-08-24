@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Vlaardingen",
     "slug": "vlaardingen",
-    "generated_at": "2026-08-17T03:27:34.947459Z",
-    "total_points": 58,
+    "generated_at": "2026-08-24T03:31:09.179894Z",
+    "total_points": 59,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -340,6 +340,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.3288242,
+          51.9059581
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "You & My Personality",
+        "straatNaam": "Energieweg",
+        "straatNr": "20",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.9059581,
+        "longitude": 4.3288242,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "10:00 - 17:30",
+          "di": "10:00 - 17:30",
+          "wo": "10:00 - 17:30",
+          "do": "10:00 - 17:30",
+          "vr": "10:00 - 17:30",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.3118513,
           51.9153474
         ]
@@ -652,38 +684,6 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.3288242,
-          51.9059581
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "You & My Personality",
-        "straatNaam": "Energieweg",
-        "straatNr": "20",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.9059581,
-        "longitude": 4.3288242,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "10:00 - 17:30",
-          "di": "10:00 - 17:30",
-          "wo": "10:00 - 17:30",
-          "do": "10:00 - 17:30",
-          "vr": "10:00 - 17:30",
-          "za": "gesloten",
-          "zo": "gesloten"
         }
       }
     },
@@ -1554,6 +1554,30 @@
         "bezettingsgraad": 50,
         "latitude": 51.90578,
         "longitude": 4.32998,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.33977,
+          51.91078
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "HYBK REPARATIE",
+        "straatNaam": "Schoutplein 31",
+        "straatNr": "",
+        "vervoerder": "InPost",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.91078,
+        "longitude": 4.33977,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": null
@@ -5727,7 +5751,7 @@
                 51.914309430164074
               ],
               [
-                4.338478036872537,
+                4.338478036872536,
                 51.91430383972603
               ],
               [

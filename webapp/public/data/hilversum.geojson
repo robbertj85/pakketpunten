@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Hilversum",
     "slug": "hilversum",
-    "generated_at": "2026-08-17T03:14:19.016329Z",
-    "total_points": 75,
+    "generated_at": "2026-08-24T03:17:44.472715Z",
+    "total_points": 74,
     "providers": [
       "Amazon",
       "DeBuren",
@@ -268,6 +268,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.152247,
+          52.210736
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Tamoil Hilversum",
+        "straatNaam": "Zoutmanlaan",
+        "straatNr": "5",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.210736,
+        "longitude": 5.152247,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "07:00 - 18:00",
+          "di": "08:00 - 18:00",
+          "wo": "08:00 - 18:00",
+          "do": "08:00 - 18:00",
+          "vr": "08:00 - 18:00",
+          "za": "08:00 - 18:00",
+          "zo": "09:00 - 18:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.2020668423289385,
           52.22381240371454
         ]
@@ -388,70 +420,6 @@
           "vr": "09:30 - 17:00",
           "za": "09:30 - 17:00",
           "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.152247,
-          52.210736
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Tamoil Hilversum",
-        "straatNaam": "Zoutmanlaan",
-        "straatNr": "5",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.210736,
-        "longitude": 5.152247,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "07:00 - 18:00",
-          "di": "08:00 - 18:00",
-          "wo": "08:00 - 18:00",
-          "do": "08:00 - 18:00",
-          "vr": "08:00 - 18:00",
-          "za": "08:00 - 18:00",
-          "zo": "09:00 - 18:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.1754172,
-          52.2242075
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "RF Tweewielers Hilversum",
-        "straatNaam": "Zeedijk",
-        "straatNr": "33-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.2242075,
-        "longitude": 5.1754172,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "08:00 - 19:00",
-          "di": "08:00 - 19:00",
-          "wo": "08:00 - 19:00",
-          "do": "08:00 - 22:00",
-          "vr": "08:00 - 19:00",
-          "za": "08:00 - 18:00",
-          "zo": "11:00 - 18:00"
         }
       }
     },
@@ -844,6 +812,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.1754172,
+          52.2242075
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "RF Tweewielers Hilversum",
+        "straatNaam": "Zeedijk",
+        "straatNr": "33-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.2242075,
+        "longitude": 5.1754172,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "08:00 - 19:00",
+          "di": "08:00 - 19:00",
+          "wo": "08:00 - 19:00",
+          "do": "08:00 - 22:00",
+          "vr": "08:00 - 19:00",
+          "za": "08:00 - 18:00",
+          "zo": "11:00 - 18:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.188813779290014,
           52.23295900674695
         ]
@@ -1188,38 +1188,6 @@
           "vr": "00:01 - 23:59",
           "za": "00:01 - 23:59",
           "zo": "00:01 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.16837,
-          52.21593
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Mini India Grocery",
-        "straatNaam": "GIJSBRECHT VAN AMSTELSTRAAT",
-        "straatNr": "170",
-        "vervoerder": "DPD",
-        "puntType": "pickup_point",
-        "bezettingsgraad": 50,
-        "latitude": 52.21593,
-        "longitude": 5.16837,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "10:00 - 19:00",
-          "di": "10:00 - 19:00",
-          "wo": "10:00 - 19:00",
-          "do": "10:00 - 19:00",
-          "vr": "10:00 - 19:00",
-          "za": "10:00 - 19:00",
-          "zo": "12:00 - 18:00"
         }
       }
     },
@@ -2831,20 +2799,52 @@
                 52.21785116546637
               ],
               [
-                5.1652444393598165,
-                52.21782258283614
+                5.165535270856868,
+                52.217738763243
               ],
               [
-                5.165256504990682,
-                52.217830809864076
+                5.165905459680637,
+                52.21760342141968
               ],
               [
-                5.165574827414508,
-                52.21800910718926
+                5.166252265474759,
+                52.21744644361286
               ],
               [
-                5.165641497082665,
-                52.21803967131831
+                5.166572348087097,
+                52.217269341822785
+              ],
+              [
+                5.16671294016066,
+                52.21717464438275
+              ],
+              [
+                5.166870920392969,
+                52.21733765720159
+              ],
+              [
+                5.167126498932474,
+                52.21755066860924
+              ],
+              [
+                5.167336128546587,
+                52.21769359871919
+              ],
+              [
+                5.166996587331038,
+                52.21772388837931
+              ],
+              [
+                5.166578375230725,
+                52.21778740277216
+              ],
+              [
+                5.166172311177545,
+                52.21787578765666
+              ],
+              [
+                5.165782305207186,
+                52.217988191981625
               ],
               [
                 5.165412112810438,
@@ -6111,6 +6111,10 @@
           [
             [
               [
+                5.178378390496526,
+                52.231302007158455
+              ],
+              [
                 5.178009402786813,
                 52.231165319353146
               ],
@@ -6565,10 +6569,6 @@
               [
                 5.178378390496526,
                 52.231302007158455
-              ],
-              [
-                5.178009402786813,
-                52.231165319353146
               ]
             ]
           ]
@@ -8487,8 +8487,8 @@
                 52.22361459252503
               ],
               [
-                5.18194949687518,
-                52.22356813761838
+                5.181949496875179,
+                52.22356813761836
               ],
               [
                 5.181856328235006,
