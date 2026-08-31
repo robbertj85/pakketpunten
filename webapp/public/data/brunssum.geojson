@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Brunssum",
     "slug": "brunssum",
-    "generated_at": "2026-08-24T03:10:41.193694Z",
+    "generated_at": "2026-08-31T08:08:13.380100Z",
     "total_points": 34,
     "providers": [
       "Amazon",
@@ -308,6 +308,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.969713,
+          50.9381069
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Lidl Brunssum",
+        "straatNaam": "Rumpenerstraat",
+        "straatNr": "116",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 50.9381069,
+        "longitude": 5.969713,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 23:59",
+          "di": "00:00 - 23:59",
+          "wo": "00:00 - 23:59",
+          "do": "00:00 - 23:59",
+          "vr": "00:00 - 23:59",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.980041,
           50.9580518
         ]
@@ -354,38 +386,6 @@
         "bezettingsgraad": 50,
         "latitude": 50.93995456867077,
         "longitude": 5.973014508095368,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 23:59",
-          "di": "00:00 - 23:59",
-          "wo": "00:00 - 23:59",
-          "do": "00:00 - 23:59",
-          "vr": "00:00 - 23:59",
-          "za": "00:00 - 23:59",
-          "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.969713,
-          50.9381069
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Lidl Brunssum",
-        "straatNaam": "Rumpenerstraat",
-        "straatNr": "116",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 50.9381069,
-        "longitude": 5.969713,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
@@ -485,11 +485,11 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "13:00 - 18:00",
-          "di": "09:30 - 18:00",
-          "wo": "09:30 - 18:00",
-          "do": "09:30 - 18:00",
-          "vr": "09:30 - 18:00",
+          "ma": "13:00 - 17:00",
+          "di": "09:30 - 17:00",
+          "wo": "09:30 - 17:00",
+          "do": "09:30 - 17:00",
+          "vr": "09:30 - 17:00",
           "za": "09:30 - 17:00",
           "zo": "gesloten"
         }
@@ -538,7 +538,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - Lukoil",
+        "locatieNaam": "Pakketautomaat Lukoil Prins Hendrik",
         "straatNaam": "PRINS HENDRIKLAAN",
         "straatNr": "243",
         "vervoerder": "DPD",

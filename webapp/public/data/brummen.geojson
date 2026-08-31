@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Brummen",
     "slug": "brummen",
-    "generated_at": "2026-08-24T03:10:36.630178Z",
+    "generated_at": "2026-08-31T08:08:08.420366Z",
     "total_points": 30,
     "providers": [
       "Amazon",
@@ -395,7 +395,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - TinQ Zu",
+        "locatieNaam": "Pakketautomaat TinQ Zutphensestraat",
         "straatNaam": "ZUTPHENSESTRAAT",
         "straatNr": "144",
         "vervoerder": "DPD",
@@ -797,7 +797,15 @@
         "longitude": 6.15635515031196,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "gesloten",
+          "di": "gesloten",
+          "wo": "16:00 - 20:00",
+          "do": "16:00 - 20:00",
+          "vr": "16:00 - 20:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {

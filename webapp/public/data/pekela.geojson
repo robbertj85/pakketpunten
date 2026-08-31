@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Pekela",
     "slug": "pekela",
-    "generated_at": "2026-08-24T03:25:29.164413Z",
+    "generated_at": "2026-08-31T08:24:41.700966Z",
     "total_points": 16,
     "providers": [
       "Amazon",
@@ -185,7 +185,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - Siefkes",
+        "locatieNaam": "Pakketautomaat Siefkes Vastgoed Alb",
         "straatNaam": "ALBERT REIJNDERSSTRAAT",
         "straatNr": "100 A",
         "vervoerder": "DPD",
@@ -217,7 +217,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat - De Buren - Flexwon",
+        "locatieNaam": "Pakketautomaat Flexwoningen Hooiweg",
         "straatNaam": "HOOIWEG",
         "straatNr": "1",
         "vervoerder": "DPD",
@@ -411,7 +411,15 @@
         "longitude": 7.0100607,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": null
+        "openingstijden": {
+          "ma": "16:00 - 20:00",
+          "di": "16:00 - 20:00",
+          "wo": "16:00 - 20:00",
+          "do": "16:00 - 20:00",
+          "vr": "16:00 - 20:00",
+          "za": "gesloten",
+          "zo": "gesloten"
+        }
       }
     },
     {
