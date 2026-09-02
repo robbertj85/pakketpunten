@@ -354,6 +354,28 @@ License: MIT`}
 
               <div className="space-y-3">
                 <div className="border border-border rounded-lg p-4 hover:border-primary/50 transition">
+                  <h4 className="font-semibold text-foreground mb-2">Convenant Duurzame Pakketlogistiek via Pakketpunten en Pakketkluizen</h4>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Convenant tussen de vier grote steden (Amsterdam, Rotterdam, Den Haag, Utrecht) en
+                    pakketvervoerders en aanbieders van pakketpunten en pakketkluizen. Doel: uiterlijk in 2028
+                    heeft elke stadsbewoner een pakketpunt of pakketkluis op loop- of fietsafstand, zodat
+                    pakketstromen gebundeld worden en het aantal bestelbussen in de wijken afneemt.
+                  </p>
+                  <a
+                    href="https://denhaag.notubiz.nl/document/16607866/1/RIS324645+Bijlage?connection_type=16&connection_id=1131215"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm text-primary hover:text-primary font-medium"
+                  >
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Convenant (RIS324645)
+                  </a>
+                  <p className="text-xs text-subtle-foreground mt-2">Ondertekend 13 februari 2026 | Gemeente Den Haag (Raadsinformatiesysteem)</p>
+                </div>
+
+                <div className="border border-border rounded-lg p-4 hover:border-primary/50 transition">
                   <h4 className="font-semibold text-foreground mb-2">Inzichten en Effecten Pakketkluizen</h4>
                   <p className="text-sm text-muted-foreground mb-3">
                     Onderzoek door Topsector Logistiek naar de inzet van pakketkluizen en alternatieve
