@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Beek",
     "slug": "beek",
-    "generated_at": "2026-09-07T06:58:50.403872Z",
+    "generated_at": "2026-09-14T07:33:10.725296Z",
     "total_points": 27,
     "providers": [
       "Amazon",
@@ -99,38 +99,6 @@
           "vr": "08:00 - 19:00",
           "za": "gesloten",
           "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.841485077767638,
-          50.937645684845855
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Buurt Spaubeek",
-        "straatNaam": "Bongerd",
-        "straatNr": "8",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 50.937645684845855,
-        "longitude": 5.841485077767638,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 23:59",
-          "di": "00:00 - 23:59",
-          "wo": "00:00 - 23:59",
-          "do": "00:00 - 23:59",
-          "vr": "00:00 - 23:59",
-          "za": "00:00 - 23:59",
-          "zo": "00:00 - 23:59"
         }
       }
     },
@@ -291,6 +259,38 @@
           "vr": "09:00 - 18:00",
           "za": "09:00 - 17:00",
           "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.841485077767638,
+          50.937645684845855
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Buurt Spaubeek",
+        "straatNaam": "Bongerd",
+        "straatNr": "8",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 50.937645684845855,
+        "longitude": 5.841485077767638,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 23:59",
+          "di": "00:00 - 23:59",
+          "wo": "00:00 - 23:59",
+          "do": "00:00 - 23:59",
+          "vr": "00:00 - 23:59",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
         }
       }
     },

@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Renkum",
     "slug": "renkum",
-    "generated_at": "2026-09-07T07:16:43.314671Z",
-    "total_points": 38,
+    "generated_at": "2026-09-14T07:51:16.105210Z",
+    "total_points": 39,
     "providers": [
       "Amazon",
       "DHL",
@@ -12,6 +12,7 @@
       "PostNL",
       "VintedGo",
       "GLS",
+      "ViaTim",
       "InPost"
     ],
     "bounds": [
@@ -281,7 +282,7 @@
       },
       "properties": {
         "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Utrechtseweg",
+        "locatieNaam": "DeBuren Locker 24-7",
         "straatNaam": "Utrechtseweg",
         "straatNr": "57",
         "vervoerder": "DHL",
@@ -979,6 +980,38 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.73036496,
+          51.97254619
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "ViaTim en Rijnboutt Installatietechniek",
+        "straatNaam": "Achterdorpsstraat",
+        "straatNr": "16",
+        "vervoerder": "ViaTim",
+        "puntType": "servicepunt",
+        "bezettingsgraad": 50,
+        "latitude": 51.97254619,
+        "longitude": 5.73036496,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 21:00",
+          "di": "09:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "vr": "09:00 - 21:00",
+          "za": "09:00 - 21:00",
+          "zo": "09:00 - 21:00"
         }
       }
     },
@@ -1826,6 +1859,10 @@
           [
             [
               [
+                5.796008332477578,
+                52.00420258804326
+              ],
+              [
                 5.795785844021691,
                 52.00397638951226
               ],
@@ -2080,10 +2117,6 @@
               [
                 5.796008332477578,
                 52.00420258804326
-              ],
-              [
-                5.795785844021691,
-                52.00397638951226
               ]
             ]
           ],
@@ -3866,7 +3899,7 @@
                 51.98339730258799
               ],
               [
-                5.7597898846799955,
+                5.759789884679996,
                 51.98322158438339
               ],
               [
@@ -3933,6 +3966,10 @@
           ],
           [
             [
+              [
+                5.797288799954246,
+                52.00377442821964
+              ],
               [
                 5.796992143414397,
                 52.00347283329763
@@ -4188,10 +4225,6 @@
               [
                 5.797288799954246,
                 52.00377442821964
-              ],
-              [
-                5.796992143414397,
-                52.00347283329763
               ]
             ]
           ],
