@@ -27,6 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import geopandas as gpd  # noqa: E402
+from shapely import make_valid  # noqa: E402
 from shapely.geometry import shape  # noqa: E402
 from shapely.ops import unary_union  # noqa: E402
 
@@ -111,6 +112,32 @@ def point_category(punt_type: str) -> str:
     return "locker" if punt_type in LOCKER_TYPES else "shop"
 
 
+def repaired(geom):
+    """An OSM boundary GEOS can actually intersect.
+
+    Nine of the 342 outlines self-intersect once projected to RD. GEOS then
+    refuses the intersection outright -- Arnhem's, at 194050.93 440187.60,
+    raised "TopologyException: side location conflict" and took the whole
+    weekly statistics step down with it. utils.get_gemeente_polygon repairs
+    its polygons the same way when it fetches them; this repairs the copies
+    that were already written into the municipality GeoJSON.
+    """
+    if geom.is_valid:
+        return geom
+
+    fixed = make_valid(geom)
+
+    # make_valid can return a collection with stray lines where the ring
+    # crossed itself. Only the polygonal parts carry area, and area is all
+    # this geometry is used for.
+    if fixed.geom_type == "GeometryCollection":
+        polygons = [g for g in fixed.geoms if g.geom_type in ("Polygon", "MultiPolygon")]
+        if polygons:
+            fixed = unary_union(polygons)
+
+    return fixed
+
+
 def coverage_ratio(points_rd, boundary_geom, radius: int) -> float:
     """Fraction of the municipality within `radius` metres of any point.
 
@@ -139,7 +166,7 @@ def municipality_stats(slug: str, meta: dict, payload: dict) -> dict | None:
         return None
 
     boundary_geom_wgs = unary_union([shape(f["geometry"]) for f in boundaries])
-    boundary_rd = (
+    boundary_rd = repaired(
         gpd.GeoSeries([boundary_geom_wgs], crs="EPSG:4326").to_crs(28992).iloc[0]
     )
 
