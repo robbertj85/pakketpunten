@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Nijkerk",
     "slug": "nijkerk",
-    "generated_at": "2026-09-14T07:48:02.574941Z",
+    "generated_at": "2026-09-21T07:54:15.031245Z",
     "total_points": 57,
     "providers": [
       "Amazon",
@@ -314,7 +314,7 @@
           "wo": "09:00 - 13:30, 14:30 - 17:30",
           "do": "09:00 - 13:30, 14:30 - 17:30",
           "vr": "09:00 - 13:30, 14:30 - 17:30",
-          "za": "gesloten",
+          "za": "10:00 - 15:00, 10:00 - 15:00",
           "zo": "gesloten"
         }
       }
@@ -348,6 +348,38 @@
           "vr": "12:30 - 22:00",
           "za": "12:30 - 22:00",
           "zo": "12:30 - 22:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.485001564025879,
+          52.22222900390625
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Nijkerk",
+        "straatNaam": "Brede Beek",
+        "straatNr": "10-Kast",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.22222900390625,
+        "longitude": 5.485001564025879,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 17:30",
+          "di": "09:30 - 17:30",
+          "wo": "09:30 - 17:30",
+          "do": "09:30 - 17:30",
+          "vr": "09:30 - 17:30",
+          "za": "09:30 - 17:00",
+          "zo": "gesloten"
         }
       }
     },
@@ -507,38 +539,6 @@
           "do": "09:00 - 17:30",
           "vr": "09:00 - 17:30",
           "za": "09:00 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.485001564025879,
-          52.22222900390625
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat terStal Nijkerk",
-        "straatNaam": "Brede Beek",
-        "straatNr": "10-Kast",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.22222900390625,
-        "longitude": 5.485001564025879,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 17:30",
-          "di": "09:30 - 17:30",
-          "wo": "09:30 - 17:30",
-          "do": "09:30 - 17:30",
-          "vr": "09:30 - 17:30",
-          "za": "09:30 - 17:00",
           "zo": "gesloten"
         }
       }
