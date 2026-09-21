@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Alphen aan den Rijn",
     "slug": "alphen-aan-den-rijn",
-    "generated_at": "2026-09-21T07:36:09.128921Z",
+    "generated_at": "2026-09-21T12:20:09.282940Z",
     "total_points": 103,
     "providers": [
       "Amazon",
@@ -709,6 +709,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.6615981,
+          52.1291552
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Intertoys Alphen aan den Rijn",
+        "straatNaam": "Rijnplein",
+        "straatNr": "9-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.1291552,
+        "longitude": 4.6615981,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 18:00",
+          "di": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "vr": "09:00 - 21:00",
+          "za": "09:00 - 17:30",
+          "zo": "12:00 - 17:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.649678413703765,
           52.13502852825359
         ]
@@ -989,38 +1021,6 @@
           "vr": "09:00 - 20:00",
           "za": "09:00 - 20:00",
           "zo": "10:00 - 18:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.6615981,
-          52.1291552
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Intertoys Alphen aan den Rijn",
-        "straatNaam": "Rijnplein",
-        "straatNr": "9-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.1291552,
-        "longitude": 4.6615981,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 21:00",
-          "za": "09:00 - 17:30",
-          "zo": "12:00 - 17:00"
         }
       }
     },

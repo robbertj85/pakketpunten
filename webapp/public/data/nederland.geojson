@@ -3,8 +3,8 @@
   "metadata": {
     "gemeente": "Nederland",
     "slug": "nederland",
-    "generated_at": "2026-09-21T08:08:40.100631Z",
-    "total_points": 20075,
+    "generated_at": "2026-09-21T12:50:03.372218Z",
+    "total_points": 20083,
     "providers": [
       "Amazon",
       "Budbee",
@@ -26,15 +26,15 @@
     "municipalities_included": 342,
     "provider_stats": {
       "Amazon": 2180,
-      "DHL": 4698,
+      "DHL": 4695,
       "DPD": 2345,
       "PostNL": 4876,
-      "VintedGo": 2394,
+      "VintedGo": 2408,
       "GLS": 971,
       "ViaTim": 656,
-      "InPost": 1279,
+      "InPost": 1277,
       "Budbee": 428,
-      "DeBuren": 248
+      "DeBuren": 247
     }
   },
   "features": [
@@ -21019,6 +21019,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.35890023029383,
+          52.0927574727115
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Het Kleine Loo",
+        "straatNr": "270PBA",
+        "vervoerder": "PostNL",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.0927574727115,
+        "longitude": 4.35890023029383,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": "08:00 - 20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.285151105,
           52.11148859
         ]
@@ -21060,30 +21084,6 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "00:00 - 23:59"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.35890023029383,
-          52.0927574727115
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat",
-        "straatNaam": "Het Kleine Loo",
-        "straatNr": "270PBA",
-        "vervoerder": "PostNL",
-        "puntType": "automaat",
-        "bezettingsgraad": 50,
-        "latitude": 52.0927574727115,
-        "longitude": 4.35890023029383,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": "08:00 - 20:00"
       }
     },
     {
@@ -36812,38 +36812,6 @@
         "canPickup": true,
         "canDropoff": false,
         "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.672512,
-          51.986939
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Rene de Bruin Tweewielers",
-        "straatNaam": "Oost Buurtstraat",
-        "straatNr": "8",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.986939,
-        "longitude": 4.672512,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "gesloten",
-          "di": "10:30 - 17:45",
-          "wo": "10:30 - 17:45",
-          "do": "10:30 - 17:45",
-          "vr": "10:30 - 17:45",
-          "za": "09:30 - 15:45",
-          "zo": "gesloten"
-        }
       }
     },
     {
@@ -55755,30 +55723,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.97255,
-          50.91417
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "KLEDING PARKSTAD FASHION",
-        "straatNaam": "Monseigneur Feronstraat 51",
-        "straatNr": "",
-        "vervoerder": "InPost",
-        "puntType": "servicepunt",
-        "bezettingsgraad": 50,
-        "latitude": 50.91417,
-        "longitude": 5.97255,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.00749,
           50.87941
         ]
@@ -58188,6 +58132,126 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "00:00 - 23:59"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.75655,
+          52.30157
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Marskramer Top1Toys Borne",
+        "straatNaam": "Grotestraat 162a",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.30157,
+        "longitude": 6.75655,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7203709,
+          52.3249585
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Sv Zenderen Vooruit",
+        "straatNaam": "Hoofdstraat 46A",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 52.3249585,
+        "longitude": 6.7203709,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7592525,
+          52.2990249
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Meulenbroekdierenartsen",
+        "straatNaam": "Grotestraat 122",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 52.2990249,
+        "longitude": 6.7592525,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7327849,
+          52.3092565
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Foundation Kringloopbedrijf Borne",
+        "straatNaam": "Ambachtstraat 26",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 52.3092565,
+        "longitude": 6.7327849,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7566578,
+          52.3003118
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Sama Markt",
+        "straatNaam": "Marktplein 19A",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.3003118,
+        "longitude": 6.7566578,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
       }
     },
     {
@@ -68280,7 +68344,7 @@
           "di": "11:00 - 19:00",
           "wo": "11:00 - 19:00",
           "do": "11:00 - 19:00",
-          "vr": "gesloten",
+          "vr": "11:00 - 14:00, 15:00 - 19:00",
           "za": "11:00 - 19:00",
           "zo": "gesloten"
         }
@@ -110147,38 +110211,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.666481,
-          52.36914
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Total Almelo",
-        "straatNaam": "Vriezenveenseweg",
-        "straatNr": "86",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.36914,
-        "longitude": 6.666481,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "07:00 - 21:00",
-          "di": "07:00 - 21:00",
-          "wo": "07:00 - 21:00",
-          "do": "07:00 - 21:00",
-          "vr": "07:00 - 21:00",
-          "za": "08:00 - 21:00",
-          "zo": "09:00 - 21:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.683866589694113,
           52.371854563295166
         ]
@@ -115633,6 +115665,102 @@
         "bezettingsgraad": 50,
         "latitude": 51.4960235215838,
         "longitude": 3.75204746128458,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.73764,
+          51.42356
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "D. Krijger-Witte",
+        "straatNaam": "Oostsingel 23",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "social",
+        "bezettingsgraad": 50,
+        "latitude": 51.42356,
+        "longitude": 3.73764,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.88226,
+          51.41328
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "E. V. Hamersveld-Hart",
+        "straatNaam": "Nieuweweg 37",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "social",
+        "bezettingsgraad": 50,
+        "latitude": 51.41328,
+        "longitude": 3.88226,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.87407,
+          51.43259
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Fruitsalon ",
+        "straatNaam": "Bonifaciusstraat 3",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 51.43259,
+        "longitude": 3.87407,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8825651,
+          51.451108
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Hubo S-gravenpolder",
+        "straatNaam": "Spoorstraat 51, 'S- Gravenpolder",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "locker",
+        "bezettingsgraad": 50,
+        "latitude": 51.451108,
+        "longitude": 3.8825651,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": null
@@ -189187,6 +189315,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.4523525,
+          51.5790764
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Basic-Fit St Oedenr",
+        "straatNaam": "Bremhorst",
+        "straatNr": "4",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.5790764,
+        "longitude": 5.4523525,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 23:59",
+          "di": "00:00 - 23:59",
+          "wo": "00:00 - 23:59",
+          "do": "00:00 - 23:59",
+          "vr": "00:00 - 23:59",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.4222951,
           51.6263691
         ]
@@ -189467,38 +189627,6 @@
           "vr": "09:00 - 20:00",
           "za": "09:00 - 17:00",
           "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.4523525,
-          51.5790764
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Basic-Fit St Oedenr",
-        "straatNaam": "Bremhorst",
-        "straatNr": "4",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.5790764,
-        "longitude": 5.4523525,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 23:59",
-          "di": "00:00 - 23:59",
-          "wo": "00:00 - 23:59",
-          "do": "00:00 - 23:59",
-          "vr": "00:00 - 23:59",
-          "za": "00:00 - 23:59",
-          "zo": "00:00 - 23:59"
         }
       }
     },
@@ -192739,6 +192867,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.844394683837891,
+          51.95174026489258
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat Lidl Schoonhoven",
+        "straatNaam": "Albert Plesmanstraat",
+        "straatNr": "21",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.95174026489258,
+        "longitude": 4.844394683837891,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "07:30 - 21:00",
+          "di": "07:30 - 21:00",
+          "wo": "07:30 - 21:00",
+          "do": "07:30 - 21:00",
+          "vr": "07:30 - 21:00",
+          "za": "07:30 - 21:00",
+          "zo": "12:00 - 18:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.863977,
           51.949333
         ]
@@ -192827,38 +192987,6 @@
           "vr": "09:00 - 18:00",
           "za": "09:00 - 18:00",
           "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.844394683837891,
-          51.95174026489258
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Lidl Schoonhoven",
-        "straatNaam": "Albert Plesmanstraat",
-        "straatNr": "21",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.95174026489258,
-        "longitude": 4.844394683837891,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "07:30 - 21:00",
-          "di": "07:30 - 21:00",
-          "wo": "07:30 - 21:00",
-          "do": "07:30 - 21:00",
-          "vr": "07:30 - 21:00",
-          "za": "07:30 - 21:00",
-          "zo": "12:00 - 18:00"
         }
       }
     },
@@ -291719,8 +291847,8 @@
           "ma": "10:00 - 13:30",
           "di": "gesloten",
           "wo": "gesloten",
-          "do": "10:00 - 13:30",
-          "vr": "gesloten",
+          "do": "gesloten",
+          "vr": "10:00 - 13:30",
           "za": "gesloten",
           "zo": "gesloten"
         }
@@ -295657,30 +295785,6 @@
         "bezettingsgraad": 50,
         "latitude": 52.2839732,
         "longitude": 6.778921,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.778898,
-          52.2839749
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Wieringewaard | Molenweg | Tankstation van Zijl",
-        "straatNaam": "Demmersweg",
-        "straatNr": "104",
-        "vervoerder": "DeBuren",
-        "puntType": "Buitenkluis",
-        "bezettingsgraad": 50,
-        "latitude": 52.2839749,
-        "longitude": 6.778898,
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": null
@@ -313708,7 +313812,7 @@
         "type": "Point",
         "coordinates": [
           6.58948,
-          52.35873
+          52.35872
         ]
       },
       "properties": {
@@ -313719,7 +313823,7 @@
         "vervoerder": "InPost",
         "puntType": "servicepunt",
         "bezettingsgraad": 50,
-        "latitude": 52.35873,
+        "latitude": 52.35872,
         "longitude": 6.58948,
         "canPickup": true,
         "canDropoff": true,
@@ -319004,12 +319108,12 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": {
-          "ma": "09:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 18:00",
-          "za": "10:00 - 18:00",
+          "ma": "09:00 - 20:00",
+          "di": "09:00 - 20:00",
+          "wo": "09:00 - 20:00",
+          "do": "09:00 - 20:00",
+          "vr": "09:00 - 20:00",
+          "za": "09:00 - 20:00",
           "zo": "gesloten"
         }
       }
@@ -338779,38 +338883,6 @@
           "vr": "09:00 - 18:00",
           "za": "09:00 - 17:00",
           "zo": "12:00 - 17:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.6239332,
-          52.3852405
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat Polski Sklep Haarle",
-        "straatNaam": "Zijlweg",
-        "straatNr": "100",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 52.3852405,
-        "longitude": 4.6239332,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 20:00",
-          "di": "09:00 - 20:00",
-          "wo": "09:00 - 20:00",
-          "do": "09:00 - 20:00",
-          "vr": "09:00 - 20:00",
-          "za": "09:00 - 20:00",
-          "zo": "10:00 - 18:00"
         }
       }
     },
@@ -361427,6 +361499,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.6904303,
+          50.8491953
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Oila Conceptstore",
+        "straatNaam": "Sporenstraat 9A",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 50.8491953,
+        "longitude": 5.6904303,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.68803713,
           50.849579
         ]
@@ -367131,6 +367227,102 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.1563551,
+          52.0885222
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "A. S. Potuijt",
+        "straatNaam": "Zutphensestraat 9",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "social",
+        "bezettingsgraad": 50,
+        "latitude": 52.0885222,
+        "longitude": 6.1563551,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0662121,
+          52.1051276
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Boek- en Kantoorboekhandel Hendriks",
+        "straatNaam": "Stuijvenburchstraat 36",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.1051276,
+        "longitude": 6.0662121,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.15433,
+          52.08492
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Sol Luna",
+        "straatNaam": "Arnhemsestraat 38",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.08492,
+        "longitude": 6.15433,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0584892,
+          52.1040301
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Kruijer Meubelstoffering",
+        "straatNaam": "Stuijvenburchstraat 6",
+        "straatNr": "",
+        "vervoerder": "VintedGo",
+        "puntType": "parcel_shop",
+        "bezettingsgraad": 50,
+        "latitude": 52.1040301,
+        "longitude": 6.0584892,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.1563429,
           52.0879655
         ]
@@ -368644,30 +368836,6 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "MON|06:00-20:00|-;TUE|06:00-20:00|-;WED|06:00-20:00|-;THU|06:00-20:00|-;FRI|06:00-20:00|-;SAT|06:00-20:00|-;SUN|06:00-20:00|-;"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.57342,
-          51.94921
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "SIYASUPERMARKT",
-        "straatNaam": "⛉ Maria Danneels Erf 25",
-        "straatNr": "",
-        "vervoerder": "InPost",
-        "puntType": "servicepunt",
-        "bezettingsgraad": 50,
-        "latitude": 51.94921,
-        "longitude": 4.57342,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": null
       }
     },
     {
@@ -379498,38 +379666,6 @@
           "do": "10:00 - 18:00",
           "vr": "10:00 - 18:00",
           "za": "10:00 - 16:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3750067,
-          51.5095245
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "GM-Tuningparts",
-        "straatNaam": "Oirschotseweg",
-        "straatNr": "92-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 51.5095245,
-        "longitude": 5.3750067,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 12:30, 13:00 - 18:00",
-          "di": "09:00 - 12:30, 13:00 - 18:00",
-          "wo": "gesloten",
-          "do": "09:00 - 12:30, 13:00 - 18:00",
-          "vr": "09:00 - 12:30, 13:00 - 18:00",
-          "za": "09:00 - 12:00",
           "zo": "gesloten"
         }
       }
@@ -407595,6 +407731,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.5618231,
+          51.8756538
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "MSK Stores",
+        "straatNaam": "Florijnstraat",
+        "straatNr": "59",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 51.8756538,
+        "longitude": 4.5618231,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "12:00 - 17:30",
+          "di": "09:30 - 17:30",
+          "wo": "09:30 - 17:30",
+          "do": "09:30 - 17:30",
+          "vr": "09:30 - 13:30, 15:00 - 17:30",
+          "za": "10:00 - 17:30",
+          "zo": "12:00 - 16:30"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.586426539667219,
           51.87421527338235
         ]
@@ -407723,38 +407891,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.618492068058139,
-          51.86519589036945
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat PLUS Ridderkerk",
-        "straatNaam": "Vlietplein",
-        "straatNr": "193",
-        "vervoerder": "DHL",
-        "puntType": "packStation",
-        "bezettingsgraad": 50,
-        "latitude": 51.86519589036945,
-        "longitude": 4.618492068058139,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "00:00 - 23:59",
-          "di": "00:00 - 23:59",
-          "wo": "00:00 - 23:59",
-          "do": "00:00 - 23:59",
-          "vr": "00:00 - 23:59",
-          "za": "00:00 - 23:59",
-          "zo": "00:00 - 23:59"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.6061868443196134,
           51.87512683666378
         ]
@@ -407811,6 +407947,38 @@
           "vr": "09:00 - 18:00",
           "za": "gesloten",
           "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.618492068058139,
+          51.86519589036945
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat PLUS Ridderkerk",
+        "straatNaam": "Vlietplein",
+        "straatNr": "193",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 51.86519589036945,
+        "longitude": 4.618492068058139,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "00:00 - 23:59",
+          "di": "00:00 - 23:59",
+          "wo": "00:00 - 23:59",
+          "do": "00:00 - 23:59",
+          "vr": "00:00 - 23:59",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
         }
       }
     },
@@ -414498,7 +414666,7 @@
       "properties": {
         "type": "pakketpunt",
         "locatieNaam": "CA LOGISTICS BV",
-        "straatNaam": "PANOVENWEG 32",
+        "straatNaam": "Panovenweg 32",
         "straatNr": "",
         "vervoerder": "InPost",
         "puntType": "servicepunt",
@@ -414507,7 +414675,7 @@
         "longitude": 5.62991,
         "canPickup": true,
         "canDropoff": true,
-        "openingstijden": "L/Ma/Me/J/V 11-18,S 10-13"
+        "openingstijden": null
       }
     },
     {
@@ -428699,38 +428867,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.5392789,
-          53.1872331
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Shoeby Franeker",
-        "straatNaam": "Sjaardemastraat",
-        "straatNr": "8",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 53.1872331,
-        "longitude": 5.5392789,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 18:00",
-          "di": "09:30 - 18:00",
-          "wo": "09:30 - 18:00",
-          "do": "09:30 - 18:00",
-          "vr": "09:30 - 21:00",
-          "za": "09:30 - 17:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.5465063,
           53.1850639
         ]
@@ -438961,7 +439097,7 @@
           "wo": "10:00 - 19:00",
           "do": "10:00 - 19:00",
           "vr": "10:00 - 19:00",
-          "za": "11:00 - 17:00",
+          "za": "11:00 - 18:00",
           "zo": "gesloten"
         }
       }
@@ -450771,6 +450907,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.6615981,
+          52.1291552
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Intertoys Alphen aan den Rijn",
+        "straatNaam": "Rijnplein",
+        "straatNr": "9-A",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.1291552,
+        "longitude": 4.6615981,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "13:00 - 18:00",
+          "di": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "vr": "09:00 - 21:00",
+          "za": "09:00 - 17:30",
+          "zo": "12:00 - 17:00"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.649678413703765,
           52.13502852825359
         ]
@@ -451051,38 +451219,6 @@
           "vr": "09:00 - 20:00",
           "za": "09:00 - 20:00",
           "zo": "10:00 - 18:00"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.6615981,
-          52.1291552
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Intertoys Alphen aan den Rijn",
-        "straatNaam": "Rijnplein",
-        "straatNr": "9-A",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.1291552,
-        "longitude": 4.6615981,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "13:00 - 18:00",
-          "di": "09:00 - 18:00",
-          "wo": "09:00 - 18:00",
-          "do": "09:00 - 18:00",
-          "vr": "09:00 - 21:00",
-          "za": "09:00 - 17:30",
-          "zo": "12:00 - 17:00"
         }
       }
     },
@@ -458923,6 +459059,38 @@
           "vr": "00:00 - 23:59",
           "za": "00:00 - 23:59",
           "zo": "00:00 - 23:59"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.1917291,
+          52.2325692
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat terStal Hilversum",
+        "straatNaam": "Seinstraat",
+        "straatNr": "90-Kast",
+        "vervoerder": "DHL",
+        "puntType": "packStation",
+        "bezettingsgraad": 50,
+        "latitude": 52.2325692,
+        "longitude": 5.1917291,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 18:00",
+          "di": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "za": "09:00 - 17:00",
+          "zo": "gesloten"
         }
       }
     },
@@ -468779,38 +468947,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.3747848,
-          52.2452645
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Stichting De Genadebron",
-        "straatNaam": "Molenstraat",
-        "straatNr": "23",
-        "vervoerder": "DHL",
-        "puntType": "parcelShop",
-        "bezettingsgraad": 50,
-        "latitude": 52.2452645,
-        "longitude": 5.3747848,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": {
-          "ma": "09:00 - 17:00",
-          "di": "09:00 - 17:00",
-          "wo": "09:00 - 17:00",
-          "do": "09:00 - 17:00",
-          "vr": "09:00 - 17:00",
-          "za": "09:30 - 16:00",
-          "zo": "gesloten"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.3848366,
           52.2492236
         ]
@@ -468962,6 +469098,38 @@
           "do": "09:00 - 18:00",
           "vr": "09:00 - 18:00",
           "za": "09:00 - 17:00",
+          "zo": "gesloten"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3747848,
+          52.2452645
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Stichting De Genadebron",
+        "straatNaam": "Molenstraat",
+        "straatNr": "23",
+        "vervoerder": "DHL",
+        "puntType": "parcelShop",
+        "bezettingsgraad": 50,
+        "latitude": 52.2452645,
+        "longitude": 5.3747848,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": {
+          "ma": "09:00 - 17:00",
+          "di": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "za": "09:30 - 16:00",
           "zo": "gesloten"
         }
       }

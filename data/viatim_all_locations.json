@@ -4,7 +4,7 @@
     "source": "https://production.viapunt-api.viatim.nl/public/servicepoints",
     "country": "Netherlands",
     "total_locations": 656,
-    "fetched_at": "2026-09-21T07:34:29.121255+00:00"
+    "fetched_at": "2026-09-21T12:17:35.319598+00:00"
   },
   "locations": [
     {
@@ -511,6 +511,7 @@
       "email": "viaverbinder@viatim.nl",
       "phone": "+31 (0)10 26 13 505",
       "transporters": [
+        "UPS",
         "DPD",
         "STATIEGELDNL"
       ],
@@ -1343,6 +1344,7 @@
       "email": "viaverbinder@viatim.nl",
       "phone": "+31 (0)10 26 13 505",
       "transporters": [
+        "UPS",
         "STATIEGELDNL"
       ],
       "hours": [
@@ -3804,6 +3806,7 @@
       "email": "viaverbinder@viatim.nl",
       "phone": "+31 (0)10 26 13 505",
       "transporters": [
+        "UPS",
         "STATIEGELDNL"
       ],
       "hours": [
@@ -4621,11 +4624,11 @@
           ],
           "tuesday": [],
           "wednesday": [],
-          "thursday": [
+          "thursday": [],
+          "friday": [
             "10:00",
             "13:30"
           ],
-          "friday": [],
           "saturday": [],
           "sunday": []
         },
@@ -4637,11 +4640,11 @@
           ],
           "tuesday": [],
           "wednesday": [],
-          "thursday": [
+          "thursday": [],
+          "friday": [
             "10:00",
             "13:30"
           ],
-          "friday": [],
           "saturday": [],
           "sunday": []
         }
@@ -11545,7 +11548,8 @@
       "email": "viaverbinder@viatim.nl",
       "phone": "+31 (0)10 26 13 505",
       "transporters": [
-        "STATIEGELDNL"
+        "STATIEGELDNL",
+        "UPS"
       ],
       "hours": [
         {
@@ -13009,6 +13013,7 @@
       "phone": "+31 (0)10 26 13 505",
       "transporters": [
         "STATIEGELDNL",
+        "UPS",
         "DPD"
       ],
       "hours": [
@@ -23068,7 +23073,10 @@
       "phone": "+31 (0)10 26 13 505",
       "transporters": [
         "DHL",
-        "DPD"
+        "DPD",
+        "VINTED_GO",
+        "UPS",
+        "MONDIAL_RELAY"
       ],
       "hours": [
         {

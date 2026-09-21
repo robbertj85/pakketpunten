@@ -3,7 +3,7 @@
   "metadata": {
     "gemeente": "Den Haag",
     "slug": "den-haag",
-    "generated_at": "2026-09-21T07:41:40.569486Z",
+    "generated_at": "2026-09-21T12:25:10.386015Z",
     "total_points": 584,
     "providers": [
       "Amazon",
@@ -9694,6 +9694,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.35890023029383,
+          52.0927574727115
+        ]
+      },
+      "properties": {
+        "type": "pakketpunt",
+        "locatieNaam": "Pakketautomaat",
+        "straatNaam": "Het Kleine Loo",
+        "straatNr": "270PBA",
+        "vervoerder": "PostNL",
+        "puntType": "automaat",
+        "bezettingsgraad": 50,
+        "latitude": 52.0927574727115,
+        "longitude": 4.35890023029383,
+        "canPickup": true,
+        "canDropoff": true,
+        "openingstijden": "08:00 - 20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.285151105,
           52.11148859
         ]
@@ -9735,30 +9759,6 @@
         "canPickup": true,
         "canDropoff": true,
         "openingstijden": "00:00 - 23:59"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.35890023029383,
-          52.0927574727115
-        ]
-      },
-      "properties": {
-        "type": "pakketpunt",
-        "locatieNaam": "Pakketautomaat",
-        "straatNaam": "Het Kleine Loo",
-        "straatNr": "270PBA",
-        "vervoerder": "PostNL",
-        "puntType": "automaat",
-        "bezettingsgraad": 50,
-        "latitude": 52.0927574727115,
-        "longitude": 4.35890023029383,
-        "canPickup": true,
-        "canDropoff": true,
-        "openingstijden": "08:00 - 20:00"
       }
     },
     {
