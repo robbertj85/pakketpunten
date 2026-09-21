@@ -108,6 +108,14 @@ def fetch_all_amazon_locations() -> List[Dict]:
         start_time = time.time()
         failed_searches = []
 
+        # Locations returned per municipality search. If amazon.nl/ulp caps a
+        # response, that shows up here as a pile-up of searches all returning
+        # the same number -- which is the difference between "Amazon has fewer
+        # locations" and "we stopped being able to see them all". The count
+        # fell from a steady ~1,700 to ~1,150 in the week of 2026-08-03 with
+        # no change on our side, and this is what tells the two apart.
+        per_search_counts = []
+
         for idx, municipality in enumerate(municipalities):
             # Progress update every 10 municipalities
             if idx % 10 == 0:
@@ -177,10 +185,12 @@ def fetch_all_amazon_locations() -> List[Dict]:
                 continue
 
             # Process captured responses
+            search_returned = 0
             for resp_body in captured_responses:
                 try:
                     data = json.loads(resp_body)
                     locations = data.get('locationList') or []
+                    search_returned += len(locations)
 
                     for loc in locations:
                         loc_id = loc.get('id')
@@ -215,6 +225,8 @@ def fetch_all_amazon_locations() -> List[Dict]:
                 except json.JSONDecodeError:
                     continue
 
+            per_search_counts.append((municipality, search_returned))
+
             # Small delay between searches
             time.sleep(0.3)
 
@@ -227,7 +239,44 @@ def fetch_all_amazon_locations() -> List[Dict]:
     if failed_searches:
         print(f"Failed searches ({len(failed_searches)}): {', '.join(failed_searches[:10])}...")
 
+    report_per_search(per_search_counts)
+
     return locations_list
+
+
+def report_per_search(per_search_counts: List[tuple]):
+    """
+    Print the distribution of per-search response sizes.
+
+    A hard cap in the API reads as a spike at one value: dozens of searches
+    all returning exactly the same number, with none above it. Organic data
+    gives a smooth spread with the dense municipalities well clear of the rest.
+    """
+    if not per_search_counts:
+        return
+
+    sizes = [n for _, n in per_search_counts]
+    counter: Dict[int, int] = {}
+    for n in sizes:
+        counter[n] = counter.get(n, 0) + 1
+
+    print()
+    print("=" * 80)
+    print("PER-SEARCH RESPONSE SIZES")
+    print("=" * 80)
+    print(f"   searches:  {len(sizes)}")
+    print(f"   empty:     {sum(1 for n in sizes if n == 0)}")
+    print(f"   max:       {max(sizes)}")
+    print(f"   mean:      {sum(sizes) / len(sizes):.1f}")
+    print()
+    print("   most common response sizes:")
+    for size, hits in sorted(counter.items(), key=lambda kv: (-kv[1], -kv[0]))[:8]:
+        flag = "  <-- possible cap" if size == max(sizes) and hits > 5 else ""
+        print(f"      {size:>4} locations x {hits:>3} searches{flag}")
+    print()
+    print("   largest searches:")
+    for name, n in sorted(per_search_counts, key=lambda kv: -kv[1])[:8]:
+        print(f"      {name:<28} {n:>4}")
 
 
 def analyze_locations(locations: List[Dict]):
