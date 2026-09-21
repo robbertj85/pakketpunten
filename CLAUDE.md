@@ -197,6 +197,37 @@ The system automatically uses cached data when available:
 2. **Regular updates**: Run `batch_generate.py` - automatically uses cached data
 3. **Regenerate caches**: Re-run grid fetch scripts when you want updated data
 
+### Cache Guard (`scripts/cache_guard.py`)
+
+Every nationwide fetch saves through `safe_save()`, which refuses to overwrite a
+cache when the count drops more than 20%, and exits 2 so the workflow can flag it.
+
+The guard is **self-healing**, because a permanent block freezes the cache whenever
+a carrier genuinely shrinks (Amazon sat eight weeks behind a stale 2180 baseline):
+
+- Each run's count is appended to `data/fetch_history.json`, committed to the repo.
+- A large drop that **repeats** on the next run, within 5%, is accepted as the new
+  baseline. One-off blips stay blocked; sustained change gets through after two runs.
+- A fetch of 0 locations is never saved, and never confirmable.
+- `CACHE_GUARD_FORCE=1` accepts the new count immediately. Both fetch workflows
+  expose this as a `force_save` input on `workflow_dispatch`.
+
+Because a blocked run's history entry is what the next run confirms against, the
+workflows commit `data/fetch_history.json` **whatever the fetch outcome**. Do not
+re-add an `if: steps.fetch.outcome == 'success'` gate to those commit steps.
+
+### Freshness Gate (`scripts/check_cache_freshness.py`)
+
+A guarded run still reports green, which is how Amazon went eight weeks unnoticed.
+This script reads `metadata.fetched_at` from every `data/*_all_locations.json` and
+exits 1 if any carrier is older than `--max-age-days` (21 in CI). It runs **last**
+in `update-data.yml`, after the push, so a stale carrier never blocks publishing
+fresh data for the others.
+
+The same threshold is mirrored as `STALE_AFTER_DAYS` in
+`webapp/components/StatisticsClient.tsx`, which renders the per-carrier dates from
+the `bronnen` field of `statistics.json` on the /data-export/statistieken page.
+
 ## API Integration Notes
 
 ### Rate Limiting

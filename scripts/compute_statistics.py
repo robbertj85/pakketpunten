@@ -34,6 +34,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 WEBAPP_DATA_DIR = PROJECT_ROOT / "webapp" / "public" / "data"
 MUNICIPALITIES_FILE = PROJECT_ROOT / "webapp" / "public" / "municipalities.json"
 OUTPUT_PATH = WEBAPP_DATA_DIR / "statistics.json"
+DATA_DIR = PROJECT_ROOT / "data"
 
 BUFFER_RADII = (300, 400, 500)
 
@@ -62,6 +63,48 @@ LOCKER_TYPES = {
 }
 
 CATEGORIES = ("locker", "shop")
+
+# Carrier -> nationwide cache file. The carriers missing here (PostNL, VintedGo,
+# DeBuren) are fetched live per municipality, so there is no cache to date-stamp
+# and they report null.
+CARRIER_CACHES = {
+    "DHL": "dhl_all_locations.json",
+    "DPD": "dpd_all_locations.json",
+    "Amazon": "amazon_all_locations.json",
+    "GLS": "gls_all_locations.json",
+    "InPost": "inpost_all_locations.json",
+    "Budbee": "budbee_all_locations.json",
+    "ViaTim": "viatim_all_locations.json",
+}
+
+
+def carrier_sources() -> dict:
+    """
+    Per-carrier cache age, so a carrier that stopped updating is visible on the
+    page instead of only in a workflow log. scripts/check_cache_freshness.py is
+    the hard gate; this is the human-readable half of the same signal.
+    """
+    sources = {}
+
+    for carrier in CARRIERS:
+        filename = CARRIER_CACHES.get(carrier)
+        if filename is None:
+            sources[carrier] = None
+            continue
+
+        try:
+            with open(DATA_DIR / filename, "r", encoding="utf-8") as handle:
+                cache = json.load(handle)
+        except (json.JSONDecodeError, OSError):
+            sources[carrier] = None
+            continue
+
+        sources[carrier] = {
+            "fetched_at": (cache.get("metadata") or {}).get("fetched_at"),
+            "locations": len(cache.get("locations") or []),
+        }
+
+    return sources
 
 
 def point_category(punt_type: str) -> str:
@@ -216,6 +259,7 @@ def main() -> int:
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "national": national,
+        "bronnen": carrier_sources(),
         "municipalities": records,
     }
 

@@ -28,6 +28,13 @@ const CATEGORY_LABELS: Record<string, string> = {
   shop: 'Pakketpunt',
 };
 
+/**
+ * Matches --max-age-days in scripts/check_cache_freshness.py. That script is the
+ * hard gate in CI; this is the same threshold made visible to readers, so a
+ * carrier that quietly stopped updating is obvious on the page too.
+ */
+const STALE_AFTER_DAYS = 21;
+
 export interface MunicipalityStats {
   slug: string;
   gemeente: string;
@@ -43,6 +50,11 @@ export interface MunicipalityStats {
   dekking: Record<string, number>;
 }
 
+export interface CarrierSource {
+  fetched_at: string | null;
+  locations: number;
+}
+
 export interface StatisticsPayload {
   generated_at: string;
   national: {
@@ -53,11 +65,67 @@ export interface StatisticsPayload {
     categorieen: Record<string, number>;
     dekking: Record<string, number>;
   };
+  /** Per-carrier cache age. Null for carriers fetched live, so undated by design. */
+  bronnen?: Record<string, CarrierSource | null>;
   municipalities: MunicipalityStats[];
 }
 
 function formatNumber(value: number): string {
   return value.toLocaleString('nl-NL');
+}
+
+function ageInDays(iso: string): number | null {
+  const fetched = new Date(iso).getTime();
+  if (Number.isNaN(fetched)) return null;
+  return (Date.now() - fetched) / 86_400_000;
+}
+
+function SourceList({ bronnen }: { bronnen: Record<string, CarrierSource | null> }) {
+  return (
+    <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+      {CARRIER_ORDER.map((carrier) => {
+        const source = bronnen[carrier];
+        const age = source?.fetched_at ? ageInDays(source.fetched_at) : null;
+        const staleDays = age !== null && age > STALE_AFTER_DAYS ? Math.round(age) : null;
+
+        return (
+          <li
+            key={carrier}
+            className="flex items-baseline justify-between gap-3 border-b border-border py-1.5 last:border-b-0"
+          >
+            <span className="flex items-baseline gap-2">
+              <span
+                aria-hidden
+                className="size-2 shrink-0 translate-y-[-1px] rounded-full"
+                style={{ background: CARRIER_SERIES_COLORS[carrier] }}
+              />
+              <span className="text-sm font-medium text-foreground">
+                {CARRIER_LABELS[carrier]}
+              </span>
+            </span>
+
+            {source?.fetched_at ? (
+              <span
+                className={`text-xs tabular-nums ${
+                  staleDays !== null ? 'font-medium text-destructive' : 'text-muted-foreground'
+                }`}
+                title={
+                  staleDays !== null
+                    ? `Niet bijgewerkt in ${staleDays} dagen — de laatste ophaalronde is geblokkeerd of mislukt.`
+                    : undefined
+                }
+              >
+                {new Date(source.fetched_at).toLocaleDateString('nl-NL')}
+                {staleDays !== null ? ` · ${staleDays} dagen oud` : ''}
+              </span>
+            ) : (
+              <span className="text-xs text-subtle-foreground">per gemeente opgehaald</span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 function ChartTooltip({
@@ -314,6 +382,23 @@ export default function StatisticsClient({ statistics }: { statistics: Statistic
           ))}
         </CardContent>
       </Card>
+
+      {statistics.bronnen && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Databronnen</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <p className="text-sm text-muted-foreground">
+              Wanneer de landelijke dataset van elke vervoerder voor het laatst is
+              opgehaald. PostNL, VintedGo en De Buren worden per gemeente live opgehaald
+              en hebben dus geen eigen datum. Een datum ouder dan {STALE_AFTER_DAYS} dagen
+              betekent dat de wekelijkse ophaalronde voor die vervoerder niet doorkwam.
+            </p>
+            <SourceList bronnen={statistics.bronnen} />
+          </CardContent>
+        </Card>
+      )}
 
       <Card padded={false}>
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border p-3 sm:p-4">

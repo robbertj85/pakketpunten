@@ -6,6 +6,11 @@ on:
     - cron: '0 2 * * 1'
   # Allow manual trigger
   workflow_dispatch:
+    inputs:
+      force_save:
+        description: 'Accept the fetched counts as the new baselines even if they dropped sharply'
+        type: boolean
+        default: false
 
 jobs:
   update-data:
@@ -34,6 +39,8 @@ jobs:
         working-directory: ${{ github.workspace }}
         timeout-minutes: 30
         continue-on-error: true
+        env:
+          CACHE_GUARD_FORCE: ${{ inputs.force_save && '1' || '' }}
 
       - name: Fetch DPD data (nationwide cache)
         id: fetch_dpd
@@ -41,6 +48,8 @@ jobs:
         working-directory: ${{ github.workspace }}
         timeout-minutes: 15
         continue-on-error: true
+        env:
+          CACHE_GUARD_FORCE: ${{ inputs.force_save && '1' || '' }}
 
       - name: Fetch ViaTim data (nationwide cache)
         id: fetch_viatim
@@ -48,6 +57,8 @@ jobs:
         working-directory: ${{ github.workspace }}
         timeout-minutes: 5
         continue-on-error: true
+        env:
+          CACHE_GUARD_FORCE: ${{ inputs.force_save && '1' || '' }}
 
       - name: Fetch InPost data (nationwide cache)
         id: fetch_inpost
@@ -55,6 +66,8 @@ jobs:
         working-directory: ${{ github.workspace }}
         timeout-minutes: 10
         continue-on-error: true
+        env:
+          CACHE_GUARD_FORCE: ${{ inputs.force_save && '1' || '' }}
 
       - name: Fetch Budbee data (DPD cache + OSM)
         id: fetch_budbee
@@ -62,6 +75,8 @@ jobs:
         working-directory: ${{ github.workspace }}
         timeout-minutes: 10
         continue-on-error: true
+        env:
+          CACHE_GUARD_FORCE: ${{ inputs.force_save && '1' || '' }}
 
       # GLS data is fetched by separate workflow (fetch-gls-data.yml)
       # That workflow runs earlier and commits the cache file to the repo
@@ -124,6 +139,10 @@ jobs:
         run: |
           # Add cache files (DHL, DPD, ViaTim, InPost, Budbee - GLS committed by separate workflow)
           git add data/dhl_all_locations.json data/dpd_all_locations.json data/viatim_all_locations.json data/inpost_all_locations.json data/budbee_all_locations.json 2>/dev/null || true
+          # The guard's count history changes on every run, including one where it
+          # blocked the save -- and that blocked record is what next week's run
+          # confirms the new baseline against, so it has to be committed too.
+          git add data/fetch_history.json 2>/dev/null || true
           # Add the municipality boundary cache so the semi-annual Overpass refresh persists
           # (otherwise every refresh-week run re-fetches all ~342 boundaries from scratch)
           git add data/municipality_polygon_cache.json 2>/dev/null || true
@@ -140,3 +159,11 @@ jobs:
           git commit -m "$msg"
           git pull --rebase origin main
           git push
+
+      # Last on purpose. A stale carrier must never stop the fresh data for the
+      # other carriers from being published, so this gate runs after the push.
+      # It is the tripwire the guard lacks: a blocked save still reports green,
+      # which is how Amazon went eight weeks without anyone noticing.
+      - name: Check cache freshness
+        run: python scripts/check_cache_freshness.py --max-age-days 21
+        working-directory: ${{ github.workspace }}
