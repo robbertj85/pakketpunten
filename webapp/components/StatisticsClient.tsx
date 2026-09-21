@@ -14,12 +14,16 @@ import {
 } from 'recharts';
 
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import ProviderOverviewPanels from '@/components/overview/ProviderOverviewPanels';
+import TotalOverviewPanels from '@/components/overview/TotalOverviewPanels';
 import {
   CARRIER_LABELS,
   CARRIER_ORDER,
   CARRIER_SERIES_COLORS,
   Carrier,
 } from '@/lib/carriers';
+import { HistorySnapshot } from '@/types/history';
+import { CarrierSources } from '@/types/sources';
 
 const RADII = ['300', '400', '500'] as const;
 
@@ -27,13 +31,6 @@ const CATEGORY_LABELS: Record<string, string> = {
   locker: 'Pakketautomaat',
   shop: 'Pakketpunt',
 };
-
-/**
- * Matches --max-age-days in scripts/check_cache_freshness.py. That script is the
- * hard gate in CI; this is the same threshold made visible to readers, so a
- * carrier that quietly stopped updating is obvious on the page too.
- */
-const STALE_AFTER_DAYS = 21;
 
 export interface MunicipalityStats {
   slug: string;
@@ -50,11 +47,6 @@ export interface MunicipalityStats {
   dekking: Record<string, number>;
 }
 
-export interface CarrierSource {
-  fetched_at: string | null;
-  locations: number;
-}
-
 export interface StatisticsPayload {
   generated_at: string;
   national: {
@@ -65,67 +57,13 @@ export interface StatisticsPayload {
     categorieen: Record<string, number>;
     dekking: Record<string, number>;
   };
-  /** Per-carrier cache age. Null for carriers fetched live, so undated by design. */
-  bronnen?: Record<string, CarrierSource | null>;
+  /** Per-carrier cache age. Rendered on /data-export/updates, not here. */
+  bronnen?: CarrierSources;
   municipalities: MunicipalityStats[];
 }
 
 function formatNumber(value: number): string {
   return value.toLocaleString('nl-NL');
-}
-
-function ageInDays(iso: string): number | null {
-  const fetched = new Date(iso).getTime();
-  if (Number.isNaN(fetched)) return null;
-  return (Date.now() - fetched) / 86_400_000;
-}
-
-function SourceList({ bronnen }: { bronnen: Record<string, CarrierSource | null> }) {
-  return (
-    <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
-      {CARRIER_ORDER.map((carrier) => {
-        const source = bronnen[carrier];
-        const age = source?.fetched_at ? ageInDays(source.fetched_at) : null;
-        const staleDays = age !== null && age > STALE_AFTER_DAYS ? Math.round(age) : null;
-
-        return (
-          <li
-            key={carrier}
-            className="flex items-baseline justify-between gap-3 border-b border-border py-1.5 last:border-b-0"
-          >
-            <span className="flex items-baseline gap-2">
-              <span
-                aria-hidden
-                className="size-2 shrink-0 translate-y-[-1px] rounded-full"
-                style={{ background: CARRIER_SERIES_COLORS[carrier] }}
-              />
-              <span className="text-sm font-medium text-foreground">
-                {CARRIER_LABELS[carrier]}
-              </span>
-            </span>
-
-            {source?.fetched_at ? (
-              <span
-                className={`text-xs tabular-nums ${
-                  staleDays !== null ? 'font-medium text-destructive' : 'text-muted-foreground'
-                }`}
-                title={
-                  staleDays !== null
-                    ? `Niet bijgewerkt in ${staleDays} dagen — de laatste ophaalronde is geblokkeerd of mislukt.`
-                    : undefined
-                }
-              >
-                {new Date(source.fetched_at).toLocaleDateString('nl-NL')}
-                {staleDays !== null ? ` · ${staleDays} dagen oud` : ''}
-              </span>
-            ) : (
-              <span className="text-xs text-subtle-foreground">per gemeente opgehaald</span>
-            )}
-          </li>
-        );
-      })}
-    </ul>
-  );
 }
 
 function ChartTooltip({
@@ -236,7 +174,22 @@ function StatTile({
   );
 }
 
-export default function StatisticsClient({ statistics }: { statistics: StatisticsPayload }) {
+export default function StatisticsClient({
+  statistics,
+  snapshots,
+  providers,
+}: {
+  statistics: StatisticsPayload;
+  /**
+   * Just the weekly totals, not the whole HistoryData: its `municipalities` key
+   * is 4.7 MB of per-gemeente history that nothing here reads, and a prop on a
+   * client component is shipped to the browser.
+   */
+  snapshots: HistorySnapshot[];
+  providers: string[];
+}) {
+  // '' means all carriers together, matching the Totaal tile on the Data Matrix.
+  const [carrier, setCarrier] = useState<string>('');
   const [slug, setSlug] = useState<string>('');
   const [query, setQuery] = useState('');
 
@@ -294,10 +247,61 @@ export default function StatisticsClient({ statistics }: { statistics: Statistic
 
   return (
     <div className="space-y-6">
+      {/*
+        Historische ontwikkeling. Same panels as the Totaal- and vervoerder-tiles
+        on the Data Matrix open in a modal, with a selector in place of the click.
+      */}
+      <section className="space-y-4">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold text-foreground">
+              {carrier || 'Alle vervoerders'}
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              {carrier
+                ? 'Historische ontwikkeling pakketpunten'
+                : 'Marktaandeel en groei per vervoerder'}
+            </p>
+          </div>
+
+          <select
+            value={carrier}
+            onChange={(event) => setCarrier(event.target.value)}
+            className="h-9 rounded-lg border border-input bg-card px-3 text-sm text-foreground"
+            aria-label="Kies een vervoerder"
+          >
+            <option value="">Alle vervoerders</option>
+            {providers.map((provider) => (
+              <option key={provider} value={provider}>
+                {provider}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {snapshots.length === 0 ? (
+          <Card>
+            <p className="py-6 text-center text-sm text-muted-foreground">
+              Nog geen historische snapshots. Draai{' '}
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">
+                python scripts/update_totals_history.py
+              </code>
+              .
+            </p>
+          </Card>
+        ) : carrier ? (
+          <ProviderOverviewPanels providerName={carrier} snapshots={snapshots} />
+        ) : (
+          <TotalOverviewPanels snapshots={snapshots} providers={providers} />
+        )}
+      </section>
+
+      <hr className="border-border" />
+
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-foreground">
-            {selected ? selected.gemeente : 'Nederland'}
+            Dekking en dichtheid — {selected ? selected.gemeente : 'Nederland'}
           </h2>
           <p className="text-sm text-muted-foreground">
             {selected
@@ -382,23 +386,6 @@ export default function StatisticsClient({ statistics }: { statistics: Statistic
           ))}
         </CardContent>
       </Card>
-
-      {statistics.bronnen && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Databronnen</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <p className="text-sm text-muted-foreground">
-              Wanneer de landelijke dataset van elke vervoerder voor het laatst is
-              opgehaald. PostNL, VintedGo en De Buren worden per gemeente live opgehaald
-              en hebben dus geen eigen datum. Een datum ouder dan {STALE_AFTER_DAYS} dagen
-              betekent dat de wekelijkse ophaalronde voor die vervoerder niet doorkwam.
-            </p>
-            <SourceList bronnen={statistics.bronnen} />
-          </CardContent>
-        </Card>
-      )}
 
       <Card padded={false}>
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border p-3 sm:p-4">

@@ -2,24 +2,44 @@ import fs from 'fs/promises';
 import path from 'path';
 
 import StatisticsClient, { StatisticsPayload } from '@/components/StatisticsClient';
+import { HistoryData } from '@/types/history';
 
 export const metadata = {
   title: 'Statistieken — Pakketpuntenviewer',
   description:
-    'Pakketpunten per gemeente: verdeling per vervoerder en type, dichtheid per inwoner en km², plus de dekkingsgraad binnen 300, 400 en 500 meter.',
+    'Marktaandeel en groei per vervoerder over tijd, per vervoerder te bekijken, plus pakketpunten per gemeente: dichtheid per inwoner en km² en de dekkingsgraad binnen 300, 400 en 500 meter.',
 };
 
-async function loadStatistics(): Promise<StatisticsPayload | null> {
+async function loadJson<T>(filename: string): Promise<T | null> {
   try {
-    const filePath = path.join(process.cwd(), 'public', 'data', 'statistics.json');
-    return JSON.parse(await fs.readFile(filePath, 'utf-8'));
+    const filePath = path.join(process.cwd(), 'public', 'data', filename);
+    return JSON.parse(await fs.readFile(filePath, 'utf-8')) as T;
   } catch {
     return null;
   }
 }
 
+/**
+ * Carrier names, from the history rather than the GeoJSON.
+ *
+ * The Data Matrix derives this from the per-municipality files and sorts
+ * alphabetically; taking the union of keys across every snapshot gives the same
+ * set without reading 342 files, and keeps a carrier that has since dropped to
+ * zero in the list so its history stays inspectable.
+ */
+function providersFromHistory(history: HistoryData | null): string[] {
+  const names = new Set<string>();
+  history?.snapshots.forEach((snapshot) => {
+    Object.keys(snapshot.totals.providers).forEach((name) => names.add(name));
+  });
+  return Array.from(names).sort();
+}
+
 export default async function StatisticsPage() {
-  const statistics = await loadStatistics();
+  const [statistics, history] = await Promise.all([
+    loadJson<StatisticsPayload>('statistics.json'),
+    loadJson<HistoryData>('totals_history.json'),
+  ]);
 
   if (!statistics) {
     return (
@@ -35,5 +55,11 @@ export default async function StatisticsPage() {
     );
   }
 
-  return <StatisticsClient statistics={statistics} />;
+  return (
+    <StatisticsClient
+      statistics={statistics}
+      snapshots={history?.snapshots ?? []}
+      providers={providersFromHistory(history)}
+    />
+  );
 }

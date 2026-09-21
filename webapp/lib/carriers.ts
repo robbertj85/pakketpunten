@@ -130,3 +130,13 @@ export function carrierColor(name: string): string {
 export function isKnownCarrier(name: string): name is Carrier {
   return name in CARRIER_SERIES_COLORS;
 }
+
+/**
+ * Logo path for a carrier, or null when the name is not one we know.
+ *
+ * The history panels fall back to a colour swatch with the first two letters,
+ * so a null here is a rendering choice rather than a missing asset.
+ */
+export function carrierLogo(name: string): string | null {
+  return CARRIER_BRAND[name as Carrier]?.logoUrl ?? null;
+}

@@ -224,9 +224,11 @@ exits 1 if any carrier is older than `--max-age-days` (21 in CI). It runs **last
 in `update-data.yml`, after the push, so a stale carrier never blocks publishing
 fresh data for the others.
 
-The same threshold is mirrored as `STALE_AFTER_DAYS` in
-`webapp/components/StatisticsClient.tsx`, which renders the per-carrier dates from
-the `bronnen` field of `statistics.json` on the /data-export/statistieken page.
+The same threshold is mirrored as `STALE_AFTER_DAYS` in `webapp/types/sources.ts`.
+The per-carrier dates render as the "Databronnen" section on
+/data-export/updates, fed by the `bronnen` field of `statistics.json` via
+`/api/update-status` — the API lifts it out server-side so the ~150 KB
+statistics file is not shipped to a page that needs ten dates from it.
 
 ## API Integration Notes
 

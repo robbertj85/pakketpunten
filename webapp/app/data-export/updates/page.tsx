@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react';
 
+import { CARRIER_ORDER, CARRIER_LABELS, carrierColor } from '@/lib/carriers';
+import { CarrierSources, STALE_AFTER_DAYS, cacheAgeInDays } from '@/types/sources';
+
 interface CarrierStats {
   successful_municipalities: number;
   failed_municipalities: number;
@@ -18,7 +21,65 @@ interface UpdateStatus {
   carrier_stats: {
     [key: string]: CarrierStats;
   };
+  /** Per-carrier nationwide cache freshness; null until statistics.json exists. */
+  bronnen: CarrierSources | null;
   github_actions_url: string;
+}
+
+/**
+ * When each carrier's nationwide dataset was last fetched.
+ *
+ * The cache guard preserves the previous cache when a fetch looks wrong, and a
+ * guarded run still reports green, so a carrier can quietly stop updating.
+ * scripts/check_cache_freshness.py fails the weekly job past the same
+ * threshold; this is that signal made visible here.
+ */
+function SourceFreshness({ bronnen }: { bronnen: CarrierSources }) {
+  return (
+    <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+      {CARRIER_ORDER.map((carrier) => {
+        const source = bronnen[carrier];
+        const age = cacheAgeInDays(source?.fetched_at);
+        const staleDays = age !== null && age > STALE_AFTER_DAYS ? Math.round(age) : null;
+
+        return (
+          <li
+            key={carrier}
+            className="flex items-baseline justify-between gap-3 border-b border-border py-1.5 last:border-b-0"
+          >
+            <span className="flex items-baseline gap-2">
+              <span
+                aria-hidden
+                className="size-2 shrink-0 translate-y-[-1px] rounded-full"
+                style={{ background: carrierColor(carrier) }}
+              />
+              <span className="text-sm font-medium text-foreground">
+                {CARRIER_LABELS[carrier]}
+              </span>
+            </span>
+
+            {source?.fetched_at ? (
+              <span
+                className={`text-xs tabular-nums ${
+                  staleDays !== null ? 'font-medium text-destructive' : 'text-muted-foreground'
+                }`}
+                title={
+                  staleDays !== null
+                    ? `Niet bijgewerkt in ${staleDays} dagen — de laatste ophaalronde is geblokkeerd of mislukt.`
+                    : undefined
+                }
+              >
+                {new Date(source.fetched_at).toLocaleDateString('nl-NL')}
+                {staleDays !== null ? ` · ${staleDays} dagen oud` : ''}
+              </span>
+            ) : (
+              <span className="text-xs text-subtle-foreground">per gemeente opgehaald</span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 export default function UpdatesPage() {
@@ -113,6 +174,20 @@ export default function UpdatesPage() {
           </div>
         </div>
       </section>
+
+      {/* Nationwide cache freshness */}
+      {updateStatus.bronnen && (
+        <section className="bg-card rounded-lg shadow-md p-6">
+          <h3 className="text-lg font-semibold text-foreground mb-2">Databronnen</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Wanneer de landelijke dataset van elke vervoerder voor het laatst is opgehaald.
+            PostNL, VintedGo en De Buren worden per gemeente live opgehaald en hebben dus
+            geen eigen datum. Een datum ouder dan {STALE_AFTER_DAYS} dagen betekent dat de
+            wekelijkse ophaalronde voor die vervoerder niet doorkwam.
+          </p>
+          <SourceFreshness bronnen={updateStatus.bronnen} />
+        </section>
+      )}
 
       {/* Carrier status list */}
       <section className="bg-card rounded-lg shadow-md p-6">
