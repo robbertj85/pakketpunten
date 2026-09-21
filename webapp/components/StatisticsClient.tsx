@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Bar,
   BarChart,
@@ -14,6 +14,7 @@ import {
 } from 'recharts';
 
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import MunicipalityOverviewPanels from '@/components/overview/MunicipalityOverviewPanels';
 import ProviderOverviewPanels from '@/components/overview/ProviderOverviewPanels';
 import TotalOverviewPanels from '@/components/overview/TotalOverviewPanels';
 import {
@@ -22,7 +23,7 @@ import {
   CARRIER_SERIES_COLORS,
   Carrier,
 } from '@/lib/carriers';
-import { HistorySnapshot } from '@/types/history';
+import { HistorySnapshot, MunicipalityHistoryEntry } from '@/types/history';
 import { CarrierSources } from '@/types/sources';
 
 const RADII = ['300', '400', '500'] as const;
@@ -192,6 +193,43 @@ export default function StatisticsClient({
   const [carrier, setCarrier] = useState<string>('');
   const [slug, setSlug] = useState<string>('');
   const [query, setQuery] = useState('');
+
+  /**
+   * Per-gemeente history, fetched a slug at a time.
+   *
+   * totals_history.json carries all 344 municipalities in ~4.7 MB, so it can
+   * neither be a prop nor be fetched whole. Results are cached per slug, and
+   * `failed` keeps a 404 from being retried on every re-render.
+   */
+  const [histories, setHistories] = useState<Record<string, MunicipalityHistoryEntry[]>>({});
+  const [failed, setFailed] = useState<Record<string, true>>({});
+
+  useEffect(() => {
+    if (!slug || histories[slug] || failed[slug]) return;
+
+    let cancelled = false;
+
+    fetch(`/api/municipality-history/${slug}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
+      .then((data: { history: MunicipalityHistoryEntry[] }) => {
+        if (!cancelled) {
+          setHistories((prev) => ({ ...prev, [slug]: data.history }));
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setFailed((prev) => ({ ...prev, [slug]: true }));
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, histories, failed]);
+
+  const municipalityHistory = slug ? (histories[slug] ?? null) : null;
+  const historyUnavailable = slug ? Boolean(failed[slug]) : false;
+  const historyLoading = Boolean(slug) && !municipalityHistory && !historyUnavailable;
 
   const selected = useMemo(
     () => statistics.municipalities.find((m) => m.slug === slug) ?? null,
@@ -386,6 +424,41 @@ export default function StatisticsClient({
           ))}
         </CardContent>
       </Card>
+
+      {/*
+        The same dashboard the chart button on a Data Matrix row opens. Only for
+        a chosen gemeente: the national history is already the top section.
+      */}
+      {selected && (
+        <section className="space-y-4">
+          <div>
+            <h3 className="text-base font-semibold text-foreground">
+              Ontwikkeling {selected.gemeente}
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Marktaandeel en groei per vervoerder, week op week
+            </p>
+          </div>
+
+          {historyLoading && (
+            <Card>
+              <p className="py-6 text-center text-sm text-muted-foreground">
+                Historie laden...
+              </p>
+            </Card>
+          )}
+
+          {historyUnavailable && (
+            <Card>
+              <p className="py-6 text-center text-sm text-muted-foreground">
+                Nog geen wekelijkse historie voor {selected.gemeente}.
+              </p>
+            </Card>
+          )}
+
+          {municipalityHistory && <MunicipalityOverviewPanels history={municipalityHistory} />}
+        </section>
+      )}
 
       <Card padded={false}>
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border p-3 sm:p-4">
