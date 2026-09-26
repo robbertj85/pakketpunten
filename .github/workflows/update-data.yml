@@ -177,8 +177,13 @@ jobs:
           fi
           git diff --quiet && git diff --staged --quiet && exit 0
           git commit -m "$msg"
-          git pull --rebase origin main
-          git push
+          # Commit first, then rebase onto whatever reached main during the run
+          # (a code push, the other workflow); retry in case main moves again.
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            sleep $((attempt * 15))
+          done
+          exit 1
 
       # Last on purpose. A stale carrier must never stop the fresh data for the
       # other carriers from being published, so this gate runs after the push.
