@@ -214,6 +214,14 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                 />
 
                 <DataSourceCard
+                  name="FedEx OnSite & Stations"
+                  endpoint="local.fedex.com/en/search"
+                  type="Public REST API"
+                  url="https://local.fedex.com"
+                  color="#4D148C"
+                />
+
+                <DataSourceCard
                   name="InPost / Mondial Relay"
                   endpoint="api-global-points.easypack24.net/v1/points"
                   type="Public REST API"
@@ -279,7 +287,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
               <section>
                 <h4 className="text-md font-semibold text-foreground mb-3">API Provider Policies</h4>
                 <div className="space-y-2 text-sm text-muted-foreground">
-                  <p><strong>DHL, PostNL, DPD, GLS, ViaTim, InPost:</strong> Publieke API's voor consumentengebruik. Respecteer rate limits en gebruiksvoorwaarden.</p>
+                  <p><strong>DHL, PostNL, DPD, GLS, ViaTim, InPost, FedEx:</strong> Publieke API's voor consumentengebruik. Respecteer rate limits en gebruiksvoorwaarden.</p>
                   <p><strong>VintedGo, De Buren:</strong> Data verzameld via publiek toegankelijke websites. Niet geschikt voor high-frequency scraping.</p>
                   <p><strong>Amazon Hub:</strong> Data verzameld via browser automatisering. Gecached en wekelijks bijgewerkt.</p>
                   <p><strong>Budbee:</strong> Data samengesteld uit DPD dataset en OpenStreetMap. Gecached en wekelijks bijgewerkt.</p>
@@ -305,6 +313,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
 - ViaTim (https://viatim.nl)
 - InPost / Mondial Relay (https://inpost.nl)
 - Budbee / Instabee (https://budbee.com)
+- FedEx (https://local.fedex.com)
 - Gemeente grenzen © OpenStreetMap contributors
 
 Project: Pakketpunten Nederland

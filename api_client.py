@@ -696,6 +696,63 @@ def get_data_viatim(gemeente=None):
     return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
 
 
+# ---------- data ophalen voor "FedEx" ----------
+
+def get_data_fedex(gemeente=None):
+    """
+    FedEx locations (FedEx OnSite shops and stations) from cached data.
+
+    Uses pre-fetched data from scripts/fedex_fetch_all.py, whose records are
+    already in the viewer's shape (opening hours as ma..zo). Without a cache
+    FedEx is simply empty, like the other cached carriers.
+    """
+    from pathlib import Path
+    import json
+    from shapely.geometry import Point
+
+    cache_file = Path(__file__).parent / "data" / "fedex_all_locations.json"
+
+    if cache_file.exists():
+        try:
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+
+            locations = cache_data.get('locations', [])
+
+            if locations:
+                rows = []
+                for loc in locations:
+                    hours = loc.get('openingstijden')
+                    rows.append({
+                        'locatieNaam': loc.get('locatieNaam', ''),
+                        'straatNaam': loc.get('straatNaam', ''),
+                        'straatNr': loc.get('straatNr', ''),
+                        'latitude': loc.get('latitude'),
+                        'longitude': loc.get('longitude'),
+                        'puntType': loc.get('puntType', 'servicepunt'),
+                        'vervoerder': 'FedEx',
+                        'canPickup': loc.get('canPickup', True),
+                        'canDropoff': loc.get('canDropoff', True),
+                        'openingstijden': {**_empty_week(), **hours} if hours else None,
+                    })
+
+                df = pd.DataFrame(rows)
+                df = df.dropna(subset=['latitude', 'longitude'])
+
+                geometry = [Point(row['longitude'], row['latitude']) for _, row in df.iterrows()]
+                gdf_all = gpd.GeoDataFrame(df, geometry=geometry, crs='EPSG:4326')
+
+                print(f"  📦 FedEx: Loaded {len(gdf_all)} points from cache (will be filtered by polygon)")
+                return gdf_all
+
+        except Exception as e:
+            print(f"  ⚠️  FedEx cache load failed ({e})")
+
+    print("  ⚠️  FedEx cache not found. Run: python scripts/fedex_fetch_all.py")
+    df = pd.DataFrame(columns=['locatieNaam', 'straatNaam', 'straatNr', 'latitude', 'longitude', 'puntType', 'vervoerder', 'canPickup', 'canDropoff'])
+    return gpd.GeoDataFrame(df, geometry=[], crs='EPSG:4326')
+
+
 # ---------- data ophalen voor "InPost" ----------
 
 def get_data_inpost(gemeente=None):
@@ -952,6 +1009,15 @@ def get_data_pakketpunten(gemeente, return_carrier_status=False):
     except Exception as e:
         print(f"  ⚠️  ViaTim fetch failed: {e}")
         carrier_status['ViaTim'] = {'success': False, 'count': 0, 'error': str(e)}
+
+    # FedEx
+    try:
+        gdf_fedex = get_data_fedex(gemeente)
+        gdfs_to_concat.append(gdf_fedex)
+        carrier_status['FedEx'] = {'success': True, 'count': len(gdf_fedex), 'error': None}
+    except Exception as e:
+        print(f"  ⚠️  FedEx fetch failed: {e}")
+        carrier_status['FedEx'] = {'success': False, 'count': 0, 'error': str(e)}
 
     # InPost
     try:

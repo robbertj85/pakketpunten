@@ -11,6 +11,7 @@ import ShareModal from '@/components/ShareModal';
 import NearestPointsFinder from '@/components/NearestPointsFinder';
 import { Municipality, PakketpuntData, Filters, PakketpuntProperties, PakketpuntFeature, PointCategory, ServiceFilter, getPointCategory } from '@/types/pakketpunten';
 import { loadProvincialBoundaries, BoundaryLoadProgress } from '@/utils/boundaryLoader';
+import { CARRIER_ORDER } from '@/lib/carriers';
 
 // Mobile menu icon component
 function MenuIcon({ className }: { className?: string }) {
@@ -91,7 +92,7 @@ export default function Home() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
   const [filters, setFilters] = useState<Filters>({
-    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS', 'ViaTim', 'InPost', 'Budbee'],
+    providers: [...CARRIER_ORDER],
     showBuffer300: true,
     showBuffer400: true,
     showBuffer500: false,
@@ -220,7 +221,7 @@ export default function Home() {
         // Don't automatically show boundaries - user must click checkbox to load them
         const isNederland = selectedMunicipality === 'nederland';
         setFilters({
-          providers: data.metadata.providers || ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS', 'ViaTim', 'InPost', 'Budbee'],
+          providers: data.metadata.providers || [...CARRIER_ORDER],
           showBuffer300: true,
           showBuffer400: true,
           showBuffer500: false,

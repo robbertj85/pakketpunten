@@ -47,6 +47,7 @@ CARRIER_NAMES = {
     "gls": "GLS",
     "inpost": "InPost",
     "viatim": "ViaTim",
+    "fedex": "FedEx",
 }
 
 

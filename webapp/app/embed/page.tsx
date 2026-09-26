@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { PakketpuntData, Filters } from '@/types/pakketpunten';
+import { CARRIER_ORDER } from '@/lib/carriers';
 
 const MapView = dynamic(() => import('@/components/Map'), {
   ssr: false,
@@ -24,7 +25,7 @@ function EmbedContent() {
   const [loading, setLoading] = useState(true);
 
   const filters = useMemo<Filters>(() => ({
-    providers: ['DHL', 'PostNL', 'VintedGo', 'DeBuren', 'DPD', 'Amazon', 'GLS', 'ViaTim', 'InPost', 'Budbee'],
+    providers: [...CARRIER_ORDER],
     showBuffer300: false,
     showBuffer400: false,
     showBuffer500: false,

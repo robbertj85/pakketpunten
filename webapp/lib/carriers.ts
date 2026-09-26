@@ -21,24 +21,30 @@
  *
  * ## How the series palette was chosen
  *
- * Ten hues in a fixed order, validated with the dataviz validator against the
- * *adjacent* pairlist (the relevant one for lines, bars and stacks):
+ * Eleven hues in a fixed order, validated with the dataviz validator against
+ * the *adjacent* pairlist (the relevant one for lines, bars and stacks). The
+ * eleventh (FedEx, purple, added last) was re-validated on the full list of 11:
  *
- *   light  worst adjacent CVD ΔE 7.2 (green↔red, protan; tritan 18.7)
+ *   light  worst adjacent CVD ΔE 7.2 (green↔red, protan; tritan 10.3)
  *          worst adjacent normal-vision ΔE 22.1 — passes the ≥15 floor
  *   dark   worst adjacent CVD ΔE 8.6 · worst normal-vision ΔE 17.8 — all pass
+ *
+ * FedEx was also checked against every other hue, not just its neighbour: its
+ * nearest is VintedGo's violet at normal-vision ΔE 16.4 (light) and ViaTim at
+ * 15.6 (dark), both above the 15 floor.
  *
  * Light-mode CVD lands in the 6–8 band, which is permissible **only with
  * secondary encoding**. That is not optional here: every chart using these
  * colours must also carry a legend and direct labels. Ten is past the point
- * where hue alone works, and no ordering of ten hues clears 8.0.
+ * where hue alone works, and no ordering of ten (let alone eleven) hues
+ * clears 8.0.
  *
  * The order is fixed and follows overall carrier size. Do not sort it by the
  * current filter: colour must follow the carrier, never its rank, or filtering
  * repaints the survivors.
  *
  * Under the *all-pairs* gate (any two series compared directly — a pie, a
- * scatter) ten series cannot pass at all, and neither can eight. Charts of that
+ * scatter) eleven series cannot pass at all, and neither can eight. Charts of that
  * shape need a different form, not a different palette; see the market-share
  * chart, which is a ranked bar for exactly this reason.
  */
@@ -54,6 +60,7 @@ export const CARRIER_ORDER = [
   'Budbee',
   'ViaTim',
   'DeBuren',
+  'FedEx',
 ] as const;
 
 export type Carrier = (typeof CARRIER_ORDER)[number];
@@ -70,9 +77,10 @@ export const CARRIER_SERIES_COLORS: Record<Carrier, string> = {
   Budbee: '#008300', // green
   ViaTim: '#e87ba4', // magenta
   DeBuren: '#a1541f', // rust
+  FedEx: '#9b4dca', // purple
 };
 
-/** The same ten hues stepped for a dark surface — not an automatic flip. */
+/** The same eleven hues stepped for a dark surface — not an automatic flip. */
 export const CARRIER_SERIES_COLORS_DARK: Record<Carrier, string> = {
   PostNL: '#3987e5',
   DHL: '#d95926',
@@ -84,6 +92,7 @@ export const CARRIER_SERIES_COLORS_DARK: Record<Carrier, string> = {
   Budbee: '#008300',
   ViaTim: '#d55181',
   DeBuren: '#c08430',
+  FedEx: '#a33ec0',
 };
 
 /** Display names. Only DeBuren differs from its key. */
@@ -98,6 +107,7 @@ export const CARRIER_LABELS: Record<Carrier, string> = {
   Budbee: 'Budbee',
   ViaTim: 'ViaTim',
   DeBuren: 'De Buren',
+  FedEx: 'FedEx',
 };
 
 interface CarrierBrand {
@@ -120,6 +130,7 @@ export const CARRIER_BRAND: Record<Carrier, CarrierBrand> = {
   Budbee: { background: '#00C389', logoUrl: '/logos/budbee.svg' },
   ViaTim: { background: '#E3007A', logoUrl: '/logos/viatim.svg' },
   DeBuren: { background: '#4CAF50', logoUrl: '/logos/deburen.png' },
+  FedEx: { background: '#4D148C', borderColor: '#FF6200', logoUrl: '/logos/fedex.svg' },
 };
 
 /** Series colour for a carrier, falling back to a neutral for unknown names. */

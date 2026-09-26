@@ -10,7 +10,7 @@ export interface PakketpuntProperties {
   locatieNaam: string;
   straatNaam: string;
   straatNr: string;
-  vervoerder: 'DHL' | 'PostNL' | 'VintedGo' | 'DeBuren' | 'DPD' | 'Amazon' | 'GLS' | 'ViaTim' | 'InPost' | 'Budbee';
+  vervoerder: 'DHL' | 'PostNL' | 'VintedGo' | 'DeBuren' | 'DPD' | 'Amazon' | 'GLS' | 'ViaTim' | 'InPost' | 'Budbee' | 'FedEx';
   puntType: string;
   bezettingsgraad: number;
   latitude: number;
@@ -103,6 +103,7 @@ export type PointCategory = 'locker' | 'shop';
 //   - ViaTim: servicepunt (all are staffed shops)
 //   - InPost: servicepunt (PUDO shops), automaat (parcel lockers)
 //   - Budbee: automaat (all are parcel lockers)
+//   - FedEx: servicepunt (FedEx OnSite shops and stations)
 const LOCKER_TYPES = new Set([
   'packStation',      // DHL
   'automaat',         // PostNL, InPost, Budbee

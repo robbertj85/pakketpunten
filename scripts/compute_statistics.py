@@ -52,6 +52,7 @@ CARRIERS = (
     "Budbee",
     "ViaTim",
     "DeBuren",
+    "FedEx",
 )
 
 # Must mirror LOCKER_TYPES in webapp/types/pakketpunten.ts.
@@ -76,6 +77,7 @@ CARRIER_CACHES = {
     "InPost": "inpost_all_locations.json",
     "Budbee": "budbee_all_locations.json",
     "ViaTim": "viatim_all_locations.json",
+    "FedEx": "fedex_all_locations.json",
 }
 
 

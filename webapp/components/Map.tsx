@@ -535,14 +535,14 @@ function seededRandom(seed: number): number {
 // Helper function to get provider render priority (higher = renders on top)
 // Randomizes order hourly to give all providers fair visibility
 function getProviderPriority(vervoerder: string): number {
-  const providers = ['Budbee', 'ViaTim', 'InPost', 'GLS', 'DPD', 'Amazon', 'VintedGo', 'DeBuren', 'PostNL', 'DHL'];
+  const providers = ['FedEx', 'Budbee', 'ViaTim', 'InPost', 'GLS', 'DPD', 'Amazon', 'VintedGo', 'DeBuren', 'PostNL', 'DHL'];
 
   // Get hourly seed for stable randomization
   const seed = getHourlySeed();
 
   // Create shuffled priorities based on hourly seed
   const shuffledPriorities: Record<string, number> = {};
-  const availablePositions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const availablePositions = providers.map((_, i) => i + 1);
 
   providers.forEach((provider, index) => {
     // Use provider name + seed to create unique seed per provider
