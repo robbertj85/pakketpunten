@@ -26,10 +26,10 @@ function EmbedContent() {
 
   const filters = useMemo<Filters>(() => ({
     providers: [...CARRIER_ORDER],
-    showBuffer300: false,
-    showBuffer400: false,
-    showBuffer500: false,
-    showBufferFill: false,
+    showBuffer300: true,
+    showBuffer400: true,
+    showBuffer500: true,
+    showBufferFill: true,
     bufferMerged: false,
     showBoundary: false,
     useSimpleMarkers: gemeente === 'nederland',
