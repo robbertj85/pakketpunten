@@ -65,6 +65,7 @@ export interface Filters {
   providers: string[];
   showBuffer300: boolean;
   showBuffer400: boolean;
+  showBuffer500: boolean;
   showBufferFill: boolean;
   bufferMerged: boolean;
   showBoundary: boolean;

@@ -112,6 +112,7 @@ jobs:
         run: |
           python scripts/batch_generate.py
           python scripts/create_national_overview.py
+          python scripts/create_national_coverage.py
         working-directory: ${{ github.workspace }}
         # Headroom for the semi-annual polygon cache refresh (last week of
         # June/December), when all ~342 municipality boundaries are re-fetched
@@ -148,6 +149,10 @@ jobs:
           git add data/municipality_polygon_cache.json 2>/dev/null || true
           # Add municipality GeoJSON files (excluding gitignored nederland-boundaries.geojson)
           find webapp/public/data -name "*.geojson" -not -name "nederland-boundaries.geojson" -exec git add {} +
+          # Precomputed national coverage (create_national_coverage.py). The find above
+          # is recursive and already includes it; named so the folder is not lost
+          # if that find is ever narrowed to the top level.
+          git add webapp/public/data/geo 2>/dev/null || true
           git add webapp/public/data/summary.json webapp/public/data/totals_history.json webapp/public/data/statistics.json webapp/public/municipalities.json 2>/dev/null || true
           # Build commit message with anomaly note if applicable
           msg="🤖 Update pakketpunten data - $(date +'%Y-%m-%d %H:%M UTC')"

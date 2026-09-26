@@ -165,7 +165,7 @@ When viewing the national map with boundaries enabled, the system loads boundari
 
 All GeoJSON features follow this structure:
 - **Pakketpunt features**: `type: 'pakketpunt'` with properties: `locatieNaam`, `straatNaam`, `straatNr`, `vervoerder`, `puntType`, `bezettingsgraad`, `latitude`, `longitude`
-- **Buffer features**: `type: 'buffer_union_300m' | 'buffer_union_400m'` with `buffer_m` property
+- **Boundary feature**: `type: 'boundary'`. No buffer features: the map draws coverage (300/400/500 m) itself with Turf.js, and the national view loads the precomputed unions from `webapp/public/data/geo/coverage_<radius>.geojson` (`scripts/create_national_coverage.py`)
 
 ## Coordinate Reference Systems (CRS)
 
@@ -264,7 +264,7 @@ All API calls use `requests.Session()` with proxy bypass for specific domains (h
   },
   "features": [
     // Pakketpunt features (type: "pakketpunt")
-    // Buffer union features (type: "buffer_union_300m", "buffer_union_400m")
+    // Municipality boundary feature (type: "boundary")
   ]
 }
 ```
