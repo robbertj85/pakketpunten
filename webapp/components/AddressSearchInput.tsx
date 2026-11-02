@@ -1,52 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useId } from 'react';
 import { Municipality } from '@/types/pakketpunten';
-
-// Mapping table for PDOK municipality names to our database names
-// PDOK uses official CBS names, which differ from common/simplified names in our database
-//
-// Common issues with Dutch municipality names:
-// 1. Apostrophe 's-: PDOK uses official 's-Gravenhage, 's-Hertogenbosch
-// 2. Parenthetical disambiguation: PDOK omits periods: Bergen (NH) vs Bergen (NH.)
-// 3. Regional identifiers: PDOK uses (O), (L), (NH), (ZH) for disambiguation
-//
-// PDOK returns:                Our database has:
-// - 's-Gravenhage         ->   Den Haag (common name)
-// - 's-Hertogenbosch      ->   s-Hertogenbosch (no apostrophe)
-// - Bergen (NH)           ->   Bergen (NH.) (with period)
-// - Bergen (L)            ->   Bergen (L.) (with period)
-// - Hengelo (O)           ->   Hengelo (simplified, no region identifier)
-// - Beek (L)              ->   Beek (simplified, no region identifier)
-// - Laren (NH)            ->   Laren (simplified, no region identifier)
-// - Middelburg (Z)        ->   Middelburg (simplified, no region identifier)
-// - Rijswijk (ZH)         ->   Rijswijk (simplified, no region identifier)
-// - Stein (L)             ->   Stein (simplified, no region identifier)
-const MUNICIPALITY_NAME_MAPPING: Record<string, string> = {
-  // Apostrophe 's- cases
-  "'s-gravenhage": "den haag",
-  "'s-hertogenbosch": "s-hertogenbosch",
-
-  // Bergen disambiguation (keep period)
-  "bergen (nh)": "bergen (nh.)",
-  "bergen (l)": "bergen (l.)",
-
-  // Regional identifiers removed in our database (without periods)
-  "hengelo (o)": "hengelo",
-  "beek (l)": "beek",
-  "laren (nh)": "laren",
-  "middelburg (z)": "middelburg",
-  "rijswijk (zh)": "rijswijk",
-  "stein (l)": "stein",
-
-  // With periods (just in case PDOK returns these variants)
-  "hengelo (o.)": "hengelo",
-  "beek (l.)": "beek",
-  "laren (nh.)": "laren",
-  "middelburg (z.)": "middelburg",
-  "rijswijk (zh.)": "rijswijk",
-  "stein (l.)": "stein",
-};
+import { isGeolocationSupported, locateUser } from '@/utils/geolocate';
+import { findMunicipalityByPdokName } from '@/utils/pdokMunicipality';
 
 interface SearchResult {
   id: string;
@@ -75,7 +32,8 @@ interface AddressSearchInputProps {
   onAddressSelected: (
     municipalitySlug: string,
     coordinates: { latitude: number; longitude: number },
-    displayName: string
+    displayName: string,
+    source: 'search' | 'location'
   ) => void;
 }
 
@@ -89,15 +47,27 @@ export default function AddressSearchInput({
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [error, setError] = useState<string | null>(null);
+  const [isLocating, setIsLocating] = useState(false);
+  // Query whose results are currently shown, so "geen resultaten" doesn't flash while debouncing
+  const [searchedQuery, setSearchedQuery] = useState('');
+  // Checked after mount so server and client render the same markup.
+  const [canLocate, setCanLocate] = useState(false);
+  // Rendered twice (desktop header + mobile menu), so the id must be unique
+  const dropdownId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  useEffect(() => {
+    setCanLocate(isGeolocationSupported());
+  }, []);
+
   // Debounced search function
   const searchAddress = useCallback(async (searchQuery: string) => {
     if (searchQuery.length < 3) {
+      // Keep the dropdown open so the "mijn locatie" suggestion stays visible
       setResults([]);
-      setShowDropdown(false);
+      setSelectedIndex(-1);
       return;
     }
 
@@ -115,6 +85,7 @@ export default function AddressSearchInput({
 
       const data = await response.json();
       setResults(data.results || []);
+      setSearchedQuery(searchQuery);
       setShowDropdown(true);
       setSelectedIndex(-1);
     } catch (err) {
@@ -172,30 +143,7 @@ export default function AddressSearchInput({
         return;
       }
 
-      // Find matching municipality in our data
-      // First normalize the PDOK municipality name
-      let normalizedMunicipality = details.municipality.toLowerCase();
-
-      // Check if we have a mapping for this PDOK name (e.g., 's-Gravenhage -> Den Haag)
-      if (MUNICIPALITY_NAME_MAPPING[normalizedMunicipality]) {
-        normalizedMunicipality = MUNICIPALITY_NAME_MAPPING[normalizedMunicipality];
-      }
-
-      // Try to find exact match
-      let municipality = municipalities.find(
-        (m) => m.name.toLowerCase() === normalizedMunicipality
-      );
-
-      // If no exact match, try to find by slug (some edge cases)
-      if (!municipality) {
-        const slugMatch = municipalities.find(
-          (m) => m.slug.toLowerCase() === normalizedMunicipality.replace(/\s+/g, '-').replace(/\./g, '')
-        );
-        if (slugMatch) {
-          municipality = slugMatch;
-        }
-      }
-
+      const municipality = findMunicipalityByPdokName(municipalities, details.municipality);
       if (!municipality) {
         setError(
           `Gemeente "${details.municipality}" niet beschikbaar in de database`
@@ -205,7 +153,7 @@ export default function AddressSearchInput({
       }
 
       // Notify parent component
-      onAddressSelected(municipality.slug, details.coordinates, details.displayName);
+      onAddressSelected(municipality.slug, details.coordinates, details.displayName, 'search');
     } catch (err) {
       console.error('Address lookup error:', err);
       setError('Adres ophalen mislukt. Probeer het opnieuw.');
@@ -214,15 +162,52 @@ export default function AddressSearchInput({
     }
   };
 
+  // Use the device's location (offered as the first suggestion in the dropdown)
+  const handleUseMyLocation = async () => {
+    setShowDropdown(false);
+    setSelectedIndex(-1);
+    setError(null);
+    setIsLocating(true);
+    try {
+      const { municipality, coordinates, displayName } = await locateUser(municipalities);
+      setQuery(displayName);
+      setResults([]);
+      onAddressSelected(municipality.slug, coordinates, displayName, 'location');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Locatie ophalen mislukt');
+    } finally {
+      setIsLocating(false);
+    }
+  };
+
+  // Row 0 is "Gebruik mijn locatie" when available; address results follow.
+  const locationOffset = canLocate ? 1 : 0;
+  const optionCount = locationOffset + results.length;
+
+  const selectOption = (index: number) => {
+    if (index < locationOffset) {
+      handleUseMyLocation();
+    } else if (index - locationOffset < results.length) {
+      handleSelectResult(results[index - locationOffset]);
+    }
+  };
+
   // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!showDropdown || results.length === 0) return;
+    if (!showDropdown) {
+      if (e.key === 'ArrowDown' && optionCount > 0) {
+        e.preventDefault();
+        setShowDropdown(true);
+      }
+      return;
+    }
+    if (optionCount === 0) return;
 
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
         setSelectedIndex((prev) =>
-          prev < results.length - 1 ? prev + 1 : prev
+          prev < optionCount - 1 ? prev + 1 : prev
         );
         break;
       case 'ArrowUp':
@@ -231,8 +216,8 @@ export default function AddressSearchInput({
         break;
       case 'Enter':
         e.preventDefault();
-        if (selectedIndex >= 0 && selectedIndex < results.length) {
-          handleSelectResult(results[selectedIndex]);
+        if (selectedIndex >= 0) {
+          selectOption(selectedIndex);
         }
         break;
       case 'Escape':
@@ -279,10 +264,15 @@ export default function AddressSearchInput({
           value={query}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          placeholder="Zoek adres..."
+          onFocus={() => setShowDropdown(true)}
+          placeholder={canLocate ? 'Zoek adres of gebruik je locatie...' : 'Zoek adres...'}
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={showDropdown && optionCount > 0}
+          aria-controls={dropdownId}
           className="w-full px-3 md:px-4 py-2.5 md:py-2 pr-10 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent text-foreground text-sm"
         />
-        {isLoading && (
+        {(isLoading || isLocating) && (
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
             <svg
               className="animate-spin h-5 w-5 text-subtle-foreground"
@@ -305,7 +295,7 @@ export default function AddressSearchInput({
             </svg>
           </div>
         )}
-        {!isLoading && query && (
+        {!isLoading && !isLocating && query && (
           <button
             onClick={() => {
               setQuery('');
@@ -333,18 +323,40 @@ export default function AddressSearchInput({
         <div className="mt-2 text-sm text-destructive">{error}</div>
       )}
 
-      {/* Dropdown results */}
-      {showDropdown && results.length > 0 && (
+      {/* Dropdown: "mijn locatie" suggestion on top, address results below */}
+      {showDropdown && (optionCount > 0 || (query.length >= 3 && query === searchedQuery)) && (
         <div
           ref={dropdownRef}
+          id={dropdownId}
           className="absolute z-50 w-full mt-1 bg-card border border-input rounded-lg shadow-lg max-h-[50vh] md:max-h-96 overflow-y-auto"
         >
+          {canLocate && (
+            <button
+              type="button"
+              onClick={handleUseMyLocation}
+              className={`w-full px-3 md:px-4 py-3 text-left flex items-center gap-2 text-sm font-medium text-primary hover:bg-accent active:bg-accent transition ${
+                selectedIndex === 0 ? 'bg-accent' : ''
+              } ${results.length > 0 || (query.length >= 3 && query === searchedQuery) ? 'border-b border-border' : ''}`}
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11a3 3 0 100-6 3 3 0 000 6z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 22s8-6.5 8-13a8 8 0 10-16 0c0 6.5 8 13 8 13z" />
+              </svg>
+              <span className="flex-1 min-w-0">
+                Gebruik mijn locatie
+                <span className="block text-xs font-normal text-subtle-foreground">
+                  Toon de dichtstbijzijnde pakketpunten
+                </span>
+              </span>
+            </button>
+          )}
+
           {results.map((result, index) => (
             <button
               key={result.id}
               onClick={() => handleSelectResult(result)}
               className={`w-full px-3 md:px-4 py-3 text-left hover:bg-accent active:bg-accent transition ${
-                index === selectedIndex ? 'bg-accent' : ''
+                index + locationOffset === selectedIndex ? 'bg-accent' : ''
               } ${index !== results.length - 1 ? 'border-b border-border' : ''}`}
             >
               <div className="flex items-start justify-between gap-2">
@@ -369,18 +381,13 @@ export default function AddressSearchInput({
               </div>
             </button>
           ))}
-        </div>
-      )}
 
-      {/* No results message */}
-      {showDropdown && !isLoading && query.length >= 3 && results.length === 0 && (
-        <div
-          ref={dropdownRef}
-          className="absolute z-50 w-full mt-1 bg-card border border-input rounded-lg shadow-lg px-3 md:px-4 py-3"
-        >
-          <div className="text-sm text-subtle-foreground">
-            Geen resultaten voor &quot;{query}&quot;
-          </div>
+          {/* No results message */}
+          {!isLoading && query.length >= 3 && query === searchedQuery && results.length === 0 && (
+            <div className="px-3 md:px-4 py-3 text-sm text-subtle-foreground">
+              Geen resultaten voor &quot;{query}&quot;
+            </div>
+          )}
         </div>
       )}
     </div>

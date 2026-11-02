@@ -9,6 +9,7 @@ import StatsPanel from '@/components/StatsPanel';
 import AboutModal from '@/components/AboutModal';
 import ShareModal from '@/components/ShareModal';
 import NearestPointsFinder from '@/components/NearestPointsFinder';
+import LocationPrompt from '@/components/LocationPrompt';
 import { Municipality, PakketpuntData, Filters, PakketpuntProperties, PakketpuntFeature, PointCategory, ServiceFilter, getPointCategory } from '@/types/pakketpunten';
 import { loadProvincialBoundaries, BoundaryLoadProgress } from '@/utils/boundaryLoader';
 
@@ -409,11 +410,12 @@ export default function Home() {
   const handleAddressSelected = (
     municipalitySlug: string,
     coordinates: { latitude: number; longitude: number },
-    displayName: string
+    displayName: string,
+    source: 'search' | 'location'
   ) => {
-    console.log('Address selected:', coordinates, 'Municipality:', municipalitySlug);
-    // Close the top 10 panel and clear highlighting (new search cancels filtering)
-    setNearestPointsOpen(false);
+    // A typed address cancels the top 10 panel; "mijn locatie" opens it straight
+    // away, since nearby points are what someone sharing their location wants.
+    setNearestPointsOpen(source === 'location');
     setHighlightedPoints(null);
     // Show marker at the searched location
     setSearchLocationMarker(coordinates);
@@ -578,8 +580,8 @@ export default function Home() {
             <div className="md:hidden px-3 py-2 border-b border-border">
               <AddressSearchInput
                 municipalities={municipalities}
-                onAddressSelected={(slug, coords, displayName) => {
-                  handleAddressSelected(slug, coords, displayName);
+                onAddressSelected={(slug, coords, displayName, source) => {
+                  handleAddressSelected(slug, coords, displayName, source);
                   setMobileMenuOpen(false);
                 }}
               />
@@ -738,6 +740,15 @@ export default function Home() {
               </span>
             )}
           </button>
+
+          {/* Mobile: offer the device location straight away */}
+          <LocationPrompt
+            municipalities={municipalities}
+            suppressed={!!lastAddressSearch || nearestPointsOpen || mobileMenuOpen || mobileSidebarOpen}
+            onLocated={(slug, coords, displayName) =>
+              handleAddressSelected(slug, coords, displayName, 'location')
+            }
+          />
 
           {/* Nearest Points Finder - right side panel */}
           <NearestPointsFinder

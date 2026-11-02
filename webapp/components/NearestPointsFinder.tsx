@@ -21,6 +21,8 @@ import {
   minutesForDate,
   parseHHMM,
 } from '@/utils/openingHoursUtils';
+import { locateUser } from '@/utils/geolocate';
+import { findMunicipalityByPdokName } from '@/utils/pdokMunicipality';
 
 type TimeMode = 'all' | 'now' | 'custom';
 
@@ -31,26 +33,6 @@ function pad2(n: number): string {
 function currentHHMM(d: Date): string {
   return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
 }
-
-// Mapping table for PDOK municipality names to our database names (same as AddressSearchInput)
-const MUNICIPALITY_NAME_MAPPING: Record<string, string> = {
-  "'s-gravenhage": "den haag",
-  "'s-hertogenbosch": "s-hertogenbosch",
-  "bergen (nh)": "bergen (nh.)",
-  "bergen (l)": "bergen (l.)",
-  "hengelo (o)": "hengelo",
-  "beek (l)": "beek",
-  "laren (nh)": "laren",
-  "middelburg (z)": "middelburg",
-  "rijswijk (zh)": "rijswijk",
-  "stein (l)": "stein",
-  "hengelo (o.)": "hengelo",
-  "beek (l.)": "beek",
-  "laren (nh.)": "laren",
-  "middelburg (z.)": "middelburg",
-  "rijswijk (zh.)": "rijswijk",
-  "stein (l.)": "stein",
-};
 
 /**
  * Per-carrier drawing info, from the shared source in lib/carriers.
@@ -133,19 +115,19 @@ export default function NearestPointsFinder({
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const initialSearchUsedRef = useRef(false);
+  // The initialSearch object last applied while open; a new object (e.g. "mijn
+  // locatie" from the header while the panel is already open) is applied again.
+  const initialSearchUsedRef = useRef<NearestPointsFinderProps['initialSearch']>(null);
 
   // Handle initial search from main PDOK search bar when panel opens
   useEffect(() => {
-    if (isOpen && initialSearch && !initialSearchUsedRef.current) {
-      console.log('NearestPointsFinder: Using initial search from PDOK bar', initialSearch);
-      // Set the query display
+    if (isOpen && initialSearch && initialSearchUsedRef.current !== initialSearch) {
       setQuery(initialSearch.displayName);
-      // Set the search location
+      setShowDropdown(false);
+      setError(null);
       setSearchLocation(initialSearch.coordinates);
       onSearchLocationChange(initialSearch.coordinates);
-      // Mark as used for this session so it doesn't re-trigger immediately
-      initialSearchUsedRef.current = true;
+      initialSearchUsedRef.current = initialSearch;
       // Don't clear lastAddressSearch - keep it for re-toggling
     }
   }, [isOpen, initialSearch, onSearchLocationChange]);
@@ -153,7 +135,7 @@ export default function NearestPointsFinder({
   // Reset the ref when panel closes
   useEffect(() => {
     if (!isOpen) {
-      initialSearchUsedRef.current = false;
+      initialSearchUsedRef.current = null;
     }
   }, [isOpen]);
 
@@ -274,31 +256,6 @@ export default function NearestPointsFinder({
     }
   }, [currentMunicipalityData, pendingMunicipalitySlug]);
 
-  // Find municipality by PDOK name
-  const findMunicipality = useCallback(
-    (pdokName: string): Municipality | null => {
-      let normalizedName = pdokName.toLowerCase();
-      if (MUNICIPALITY_NAME_MAPPING[normalizedName]) {
-        normalizedName = MUNICIPALITY_NAME_MAPPING[normalizedName];
-      }
-
-      // Try exact match
-      let municipality = municipalities.find(
-        (m) => m.name.toLowerCase() === normalizedName
-      );
-
-      // Try slug match
-      if (!municipality) {
-        municipality = municipalities.find(
-          (m) => m.slug.toLowerCase() === normalizedName.replace(/\s+/g, '-').replace(/\./g, '')
-        );
-      }
-
-      return municipality || null;
-    },
-    [municipalities]
-  );
-
   // Debounced search function
   const searchAddress = useCallback(async (searchQuery: string) => {
     if (searchQuery.length < 2) {
@@ -368,7 +325,7 @@ export default function NearestPointsFinder({
       }
 
       // Find and switch to the municipality
-      const municipality = findMunicipality(details.municipality);
+      const municipality = findMunicipalityByPdokName(municipalities, details.municipality);
       if (!municipality) {
         setError(`Gemeente "${details.municipality}" niet in database`);
         setIsLoading(false);
@@ -393,71 +350,25 @@ export default function NearestPointsFinder({
   };
 
   // Use the device's current location (geolocation API + reverse geocode).
-  const handleUseMyLocation = () => {
-    if (typeof window === 'undefined' || !('geolocation' in navigator)) {
-      setError('Locatie wordt niet ondersteund door deze browser');
-      return;
-    }
-
+  const handleUseMyLocation = async () => {
     setError(null);
     setIsLocating(true);
+    try {
+      const { municipality, coordinates, displayName } = await locateUser(municipalities);
+      setQuery(displayName);
+      setShowDropdown(false);
+      setSearchLocation(coordinates);
+      onSearchLocationChange(coordinates);
 
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        try {
-          const response = await fetch(
-            `/api/geocode?lat=${latitude}&lon=${longitude}`
-          );
-          if (!response.ok) {
-            throw new Error(`Reverse geocode failed: ${response.status}`);
-          }
-          const details = await response.json();
-
-          if (!details.municipality) {
-            setError('Geen Nederlandse gemeente bij deze locatie gevonden');
-            setIsLocating(false);
-            return;
-          }
-
-          const municipality = findMunicipality(details.municipality);
-          if (!municipality) {
-            setError(`Gemeente "${details.municipality}" niet in database`);
-            setIsLocating(false);
-            return;
-          }
-
-          const coords = details.coordinates || { latitude, longitude };
-          setQuery(details.displayName || 'Mijn locatie');
-          setShowDropdown(false);
-          setSearchLocation(coords);
-          onSearchLocationChange(coords);
-
-          if (currentMunicipalityData?.metadata.slug !== municipality.slug) {
-            setPendingMunicipalitySlug(municipality.slug);
-            onMunicipalityChange(municipality.slug);
-          }
-        } catch (err) {
-          console.error('Reverse geocode error:', err);
-          setError('Locatie kon niet worden omgezet naar een adres');
-        } finally {
-          setIsLocating(false);
-        }
-      },
-      (err) => {
-        setIsLocating(false);
-        if (err.code === err.PERMISSION_DENIED) {
-          setError('Locatie geweigerd. Schakel locatietoegang in voor deze site.');
-        } else if (err.code === err.POSITION_UNAVAILABLE) {
-          setError('Locatie is op dit moment niet beschikbaar');
-        } else if (err.code === err.TIMEOUT) {
-          setError('Locatie ophalen duurde te lang');
-        } else {
-          setError('Locatie ophalen mislukt');
-        }
-      },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
-    );
+      if (currentMunicipalityData?.metadata.slug !== municipality.slug) {
+        setPendingMunicipalitySlug(municipality.slug);
+        onMunicipalityChange(municipality.slug);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Locatie ophalen mislukt');
+    } finally {
+      setIsLocating(false);
+    }
   };
 
   // Handle direct search (Enter without dropdown selection)
