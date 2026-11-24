@@ -832,63 +832,46 @@ def parse_locations_any(text: str, key: str = "locations"):
 
 def extract_points_array(text: str) -> list:
     """
-    Zoekt in Next.js Flight (RSC) push-blokken naar een "points":[ ... ] JSON-array
-    en geeft die terug als Python-lijst met dicts.
+    Zoekt in de Next.js Flight (RSC) payload naar de prop "points":[ ... ] en
+    geeft die terug als Python-lijst met punt-dicts.
+
+    Match bewust op de sleutel gevolgd door '[', niet op de losse tekst "points":
+    de payload bevat ook het UI-label "points":"Punten", en welke van de twee
+    eerst komt hangt af van hoe VintedGo de chunks ordent (nov 2026 omgedraaid,
+    waardoor alle gemeenten 0 VintedGo-punten kregen).
     """
     # 1) Vind alle Flight-snippers: self.__next_f.push([1,"..."])
     pattern = re.compile(r'self\.__next_f\.push\(\[1,"(.*?)"\]\)', re.DOTALL)
-    matches = pattern.findall(text)
 
-    # 2) Unescape de JS-string via JSON-decoder (behandelt \" en \uXXXX)
+    # 2) Unescape de JS-string via JSON-decoder (behandelt \" en \uXXXX), en
+    #    plak alles aan elkaar: \u00e9\u00e9n RSC-rij kan over meerdere pushes verdeeld zijn.
     decoded_chunks = []
-    for m in matches:
+    for m in pattern.findall(text):
         try:
             decoded_chunks.append(json.loads(f'"{m}"'))
         except json.JSONDecodeError:
             pass  # niet erg; ga door
+    payload = "".join(decoded_chunks)
 
-    # 3) Zoek in elke gedecodeerde chunk naar "points":[ ... ] en pak de array
-    for chunk in decoded_chunks:
-        idx = chunk.find('"points"')
-        if idx == -1:
-            continue
-        # zoek de eerste '[' na "points"
-        lb = chunk.find('[', idx)
-        if lb == -1:
-            continue
+    # 3) Een gevulde pointsError betekent dat VintedGo zelf faalde; niet stil 0 rapporteren.
+    err = re.search(r'"pointsError":("(?:[^"\\]|\\.)*"|\{[^}]*\})', payload)
+    if err:
+        raise ValueError(f"VintedGo pointsError: {err.group(1)[:200]}")
 
-        # balans-parser over de array (strings/escapes correct afhandelen)
-        depth = 0
-        in_str = False
-        esc = False
-        end = None
-        for j in range(lb, len(chunk)):
-            c = chunk[j]
-            if in_str:
-                if esc:
-                    esc = False
-                elif c == '\\':
-                    esc = True
-                elif c == '"':
-                    in_str = False
-            else:
-                if c == '"':
-                    in_str = True
-                elif c == '[':
-                    depth += 1
-                elif c == ']':
-                    depth -= 1
-                    if depth == 0:
-                        end = j + 1
-                        break
-        if end:
-            arr_txt = chunk[lb:end]
+    # 4) Pak de array achter "points":[ met een balans-parser (strings/escapes correct)
+    decoder = json.JSONDecoder()
+    for m in re.finditer(r'"points"\s*:\s*\[', payload):
+        lb = m.end() - 1
+        try:
+            arr, _ = decoder.raw_decode(payload, lb)
+        except json.JSONDecodeError:
+            cleaned = payload[lb:].replace('\u2028', '').replace('\u2029', '')
             try:
-                return json.loads(arr_txt)  
+                arr, _ = decoder.raw_decode(cleaned)
             except json.JSONDecodeError:
-                # soms zitten er JS-achtige trailing commas of \u2028; probeer lichte schoonmaak
-                cleaned = arr_txt.replace('\u2028', '').replace('\u2029', '')
-                return json.loads(cleaned)
+                continue
+        if all(isinstance(p, dict) and 'lat' in p for p in arr):
+            return arr
 
     raise ValueError("Kon geen 'points' array vinden in de RSC payload.")
 

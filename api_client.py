@@ -905,11 +905,9 @@ def get_data_vintedgo(lat, lon, south, west, north, east):
         "&region=europe")
 
     headers = {"User-Agent": "Mozilla/5.0"}
-    txt = requests.get(url, headers=headers, timeout=30).text
-    points = extract_points_array(txt)
-
-    # pak de puntenlijst uit
-    points_list = points[3]['points']
+    resp = requests.get(url, headers=headers, timeout=30)
+    resp.raise_for_status()
+    points_list = extract_points_array(resp.text)
 
     # Handle empty results
     if not points_list:
